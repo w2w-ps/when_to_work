@@ -1,0 +1,51 @@
+{
+  "sslConfig" : {
+    "sslPort" : 443,
+    "useSSL" : false,
+    "excludedUrls" : null
+  },
+  "xssConfig" : {
+    "enforceXssSecurity" : true,
+    "policyFile" : null,
+    "xssFilterStrategy" : "ENCODE",
+    "policyType" : "MANUAL",
+    "dataBackwardCompatibility" : false,
+    "xssSanitizationLayer" : "OUTPUT"
+  },
+  "corsConfig" : {
+    "enabled" : false,
+    "maxAge" : 1600,
+    "allowCredentials" : false,
+    "pathEntries" : {
+      "root" : {
+        "name" : "root",
+        "path" : "/**",
+        "allowedOrigins" : "*"
+      }
+    }
+  },
+  "frameOptions" : {
+    "allowFromUrl" : null,
+    "enabled" : true,
+    "mode" : "SAMEORIGIN"
+  },
+  "customFilterList" : null,
+  "allowedHosts" : null,
+  "cspConfig" : {
+    "enabled" : false,
+    "policy" : ""
+  },
+  "trustStoreConfig" : {
+    "trustStoreConfigType" : "SYSTEM_ONLY",
+    "file" : "",
+    "fileType" : "",
+    "password" : ""
+  },
+  "mtlsConfig" : {
+    "enabled" : false,
+    "file" : "",
+    "fileType" : "",
+    "password" : ""
+  },
+  "clientSSLHostNameVerificationEnabled" : true
+}

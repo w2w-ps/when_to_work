@@ -1,0 +1,76 @@
+<wm-page name="page1" pagetitle="Login">
+    <wm-content name="content1" height="100%">
+        <wm-page-content columnwidth="12" name="column1" padding="0px" class="login">
+            <wm-container class="bg-primary" width="100%" height="100%"
+                backgroundimage="resources/images/imagelists/login-bg.png" backgroundrepeat="no-repeat"
+                backgroundposition="0 0" backgroundsize="100% 100%" backgroundattachment="fixed"
+                name="loginPageContainer">
+                <wm-container direction="column" alignment="top-left" gap="4" width="fill" height="100%"
+                    name="loginContainer" variant="default">
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" height="15%"
+                        name="containerrow7" variant="default">
+                        <wm-container direction="row" alignment="top-left" gap="4" width="100%"
+                            name="containercolumn10_2" variant="default"></wm-container>
+                    </wm-container>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="containerrow6_1"
+                        variant="default">
+                        <wm-container direction="row" alignment="middle-center" gap="4" width="100%"
+                            name="containercolumn10_1" class="col-xs-12" padding="unset unset 2em unset"
+                            variant="default">
+                            <wm-picture name="picture1" picturesource="resources/images/logos/wavemaker_logo.png"></wm-picture>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container direction="row" alignment="top-center" gap="4" width="fill" name="loginContainerRow"
+                        variant="default" padding="20px">
+                        <wm-container name="loginContentColumn" direction="column" alignment="top-left" gap="4"
+                            width="540px" class="col-xs-10 col-md-4 app-elevated-container" variant="elevated">
+                            <wm-container name="logincontent" class="panel" backgroundcolor="#ffffff" color="#bdbdbd">
+                                <wm-label name="label1" caption="User Login" horizontalalign="center" class="p"
+                                    backgroundcolor="#f7f7f7" margin="0px unset" fontsize="20" padding="1em unset"
+                                    color="#1e1e1e"></wm-label>
+                                <wm-login name="loginForm" title="" autocomplete="nofill" height="100%">
+                                    <wm-form name="form1">
+                                        <wm-container direction="column" alignment="top-left" gap="16" width="fill"
+                                            name="containerlayout2" variant="default" class="app-container-default">
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                                                name="containerrow2" variant="default" class="app-container-default">
+                                                <wm-text placeholder="Username" name="j_username"
+                                                    class="app-login-username" width="100%" autocomplete="false"
+                                                    autocorrect="off" autocapitalize="off" updateon="default"
+                                                    required="true"></wm-text>
+                                            </wm-container>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                                                name="containerrow3" variant="default" class="app-container-default">
+                                                <wm-text type="password" name="j_password" placeholder="Password"
+                                                    class="app-login-passworØd" width="100%" autocomplete="true"
+                                                    autocorrect="off" autocapitalize="off" updateon="default"
+                                                    required="true"></wm-text>
+                                            </wm-container>
+
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="100%"
+                                                name="containercolumn14" class="col-xs-12 app-container-default"
+                                                variant="default" padding="5px unset unset unset">
+                                                <wm-checkbox caption="Remember me" name="j_rememberme">
+                                                </wm-checkbox>
+                                            </wm-container>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                                                name="containerrow4" variant="default">
+                                                <wm-container direction="row" alignment="top-left" gap="4" width="100%"
+                                                    name="containercolumn10" variant="default" padding="8px">
+                                                    <wm-button type="submit" caption="Login" width="100%"
+                                                        class="app-login-button btn-filled btn-primary"
+                                                        name="loginButton" fontsize="1.2" fontunit="em"
+                                                        variant="filled:primary"></wm-button>
+                                                </wm-container>
+                                            </wm-container>
+                                        </wm-container>
+                                    </wm-form>
+                                </wm-login>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

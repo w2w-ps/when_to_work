@@ -1,0 +1,49 @@
+<wm-partial name="CommonPage">
+    <wm-logindialog modal="true" name="CommonLoginDialog" iconclass="wi wi-sign-in" title="Login">
+        <wm-form name="loginform">
+            <wm-message show="false" class="app-login-dialog-message" name="loginmessage"></wm-message>
+            <wm-container direction="column" alignment="top-left" gap="4" name="containerlayout1" variant="default">
+                <wm-container direction="row" alignment="top-left" gap="4" name="containerrow1" variant="default"
+                    width="fill">
+                    <wm-container direction="row" alignment="top-left" gap="4" name="containercolumn1" variant="default"
+                        width="hug">
+                        <wm-composite name="usernamefield">
+                            <wm-label class="col-md-3 control-label" caption="Username" name="usernamelabel"></wm-label>
+                            <wm-container class="col-md-9" name="container1" alignment="top-left" width="fill">
+                                <wm-text placeholder="Enter username" class="col-md-8 app-login-dialog-username"
+                                    name="j_username" autocomplete="off" autocorrect="off" updateon="default"
+                                    autocapitalize="off" required="true"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                </wm-container>
+                <wm-container direction="row" alignment="top-left" gap="4" name="containerrow2" variant="default"
+                    width="fill">
+                    <wm-container direction="row" alignment="top-left" gap="4" name="containercolumn2" variant="default"
+                        width="hug">
+                        <wm-composite name="passwordfield">
+                            <wm-label class="col-md-3 control-label" caption="Password" name="passwordlabel"></wm-label>
+                            <wm-container class="col-md-9" name="container2" alignment="top-left" width="fill">
+                                <wm-text type="password" placeholder="Enter password"
+                                    class="col-md-8 app-login-dialog-password" name="j_password" autocomplete="off"
+                                    autocorrect="off" updateon="default" autocapitalize="off" required="true"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-form>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-primary btn-filled" caption="Sign in" data-role="loginbutton" on-click="doLogin()"
+                name="button1" variant="filled:primary"></wm-button>
+        </wm-dialogactions>
+    </wm-logindialog>
+    <wm-alertdialog name="CommonAlertDialog" controller="NotificationDialogController" notificationdialog="alert"
+        message="bind:notification.text" title="bind:notification.title" oktext="bind:notification.okButtonText"
+        alerttype="bind:notification.alerttype" on-ok="notification.onOk()" on-close="notification.onClose()">
+    </wm-alertdialog>
+    <wm-confirmdialog name="CommonConfirmDialog" controller="NotificationDialogController" notificationdialog="confirm"
+        message="bind:notification.text" title="bind:notification.title" oktext="bind:notification.okButtonText"
+        canceltext="bind:notification.cancelButtonText" on-ok="notification.onOk()" on-cancel="notification.onCancel()">
+    </wm-confirmdialog>
+</wm-partial>
