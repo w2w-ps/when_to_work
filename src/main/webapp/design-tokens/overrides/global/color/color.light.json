@@ -134,6 +134,61 @@
       "@" : {
         "value" : "#000000ff"
       }
+    },
+    "footer-bg" : {
+      "@" : {
+        "value" : "#1a1a1a"
+      }
+    },
+    "footer-text" : {
+      "@" : {
+        "value" : "#cccccc"
+      }
+    },
+    "footer-title" : {
+      "@" : {
+        "value" : "#ffffff"
+      }
+    },
+    "footer-link" : {
+      "@" : {
+        "value" : "#aaaaaa"
+      }
+    },
+    "footer-divider" : {
+      "@" : {
+        "value" : "#333333"
+      }
+    },
+    "footer-copyright-text" : {
+      "@" : {
+        "value" : "#888888"
+      }
+    },
+    "brand-blue" : {
+      "@" : {
+        "value" : "#2255a4"
+      }
+    },
+    "dark-navy" : {
+      "@" : {
+        "value" : "#1e3a6e"
+      }
+    },
+    "cta-blue" : {
+      "@" : {
+        "value" : "#1d4db5"
+      }
+    },
+    "cta-light-blue" : {
+      "@" : {
+        "value" : "#cce0ff"
+      }
+    },
+    "hero-bg" : {
+      "@" : {
+        "value" : "#dce9f8"
+      }
     }
   }
 }

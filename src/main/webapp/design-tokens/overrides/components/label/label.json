@@ -1,42 +1,64 @@
 {
-  "label" : {
-    "appearances" : {
-      "p-sm" : {
-        "mapping" : {
-          "color" : {
-            "value" : "inherit"
+  "label": {
+    "appearances": {
+      "p-sm": {
+        "mapping": {
+          "color": {
+            "value": "inherit"
           },
-          "margin" : {
-            "value" : "{space.0.value}"
+          "margin": {
+            "value": "{space.0.value}"
           },
-          "padding" : {
-            "value" : "{space.0.value}"
+          "padding": {
+            "value": "{space.0.value}"
           },
-          "font-size" : {
-            "value" : "{display.small.font-size.value}"
+          "font-size": {
+            "value": "{display.small.font-size.value}"
           },
-          "font-weight" : {
-            "value" : "{p.font-weight.value}"
+          "font-weight": {
+            "value": "{p.font-weight.value}"
           },
-          "line-height" : {
-            "value" : "{p.line-height.value}"
+          "line-height": {
+            "value": "{p.line-height.value}"
           },
-          "letter-spacing" : {
-            "value" : "{p.letter-spacing.value}"
+          "letter-spacing": {
+            "value": "{p.letter-spacing.value}"
           },
-          "font-family" : {
-            "value" : "{p.font-family.value}"
+          "font-family": {
+            "value": "{p.font-family.value}"
           },
-          "background-color" : {
-            "value" : "none"
+          "background-color": {
+            "value": "none"
+          }
+        }
+      },
+      "on-dark": {
+        "mapping": {
+          "color": {
+            "value": "{color.white.@.value}"
+          }
+        }
+      },
+      "cta-note": {
+        "mapping": {
+          "color": {
+            "value": "{color.cta-light-blue.@.value}"
           }
         }
       }
     },
-    "meta" : {
-      "appearances" : {
-        "p-sm" : {
-          "source" : "user"
+    "meta": {
+      "appearances": {
+        "p-sm": {
+          "source": "user"
+        },
+        "on-dark": {
+          "source": "aira",
+          "description": "White text label for use on dark backgrounds. Used for ctaHeading and ctaSubtitle."
+        },
+        "cta-note": {
+          "source": "aira",
+          "description": "Light blue tint text label for CTA note text — color #cce0ff. Used for ctaNote."
         }
       }
     }

@@ -15,7 +15,19 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "SignIn",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "TestDrive",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "footer_Copy",
   "type" : "FOOTER",
   "params" : [ ]
 }, {
