@@ -1,0 +1,17 @@
+{
+  "top" : {
+    "mapping" : {
+      "background" : {
+        "value" : "{color.primary.@.value}"
+      },
+      "border" : {
+        "color" : {
+          "value" : "{color.primary.@.value}"
+        }
+      },
+      "height" : {
+        "value" : "40px"
+      }
+    }
+  }
+}

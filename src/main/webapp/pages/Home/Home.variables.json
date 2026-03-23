@@ -1,0 +1,71 @@
+{
+  "companyInfoVar" : {
+    "_id" : "wm-companyInfoVar-wm.Variable-1774169147924",
+    "name" : "companyInfoVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "companyName" : "Sample Company",
+      "accountNumber" : "Account #247117",
+      "welcomeMessage" : "Welcome John Smith, Manager"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "navMenuVar" : {
+    "_id" : "wm-navMenuVar-wm.Variable-1774169188110",
+    "name" : "navMenuVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "dataValue" : "SCHEDULES"
+    }, {
+      "dataValue" : "EMPLOYEES"
+    }, {
+      "dataValue" : "TRADES"
+    }, {
+      "dataValue" : "TIME OFF"
+    }, {
+      "dataValue" : "MESSAGING"
+    }, {
+      "dataValue" : "SEND URGENT ALERT"
+    }, {
+      "dataValue" : "BULLETIN BOARD"
+    }, {
+      "dataValue" : "REPORTS"
+    }, {
+      "dataValue" : "WHO'S SCHEDULED NOW"
+    }, {
+      "dataValue" : "SETTINGS - ADD/EDIT MANAGERS"
+    }, {
+      "dataValue" : "MAKE A PAYMENT / PRINT INVOICE"
+    }, {
+      "dataValue" : "SIGN OUT"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "notificationsVar" : {
+    "_id" : "wm-notificationsVar-wm.Variable-1774169216621",
+    "name" : "notificationsVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "whatsNewAlertText" : "Note: 9 employees' alert dates have passed or will pass in the next 30 days.",
+      "whatsNewMessages" : "3 new messages",
+      "noticeTitle" : "Employee Home Page Notice",
+      "noticeBody" : "Don't forget to sign up for the free trip to Disneyland in July!\nBring the whole family."
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}

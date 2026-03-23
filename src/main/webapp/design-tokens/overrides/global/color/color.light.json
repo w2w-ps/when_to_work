@@ -1,0 +1,139 @@
+{
+  "color" : {
+    "black" : {
+      "@" : {
+        "value" : "#000000"
+      }
+    },
+    "brown" : {
+      "@" : {
+        "value" : "#A52A2A"
+      }
+    },
+    "blue" : {
+      "@" : {
+        "value" : "#0000FF"
+      }
+    },
+    "fuchsia" : {
+      "@" : {
+        "value" : "#FF00FF"
+      }
+    },
+    "gray" : {
+      "@" : {
+        "value" : "#2F4F4F"
+      }
+    },
+    "green" : {
+      "@" : {
+        "value" : "#006400"
+      }
+    },
+    "navy" : {
+      "@" : {
+        "value" : "#000080"
+      }
+    },
+    "orange" : {
+      "@" : {
+        "value" : "#FF8C00"
+      }
+    },
+    "purple" : {
+      "@" : {
+        "value" : "#800080"
+      }
+    },
+    "red" : {
+      "@" : {
+        "value" : "#FF0000"
+      }
+    },
+    "turquoise" : {
+      "@" : {
+        "value" : "#40E0D0"
+      }
+    },
+    "lavender" : {
+      "@" : {
+        "value" : "#CC99FF"
+      }
+    },
+    "lime" : {
+      "@" : {
+        "value" : "#99CC00"
+      }
+    },
+    "salmon" : {
+      "@" : {
+        "value" : "#FF6699"
+      }
+    },
+    "gold" : {
+      "@" : {
+        "value" : "#FFCC00"
+      }
+    },
+    "aqua" : {
+      "@" : {
+        "value" : "#51C7FF"
+      }
+    },
+    "maroon" : {
+      "@" : {
+        "value" : "#D73600"
+      }
+    },
+    "primary" : {
+      "@" : {
+        "value" : "#2C467C"
+      },
+      "container" : {
+        "@" : {
+          "value" : "#e3e6f0"
+        }
+      }
+    },
+    "primary-variant" : {
+      "@" : {
+        "value" : "#2D477F"
+      }
+    },
+    "secondary" : {
+      "@" : {
+        "value" : "#E70101"
+      }
+    },
+    "border-color" : {
+      "@" : {
+        "value" : "#C0C0C0"
+      }
+    },
+    "form-border-color" : {
+      "@" : {
+        "value" : "#767676"
+      }
+    },
+    "grey-bg-color" : {
+      "@" : {
+        "value" : "#E3E6F0"
+      }
+    },
+    "text-danger" : {
+      "@" : {
+        "value" : "#D20000"
+      }
+    },
+    "light-yellow-warning" : {
+      "@" : {
+        "value" : "#FFFFCC"
+      }
+    },
+    "on-background" : {
+      "@" : {
+        "value" : "#000000ff"
+      }
+    }
+  }
+}

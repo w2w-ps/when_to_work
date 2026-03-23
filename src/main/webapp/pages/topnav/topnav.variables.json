@@ -1,1 +1,295 @@
-{ }
+{
+  "navItemList" : {
+    "_id" : "wm-navItemList-wm.Variable-1774000872595",
+    "name" : "navItemList",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "caption" : "HOME",
+      "hyperlink" : "#/Home",
+      "children" : [ ]
+    }, {
+      "caption" : "SCHEDULES",
+      "hyperlink" : "#/EmpView",
+      "children" : [ {
+        "caption" : "By Employee (Drag/Drop)",
+        "hyperlink" : "",
+        "children" : [ {
+          "caption" : "Weekly - When Published Shows Who's Seen Schedule",
+          "hyperlink" : ""
+        } ]
+      }, {
+        "caption" : "Grid View (Bulk Edit)",
+        "hyperlink" : "",
+        "children" : [ {
+          "caption" : "Daily",
+          "hyperlink" : ""
+        }, {
+          "caption" : "Weekly",
+          "hyperlink" : ""
+        }, {
+          "caption" : "ANALYZE Shifts for Conflicts",
+          "hyperlink" : ""
+        } ]
+      }, {
+        "caption" : "Calendar View",
+        "hyperlink" : "",
+        "children" : [ {
+          "caption" : "Daily",
+          "hyperlink" : ""
+        }, {
+          "caption" : "Weekly",
+          "hyperlink" : ""
+        }, {
+          "caption" : "Monthly",
+          "hyperlink" : ""
+        } ]
+      }, {
+        "caption" : "By Position View",
+        "hyperlink" : "",
+        "children" : [ {
+          "caption" : "Daily",
+          "hyperlink" : ""
+        }, {
+          "caption" : "Weekly",
+          "hyperlink" : ""
+        } ]
+      }, {
+        "caption" : "Sortable List View",
+        "hyperlink" : "",
+        "children" : [ {
+          "caption" : "Daily",
+          "hyperlink" : ""
+        }, {
+          "caption" : "Weekly",
+          "hyperlink" : ""
+        }, {
+          "caption" : "Analyze Shifts for Conflicts",
+          "hyperlink" : ""
+        } ]
+      }, {
+        "caption" : "Chart View",
+        "hyperlink" : "",
+        "children" : [ ]
+      }, {
+        "caption" : "Multi-Shift Edit View",
+        "hyperlink" : "",
+        "children" : [ ]
+      }, {
+        "caption" : "Graphical View",
+        "hyperlink" : "",
+        "children" : [ ]
+      }, {
+        "caption" : "Availability/Coverage View",
+        "hyperlink" : "",
+        "children" : [ ]
+      }, {
+        "caption" : "Statistics View",
+        "hyperlink" : "",
+        "children" : [ ]
+      }, {
+        "caption" : "Recently Deleted Shifts",
+        "hyperlink" : "",
+        "children" : [ ]
+      }, {
+        "caption" : "Templates",
+        "hyperlink" : "",
+        "children" : [ ]
+      } ]
+    }, {
+      "caption" : "EMPLOYEES",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Employees List - Add/Edit/Delete",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Positions Grid",
+        "hyperlink" : ""
+      }, {
+        "caption" : "SMS Stats Grid",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Notifications Grid",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Pay Rates Grid",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Alert Dates Grid",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Send Schedule Reminders",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Send Sign In Instructions",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Global Employee Permissions",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Deleted Employees - View/Restore",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "TRADES",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Trades Awaiting Approval",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Recent Tradeboard Posts",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Employee Weekly Tradeboard",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Employee Monthly Tradeboard",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Set Tradeboard Permissions",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "TIME OFF",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Grid (Approved, Pending & Denied)",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Listed by Employee",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Listed by Date",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Calendar (1 Week)",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Calendar (4 Weeks)",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Pending Time Off Requests",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Add Time Off to the Schedule",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Time Off Blocked Days",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "MESSAGING",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "View Bulletin Board",
+        "hyperlink" : ""
+      }, {
+        "caption" : "New Messages",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Write a New Message",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Sent Messages",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Old Messages",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Send URGENT ALERT",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Employee Homepage Notice",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Send Sign In Instructions",
+        "hyperlink" : ""
+      }, {
+        "caption" : "SMS Stats Grid",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Notifications Grid",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "REPORTS",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Custom Reports",
+        "hyperlink" : ""
+      }, {
+        "caption" : "3rd Party Manual Exports",
+        "hyperlink" : ""
+      }, {
+        "caption" : "3rd Party Auto Exports",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Standard Reports",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "ON NOW",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Who's Scheduled to Be On NOW",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Who's On LATER Today",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "SETTINGS",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Company / My Info & Upload Logo",
+        "hyperlink" : ""
+      }, {
+        "caption" : "My Notifications Email/Text",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Global Employee Permissions",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Add/Edit MANAGERS",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Payments - Pricing - Billing",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Upgrade - Employee Level",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Create a New LINKED ACCOUNT",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Pro Plan Settings",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Refer a Friend - Earn Rewards",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "HELP",
+      "hyperlink" : "",
+      "children" : [ {
+        "caption" : "Help Pages",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Video Demos",
+        "hyperlink" : ""
+      }, {
+        "caption" : "Contact W2W",
+        "hyperlink" : ""
+      } ]
+    }, {
+      "caption" : "SIGNOUT",
+      "hyperlink" : "",
+      "children" : [ ]
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}

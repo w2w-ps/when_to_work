@@ -1,0 +1,301 @@
+{
+  "font" : {
+    "family" : {
+      "brand" : {
+        "value" : "Open Sans, Arial, Helvetica, sans-serif"
+      },
+      "plain" : {
+        "value" : "Open Sans, Arial, Helvetica, sans-serif"
+      },
+      "backup" : {
+        "value" : "Arial, Helvetica, sans-serif"
+      }
+    },
+    "weight" : {
+      "400" : {
+        "value" : "400"
+      },
+      "700" : {
+        "value" : "700"
+      }
+    }
+  },
+  "h1" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "20px"
+    },
+    "font-weight" : {
+      "value" : "{font.weight.700.value}"
+    },
+    "line-height" : {
+      "value" : "28px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "h2" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "18px"
+    },
+    "font-weight" : {
+      "value" : "{font.weight.700.value}"
+    },
+    "line-height" : {
+      "value" : "26px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "h3" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "14pt"
+    },
+    "font-weight" : {
+      "value" : "{font.weight.700.value}"
+    },
+    "line-height" : {
+      "value" : "28px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "h4" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "16px"
+    },
+    "font-weight" : {
+      "value" : "{font.weight.700.value}"
+    },
+    "line-height" : {
+      "value" : "24px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "h5" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "16px"
+    },
+    "font-weight" : {
+      "value" : "{font.weight.400.value}"
+    },
+    "line-height" : {
+      "value" : "24px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "h6" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "14px"
+    },
+    "font-weight" : {
+      "value" : "{font.weight.700.value}"
+    },
+    "line-height" : {
+      "value" : "18px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "p" : {
+    "font-family" : {
+      "value" : "{font.family.brand.value}"
+    },
+    "font-size" : {
+      "value" : "14px"
+    },
+    "font-weight" : {
+      "value" : "400"
+    },
+    "line-height" : {
+      "value" : "14px"
+    },
+    "letter-spacing" : {
+      "value" : "0px"
+    }
+  },
+  "body" : {
+    "large" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "16px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "24px"
+      },
+      "letter-spacing" : {
+        "value" : "0px"
+      }
+    },
+    "medium" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "14px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "20px"
+      },
+      "letter-spacing" : {
+        "value" : "0.25px"
+      }
+    },
+    "small" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "14px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "20px"
+      },
+      "letter-spacing" : {
+        "value" : "0px"
+      }
+    }
+  },
+  "label" : {
+    "large" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "14px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "20px"
+      },
+      "letter-spacing" : {
+        "value" : "0.1px"
+      }
+    },
+    "medium" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "12px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "16px"
+      },
+      "letter-spacing" : {
+        "value" : "0.4px"
+      }
+    },
+    "small" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "8pt"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "14px"
+      },
+      "letter-spacing" : {
+        "value" : "0px"
+      }
+    }
+  },
+  "display" : {
+    "large" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "14px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.700.value}"
+      },
+      "line-height" : {
+        "value" : "20px"
+      },
+      "letter-spacing" : {
+        "value" : "0px"
+      }
+    },
+    "medium" : {
+      "font-family" : {
+        "value" : "{font.family.brand.value}"
+      },
+      "font-size" : {
+        "value" : "14px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "20px"
+      },
+      "letter-spacing" : {
+        "value" : "0px"
+      }
+    },
+    "small" : {
+      "font-family" : {
+        "value" : "Open Sans, Arial, Helvetica, sans-serif"
+      },
+      "font-size" : {
+        "value" : "12px"
+      },
+      "font-weight" : {
+        "value" : "{font.weight.400.value}"
+      },
+      "line-height" : {
+        "value" : "20px"
+      },
+      "letter-spacing" : {
+        "value" : "0px"
+      }
+    }
+  }
+}
