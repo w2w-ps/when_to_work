@@ -3,6 +3,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "Home",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]

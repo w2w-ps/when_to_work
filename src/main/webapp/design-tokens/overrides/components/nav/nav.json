@@ -1,0 +1,29 @@
+{
+  "nav" : {
+    "mapping" : {
+      "background" : {
+        "value" : "{color.primary.@.value}"
+      },
+      "border" : {
+        "color" : {
+          "value" : "{color.primary.@.value}"
+        }
+      },
+      "item" : {
+        "background" : {
+          "value" : "{color.primary.@.value}"
+        },
+        "border" : {
+          "color" : {
+            "value" : "{color.primary.@.value}"
+          }
+        },
+        "caret" : {
+          "size" : {
+            "value" : "0"
+          }
+        }
+      }
+    }
+  }
+}

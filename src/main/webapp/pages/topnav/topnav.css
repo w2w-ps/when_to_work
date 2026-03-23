@@ -1,1 +1,95 @@
+.nav.app-nav {
+  padding: 2px 34px 0 5px;
+  display: flex;
+  height: 40px;
+}
 
+.anchor-caption {
+  font-family: var(--wm-label-font-family);
+}
+
+.app-nav li a .anchor-caption {
+  color: white;
+  font-size: 14px;
+}
+
+.wm-app .nav.app-nav .app-nav-item:has(:hover),
+.wm-app .nav.app-nav .app-nav-item:has(:active) {
+  --wm-nav-item-background: white;
+}
+
+.app-nav li.active a .anchor-caption {
+  color: black;
+}
+
+.app-nav li {
+  top: 1px;
+}
+
+.app-nav li .app-menu:hover a .anchor-caption {
+  color: black;
+}
+
+.app-nav .caret {
+  display: none !important;
+}
+
+.dropdown-toggle {
+  text-align: center;
+  padding: 0 12px !important;
+}
+
+.app-menu>.dropdown-toggle.app-anchor {
+  padding-bottom: 12px !important;
+}
+
+.nav-justified>li:last-child a:hover .anchor-caption {
+  color: black;
+}
+
+.nav-justified>li:first-child a:hover .anchor-caption {
+  color: black;
+}
+
+.nav.app-nav .app-nav-item {
+  padding: 8px 12px;
+}
+
+.dropdown-menu li {
+  min-height: 30px !important;
+  height: 30px;
+}
+
+.dropdown-menu li:hover {
+  background-color: #2c467c;
+}
+
+.dropdown-menu>li:hover>a>.anchor-caption {
+  color: white !important;
+}
+
+.app-nav .dropdown .icon-position-left.dropdown-menu {
+  top: 30px;
+  left: -13px;
+  border: 1px solid #808080;
+  box-shadow: none !important;
+  border-top-width: 0;
+  border-radius: 0;
+  padding: 8px 2px 8px 2px;
+}
+
+.app-nav .dropdown .dropdown-menu {
+  border: 1px solid #808080;
+  box-shadow: none !important;
+  border-radius: 0;
+  padding: 8px 2px 8px 2px;
+}
+
+.app-nav .dropdown .dropdown-menu li a {
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
+.app-nav-caret-fix {
+  display: inline-block;
+}

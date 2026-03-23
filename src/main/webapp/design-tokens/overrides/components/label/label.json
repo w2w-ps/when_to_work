@@ -1,0 +1,44 @@
+{
+  "label" : {
+    "appearances" : {
+      "p-sm" : {
+        "mapping" : {
+          "color" : {
+            "value" : "inherit"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "{display.small.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{p.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{p.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{p.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{p.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "p-sm" : {
+          "source" : "user"
+        }
+      }
+    }
+  }
+}

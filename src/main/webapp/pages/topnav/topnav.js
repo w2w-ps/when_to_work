@@ -15,3 +15,17 @@ Partial.onReady = function () {
      * 'Partial.Widgets.username.datavalue'
      */
 };
+
+Partial.navbar1Mouseenter = function ($event, widget) {
+    var dropdowns = widget.nativeElement.querySelectorAll('.dropdown');
+    dropdowns.forEach(function (dropdown) {
+        dropdown.classList.add('open');
+    });
+};
+
+Partial.navbar1Mouseleave = function ($event, widget) {
+    var dropdowns = widget.nativeElement.querySelectorAll('.dropdown');
+    dropdowns.forEach(function (dropdown) {
+        dropdown.classList.remove('open');
+    });
+};
