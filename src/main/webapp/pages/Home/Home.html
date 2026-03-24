@@ -1,13 +1,13 @@
 <wm-page name="page" pagetitle="Home">
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent" class="ps-2 pt-0">
+        <wm-page-content columnwidth="12" name="pagecontent" class="ps-2 pt-0 pe-4">
             <wm-container name="headerRow" class="app-container-default" direction="row" gap="16"
                 alignment="middle-left" width="fill" height="hug" padding="unset unset 8px unset">
                 <wm-container name="headerLogoCol" direction="column" gap="4" alignment="top-center" width="33%"
                     height="fill" clipcontent="false">
                     <wm-picture name="companyLogo" alttext="Company Logo"
-                        picturesource="resources/images/logos/when-to-work-logo.png" class="img-responsive">
+                        picturesource="resources/images/logos/when-to-work-logo.png" class="img-responsive custom-left">
                     </wm-picture>
                 </wm-container>
                 <wm-container name="headerInfoCol" class="app-container-default" direction="column" gap="14"
@@ -22,20 +22,20 @@
             </wm-container>
             <wm-container name="mainContentRow" class="app-container-default" direction="row" gap="32"
                 alignment="top-left" width="fill" height="hug" clipcontent="false">
-                <wm-container name="leftCol" class="app-container-default" direction="column" gap="8"
-                    alignment="top-left" width="32%" height="fill" clipcontent="false">
+                <wm-container name="leftCol" class="app-container-default" direction="column" gap="5"
+                    alignment="top-left" width="29.5%" height="fill" clipcontent="false">
                     <wm-card name="quickLinksCard" class="app-card card-default" variant="default">
                         <wm-card-content name="quickLinksCardContent">
                             <wm-container name="quickLinksCardBody" class="app-container-default" direction="column"
-                                gap="4" alignment="top-left" width="fill" height="hug">
-                                <wm-label name="quickLinksTitle" caption="Quick Links" class="pb-2 h2"
+                                gap="2" alignment="top-left" width="fill" height="hug">
+                                <wm-label name="quickLinksTitle" caption="Quick Links" class="h2 pb-1"
                                     variant="default:h2"></wm-label>
                                 <wm-anchor name="anchorViewHelp" caption="View Help &amp; Demos" hyperlink="#"
-                                    class="anchor-anchor-link ps-2" variant="anchor-link"></wm-anchor>
+                                    class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
                                 <wm-anchor name="anchorExtendUpgrade" caption="Extend / Upgrade Subscription"
-                                    hyperlink="#" class="anchor-anchor-link ps-2" variant="anchor-link"></wm-anchor>
+                                    hyperlink="#" class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
                                 <wm-anchor name="anchorCreateInvoice" caption="Create an Invoice" hyperlink="#"
-                                    class="anchor-anchor-link ps-2" variant="anchor-link"></wm-anchor>
+                                    class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
                             </wm-container>
                         </wm-card-content>
                     </wm-card>
@@ -46,13 +46,13 @@
                                 <wm-label name="connectTitle" caption="Connect" class="pb-1 h2" variant="default:h2">
                                 </wm-label>
                                 <wm-anchor name="anchorContactW2W" caption="Contact W2W" hyperlink="#"
-                                    class="anchor-anchor-link ps-2" variant="anchor-link"></wm-anchor>
+                                    class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
                             </wm-container>
                         </wm-card-content>
                     </wm-card>
                     <wm-container name="leftFooterText" class="app-container-default" direction="column" gap="0"
                         alignment="bottom-center" width="fill" height="hug" padding="16px unset">
-                        <wm-container name="leftFooterLinks" class="app-container-default" direction="row" gap="8"
+                        <wm-container name="leftFooterLinks" class="app-container-default" direction="row" gap="4"
                             alignment="middle-center" width="fill" height="hug">
                             <wm-anchor name="anchorTerms" caption="Terms of Service" hyperlink="#"
                                 class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
@@ -65,7 +65,7 @@
                     </wm-container>
                 </wm-container>
                 <wm-container name="centerCol" class="app-container-default" direction="column" gap="8"
-                    alignment="top-left" width="32%" height="fill" clipcontent="false">
+                    alignment="top-left" width="36.5%" height="fill" clipcontent="false">
                     <wm-list name="navMenuList" class="list-card menu-list" dataset="bind:Variables.navMenuVar.dataSet"
                         itemsperrow="xs-1 sm-1 md-1 lg-1" itemclass="pb-0">
                         <wm-listtemplate name="navMenuListTemplate" layout="inline">
@@ -79,8 +79,8 @@
                         </wm-listtemplate>
                     </wm-list>
                 </wm-container>
-                <wm-container name="rightCol" class="app-container-default" direction="column" gap="8"
-                    alignment="top-left" width="32%" height="fill" clipcontent="false">
+                <wm-container name="rightCol" class="app-container-default" direction="column" gap="5"
+                    alignment="top-left" width="30%" height="fill" clipcontent="false">
                     <wm-card name="whatsNewCard" class="app-card card-default" variant="default">
                         <wm-card-content name="whatsNewCardContent">
                             <wm-container name="whatsNewCardBody" class="app-container-default" direction="column"
@@ -98,12 +98,12 @@
                     </wm-card>
                     <wm-card name="noticeCard" class="app-card card-default" variant="default">
                         <wm-card-content name="noticeCardContent">
-                            <wm-container name="noticeCardBody" class="app-container-default" direction="column" gap="8"
+                            <wm-container name="noticeCardBody" class="app-container-default" direction="column" gap="2"
                                 alignment="top-left" width="fill" height="hug">
                                 <wm-container name="noticeTitleRow" class="app-container-default" direction="row"
                                     gap="auto" alignment="center" width="fill" height="hug">
                                     <wm-label name="noticeTitleLabel"
-                                        caption="bind:Variables.notificationsVar.dataSet.noticeTitle" class="h2"
+                                        caption="bind:Variables.notificationsVar.dataSet.noticeTitle" class="h2 pb-1"
                                         variant="default:h2"></wm-label>
                                     <wm-button name="btnEditNotice" caption="Edit" class="btn-filled-bg-primary-sm"
                                         variant="filled-bg-primary-sm"></wm-button>
