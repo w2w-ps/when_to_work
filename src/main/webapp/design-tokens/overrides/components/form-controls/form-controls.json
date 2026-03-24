@@ -1,0 +1,38 @@
+{
+  "form" : {
+    "mapping" : {
+      "caption" : {
+        "color" : {
+          "value" : "{color.black.@.value}"
+        },
+        "font" : {
+          "family" : {
+            "value" : "Arial"
+          },
+          "size" : {
+            "value" : "10px"
+          }
+        }
+      },
+      "control" : {
+        "color" : {
+          "place-holder" : {
+            "value" : "{color.black.@.value}"
+          }
+        },
+        "height" : {
+          "value" : "32px"
+        },
+        "padding" : {
+          "value" : "4px 5px 6px 5px"
+        },
+        "font-family" : {
+          "value" : "Arial"
+        },
+        "font-size" : {
+          "value" : "14px"
+        }
+      }
+    }
+  }
+}

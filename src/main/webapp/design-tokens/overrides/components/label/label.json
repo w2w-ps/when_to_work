@@ -28,6 +28,68 @@
             "value" : "{p.font-family.value}"
           },
           "background-color" : {
+            "value" : ""
+          }
+        }
+      },
+      "label-small-400" : {
+        "mapping" : {
+          "color" : {
+            "value" : "inherit"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "8pt"
+          },
+          "font-weight" : {
+            "value" : "{body.medium.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
+      },
+      "label-small-700" : {
+        "mapping" : {
+          "color" : {
+            "value" : "inherit"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "8pt"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.700.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
             "value" : "none"
           }
         }
@@ -36,6 +98,12 @@
     "meta" : {
       "appearances" : {
         "p-sm" : {
+          "source" : "user"
+        },
+        "label-small-400" : {
+          "source" : "user"
+        },
+        "label-small-700" : {
           "source" : "user"
         }
       }
