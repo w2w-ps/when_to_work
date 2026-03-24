@@ -18,6 +18,11 @@
       "700" : {
         "value" : "700"
       }
+    },
+    "line-height" : {
+      "120pct" : {
+        "value" : "120%"
+      }
     }
   },
   "h1" : {
@@ -31,7 +36,7 @@
       "value" : "{font.weight.700.value}"
     },
     "line-height" : {
-      "value" : "28px"
+      "value" : "120%"
     },
     "letter-spacing" : {
       "value" : "0px"
@@ -48,7 +53,7 @@
       "value" : "{font.weight.700.value}"
     },
     "line-height" : {
-      "value" : "26px"
+      "value" : "120%"
     },
     "letter-spacing" : {
       "value" : "0px"
@@ -65,7 +70,7 @@
       "value" : "{font.weight.700.value}"
     },
     "line-height" : {
-      "value" : "28px"
+      "value" : "120%"
     },
     "letter-spacing" : {
       "value" : "0px"
@@ -82,7 +87,7 @@
       "value" : "{font.weight.700.value}"
     },
     "line-height" : {
-      "value" : "24px"
+      "value" : "120%"
     },
     "letter-spacing" : {
       "value" : "0px"
@@ -99,7 +104,7 @@
       "value" : "{font.weight.400.value}"
     },
     "line-height" : {
-      "value" : "24px"
+      "value" : "120%"
     },
     "letter-spacing" : {
       "value" : "0px"
@@ -116,7 +121,7 @@
       "value" : "{font.weight.700.value}"
     },
     "line-height" : {
-      "value" : "18px"
+      "value" : "120%"
     },
     "letter-spacing" : {
       "value" : "0px"
@@ -204,7 +209,7 @@
         "value" : "{font.weight.400.value}"
       },
       "line-height" : {
-        "value" : "20px"
+        "value" : "16.8px"
       },
       "letter-spacing" : {
         "value" : "0.1px"
@@ -221,7 +226,7 @@
         "value" : "{font.weight.400.value}"
       },
       "line-height" : {
-        "value" : "16px"
+        "value" : "14.4px"
       },
       "letter-spacing" : {
         "value" : "0.4px"
@@ -238,7 +243,7 @@
         "value" : "{font.weight.400.value}"
       },
       "line-height" : {
-        "value" : "14px"
+        "value" : "12.8px"
       },
       "letter-spacing" : {
         "value" : "0px"

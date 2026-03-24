@@ -7,7 +7,7 @@
             "value" : "{color.primary.container.@.value}"
           },
           "color" : {
-            "value" : "{color.on-surface.@.value}"
+            "value" : "{color.black.@.value}"
           },
           "font-size" : {
             "value" : "{label.large.font-size.value}"
@@ -70,12 +70,12 @@
               "state" : {
                 "layer" : {
                   "opacity" : {
-                    "value" : "{opacity.hover.value}"
+                    "value" : "0"
                   }
                 }
               },
               "background" : {
-                "value" : "rgb(141, 186, 214)"
+                "value" : "rgb(148, 186, 214)"
               }
             },
             "focus" : {
@@ -141,7 +141,7 @@
             "value" : "{font.weight.700.value}"
           },
           "line-height" : {
-            "value" : "{label.large.line-height.value}"
+            "value" : "12px"
           },
           "letter-spacing" : {
             "value" : "{label.large.letter-spacing.value}"
