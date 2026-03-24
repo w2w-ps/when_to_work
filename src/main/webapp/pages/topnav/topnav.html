@@ -1,3 +1,8 @@
 <wm-partial name="topnav" type="topnav">
-<wm-navbar name="navbar1">
-<wm-nav name="leftTopLinks" type="navbar" class="navbar-left" dataset="bind:Variables.navItemList.dataSet" itemlabel="caption" layout="justified" showonhover="true"></wm-nav></wm-navbar></wm-partial>
+    <wm-navbar name="navbar1" show="true">
+        <wm-nav name="leftTopLinks" type="navbar" class="navbar-left"
+            dataset="bind:'Employee' === 'Employee' ? Variables.navItemListEmployee.dataSet : Variables.navItemList.dataSet"
+            layout="justified" showonhover="true" show="true" itemlabel="caption" itemlink="hyperlink"
+            itemhint="children" itemchildren="children"></wm-nav>
+    </wm-navbar>
+</wm-partial>
