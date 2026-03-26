@@ -186,6 +186,192 @@
             "value" : "{font.line-height.120pct.value}"
           }
         }
+      },
+      "highlighted-label-14-400" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "3px"
+          },
+          "font-size" : {
+            "value" : "{body.medium.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{body.medium.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "rgb(255, 255, 102)"
+          }
+        }
+      },
+      "highlighted-label-danger-14-700" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "3px"
+          },
+          "font-size" : {
+            "value" : "{body.medium.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.700.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "#FF0000"
+          }
+        }
+      },
+      "highlighted-label-orange" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "3px"
+          },
+          "font-size" : {
+            "value" : "{body.medium.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{body.medium.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "#F9A900"
+          }
+        }
+      },
+      "highlighted-danger-label-14-400" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "3px"
+          },
+          "font-size" : {
+            "value" : "{body.medium.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{body.medium.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "Arial"
+          },
+          "background-color" : {
+            "value" : "#FF0000"
+          }
+        }
+      },
+      "highlighted-purple-label-14-400" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "3px"
+          },
+          "font-size" : {
+            "value" : "{body.medium.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{body.medium.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "#BFBFFF"
+          }
+        }
+      },
+      "highlighted-white-14-400" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "3px"
+          },
+          "font-size" : {
+            "value" : "{body.medium.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{body.medium.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "#ffffffff"
+          }
+        }
       }
     },
     "meta" : {
@@ -226,6 +412,24 @@
         "default" : {
           "source" : "aira",
           "description" : "Default label style with 120% line-height applied globally"
+        },
+        "highlighted-label-14-400" : {
+          "source" : "user"
+        },
+        "highlighted-label-danger-14-700" : {
+          "source" : "user"
+        },
+        "highlighted-label-orange" : {
+          "source" : "user"
+        },
+        "highlighted-danger-label-14-400" : {
+          "source" : "user"
+        },
+        "highlighted-purple-label-14-400" : {
+          "source" : "user"
+        },
+        "highlighted-white-14-400" : {
+          "source" : "user"
         }
       }
     }
