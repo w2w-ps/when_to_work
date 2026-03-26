@@ -1,9 +1,9 @@
 {
   "appNotification" : {
-    "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
+    "_id" : "wm-appErrorHandler-wm.NotificationAction-1454664620943",
     "name" : "appNotification",
     "owner" : "App",
-    "category" : "wm.NotificationVariable",
+    "category" : "wm.NotificationAction",
     "dataBinding" : [ {
       "target" : "class",
       "value" : "Error",
@@ -16,10 +16,10 @@
     "operation" : "toast"
   },
   "goToPage_Home" : {
-    "_id" : "wm-goToPage_Home-wm.NavigationVariable-1774001292423",
+    "_id" : "wm-goToPage_Home-wm.NavigationAction-1774001292423",
     "name" : "goToPage_Home",
     "owner" : "App",
-    "category" : "wm.NavigationVariable",
+    "category" : "wm.NavigationAction",
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Home",
@@ -27,18 +27,29 @@
     "pageTransitions" : "none"
   },
   "goToPage_Main" : {
-    "_id" : "wm-wm.NavigationVariable1389180517517",
+    "_id" : "wm-wm.NavigationAction1389180517517",
     "name" : "goToPage_Main",
     "owner" : "App",
-    "category" : "wm.NavigationVariable",
+    "category" : "wm.NavigationAction",
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
+  "goToPage_Mgrchangeemppass" : {
+    "_id" : "wm-goToPage_Mgrchangeemppass-wm.NavigationAction-1774425330925",
+    "name" : "goToPage_Mgrchangeemppass",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Mgrchangeemppass",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_topnav" : {
-    "_id" : "wm-goToPage_topnav-wm.NavigationVariable-1774015671287",
+    "_id" : "wm-goToPage_topnav-wm.NavigationAction-1774015671287",
     "name" : "goToPage_topnav",
     "owner" : "App",
-    "category" : "wm.NavigationVariable",
+    "category" : "wm.NavigationAction",
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "topnav",
