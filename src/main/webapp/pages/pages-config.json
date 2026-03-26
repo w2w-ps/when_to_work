@@ -15,6 +15,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Mgremplist",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
   "type" : "FOOTER",
   "params" : [ ]
