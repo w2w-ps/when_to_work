@@ -1,125 +1,52 @@
 <wm-page name="page" pagetitle="Home">
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
-    <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent" class="ps-2 pt-0 pe-4">
-            <wm-container name="headerRow" class="app-container-default" direction="row" gap="16"
-                alignment="middle-left" width="fill" height="hug" padding="unset unset 8px unset">
-                <wm-container name="headerLogoCol" direction="column" gap="4" alignment="top-center" width="33%"
-                    height="fill" clipcontent="false">
-                    <wm-picture name="companyLogo" alttext="Company Logo"
-                        picturesource="resources/images/logos/when-to-work-logo.png" class="img-responsive custom-left">
-                    </wm-picture>
-                </wm-container>
-                <wm-container name="headerInfoCol" class="app-container-default" direction="column" gap="14"
-                    alignment="top-center" width="33%" height="hug" clipcontent="false">
-                    <wm-label name="companyName" caption="bind:Variables.companyInfoVar.dataSet.companyName" class="h2"
-                        variant="default:h2"></wm-label>
-                    <wm-label name="accountNumber" caption="bind:Variables.companyInfoVar.dataSet.accountNumber"
-                        class="pb-3 p" variant="default:p"></wm-label>
-                    <wm-label name="welcomeUser" caption="bind:Variables.companyInfoVar.dataSet.welcomeMessage"
-                        class="h2" variant="default:h2"></wm-label>
-                </wm-container>
-            </wm-container>
-            <wm-container name="mainContentRow" class="app-container-default" direction="row" gap="32"
-                alignment="top-left" width="fill" height="hug" clipcontent="false">
-                <wm-container name="leftCol" class="app-container-default" direction="column" gap="5"
-                    alignment="top-left" width="29.5%" height="fill" clipcontent="false">
-                    <wm-card name="quickLinksCard" class="app-card card-default" variant="default">
-                        <wm-card-content name="quickLinksCardContent">
-                            <wm-container name="quickLinksCardBody" class="app-container-default" direction="column"
-                                gap="2" alignment="top-left" width="fill" height="hug">
-                                <wm-label name="quickLinksTitle" caption="Quick Links" class="h2 pb-1"
-                                    variant="default:h2"></wm-label>
-                                <wm-anchor name="anchorViewHelp" caption="View Help &amp; Demos" hyperlink="#"
-                                    class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
-                                <wm-anchor name="anchorExtendUpgrade" caption="Extend / Upgrade Subscription"
-                                    hyperlink="#" class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
-                                <wm-anchor name="anchorCreateInvoice" caption="Create an Invoice" hyperlink="#"
-                                    class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
-                            </wm-container>
-                        </wm-card-content>
-                    </wm-card>
-                    <wm-card name="connectCard" class="app-card card-default" variant="default">
-                        <wm-card-content name="connectCardContent">
-                            <wm-container name="connectCardBody" class="app-container-default" direction="column"
-                                gap="8" alignment="top-left" width="fill" height="hug">
-                                <wm-label name="connectTitle" caption="Connect" class="pb-1 h2" variant="default:h2">
-                                </wm-label>
-                                <wm-anchor name="anchorContactW2W" caption="Contact W2W" hyperlink="#"
-                                    class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
-                            </wm-container>
-                        </wm-card-content>
-                    </wm-card>
-                    <wm-container name="leftFooterText" class="app-container-default" direction="column" gap="0"
-                        alignment="bottom-center" width="fill" height="hug" padding="16px unset">
-                        <wm-container name="leftFooterLinks" class="app-container-default" direction="row" gap="4"
-                            alignment="middle-center" width="fill" height="hug">
-                            <wm-anchor name="anchorTerms" caption="Terms of Service" hyperlink="#"
-                                class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
-                            <wm-label name="footerSeparator" caption="|"></wm-label>
-                            <wm-anchor name="anchorPrivacy" caption="Privacy Policy" hyperlink="#"
-                                class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
-                        </wm-container>
-                        <wm-label name="lastUpdatedLabel" caption="Last updated: December 2023" class="label-p-sm"
-                            variant="p-sm"></wm-label>
-                    </wm-container>
-                </wm-container>
-                <wm-container name="centerCol" class="app-container-default" direction="column" gap="8"
-                    alignment="top-left" width="36.5%" height="fill" clipcontent="false">
-                    <wm-list name="navMenuList" class="list-card menu-list" dataset="bind:Variables.navMenuVar.dataSet"
-                        itemsperrow="xs-1 sm-1 md-1 lg-1" itemclass="pb-0">
-                        <wm-listtemplate name="navMenuListTemplate" layout="inline">
-                            <wm-container name="navMenuItemContainer" class="app-container-default" direction="column"
-                                gap="4" alignment="top-left" width="fill" height="hug">
-                                <wm-button name="navMenuBtn" caption="bind:Variables.navMenuVar.dataSet[$i].dataValue"
-                                    class="btn-filled-bg-primary justify-content-start" width="fill"
-                                    variant="filled-bg-primary"
-                                    on-click="navMenuBtnClick($event, widget, item, currentItemWidgets)"></wm-button>
-                            </wm-container>
-                        </wm-listtemplate>
-                    </wm-list>
-                </wm-container>
-                <wm-container name="rightCol" class="app-container-default" direction="column" gap="5"
-                    alignment="top-left" width="30%" height="fill" clipcontent="false">
-                    <wm-card name="whatsNewCard" class="app-card card-default" variant="default">
-                        <wm-card-content name="whatsNewCardContent">
-                            <wm-container name="whatsNewCardBody" class="app-container-default" direction="column"
-                                gap="8" alignment="top-left" width="fill" height="hug">
-                                <wm-label name="whatsNewTitle" caption="What's New!" class="h2" variant="default:h2">
-                                </wm-label>
-                                <wm-anchor caption="bind:Variables.notificationsVar.dataSet.whatsNewAlertText"
-                                    hyperlink="#" class="anchor-anchor-link" variant="anchor-link" name="anchor7">
-                                </wm-anchor>
-                                <wm-anchor caption="bind:Variables.notificationsVar.dataSet.whatsNewMessages"
-                                    hyperlink="#" class="anchor-anchor-link py-2" variant="anchor-link" name="anchor8">
-                                </wm-anchor>
-                            </wm-container>
-                        </wm-card-content>
-                    </wm-card>
-                    <wm-card name="noticeCard" class="app-card card-default" variant="default">
-                        <wm-card-content name="noticeCardContent">
-                            <wm-container name="noticeCardBody" class="app-container-default" direction="column" gap="2"
-                                alignment="top-left" width="fill" height="hug">
-                                <wm-container name="noticeTitleRow" class="app-container-default" direction="row"
-                                    gap="auto" alignment="center" width="fill" height="hug">
-                                    <wm-label name="noticeTitleLabel"
-                                        caption="bind:Variables.notificationsVar.dataSet.noticeTitle" class="h2 pb-1"
-                                        variant="default:h2"></wm-label>
-                                    <wm-button name="btnEditNotice" caption="Edit" class="btn-filled-bg-primary-sm"
-                                        variant="filled-bg-primary-sm"></wm-button>
-                                </wm-container>
-                                <wm-label name="noticeBodyLabel"
-                                    caption="bind:&quot;Don't forget to sign up for the free trip to&quot;"
-                                    class="label-text-14" variant="text-14"></wm-label>
-                                <wm-label name="noticeBodyLabel" caption="bind:&quot;Disneyland in July!&quot;"
-                                    class="label-text-14" variant="text-14"></wm-label>
-                                <wm-label name="noticeBodyLabel" caption="bind:&quot;Bring the whole family.&quot;"
-                                    class="label-text-14" variant="text-14"></wm-label>
-                            </wm-container>
-                        </wm-card-content>
-                    </wm-card>
-                </wm-container>
-            </wm-container>
-        </wm-page-content>
-    </wm-content>
-</wm-page>
+<wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+<wm-content name="content">
+<wm-page-content columnwidth="12" name="pagecontent" class="ps-2 pt-0 pe-4">
+<wm-container name="headerRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug" padding="unset unset 8px unset">
+<wm-container name="headerLogoCol" direction="column" gap="4" alignment="top-center" width="33%" height="fill" clipcontent="false">
+<wm-picture name="companyLogo" alttext="Company Logo" picturesource="resources/images/logos/when-to-work-logo.png" class="img-responsive custom-left"></wm-picture></wm-container>
+<wm-container name="headerInfoCol" class="app-container-default" direction="column" gap="14" alignment="top-center" width="33%" height="hug" clipcontent="false">
+<wm-label name="companyName" caption="bind:Variables.companyInfoVar.dataSet.companyName" class="h2" variant="default:h2"></wm-label>
+<wm-label name="accountNumber" caption="bind:Variables.companyInfoVar.dataSet.accountNumber" class="pb-3 p" variant="default:p"></wm-label>
+<wm-label name="welcomeUser" caption="bind:Variables.companyInfoVar.dataSet.welcomeMessage" class="h2" variant="default:h2"></wm-label></wm-container></wm-container>
+<wm-container name="mainContentRow" class="app-container-default" direction="row" gap="32" alignment="top-left" width="fill" height="hug" clipcontent="false">
+<wm-container name="leftCol" class="app-container-default" direction="column" gap="5" alignment="top-left" width="29.5%" height="fill" clipcontent="false">
+<wm-card name="quickLinksCard" class="app-card card-default" variant="default">
+<wm-card-content name="quickLinksCardContent">
+<wm-container name="quickLinksCardBody" class="app-container-default" direction="column" gap="2" alignment="top-left" width="fill" height="hug">
+<wm-label name="quickLinksTitle" caption="Quick Links" class="h2 pb-1 label-label-18-700" variant="label-18-700"></wm-label>
+<wm-anchor name="anchorViewHelp" caption="View Help &amp; Demos" hyperlink="#" class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
+<wm-anchor name="anchorExtendUpgrade" caption="Extend / Upgrade Subscription" hyperlink="#" class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor>
+<wm-anchor name="anchorCreateInvoice" caption="Create an Invoice" hyperlink="#" class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor></wm-container></wm-card-content></wm-card>
+<wm-card name="connectCard" class="app-card card-default" variant="default">
+<wm-card-content name="connectCardContent">
+<wm-container name="connectCardBody" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug">
+<wm-label name="connectTitle" caption="Connect" class="pb-1 h2" variant="default:h2"></wm-label>
+<wm-anchor name="anchorContactW2W" caption="Contact W2W" hyperlink="#" class="anchor-anchor-link ps-1" variant="anchor-link"></wm-anchor></wm-container></wm-card-content></wm-card>
+<wm-container name="leftFooterText" class="app-container-default" direction="column" gap="0" alignment="bottom-center" width="fill" height="hug" padding="16px unset">
+<wm-container name="leftFooterLinks" class="app-container-default" direction="row" gap="4" alignment="middle-center" width="fill" height="hug">
+<wm-anchor name="anchorTerms" caption="Terms of Service" hyperlink="#" class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
+<wm-label name="footerSeparator" caption="|"></wm-label>
+<wm-anchor name="anchorPrivacy" caption="Privacy Policy" hyperlink="#" class="anchor-standard-sm" variant="standard-sm"></wm-anchor></wm-container>
+<wm-label name="lastUpdatedLabel" caption="Last updated: December 2023" class="label-p-sm" variant="p-sm"></wm-label></wm-container></wm-container>
+<wm-container name="centerCol" class="app-container-default" direction="column" gap="8" alignment="top-left" width="36.5%" height="fill" clipcontent="false">
+<wm-list name="navMenuList" class="list-card menu-list" dataset="bind:Variables.navMenuVar.dataSet" itemsperrow="xs-1 sm-1 md-1 lg-1" itemclass="pb-0">
+<wm-listtemplate name="navMenuListTemplate" layout="inline">
+<wm-container name="navMenuItemContainer" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
+<wm-button name="navMenuBtn" caption="bind:Variables.navMenuVar.dataSet[$i].dataValue" class="btn-filled-bg-primary justify-content-start" width="fill" variant="filled-bg-primary" on-click="navMenuBtnClick($event, widget, item, currentItemWidgets)"></wm-button></wm-container></wm-listtemplate></wm-list></wm-container>
+<wm-container name="rightCol" class="app-container-default" direction="column" gap="5" alignment="top-left" width="30%" height="fill" clipcontent="false">
+<wm-card name="whatsNewCard" class="app-card card-default" variant="default">
+<wm-card-content name="whatsNewCardContent">
+<wm-container name="whatsNewCardBody" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug">
+<wm-label name="whatsNewTitle" caption="What's New!" class="h2" variant="default:h2"></wm-label>
+<wm-anchor caption="bind:Variables.notificationsVar.dataSet.whatsNewAlertText" hyperlink="#" class="anchor-anchor-link" variant="anchor-link" name="anchor7"></wm-anchor>
+<wm-anchor caption="bind:Variables.notificationsVar.dataSet.whatsNewMessages" hyperlink="#" class="anchor-anchor-link py-2" variant="anchor-link" name="anchor8"></wm-anchor></wm-container></wm-card-content></wm-card>
+<wm-card name="noticeCard" class="app-card card-default" variant="default">
+<wm-card-content name="noticeCardContent">
+<wm-container name="noticeCardBody" class="app-container-default" direction="column" gap="2" alignment="top-left" width="fill" height="hug">
+<wm-container name="noticeTitleRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-label name="noticeTitleLabel" caption="bind:Variables.notificationsVar.dataSet.noticeTitle" class="h2 pb-1" variant="default:h2"></wm-label>
+<wm-button name="btnEditNotice" caption="Edit" class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button></wm-container>
+<wm-label name="noticeBodyLabel" caption="bind:&quot;Don't forget to sign up for the free trip to&quot;" class="label-text-14" variant="text-14"></wm-label>
+<wm-label name="noticeBodyLabel" caption="bind:&quot;Disneyland in July!&quot;" class="label-text-14" variant="text-14"></wm-label>
+<wm-label name="noticeBodyLabel" caption="bind:&quot;Bring the whole family.&quot;" class="label-text-14" variant="text-14"></wm-label></wm-container></wm-card-content></wm-card></wm-container></wm-container></wm-page-content></wm-content></wm-page>
