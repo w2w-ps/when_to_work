@@ -41,6 +41,259 @@
             }
           }
         }
+      },
+      "red-tinted-card" : {
+        "mapping" : {
+          "border" : {
+            "width" : {
+              "value" : "{border.width.base.value}"
+            },
+            "style" : {
+              "value" : "{border.style.base.value}"
+            },
+            "color" : {
+              "value" : "#fce1e4"
+            },
+            "radius" : {
+              "value" : "15px 0 0 0"
+            }
+          },
+          "list" : {
+            "gap" : {
+              "value" : "{space.4.value}"
+            }
+          },
+          "background" : {
+            "value" : "#fce1e4"
+          },
+          "shadow" : {
+            "value" : "none"
+          },
+          "state" : {
+            "layer" : {
+              "color" : {
+                "value" : "#fce1e4"
+              }
+            }
+          },
+          "body" : {
+            "padding" : {
+              "value" : "10px 15px"
+            }
+          },
+          "footer" : {
+            "padding" : {
+              "value" : "{space.3.value}"
+            },
+            "border" : {
+              "width" : {
+                "value" : "{border.width.base.value}"
+              },
+              "style" : {
+                "value" : "{border.style.base.value}"
+              },
+              "color" : {
+                "value" : "#fce1e4"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "shadow" : {
+                "value" : "{elevation.shadow.none.value}"
+              },
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "green-tinted-card" : {
+        "mapping" : {
+          "border" : {
+            "width" : {
+              "value" : "{border.width.base.value}"
+            },
+            "style" : {
+              "value" : "{border.style.base.value}"
+            },
+            "color" : {
+              "value" : "#D0FFD0"
+            },
+            "radius" : {
+              "value" : "15px 0 0 0"
+            }
+          },
+          "list" : {
+            "gap" : {
+              "value" : "{space.4.value}"
+            }
+          },
+          "background" : {
+            "value" : "#D0FFD0"
+          },
+          "shadow" : {
+            "value" : "none"
+          },
+          "state" : {
+            "layer" : {
+              "color" : {
+                "value" : "#D0FFD0"
+              }
+            }
+          },
+          "body" : {
+            "padding" : {
+              "value" : "10px 15px"
+            }
+          },
+          "footer" : {
+            "padding" : {
+              "value" : "{space.3.value}"
+            },
+            "border" : {
+              "width" : {
+                "value" : "{border.width.base.value}"
+              },
+              "style" : {
+                "value" : "{border.style.base.value}"
+              },
+              "color" : {
+                "value" : "#D0FFD0"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "shadow" : {
+                "value" : "{elevation.shadow.none.value}"
+              },
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "yellow-module" : {
+        "mapping" : {
+          "border" : {
+            "width" : {
+              "value" : "{border.width.base.value}"
+            },
+            "style" : {
+              "value" : "{border.style.base.value}"
+            },
+            "color" : {
+              "value" : "{color.black.@.value}"
+            },
+            "radius" : {
+              "value" : "15px 0 0 0"
+            }
+          },
+          "list" : {
+            "gap" : {
+              "value" : "{space.4.value}"
+            }
+          },
+          "background" : {
+            "value" : "{color.light-yellow-warning.@.value}"
+          },
+          "shadow" : {
+            "value" : "none"
+          },
+          "state" : {
+            "layer" : {
+              "color" : {
+                "value" : "{color.light-yellow-warning.@.value}"
+              },
+              "opacity" : {
+                "value" : "0"
+              }
+            }
+          },
+          "body" : {
+            "padding" : {
+              "value" : "10px 15px"
+            }
+          },
+          "footer" : {
+            "padding" : {
+              "value" : "{space.3.value}"
+            },
+            "border" : {
+              "width" : {
+                "value" : "{border.width.base.value}"
+              },
+              "style" : {
+                "value" : "{border.style.base.value}"
+              },
+              "color" : {
+                "value" : "{color.light-yellow-warning.@.value}"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              },
+              "shadow" : {
+                "value" : "{elevation.shadow.none.value}"
+              }
+            },
+            "focus" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.focus.value}"
+                  }
+                }
+              },
+              "shadow" : {
+                "value" : "none"
+              }
+            },
+            "active" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.active.value}"
+                  }
+                }
+              },
+              "shadow" : {
+                "value" : "none"
+              }
+            }
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "red-tinted-card" : {
+          "source" : "user"
+        },
+        "green-tinted-card" : {
+          "source" : "user"
+        },
+        "yellow-module" : {
+          "source" : "user"
+        }
       }
     }
   }
