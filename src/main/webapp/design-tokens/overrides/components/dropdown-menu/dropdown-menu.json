@@ -1,0 +1,11 @@
+{
+  "dropdown" : {
+    "mapping" : {
+      "menu" : {
+        "width" : {
+          "value" : "max-content"
+        }
+      }
+    }
+  }
+}
