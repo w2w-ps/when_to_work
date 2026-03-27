@@ -15,6 +15,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Mgrempedit",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
   "type" : "FOOTER",
   "params" : [ ]
