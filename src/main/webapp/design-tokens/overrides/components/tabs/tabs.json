@@ -1,0 +1,116 @@
+{
+  "tabs" : {
+    "mapping" : {
+      "item" : {
+        "heading" : {
+          "background" : {
+            "value" : "#8080FF"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "font-family" : {
+            "value" : "{body.small.font-family.value}"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.700.value}"
+          },
+          "line-height" : {
+            "value" : "{body.small.line-height.value}"
+          },
+          "border" : {
+            "radius" : {
+              "value" : "5px 5px 0 0"
+            },
+            "color" : {
+              "value" : "{color.black.@.value}"
+            }
+          },
+          "indicator" : {
+            "radius" : {
+              "value" : "0"
+            },
+            "height" : {
+              "value" : "0"
+            },
+            "width" : {
+              "value" : "0"
+            }
+          },
+          "color" : {
+            "@" : {
+              "value" : "{color.white.@.value}"
+            }
+          },
+          "height" : {
+            "value" : "21px"
+          },
+          "padding" : {
+            "value" : "0 10px 0 10px"
+          }
+        }
+      },
+      "nav" : {
+        "border" : {
+          "style" : {
+            "value" : "{border.style.solid.value}"
+          },
+          "color" : {
+            "value" : "{color.black.@.value}"
+          }
+        },
+        "gap" : {
+          "value" : "2px"
+        }
+      },
+      "body" : {
+        "height" : {
+          "value" : "auto"
+        },
+        "padding" : {
+          "value" : "8px"
+        }
+      },
+      "states" : {
+        "active" : {
+          "item" : {
+            "heading" : {
+              "background" : {
+                "value" : "#ffffff"
+              },
+              "color" : {
+                "@" : {
+                  "value" : "rgb(51, 51, 51)"
+                }
+              },
+              "border" : {
+                "width" : {
+                  "value" : "1px 1px 0 1px"
+                }
+              },
+              "height" : {
+                "value" : "24px"
+              }
+            }
+          }
+        },
+        "hover" : {
+          "item" : {
+            "heading" : {
+              "height" : {
+                "value" : "26px"
+              },
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
