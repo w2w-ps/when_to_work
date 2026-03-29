@@ -10,8 +10,8 @@ metadata:
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/group.name: ps-team-app-alb
     alb.ingress.kubernetes.io/ssl-redirect: "443"
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:155400439473:certificate/e08752a7-1c21-492d-8e6f-40b9e0834cd8
-    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06  # <-- This is the key change
+      #alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:155400439473:certificate/e08752a7-1c21-492d-8e6f-40b9e0834cd8
+      #alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06  # <-- This is the key change
 spec:
   ingressClassName: alb
   rules:
