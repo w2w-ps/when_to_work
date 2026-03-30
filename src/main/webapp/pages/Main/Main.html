@@ -2,7 +2,87 @@
     <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav" navtype="rail" navheight="full"></wm-left-panel>
     <wm-content name="content">
         <wm-header content="header" name="header" height="auto"></wm-header>
-        <wm-page-content columnwidth="10" name="mainContent"></wm-page-content>
+        <wm-page-content columnwidth="10" name="mainContent">
+            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container1"
+                class="app-container-default" variant="default" padding="12px unset">
+                <wm-table editmode="inline" statehandler="URL" name="supportedLocaleTable1_1" title=""
+                    dataset="bind:Variables.stvTableData.dataSet" navigation="None" class="striped-even"
+                    variant="striped-even" radioselect="false" multiselect="true" isrowselectable="true"
+                    on-headerclick="onTable1HeaderClick($event, widget, column)" enablesort="false" height="145px">
+                    <wm-table-column binding="name" caption="Name" widget-type="label" edit-widget-type="text"
+                        show="true" type="string" showineditmode="true" readonly="false">
+                        <wm-label caption="bind:row.getProperty('undefined')" class="" conditionalclass=""
+                            conditionalstyle=""></wm-label>
+                    </wm-table-column>
+                    <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="start" caption="Start" edit-widget-type="text" show="true" type="string"
+                        showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="end" caption="End" edit-widget-type="text" show="true" type="string"
+                        showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="First Name" caption="First Name" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="Last Name" caption="Last Name" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="Comment" caption="Comment" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                </wm-table>
+            </wm-container>
+            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container2"
+                class="app-container-default" variant="default"></wm-container>
+            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container3"
+                class="app-container-default" variant="default" padding="12px unset">
+                <wm-table editmode="inline" statehandler="URL" title="" dataset="bind:Variables.stvTableData.dataSet"
+                    navigation="None" class="striped-even data-table-striped-even-large-header"
+                    variant="striped-even-large-header" radioselect="false" multiselect="true" isrowselectable="true"
+                    on-headerclick="onTable1HeaderClick($event, widget, column)" enablesort="false" height="245px"
+                    name="table2">
+                    <wm-table-column binding="name" caption="Name" widget-type="label" edit-widget-type="text"
+                        show="true" type="string" showineditmode="true" readonly="false">
+                        <wm-label caption="bind:row.getProperty('undefined')" class="" conditionalclass=""
+                            conditionalstyle=""></wm-label>
+                    </wm-table-column>
+                    <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="start" caption="Start" edit-widget-type="text" show="true" type="string"
+                        showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="end" caption="End" edit-widget-type="text" show="true" type="string"
+                        showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="First Name" caption="First Name" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="Last Name" caption="Last Name" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="Comment" caption="Comment" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                </wm-table>
+            </wm-container>
+            <wm-container direction="row" alignment="top-left" gap="4" width="fill" class="app-container-default"
+                variant="default" padding="12px unset" name="container4">
+                <wm-table editmode="inline" statehandler="URL" title="" dataset="bind:Variables.stvTableData.dataSet"
+                    navigation="None" class="striped-even data-table-striped-even-deleted-large-header"
+                    variant="striped-even-deleted-large-header" radioselect="false" multiselect="true"
+                    isrowselectable="true" on-headerclick="onTable1HeaderClick($event, widget, column)"
+                    enablesort="false" height="245px" name="table3">
+                    <wm-table-column binding="name" caption="Name" widget-type="label" edit-widget-type="text"
+                        show="true" type="string" showineditmode="true" readonly="false">
+                        <wm-label caption="bind:row.getProperty('undefined')" class="" conditionalclass=""
+                            conditionalstyle=""></wm-label>
+                    </wm-table-column>
+                    <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="start" caption="Start" edit-widget-type="text" show="true" type="string"
+                        showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="end" caption="End" edit-widget-type="text" show="true" type="string"
+                        showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="First Name" caption="First Name" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="Last Name" caption="Last Name" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="Comment" caption="Comment" edit-widget-type="text" show="true"
+                        type="string" showineditmode="true" readonly="false"></wm-table-column>
+                </wm-table>
+            </wm-container>
+        </wm-page-content>
         <wm-footer name="footer" content="footer"></wm-footer>
     </wm-content>
 </wm-page>

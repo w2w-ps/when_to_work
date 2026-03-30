@@ -61,11 +61,13 @@
     "name" : "supportedLocale",
     "owner" : "App",
     "category" : "wm.Variable",
+    "dataBinding" : [ ],
     "dataSet" : {
       "en" : "English"
     },
-    "type" : "string",
-    "isList" : false,
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
     "saveInPhonegap" : false
   }
 }

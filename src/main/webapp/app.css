@@ -22,3 +22,27 @@
 .wm-app {
     overflow-x: hidden;
 }
+
+.wm-app .app-tabs ul li {
+    top: 1px;
+}
+
+.wm-app .app-tabs ul li:not(.active) {
+    height: 21px !important;
+    top: 4px;
+}
+
+.wm-app .app-tabs ul li:hover:not(.active) {
+    height: 24px !important;
+    top: 1px !important;
+}
+
+.wm-app .tab-header.active,
+.wm-app .tab-header.active a,
+.wm-app .tab-header.active a::before {
+    background-color: var(--wm-color-white) !important;
+}
+
+.wm-app .app-tabs ul {
+    justify-content: center !important;
+}

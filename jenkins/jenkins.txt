@@ -1,0 +1,104 @@
+pipeline {
+  agent any
+    tools {
+    maven 'maven-3.8.6'
+    nodejs 'node-18.16.1'
+    }
+
+    environment {
+                REMOTE_SERVER = "172.31.15.113" //  server IP
+                CONTAINER_NAME = 'pmo'
+                AWS_REGION = 'us-east-1' // Replace with your desired AWS region
+                ECR_REPO = 'poc-pmo' // Replace with your ECR repository name
+                //IMAGE_TAG = "latest" // You can customize this with your desired tag or use Jenkins build number, etc.
+            }
+ 
+  stages {
+    stage('Maven code Build') {
+      steps {
+        sh 'mvn clean install -Dprofile.props.file="deployment.properties"'
+      }
+    } // end of maven build steps
+
+   stage('Build Docker Image') {
+      steps {
+        script {
+          def imageTag = "${env.ECR_REPO}:pmo${env.BUILD_NUMBER}"
+          // Read Dockerfile from source code repository
+          def dockerfile = readFile 'Dockerfile'
+
+          // Write Dockerfile
+          writeFile file: 'Dockerfile', text: dockerfile
+
+          // Build Docker image
+          sh "docker buildx build --tag=$imageTag ."
+          
+        }
+      }
+    } //  end of docker image build steps
+
+ 
+   stage('Push to Docker Hub') {
+      steps {
+        script {
+          def imageTag = "pmo${env.BUILD_NUMBER}"
+            
+            withAWS(region: AWS_REGION, credentials: 'wm-ps-user-ecr') {
+                   /* sh 'aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com'
+                    sh 'docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:$imageTag' */
+         
+          // Obtain AWS account ID using AWS CLI
+                    def awsAccountID = sh(returnStdout: true, script: "aws sts get-caller-identity --query Account --output text").trim()
+                    
+                    def ecrLogin = sh(returnStdout: true, script: "aws ecr get-login --no-include-email --region ${AWS_REGION}")
+                    sh "${ecrLogin}" // Execute the ECR login command to authenticate Docker
+                    sh "docker tag ${ECR_REPO}:$imageTag ${awsAccountID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:$imageTag"
+                    sh "docker push ${awsAccountID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:$imageTag"
+            
+          }
+        }
+      }
+    } // end of docker hub image push step
+
+   
+    stage('Deploy Docker Container') {
+            steps {
+                script {
+
+
+                    IMAGE_TAG = "pmo${env.BUILD_NUMBER}"
+
+
+                    sshagent(['prod-deployment-ssh-details']) {
+
+                       withAWS(region: AWS_REGION, credentials: 'wm-ps-user-ecr') {
+
+
+                        // Obtain AWS account ID using AWS CLI
+                        def awsAccountID = sh(returnStdout: true, script: "aws sts get-caller-identity --query Account --output text").trim()
+
+
+                        // Check if the container already exists
+                        def containerExists = sh(returnStdout: true, script: "ssh -o StrictHostKeyChecking=no ubuntu@${env.REMOTE_SERVER} 'docker ps -a --filter name=${env.CONTAINER_NAME} --format \"{{.Names}}\"'")
+
+                        if (containerExists.trim() != '') {
+                            // If the container exists, remove it
+                            sh "ssh -o StrictHostKeyChecking=no ubuntu@${env.REMOTE_SERVER} 'docker rm -f ${env.CONTAINER_NAME}'"
+                            echo "container deleted ${env.CONTAINER_NAME}"
+                        }
+                         def ecrLogin = sh(returnStdout: true, script: "aws ecr get-login --no-include-email --region ${AWS_REGION}")
+                         // Execute the ECR login command to authenticate Docker
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@${env.REMOTE_SERVER} '${ecrLogin}'"
+                          
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@${env.REMOTE_SERVER} 'docker pull ${awsAccountID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:${IMAGE_TAG}'"
+                          
+                          sh "ssh -o StrictHostKeyChecking=no ubuntu@${env.REMOTE_SERVER} 'docker run -d --name ${env.CONTAINER_NAME} -p 8011:8080 -p 8031:8443 ${awsAccountID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}:${IMAGE_TAG}'" 
+                    } // aws close
+                         
+                     } //ssh close
+                    } // script close
+                } // step close
+    }// end of docker container deployment stage
+
+  }
+}

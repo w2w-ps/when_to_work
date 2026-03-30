@@ -1,0 +1,414 @@
+pipeline {
+
+  agent any
+
+  tools {
+      // Optional if configured in Jenkins global tools
+       maven 'maven-3.9.9'
+       nodejs 'node-22.11.0'
+       jdk 'java21'
+
+  }
+
+  environment {
+    AWS_REGION = 'us-east-1'
+    ECR_REPO = 'poc-when-to-work'
+    IMAGE_TAG = "stageai.dev-${BUILD_NUMBER}"
+    PROFILE_ARG = 'deployment'
+    PROFILE  = 'deployment'
+    K8S_PATH = 'k8s'
+    KUBECONFIG = credentials('kubeconfig-credential-id')
+  }
+
+
+  stages {
+
+
+   stage('Prepare AWS ECR Login') {
+      steps {
+        script {
+          env.AWS_ACCOUNT_ID = sh(
+            script: "aws sts get-caller-identity --query Account --output text",
+            returnStdout: true
+          ).trim()
+
+          env.ECR_REGISTRY = "${env.AWS_ACCOUNT_ID}.dkr.ecr.${env.AWS_REGION}.amazonaws.com"
+
+          sh """
+          aws ecr get-login-password --region ${AWS_REGION} \
+          | docker login --username AWS --password-stdin ${env.ECR_REGISTRY}
+          """
+        }
+      }
+    } // end of aws ecr login stage
+
+    
+    stage('Maven code Build') {
+      steps {
+  	    sh 'mvn clean install -Dprofile.props.file="deployment.properties"'   // can use development/deployment
+      	}
+      } // maven build stage end
+
+
+ stage('Jest Tests + Coverage') {
+  steps {
+
+    catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+
+      sh '''
+        echo "Installing local npm tools..."
+
+        if [ ! -f package.json ]; then
+          npm init -y
+        fi
+
+        npm install --save-dev \
+          jest \
+          jest-environment-jsdom \
+          jest-cli \
+          acorn \
+          acorn-walk \
+          jest-html-reporter \
+          jest-junit
+
+        echo "Running Jest tests with coverage..."
+        npx jest --coverage
+      '''
+
+    }
+
+  }
+} // end of unit test cases stage 
+
+    stage('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('wm-ps-team-sonar') {
+
+        script {
+                def scannerHome = tool 'sonar-scanner'
+                sh """
+                    echo "Running Sonar analysis..."
+                    ${scannerHome}/bin/sonar-scanner
+                """
+            } 
+       }
+      }
+    } // sonar scan stage end
+
+    stage('Quality Gate') {
+      steps {
+        timeout(time: 10, unit: 'MINUTES') {
+
+          script {
+            def qg = waitForQualityGate()
+            if (qg.status != 'OK') {
+              error "Pipeline aborted due to Quality Gate failure: ${qg.status}"
+            }
+          }
+
+        }
+      }
+    } // end of qualtiy date
+    
+   stage('Send Sonar Detailed Report') {
+  steps {
+    script {
+
+      withSonarQubeEnv('wm-ps-team-sonar') {
+
+        def sonarHost = env.SONAR_HOST_URL
+
+        // Read sonar project key
+        def props = readProperties file: 'sonar-project.properties'
+        def projectKey = props['sonar.projectKey']
+
+        def sonarDashboard = "${sonarHost}/dashboard?id=${projectKey}"
+
+        // Last commit time
+        def commitDate = sh(
+          script: "git log -1 --format=%cd --date=iso-strict",
+          returnStdout: true
+        ).trim()
+
+        withCredentials([string(credentialsId: 'wm-ps-sonar', variable: 'SONAR_TOKEN')]) {
+
+          // Fetch metrics
+          def metrics = sh(
+            script: """
+            curl -s -u ${SONAR_TOKEN}: \
+            "${sonarHost}/api/measures/component?component=${projectKey}&metricKeys=bugs,vulnerabilities,code_smells,coverage,duplicated_lines_density"
+            """,
+            returnStdout: true
+          ).trim()
+
+          echo "Sonar Metrics Response: ${metrics}"
+
+          def json = readJSON text: metrics
+          def measureMap = json.component.measures.collectEntries { [(it.metric): it.value] }
+
+          def bugs = measureMap['bugs'] ?: "0"
+          def vuln = measureMap['vulnerabilities'] ?: "0"
+          def smells = measureMap['code_smells'] ?: "0"
+          def coverage = measureMap['coverage'] ?: "0"
+          def dup = measureMap['duplicated_lines_density'] ?: "0"
+
+          // Fetch issues introduced after last commit
+          def issuesResp = sh(
+            script: """
+            curl -s -u ${SONAR_TOKEN}: \
+            "${sonarHost}/api/issues/search?componentKeys=${projectKey}&createdAfter=${commitDate}"
+            """,
+            returnStdout: true
+          ).trim()
+
+          echo "Sonar Issues Response: ${issuesResp}"
+
+          def issueJson = readJSON text: issuesResp
+
+          def newBugs = issueJson.issues.findAll{it.type=='BUG'}.size()
+          def newVuln = issueJson.issues.findAll{it.type=='VULNERABILITY'}.size()
+          def newSmells = issueJson.issues.findAll{it.type=='CODE_SMELL'}.size()
+
+          emailext(
+            subject: "Sonar Report - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            mimeType: 'text/html',
+
+            body: """
+            <h2>SonarQube Analysis Report</h2>
+
+            <b>Project:</b> ${projectKey}<br>
+            <b>Jenkins Job:</b> ${env.JOB_NAME}<br>
+            <b>Build:</b> ${env.BUILD_NUMBER}<br>
+            <b>Status:</b> ${currentBuild.currentResult}<br><br>
+
+            <h3>Overall Code Quality</h3>
+
+            <table border="1" cellpadding="8">
+            <tr><th>Metric</th><th>Value</th></tr>
+            <tr><td>🐞 Bugs</td><td>${bugs}</td></tr>
+            <tr><td>🔐 Vulnerabilities</td><td>${vuln}</td></tr>
+            <tr><td>⚠ Code Smells</td><td>${smells}</td></tr>
+            <tr><td>📊 Coverage</td><td>${coverage}%</td></tr>
+            <tr><td>🔁 Duplicated Lines</td><td>${dup}%</td></tr>
+            </table>
+
+            <br>
+
+            <h3>New Issues Introduced by Last Commit</h3>
+
+            <table border="1" cellpadding="8">
+            <tr><th>Type</th><th>Count</th></tr>
+            <tr><td>🐞 New Bugs</td><td>${newBugs}</td></tr>
+            <tr><td>🔐 New Vulnerabilities</td><td>${newVuln}</td></tr>
+            <tr><td>⚠ New Code Smells</td><td>${newSmells}</td></tr>
+            </table>
+
+            <br>
+
+            <b>Full Sonar Dashboard</b><br>
+            <a href="${sonarDashboard}">${sonarDashboard}</a>
+
+            <br><br>
+            <i>Generated automatically by Jenkins CI</i>
+            """,
+
+            recipientProviders: [
+              [$class: 'DevelopersRecipientProvider'],
+              [$class: 'RequesterRecipientProvider']
+            ]
+          )
+
+        }
+      }
+    }
+  }
+} // end email report stage
+
+  stage('Build Docker Image') {
+      steps {
+        sh """
+        docker buildx build --no-cache --load \
+        -t ${ECR_REPO}:${IMAGE_TAG} .
+        """
+      }
+    } // end of build image stage
+
+
+stage('Trivy Security Scan') {
+    steps {
+        script {
+            try {
+
+                sh 'trivy --version'
+
+                // 2️⃣ Prepare workspace
+                sh "mkdir -p ${WORKSPACE}/reports"
+
+                // 3️⃣ Download HTML template
+                echo "Downloading Trivy HTML template..."
+                def tplDownload = sh(script: "curl -L https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl -o ${WORKSPACE}/html.tpl", returnStatus: true)
+                if (tplDownload != 0) {
+                    error("Failed to download HTML template")
+                }
+
+                // 4️⃣ Run full Trivy scan (CRITICAL,HIGH,MEDIUM)
+                echo "Running full Trivy scan..."
+                def fullScanExit = sh(script: """
+                    trivy image \
+                        --pkg-types os,java \
+                        --severity CRITICAL,HIGH,MEDIUM \
+                        --format template \
+                        --template "@${WORKSPACE}/html.tpl" \
+                        -o ${WORKSPACE}/reports/full-report.html \
+                        ${ECR_REPO}:${IMAGE_TAG}
+                """, returnStatus: true)
+
+                if (fullScanExit != 0) {
+                    echo "⚠️ Full Trivy scan found vulnerabilities (exit code ${fullScanExit})"
+                    currentBuild.result = 'UNSTABLE'
+                } else {
+                    echo "✅ Full Trivy scan completed with no CRITICAL/HIGH/MEDIUM vulnerabilities."
+                }
+
+                // 5️⃣ Run critical-only scan (optional, non-blocking)
+                echo "Running critical-only Trivy scan..."
+                def criticalScanExit = sh(script: """
+                    trivy image \
+                        --vuln-type os,library \
+                        --severity CRITICAL \
+                        --ignore-unfixed \
+                        --exit-code 0 \
+                        --format template \
+                        --template "@${WORKSPACE}/html.tpl" \
+                        -o ${WORKSPACE}/reports/critical-report.html \
+                        ${ECR_REPO}:${IMAGE_TAG}
+                """, returnStatus: true)
+
+                if (criticalScanExit != 0) {
+                    echo "⚠️ Critical-only scan failed (exit code ${criticalScanExit})"
+                } else {
+                    echo "✅ Critical-only scan completed."
+                }
+
+                // 6️⃣ Merge reports (optional: combine into single HTML if needed)
+                sh """
+                cat ${WORKSPACE}/reports/critical-report.html >> ${WORKSPACE}/reports/full-report.html || true
+                mv ${WORKSPACE}/reports/full-report.html ${WORKSPACE}/reports/report.html
+                """
+
+                // 7️⃣ Publish HTML report in Jenkins
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: "${WORKSPACE}/reports",
+                    reportFiles: 'report.html',
+                    reportName: 'Security Scan Report',
+                    reportTitles: 'Trivy Security Scan'
+                ])
+
+                // 8️⃣ Send email with report
+                emailext(
+                    subject: "Trivy Security Report - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    mimeType: 'text/html',
+                    body: """
+                        <h2>Trivy Security Scan Completed</h2>
+                        <b>Job:</b> ${env.JOB_NAME} <br>
+                        <b>Build:</b> ${env.BUILD_NUMBER} <br>
+                        <b>Image:</b> ${ECR_REPO}:${IMAGE_TAG} <br><br>
+                        The Trivy security scan report is attached.<br><br>
+                        <b>View report in Jenkins:</b><br>
+                        <a href="${env.BUILD_URL}HTML_Report/">${env.BUILD_URL}HTML_Report/</a>
+                    """,
+                    attachmentsPattern: "${WORKSPACE}/reports/report.html",
+                    recipientProviders: [
+                        [$class: 'DevelopersRecipientProvider'],
+                        [$class: 'RequesterRecipientProvider']
+                    ]
+                )
+
+            } catch (Exception e) {
+                currentBuild.result = 'FAILURE'
+                echo "❌ Trivy scan stage failed: ${e.getMessage()}"
+            }
+        }
+    }
+} // end of trivy scan
+
+stage('Push Image to ECR') {
+      steps {
+        sh """
+        docker tag ${ECR_REPO}:${IMAGE_TAG} ${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}
+
+        docker push ${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}
+        """
+      }
+    } // push image to ECR end
+
+    stage('Deploy to Kubernetes') {
+      steps {
+        script {
+
+          def image = "${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}"
+
+          sh """
+          sed -i 's|image: .*|image: ${image}|' ${K8S_PATH}/deployment.yaml
+
+          kubectl apply -f ${K8S_PATH}/deployment.yaml
+          kubectl apply -f ${K8S_PATH}/ingress.yaml
+          """
+        }
+      }
+    } // end of deployment stage
+
+stage('Final Pipeline Status') {
+ steps {
+  script {
+
+    def statusColor = currentBuild.currentResult == "SUCCESS" ? "green" : "red"
+
+    emailext(
+      subject: "Pipeline Result - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+      mimeType: 'text/html',
+
+      body: """
+
+      <h2>CI/CD Pipeline Report</h2>
+
+      <b>Project:</b> ${env.JOB_NAME}<br>
+      <b>Build:</b> ${env.BUILD_NUMBER}<br>
+      <b>Status:</b> <span style="color:${statusColor};">${currentBuild.currentResult}</span><br>
+
+      <br>
+
+
+      <b>Trivy Report:</b><br>
+      ${env.BUILD_URL}Trivy_Security_Report/
+
+      <br><br>
+
+      <b>Build Logs:</b><br>
+      ${env.BUILD_URL}
+
+      <br><br>
+
+      <i>Generated by Jenkins CI/CD Pipeline</i>
+
+      """,
+
+      recipientProviders: [
+        [$class: 'DevelopersRecipientProvider'],
+        [$class: 'RequesterRecipientProvider']
+      ]
+
+    )
+
+  }
+ }
+} // final email
+
+
+  }
+
+}
+
