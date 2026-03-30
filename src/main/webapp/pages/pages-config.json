@@ -3,6 +3,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "EmployeeView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Home",
   "type" : "PAGE",
   "params" : [ ]
