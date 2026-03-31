@@ -1,0 +1,147 @@
+{
+  "employeeListModel" : {
+    "_id" : "wm-employeeListModel-wm.Variable-1774416203994",
+    "name" : "employeeListModel",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "email" : "sample@when2work.com",
+      "empId" : "",
+      "firstName" : "J",
+      "lastName" : "Fargo",
+      "lastSignIn" : "May-25, 17",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "",
+      "firstName" : "Jess",
+      "lastName" : "Fargo",
+      "lastSignIn" : "May-25, 17",
+      "status" : "Part Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2311",
+      "firstName" : "Donna",
+      "lastName" : "Gallerton",
+      "lastSignIn" : "Apr-27, 16",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2312",
+      "firstName" : "Frank",
+      "lastName" : "Garcia",
+      "lastSignIn" : "Jul-17, 23",
+      "status" : "Per Diem"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2314",
+      "firstName" : "Lucy",
+      "lastName" : "Gingam",
+      "lastSignIn" : "Feb-2, 07",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2315",
+      "firstName" : "Steve",
+      "lastName" : "Gordon",
+      "lastSignIn" : "Jun-9, 13",
+      "status" : "Part Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2316",
+      "firstName" : "Judy",
+      "lastName" : "Gray",
+      "lastSignIn" : "May-28, 11",
+      "status" : "Per Diem"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2317",
+      "firstName" : "Virginia",
+      "lastName" : "Hector",
+      "lastSignIn" : "",
+      "status" : "Full Time"
+    }, {
+      "email" : "",
+      "empId" : "2318",
+      "firstName" : "Lenore",
+      "lastName" : "James",
+      "lastSignIn" : "",
+      "status" : "Part Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "",
+      "firstName" : "Luke",
+      "lastName" : "James",
+      "lastSignIn" : "",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "",
+      "firstName" : "James",
+      "lastName" : "Jameson",
+      "lastSignIn" : "",
+      "status" : "Per Diem"
+    }, {
+      "email" : "",
+      "empId" : "2305",
+      "firstName" : "Amy",
+      "lastName" : "Johnson",
+      "lastSignIn" : "May-28, 11",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2319",
+      "firstName" : "Laura",
+      "lastName" : "Kacen",
+      "lastSignIn" : "",
+      "status" : "Part Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2320",
+      "firstName" : "Jennifer",
+      "lastName" : "Larson",
+      "lastSignIn" : "Jul-6, 09",
+      "status" : "Full Time"
+    }, {
+      "email" : "smaple@sample.com",
+      "empId" : "",
+      "firstName" : "Sample",
+      "lastName" : "Last Name",
+      "lastSignIn" : "",
+      "status" : "Per Diem"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2321",
+      "firstName" : "Susan",
+      "lastName" : "Leonard",
+      "lastSignIn" : "Jun-9, 13",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2322",
+      "firstName" : "Sharon",
+      "lastName" : "Lesmen",
+      "lastSignIn" : "Mar-15, 12",
+      "status" : "Part Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2323",
+      "firstName" : "Josh",
+      "lastName" : "Lusua",
+      "lastSignIn" : "Mar-17, 07",
+      "status" : "Full Time"
+    }, {
+      "email" : "sample@when2work.com",
+      "empId" : "2324",
+      "firstName" : "John",
+      "lastName" : "Martin",
+      "lastSignIn" : "",
+      "status" : "Per Diem"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}
