@@ -15,6 +15,12 @@
     <wavemaker.app.runtime.ui.version>1.0.0-rc.297</wavemaker.app.runtime.ui.version>
     <wavemaker.artifactType>wmapp</wavemaker.artifactType>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>when_to_work</finalName>
     <plugins>
@@ -32,6 +38,7 @@
               <sources>
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
+                <source>services/when2work/src</source>
               </sources>
             </configuration>
           </execution>

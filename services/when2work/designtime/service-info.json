@@ -1,0 +1,7 @@
+{
+  "id" : "when2work",
+  "type" : "DataService",
+  "packageNames" : [ "com.wavemaker.when_to_work.when2work" ],
+  "title" : "when2work",
+  "mockEnabled" : false
+}
