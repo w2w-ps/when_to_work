@@ -1,0 +1,30 @@
+{
+  "currentWeekVar" : {
+    "_id" : "wm-staticVariable1-wm.Variable-1774332599636",
+    "name" : "currentWeekVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "startDate" : "",
+      "endDate" : "",
+      "weekLabel" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}
