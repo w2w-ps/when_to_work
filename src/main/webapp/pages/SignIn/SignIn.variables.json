@@ -1,0 +1,15 @@
+{
+  "signInFormData" : {
+    "_id" : "wm-signInFormData-wm.Variable-1774249844743",
+    "name" : "signInFormData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "username" : "",
+      "password" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : true
+  }
+}
