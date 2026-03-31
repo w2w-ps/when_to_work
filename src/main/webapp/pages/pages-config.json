@@ -12,6 +12,11 @@
   "name" : "Empinfo",
   "type" : "PAGE",
   "params" : [ ]
+},
+  {
+  "name" : "Mgrchangeemppass",
+  "type" : "PAGE",
+  "params" : [ ]
 },{
   "name" : "Home",
   "type" : "PAGE",
