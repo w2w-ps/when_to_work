@@ -1,0 +1,17 @@
+{
+  "employeeData" : {
+    "_id" : "wm-employeeData-wm.Variable-1774425336402",
+    "name" : "employeeData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "username" : "LUKEAARON",
+      "newUsername" : "LUKEAARON",
+      "password" : "",
+      "confirmPassword" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  }
+}

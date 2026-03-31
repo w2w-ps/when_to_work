@@ -1,0 +1,6 @@
+{
+  "id" : "scheduleList",
+  "type" : "RestService",
+  "title" : "scheduleList",
+  "mockEnabled" : false
+}
