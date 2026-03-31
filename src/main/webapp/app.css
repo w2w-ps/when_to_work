@@ -46,3 +46,90 @@
 .wm-app .app-tabs ul {
     justify-content: center !important;
 }
+
+/* .striped-even table .app-checkbox.checkbox>label .caption:before {
+    background: url(./resources/images/imagelists/checkbox.png);
+    background-position: -50px -5px;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+} */
+
+/* .striped-even table .active .app-checkbox.checkbox>label .caption:before,
+.striped-even table .app-checkbox.checkbox>label.checked-box .caption:before {
+    background: url(./resources/images/imagelists/checkbox.png);
+    background-position: -25px -5px;
+} */
+
+
+.striped-even table .app-checkbox.checkbox>label .caption:before {
+    border-color: transparent;
+}
+
+.striped-even table .app-checkbox.checkbox>label>input[type="checkbox"]:checked+.caption:after {
+    border-color: transparent;
+}
+
+.striped-even .table .app-checkbox.checkbox>label>input[type="checkbox"],
+.table tr td:first-child>.app-checkbox>label,
+.table th .app-checkbox>label {
+    width: 18px;
+    height: 18px;
+    min-height: 18px;
+}
+
+.striped-even .table>tbody>tr.active:nth-child(odd) {
+    background-color: transparent;
+}
+
+.striped-even .table thead th:hover,
+.striped-even .table>tbody>tr:hover:nth-child(odd) {
+    background-color: var(--wm-color-white);
+}
+
+.data-table-striped-even-large-header.striped-even .table thead th:hover,
+.data-table-striped-even-deleted-large-header.striped-even .table thead th:hover {
+    border-bottom: 1px solid var(--wm-color-tertiary);
+}
+
+.striped-even .table thead th:not(:last-child):before {
+    content: "";
+    background-color: var(--wm-color-gray);
+    height: 80%;
+    width: 1px;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 2px;
+}
+
+.data-table-striped-even-large-header.striped-even .table thead th:not(:last-child):before,
+.data-table-striped-even-deleted-large-header.striped-even .table thead th:not(:last-child):before {
+    display: none !important;
+}
+
+.striped-even th {
+    text-align: center !important;
+}
+
+.striped-even td {
+    white-space: nowrap;
+}
+
+.striped-even .table>tbody>tr:hover:nth-child(even) {
+    background-color: var(--wm-color-surface-container-highest);
+}
+
+.data-table-striped-even-deleted-large-header .app-datagrid {
+    border: 1px solid var(--wm-color-tertiary-container);
+}
+
+.data-table-striped-even-large-header .app-datagrid,
+.striped-even .app-datagrid {
+    border: 1px solid var(--wm-color-border-color);
+}
+
+.table th .app-checkbox {
+    height: 18px;
+}
