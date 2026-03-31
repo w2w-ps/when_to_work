@@ -1,0 +1,76 @@
+{
+  "username" : "when2work",
+  "password" : "7b6a43524a122c0c6e4166771a13777547367b6a3120",
+  "url" : "jdbc:postgresql://54.82.188.74:5442/when2work",
+  "driverClass" : "org.postgresql.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.WMPostgresSQLDialect",
+  "serviceId" : "when2work",
+  "packageName" : "com.wavemaker.when_to_work.when2work",
+  "dbType" : "PostgreSQL",
+  "host" : "54.82.188.74",
+  "dbName" : "when2work",
+  "port" : "5442",
+  "schemaName" : "public",
+  "tableFilter" : [ {
+    "table" : "cat_group",
+    "schema" : "public"
+  }, {
+    "table" : "category",
+    "schema" : "public"
+  }, {
+    "table" : "company",
+    "schema" : "public"
+  }, {
+    "table" : "employee",
+    "schema" : "public"
+  }, {
+    "table" : "employee_phone",
+    "schema" : "public"
+  }, {
+    "table" : "employee_skill",
+    "schema" : "public"
+  }, {
+    "table" : "flyway_schema_history",
+    "schema" : "public"
+  }, {
+    "table" : "group_cat",
+    "schema" : "public"
+  }, {
+    "table" : "group_skill",
+    "schema" : "public"
+  }, {
+    "table" : "schedule",
+    "schema" : "public"
+  }, {
+    "table" : "scheduled_employee",
+    "schema" : "public"
+  }, {
+    "table" : "skill",
+    "schema" : "public"
+  }, {
+    "table" : "skill_group",
+    "schema" : "public"
+  }, {
+    "table" : "user",
+    "schema" : "public"
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null,
+    "reImport" : false
+  },
+  "readOnly" : true,
+  "metadataDialect" : "",
+  "dbServerVersion" : "17.0"
+}
