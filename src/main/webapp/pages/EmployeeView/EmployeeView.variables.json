@@ -232,6 +232,7 @@
     "dataSet" : [ ],
     "isList" : true,
     "maxResults" : 20,
+    "onBeforeUpdate" : "svScheduleListonBeforeServiceCall(variable, inputData)",
     "startUpdate" : false,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",

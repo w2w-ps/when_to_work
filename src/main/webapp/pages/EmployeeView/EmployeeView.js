@@ -142,6 +142,16 @@ Page.onReady = function () {
 };
 
 /**
+ * Guards svScheduleList from firing when date inputs are not yet available.
+ * Returns false to abort the API call if startDate or endDate is missing.
+ */
+Page.svScheduleListonBeforeServiceCall = function (variable, inputData) {
+    if (!inputData.startDate || !inputData.endDate) {
+        return false;
+    }
+};
+
+/**
  * Resets all form fields and checkboxes to their default/empty state
  */
 Page.resetShiftForm = function () {
