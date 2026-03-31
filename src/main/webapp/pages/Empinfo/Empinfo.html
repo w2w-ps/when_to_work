@@ -1,0 +1,217 @@
+<wm-page name="page" pagetitle="Empinfo">
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <!-- Row 0: Page Title Block -->
+            <wm-container name="titleBlock" direction="column" alignment="top-center" gap="4" width="fill" height="hug"
+                class="app-container-default" padding="16px 0 8px 0">
+                <wm-label name="labelCompany" caption="Sample Company" class="label-label-18-700"
+                    variant="label-18-700"></wm-label>
+                <wm-label name="labelEmployee" caption="John Asgard" class="label-label-16-700" variant="label-16-700">
+                </wm-label>
+                <wm-label name="labelMyInfo" caption="My Information" class="label-label-16-700" variant="label-16-700">
+                </wm-label>
+            </wm-container>
+            <!-- Centered wrapper to constrain form width -->
+            <wm-container name="pageWrapper" direction="column" alignment="top-center" gap="8" width="fill" height="hug"
+                class="app-container-default" padding="0 16px">
+                <!-- Main Form Card -->
+                <wm-container name="formCard" direction="column" alignment="top-left" gap="8" width="760px" height="hug"
+                    class="container-grey-container" padding="16px" variant="grey-container">
+                    <!-- Name Section -->
+                    <wm-container name="nameRow" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default">
+                        <wm-container name="nameLabelCol" direction="column" alignment="top-left" gap="4" width="38%"
+                            height="hug" class="app-container-default">
+                            <wm-label name="labelName" caption="Name" class="label-label-16-700" variant="label-16-700">
+                            </wm-label>
+                        </wm-container>
+                        <wm-container name="nameValueCol" direction="row" alignment="start" gap="auto" width="62%"
+                            height="hug" class="app-container-default" wrap="false">
+                            <wm-container name="nameTextBlock" direction="column" alignment="top-left" gap="2"
+                                width="hug" height="hug" class="app-container-default">
+                                <wm-label name="labelNameValue" caption="bind:Variables.empInfo.dataSet.name"
+                                    class="label-label-14-700" variant="label-14-700"></wm-label>
+                                <wm-label name="labelNameHelper" caption="(your name can only be updated by a manager)"
+                                    class="label-p-sm"></wm-label>
+                            </wm-container>
+                            <wm-button name="btnSaveName" caption="Save" class="btn-filled-bg-primary-sm"
+                                variant="filled-bg-primary-sm"></wm-button>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="divider1" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default emp-divider"></wm-container>
+                    <!-- Login Section -->
+                    <wm-container name="loginRow" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default">
+                        <wm-container name="loginLabelCol" direction="column" alignment="top-left" gap="4" width="38%"
+                            height="hug" class="app-container-default">
+                            <wm-label name="labelLogin" caption="Login" class="label-label-16-700"
+                                variant="label-16-700"></wm-label>
+                        </wm-container>
+                        <wm-container name="loginValueCol" direction="column" alignment="top-left" gap="4" width="62%"
+                            height="hug" class="app-container-default">
+                            <wm-button name="btnChangePassword" caption="Change Username/Password"
+                                class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="divider2" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default emp-divider"></wm-container>
+                    <!-- Notifications Section -->
+                    <wm-container name="notificationsRow" direction="row" alignment="top-left" gap="4" width="fill"
+                        height="hug" class="app-container-default">
+                        <wm-container name="notificationsLabelCol" direction="column" alignment="top-left" gap="4"
+                            width="38%" height="hug" class="app-container-default">
+                            <wm-label name="labelNotifications" caption="Notifications" class="label-label-16-700"
+                                variant="label-16-700"></wm-label>
+                        </wm-container>
+                        <wm-container name="notificationsValueCol" direction="column" alignment="top-left" gap="6"
+                            width="62%" height="hug" class="app-container-default">
+                            <wm-anchor name="anchorEmail" caption="bind:Variables.empInfo.dataSet.email"
+                                class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
+                            <wm-radioset name="radiosetEmail"
+                                dataset="All employees can see my email addresses, Only managers can see my email addresses"
+                                datavalue="bind:Variables.emailVisibility.dataSet.dataValue"
+                                selectedvalue="bind:Variables.emailVisibility.dataSet.dataValue"></wm-radioset>
+                            <wm-button name="btnAddNotifications" caption="Add / Edit Notifications"
+                                class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="divider3" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default emp-divider"></wm-container>
+                    <!-- Phones Section -->
+                    <wm-container name="phonesRow" direction="row" alignment="top-left" gap="4" width="fill"
+                        height="hug" class="app-container-default">
+                        <wm-container name="phonesLabelCol" direction="column" alignment="top-left" gap="4" width="38%"
+                            height="hug" class="app-container-default">
+                            <wm-label name="labelPhones" caption="Phones" class="label-label-16-700"
+                                variant="label-16-700"></wm-label>
+                        </wm-container>
+                        <wm-container name="phonesValueCol" direction="column" alignment="top-left" gap="6" width="62%"
+                            height="hug" class="app-container-default">
+                            <wm-container name="phone1Row" direction="row" alignment="middle-left" gap="8" width="fill"
+                                height="hug" class="app-container-default">
+                                <wm-label name="labelPhone1st" caption="1st" variant="default"></wm-label>
+                                <wm-text name="textPhone1" datavalue="bind:Variables.empInfo.dataSet.phone1"
+                                    width="fill"></wm-text>
+                            </wm-container>
+                            <wm-container name="phone2Row" direction="row" alignment="middle-left" gap="8" width="fill"
+                                height="hug" class="app-container-default">
+                                <wm-label name="labelPhone2nd" caption="2nd" variant="default"></wm-label>
+                                <wm-text name="textPhone2" datavalue="bind:Variables.empInfo.dataSet.phone2"
+                                    width="fill"></wm-text>
+                            </wm-container>
+                            <wm-container name="phoneCellRow" direction="row" alignment="middle-left" gap="8"
+                                width="fill" height="hug" class="app-container-default">
+                                <wm-label name="labelPhoneCell" caption="Cell" variant="default"></wm-label>
+                                <wm-text name="textPhoneCell" datavalue="bind:Variables.empInfo.dataSet.phoneCell"
+                                    width="fill"></wm-text>
+                            </wm-container>
+                            <wm-label name="labelPhoneHelper"
+                                caption="(use the Add/Edit Notifications button above to set up text notifications)"
+                                class="label-p-sm label-label-small-400" variant="label-small-400"></wm-label>
+                            <wm-radioset name="radiosetPhone"
+                                dataset="All employees can see my phone numbers, Only managers can see my phone numbers"
+                                datavalue="bind:Variables.phoneVisibility.dataSet.dataValue"
+                                selectedvalue="bind:Variables.phoneVisibility.dataSet.dataValue"></wm-radioset>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="divider4" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default emp-divider"></wm-container>
+                    <!-- Address Section -->
+                    <wm-container name="addressRow" direction="row" alignment="top-left" gap="4" width="fill"
+                        height="hug" class="app-container-default">
+                        <wm-container name="addressLabelCol" direction="column" alignment="top-left" gap="4" width="38%"
+                            height="hug" class="app-container-default">
+                            <wm-label name="labelAddress" caption="Address" class="label-label-16-700"
+                                variant="label-16-700"></wm-label>
+                        </wm-container>
+                        <wm-container name="addressValueCol" direction="column" alignment="top-left" gap="6" width="62%"
+                            height="hug" class="app-container-default">
+                            <wm-container name="address1Row" direction="row" alignment="middle-left" gap="8"
+                                width="fill" height="hug" class="app-container-default">
+                                <wm-label name="labelAddressField" caption="Address" variant="default"></wm-label>
+                                <wm-text name="textAddress1" datavalue="bind:Variables.empInfo.dataSet.address1"
+                                    width="fill"></wm-text>
+                            </wm-container>
+                            <wm-text name="textAddress2" datavalue="bind:Variables.empInfo.dataSet.address2"
+                                width="fill"></wm-text>
+                            <wm-container name="cityRow" direction="row" alignment="middle-left" gap="8" width="fill"
+                                height="hug" class="app-container-default">
+                                <wm-label name="labelCity" caption="City" variant="default"></wm-label>
+                                <wm-text name="textCity" datavalue="bind:Variables.empInfo.dataSet.city" width="fill">
+                                </wm-text>
+                            </wm-container>
+                            <wm-container name="stateRow" direction="row" alignment="middle-left" gap="8" width="fill"
+                                height="hug" class="app-container-default">
+                                <wm-label name="labelState" caption="State" variant="default"></wm-label>
+                                <wm-text name="textState" datavalue="bind:Variables.empInfo.dataSet.state" width="80px">
+                                </wm-text>
+                            </wm-container>
+                            <wm-container name="zipRow" direction="row" alignment="middle-left" gap="8" width="fill"
+                                height="hug" class="app-container-default">
+                                <wm-label name="labelZip" caption="Zip" variant="default"></wm-label>
+                                <wm-text name="textZip" datavalue="bind:Variables.empInfo.dataSet.zip" width="100px">
+                                </wm-text>
+                            </wm-container>
+                            <wm-container name="accessibilityRow" direction="row" alignment="middle-right" gap="8"
+                                width="fill" height="hug" class="app-container-default">
+                                <wm-checkbox name="checkboxAccessibility" type="checkbox"
+                                    datavalue="bind:Variables.enableAccessibility.dataSet.dataValue"></wm-checkbox>
+                                <wm-label name="labelAccessibility" caption="Enable Visual Accessibility Mode"
+                                    class="label-p-sm"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+                <!-- Bottom Save Button -->
+                <wm-container name="bottomSaveRow" direction="row" alignment="top-center" gap="4" width="760px"
+                    height="hug" class="app-container-default" padding="8px 0">
+                    <wm-button name="btnSaveBottom" caption="Save" class="btn-filled-bg-primary-sm"
+                        variant="filled-bg-primary-sm"></wm-button>
+                </wm-container>
+                <!-- Smart Assistants Card -->
+                <wm-container name="smartAssistantsCard" direction="column" alignment="top-left" gap="8" width="760px"
+                    height="hug" class="container-grey-container" padding="16px" variant="grey-container">
+                    <wm-container name="smartAssistantsHeaderRow" direction="row" alignment="top-left" gap="4"
+                        width="fill" height="hug" class="app-container-default">
+                        <wm-container name="smartAssistantsLeftCol" direction="column" alignment="top-left" gap="4"
+                            width="50%" height="hug" class="app-container-default">
+                            <wm-label name="labelSmartAssistants" caption="Smart Assistants" class="label-label-16-700"
+                                variant="label-16-700"></wm-label>
+                            <wm-anchor name="anchorLearnMore" caption="Learn more" class="anchor-standard-sm-underlined"
+                                variant="standard-sm-underlined"></wm-anchor>
+                        </wm-container>
+                        <wm-container name="smartAssistantsRightCol" direction="column" alignment="top-left" gap="4"
+                            width="50%" height="hug" class="app-container-default"></wm-container>
+                    </wm-container>
+                    <wm-container name="divider5" direction="row" alignment="top-left" gap="4" width="fill" height="hug"
+                        class="app-container-default emp-divider"></wm-container>
+                    <wm-container name="alexaRow" direction="row" alignment="start" gap="auto" width="fill" height="hug"
+                        class="app-container-default">
+                        <wm-label name="labelAlexa" caption="Alexa (Not linked)" class="label-label-14-700"
+                            variant="label-14-700"></wm-label>
+                        <wm-button name="btnAlexa" caption="Access WhenToWork using Alexa"
+                            class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button>
+                    </wm-container>
+                </wm-container>
+                <!-- Connect Card -->
+                <wm-container name="connectCard" direction="column" alignment="top-left" gap="8" width="760px"
+                    height="hug" class="container-grey-container" padding="16px" variant="grey-container">
+                    <wm-label name="labelConnect" caption="Connect" class="label-label-16-700" variant="label-16-700">
+                    </wm-label>
+                    <wm-container name="calendarRow" direction="row" alignment="top-left" gap="8" width="fill"
+                        height="hug" class="app-container-default">
+                        <wm-container name="calendarIconCol" direction="row" alignment="middle-left" gap="4" width="15%"
+                            height="hug" class="app-container-default">
+                            <wm-picture resizemode="cover" name="picture1" class="img-rounded" variant="default:rounded"
+                                picturesource="resources/images/logos/googlecalicon20.jpg"></wm-picture>
+                        </wm-container>
+                        <wm-anchor margin="unset 0.5em" name="anchor3" variant="standard-sm"
+                            caption="Google Calendar: Export your schedule to Google Calendar and it will update automatically. You can also sync Google Calendar with your other calendars."
+                            class="anchor-standard-sm"></wm-anchor>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

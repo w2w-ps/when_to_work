@@ -47,20 +47,20 @@
     justify-content: center !important;
 }
 
-.striped-even table .app-checkbox.checkbox>label .caption:before {
+/* .striped-even table .app-checkbox.checkbox>label .caption:before {
     background: url(./resources/images/imagelists/checkbox.png);
     background-position: -50px -5px;
     top: 0;
     left: 0;
     width: 18px;
     height: 18px;
-}
+} */
 
-.striped-even table .active .app-checkbox.checkbox>label .caption:before,
+/* .striped-even table .active .app-checkbox.checkbox>label .caption:before,
 .striped-even table .app-checkbox.checkbox>label.checked-box .caption:before {
     background: url(./resources/images/imagelists/checkbox.png);
     background-position: -25px -5px;
-}
+} */
 
 
 .striped-even table .app-checkbox.checkbox>label .caption:before {

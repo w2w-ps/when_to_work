@@ -1,0 +1,356 @@
+{
+  "basePath" : "${rest.scheduleList.basepath}",
+  "paths" : {
+    "/scheduling/employees" : {
+      "x-WM-BASE_PATH" : "/scheduling/employees",
+      "x-WM-TAG" : "scheduleList",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "scheduleList_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "x-WM-IS_LIST" : true,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              }
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "ngrok-skip-browser-warning",
+          "format" : "boolean",
+          "description" : "ngrok-skip-browser-warning",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "endDate",
+          "format" : "string",
+          "description" : "endDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "startDate",
+          "format" : "string",
+          "description" : "startDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "scheduleList" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.scheduleList.scheme}://${rest.scheduleList.host}${rest.scheduleList.basepath}/scheduling/employees"
+    }
+  },
+  "host" : "${rest.scheduleList.host}",
+  "schemes" : [ "${rest.scheduleList.scheme}" ],
+  "definitions" : {
+    "Response.RootResponseROOTEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "availablePositions", "employeeId", "firstName", "lastName", "phones", "shiftCount", "totalHours", "weeklyShifts" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "weeklyShifts" : {
+          "$ref" : "#/definitions/Response.weeklyShifts"
+        },
+        "shiftCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "totalHours" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "availablePositions" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.availablePositionsEntryItem"
+          }
+        },
+        "phones" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.1" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.1",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.2" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.2",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.3" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.3",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.4" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.4",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.availablePositionsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.availablePositionsEntryItem",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.0" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.0",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.weeklyShifts" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.weeklyShifts",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "0", "1", "2", "3", "4", "5", "6", "7" ],
+      "properties" : {
+        "0" : {
+          "$ref" : "#/definitions/Response.0"
+        },
+        "1" : {
+          "$ref" : "#/definitions/Response.1"
+        },
+        "2" : {
+          "$ref" : "#/definitions/Response.2"
+        },
+        "3" : {
+          "$ref" : "#/definitions/Response.3"
+        },
+        "4" : {
+          "$ref" : "#/definitions/Response.4"
+        },
+        "5" : {
+          "$ref" : "#/definitions/Response.5"
+        },
+        "6" : {
+          "$ref" : "#/definitions/Response.6"
+        },
+        "7" : {
+          "$ref" : "#/definitions/Response.7"
+        }
+      }
+    },
+    "Response.shiftsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.shiftsEntryItem",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "category", "description", "duration", "endTime", "position", "startTime" ],
+      "properties" : {
+        "duration" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "position" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.5" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.5",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.6" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.6",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.7" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.7",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "date", "shifts" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.RootResponse",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "022c8c68-18dd-4530-a7fc-1817c1410eea",
+    "x-WM-SERVICE_ID" : "restService",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "scheduleList"
+  } ]
+}

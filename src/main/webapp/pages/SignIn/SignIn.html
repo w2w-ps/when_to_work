@@ -1,0 +1,34 @@
+<wm-page name="page" pagetitle="Sign In">
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="0"
+                alignment="top-center" width="fill" height="fill">
+                <wm-container name="signInCard" class="app-container-default signin-card container-signin-card"
+                    direction="column" gap="16" alignment="top-center" width="480px" height="hug">
+                    <wm-picture name="logoImage" picturesource="resources/images/logos/w2w_logo_circle.png"
+                        alttext="WhenToWork Logo" class="signin-logo"></wm-picture>
+                    <wm-label name="brandLabel" caption="WhenToWork.com" class="brand-title label-brand-title">
+                    </wm-label>
+                    <wm-label name="signInHeading" caption="Sign In" class="section-heading label-section-heading">
+                    </wm-label>
+                    <wm-text name="usernameInput" placeholder="username" type="text"
+                        datavalue="bind:Variables.signInFormData.dataSet.username" class="signin-input"></wm-text>
+                    <wm-text name="passwordInput" placeholder="password" type="password"
+                        datavalue="bind:Variables.signInFormData.dataSet.password" class="signin-input"></wm-text>
+                    <wm-button name="signInBtn" caption="SIGN IN" class="btn-default signin-primary btn-signin-primary"
+                        type="button"></wm-button>
+                    <wm-anchor name="forgotPasswordLink" caption="Need username / password?" class="link-text">
+                    </wm-anchor>
+                    <wm-anchor name="troubleConnectingLink" caption="Trouble Connecting? Try W2W.com" class="link-text">
+                    </wm-anchor>
+                    <wm-button name="googleSignInBtn" caption="Sign In With Google" iconclass="fa fa-google"
+                        class="btn-default google-signin btn-google-signin" type="button"></wm-button>
+                    <wm-button name="facebookSignInBtn" caption="Sign In With Facebook" iconclass="fa fa-facebook"
+                        class="btn-default facebook-signin btn-facebook-signin" type="button"></wm-button>
+                    <wm-button name="microsoftSignInBtn" caption="Sign In With Microsoft" iconclass="fa fa-windows"
+                        class="btn-default microsoft-signin btn-microsoft-signin" type="button"></wm-button>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>
