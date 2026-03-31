@@ -1,0 +1,39 @@
+.footer-main {
+  background-color: var(--wm-color-footer-bg);
+  color: var(--wm-color-footer-text);
+}
+
+.footer-columns {
+  padding: 32px 40px 24px 40px;
+}
+
+.footer-col {
+  min-width: 160px;
+}
+
+.footer-col-title {
+  color: var(--wm-color-footer-title);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.footer-link {
+  color: var(--wm-color-footer-link);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-copyright {
+  padding: 16px 40px;
+  border-top: 1px solid var(--wm-color-footer-divider);
+}
+
+.footer-copyright-text {
+  color: var(--wm-color-footer-copyright-text);
+  font-size: var(--wm-display-small-font-size);
+}
+
+.footer-cookie-btn {
+  font-size: var(--wm-display-small-font-size);
+  margin-top: 8px;
+}

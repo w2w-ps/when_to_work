@@ -15,7 +15,7 @@
     } ],
     "operation" : "toast"
   },
-  "goToPage_Empchangepass" : {
+    "goToPage_Empchangepass" : {
     "_id" : "wm-goToPage_Empchangepass-wm.NavigationAction-1774590810582",
     "name" : "goToPage_Empchangepass",
     "owner" : "App",
@@ -34,6 +34,28 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Empinfo",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_footer_Copy" : {
+    "_id" : "wm-goToPage_footer_Copy-wm.NavigationAction-1774261656689",
+    "name" : "goToPage_footer_Copy",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "footer_Copy",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_header" : {
+    "_id" : "wm-goToPage_header-wm.NavigationAction-1774261026715",
+    "name" : "goToPage_header",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "header",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
