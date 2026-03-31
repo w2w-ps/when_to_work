@@ -1,0 +1,10 @@
+{
+  "migrationTaskDetailsList" : [ {
+    "onReleaseVersion" : "11.15",
+    "migrationVersion" : 1115.04,
+    "migrationMessages" : [ {
+      "msg" : "Migrated Variables to Actions in app.variables.json",
+      "args" : [ ]
+    } ]
+  } ]
+}
