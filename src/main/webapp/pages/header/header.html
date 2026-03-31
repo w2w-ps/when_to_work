@@ -1,14 +1,21 @@
 <wm-partial name="header" type="header">
-        <wm-container direction="column" alignment="top-left" gap="4" width="fill" name="containerlayout">
-            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="containerrow" variant="default"
-                height="fill">
-                <wm-container direction="row" alignment="top-right" gap="4" width="100%" name="containerright"
-                    variant="default" wrap="false">
-                    <wm-container direction="row" alignment="top-right" gap="4" width="320px" name="containersearch"
-                        variant="default" wrap="false">
-                        <wm-search dataset="Home, Services, Products, About US, Contact" name="search1"></wm-search>
-                    </wm-container>
-                </wm-container>
-            </wm-container>
-        </wm-container>
-</wm-partial>
+<wm-container name="headerContainer" class="app-container-default header-wrapper" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-container name="headerLeft" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
+<wm-picture name="headerLogo" picturesource="resources/images/logos/w2w_logo_circle_und.png" alttext="WhenToWork Logo" width="32px" height="32px" class="img-responsive"></wm-picture>
+<wm-label name="headerBrand" caption="WhenToWork" class="app-label h5 label-brand-title"></wm-label></wm-container>
+<wm-container name="headerNav" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="hug" height="hug">
+<wm-container name="navItemScheduling" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-anchor name="navScheduling" caption="Scheduling"></wm-anchor>
+<wm-icon name="navSchedulingIcon" iconclass="fa fa-caret-down"></wm-icon></wm-container>
+<wm-container name="navItemCustomer" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-anchor name="navCustomerStories" caption="Customer Stories"></wm-anchor>
+<wm-icon name="navCustomerIcon" iconclass="fa fa-caret-down"></wm-icon></wm-container>
+<wm-container name="navItemPricing" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-anchor name="navPricing" caption="Pricing"></wm-anchor>
+<wm-icon name="navPricingIcon" iconclass="fa fa-caret-down"></wm-icon></wm-container>
+<wm-container name="navItemAbout" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-anchor name="navAbout" caption="About"></wm-anchor>
+<wm-icon name="navAboutIcon" iconclass="fa fa-caret-down"></wm-icon></wm-container></wm-container>
+<wm-container name="headerActions" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-button name="btnFreeTrial" caption="Free Trial" class="btn-header-filled"></wm-button>
+<wm-button name="btnSignIn" caption="Sign In" class="btn-header-outlined" on-click="Actions.goToPage_SignIn.invoke()"></wm-button></wm-container></wm-container></wm-partial>

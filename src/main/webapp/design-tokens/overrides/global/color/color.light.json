@@ -22,7 +22,7 @@
     },
     "gray" : {
       "@" : {
-        "value" : "#2F4F4F"
+        "value" : "#aca899ff"
       }
     },
     "green" : {
@@ -138,6 +138,51 @@
     "border" : {
       "@" : {
         "value" : "#808080"
+      }
+    },
+    "surface" : {
+      "container" : {
+        "highest" : {
+          "@" : {
+            "value" : "#e7e8eeff"
+          }
+        }
+      }
+    },
+    "tertiary" : {
+      "@" : {
+        "value" : "#f9a900ff"
+      },
+      "container" : {
+        "@" : {
+          "value" : "#FBAEB6"
+        }
+      },
+      "fixed" : {
+        "@" : {
+          "value" : "#ffff8a"
+        },
+        "dim" : {
+          "value" : "#ffff8a"
+        }
+      }
+    },
+    "on-tertiary" : {
+      "@" : {
+        "value" : "#000000"
+      },
+      "container" : {
+        "@" : {
+          "value" : "#c17a00"
+        }
+      },
+      "fixed" : {
+        "@" : {
+          "value" : "#723900"
+        },
+        "variant" : {
+          "value" : "#a56400"
+        }
       }
     }
   }

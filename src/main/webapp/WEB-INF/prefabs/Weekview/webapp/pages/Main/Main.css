@@ -1,0 +1,24 @@
+.week-nav-hover-container {
+    position: relative;
+}
+
+.nav-buttons-hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.week-nav-hover-container:hover .nav-buttons-hidden {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bg-grey {
+    background-color: #e3e6f0;
+    cursor: pointer;
+}
+
+.wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
+.wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
+    margin-left: 0;
+}

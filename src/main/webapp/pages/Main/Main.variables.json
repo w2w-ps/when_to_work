@@ -1,1 +1,102 @@
-{ }
+{
+  "stvTableData" : {
+    "_id" : "wm-stvTableData-wm.Variable-1774588836146",
+    "name" : "stvTableData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    }, {
+      "name" : "Monday",
+      "position" : "delivery",
+      "start" : "6am",
+      "end" : "9pm",
+      "First Name" : "Aaron",
+      "Last Name" : "Gordon",
+      "Comment" : "Called in Sick Leave"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}

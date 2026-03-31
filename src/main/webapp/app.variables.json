@@ -15,6 +15,61 @@
     } ],
     "operation" : "toast"
   },
+    "goToPage_Empchangepass" : {
+    "_id" : "wm-goToPage_Empchangepass-wm.NavigationAction-1774590810582",
+    "name" : "goToPage_Empchangepass",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Empchangepass",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+   "goToPage_Empinfo" : {
+    "_id" : "wm-goToPage_Empinfo-wm.NavigationAction-1774601664129",
+    "name" : "goToPage_Empinfo",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Empinfo",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_footer_Copy" : {
+    "_id" : "wm-goToPage_footer_Copy-wm.NavigationAction-1774261656689",
+    "name" : "goToPage_footer_Copy",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "footer_Copy",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_header" : {
+    "_id" : "wm-goToPage_header-wm.NavigationAction-1774261026715",
+    "name" : "goToPage_header",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "header",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_EmployeeView" : {
+    "_id" : "wm-goToPage_EmployeeView-wm.NavigationAction-1774876864317",
+    "name" : "goToPage_EmployeeView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "EmployeeView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Home" : {
     "_id" : "wm-goToPage_Home-wm.NavigationAction-1774001292423",
     "name" : "goToPage_Home",
@@ -61,11 +116,13 @@
     "name" : "supportedLocale",
     "owner" : "App",
     "category" : "wm.Variable",
+    "dataBinding" : [ ],
     "dataSet" : {
       "en" : "English"
     },
-    "type" : "string",
-    "isList" : false,
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
     "saveInPhonegap" : false
   }
 }

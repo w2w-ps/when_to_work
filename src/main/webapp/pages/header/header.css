@@ -1,1 +1,5 @@
-
+.header-wrapper {
+  background-color: var(--wm-color-surface, #ffffff);
+  border-bottom: 3px solid var(--wm-color-footer-divider);
+  padding: 0 var(--wm-space-6, 24px);
+}
