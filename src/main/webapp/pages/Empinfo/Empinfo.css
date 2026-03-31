@@ -1,0 +1,20 @@
+.emp-divider {
+  border-top: 1px solid #C0C0C0;
+  margin: 4px 0;
+}
+
+.emp-card-bordered {
+  border: 1px solid #C0C0C0;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.emp-phone-label {
+  min-width: 36px;
+  text-align: right;
+}
+
+.emp-addr-label {
+  min-width: 60px;
+  text-align: right;
+}

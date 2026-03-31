@@ -2,11 +2,17 @@
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
-}, {
-  "name" : "EmployeeView",
+}, 
+ {
+  "name" : "Empchangepass",
   "type" : "PAGE",
   "params" : [ ]
-}, {
+},
+  {
+  "name" : "Empinfo",
+  "type" : "PAGE",
+  "params" : [ ]
+},{
   "name" : "Home",
   "type" : "PAGE",
   "params" : [ ]
@@ -19,7 +25,23 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "SignIn",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "TestDrive",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "EmployeeView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "footer_Copy",
   "type" : "FOOTER",
   "params" : [ ]
 }, {

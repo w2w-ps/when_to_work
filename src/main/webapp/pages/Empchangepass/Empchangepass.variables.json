@@ -1,0 +1,38 @@
+{
+  "confirmPasswordVar" : {
+    "_id" : "wm-confirmPasswordVar-wm.Variable-1774591844051",
+    "name" : "confirmPasswordVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "currentPasswordVar" : {
+    "_id" : "wm-currentPasswordVar-wm.Variable-1774591838012",
+    "name" : "currentPasswordVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "newPasswordVar" : {
+    "_id" : "wm-newPasswordVar-wm.Variable-1774591840983",
+    "name" : "newPasswordVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  }
+}
