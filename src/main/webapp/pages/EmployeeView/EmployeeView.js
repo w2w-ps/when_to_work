@@ -146,7 +146,7 @@ Page.onReady = function () {
  * Returns false to abort the API call if startDate or endDate is missing.
  */
 Page.svScheduleListonBeforeServiceCall = function (variable, inputData) {
-    if (!inputData.startDate || !inputData.endDate) {
+    if (!inputData.startDate || !inputData.endDate || !inputData.companyId) {
         return false;
     }
 };
