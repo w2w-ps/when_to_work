@@ -2,11 +2,17 @@
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
-}, {
+}, 
+ {
+  "name" : "Empchangepass",
+  "type" : "PAGE",
+  "params" : [ ]
+},
+  {
   "name" : "Empinfo",
   "type" : "PAGE",
   "params" : [ ]
-}, {
+},{
   "name" : "Home",
   "type" : "PAGE",
   "params" : [ ]
