@@ -3,6 +3,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "Empchangepass",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Home",
   "type" : "PAGE",
   "params" : [ ]
