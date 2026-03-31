@@ -100,6 +100,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+   "goToPage_Mgrempedit" : {
+    "_id" : "wm-goToPage_Mgrempedit-wm.NavigationAction-1774420490307",
+    "name" : "goToPage_Mgrempedit",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Mgrempedit",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_topnav" : {
     "_id" : "wm-goToPage_topnav-wm.NavigationAction-1774015671287",
     "name" : "goToPage_topnav",

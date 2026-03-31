@@ -1,0 +1,283 @@
+<wm-page name="page" pagetitle="Mgrempedit">
+<wm-content name="content">
+<wm-page-content columnwidth="12" name="pagecontent">
+<!-- TOOLBAR ROW (existing, preserved) -->
+<wm-container name="toolbarRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" variant="default" show="false">
+<wm-container name="toolbarLeft" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
+<wm-button name="btnDeleteTop" caption="DELETE Employee" class="btn-danger btn-filled-bg-danger-sm" iconclass="" variant="filled-bg-danger-sm"></wm-button>
+<wm-button name="btnMore" caption="More" class="btn-default" iconclass="wi wi-more-horiz" iconposition="right"></wm-button></wm-container>
+<wm-container name="toolbarCenter" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="hug" height="hug">
+<wm-button name="btnEmail" iconclass="wi wi-mail-outline" class="btn-default"></wm-button></wm-container>
+<wm-container name="toolbarRight" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-button name="btnClose" caption="✕ Close" class="btn-default"></wm-button></wm-container></wm-container>
+<!-- SECTION 1: Page Title Bar -->
+<wm-container name="titleBarRow" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug">
+<wm-container name="titleBarLeft" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="hug" height="hug">
+<wm-label name="lblEdit" caption="EDIT" class="app-label h4"></wm-label>
+<wm-icon name="iconDiamond" iconclass="wi wi-star" iconsize="1em"></wm-icon>
+<wm-label name="lblEmployeeName" caption="Luke Aaron" class="app-label h4"></wm-label></wm-container>
+<wm-container name="titleBarRight" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-anchor margin="unset 0.5em" name="anchor16" variant="standard-sm" iconclass="wi wi-navigate-next" caption=""></wm-anchor></wm-container></wm-container>
+<!-- SECTION 2: Name Card -->
+<wm-container name="nameCard" class="app-container-default bordered container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<!-- Name Card Header -->
+<wm-container name="nameCardHeader" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-container name="nameCardHeaderLeft" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-label name="lblNameHeader" caption="Name" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-icon name="iconNamePerson" iconclass="wi wi-person" iconsize="1em"></wm-icon></wm-container>
+<wm-anchor name="ancViewDetails" caption="View Details" class="anchor-standard-sm" variant="standard-sm"></wm-anchor></wm-container>
+<!-- Name Card Body: Two Columns -->
+<wm-container name="nameCardBody" class="app-container-default" direction="row" gap="16" alignment="top-left" width="fill" height="hug">
+<!-- Left Column: First Name + Last Name -->
+<wm-container name="nameFieldsCol" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug">
+<wm-label name="lblFirstName" caption="First Name:" variant="default"></wm-label>
+<wm-text name="txtFirstName" datavalue="bind:Variables.employeeData.dataSet.firstName"></wm-text>
+<wm-label name="lblLastName" caption="Last Name:" variant="default"></wm-label>
+<wm-text name="txtLastName" datavalue="bind:Variables.employeeData.dataSet.lastName"></wm-text></wm-container>
+<!-- Right Column: Avatar + Set Photo -->
+<wm-container name="avatarCol" class="app-container-default" direction="column" gap="8" alignment="top-center" width="hug" height="hug">
+<wm-icon name="iconAvatar" iconclass="wi wi-account-circle" iconsize="4em"></wm-icon>
+<wm-button name="btnSetPhoto" caption="Set Photo" class="btn-default btn-filled-bg-primary-sm" on-click="btnSetPhotoClick($event, widget)" variant="filled-bg-primary-sm"></wm-button></wm-container></wm-container></wm-container>
+<!-- SECTION 3: Sign In Card -->
+<wm-container name="signInCard" class="app-container-default bordered container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblSignInHeader" caption="Sign In" class="label-label-20-700" variant="label-20-700"></wm-label>
+<!-- Username Row -->
+<wm-container name="usernameRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblUsernameKey" caption="Username" variant="default"></wm-label>
+<wm-icon name="iconUsernamePerson" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-label name="lblUsernameValue" caption="LUKEAARON" variant="default"></wm-label>
+<wm-anchor name="ancChangeUsername" caption="✏ Change" variant="standard"></wm-anchor>
+<wm-anchor name="ancEmailUsername" caption="✉ Email" variant="standard"></wm-anchor>
+<wm-anchor name="ancResetPass" caption="🖨 Reset Pass &amp; Print" variant="standard"></wm-anchor>
+<wm-anchor name="ancLinkSSO" caption="🔗 Link SSO" variant="standard"></wm-anchor></wm-container>
+<!-- Last Sign In Row -->
+<wm-container name="lastSignInRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblLastSignInKey" caption="Last Sign In" variant="default"></wm-label>
+<wm-label name="lblLastSignInValue" caption="06/26/19 06:49am" variant="default"></wm-label></wm-container>
+<!-- See employee interface link -->
+<wm-container name="seeInterfaceRow" class="app-container-default" direction="row" gap="auto" alignment="end" width="fill" height="hug">
+<wm-anchor name="ancSeeInterface" caption="See employee's interface" variant="standard" hint="This allows READ ONLY access by the main manager to see what this employee sees when they sign in."></wm-anchor></wm-container></wm-container>
+<!-- SECTION 4: Positions Card -->
+<wm-container name="positionsCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<!-- Positions Card Header -->
+<wm-container name="positionsCardHeader" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-container name="positionsHeaderLeft" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-label name="lblPositionsHeader" caption="Positions" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-icon name="iconPositionsPerson" iconclass="wi wi-person" iconsize="1em"></wm-icon></wm-container>
+<wm-anchor margin="unset 0.5em" name="anchor17" variant="standard" caption="+ Add New Position"></wm-anchor></wm-container>
+<wm-anchor name="ancShowSelected" caption="▲ Hide selected" class="anchor-standard-sm" on-click="ancShowSelectedClick($event, widget)"></wm-anchor>
+<wm-container name="selectedPositionsPanel" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug" show="false">
+<wm-list name="selectedPositionsList" class="list-card" dataset="bind:Variables.positionsData.dataSet" itemsperrow="xs-1 sm-1 md-2 lg-2">
+<wm-listtemplate name="selectedPositionsListTemplate" layout="inline">
+<wm-container name="selectedPositionItemRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-checkbox name="chkSelectedPosition" type="checkbox" datavalue="bind:Variables.positionsData.dataSet[$i].selected"></wm-checkbox>
+<wm-label name="lblSelectedPositionName" caption="bind:Variables.positionsData.dataSet[$i].name" class="app-label"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
+<wm-anchor name="ancShowUnselected" caption="▲ Hide unselected" class="anchor-standard-sm" on-click="ancShowUnselectedClick($event, widget)"></wm-anchor>
+<wm-container name="unselectedPositionsPanel" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug" show="false">
+<wm-container name="unselectedPositionsToolbar" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-checkbox name="chkSelectAllPositions" type="checkbox" caption="Select All"></wm-checkbox>
+<wm-checkbox name="chkClearAllPositions" type="checkbox" caption="Clear All"></wm-checkbox>
+<wm-label name="lblGroupFilter" caption="Group Filter" class="app-label"></wm-label>
+<wm-select name="selectGroupFilter" dataset="Show All"></wm-select></wm-container>
+<wm-list name="unselectedPositionsList" class="list-card" dataset="bind:Variables.positionsData.dataSet" itemsperrow="xs-1 sm-1 md-2 lg-2">
+<wm-listtemplate name="unselectedPositionsListTemplate" layout="inline">
+<wm-container name="unselectedPositionItemRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-checkbox name="chkUnselectedPosition" type="checkbox" datavalue="bind:Variables.positionsData.dataSet[$i].selected"></wm-checkbox>
+<wm-label name="lblUnselectedPositionName" caption="bind:Variables.positionsData.dataSet[$i].name" class="app-label"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container></wm-container>
+<!-- SECTION 5: Save Row (top) -->
+<wm-container name="saveRowTop" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-label name="lblOptionalInfo" caption="Optional Info:" class="label-label-16-400" variant="label-16-400"></wm-label>
+<wm-container name="saveButtonsTop" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-button name="btnSaveTop" caption="SAVE" class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button>
+<wm-button name="btnSaveNextTop" caption="SAVE &amp; NEXT" class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button></wm-container></wm-container>
+<!-- SECTION 6: Contact Card -->
+<wm-container name="contactCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblContactHeader" caption="Contact" class="label-label-20-700" variant="label-20-700"></wm-label>
+<!-- Emails Row -->
+<wm-container name="emailsRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-container name="emailsRowLeft" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+<wm-icon name="iconEmailLock" iconclass="wi wi-lock" iconsize="1em"></wm-icon>
+<wm-label name="lblEmailsKey" caption="Emails" variant="default"></wm-label>
+<wm-icon name="iconEmailPerson" iconclass="wi wi-person" iconsize="1em"></wm-icon></wm-container>
+<wm-anchor name="anchorEditEmailsTexts" caption="✏ Edit Emails / Texts" class="anchor-standard-sm"></wm-anchor></wm-container>
+<!-- Phone Row -->
+<wm-container name="phoneRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-icon name="iconPhoneLock" iconclass="wi wi-lock" iconsize="1em"></wm-icon>
+<wm-label name="lblPhoneKey" caption="Phone" variant="default"></wm-label>
+<wm-icon name="iconPhonePerson" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-text name="txtPhone" datavalue="bind:Variables.employeeData.dataSet.phone"></wm-text></wm-container>
+<!-- 2nd Phone Row -->
+<wm-container name="phone2Row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblPhone2Key" caption="2nd Phone" variant="default"></wm-label>
+<wm-icon name="iconPhone2Person" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-text name="txtPhone2" datavalue="bind:Variables.employeeData.dataSet.phone2"></wm-text></wm-container>
+<!-- Cell Row -->
+<wm-container name="cellRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblCellKey" caption="Cell" variant="default"></wm-label>
+<wm-icon name="iconCellPerson" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-text name="txtCell" datavalue="bind:Variables.employeeData.dataSet.cell"></wm-text></wm-container>
+<!-- Address Row -->
+<wm-container name="addressRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblAddressKey" caption="Address" variant="default"></wm-label>
+<wm-icon name="iconAddressPerson" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-text name="txtAddress" datavalue="bind:Variables.employeeData.dataSet.address" width="fill"></wm-text></wm-container>
+<!-- Address 2 Row -->
+<wm-container name="address2Row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblAddress2Key" caption="Address 2" variant="default"></wm-label>
+<wm-icon name="iconAddress2Person" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-text name="txtAddress2" datavalue="bind:Variables.employeeData.dataSet.address2" width="fill"></wm-text></wm-container>
+<!-- City State Zip Row -->
+<wm-container name="cityStateZipRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblCityStateZipKey" caption="City, State, Zip" variant="default"></wm-label>
+<wm-icon name="iconCityPerson" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-text name="txtCity" datavalue="bind:Variables.employeeData.dataSet.city" placeholder="City"></wm-text>
+<wm-text name="txtState" datavalue="bind:Variables.employeeData.dataSet.state" placeholder="State"></wm-text>
+<wm-text name="txtZip" datavalue="bind:Variables.employeeData.dataSet.zip" placeholder="Zip"></wm-text></wm-container>
+<!-- ID Number Row -->
+<wm-container name="idNumberRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblIdNumberKey" caption="ID #" variant="default"></wm-label>
+<wm-text name="txtIdNumber" datavalue="bind:Variables.employeeData.dataSet.idNumber"></wm-text></wm-container></wm-container>
+<!-- SECTION 7: AutoFill Options Card -->
+<wm-container name="autofillCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblAutofillHeader" caption="AutoFill Options" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-label name="lblMaximums" caption="Maximums" class="text-muted" variant="default"></wm-label>
+<!-- Per Week Row -->
+<wm-container name="perWeekRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblPerWeek" caption="per week" variant="default"></wm-label>
+<wm-number name="numPerWeekHrs" datavalue="bind:Variables.employeeData.dataSet.perWeekHrs"></wm-number>
+<wm-label name="lblPerWeekHrs" caption="hrs" variant="default"></wm-label>
+<wm-number name="numPerWeekDays" datavalue="bind:Variables.employeeData.dataSet.perWeekDays"></wm-number>
+<wm-label name="lblPerWeekDays" caption="days" variant="default"></wm-label></wm-container>
+<!-- Per Day Row -->
+<wm-container name="perDayRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblPerDay" caption="per day" variant="default"></wm-label>
+<wm-number name="numPerDayHrs" datavalue="bind:Variables.employeeData.dataSet.perDayHrs"></wm-number>
+<wm-label name="lblPerDayHrs" caption="hrs" variant="default"></wm-label>
+<wm-number name="numPerDayShifts" datavalue="bind:Variables.employeeData.dataSet.perDayShifts"></wm-number>
+<wm-label name="lblPerDayShifts" caption="shifts" variant="default"></wm-label></wm-container>
+<!-- By Seniority Row -->
+<wm-container name="bySeniorityRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblBySeniority" caption="By Seniority" variant="default"></wm-label>
+<wm-icon name="iconSeniorityCalendar" iconclass="wi wi-calendar-today" iconsize="1em"></wm-icon>
+<wm-date name="dateHireDateSeniority" datavalue="bind:Variables.employeeData.dataSet.hireDateSeniority"></wm-date>
+<wm-label name="lblHireDate" caption="Hire Date" variant="default"></wm-label></wm-container>
+<!-- By Group Row -->
+<wm-container name="byGroupRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblByGroup" caption="By Group" variant="default"></wm-label>
+<wm-select name="selectByGroup" dataset="bind:Variables.groupOptions.dataSet" datafield="label" displayfield="label" datavalue="bind:Variables.employeeData.dataSet.byGroup"></wm-select>
+<wm-label name="lblPriority" caption="priority" variant="default"></wm-label></wm-container></wm-container>
+<!-- SECTION 8: Pay Rate Card -->
+<wm-container name="payRateCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblPayRateHeader" caption="Pay Rate" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-container name="payRateRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-number name="numPayRate" datavalue="bind:Variables.employeeData.dataSet.payRate"></wm-number>
+<wm-label name="lblPayRateDesc" caption="per hour default or" variant="default"></wm-label>
+<wm-anchor name="ancSetPerPosition" caption="set per position" variant="standard-sm-underlined" class="anchor-standard-sm-underlined"></wm-anchor></wm-container></wm-container>
+<!-- SECTION 9: Alert Date Card -->
+<wm-container name="alertDateCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblAlertDateHeader" caption="Alert Date" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-container name="alertDateRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-icon name="iconAlertCalendar" iconclass="wi wi-calendar-today" iconsize="1em"></wm-icon>
+<wm-date name="dateAlertDate" datavalue="bind:Variables.employeeData.dataSet.alertDate"></wm-date>
+<wm-label name="lblAlertDateDesc" caption="default or" variant="default"></wm-label>
+<wm-anchor name="ancAlertSetPerPosition" caption="set per position" variant="standard-sm-underlined" class="anchor-standard-sm-underlined"></wm-anchor></wm-container></wm-container>
+<!-- SECTION 10: Custom Fields & Status Icon Card -->
+<wm-container name="customFieldsCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblCustomFieldsHeader" caption="Custom Fields¹ &amp; Status Icon" class="label-label-20-700" variant="label-20-700"></wm-label>
+<!-- Custom Field 1 Row -->
+<wm-container name="customField1Row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblCustomField1Key" caption="Custom Field 1" variant="default"></wm-label>
+<wm-text name="txtCustomField1" datavalue="bind:Variables.employeeData.dataSet.customField1" width="fill"></wm-text></wm-container>
+<!-- Custom Field 2 Row -->
+<wm-container name="customField2Row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblCustomField2Key" caption="Custom Field 2" variant="default"></wm-label>
+<wm-text name="txtCustomField2" datavalue="bind:Variables.employeeData.dataSet.customField2" width="fill"></wm-text></wm-container>
+<!-- Status Row -->
+<wm-container name="statusRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblStatusKey" caption="Status" variant="default"></wm-label>
+<wm-button name="btnStatusNone" iconclass="" class="btn-default" caption="None"></wm-button>
+<wm-button name="btnStatusPurple" iconclass="wi wi-fiber-manual-record" class="btn-default"></wm-button>
+<wm-button name="btnStatusTeal" iconclass="wi wi-fiber-manual-record" class="btn-default"></wm-button>
+<wm-button name="btnStatusOrange" iconclass="wi wi-fiber-manual-record" class="btn-default"></wm-button>
+<wm-button name="btnStatusGreenTeal" iconclass="wi wi-fiber-manual-record" class="btn-default"></wm-button>
+<wm-button name="btnStatusDarkGreen" iconclass="wi wi-fiber-manual-record" class="btn-default"></wm-button>
+<wm-button name="btnStatusEdit" iconclass="wi wi-pencil" class="btn-default"></wm-button>
+<wm-anchor name="ancMoreStatus" caption="⊕ More" class="anchor-standard-sm"></wm-anchor></wm-container>
+<wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label></wm-container>
+<!-- SECTION 11: Comments Card -->
+<wm-container name="commentsCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-container name="commentsHeaderRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblCommentsHeader" caption="Comments" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-label name="lblCommentsSub" caption="Settings DO NOT let employee see this comment" class="text-muted" variant="default"></wm-label></wm-container>
+<wm-textarea name="textareaComments" datavalue="bind:Variables.employeeData.dataSet.comments"></wm-textarea></wm-container>
+<!-- SECTION 12: Options Card -->
+<wm-container name="optionsCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblOptionsHeader" caption="Options" class="label-label-20-700" variant="label-20-700"></wm-label>
+<!-- Shift Edit Row -->
+<wm-container name="shiftEditRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblCanEditShifts" caption="This employee can add / edit their shifts" variant="default"></wm-label>
+<wm-select name="selectCanEditShifts" dataset="bind:Variables.shiftChangeOptions.dataSet" datafield="label" displayfield="label" datavalue="bind:Variables.employeeData.dataSet.canEditShifts"></wm-select></wm-container>
+<!-- Accessibility Mode Row -->
+<wm-container name="accessibilityRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-checkbox name="chkAccessibilityMode" type="checkbox" datavalue="bind:Variables.employeeData.dataSet.accessibilityMode"></wm-checkbox>
+<wm-label name="lblAccessibilityMode" caption="Set this employee to 'Accessibility Mode'" variant="default"></wm-label></wm-container></wm-container>
+<!-- SECTION 13: Preferences Row -->
+<wm-container name="preferencesRow" class="container-grey-container" direction="row" gap="auto" alignment="center" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblPreferences" caption="Preferences" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-container name="preferencesLinks" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-anchor name="ancWorkTimePrefs" caption="👤 ✏ Work Time Prefs" variant="standard"></wm-anchor>
+<wm-anchor name="ancPositionPrefs" caption="👤 ✏ Position Prefs" variant="standard"></wm-anchor></wm-container></wm-container>
+<!-- SECTION 14: Time Off Row -->
+<wm-container name="timeOffRow" class="container-grey-container" direction="row" gap="auto" alignment="center" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblTimeOff" caption="Time Off" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-anchor name="ancTimeOffViewEdit" caption="👤 ✏ View / Edit" variant="standard"></wm-anchor></wm-container>
+<!-- SECTION 15: Bottom Action Row -->
+<wm-container name="bottomActionRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<wm-button name="btnDeleteBottom" caption="DELETE Employee" class="btn-danger" iconclass="fa fa-times"></wm-button>
+<wm-container name="saveButtonsBottom" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-button name="btnSaveBottom" caption="SAVE" class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button>
+<wm-button name="btnSaveNextBottom" caption="SAVE &amp; NEXT" class="btn-filled-bg-primary-sm" variant="filled-bg-primary-sm"></wm-button></wm-container></wm-container>
+<!-- SECTION 16: Information Card -->
+<wm-container name="informationCard" class="container-grey-container" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-container">
+<wm-label name="lblInformationHeader" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
+<!-- Viewable / Editable Row -->
+<wm-container name="viewEditRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-icon name="iconViewablePerson" iconclass="wi wi-person" iconsize="1em"></wm-icon>
+<wm-label name="lblViewableByEmployee" caption="Viewable by employee" variant="default"></wm-label>
+<wm-icon name="iconEditablePerson" iconclass="wi wi-person-add" iconsize="1em"></wm-icon>
+<wm-label name="lblEditableByEmployee" caption="Editable by employee" variant="default"></wm-label></wm-container>
+<!-- Status Legend Row -->
+<wm-container name="statusLegendRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+<wm-label name="lblStatusLegend" caption="Status" variant="default"></wm-label>
+<wm-icon name="iconLegendFullTime" iconclass="wi wi-star" iconsize="1em"></wm-icon>
+<wm-label name="lblLegendFullTime" caption="Full Time" variant="default"></wm-label>
+<wm-icon name="iconLegendPartTime" iconclass="wi wi-star" iconsize="1em"></wm-icon>
+<wm-label name="lblLegendPartTime" caption="Part Time" variant="default"></wm-label>
+<wm-icon name="iconLegendPerDiem" iconclass="wi wi-star" iconsize="1em"></wm-icon>
+<wm-label name="lblLegendPerDiem" caption="Per Diem" variant="default"></wm-label></wm-container>
+<!-- Static Info Labels -->
+<wm-label name="lblInfoEmails" caption="Emails marked 'None' mean that employee has not set up any notifications." variant="default"></wm-label>
+<wm-label name="lblInfoCustomFields" caption="¹ Custom fields: define on SETTINGS &gt; Company Info page." variant="default"></wm-label>
+<wm-container name="lockInfoRow" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+<wm-icon name="iconLockInfo" iconclass="wi wi-lock" iconsize="1em"></wm-icon>
+<wm-label name="lblLockInfo" caption=" Information will not be shown to other employees. For privacy reasons, employee must sign in and allow this on their INFO page." variant="default"></wm-label></wm-container>
+<wm-label name="lblManagerInfo" caption="- To make employee also a manager go to Settings&gt;Add/Edit Managers page. The employee will then have two usernames, one to access as employee and one as manager." variant="default"></wm-label></wm-container></wm-page-content></wm-content>
+<wm-dialog name="dlgUploadPhoto" title="Upload Photo for Luke Aaron" closable="true" showheader="true" modal="true" width="560px">
+<wm-container name="dlgUploadPhotoBody" class="app-container-default" direction="column" gap="12" alignment="top-left" width="fill" height="hug">
+<!-- File chooser row -->
+<wm-fileupload name="fileuploadPhoto" contenttype="image/*" caption="Choose File"></wm-fileupload>
+<!-- Drop zone -->
+<wm-container name="dlgDropZone" class="app-container-default" direction="column" gap="8" alignment="middle-center" width="fill" height="200px">
+<wm-label name="lblDropInstruction1" caption="Drag &amp; drop an image here," class="app-label text-center"></wm-label>
+<wm-label name="lblDropInstruction2" caption="or click &quot;Choose File&quot;" class="app-label text-center"></wm-label>
+<wm-picture name="picPhotoPreview" alttext="Image preview" picturesource="https://via.placeholder.com/300x120?text=Preview" class="img-responsive" width="300px" height="120px"></wm-picture></wm-container>
+<!-- Selected file info -->
+<wm-label name="lblSelectedFileInfo" caption="Selected: areaChartWithInsertIcon.png (0.01 MB)" class="app-label"></wm-label></wm-container>
+<wm-dialogactions name="dlgUploadPhotoActions">
+<wm-container name="dlgActionsRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+<!-- Left: DELETE -->
+<wm-button name="btnDeletePhoto" caption="DELETE Photo" class="btn-filled-bg-danger-sm"></wm-button>
+<!-- Right: Upload + Cancel -->
+<wm-container name="dlgActionsRight" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
+<wm-button name="btnUploadPhoto" caption="Upload" class="btn-outlined-primary"></wm-button>
+<wm-button name="btnCancelUploadPhoto" caption="Cancel" class="btn-outlined-primary" on-click="dlgUploadPhoto.close()"></wm-button></wm-container></wm-container></wm-dialogactions></wm-dialog></wm-page>

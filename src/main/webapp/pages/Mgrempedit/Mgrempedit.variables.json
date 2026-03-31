@@ -1,0 +1,151 @@
+{
+  "employeeData" : {
+    "_id" : "wm-employeeData-wm.Variable-1774420523551",
+    "name" : "employeeData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "firstName" : "Luke",
+      "lastName" : "Aaron",
+      "username" : "LUKEAARON",
+      "lastSignIn" : "06/26/19 06:49am",
+      "phone" : "555-0000",
+      "phone2" : "",
+      "cell" : "",
+      "address" : "10000 A St",
+      "address2" : "",
+      "city" : "",
+      "state" : "",
+      "zip" : "",
+      "idNumber" : "",
+      "payRate" : 12,
+      "alertDate" : "6/5/2025",
+      "hireDateSeniority" : "4/17/2014",
+      "customField1" : "Part time",
+      "customField2" : "",
+      "byGroup" : "First",
+      "perWeekHrs" : 30,
+      "perWeekDays" : 7,
+      "perDayHrs" : 8,
+      "perDayShifts" : 1,
+      "canEditShifts" : "No (only managers can change)",
+      "comments" : "",
+      "accessibilityMode" : false
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "groupOptions" : {
+    "_id" : "wm-groupOptions-wm.Variable-1774420523553",
+    "name" : "groupOptions",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "First"
+    }, {
+      "label" : "Second"
+    }, {
+      "label" : "Third"
+    } ],
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "positionsData" : {
+    "_id" : "wm-positionsData-wm.Variable-1774422446137",
+    "name" : "positionsData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "Assistant",
+      "selected" : false,
+      "group" : "General"
+    }, {
+      "name" : "Delivery",
+      "selected" : true,
+      "group" : "General"
+    }, {
+      "name" : "Hospital-Cashier",
+      "selected" : true,
+      "group" : "Hospital"
+    }, {
+      "name" : "Security",
+      "selected" : true,
+      "group" : "General"
+    }, {
+      "name" : "Store-Cosmetics",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "Store-Giftware-Front",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "Store-Post Office",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "Cashier",
+      "selected" : true,
+      "group" : "General"
+    }, {
+      "name" : "Driver",
+      "selected" : true,
+      "group" : "General"
+    }, {
+      "name" : "Hospital-Pharm",
+      "selected" : true,
+      "group" : "Hospital"
+    }, {
+      "name" : "Store-Assistant",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "Store-Floor",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "Store-Pharmacist",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "Store-Receiving",
+      "selected" : true,
+      "group" : "Store"
+    }, {
+      "name" : "NOTES -",
+      "selected" : false,
+      "group" : "Other"
+    }, {
+      "name" : "Cashier (Main)",
+      "selected" : false,
+      "group" : "General"
+    }, {
+      "name" : "Bookkeeper",
+      "selected" : false,
+      "group" : "Other"
+    }, {
+      "name" : "HOLIDAY",
+      "selected" : false,
+      "group" : "Other"
+    } ],
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "shiftChangeOptions" : {
+    "_id" : "wm-shiftChangeOptions-wm.Variable-1774420523555",
+    "name" : "shiftChangeOptions",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "No (only managers can change)"
+    }, {
+      "label" : "Yes (employee can add/edit)"
+    } ],
+    "isList" : true,
+    "twoWayBinding" : false
+  }
+}

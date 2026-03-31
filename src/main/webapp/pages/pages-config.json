@@ -49,7 +49,12 @@
   "name" : "footer_Copy",
   "type" : "FOOTER",
   "params" : [ ]
-}, {
+},
+  {
+  "name" : "Mgrempedit",
+  "type" : "PAGE",
+  "params" : [ ]
+},{
   "name" : "header",
   "type" : "HEADER",
   "params" : [ ]
