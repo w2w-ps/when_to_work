@@ -37,6 +37,10 @@
   "type" : "FOOTER",
   "params" : [ ]
 }, {
+  "name" : "EmployeeView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer_Copy",
   "type" : "FOOTER",
   "params" : [ ]
