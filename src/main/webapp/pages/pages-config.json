@@ -54,6 +54,11 @@
   "name" : "Mgrempedit",
   "type" : "PAGE",
   "params" : [ ]
+},
+  {
+  "name" : "Mgremplist",
+  "type" : "PAGE",
+  "params" : [ ]
 },{
   "name" : "header",
   "type" : "HEADER",
