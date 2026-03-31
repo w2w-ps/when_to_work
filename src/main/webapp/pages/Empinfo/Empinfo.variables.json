@@ -1,0 +1,63 @@
+{
+  "emailVisibility" : {
+    "_id" : "wm-emailVisibility-wm.Variable-1774601700383",
+    "name" : "emailVisibility",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "managers"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "empInfo" : {
+    "_id" : "wm-empInfo-wm.Variable-1774601694050",
+    "name" : "empInfo",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "John Asgard",
+      "email" : "sample@when2work.com",
+      "phone1" : "555-3000",
+      "phone2" : "7123589522",
+      "phoneCell" : "555-4000",
+      "address1" : "3000 1st St",
+      "address2" : "TURNED ON SCREEN READER 1-6-25 JR",
+      "city" : "Costa Mesa",
+      "state" : "CA",
+      "zip" : "91717"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "enableAccessibility" : {
+    "_id" : "wm-enableAccessibility-wm.Variable-1774601700392",
+    "name" : "enableAccessibility",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : false
+    },
+    "type" : "boolean",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "phoneVisibility" : {
+    "_id" : "wm-phoneVisibility-wm.Variable-1774601700388",
+    "name" : "phoneVisibility",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "all"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  }
+}
