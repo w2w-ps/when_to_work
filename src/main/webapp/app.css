@@ -224,3 +224,6 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-size: medium;
     font-weight: 700;
 }
+.wm-app .btn:not(.btn-icon) + .btn:not(.btn-icon), .wm-app button:not(.btn-icon) + .btn:not(.btn-icon) {
+    margin-left: 1px;
+    }
