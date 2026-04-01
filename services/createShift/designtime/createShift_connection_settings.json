@@ -1,5 +1,5 @@
 {
-  "endpointAddress" : "https://825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app/api/scheduling/shifts",
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/shifts",
   "method" : "POST",
   "headers" : {
     "ngrok-skip-browser-warning" : [ "true" ]
@@ -14,8 +14,16 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
+      "Date" : [ "Wed, 01 Apr 2026 13:27:28 GMT" ],
       "Content-Length" : [ "0" ],
-      "Date" : [ "Wed, 01 Apr 2026 07:09:05 GMT" ]
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
     },
     "responseBody" : "",
     "convertedResponse" : "{\"body\":{\"parsererror\":{\"h3\":[\"This page contains the following errors:\",\"Below is a rendering of the page up to the first error.\"],\"div\":{\"style\":\"font-family:monospace;font-size:12px\",\"__text\":\"error on line 1 at column 1: Document is empty\"},\"style\":\"display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black\"}}}"

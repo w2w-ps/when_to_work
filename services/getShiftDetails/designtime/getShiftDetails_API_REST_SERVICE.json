@@ -4,12 +4,12 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "002c0107-eb23-456e-852d-239d5fba437d",
-    "x-WM-SERVICE_ID" : "restService",
+    "x-WM-API_ID" : "301a9932-f525-479a-b347-155fc425a69d",
+    "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
   },
-  "host" : "825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app",
+  "host" : "when-to-work-backend.onwavemaker.com",
   "basePath" : "",
   "tags" : [ {
     "name" : "getShiftDetails"

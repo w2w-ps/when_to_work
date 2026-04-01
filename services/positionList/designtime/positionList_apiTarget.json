@@ -4,12 +4,12 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "23afbaa5-eeed-4396-a4d3-18a5c8b95aac",
-    "x-WM-SERVICE_ID" : "restService",
+    "x-WM-API_ID" : "b362fd54-8179-47a2-ac01-5e4b4fb560ac",
+    "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
   },
-  "host" : "825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app",
+  "host" : "when-to-work-backend.onwavemaker.com",
   "basePath" : "/api",
   "tags" : [ {
     "name" : "positionList"

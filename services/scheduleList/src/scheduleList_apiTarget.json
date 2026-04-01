@@ -351,8 +351,8 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "beba57f1-302f-425a-93c6-0c57b596d1dd",
-    "x-WM-SERVICE_ID" : "restService",
+    "x-WM-API_ID" : "7e54e788-9295-4421-aab5-5252b731e8cd",
+    "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false

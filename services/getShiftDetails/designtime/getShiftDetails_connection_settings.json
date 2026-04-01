@@ -1,5 +1,5 @@
 {
-  "endpointAddress" : "https://825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app/api/scheduling/shifts/{id}",
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/shifts/{id}",
   "method" : "GET",
   "headers" : {
     "ngrok-skip-browser-warning" : [ "true" ]
@@ -14,11 +14,19 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
+      "Date" : [ "Wed, 01 Apr 2026 13:28:07 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Date" : [ "Wed, 01 Apr 2026 10:17:32 GMT" ],
-      "Transfer-Encoding" : [ "chunked" ]
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"category\":\"Weekend Shift\",\"color\":null,\"companyId\":1,\"date\":\"2026-03-03\",\"description\":\"Generated Shift 37\",\"duration\":8,\"employeeId\":1,\"endTime\":\"6:00AM\",\"isOvernight\":true,\"position\":\"Host\",\"shiftId\":37,\"startTime\":\"10:00PM\"}",
+    "responseBody" : "{\"category\":\"Afternoon Shift\",\"color\":null,\"companyId\":1,\"date\":\"2026-04-05\",\"description\":\"Generated Shift 522\",\"duration\":8,\"employeeId\":11,\"endTime\":\"4:00PM\",\"isOvernight\":false,\"position\":\"Security\",\"shiftId\":522,\"startTime\":\"8:00AM\"}",
     "convertedResponse" : null
   }
 }

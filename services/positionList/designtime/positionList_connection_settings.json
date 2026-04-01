@@ -1,5 +1,5 @@
 {
-  "endpointAddress" : "https://825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app/api/positions",
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/positions",
   "method" : "GET",
   "headers" : {
     "ngrok-skip-browser-warning" : [ "true" ]
@@ -16,11 +16,19 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
+      "Date" : [ "Wed, 01 Apr 2026 13:28:18 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Date" : [ "Wed, 01 Apr 2026 09:04:34 GMT" ],
-      "Transfer-Encoding" : [ "chunked" ]
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"positions\":[{\"id\":1,\"name\":\"Front Desk\"}],\"groups\":[{\"id\":11,\"name\":\"Core Team\",\"positions\":[{\"id\":8,\"name\":\"Event Coordinator\"}]}]}",
+    "responseBody" : "{\"positions\":[{\"id\":1,\"name\":\"Front Desk\"}],\"groups\":[{\"id\":11,\"name\":\"Core Team\",\"positions\":[{\"id\":6,\"name\":\"Valet\"}]}]}",
     "convertedResponse" : null
   }
 }
