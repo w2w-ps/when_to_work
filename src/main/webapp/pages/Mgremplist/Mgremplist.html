@@ -31,20 +31,22 @@
                                 variant="filled-primary-variant"></wm-button>
                         </wm-container>
                         <!-- SECONDARY TOOLBAR -->
-                        <wm-container name="secondaryToolbar" direction="row" gap="8" alignment="middle-left"
-                            width="fill" height="hug" variant="default" class="app-container-default">
+                        <wm-container name="secondaryToolbar" direction="row" gap="16" alignment="middle-left"
+                            width="fill" height="hug" variant="default" class="app-container-default"
+                            padding="6px unset">
                             <wm-container name="selectColumnsGroup" class="app-container-default" direction="row"
                                 gap="4" alignment="middle-left" width="hug" height="hug">
-                                <wm-checkbox name="chkSelectColumns" type="checkbox"></wm-checkbox>
-                                <wm-label name="lblSelectColumns" caption="Select Columns" class="label-label-small-400"
-                                    variant="label-small-400"></wm-label>
+                                <wm-anchor margin="unset 0.5em" variant="standard-sm-hover-grey"
+                                    caption="Select Columns" iconclass="wm-sl-r sl-layout-two-columns"
+                                    class="anchor-standard-sm-hover-grey" name="anchor8"></wm-anchor>
                             </wm-container>
-                            <wm-container direction="row" alignment="top-left" gap="4" width="fill"
-                                name="containerAnchorsItems" class="container-grey-container" variant="grey-container">
-                                <wm-label name="lblSelected" caption="Selected:" class="label-label-small-700"
-                                    variant="label-small-700"></wm-label>
+                            <wm-container direction="row" alignment="middle-left" gap="4" width="hug"
+                                name="containerAnchorsItems" class="container-grey-no-radius-small-container"
+                                variant="grey-no-radius-small-container" clipcontent="false" padding="3px 15px">
+                                <wm-label name="lblSelected" caption="Selected:" class="label-label-12-700"
+                                    variant="label-12-700"></wm-label>
                                 <wm-anchor margin="unset 0.5em" name="anchorSendReminder" variant="standard-sm"
-                                    caption="SendReminder" iconclass="fa fa-list-alt" class="anchor-standard-sm">
+                                    caption="Send Reminder" iconclass="fa fa-list-alt" class="anchor-standard-sm">
                                 </wm-anchor>
                                 <wm-anchor margin="unset 0.5em" name="anchorMessage" variant="standard-sm"
                                     caption="Message" iconclass="wi wi-envelope" class="anchor-standard-sm"></wm-anchor>
@@ -62,19 +64,22 @@
                                 </wm-anchor>
                             </wm-container>
                         </wm-container>
-                        <!-- FILTER ROW -->
                         <wm-container name="filterRow" class="app-container-default" direction="row" gap="4"
                             alignment="middle-right" width="fill" height="hug">
                             <wm-text name="txtFind" placeholder="Find" trailingiconclass="wi wi-clear"
-                                class="form-control app-textbox" variant="standard"></wm-text>
-                            <wm-select name="selStatus" dataset="All Status, Active, Inactive" placeholder="All Status">
-                            </wm-select>
+                                class="form-control" variant="standard" width="130px"></wm-text>
+                            <wm-select name="selStatus" dataset="All Status, Active, Inactive" placeholder="All Status"
+                                variant="standard"></wm-select>
                             <wm-select name="selPositions" dataset="All Positions" placeholder="All Positions">
                             </wm-select>
-                            <wm-label name="lblTotalEmployees" caption="Total Employees: 73" variant="default">
-                            </wm-label>
                         </wm-container>
+                        <!-- FILTER ROW -->
                         <!-- EMPLOYEE TABLE -->
+                        <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container17"
+                            class="app-container-default" variant="default" padding="6px unset">
+                            <wm-label name="lblTotalEmployees" caption="Total Employees: 73" variant="label-12-700"
+                                class="label-label-12-700"></wm-label>
+                        </wm-container>
                         <wm-table name="employeeTable" dataset="bind:Variables.employeeListModel.dataSet"
                             navigation="None" enablesort="true" showheader="true" spacing="condensed" multiselect="true"
                             rowactionsposition="first" radioselect="false"

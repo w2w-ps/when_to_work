@@ -92,9 +92,11 @@
 .data-table-striped-even-deleted-large-header.striped-even .table thead th:hover {
     border-bottom: 1px solid var(--wm-color-tertiary);
 }
-.data-table-striped-even-large-header th{
-height: 44px;
+
+.data-table-striped-even-large-header th {
+    height: 44px;
 }
+
 .striped-even .table thead th:not(:last-child):before {
     content: "";
     background-color: var(--wm-color-gray);
@@ -114,7 +116,8 @@ height: 44px;
 .striped-even th {
     text-align: center !important;
 }
-.striped-even th:last-child{
+
+.striped-even th:last-child {
     text-align: left !important;
 }
 
@@ -197,6 +200,27 @@ div[multiselect="true"] colgroup col:first-child {
     width: 25px !important;
 }
 
-.data-table-striped-even-large-header.app-grid .table > tbody > tr td{
-padding: 0px 4px;
+.data-table-striped-even-large-header.app-grid .table>tbody>tr td {
+    padding: 0px 4px;
+}
+
+wm-input[name="txtFind"].app-input-wrapper {
+    flex: none !important;
+}
+
+.wm-app .btn-trailing-icon {
+    left: auto;
+    right: 1px;
+    top: 1px;
+    background-color: #e0e0e0;
+    height: 30px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.wm-app .btn-trailing-icon .wi-clear:before {
+    font-size: medium;
+    font-weight: 700;
 }
