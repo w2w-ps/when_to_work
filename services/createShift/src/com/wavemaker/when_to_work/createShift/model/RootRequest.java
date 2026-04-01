@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package com.wavemaker.when_to_work.scheduleList.model;
+package com.wavemaker.when_to_work.createShift.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -18,21 +18,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 /**
- * ResponseShiftsEntryItem
+ * RootRequest
  */
 
-public class ResponseShiftsEntryItem {
-  @JsonProperty("duration")
-  private Integer duration = null;
+public class RootRequest {
+  @JsonProperty("date")
+  private String date = null;
 
-  @JsonProperty("shiftId")
-  private Integer shiftId = null;
+  @JsonProperty("companyId")
+  private Integer companyId = null;
 
   @JsonProperty("color")
   private String color = null;
 
   @JsonProperty("description")
   private String description = null;
+
+  @JsonProperty("employeeId")
+  private Integer employeeId = null;
 
   @JsonProperty("startTime")
   private String startTime = null;
@@ -41,46 +44,46 @@ public class ResponseShiftsEntryItem {
   private String endTime = null;
 
   @JsonProperty("position")
-  private String position = null;
+  private Integer position = null;
 
   @JsonProperty("category")
-  private String category = null;
+  private Integer category = null;
 
-  public ResponseShiftsEntryItem duration(Integer duration) {
-    this.duration = duration;
+  public RootRequest date(String date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * Get duration
-   * @return duration
+   * Get date
+   * @return date
   **/
-  public Integer getDuration() {
-    return duration;
+  public String getDate() {
+    return date;
   }
 
-  public void setDuration(Integer duration) {
-    this.duration = duration;
+  public void setDate(String date) {
+    this.date = date;
   }
 
-  public ResponseShiftsEntryItem shiftId(Integer shiftId) {
-    this.shiftId = shiftId;
+  public RootRequest companyId(Integer companyId) {
+    this.companyId = companyId;
     return this;
   }
 
    /**
-   * Get shiftId
-   * @return shiftId
+   * Get companyId
+   * @return companyId
   **/
-  public Integer getShiftId() {
-    return shiftId;
+  public Integer getCompanyId() {
+    return companyId;
   }
 
-  public void setShiftId(Integer shiftId) {
-    this.shiftId = shiftId;
+  public void setCompanyId(Integer companyId) {
+    this.companyId = companyId;
   }
 
-  public ResponseShiftsEntryItem color(String color) {
+  public RootRequest color(String color) {
     this.color = color;
     return this;
   }
@@ -97,7 +100,7 @@ public class ResponseShiftsEntryItem {
     this.color = color;
   }
 
-  public ResponseShiftsEntryItem description(String description) {
+  public RootRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -114,7 +117,24 @@ public class ResponseShiftsEntryItem {
     this.description = description;
   }
 
-  public ResponseShiftsEntryItem startTime(String startTime) {
+  public RootRequest employeeId(Integer employeeId) {
+    this.employeeId = employeeId;
+    return this;
+  }
+
+   /**
+   * Get employeeId
+   * @return employeeId
+  **/
+  public Integer getEmployeeId() {
+    return employeeId;
+  }
+
+  public void setEmployeeId(Integer employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public RootRequest startTime(String startTime) {
     this.startTime = startTime;
     return this;
   }
@@ -131,7 +151,7 @@ public class ResponseShiftsEntryItem {
     this.startTime = startTime;
   }
 
-  public ResponseShiftsEntryItem endTime(String endTime) {
+  public RootRequest endTime(String endTime) {
     this.endTime = endTime;
     return this;
   }
@@ -148,7 +168,7 @@ public class ResponseShiftsEntryItem {
     this.endTime = endTime;
   }
 
-  public ResponseShiftsEntryItem position(String position) {
+  public RootRequest position(Integer position) {
     this.position = position;
     return this;
   }
@@ -157,15 +177,15 @@ public class ResponseShiftsEntryItem {
    * Get position
    * @return position
   **/
-  public String getPosition() {
+  public Integer getPosition() {
     return position;
   }
 
-  public void setPosition(String position) {
+  public void setPosition(Integer position) {
     this.position = position;
   }
 
-  public ResponseShiftsEntryItem category(String category) {
+  public RootRequest category(Integer category) {
     this.category = category;
     return this;
   }
@@ -174,11 +194,11 @@ public class ResponseShiftsEntryItem {
    * Get category
    * @return category
   **/
-  public String getCategory() {
+  public Integer getCategory() {
     return category;
   }
 
-  public void setCategory(String category) {
+  public void setCategory(Integer category) {
     this.category = category;
   }
 
@@ -191,32 +211,34 @@ public class ResponseShiftsEntryItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResponseShiftsEntryItem Response_shiftsEntryItem = (ResponseShiftsEntryItem) o;
-    return Objects.equals(this.duration, Response_shiftsEntryItem.duration) &&
-        Objects.equals(this.shiftId, Response_shiftsEntryItem.shiftId) &&
-        Objects.equals(this.color, Response_shiftsEntryItem.color) &&
-        Objects.equals(this.description, Response_shiftsEntryItem.description) &&
-        Objects.equals(this.startTime, Response_shiftsEntryItem.startTime) &&
-        Objects.equals(this.endTime, Response_shiftsEntryItem.endTime) &&
-        Objects.equals(this.position, Response_shiftsEntryItem.position) &&
-        Objects.equals(this.category, Response_shiftsEntryItem.category);
+    RootRequest RootRequest = (RootRequest) o;
+    return Objects.equals(this.date, RootRequest.date) &&
+        Objects.equals(this.companyId, RootRequest.companyId) &&
+        Objects.equals(this.color, RootRequest.color) &&
+        Objects.equals(this.description, RootRequest.description) &&
+        Objects.equals(this.employeeId, RootRequest.employeeId) &&
+        Objects.equals(this.startTime, RootRequest.startTime) &&
+        Objects.equals(this.endTime, RootRequest.endTime) &&
+        Objects.equals(this.position, RootRequest.position) &&
+        Objects.equals(this.category, RootRequest.category);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, shiftId, color, description, startTime, endTime, position, category);
+    return Objects.hash(date, companyId, color, description, employeeId, startTime, endTime, position, category);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResponseShiftsEntryItem {\n");
+    sb.append("class RootRequest {\n");
     
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    shiftId: ").append(toIndentedString(shiftId)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");

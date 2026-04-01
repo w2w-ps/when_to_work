@@ -4,12 +4,12 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "88768791-14fe-48b7-a4d4-d2fb10931979",
-    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-API_ID" : "beba57f1-302f-425a-93c6-0c57b596d1dd",
+    "x-WM-SERVICE_ID" : "restService",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
   },
-  "host" : "when-to-work-backend.onwavemaker.com",
+  "host" : "825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app",
   "basePath" : "/api",
   "tags" : [ {
     "name" : "scheduleList"
@@ -262,11 +262,18 @@
       "x-WM-TAGS" : [ "scheduleList" ]
     },
     "Response.shiftsEntryItem" : {
-      "required" : [ "category", "description", "duration", "endTime", "position", "startTime" ],
+      "required" : [ "category", "color", "description", "duration", "endTime", "position", "shiftId", "startTime" ],
       "properties" : {
         "duration" : {
           "type" : "integer",
           "format" : "int32"
+        },
+        "shiftId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "color" : {
+          "type" : "string"
         },
         "description" : {
           "type" : "string"
