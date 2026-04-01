@@ -373,6 +373,10 @@
       "target" : "ngrok-skip-browser-warning",
       "value" : [ "true" ],
       "type" : "string"
+    }, {
+      "target" : "id",
+      "value" : "bind:selectedShiftdForIEmployee",
+      "type" : "integer"
     } ],
     "type" : "getShiftDetails.RootResponse",
     "service" : "getShiftDetails",
@@ -383,6 +387,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onSuccess" : "svGetShiftByIdSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
