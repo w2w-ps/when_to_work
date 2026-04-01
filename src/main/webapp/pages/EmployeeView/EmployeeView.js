@@ -551,13 +551,18 @@ Page.shiftDialogOpened = function ($event, widget) {
             Page.Widgets[selectedCheckbox].datavalue = true;
         }
 
-        Page.Widgets.chkClearAll.datavalue = false;
-        Page.Widgets.chkSelectAll.datavalue = false;
+        // Page.Widgets.chkClearAll.datavalue = false;
+        // Page.Widgets.chkSelectAll.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
     } else {
         // EDIT MODE
         // Pre-fill form fields from the clicked shift item.
         var item = Page.selectedShiftItem;
+        Page.Variables.svGetShiftById.setInput({
+            "id": item.shiftId
+        });
+        Page.Variables.svGetShiftById.invoke();
+
         if (item) {
             if (Page.Widgets.startTimeField) {
                 Page.Widgets.startTimeField.datavalue = item.startAt || '';
@@ -592,8 +597,8 @@ Page.shiftDialogOpened = function ($event, widget) {
         Page.Widgets.chkFri.datavalue = false;
         Page.Widgets.chkSat.datavalue = false;
         Page.Widgets.chkSun.datavalue = false;
-        Page.Widgets.chkClearAll.datavalue = false;
-        Page.Widgets.chkSelectAll.datavalue = false;
+        // Page.Widgets.chkClearAll.datavalue = false;
+        // Page.Widgets.chkSelectAll.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
     }
 };
@@ -603,6 +608,7 @@ Page.button16Click = function ($event, widget) {
     var startTime = Page.Widgets.shiftForm.formWidgets.startTimeField.datavalue;
     var endTime = Page.Widgets.shiftForm.formWidgets.endTimeField.datavalue;
     var description = Page.Widgets.shiftForm.formWidgets.form_field9.datavalue;
+    var categoryId = Page.Widgets.shiftForm.formWidgets.categoryField.datavalue;
 
     if (!positionId) {
         console.error('Position is required');
@@ -657,12 +663,6 @@ Page.button16Click = function ($event, widget) {
         });
         return;
     }
-
-    console.log('=== Shift Creation Debug Info ===');
-    console.log('Selected Date:', Page.selectedShiftDate.format('YYYY-MM-DD'));
-    console.log('Input Start Time:', startTime);
-    console.log('Input End Time:', endTime);
-
     var startTimeMs;
     var endTimeMs;
 
@@ -704,8 +704,9 @@ Page.button16Click = function ($event, widget) {
     console.log('Final Start Time:', moment(startTimeMs).format('MMM DD, YYYY hh:mm:ss A'));
     console.log('Final End Time:', moment(endTimeMs).format('MMM DD, YYYY hh:mm:ss A'));
     console.log('================================');
+
     if (!Page.isAdd) {
-        // Store the update inputs for use after the position check completes
+        // EDIT MODE: Store the update inputs for use after the position check completes
         Page.Variables.svUpdateShiftDetails.setInput({
             employeeId: Page.selectedEmployee.employeeId,
             shiftDate: new Date(startTimeMs).toISOString().split('T')[0],
@@ -721,23 +722,24 @@ Page.button16Click = function ($event, widget) {
         });
         Page.Variables.svFindEmployeePositions.invoke();
     } else {
-        console.log('Creating new shift for employee:', Page.selectedEmployee.employeeId);
-        // Stash all shift inputs so the async callback chain can use them
-        Page._pendingShiftInputs = {
-            tenantId: 1,
-            employeeId: Page.selectedEmployee.employeeId,
-            positionId: positionId,
-            startAt: Page.formatDateTime(Page.selectedShiftDate.format('YYYY-MM-DD'), startTime),
-            endAt: Page.formatDateTime(Page.selectedShiftDate.format('YYYY-MM-DD'), endTime),
-            status: 'scheduled',
-            notes: description || ''
-        };
-        // Check if an employee-position record already exists before inserting the shift
-        Page.Variables.svFindEmployeePositions.setInput({
-            q: 'tenantId = 1 AND employeeId = ' + Page.selectedEmployee.employeeId + ' AND positionId = ' + positionId
+        // ADD MODE: Build local shiftInfo for optimistic UI update
+        Page.Variables.svCreateShift.setInput({
+            RequestBody: {
+                employeeId: Page.selectedEmployee.employeeId,
+                companyId: 1,
+                date: Page.selectedShiftDate.format('YYYY-MM-DD'),
+                description: description || '',
+                startTime: formatToStandardTime(startTime) || '',
+                endTime: formatToStandardTime(endTime) || '',
+                position: positionId || '',
+                category: categoryId || '',
+                color: 'amer'
+            }
         });
-        Page.Variables.svFindEmployeePositions.invoke();
+        Page.Variables.svCreateShift.invoke();
     }
+
+    Page.Widgets.shiftDialog.close();
 };
 
 Page.parseTimeToMilliseconds = function (dateObj, timeString) {
@@ -1488,3 +1490,29 @@ Page.svDeleteShiftsonSuccess = function (variable, data) {
         Page.Variables.scheduleQueryVar.invoke();
     }
 };
+
+function formatToStandardTime(input) {
+    if (!input) return null;
+
+    // Normalize input (remove spaces, uppercase)
+    input = input.trim().toUpperCase().replace(/\s+/g, '');
+
+    // Match formats like:
+    // 9AM, 09AM, 9:00AM, 09:00AM
+    const match = input.match(/^(\d{1,2})(?::?(\d{2}))?(AM|PM)$/);
+
+    if (!match) return null; // invalid format
+
+    let hours = parseInt(match[1], 10);
+    let minutes = match[2] ? match[2] : '00';
+    let period = match[3];
+
+    // Validate hours and minutes
+    if (hours < 1 || hours > 12) return null;
+    if (parseInt(minutes) > 59) return null;
+
+    // Format to 2-digit
+    let formattedHours = hours.toString().padStart(2, '0');
+
+    return `${formattedHours}:${minutes}${period}`;
+}

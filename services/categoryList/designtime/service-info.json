@@ -1,0 +1,6 @@
+{
+  "id" : "categoryList",
+  "type" : "RestService",
+  "title" : "categoryList",
+  "mockEnabled" : false
+}

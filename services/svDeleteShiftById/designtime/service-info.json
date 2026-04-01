@@ -1,0 +1,6 @@
+{
+  "id" : "svDeleteShiftById",
+  "type" : "RestService",
+  "title" : "svDeleteShiftById",
+  "mockEnabled" : false
+}

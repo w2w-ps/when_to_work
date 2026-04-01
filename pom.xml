@@ -36,9 +36,13 @@
             </goals>
             <configuration>
               <sources>
+                <source>services/categoryList/src</source>
                 <source>services/createShift/src</source>
+                <source>services/getShiftDetails/src</source>
+                <source>services/positionList/src</source>
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
+                <source>services/svDeleteShiftById/src</source>
                 <source>services/when2work/src</source>
               </sources>
             </configuration>

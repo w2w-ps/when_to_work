@@ -1,0 +1,26 @@
+{
+  "endpointAddress" : "https://825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app/api/categories",
+  "method" : "GET",
+  "headers" : {
+    "ngrok-skip-browser-warning" : [ "true" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "companyId" : "1"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Content-Type" : [ "application/json" ],
+      "Date" : [ "Wed, 01 Apr 2026 09:05:27 GMT" ],
+      "Transfer-Encoding" : [ "chunked" ]
+    },
+    "responseBody" : "{\"categories\":[{\"id\":1,\"name\":\"Morning Shift\",\"shortName\":null}],\"groups\":[{\"id\":11,\"name\":\"Standard Shifts\",\"categories\":[{\"id\":1,\"name\":\"Morning Shift\",\"shortName\":null}]}]}",
+    "convertedResponse" : null
+  }
+}

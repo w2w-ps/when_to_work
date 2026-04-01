@@ -1,0 +1,125 @@
+{
+  "basePath" : "${rest.positionList.basepath}",
+  "paths" : {
+    "/positions" : {
+      "x-WM-BASE_PATH" : "/positions",
+      "x-WM-TAG" : "positionList",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "positionList_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "ngrok-skip-browser-warning",
+          "format" : "boolean",
+          "description" : "ngrok-skip-browser-warning",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "positionList" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.positionList.scheme}://${rest.positionList.host}${rest.positionList.basepath}/positions"
+    }
+  },
+  "host" : "${rest.positionList.host}",
+  "schemes" : [ "${rest.positionList.scheme}" ],
+  "definitions" : {
+    "Response.groupsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.Response.groupsEntryItem",
+      "x-WM-TAGS" : [ "positionList" ],
+      "required" : [ "id", "name", "positions" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "positions" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          }
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.positionsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "positionList" ],
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.RootResponse",
+      "x-WM-TAGS" : [ "positionList" ],
+      "required" : [ "groups", "positions" ],
+      "properties" : {
+        "groups" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.groupsEntryItem"
+          }
+        },
+        "positions" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "23afbaa5-eeed-4396-a4d3-18a5c8b95aac",
+    "x-WM-SERVICE_ID" : "restService",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "positionList"
+  } ]
+}

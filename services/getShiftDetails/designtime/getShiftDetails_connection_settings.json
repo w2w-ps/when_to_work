@@ -1,0 +1,24 @@
+{
+  "endpointAddress" : "https://825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app/api/scheduling/shifts/{id}",
+  "method" : "GET",
+  "headers" : {
+    "ngrok-skip-browser-warning" : [ "true" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Content-Type" : [ "application/json" ],
+      "Date" : [ "Wed, 01 Apr 2026 10:17:32 GMT" ],
+      "Transfer-Encoding" : [ "chunked" ]
+    },
+    "responseBody" : "{\"category\":\"Weekend Shift\",\"color\":null,\"companyId\":1,\"date\":\"2026-03-03\",\"description\":\"Generated Shift 37\",\"duration\":8,\"employeeId\":1,\"endTime\":\"6:00AM\",\"isOvernight\":true,\"position\":\"Host\",\"shiftId\":37,\"startTime\":\"10:00PM\"}",
+    "convertedResponse" : null
+  }
+}

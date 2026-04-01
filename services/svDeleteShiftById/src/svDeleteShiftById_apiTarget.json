@@ -1,0 +1,119 @@
+{
+  "basePath" : "${rest.svDeleteShiftById.basepath}",
+  "paths" : {
+    "/scheduling/shifts/{id}" : {
+      "x-WM-BASE_PATH" : "/scheduling/shifts/{id}",
+      "x-WM-TAG" : "svDeleteShiftById",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.svDeleteShiftById.scheme}://${rest.svDeleteShiftById.host}${rest.svDeleteShiftById.basepath}/scheduling/shifts/{id}",
+      "delete" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "svDeleteShiftById_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "ngrok-skip-browser-warning",
+          "format" : "boolean",
+          "description" : "ngrok-skip-browser-warning",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "in" : "path",
+          "name" : "id",
+          "format" : "string",
+          "type" : "string",
+          "required" : true,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "svDeleteShiftById" ],
+        "consumes" : [ "application/json" ]
+      }
+    }
+  },
+  "host" : "${rest.svDeleteShiftById.host}",
+  "schemes" : [ "${rest.svDeleteShiftById.scheme}" ],
+  "definitions" : {
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "svDeleteShiftById.Response.div",
+      "x-WM-TAGS" : [ "svDeleteShiftById" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "svDeleteShiftById.Response.body",
+      "x-WM-TAGS" : [ "svDeleteShiftById" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "svDeleteShiftById.RootResponse",
+      "x-WM-TAGS" : [ "svDeleteShiftById" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "svDeleteShiftById.Response.parsererror",
+      "x-WM-TAGS" : [ "svDeleteShiftById" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "4a6a118b-29c0-4a13-b32f-0533dceb572b",
+    "x-WM-SERVICE_ID" : "restService",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "svDeleteShiftById"
+  } ]
+}

@@ -163,9 +163,49 @@
       "type" : "string"
     }, {
       "isList" : false,
-      "target" : "RequestBody",
-      "value" : "{\n  \"employeeId\": 1,\n  \"companyId\": 1,\n  \"date\": \"2026-04-01\",\n  \"description\": \"Opening shift\",\n  \"startTime\": \"9:00AM\",\n  \"endTime\": \"5:00PM\",\n  \"position\": 1,\n  \"category\": 1,\n  \"color\": \"amber\"\n}",
-      "type" : "createShift.RootRequest"
+      "target" : "RequestBody.employeeId",
+      "value" : "bind:Page.selectedEmployee.employeeId",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.companyId",
+      "value" : "1",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.date",
+      "value" : "bind:Page.selectedShiftDate",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.description",
+      "value" : "bind:Widgets.shiftForm.formdata.description",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.startTime",
+      "value" : "bind:Widgets.shiftForm.formdata.startTime",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.endTime",
+      "value" : "bind:Widgets.shiftForm.formdata.endTime",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.position",
+      "value" : "bind:Widgets.shiftForm.formdata.position",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.category",
+      "value" : "bind:Widgets.shiftForm.formdata.category",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.color",
+      "value" : "bind:Widgets.shiftForm.formdata.color",
+      "type" : "string"
     } ],
     "type" : "createShift.RootResponse",
     "service" : "createShift",
@@ -176,12 +216,44 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "onSuccess" : "Variables.svScheduleList.invoke()",
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "createShift"
+  },
+  "svDeleteShiftById" : {
+    "_id" : "wm-svDeleteShiftById-wm.ServiceVariable-1775039580378",
+    "name" : "svDeleteShiftById",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    }, {
+      "target" : "id",
+      "value" : "bind:selectedShiftItem.shiftId",
+      "type" : "string"
+    } ],
+    "type" : "svDeleteShiftById.RootResponse",
+    "service" : "svDeleteShiftById",
+    "operation" : "invoke",
+    "operationId" : "svDeleteShiftById_invoke",
+    "operationType" : "delete",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Widgets.shiftDialog.close();Variables.svScheduleList.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "svDeleteShiftById"
   },
   "svDeleteShifts" : {
     "_id" : "wm-svDeleteShifts-wm.ServiceVariable-1773318624678",
@@ -231,6 +303,92 @@
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "controller" : "EmployeePositions"
+  },
+  "svGetAllCategoriesByCompanyId" : {
+    "_id" : "wm-svGetAllCategoriesByCompanyId-wm.ServiceVariable-1775034402515",
+    "name" : "svGetAllCategoriesByCompanyId",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    } ],
+    "type" : "categoryList.RootResponse",
+    "service" : "categoryList",
+    "operation" : "invoke",
+    "operationId" : "categoryList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "categoryList"
+  },
+  "svGetAllPositionsByCompanyId" : {
+    "_id" : "wm-svGetAllPositionsByCompanyId-wm.ServiceVariable-1775034368626",
+    "name" : "svGetAllPositionsByCompanyId",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    } ],
+    "type" : "positionList.RootResponse",
+    "service" : "positionList",
+    "operation" : "invoke",
+    "operationId" : "positionList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "positionList"
+  },
+  "svGetShiftById" : {
+    "_id" : "wm-svGetShiftById-wm.ServiceVariable-1775039103601",
+    "name" : "svGetShiftById",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    } ],
+    "type" : "getShiftDetails.RootResponse",
+    "service" : "getShiftDetails",
+    "operation" : "invoke",
+    "operationId" : "getShiftDetails_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getShiftDetails"
   },
   "svScheduleList" : {
     "_id" : "wm-svScheduleList-wm.ServiceVariable-1774866901855",

@@ -1,0 +1,125 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "23afbaa5-eeed-4396-a4d3-18a5c8b95aac",
+    "x-WM-SERVICE_ID" : "restService",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "825a-2409-4091-a097-8001-177a-c728-afb4-ca21.ngrok-free.app",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "positionList"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/positions" : {
+      "get" : {
+        "tags" : [ "positionList" ],
+        "operationId" : "positionList_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "ngrok-skip-browser-warning",
+          "in" : "header",
+          "description" : "ngrok-skip-browser-warning",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "boolean",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "companyId",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/positions",
+      "x-WM-TAG" : "positionList",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.positionList.scheme}://${rest.positionList.host}${rest.positionList.basepath}/positions"
+    }
+  },
+  "definitions" : {
+    "Response.groupsEntryItem" : {
+      "required" : [ "id", "name", "positions" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "positions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.Response.groupsEntryItem",
+      "x-WM-TAGS" : [ "positionList" ]
+    },
+    "Response.positionsEntryItem" : {
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "positionList" ]
+    },
+    "RootResponse" : {
+      "required" : [ "groups", "positions" ],
+      "properties" : {
+        "groups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.groupsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "positions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.RootResponse",
+      "x-WM-TAGS" : [ "positionList" ]
+    }
+  }
+}
