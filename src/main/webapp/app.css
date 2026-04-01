@@ -148,8 +148,8 @@
 }
 
 .fa-diamond {
-    width: 12px !important;
-    height: 16px !important;
+    width: 11px !important;
+    height: 14px !important;
     min-width: 12px !important;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
@@ -227,3 +227,9 @@ wm-input[name="txtFind"].app-input-wrapper {
 .wm-app .btn:not(.btn-icon) + .btn:not(.btn-icon), .wm-app button:not(.btn-icon) + .btn:not(.btn-icon) {
     margin-left: 1px;
     }
+.table th{
+    border-top: 0  !important;
+}
+.container-grey-standard{
+    padding: 10px 20px;
+}
