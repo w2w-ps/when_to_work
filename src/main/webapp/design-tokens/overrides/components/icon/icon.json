@@ -1,0 +1,35 @@
+{
+  "icon" : {
+    "appearances" : {
+      "purple" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#A055CD"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "min-width" : {
+            "value" : "12px"
+          },
+          "width" : {
+            "value" : "12px"
+          },
+          "height" : {
+            "value" : "12px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "purple" : {
+          "source" : "user"
+        }
+      }
+    }
+  }
+}

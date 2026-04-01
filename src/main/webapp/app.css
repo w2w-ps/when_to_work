@@ -133,3 +133,29 @@
 .table th .app-checkbox {
     height: 18px;
 }
+
+.btn-transparent-icon-btn img {
+    width: 16px;
+}
+
+.fa-diamond {
+    width: 12px !important;
+    height: 16px !important;
+    min-width: 12px !important;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.fa-diamond::before {
+    display: none;
+}
+.purple .fa-diamond{
+    background-color: #A055CD;
+}
+
+.blue .fa-diamond{
+    background-color: #10A8D8;
+}
+
+.orange .fa-diamond{
+    background-color: #FB5007;
+}

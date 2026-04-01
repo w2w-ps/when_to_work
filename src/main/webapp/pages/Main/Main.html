@@ -3,16 +3,21 @@
     <wm-content name="content">
         <wm-header content="header" name="header" height="auto"></wm-header>
         <wm-page-content columnwidth="10" name="mainContent">
+            <wm-icon name="icon1" variant="purple" iconclass="fa fa-diamond" class="purple"></wm-icon>
+            <wm-icon variant="purple" iconclass="fa fa-diamond" class="blue" name="icon2"></wm-icon>
+            <wm-icon variant="purple" iconclass="fa fa-diamond" class="orange" name="icon2"></wm-icon>
+
             <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container1"
                 class="app-container-default" variant="default" padding="12px unset">
                 <wm-table editmode="inline" statehandler="URL" name="supportedLocaleTable1_1" title=""
                     dataset="bind:Variables.stvTableData.dataSet" navigation="None" class="striped-even"
                     variant="striped-even" radioselect="false" multiselect="true" isrowselectable="true"
                     on-headerclick="onTable1HeaderClick($event, widget, column)" enablesort="false" height="145px">
-                    <wm-table-column binding="name" caption="Name" widget-type="label" edit-widget-type="text"
+                    <wm-table-column binding="name" caption="Name" widget-type="button" edit-widget-type="text"
                         show="true" type="string" showineditmode="true" readonly="false">
-                        <wm-label caption="bind:row.getProperty('undefined')" class="" conditionalclass=""
-                            conditionalstyle=""></wm-label>
+                        <wm-button caption="" show="true" class="btn-transparent-icon-btn"
+                            iconurl=" ./resources/images/imagelists/icon__fa-pencil.png" on-click="" conditionalclass=""
+                            conditionalstyle=""></wm-button>
                     </wm-table-column>
                     <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
                         type="string" showineditmode="true" readonly="false"></wm-table-column>
