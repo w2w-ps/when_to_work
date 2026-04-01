@@ -64,11 +64,11 @@
 
 
 .striped-even table .app-checkbox.checkbox>label .caption:before {
-    border-color: transparent;
+    /* border-color: transparent; */
 }
 
 .striped-even table .app-checkbox.checkbox>label>input[type="checkbox"]:checked+.caption:after {
-    border-color: transparent;
+    /* border-color: transparent; */
 }
 
 .striped-even .table .app-checkbox.checkbox>label>input[type="checkbox"],
@@ -92,7 +92,9 @@
 .data-table-striped-even-deleted-large-header.striped-even .table thead th:hover {
     border-bottom: 1px solid var(--wm-color-tertiary);
 }
-
+.data-table-striped-even-large-header th{
+height: 44px;
+}
 .striped-even .table thead th:not(:last-child):before {
     content: "";
     background-color: var(--wm-color-gray);
@@ -112,6 +114,9 @@
 .striped-even th {
     text-align: center !important;
 }
+.striped-even th:last-child{
+    text-align: left !important;
+}
 
 .striped-even td {
     white-space: nowrap;
@@ -130,8 +135,9 @@
     border: 1px solid var(--wm-color-border-color);
 }
 
-.table th .app-checkbox {
+.table .app-checkbox {
     height: 18px;
+    width: 18px !important;
 }
 
 .btn-transparent-icon-btn img {
@@ -148,14 +154,49 @@
 .fa-diamond::before {
     display: none;
 }
-.purple .fa-diamond{
+
+.purple .fa-diamond {
     background-color: #A055CD;
 }
 
-.blue .fa-diamond{
+.blue .fa-diamond {
     background-color: #10A8D8;
 }
 
-.orange .fa-diamond{
+.orange .fa-diamond {
     background-color: #FB5007;
+}
+
+.table .app-checkbox.checkbox>label .caption:before {
+    width: 12px;
+    height: 12px;
+    left: 3px;
+    top: 3px;
+    border-width: 1px;
+    border-radius: 0;
+}
+
+.table .app-checkbox.checkbox>label .caption:after {
+    top: 2px;
+    left: 2px;
+    width: 7px;
+    height: 2px;
+}
+
+.table .app-checkbox.checkbox>label>input[type="checkbox"] {
+    opacity: 0;
+}
+
+.striped-even,
+.data-table-striped-even-deleted-large-header,
+.data-table-striped-even-large-header {
+    box-shadow: none !important;
+}
+
+div[multiselect="true"] colgroup col:first-child {
+    width: 25px !important;
+}
+
+.data-table-striped-even-large-header.app-grid .table > tbody > tr td{
+padding: 0px 4px;
 }
