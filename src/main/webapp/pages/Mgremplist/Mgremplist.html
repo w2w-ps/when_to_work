@@ -1,11 +1,11 @@
 <wm-page name="page" pagetitle="Mgremplist">
     <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent">
+        <wm-page-content columnwidth="12" name="pagecontent" class="px-0">
             <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="0"
                 alignment="top-left" width="fill" height="hug">
                 <!-- PAGE TITLE -->
                 <wm-container name="titleSection" class="app-container-default" direction="column" gap="4"
-                    alignment="top-center" width="fill" height="hug">
+                    alignment="top-center" width="fill" height="hug" padding="unset unset 16px unset">
                     <wm-label name="lblCompanyName" caption="Sample Company" class="label-label-20-700"
                         variant="label-20-700"></wm-label>
                     <wm-label name="lblPageTitle" caption="Employee List" class="label-label-20-700"
@@ -16,19 +16,22 @@
                     <wm-tabpane name="tabEmployees" title="Employees">
                         <!-- ACTION TOOLBAR -->
                         <wm-container name="actionToolbar" class="app-container-default" direction="row" gap="0"
-                            alignment="middle-left" width="fill" height="hug">
+                            alignment="middle-left" width="fill" height="hug" padding="6px unset unset unset">
                             <wm-button name="btnAddNewEmployee" caption="Add New Employee"
-                                class="btn-filled-primary-variant" variant="filled-primary-variant"></wm-button>
+                                class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
+                                width="27.5%"></wm-button>
                             <wm-button name="btnAddEditPositions" caption="Add/Edit Positions"
-                                class="btn-filled-primary-variant" variant="filled-primary-variant"></wm-button>
+                                class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
+                                width="24.5%"></wm-button>
                             <wm-button name="btnEmailSignIn" caption="Email Sign In Instructions"
-                                class="btn-filled-primary-variant" variant="filled-primary-variant"></wm-button>
-                            <wm-button name="btnPrint" caption="Print" class="btn-filled-primary-variant"
-                                variant="filled-primary-variant"></wm-button>
-                            <wm-button name="btnExport" caption="Export" class="btn-filled-primary-variant"
-                                variant="filled-primary-variant"></wm-button>
-                            <wm-button name="btnUpload" caption="Upload" class="btn-filled-primary-variant"
-                                variant="filled-primary-variant"></wm-button>
+                                class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
+                                width="33.5%"></wm-button>
+                            <wm-button name="btnPrint" caption="Print" class="btn-filled-primary-variant-12-700"
+                                variant="filled-primary-variant-12-700" width="7.5%"></wm-button>
+                            <wm-button name="btnExport" caption="Export" class="btn-filled-primary-variant-12-700"
+                                variant="filled-primary-variant-12-700" width="10.5%"></wm-button>
+                            <wm-button name="btnUpload" caption="Upload" class="btn-filled-primary-variant-12-700"
+                                variant="filled-primary-variant-12-700" width="12%"></wm-button>
                         </wm-container>
                         <!-- SECONDARY TOOLBAR -->
                         <wm-container name="secondaryToolbar" direction="row" gap="16" alignment="middle-left"
