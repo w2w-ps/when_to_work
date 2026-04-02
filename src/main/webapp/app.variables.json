@@ -1,9 +1,9 @@
 {
   "appNotification" : {
-    "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
+    "_id" : "wm-appErrorHandler-wm.NotificationAction-1454664620943",
     "name" : "appNotification",
     "owner" : "App",
-    "category" : "wm.NotificationVariable",
+    "category" : "wm.NotificationAction",
     "dataBinding" : [ {
       "target" : "class",
       "value" : "Error",
@@ -16,10 +16,10 @@
     "operation" : "toast"
   },
   "goToPage_Main" : {
-    "_id" : "wm-wm.NavigationVariable1389180517517",
+    "_id" : "wm-wm.NavigationAction1389180517517",
     "name" : "goToPage_Main",
     "owner" : "App",
-    "category" : "wm.NavigationVariable",
+    "category" : "wm.NavigationAction",
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
