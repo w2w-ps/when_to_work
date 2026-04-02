@@ -434,6 +434,38 @@
     "saveInPhonegap" : false,
     "controller" : "scheduleList"
   },
+  "svUpdateShift" : {
+    "_id" : "wm-svUpdateShift-wm.ServiceVariable-1775112892499",
+    "name" : "svUpdateShift",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "  {\n  \"employeeId\": 2,\n  \"companyId\": 1,\n  \"date\": \"2026-04-02\",\n  \"description\": \"Opening shift 466\",\n  \"startTime\": \"9:00AM\",\n  \"endTime\": \"5:00PM\",\n  \"position\": 1,\n  \"category\": 1,\n  \"color\": \"amber\"\n}",
+      "type" : "updateShift.RootRequest"
+    } ],
+    "type" : "updateShift.RootResponse",
+    "service" : "updateShift",
+    "operation" : "invoke",
+    "operationId" : "updateShift_invoke",
+    "operationType" : "put",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Variables.svScheduleList.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "updateShift"
+  },
   "svUpdateShiftDetails" : {
     "_id" : "wm-svUpdateShiftDetails-wm.ServiceVariable-1773230566366",
     "name" : "svUpdateShiftDetails",

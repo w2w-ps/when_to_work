@@ -1,0 +1,171 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "29f07ff7-3330-4b46-8f37-e0082e07e31b",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "updateShift"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/scheduling/shifts/{shiftId}" : {
+      "put" : {
+        "tags" : [ "updateShift" ],
+        "operationId" : "updateShift_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "ngrok-skip-browser-warning",
+          "in" : "header",
+          "description" : "ngrok-skip-browser-warning",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "boolean",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        }, {
+          "name" : "shiftId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/scheduling/shifts/{shiftId}",
+      "x-WM-TAG" : "updateShift",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.updateShift.scheme}://${rest.updateShift.host}${rest.updateShift.basepath}/scheduling/shifts/{shiftId}"
+    }
+  },
+  "definitions" : {
+    "RootRequest" : {
+      "required" : [ "category", "color", "companyId", "date", "description", "employeeId", "endTime", "position", "startTime" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "position" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "category" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updateShift.RootRequest",
+      "x-WM-TAGS" : [ "updateShift" ]
+    },
+    "RootResponse" : {
+      "required" : [ "categoryId", "changedBy", "color", "companyId", "description", "duration", "employeeId", "endTime", "isDeleted", "isOvernight", "requiredSkillId", "scheduleId", "shiftId", "startTime" ],
+      "properties" : {
+        "shiftId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "requiredSkillId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "isOvernight" : {
+          "type" : "boolean"
+        },
+        "duration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "isDeleted" : {
+          "type" : "boolean"
+        },
+        "changedBy" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "categoryId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "scheduleId" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updateShift.RootResponse",
+      "x-WM-TAGS" : [ "updateShift" ]
+    }
+  }
+}
