@@ -1,0 +1,100 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "70d49481-d39d-4798-8a62-5ff4f664e31f",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "getShiftDetails"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/getShiftDetails/scheduling/shifts/{id}" : {
+      "get" : {
+        "tags" : [ "getShiftDetails" ],
+        "operationId" : "getShiftDetails_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/getShiftDetails/scheduling",
+      "x-WM-TAG" : "getShiftDetails",
+      "x-WM-RELATIVE_PATH" : "/shifts/{id}",
+      "x-WM-COMPLETE_PATH" : "${rest.getShiftDetails.scheme}://${rest.getShiftDetails.host}${rest.getShiftDetails.basepath}/scheduling/shifts/{id}"
+    }
+  },
+  "definitions" : {
+    "RootResponse" : {
+      "required" : [ "category", "color", "companyId", "date", "description", "duration", "employeeId", "endTime", "isOvernight", "position", "shiftId", "startTime" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "shiftId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "isOvernight" : {
+          "type" : "boolean"
+        },
+        "position" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "getShiftDetails.RootResponse",
+      "x-WM-TAGS" : [ "getShiftDetails" ]
+    }
+  }
+}
