@@ -122,6 +122,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_SignIn" : {
+    "_id" : "wm-goToPage_SignIn-wm.NavigationAction-1775112869724",
+    "name" : "goToPage_SignIn",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SignIn",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_topnav" : {
     "_id" : "wm-goToPage_topnav-wm.NavigationAction-1774015671287",
     "name" : "goToPage_topnav",
@@ -172,11 +183,39 @@
     },
     "type" : "string",
     "saveInPhonegap" : false,
+    "onSuccess" : "loginActionOnSuccess(variable, data)",
+    "onError" : "loginActionOnError(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "useDefaultSuccessHandler" : true
+  },
+  "loginAttemptCount" : {
+    "_id" : "wm-loginAttemptCount-wm.Variable-1775111851851",
+    "name" : "loginAttemptCount",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "loginErrorVisible" : {
+    "_id" : "wm-loginErrorVisible-wm.Variable-1775112798524",
+    "name" : "loginErrorVisible",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : false
+    },
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   },
   "logoutAction" : {
     "_id" : "wm-logoutAction-wm.LogoutAction-1775104688575",
