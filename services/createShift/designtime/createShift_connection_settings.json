@@ -1,9 +1,7 @@
 {
   "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/shifts",
   "method" : "POST",
-  "headers" : {
-    "ngrok-skip-browser-warning" : [ "true" ]
-  },
+  "headers" : { },
   "redirectEnabled" : true,
   "requestBody" : "{\n  \"employeeId\": 1,\n  \"companyId\": 1,\n  \"date\": \"2026-04-01\",\n  \"description\": \"Opening shift\",\n  \"startTime\": \"9:00AM\",\n  \"endTime\": \"5:00PM\",\n  \"position\": 1,\n  \"category\": 1,\n  \"color\": \"amber\"\n}",
   "queryParams" : { },
@@ -14,7 +12,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Wed, 01 Apr 2026 13:27:28 GMT" ],
+      "Date" : [ "Thu, 02 Apr 2026 09:56:08 GMT" ],
       "Content-Length" : [ "0" ],
       "Connection" : [ "keep-alive" ],
       "X-Content-Type-Options" : [ "nosniff" ],

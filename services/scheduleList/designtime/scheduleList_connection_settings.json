@@ -1,9 +1,7 @@
 {
   "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/employees",
   "method" : "GET",
-  "headers" : {
-    "ngrok-skip-browser-warning" : [ "true" ]
-  },
+  "headers" : { },
   "redirectEnabled" : true,
   "requestBody" : "",
   "queryParams" : {
@@ -18,7 +16,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Wed, 01 Apr 2026 13:28:47 GMT" ],
+      "Date" : [ "Thu, 02 Apr 2026 09:57:03 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Transfer-Encoding" : [ "chunked" ],
       "Connection" : [ "keep-alive" ],

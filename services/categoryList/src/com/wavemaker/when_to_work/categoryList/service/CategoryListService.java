@@ -17,15 +17,13 @@ public interface CategoryListService {
   /**
    * 
    * 
-    * @param ngrok_skip_browser_warning ngrok-skip-browser-warning (optional)
     * @param companyId companyId (optional)
    * @return RootResponse
    */
   @RequestLine("GET /categories?companyId={companyId}")
   @Headers({
-    "Accept: application/json",
-    "ngrok-skip-browser-warning: {ngrok_skip_browser_warning}"  })
-  RootResponse invoke(@Param("ngrok_skip_browser_warning") String ngrok_skip_browser_warning, @Param("companyId") String companyId);
+    "Accept: application/json",  })
+  RootResponse invoke(@Param("companyId") String companyId);
 
 
     /**
@@ -36,7 +34,6 @@ public interface CategoryListService {
      * is convenient for services with optional query parameters, especially when
      * used with the {@link InvokeQueryParams} class that allows for
      * building up this map in a fluent style.
-     * @param ngrok_skip_browser_warning ngrok-skip-browser-warning (optional)
      * @param queryParams Map of query parameters as name-value pairs
      *   <p>The following elements may be specified in the query map:</p>
      *   <ul>
@@ -46,10 +43,9 @@ public interface CategoryListService {
      */
     @RequestLine("GET /categories?companyId={companyId}")
     @Headers({
-    "Accept: application/json",
-        "ngrok-skip-browser-warning: {ngrok_skip_browser_warning}"    })
+    "Accept: application/json",    })
     RootResponse invoke
-    (@Param("ngrok_skip_browser_warning") String ngrok_skip_browser_warning, @QueryMap(encoded=true)
+    (@QueryMap(encoded=true)
     MultiValueMap<String, String> queryParams);
 
 }

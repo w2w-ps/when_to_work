@@ -1,9 +1,7 @@
 {
   "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/shifts/{id}",
   "method" : "DELETE",
-  "headers" : {
-    "ngrok-skip-browser-warning" : [ "true" ]
-  },
+  "headers" : { },
   "redirectEnabled" : true,
   "requestBody" : "",
   "queryParams" : { },
@@ -14,7 +12,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Wed, 01 Apr 2026 13:29:31 GMT" ],
+      "Date" : [ "Thu, 02 Apr 2026 09:57:31 GMT" ],
       "Content-Length" : [ "0" ],
       "Connection" : [ "keep-alive" ],
       "X-Content-Type-Options" : [ "nosniff" ],

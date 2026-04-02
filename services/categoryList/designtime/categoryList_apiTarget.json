@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "94af57a6-7757-438c-bd0f-ce16030e1b7f",
+    "x-WM-API_ID" : "dbc6f250-0c67-442d-a6a2-16a9764edcfc",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -23,20 +23,6 @@
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "ngrok-skip-browser-warning",
-          "in" : "header",
-          "description" : "ngrok-skip-browser-warning",
-          "required" : false,
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "format" : "boolean",
-          "x-WM-VARIABLE_KEY" : "",
-          "x-WM-EDITABLE" : false,
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
           "name" : "companyId",
           "in" : "query",
           "description" : "companyId",

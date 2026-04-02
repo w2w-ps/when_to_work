@@ -20,14 +20,12 @@ public interface UpdateShiftService {
    * 
     * @param shiftId  (required)
     * @param body RequestBody (optional)
-    * @param ngrok_skip_browser_warning ngrok-skip-browser-warning (optional)
    * @return RootResponse
    */
   @RequestLine("PUT /scheduling/shifts/{shiftId}")
   @Headers({
     "Content-Type: application/json",
-    "Accept: application/json",
-    "ngrok-skip-browser-warning: {ngrok_skip_browser_warning}"  })
-  RootResponse invoke(@Param("shiftId") String shiftId, RootRequest body, @Param("ngrok_skip_browser_warning") String ngrok_skip_browser_warning);
+    "Accept: application/json",  })
+  RootResponse invoke(@Param("shiftId") String shiftId, RootRequest body);
 
 }

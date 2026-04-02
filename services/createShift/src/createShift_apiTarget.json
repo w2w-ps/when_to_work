@@ -15,20 +15,6 @@
           }
         },
         "parameters" : [ {
-          "x-WM-VARIABLE_KEY" : "",
-          "x-WM-EDITABLE" : false,
-          "in" : "header",
-          "name" : "ngrok-skip-browser-warning",
-          "format" : "boolean",
-          "description" : "ngrok-skip-browser-warning",
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "required" : false,
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
           "schema" : {
             "$ref" : "#/definitions/RootRequest"
           },
@@ -146,7 +132,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "d53035c0-9b31-4e81-88a0-c8f11d0ec527",
+    "x-WM-API_ID" : "01a03d9e-d875-470e-8608-699a25a57234",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",

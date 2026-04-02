@@ -1,9 +1,7 @@
 {
   "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/shifts/{shiftId}",
   "method" : "PUT",
-  "headers" : {
-    "ngrok-skip-browser-warning" : [ "true" ]
-  },
+  "headers" : { },
   "redirectEnabled" : true,
   "requestBody" : "  {\n  \"employeeId\": 2,\n  \"companyId\": 1,\n  \"date\": \"2026-04-02\",\n  \"description\": \"Opening shift 466\",\n  \"startTime\": \"9:00AM\",\n  \"endTime\": \"5:00PM\",\n  \"position\": 1,\n  \"category\": 1,\n  \"color\": \"amber\"\n}",
   "queryParams" : { },
@@ -14,7 +12,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Thu, 02 Apr 2026 06:48:36 GMT" ],
+      "Date" : [ "Thu, 02 Apr 2026 09:58:09 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Transfer-Encoding" : [ "chunked" ],
       "Connection" : [ "keep-alive" ],
@@ -26,7 +24,7 @@
       "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
       "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"categoryId\":1,\"changedBy\":2,\"color\":\"amber\",\"companyId\":1,\"description\":\"Opening shift 466\",\"duration\":8,\"employeeId\":2,\"endTime\":\"5:00PM\",\"isDeleted\":false,\"isOvernight\":false,\"requiredSkillId\":1,\"scheduleId\":33,\"shiftId\":466,\"startTime\":\"9:00AM\"}",
+    "responseBody" : "{\"categoryId\":1,\"changedBy\":2,\"color\":\"amber\",\"companyId\":1,\"description\":\"Opening shift 466\",\"duration\":8,\"employeeId\":2,\"endTime\":\"5:00PM\",\"isDeleted\":false,\"isOvernight\":false,\"requiredSkillId\":1,\"scheduleId\":33,\"shiftId\":423,\"startTime\":\"9:00AM\"}",
     "convertedResponse" : null
   }
 }

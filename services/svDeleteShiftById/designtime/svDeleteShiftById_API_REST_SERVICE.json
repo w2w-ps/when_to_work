@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "f4f761b2-393c-45be-9f6c-98213221863e",
+    "x-WM-API_ID" : "75210c40-8c87-402d-bc9b-c2451a2b65f7",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -22,20 +22,6 @@
         "operationId" : "svDeleteShiftById_invoke",
         "consumes" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "ngrok-skip-browser-warning",
-          "in" : "header",
-          "description" : "ngrok-skip-browser-warning",
-          "required" : false,
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "format" : "boolean",
-          "x-WM-VARIABLE_KEY" : "",
-          "x-WM-EDITABLE" : false,
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
           "name" : "id",
           "in" : "path",
           "required" : true,

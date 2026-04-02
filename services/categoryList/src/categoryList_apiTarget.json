@@ -21,20 +21,6 @@
         "parameters" : [ {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
-          "in" : "header",
-          "name" : "ngrok-skip-browser-warning",
-          "format" : "boolean",
-          "description" : "ngrok-skip-browser-warning",
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "required" : false,
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
-          "x-WM-VARIABLE_KEY" : "",
-          "x-WM-EDITABLE" : false,
           "in" : "query",
           "name" : "companyId",
           "format" : "string",
@@ -116,7 +102,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "94af57a6-7757-438c-bd0f-ce16030e1b7f",
+    "x-WM-API_ID" : "dbc6f250-0c67-442d-a6a2-16a9764edcfc",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",
