@@ -169,7 +169,7 @@
                 "value" : "Tahoma"
               },
               "background-even" : {
-                "value" : "{color.surface.container.highest.@.value}"
+                "value" : "#efefef"
               },
               "color" : {
                 "value" : "{color.black.@.value}"
@@ -199,7 +199,7 @@
                 }
               },
               "padding" : {
-                "value" : "2px 4px"
+                "value" : "0"
               }
             }
           },
