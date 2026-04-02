@@ -1,5 +1,5 @@
 {
-  "enforceSecurity" : false,
+  "enforceSecurity" : true,
   "loginConfig" : {
     "type" : "PAGE",
     "pageName" : "Login",
@@ -18,7 +18,7 @@
     }
   },
   "rememberMeConfig" : {
-    "enabled" : true,
+    "enabled" : false,
     "tokenValiditySeconds" : 1296000
   },
   "tokenAuthConfig" : {
@@ -32,8 +32,35 @@
     "cookieName" : "wm_xsrf_token"
   },
   "sessionPersistenceConfig" : {
-    "enabledType" : "IN_MEMORY"
+    "enabledType" : "IN_MEMORY",
+    "config" : {
+      "MONGODB" : {
+        "host" : "",
+        "port" : "",
+        "dbname" : "",
+        "username" : "",
+        "password" : "7b6a43524a78700d662158",
+        "type" : "MONGODB"
+      },
+      "JDBC" : {
+        "serviceName" : "",
+        "type" : "JDBC"
+      },
+      "REDIS" : {
+        "hostName" : "",
+        "port" : "",
+        "database" : "0",
+        "password" : "7b6a43524a78700d662158",
+        "type" : "REDIS"
+      }
+    }
   },
-  "authProviders" : [ ],
+  "authProviders" : [ {
+    "enabled" : true,
+    "fqCustomAuthenticationManagerClassName" : "com.wavemaker.when_to_work.security.CustomAuthenticationManager",
+    "type" : "CUSTOM",
+    "providerId" : null,
+    "roleMappingConfig" : null
+  } ],
   "activeAuthProviderTypes" : null
 }

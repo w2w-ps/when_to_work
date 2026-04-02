@@ -1,0 +1,6 @@
+{
+  "id" : "LoginService",
+  "type" : "RestService",
+  "title" : "LoginService",
+  "mockEnabled" : false
+}

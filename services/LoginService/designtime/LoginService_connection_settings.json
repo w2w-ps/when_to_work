@@ -1,0 +1,30 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/login",
+  "method" : "POST",
+  "headers" : { },
+  "redirectEnabled" : true,
+  "requestBody" : "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Thu, 02 Apr 2026 04:32:07 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"success\":true,\"message\":\"Login successful\",\"token\":\"eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3NTEwNDMyNywiZXhwIjoxNzc1MTA2MTI3fQ.oZpAag4NEe5sVKqLi9a6B8EkcNPqJeAnfp9rQC_7KFbaGNyeicczDwd0BT7jHBhG6Q96qUrYjhBnRt5_L8b2dqsDm1CkB28Lf1agRVVsZ7YN6vadCD0EfVH1qhV5HJCxx6N0SfCP4taWfZC1ACZdDk_eWZS7iWaDeIo1KAiMNH4ptGMp9nYlC2Lxd0Fw7-CJRUkzXQe54L4XNddFF6AbPo7cA0xD8XYZf-O-7oJstdwgp-raLzD6zzsO8ty4vm9uMXFIKat1IxPOPDbew_mPZrZUdXSXnyLborRlBaAEDXXyASuhVrTBEkqq5-GnANDRXYQwhL7IQOnlfxO3Dm579A\",\"role\":\"Employee\",\"empType\":\"Full Time\",\"displayName\":\"Paul Walker\",\"userId\":1,\"empId\":1}",
+    "convertedResponse" : null
+  }
+}

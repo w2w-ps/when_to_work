@@ -1,1 +1,86 @@
-[ ]
+[ {
+  "urlPattern" : "/pages/Login/**",
+  "permission" : "PermitAll",
+  "roles" : null,
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Home/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Common/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Empinfo/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Mgrchangeemppass/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/SignIn/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/TestDrive/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/header/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/rightnav/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/topnav/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/services/scheduleList/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Main/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/services/when2work/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/EmployeeView/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Mgrempedit/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/footer/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/leftnav/**",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : null
+} ]
