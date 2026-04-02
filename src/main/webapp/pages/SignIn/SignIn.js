@@ -15,3 +15,9 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+
+/* Resets the error banner and invokes the login action */
+Page.onSignInClick = function () {
+    App.Variables.loginErrorVisible.dataSet.dataValue = false;
+    App.Actions.loginAction.invoke();
+};

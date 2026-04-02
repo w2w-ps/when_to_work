@@ -5,10 +5,17 @@
 <wm-container name="signInCard" class="app-container-default signin-card container-signin-card" direction="column" gap="16" alignment="top-center" width="480px" height="hug">
 <wm-picture name="logoImage" picturesource="resources/images/logos/w2w_logo_circle.png" alttext="WhenToWork Logo" class="signin-logo"></wm-picture>
 <wm-label name="brandLabel" caption="WhenToWork.com" class="brand-title label-brand-title"></wm-label>
+<wm-container name="forgotInfoSection" class="app-container-default" direction="column" gap="16" alignment="top-center" width="fill" height="hug" show="bind:Variables.loginErrorVisible.dataSet.dataValue">
+<wm-text name="forgotInfoEmailInput" placeholder="Enter Email Address" type="email"></wm-text>
+<wm-button name="forgotInfoSendBtn" caption="SEND INFORMATION" type="button"></wm-button></wm-container>
 <wm-label name="signInHeading" caption="Sign In" class="section-heading label-section-heading"></wm-label>
 <wm-text name="usernameInput" placeholder="username" type="text" datavalue="bind:Variables.signInFormData.dataSet.username" class="signin-input"></wm-text>
+<wm-container name="loginErrorBanner" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" show="bind:App.Variables.loginErrorVisible.dataSet.dataValue" variant="default">
+<wm-label name="loginErrorMsg" caption="bind:&quot;Invalid Username or Password!&quot;" class="text-danger text-primary" variant="text:primary"></wm-label></wm-container>
 <wm-text name="passwordInput" placeholder="password" type="password" datavalue="bind:Variables.signInFormData.dataSet.password" class="signin-input"></wm-text>
-<wm-button name="signInBtn" caption="SIGN IN" class="btn-default signin-primary btn-signin-primary" type="button" on-click="Actions.loginAction.invoke()"></wm-button>
+<wm-container name="loginErrorBanner" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" show="bind:App.Variables.loginErrorVisible.dataSet.dataValue" variant="default">
+<wm-label name="loginErrorMsg" caption="bind:'Invalid username or password attempt (' + App.Variables.loginAttemptCount.dataSet.dataValue + '/20)'" class="text-danger text-primary" variant="text:primary"></wm-label></wm-container>
+<wm-button name="signInBtn" caption="SIGN IN" class="btn-default signin-primary btn-signin-primary" type="button" on-click="onSignInClick()"></wm-button>
 <wm-anchor name="forgotPasswordLink" caption="Need username / password?" class="link-text"></wm-anchor>
 <wm-anchor name="troubleConnectingLink" caption="Trouble Connecting? Try W2W.com" class="link-text"></wm-anchor>
 <wm-button name="googleSignInBtn" caption="Sign In With Google" iconclass="fa fa-google" class="btn-default google-signin btn-google-signin" type="button"></wm-button>

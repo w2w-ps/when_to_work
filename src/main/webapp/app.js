@@ -28,7 +28,7 @@ App.onSessionTimeout = function () {
  * activePageScope: scope of the page
  * $activePageEl  : page jQuery element
  */
-App.onPageReady = function(activePageName, activePageScope, $activePageEl) {
+App.onPageReady = function (activePageName, activePageScope, $activePageEl) {
 
 };
 
@@ -42,4 +42,15 @@ App.onPageReady = function(activePageName, activePageScope, $activePageEl) {
  */
 App.onServiceError = function (errorMsg, xhrObj) {
 
+};
+
+
+App.loginActionOnError = function (variable, data) {
+    App.Variables.loginAttemptCount.dataSet.dataValue += 1;
+    App.Variables.loginErrorVisible.dataSet.dataValue = true;
+};
+
+App.loginActionOnSuccess = function (variable, data) {
+    App.Variables.loginAttemptCount.dataSet.dataValue = 0;
+    App.Variables.loginErrorVisible.dataSet.dataValue = false;
 };
