@@ -184,6 +184,13 @@
           "value" : "#a56400"
         }
       }
+    },
+    "on-primary" : {
+      "fixed" : {
+        "variant" : {
+          "value" : "#2d467dff"
+        }
+      }
     }
   }
 }

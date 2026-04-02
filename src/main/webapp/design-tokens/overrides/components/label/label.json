@@ -558,6 +558,68 @@
             "value" : "none"
           }
         }
+      },
+      "label-18-400-primary" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.on-primary.fixed.variant.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "{h2.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.400.value}"
+          },
+          "line-height" : {
+            "value" : "{font.line-height.120pct.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{h2.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{h2.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
+      },
+      "label-24-400-primary" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.on-primary.fixed.variant.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "24px"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.400.value}"
+          },
+          "line-height" : {
+            "value" : "{font.line-height.120pct.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{h2.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{h2.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
       }
     },
     "meta" : {
@@ -621,6 +683,12 @@
           "source" : "user"
         },
         "label-14-400" : {
+          "source" : "user"
+        },
+        "label-18-400-primary" : {
+          "source" : "user"
+        },
+        "label-24-400-primary" : {
           "source" : "user"
         }
       }
