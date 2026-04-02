@@ -1,0 +1,126 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "115c8e73-d6bd-4294-8021-d90183248041",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "precheck"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/precheck/scheduling/validation/precheck" : {
+      "post" : {
+        "tags" : [ "precheck" ],
+        "operationId" : "precheck_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/precheck/scheduling",
+      "x-WM-TAG" : "precheck",
+      "x-WM-RELATIVE_PATH" : "/validation/precheck",
+      "x-WM-COMPLETE_PATH" : "${rest.precheck.scheme}://${rest.precheck.host}${rest.precheck.basepath}/scheduling/validation/precheck"
+    }
+  },
+  "definitions" : {
+    "Request.shift" : {
+      "required" : [ "category", "color", "date", "description", "duration", "employeeId", "endTime", "position", "startTime" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "position" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "category" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "precheck.Request.shift",
+      "x-WM-TAGS" : [ "precheck" ]
+    },
+    "RootRequest" : {
+      "required" : [ "operationType", "shift" ],
+      "properties" : {
+        "shift" : {
+          "$ref" : "#/definitions/Request.shift"
+        },
+        "operationType" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "precheck.RootRequest",
+      "x-WM-TAGS" : [ "precheck" ]
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "precheck.java.lang.Object",
+      "x-WM-TAGS" : [ "precheck" ]
+    },
+    "RootResponse" : {
+      "required" : [ "conflicts", "hasConflicts" ],
+      "properties" : {
+        "conflicts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "hasConflicts" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "precheck.RootResponse",
+      "x-WM-TAGS" : [ "precheck" ]
+    }
+  }
+}

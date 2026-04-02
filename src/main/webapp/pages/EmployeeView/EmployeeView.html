@@ -59,7 +59,7 @@
 <wm-label name="lblEmployeeName" caption="bind:item.firstName + ' ' + item.lastName" class=" label-label-bold" variant="label-bold"></wm-label></wm-container>
 <!-- Monday Shift Cell -->
 <wm-container name="mondayShiftCell" class="app-container-default custom-border-right shift-cell-grab cursor-pointer-underline weekday-container" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="mondayShiftCellClick($event, widget, item, currentItemWidgets)" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="mondayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" height="fill">
-<wm-list name="mondayShiftList" dataset="bind:item.weeklyShifts[0].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group " show="bind:item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="mondayShiftList" dataset="bind:item.weeklyShifts[0].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group " show="bind:item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="mondayShiftListTemplate">
 <wm-container name="mondayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="mondayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="mondayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblMondayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="text-center label-label-bold" variant="label-bold"></wm-label>
@@ -67,7 +67,7 @@
 <wm-label name="lblMondayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
 <!-- Tuesday Shift Cell -->
 <wm-container name="tuesdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="tuesdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="tuesdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="tuesdayShiftList" dataset="bind:item.weeklyShifts[1].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[1].shifts &amp;&amp; item.weeklyShifts[1].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="tuesdayShiftList" dataset="bind:item.weeklyShifts[1].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[1].shifts &amp;&amp; item.weeklyShifts[1].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="tuesdayShiftListTemplate">
 <wm-container name="tuesdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="tuesdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="tuesdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblTuesdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
@@ -75,7 +75,7 @@
 <wm-label name="lblTuesdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
 <!-- Wednesday Shift Cell -->
 <wm-container name="wednesdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="wednesdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="wednesdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="wednesdayShiftList" dataset="bind:item.weeklyShifts[2].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[2].shifts &amp;&amp; item.weeklyShifts[2].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="wednesdayShiftList" dataset="bind:item.weeklyShifts[2].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[2].shifts &amp;&amp; item.weeklyShifts[2].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="wednesdayShiftListTemplate">
 <wm-container name="wednesdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="wednesdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="wednesdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblWednesdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
@@ -83,7 +83,7 @@
 <wm-label name="lblWednesdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
 <!-- Thursday Shift Cell -->
 <wm-container name="thursdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="thursdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="thursdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="thursdayShiftList" dataset="bind:item.weeklyShifts[3].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[3].shifts &amp;&amp; item.weeklyShifts[3].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="thursdayShiftList" dataset="bind:item.weeklyShifts[3].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[3].shifts &amp;&amp; item.weeklyShifts[3].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="thursdayShiftListTemplate">
 <wm-container name="thursdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="thursdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="thursdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblThursdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
@@ -91,7 +91,7 @@
 <wm-label name="lblThursdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
 <!-- Friday Shift Cell -->
 <wm-container name="fridayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="fridayShiftCellClick($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="fridayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="fridayShiftList" dataset="bind:item.weeklyShifts[4].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[4].shifts &amp;&amp; item.weeklyShifts[4].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="fridayShiftList" dataset="bind:item.weeklyShifts[4].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[4].shifts &amp;&amp; item.weeklyShifts[4].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="fridayShiftListTemplate">
 <wm-container name="fridayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="fridayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="fridayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblFridayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
@@ -99,7 +99,7 @@
 <wm-label name="lblFridayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
 <!-- Saturday Shift Cell -->
 <wm-container name="saturdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="saturdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="saturdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="saturdayShiftList" dataset="bind:item.weeklyShifts[5].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group " show="bind:item.weeklyShifts[5].shifts &amp;&amp; item.weeklyShifts[5].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="saturdayShiftList" dataset="bind:item.weeklyShifts[5].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group " show="bind:item.weeklyShifts[5].shifts &amp;&amp; item.weeklyShifts[5].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="saturdayShiftListTemplate">
 <wm-container name="saturdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="saturdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="saturdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblSaturdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
@@ -107,7 +107,7 @@
 <wm-label name="lblSaturdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
 <!-- Sunday Shift Cell -->
 <wm-container name="sundayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="middle-center" width="11.7%" gap="none" clipcontent="false" on-click="sundayShiftCellClick($event, widget, item, currentItemWidgets)" padding="unset 10px 10px 10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="sundayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="sundayShiftList" dataset="bind:item.weeklyShifts[6].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[6].shifts &amp;&amp; item.weeklyShifts[6].shifts.length &gt; 0" itemclass="pb-0">
+<wm-list name="sundayShiftList" dataset="bind:item.weeklyShifts[6].shifts" show-empty-message="false" scroll="false" class="list-card" listclass="list-group" show="bind:item.weeklyShifts[6].shifts &amp;&amp; item.weeklyShifts[6].shifts.length > 0" itemclass="pb-0">
 <wm-listtemplate layout="inline" name="sundayShiftListTemplate">
 <wm-container name="sundayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="sundayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="sundayShiftItemDragStart($event, widget, item, currentItemWidgets)">
 <wm-label name="lblSundayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
@@ -239,4 +239,22 @@
 <wm-button class="btn-actions-btn" caption="Cancel" type="button" margin="unset" name="Cancel" variant="actions-btn" on-click="Widgets.shiftDialog.close()"></wm-button>
 <wm-anchor margin="unset 0.5em" name="anchor2" variant="standard-sm" iconclass="bind:isAdd ? &quot;fa fa-list-alt&quot; : &quot;fa fa-users&quot;" caption="bind:isAdd ? &quot;Assign to existing open shift&quot; : &quot;Available Employees&quot;" class="anchor-standard-sm"></wm-anchor>
 <wm-button class="btn-actions-btn" caption="bind:isAdd ? &quot;Add Shift&quot; : &quot;Save&quot;" type="button" margin="unset" name="button16" variant="actions-btn" on-click="button16Click($event, widget)"></wm-button></wm-container></wm-form></wm-dialog></wm-page-content></wm-content>
-<wm-footer content="footer" name="footer"></wm-footer></wm-page>
+<wm-footer content="footer" name="footer"></wm-footer><wm-dialog name="confirmShiftChangeDialog" title="Confirm" modal="true" closable="false" showheader="true">
+  <wm-container name="confirmDialog1Body" class="app-container-default" direction="column" gap="16" alignment="middle-center" width="fill" height="hug" padding="16px 24px">
+    <wm-label name="lblConfirmShiftMsg" caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)" class="app-label text-center" width="fill"></wm-label>
+    <wm-container name="confirmDialog1Actions" class="app-container-default" direction="row" gap="24" alignment="middle-center" width="fill" height="hug">
+      <wm-button name="btnConfirmShiftYes" caption="Yes" class="btn-success-btn" variant="success-btn" on-click="btnConfirmShiftYesClick($event, widget)"></wm-button>
+      <wm-button name="btnConfirmShiftNo" caption="No" class="btn-danger-btn" variant="danger-btn" on-click="btnConfirmShiftNoClick($event, widget)"></wm-button>
+    </wm-container>
+  </wm-container>
+</wm-dialog><wm-dialog name="confirmConflictDialog" title="Confirm" modal="true" closable="false" showheader="true">
+  <wm-container name="confirmDialog2Body" class="app-container-default" direction="column" gap="12" alignment="middle-center" width="fill" height="hug" padding="16px 24px">
+    <wm-label name="lblConflictWarningStatic" caption="WARNING: There is a conflict with the shift you are trying to change:" class="app-label confirm-dialog-warning text-center" width="fill"></wm-label>
+    <wm-label name="lblConflictWarningDynamic" caption="bind:Variables.conflictMessageVar.dataSet.message" class="app-label confirm-dialog-conflict-name text-center" width="fill"></wm-label>
+    <wm-label name="lblConflictQuestion" caption="Would you like to change the shift anyway?" class="app-label confirm-dialog-sub-msg text-center" width="fill"></wm-label>
+    <wm-container name="confirmDialog2Actions" class="app-container-default" direction="row" gap="24" alignment="middle-center" width="fill" height="hug">
+      <wm-button name="btnConflictYes" caption="Yes" class="btn-success-btn" variant="success-btn" on-click="btnConflictYesClick($event, widget)"></wm-button>
+      <wm-button name="btnConflictNo" caption="No" class="btn-danger-btn" variant="danger-btn" on-click="btnConflictNoClick($event, widget)"></wm-button>
+    </wm-container>
+  </wm-container>
+</wm-dialog></wm-page>

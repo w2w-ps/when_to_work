@@ -139,6 +139,7 @@ Page.onReady = function () {
     Page.isAdd = true;
     Page.dragState = null; // drag-and-drop state holder
     Page._dragDropInsertPayload = null;
+    Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
 };
 
 /**
@@ -450,9 +451,6 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     var categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
     var categoryMatch = categoriesList.find(function (c) { return c.name === data.category; });
     var resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
-
-    // Compute paidHours from duration (minutes) -> hours (2 decimal places)
-    //var paidHours = data.duration ? Math.round((data.duration / 60) * 100) / 100 : 0;
 
     // Open the dialog so its widgets are available in the DOM
     Page.Widgets.shiftDialog.open();
@@ -970,21 +968,224 @@ Page._resolvePositionId = function (shiftName) {
     return match ? match.id : null;
 };
 
+/* -------------------------------------------------
+   DRAG-AND-DROP: Two-step confirmation flow
+   ------------------------------------------------- */
+
+/**
+ * Executes the actual pending drop: applies optimistic UI update and invokes
+ * svUpdateShift with the payload stored in Page._pendingDropPayload.
+ * Called after both confirmation dialogs have been accepted.
+ */
+Page._executePendingDrop = function () {
+    var payload = Page._pendingDropPayload;
+    if (!payload) {
+        console.warn('_executePendingDrop: no pending payload found, aborting.');
+        return;
+    }
+
+    var dataset = Page.Variables.svScheduleList.dataSet;
+
+    // Apply optimistic UI update
+    var sourceEmpIndex = payload.sourceEmpIndex;
+    var targetEmpIndex = payload.targetEmpIndex;
+    var sourceDayIndex = payload.sourceDayIndex;
+    var targetDayIndex = payload.targetDayIndex;
+    var draggedShiftId = payload.draggedShiftId;
+    var sourceShift = payload.sourceShift;
+
+    var sourceShiftsArray = (dataset[sourceEmpIndex] &&
+        dataset[sourceEmpIndex].weeklyShifts &&
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex] &&
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex].shifts) || [];
+
+    var targetShiftsArray = (dataset[targetEmpIndex] &&
+        dataset[targetEmpIndex].weeklyShifts &&
+        dataset[targetEmpIndex].weeklyShifts[targetDayIndex] &&
+        dataset[targetEmpIndex].weeklyShifts[targetDayIndex].shifts) || [];
+
+    // Remove dragged shift from source day's shifts array
+    var updatedSourceShifts = sourceShiftsArray.filter(function (s) {
+        return s.shiftId !== draggedShiftId;
+    });
+    if (dataset[sourceEmpIndex] && dataset[sourceEmpIndex].weeklyShifts && dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex]) {
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex].shifts = updatedSourceShifts.slice();
+    }
+
+    // Append dragged shift to target day's shifts array
+    var updatedTargetShifts = targetShiftsArray.slice();
+    updatedTargetShifts.push(sourceShift);
+    if (dataset[targetEmpIndex] && dataset[targetEmpIndex].weeklyShifts && dataset[targetEmpIndex].weeklyShifts[targetDayIndex]) {
+        dataset[targetEmpIndex].weeklyShifts[targetDayIndex].shifts = updatedTargetShifts.slice();
+    }
+
+    // Persist optimistic UI update
+    Page.Variables.svScheduleList.setData(dataset.slice());
+
+    // Invoke svUpdateShift with stored payload
+    Page.Variables.svUpdateShift.setInput({
+        shiftId: draggedShiftId,
+        RequestBody: {
+            employeeId: payload.targetEmployeeId,
+            companyId: 1,
+            date: payload.targetShiftDate,
+            description: sourceShift.notes || '',
+            startTime: sourceShift.startAt || '',
+            endTime: sourceShift.endAt || '',
+            position: payload.resolvedPositionId,
+            category: payload.resolvedCategoryId,
+            color: sourceShift.color || 'amber'
+        }
+    });
+    Page.Variables.svUpdateShift.invoke(
+        {},
+        function (data) {
+            Page.Variables.svScheduleList.invoke();
+        },
+        function (error) {
+            console.error('Drag-drop shift update failed:', error);
+            Page.Variables.svScheduleList.invoke();
+        }
+    );
+
+    // Clear pending state
+    Page._pendingDropPayload = null;
+    Page.dragState = null;
+};
+
+/* -------------------------------------------------
+   Dialog 1 (confirmShiftChangeDialog) button handlers
+   ------------------------------------------------- */
+
+/**
+ * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
+ */
+Page.btnConfirmShiftYesClick = function ($event, widget) {
+    Page.Widgets.confirmShiftChangeDialog.close();
+
+    var payload = Page._pendingDropPayload;
+    if (!payload) {
+        console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
+        return;
+    }
+
+    // Build svchkHasConflicts request from pending drop payload
+    Page.Variables.svchkHasConflicts.setInput({
+        RequestBody: {
+            operationType: 'UPDATE',
+            shift: {
+                employeeId: payload.targetEmployeeId,
+                date: payload.targetShiftDate,
+                description: payload.sourceShift.notes || '',
+                startTime: payload.sourceShift.startAt || '',
+                endTime: payload.sourceShift.endAt || '',
+                position: payload.resolvedPositionId || 1,
+                category: payload.resolvedCategoryId || 1,
+                color: payload.sourceShift.color || 'amber',
+                duration: 8
+            }
+        }
+    });
+    Page.Variables.svchkHasConflicts.invoke();
+};
+
+/**
+ * No on Dialog 1: close dialog, clear pending state, refresh schedule.
+ */
+Page.btnConfirmShiftNoClick = function ($event, widget) {
+    Page.Widgets.confirmShiftChangeDialog.close();
+    Page._pendingDropPayload = null;
+    Page.dragState = null;
+    Page.Variables.svScheduleList.invoke();
+};
+
+/* -------------------------------------------------
+   svchkHasConflicts onSuccess handler
+   ------------------------------------------------- */
+
+/**
+ * Called when svchkHasConflicts API responds.
+ * If hasConflicts is true: build dynamic message and show Dialog 2.
+ * Otherwise: proceed with the drop directly.
+ */
+Page.svchkHasConflictsOnSuccess = function (variable, data) {
+    if (data && data.hasConflicts === true) {
+        // Build dynamic conflict message from conflicts array or payload context
+        var conflictMsg = '';
+        var payload = Page._pendingDropPayload;
+
+        if (data.conflicts && data.conflicts.length > 0) {
+            var firstConflict = data.conflicts[0];
+            // Try common field names returned by the API
+            var empName = firstConflict.employeeName || firstConflict.employee_name ||
+                (payload && payload.sourceEmployeeName) || '';
+            var posName = firstConflict.positionName || firstConflict.position_name ||
+                firstConflict.position || (payload && payload.sourceShift && payload.sourceShift.shiftName) || '';
+            if (empName && posName) {
+                conflictMsg = empName + ' is not authorized for position ' + posName + '.';
+            } else if (empName) {
+                conflictMsg = empName + ' has a scheduling conflict.';
+            } else if (posName) {
+                conflictMsg = 'Employee is not authorized for position ' + posName + '.';
+            } else {
+                conflictMsg = 'A scheduling conflict was detected.';
+            }
+        } else if (payload) {
+            var empName = (payload.sourceEmployeeName) || '';
+            var posName = (payload.sourceShift && payload.sourceShift.shiftName) || '';
+            if (empName && posName) {
+                conflictMsg = empName + ' is not authorized for position ' + posName + '.';
+            } else {
+                conflictMsg = 'A scheduling conflict was detected for this shift change.';
+            }
+        } else {
+            conflictMsg = 'A scheduling conflict was detected for this shift change.';
+        }
+
+        Page.Variables.conflictMessageVar.setData({ message: conflictMsg });
+        Page.Widgets.confirmConflictDialog.open();
+    } else {
+        // No conflict — proceed directly with the drop
+        Page._executePendingDrop();
+    }
+};
+
+/* -------------------------------------------------
+   Dialog 2 (confirmConflictDialog) button handlers
+   ------------------------------------------------- */
+
+/**
+ * Yes on Dialog 2: close dialog, proceed with the drop.
+ */
+Page.btnConflictYesClick = function ($event, widget) {
+    Page.Widgets.confirmConflictDialog.close();
+    Page._executePendingDrop();
+};
+
+/**
+ * No on Dialog 2: close dialog, clear pending state, refresh schedule.
+ */
+Page.btnConflictNoClick = function ($event, widget) {
+    Page.Widgets.confirmConflictDialog.close();
+    Page._pendingDropPayload = null;
+    Page.dragState = null;
+    Page.Variables.svScheduleList.invoke();
+};
+
+/* -------------------------------------------------
+   DRAG-AND-DROP: Core drop handler (modified for two-step confirmation)
+   ------------------------------------------------- */
+
 /**
  * Core drop handler -- shared by all 7 day-specific drop handlers.
  *
- * On a drag-and-drop move, the shift is updated at the backend using svUpdateShift
- * (changing its employeeId and date to the target cell values). This replaces the
- * former raw $.ajax call to the DataService insertShiftWithPosition query endpoint.
+ * Instead of directly calling svUpdateShift, this now:
+ * 1. Computes all required drop payload (employee IDs, dates, position/category IDs)
+ * 2. Stores it in Page._pendingDropPayload
+ * 3. Opens confirmShiftChangeDialog (Dialog 1) for user confirmation
  *
- * Optimistic UI: the dataset is mutated in-place using the weeklyShifts[N].shifts
- * array structure that svScheduleList.dataSet returns, then setData is called with
- * a .slice() copy to trigger WaveMaker binding reactivity.
- *
- * After a successful svUpdateShift response the grid is refreshed via svScheduleList.
- * On error the grid is also refreshed via svScheduleList to restore a consistent state.
- *
- * Guards $event.currentTarget against null (WaveMaker async event wrapper).
+ * The actual update is deferred to Page._executePendingDrop(), which is called
+ * after both confirmation dialogs are accepted (or directly if no conflict).
  */
 Page._handleShiftDrop = function ($event, item, targetDayName) {
     Page.isFromDraggable = true;
@@ -1019,9 +1220,7 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
     var sourceDayIndex = Page._dayDateKey(sourceDayName); // 0-6
     var targetDayIndex = Page._dayDateKey(targetDayName); // 0-6
 
-    // Sub-task 1.4: Read source shift from weeklyShifts[N].shifts using the correct path.
-    // Prefer the exact shift object captured at dragstart; fall back to first shift in the
-    // source day's shifts array for backward compatibility.
+    // Read source shift from weeklyShifts[N].shifts using the correct path.
     var sourceShiftsArray = (dataset[sourceEmpIndex] &&
         dataset[sourceEmpIndex].weeklyShifts &&
         dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex] &&
@@ -1036,12 +1235,6 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
         return;
     }
 
-    // Sub-task 1.4: Read target shifts array using weeklyShifts[N].shifts path.
-    var targetShiftsArray = (dataset[targetEmpIndex] &&
-        dataset[targetEmpIndex].weeklyShifts &&
-        dataset[targetEmpIndex].weeklyShifts[targetDayIndex] &&
-        dataset[targetEmpIndex].weeklyShifts[targetDayIndex].shifts) || [];
-
     // Safe deep clone of source shift
     var sourceShift = JSON.parse(JSON.stringify(sourceRaw));
 
@@ -1050,36 +1243,7 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
     var targetShiftDate = Page._resolveShiftDateISO(targetDayName);
     var draggedShiftId = sourceShift.shiftId;
 
-    var emptyShift = {
-        shiftType: '', timeRange: '', shiftName: '', startAt: '',
-        endAt: '', shiftDate: '', notes: '', shiftId: '', positionId: ''
-    };
-
-    // Determine whether the target cell is empty (no existing shifts)
-    var isTargetEmpty = targetShiftsArray.length === 0;
-
-    // ------------------------------------------------------------------
-    // Sub-task 1.4: Optimistic UI update using weeklyShifts[N].shifts paths
-    // ------------------------------------------------------------------
-
-    // Remove dragged shift from source day's shifts array
-    var updatedSourceShifts = sourceShiftsArray.filter(function (s) {
-        return s.shiftId !== draggedShiftId;
-    });
-    dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex].shifts = updatedSourceShifts.slice();
-
-    // Append dragged shift to target day's shifts array
-    var updatedTargetShifts = targetShiftsArray.slice();
-    updatedTargetShifts.push(sourceShift);
-    dataset[targetEmpIndex].weeklyShifts[targetDayIndex].shifts = updatedTargetShifts.slice();
-
-    // Sub-task 1.5: Persist optimistic UI update via svScheduleList.setData (not transformedScheduleVar)
-    Page.Variables.svScheduleList.setData(dataset.slice());
-
-    // ------------------------------------------------------------------
-    // Sub-task 1.1: Resolve position ID from svGetAllPositionsByCompanyId
-    // Match sourceShift.shiftName (position label) against positions[].name
-    // ------------------------------------------------------------------
+    // Resolve position ID from svGetAllPositionsByCompanyId
     var positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     var positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
     var positionMatch = _.find(positionsList, function (p) {
@@ -1087,10 +1251,7 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
     });
     var resolvedPositionId = positionMatch ? positionMatch.id : (sourceShift.positionId || null);
 
-    // ------------------------------------------------------------------
-    // Sub-task 1.2: Resolve category ID from svGetAllCategoriesByCompanyId
-    // Match sourceShift.category (category name string) against categories[].name
-    // ------------------------------------------------------------------
+    // Resolve category ID from svGetAllCategoriesByCompanyId
     var categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     var categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
     var categoryMatch = _.find(categoriesList, function (c) {
@@ -1098,38 +1259,26 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
     });
     var resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
 
-    // ------------------------------------------------------------------
-    // Sub-task 1.3: Use svUpdateShift with resolved integer IDs for
-    // position and category instead of raw string/positionId values.
-    // ------------------------------------------------------------------
-    Page.Variables.svUpdateShift.setInput({
-        shiftId: draggedShiftId,
-        RequestBody: {
-            employeeId: targetEmployeeId,
-            companyId: 1,
-            date: targetShiftDate,
-            description: sourceShift.notes || '',
-            startTime: sourceShift.startAt || '',
-            endTime: sourceShift.endAt || '',
-            position: resolvedPositionId,
-            category: resolvedCategoryId,
-            color: sourceShift.color || 'amber'
-        }
-    });
-    Page.Variables.svUpdateShift.invoke(
-        {},
-        function (data) {
-            // Sub-task 1.6: Refresh via svScheduleList on success
-            Page.Variables.svScheduleList.invoke();
-        },
-        function (error) {
-            console.error('Drag-drop shift update failed:', error);
-            // Sub-task 1.6: Refresh via svScheduleList on error to restore consistent state
-            Page.Variables.svScheduleList.invoke();
-        }
-    );
+    // Capture source employee name for conflict message display
+    var sourceEmployeeName = (dataset[sourceEmpIndex] && dataset[sourceEmpIndex].employeeName) || '';
 
-    Page.dragState = null;
+    // Store full drop payload for use in confirmation flow
+    Page._pendingDropPayload = {
+        sourceEmpIndex: sourceEmpIndex,
+        targetEmpIndex: targetEmpIndex,
+        sourceDayIndex: sourceDayIndex,
+        targetDayIndex: targetDayIndex,
+        draggedShiftId: draggedShiftId,
+        sourceShift: sourceShift,
+        targetEmployeeId: targetEmployeeId,
+        targetShiftDate: targetShiftDate,
+        resolvedPositionId: resolvedPositionId,
+        resolvedCategoryId: resolvedCategoryId,
+        sourceEmployeeName: sourceEmployeeName
+    };
+
+    // Open Dialog 1 for user confirmation (actual drop deferred until confirmed)
+    Page.Widgets.confirmShiftChangeDialog.open();
 };
 
 /* -------------------------------------------------
@@ -1137,31 +1286,26 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
    ------------------------------------------------- */
 
 /**
- * Sub-task 1.2: Uses svDeleteShiftById (correct REST variable) instead of the
+ * Uses svDeleteShiftById (correct REST variable) instead of the
  * old svDeleteShifts DataService variable to delete the original shift from the
  * source cell after a successful drag-and-drop move.
- * Sub-task 1.6: All refresh calls use svScheduleList.invoke().
  *
  * @param {number|string} shiftId - the shiftId of the dragged (source) shift
  */
 Page._deleteSourceShift = function (shiftId) {
     if (!shiftId) {
         console.warn('_deleteSourceShift: no shiftId provided, skipping delete.');
-        // Sub-task 1.6: Refresh via svScheduleList
         Page.Variables.svScheduleList.invoke();
         return;
     }
-    // Sub-task 1.2: Replace svDeleteShifts with svDeleteShiftById
     Page.Variables.svDeleteShiftById.setInput({ id: shiftId });
     Page.Variables.svDeleteShiftById.invoke(
         {},
         function (data) {
-            // Sub-task 1.6: Refresh via svScheduleList on success
             Page.Variables.svScheduleList.invoke();
         },
         function (error) {
             console.error('Failed to delete source shift (id=' + shiftId + '):', error);
-            // Sub-task 1.6: Refresh via svScheduleList on error
             Page.Variables.svScheduleList.invoke();
         }
     );
@@ -1196,15 +1340,10 @@ Page.shiftCellDragLeave = function ($event, widget, item, currentItemWidgets) {
 
 /* -------------------------------------------------
    DRAG-AND-DROP: DragStart handlers (inner shift item, one per day)
-   The inner shift item container is draggable so that item in the handler
-   context is the individual shift object (not the employee row), allowing
-   the exact dragged shift to be captured even in multi-shift cells.
    ------------------------------------------------- */
 
 /**
  * Common inner-item dragstart logic.
- * Sub-task 1.3: Employee lookup now uses emp.weeklyShifts[numericIndex].shifts
- * to correctly traverse the svScheduleList data structure.
  *
  * @param {Event}  $event          - the native dragstart event
  * @param {Object} item            - the individual shift object from the inner list context
@@ -1217,7 +1356,7 @@ Page._innerShiftItemDragStart = function ($event, item, dayKey, dayNumericIndex)
 
     var dataset = Page.Variables.svScheduleList.dataSet;
 
-    // Sub-task 1.3: Find the employee row that owns this exact shift by searching
+    // Find the employee row that owns this exact shift by searching
     // emp.weeklyShifts[dayNumericIndex].shifts -- the correct path in svScheduleList data.
     var empIndex = -1;
     _.forEach(dataset, function (emp, idx) {
@@ -1310,7 +1449,6 @@ Page.svUpdateShiftDetailsonSuccess = function (variable, data) {
             Page.Widgets.shiftDialog.close();
         }
     } catch (e) { /* dialog not open -- safe to ignore */ }
-    // Sub-task 1.6: Refresh via svScheduleList (was scheduleQueryVar)
     Page.Variables.svScheduleList.invoke();
 };
 
@@ -1411,7 +1549,6 @@ Page.anchor4Click = function ($event, widget) {
 Page.svDeleteShiftsonSuccess = function (variable, data) {
     if (!Page.isFromDraggable) {
         Page.isFromDraggable = false;
-        // Sub-task 1.6: Refresh via svScheduleList (was scheduleQueryVar)
         Page.Variables.svScheduleList.invoke();
     }
 };

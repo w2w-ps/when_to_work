@@ -1,4 +1,16 @@
 {
+  "conflictMessageVar" : {
+    "_id" : "wm-conflictMessageVar-wm.Variable-1775133285798",
+    "name" : "conflictMessageVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "message" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "currentWeekVar" : {
     "_id" : "wm-currentWeekVar-wm.Variable-1772821385224",
     "name" : "currentWeekVar",
@@ -66,6 +78,20 @@
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
   },
+  "pendingDropStateVar" : {
+    "_id" : "wm-pendingDropStateVar-wm.Variable-1775133281678",
+    "name" : "pendingDropStateVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "item" : null,
+      "targetDayName" : null,
+      "resolvedPayload" : null
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "positionsListVar" : {
     "_id" : "wm-positionsListVar-wm.ServiceVariable-1773145126532",
     "name" : "positionsListVar",
@@ -128,6 +154,34 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
+  },
+  "svchkHasConflicts" : {
+    "_id" : "wm-svchkHasConflicts-wm.ServiceVariable-1775131444807",
+    "name" : "svchkHasConflicts",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "{\n  \"operationType\": \"CREATE\",\n  \"shift\": {\n    \"employeeId\": 1,\n    \"date\": \"2026-03-31\",\n    \"description\": \"Validation check\",\n    \"startTime\": \"09:00AM\",\n    \"endTime\": \"05:00PM\",\n    \"position\": 1,\n    \"category\": 1,\n    \"color\": \"amber\",\n    \"duration\": 8\n  }\n}",
+      "type" : "precheck.RootRequest"
+    } ],
+    "type" : "precheck.RootResponse",
+    "service" : "precheck",
+    "operation" : "invoke",
+    "operationId" : "precheck_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svchkHasConflictsOnSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "precheck"
   },
   "svCreatEmployeePositions" : {
     "_id" : "wm-serviceVariable1-wm.ServiceVariable-1773746720381",
