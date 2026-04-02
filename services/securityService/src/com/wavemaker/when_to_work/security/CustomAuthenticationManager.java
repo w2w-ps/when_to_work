@@ -1,6 +1,7 @@
 package com.wavemaker.when_to_work.security;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,11 +34,15 @@ import com.wavemaker.runtime.security.WMUserBuilder;
  *  - role        → WaveMaker role  (fallback: "user" if null/empty)
  *  - displayName → WMUser.userLongName
  *  - userId      → WMUser.userId
- *  - username    → WMUser.username (the login principal)
+ *  - token       → stored temporarily in customAttributes under key "loginServiceToken"
+ *                  (promoted to SERVER_ONLY scope by LoginServiceTokenSuccessHandler)
  */
 public class CustomAuthenticationManager implements WMCustomAuthenticationManager {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomAuthenticationManager.class);
+
+    /** Key used to temporarily carry the raw token through to the success handler. */
+    public static final String TOKEN_ATTRIBUTE_KEY = "loginServiceToken";
 
     private static final String DEFAULT_ROLE = "user";
 
@@ -104,6 +109,17 @@ public class CustomAuthenticationManager implements WMCustomAuthenticationManage
             Object userIdObj = responseBody.get("userId");
             String userId = (userIdObj != null) ? userIdObj.toString() : username;
 
+            // Carry the token forward temporarily via customAttributes so that
+            // LoginServiceTokenSuccessHandler can promote it to SERVER_ONLY scope.
+            Map<String, Object> customAttributes = new HashMap<>();
+            Object tokenObj = responseBody.get("token");
+            if (tokenObj != null && !tokenObj.toString().trim().isEmpty()) {
+                customAttributes.put(TOKEN_ATTRIBUTE_KEY, tokenObj.toString());
+                logger.debug("Token received from LoginService for user '{}'; will be stored SERVER_ONLY.", username);
+            } else {
+                logger.warn("No token received in LoginService response for user '{}'.", username);
+            }
+
             logger.info("Authentication successful for user '{}' — role: '{}', displayName: '{}', userId: '{}'",
                     username, resolvedRole, displayName, userId);
 
@@ -111,6 +127,7 @@ public class CustomAuthenticationManager implements WMCustomAuthenticationManage
             return WMUserBuilder.create(username, roles)
                     .setUserId(userId)
                     .setUserLongName(displayName)
+                    .setCustomAttributes(customAttributes)
                     .build();
 
         } catch (AuthenticationException e) {
