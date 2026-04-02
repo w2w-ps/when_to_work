@@ -152,75 +152,111 @@
                     class="app-container-default px-6" variant="default" padding="12px unset">
                     <wm-container name="infoPanel" class="container-grey-container container-grey-standard"
                         direction="column" gap="8" alignment="top-left" width="fill" height="hug"
-                        variant="grey-standard" padding="10px 20px">
-                        <wm-label name="lblInfoTitle" caption="Information" class="label-label-20-700"
-                            variant="label-20-700"></wm-label>
+                        variant="grey-standard" padding="10px 20px 20px 20px">
                         <!-- Legend rows -->
-                        <wm-container direction="row" alignment="top-right" gap="4" width="fill" name="container14"
-                            class="app-container-default" variant="default">
-                            <wm-anchor margin="unset 0.5em" name="anchor1" variant="standard-sm"
-                                caption="Help on this topic -&gt; More" class="anchor-standard-sm"></wm-anchor>
+                        <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container14"
+                            class="app-container-default" variant="default" padding="unset unset 4px unset">
+                            <wm-label name="lblInfoTitle" caption="Information" class="label-label-20-700"
+                                variant="label-20-700"></wm-label>
+                            <wm-anchor margin="unset 0.5em" name="anchor1" variant="standard"
+                                caption="Help on this topic" class="more"></wm-anchor>
                         </wm-container>
-                        <wm-container name="legendRow1" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-label name="lblNoneBadge" caption="None:" class="app-label label-warning"></wm-label>
-                            <wm-label name="lblNoneDesc" caption="No notifications selected for this email."
-                                variant="label-small-700" class="label-label-small-700"></wm-label>
-                        </wm-container>
-                        <wm-container name="legendRow2" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-label name="lblInvalidBadge" caption="Invalid" class="app-label label-danger">
-                            </wm-label>
-                            <wm-label name="lblInvalidDesc"
-                                caption="The system adds &quot;Invalid&quot; when notifications to this email were returned as undeliverable so now notifications are no longer being sent to that address."
-                                variant="default"></wm-label>
-                        </wm-container>
-                        <wm-container name="legendRow3" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-label name="lblUnsavedBadge" caption="" class="app-label label-warning"></wm-label>
-                            <wm-label name="lblUnsavedDesc" caption="Changes not saved." class="app-label"></wm-label>
-                        </wm-container>
-                        <wm-container name="legendRow4" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-icon name="iconGoogle" iconclass="fa fa-google" iconsize="sm"></wm-icon>
-                            <wm-label name="lblGoogleDesc" caption="Exporting to Google Calendar." variant="default">
-                            </wm-label>
-                        </wm-container>
-                        <wm-container name="legendRow5" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-icon name="iconCalendar" iconclass="fa fa-calendar-times-o" iconsize="sm"></wm-icon>
-                            <wm-label name="lblCalendarDesc" caption="Google Calendar Export NOT updating."
-                                variant="default"></wm-label>
+                        <wm-container direction="column" alignment="top-left" gap="3" width="fill" name="container24"
+                            class="app-container-default" variant="default" wrap="false">
+                            <wm-container name="legendRow1" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px"
+                                    name="container19" class="container-yellow-bg" variant="yellow-bg"
+                                    clipcontent="false" height="25px" padding="3px">
+                                    <wm-label name="lblNoneBadge" caption="None:" class="label-label-14-400"
+                                        variant="label-14-400"></wm-label>
+                                </wm-container>
+                                <wm-label name="lblNoneDesc" caption="No notifications selected for this email."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="legendRow2" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px"
+                                    class="container-dark-red-bg" variant="dark-red-bg" clipcontent="false"
+                                    height="25px" padding="3px" name="container20">
+                                    <wm-label name="lblInvalidBadge" caption="Invalid" class="label-label-14-700"
+                                        variant="label-14-700"></wm-label>
+                                </wm-container>
+                                <wm-label name="lblInvalidDesc"
+                                    caption="The system adds &quot;Invalid&quot; when notifications to this email were returned as undeliverable so now notifications are no longer being sent to that address."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="legendRow3" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" wrap="false">
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px"
+                                    class="container-orange-bg" variant="orange-bg" clipcontent="false" height="25px"
+                                    padding="3px" name="container21">
+                                    <wm-label caption="" variant="label-14-700" name="label28"></wm-label>
+                                </wm-container>
+                                <wm-label name="lblUnsavedDesc" caption="Changes not saved." class="label-label-14-400"
+                                    variant="label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="legendRow4" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-center" gap="4" width="54px"
+                                    variant="orange-bg" clipcontent="false" height="25px" padding="3px"
+                                    name="container22">
+                                    <wm-label caption="" variant="label-14-700" name="label29"></wm-label>
+                                    <wm-picture resizemode="cover" name="picture1" class="img-rounded left-3"
+                                        variant="default:rounded"
+                                        picturesource="resources/images/imagelists/icon__googleexp.png"></wm-picture>
+                                </wm-container>
+                                <wm-label name="lblGoogleDesc" caption="Exporting to Google Calendar."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="legendRow5" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-center" gap="4" width="54px"
+                                    variant="orange-bg" clipcontent="false" height="25px" padding="3px"
+                                    name="container23">
+                                    <wm-label caption="" variant="label-14-700" name="label28_1"></wm-label>
+                                    <wm-picture resizemode="cover" class="img-rounded left-3" variant="default:rounded"
+                                        picturesource="resources/images/imagelists/icon__googlebroken.png"
+                                        name="picture2"></wm-picture>
+                                </wm-container>
+                                <wm-label name="lblCalendarDesc" caption="Google Calendar Export NOT updating."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
+                            </wm-container>
                         </wm-container>
                         <!-- Status Legend -->
-                        <wm-container name="statusLegendRow" class="app-container-default" direction="row" gap="12"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-icon name="iconStatusKey" iconclass="wi wi-settings" iconsize="sm"></wm-icon>
-                            <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700"
+                        <wm-container name="statusLegendRow" class="container-grey-container-white-border"
+                            direction="row" gap="4" alignment="middle-left" width="fill" height="hug"
+                            variant="grey-container-white-border">
+                            <wm-icon name="iconStatusKey" iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14"
+                                variant="icon-14"></wm-icon>
+                            <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700 ps-2"
                                 variant="label-14-700"></wm-label>
-                            <wm-icon name="iconFullTime" iconclass="fa fa-diamond" iconsize="sm"></wm-icon>
+                            <wm-icon name="iconFullTime" iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3">
+                            </wm-icon>
                             <wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label>
-                            <wm-icon name="iconPartTime" iconclass="fa fa-diamond" iconsize="sm"></wm-icon>
+                            <wm-icon name="iconPartTime" iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3">
+                            </wm-icon>
                             <wm-label name="lblPartTime" caption="Part Time" variant="default"></wm-label>
-                            <wm-icon name="iconPerDiem" iconclass="fa fa-diamond" iconsize="sm"></wm-icon>
+                            <wm-icon name="iconPerDiem" iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3">
+                            </wm-icon>
                             <wm-label name="lblPerDiem" caption="Per Diem" variant="default"></wm-label>
                         </wm-container>
                         <!-- Instructional text -->
                         <wm-label name="lblInstruction1"
                             caption="- To delete Employee click the pencil icon next to their name and then click &quot;Delete&quot; (Employees cannot be bulk deleted.)"
-                            variant="default"></wm-label>
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
                         <wm-label name="lblInstruction2"
                             caption="- To give an Employee manager-level access please go to Settings&gt;Add/Edit Managers page. Employee will then have two logins, one to access as manager and one as employee."
-                            variant="default"></wm-label>
-                        <wm-label name="lblInstruction3" caption="- Trouble with grid displaying?" variant="default">
-                        </wm-label>
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
+                        <wm-label name="lblInstruction3" caption="- Trouble with grid displaying?"
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
                     </wm-container>
                 </wm-container>
                 <!-- FLOATING HELP BUTTON -->
                 <wm-container direction="row" alignment="top-right" gap="4" width="fill" name="container16"
                     class="app-container-default" variant="default">
-                    <wm-button name="btnHelp" caption="?" class="btn-filled btn-primary" iconclass=""
-                        variant="filled:primary"></wm-button>
+                    <wm-button name="btnHelp" caption="" class="btn-filled-primary-circle" iconclass="fa fa-question"
+                        variant="filled-primary-circle"></wm-button>
                 </wm-container>
             </wm-container>
         </wm-page-content>

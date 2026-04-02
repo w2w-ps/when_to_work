@@ -224,12 +224,33 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-size: medium;
     font-weight: 700;
 }
-.wm-app .btn:not(.btn-icon) + .btn:not(.btn-icon), .wm-app button:not(.btn-icon) + .btn:not(.btn-icon) {
+
+.wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
+.wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
     margin-left: 1px;
-    }
-.table th{
-    border-top: 0  !important;
 }
-.container-grey-standard{
+
+.table th {
+    border-top: 0 !important;
+}
+
+.container-grey-standard {
     padding: 10px 20px;
+}
+
+.more:after {
+    font-family: fontAwesome, Arial;
+    content: "\f0a9  More";
+    font-size: 96%;
+    font-variant: normal;
+    font-style: normal;
+}
+
+.container-grey-container-white-border {
+    margin: 20px 10px;
+    width: 95%;
+}
+
+.margin-auto {
+    margin: auto;
 }
