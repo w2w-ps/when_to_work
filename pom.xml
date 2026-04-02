@@ -36,6 +36,7 @@
             </goals>
             <configuration>
               <sources>
+                <source>services/LoginService/src</source>
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
                 <source>services/when2work/src</source>
