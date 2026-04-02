@@ -2,15 +2,15 @@
   "enforceSecurity" : true,
   "loginConfig" : {
     "type" : "PAGE",
-    "pageName" : "Login",
+    "pageName" : "SignIn",
     "cookieMaxAge" : -1,
     "cookiePath" : "",
     "cookieBase64Encode" : true,
     "jvmRoute" : "",
     "sameSite" : "",
     "sessionTimeout" : {
-      "type" : "DIALOG",
-      "pageName" : null,
+      "type" : "PAGE",
+      "pageName" : "SignIn",
       "timeoutValue" : 30
     },
     "sessionConcurrencyConfig" : {
