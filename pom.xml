@@ -41,6 +41,7 @@
                 <source>services/createShift/src</source>
                 <source>services/getShiftDetails/src</source>
                 <source>services/positionList/src</source>
+                <source>services/precheck/src</source>
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
                 <source>services/svDeleteShiftById/src</source>
