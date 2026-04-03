@@ -201,7 +201,7 @@
             "value" : "16px"
           },
           "letter-spacing" : {
-            "value" : "{body.medium.letter-spacing.value}"
+            "value" : "0"
           },
           "font-family" : {
             "value" : "{body.medium.font-family.value}"
@@ -232,7 +232,7 @@
             "value" : "16px"
           },
           "letter-spacing" : {
-            "value" : "{body.medium.letter-spacing.value}"
+            "value" : "0"
           },
           "font-family" : {
             "value" : "{body.medium.font-family.value}"
@@ -620,6 +620,37 @@
             "value" : "none"
           }
         }
+      },
+      "label-16-700-Arial" : {
+        "mapping" : {
+          "color" : {
+            "value" : "inherit"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "{h4.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{h4.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{font.line-height.120pct.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{h4.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "Arial"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
       }
     },
     "meta" : {
@@ -689,6 +720,9 @@
           "source" : "user"
         },
         "label-24-400-primary" : {
+          "source" : "user"
+        },
+        "label-16-700-Arial" : {
           "source" : "user"
         }
       }

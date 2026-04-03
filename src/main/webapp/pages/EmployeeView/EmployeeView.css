@@ -1,480 +1,466 @@
 .week-nav-hover-container {
-  position: relative;
+    position: relative;
 }
 
 .nav-buttons-hidden {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .week-nav-hover-container:hover .nav-buttons-hidden {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .custom-border-bottom {
-  border-bottom: 1px solid #e5e5ec;
+    border-bottom: 1px solid #e5e5ec;
 }
 
 .custom-border-right {
-  border-right: 1px solid #e5e5ec;
+    border-right: 1px solid #e5e5ec;
 }
 
 .dialog-form-section {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .time-color-row {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
 }
 
 .desc-top {
-  top: 7px;
+    top: 7px;
 }
 
 .app-form {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .time-fields-wrapper {
-  flex: 1;
+    flex: 1;
 }
 
 .color-field-wrapper {
-  min-width: 120px;
+    min-width: 120px;
 }
 
 .paid-hours-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .weekday-checkboxes {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 8px;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 8px;
 }
 
 .weekday-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
 
 .weekday-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
+    display: flex;
+    gap: 16px;
+    align-items: center;
 }
 
 .weekday-label {
-  font-size: 12px;
-  text-align: center;
+    font-size: 12px;
+    text-align: center;
 }
 
 .dialog-section-spacing {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .form-row-inline {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .list-hover:hover {
-  background-color: #e5e5ec47 !important;
+    background-color: #e5e5ec47 !important;
 }
 
 .bg-grey {
-  background-color: #e3e6f0;
-  cursor: pointer;
+    background-color: #e3e6f0;
+    cursor: pointer;
 }
 
 .wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
 .wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 .modal-body {
-  margin: 6px 8px 18px 8px;
-  background-color: white;
-  padding: 0px 8px 0 8px !important;
+    margin: 6px 8px 18px 8px;
+    background-color: white;
+    padding: 0px 8px 0 8px !important;
 }
 
 .modal-header {
-  padding: 4px 0 0 0 !important;
-  color: white;
-  align-items: center;
+    padding: 4px 0 0 0 !important;
+    color: white;
+    align-items: center;
 }
 
 .form-body {
-  background-color: #e3e6f0;
-  box-shadow: none;
-  padding: 0 !important;
+    background-color: #e3e6f0;
+    box-shadow: none;
+    padding: 0 !important;
 }
 
 .modal-title {
-  justify-content: center;
+    justify-content: center;
 }
 
 .modal-title i {
-  display: none;
+    display: none;
 }
 
 .close {
-  min-height: 30px;
-  padding: 0;
+    min-height: 30px;
+    padding: 0;
 }
 
 .close .app-icon {
-  color: white;
-  font-size: 14px;
+    color: white;
+    font-size: 14px;
 }
 
 .divider-top:before {
-  content: "";
-  background-color: white;
-  height: 2px;
-  width: 104%;
-  position: absolute;
-  left: -2%;
-  top: -2px;
+    content: "";
+    background-color: white;
+    height: 2px;
+    width: 104%;
+    position: absolute;
+    left: -2%;
+    top: -2px;
 }
 
 .divider-top .label-label-normal {
-  top: 11px;
+    top: 11px;
 }
 
 .actions-white {
-  background-color: white;
-  padding: 0 8px;
+    background-color: white;
+    padding: 0 8px;
 }
 
 .pl-8 {
-  padding-left: 8px;
-  width: 96% !important;
-  gap: 0px;
-  margin: 0 8px;
-  border-radius: 12px;
+    padding-left: 8px;
+    width: 96% !important;
+    gap: 0px;
+    margin: 0 8px;
+    border-radius: 12px;
 }
 
 .drag-over-highlight {
-  outline: 2px dashed #4a90d9;
-  background-color: rgba(74, 144, 217, 0.12);
-  cursor: grabbing;
+    outline: 2px dashed #4a90d9;
+    background-color: rgba(74, 144, 217, 0.12);
+    cursor: grabbing;
 }
 
 .shift-cell-grab {
-  cursor: crosshair;
+    cursor: crosshair;
 }
 
 .min-height-32 .form-group {
-  min-height: 32px;
-  height: 32px;
+    min-height: 32px;
+    height: 32px;
 }
 
 div[name="weekdaysContainer"] {
-  margin: 8px;
-  width: calc(100% - 24px) !important;
+    margin: 8px;
+    width: calc(100% - 24px) !important;
 }
 
 .custom-height {
-  height: 14px;
-  min-height: 14px;
+    height: 14px;
+    min-height: 14px;
 }
 
 .text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .pr-0 {
-  padding-right: 0 !important;
+    padding-right: 0 !important;
 }
 
 .list-card>ul {
-  width: calc(100% + 8px) !important;
+    width: calc(100% + 8px) !important;
 }
 
 .pl-2 {
-  padding-left: var(--wm-space-2) !important;
+    padding-left: var(--wm-space-2) !important;
 }
 
 .header-cont {
-  width: 100%;
+    width: 100%;
 }
 
 .top-4 {
-  top: -4px;
+    top: -4px;
 }
 
 .cursor-pointer-underline:hover .app-label {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: blue;
 }
 
 .app-dialog .app-label {
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 textarea {
-  min-height: 30px;
-  height: 30px;
+    min-height: 30px;
+    height: 30px;
 }
 
 .btn-delete-btn {
-  margin-top: 19px;
-  margin-left: 16px;
+    margin-top: 19px;
+    margin-left: 16px;
 }
 
 .create-copies-text {
-  height: 30px;
-  top: -17px;
-  width: 45px !important;
-  font-size: 14px;
-  line-height: 1.428571;
-  color: #555;
-  padding: 9px;
+    height: 30px;
+    top: -8px;
+    width: 45px !important;
+    font-size: 14px;
+    line-height: 1.428571;
+    color: #555;
+    padding: 9px;
+    left: -5px;
 }
 
 .form-control {
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
 }
 
 .dialog-heading {
-  font-size: 8pt;
-  font-family: Arial;
-  letter-spacing: normal;
-  top: 5px;
+    font-size: 8pt;
+    font-family: Arial;
+    letter-spacing: -0.25px;
+    top: 5px;
+    font-weight: 400;
 }
 
 .mh-auto .form-group {
-  min-height: auto !important;
+    min-height: auto !important;
 }
 
 .fa-list-alt {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 .schedule-action-bar {
-  background-color: var(--wm-color-primary);
-  border-bottom: 20px solid #E70101;
+    background-color: var(--wm-color-primary);
+    border-bottom: 20px solid #E70101;
 }
 
 .schedule-bar-btn {
-  flex: 1;
-  color: #ffffff;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 1px 0px 1px 1px;
-  border-radius: 0;
-  font-size: 12px;
-  font-weight: 700;
-  min-height: 30px;
+    flex: 1;
+    color: #ffffff;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 700;
+    min-height: 30px;
 }
 
 .schedule-notes-section {
-  width: 100%;
-  margin-top: 16px;
+    width: 100%;
+    margin-top: 16px;
 }
 
 .schedule-notes-header-bar {
-  background-color: var(--wm-color-surface-variant, #e8e8ef);
-  border-radius: 6px 6px 0 0;
-  border-bottom: 1px solid var(--wm-color-outline, #ccc);
+    background-color: var(--wm-color-surface-variant, #e8e8ef);
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid var(--wm-color-outline, #ccc);
 }
 
 .schedule-notes-title {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--wm-color-on-surface, #1a1a2e);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--wm-color-on-surface, #1a1a2e);
 }
 
 .schedule-notes-add-edit {
-  font-size: 0.85rem;
-  /* color: var(--wm-color-primary, #5c5fa3); */
-  color: #1a1a2e;
-  text-decoration: none;
+    font-size: 0.85rem;
+    /* color: var(--wm-color-primary, #5c5fa3); */
+    color: #1a1a2e;
+    text-decoration: none;
 }
 
 .schedule-notes-info-card {
-  background-color: var(--wm-color-surface-variant, #eeeef5);
-  border-radius: 0 0 6px 6px;
+    background-color: var(--wm-color-surface-variant, #eeeef5);
+    border-radius: 0 0 6px 6px;
 }
 
 .schedule-notes-info-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--wm-color-on-surface, #1a1a2e);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--wm-color-on-surface, #1a1a2e);
 }
 
 .schedule-notes-more-link {
-  font-size: 0.82rem;
-  color: var(--wm-color-primary, #5c5fa3);
+    font-size: 0.82rem;
+    color: var(--wm-color-primary, #5c5fa3);
 }
 
 .schedule-notes-desc-text {
-  font-size: 0.82rem;
-  color: var(--wm-color-on-surface-variant, #444);
-  line-height: 1.5;
+    font-size: 0.82rem;
+    color: var(--wm-color-on-surface-variant, #444);
+    line-height: 1.5;
 }
 
 .schedule-legend-icon {
-  font-size: 1rem;
-  color: var(--wm-color-on-surface-variant, #555);
+    font-size: 1rem;
+    color: var(--wm-color-on-surface-variant, #555);
 }
 
 .schedule-legend-icon-confirmed {
-  color: var(--wm-color-primary, #5c5fa3);
+    color: var(--wm-color-primary, #5c5fa3);
 }
 
 .schedule-notes-separator {
-  background-color: var(--wm-color-outline, #ccc);
-  min-height: 1px;
+    background-color: var(--wm-color-outline, #ccc);
+    min-height: 1px;
 }
 
 .schedule-notes-status-label {
-  font-weight: 700;
-  color: var(--wm-color-on-surface, #1a1a2e);
+    font-weight: 700;
+    color: var(--wm-color-on-surface, #1a1a2e);
 }
 
 .schedule-status-diamond {
-  font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 .schedule-status-full-time {
-  color: #7c4daa;
+    color: #7c4daa;
 }
 
 .schedule-status-part-time {
-  color: #00acc1;
+    color: #00acc1;
 }
 
 .schedule-status-per-diem {
-  color: #e64a19;
-}
-
-.employee-action-bar {
-  border-top: 1px solid var(--wm-color-outline-variant);
-  border-bottom: 1px solid var(--wm-color-outline-variant);
-  background-color: var(--wm-color-surface);
-}
-
-.anchor-add-upload-employees {
-  color: var(--wm-color-primary);
-  font-size: var(--wm-font-size-base);
-  text-decoration: none;
-  font-weight: var(--wm-font-weight-medium);
-}
-
-.label-recently-deleted {
-  color: var(--wm-color-error);
-  font-size: var(--wm-font-size-base);
-  font-weight: var(--wm-font-weight-medium);
-  cursor: pointer;
-}
-
-.anchor-schedule-history {
-  color: var(--wm-color-on-surface-variant);
-  font-size: var(--wm-font-size-base);
-  text-decoration: none;
+    color: #e64a19;
 }
 
 .footerInfoSection {
-  width: 100%;
-  padding: 16px 24px;
-  border-top: 1px solid #e0e0e0;
-  background-color: #ffffff;
-  position: relative;
+    width: 100%;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    position: relative;
 }
 
 .lblContactW2W {
-  font-weight: 600;
-  text-align: center;
-  flex: 1;
+    font-weight: 600;
+    text-align: center;
+    flex: 1;
 }
 
 .btnHelpFab {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #3b4a6b;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #3b4a6b;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
 
 .btn-emp-shift1 {
-  width: 18.75%;
+    width: 18.75%;
 }
 
 .btn-emp-shift2 {
-  width: 13%;
+    width: 13%;
 }
 
 .btn-emp-shift3 {
-  width: 26.5%;
+    width: 26.5%;
 }
 
 .btn-emp-shift4 {
-  width: 10%;
+    width: 10%;
 }
 
 .btn-emp-shift5 {
-  width: 19%;
+    width: 19%;
 }
 
 .btn-emp-shift6 {
-  width: 13%;
+    width: 13%;
 }
 
 .weekday-container {
-  min-height: 80px;
+    min-height: 80px;
 }
 
 .confirm-dialog-msg {
-  text-align: center;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-  line-height: 1.5;
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    line-height: 1.5;
 }
 
 .confirm-dialog-warning {
-  text-align: center;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #b00000;
-  font-weight: 700;
-  line-height: 1.5;
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #b00000;
+    font-weight: 700;
+    line-height: 1.5;
 }
 
 .confirm-dialog-conflict-name {
-  text-align: center;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  color: #222;
-  line-height: 1.5;
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.5;
 }
 
 .confirm-dialog-sub-msg {
-  text-align: center;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-  margin-top: 8px;
-  line-height: 1.5;
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.mh-list {
+    min-height: auto;
+}
+
+.create-copies-text>.live-field {
+    min-height: auto;
+    width: 32px;
+    height: 30px;
+
 }
