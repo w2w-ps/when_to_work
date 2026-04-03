@@ -4,6 +4,11 @@
 
 .logo {
     top: -80px;
+    position: absolute;
+}
+
+.label-brand-title {
+    margin-top: 80px;
 }
 
 .app-container.divider-custom {
@@ -16,4 +21,12 @@
 
 .signin-page-font {
     font-family: 'Apple SD Gothic Neo Regular', 'Apple SD Gothic Neo', sans-serif !important;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-left {
+    justify-content: flex-start;
 }
