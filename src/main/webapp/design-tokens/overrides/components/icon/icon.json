@@ -44,6 +44,72 @@
             "value" : "{space.1.value}"
           }
         }
+      },
+      "icon-14-user" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#00808080"
+          },
+          "font-size" : {
+            "value" : "16px"
+          },
+          "min-width" : {
+            "value" : "17.25px"
+          },
+          "width" : {
+            "value" : "17.25px"
+          },
+          "height" : {
+            "value" : "14px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
+      },
+      "icon-14-user-edit" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#008080ff"
+          },
+          "font-size" : {
+            "value" : "14px"
+          },
+          "min-width" : {
+            "value" : "14px"
+          },
+          "width" : {
+            "value" : "14px"
+          },
+          "height" : {
+            "value" : "14px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
+      },
+      "icon-grey" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#808080"
+          },
+          "font-size" : {
+            "value" : "14px"
+          },
+          "min-width" : {
+            "value" : "14px"
+          },
+          "width" : {
+            "value" : "14px"
+          },
+          "height" : {
+            "value" : "14px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
       }
     },
     "meta" : {
@@ -52,6 +118,15 @@
           "source" : "user"
         },
         "icon-14" : {
+          "source" : "user"
+        },
+        "icon-14-user" : {
+          "source" : "user"
+        },
+        "icon-14-user-edit" : {
+          "source" : "user"
+        },
+        "icon-grey" : {
           "source" : "user"
         }
       }
