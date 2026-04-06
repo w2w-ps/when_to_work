@@ -8,6 +8,17 @@
     src: url(https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf) format('truetype');
 }
 
+
+:root {
+    --wm-color-light-grey: #C0C0C0;
+    --wm-color-prefer: #9dee94;
+    --wm-color-dislike: #f9b4b7;
+    --wm-color-cannotwork: #de101c;
+    --wm-coor-mid-grey: #666666;
+    --wm-color-soft-black: rgba(0, 0, 0, 0.15);
+
+}
+
 .open-sans-700 {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -276,4 +287,9 @@ wm-input[name="txtFind"].app-input-wrapper {
 }
 .optional-head-container{
     position: absolute !important;
+}
+
+.wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
+.wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
+    margin-left: var(--wm-space-0) !important;
 }

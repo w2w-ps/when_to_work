@@ -2,22 +2,23 @@
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
-}, 
- {
+}, {
+  "name" : "ConfigureByEmployeeView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Empchangepass",
   "type" : "PAGE",
   "params" : [ ]
-},
-  {
+}, {
   "name" : "Empinfo",
   "type" : "PAGE",
   "params" : [ ]
-},
-  {
-  "name" : "Mgrchangeemppass",
+}, {
+  "name" : "EmployeeView",
   "type" : "PAGE",
   "params" : [ ]
-},{
+}, {
   "name" : "Home",
   "type" : "PAGE",
   "params" : [ ]
@@ -30,6 +31,22 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Mgrchangeemppass",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Mgrempedit",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Mgremplist",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Position_view",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "SignIn",
   "type" : "PAGE",
   "params" : [ ]
@@ -38,28 +55,18 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "footer",
-  "type" : "FOOTER",
+  "name" : "emppreferences",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "EmployeeView",
-  "type" : "PAGE",
+  "name" : "footer",
+  "type" : "FOOTER",
   "params" : [ ]
 }, {
   "name" : "footer_Copy",
   "type" : "FOOTER",
   "params" : [ ]
-},
-  {
-  "name" : "Mgrempedit",
-  "type" : "PAGE",
-  "params" : [ ]
-},
-  {
-  "name" : "Mgremplist",
-  "type" : "PAGE",
-  "params" : [ ]
-},{
+}, {
   "name" : "header",
   "type" : "HEADER",
   "params" : [ ]

@@ -15,6 +15,17 @@
     } ],
     "operation" : "toast"
   },
+  "goToPage_ConfigureByEmployeeView" : {
+    "_id" : "wm-goToPage_ConfigureByEmployeeView-wm.NavigationAction-1775463179827",
+    "name" : "goToPage_ConfigureByEmployeeView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ConfigureByEmployeeView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Empchangepass" : {
     "_id" : "wm-goToPage_Empchangepass-wm.NavigationAction-1774590810582",
     "name" : "goToPage_Empchangepass",
@@ -119,6 +130,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Mgremplist",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Position_view" : {
+    "_id" : "wm-goToPage_Position_view-wm.NavigationAction-1775206599678",
+    "name" : "goToPage_Position_view",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Position_view",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },

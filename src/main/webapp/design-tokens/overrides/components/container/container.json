@@ -360,6 +360,30 @@
             "value" : "{elevation.shadow.none.value}"
           }
         }
+      },
+      "warning-standard-no-radius" : {
+        "mapping" : {
+          "background" : {
+            "value" : "{color.light-yellow-warning.@.value}"
+          },
+          "border" : {
+            "color" : {
+              "value" : "{color.transparent.value}"
+            },
+            "width" : {
+              "value" : "0"
+            },
+            "style" : {
+              "value" : "{border.style.none.value}"
+            },
+            "radius" : {
+              "value" : "{radius.none.value}"
+            }
+          },
+          "shadow" : {
+            "value" : "{elevation.shadow.none.value}"
+          }
+        }
       }
     },
     "meta" : {
@@ -407,6 +431,9 @@
           "source" : "user"
         },
         "white-container-with-border" : {
+          "source" : "user"
+        },
+        "warning-standard-no-radius" : {
           "source" : "user"
         }
       }
