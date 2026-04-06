@@ -3,6 +3,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "ConfigureByEmployeeView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Empchangepass",
   "type" : "PAGE",
   "params" : [ ]
@@ -36,6 +40,10 @@
   "params" : [ ]
 }, {
   "name" : "Mgremplist",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Position_view",
   "type" : "PAGE",
   "params" : [ ]
 }, {

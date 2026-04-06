@@ -1,0 +1,6 @@
+{
+  "id" : "createShift",
+  "type" : "RestService",
+  "title" : "createShift",
+  "mockEnabled" : false
+}

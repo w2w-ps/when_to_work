@@ -1,0 +1,114 @@
+{
+  "basePath" : "${rest.categoryList.basepath}",
+  "paths" : {
+    "/categories" : {
+      "x-WM-BASE_PATH" : "/categories",
+      "x-WM-TAG" : "categoryList",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "categoryList_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "categoryList" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.categoryList.scheme}://${rest.categoryList.host}${rest.categoryList.basepath}/categories"
+    }
+  },
+  "host" : "${rest.categoryList.host}",
+  "schemes" : [ "${rest.categoryList.scheme}" ],
+  "definitions" : {
+    "Response.groupsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryList.Response.groupsEntryItem",
+      "x-WM-TAGS" : [ "categoryList" ],
+      "required" : [ "categories", "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "categories" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.categoriesEntryItem"
+          }
+        }
+      }
+    },
+    "Response.categoriesEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryList.Response.categoriesEntryItem",
+      "x-WM-TAGS" : [ "categoryList" ],
+      "required" : [ "id", "name", "shortName" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "shortName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryList.RootResponse",
+      "x-WM-TAGS" : [ "categoryList" ],
+      "required" : [ "categories", "groups" ],
+      "properties" : {
+        "groups" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.groupsEntryItem"
+          }
+        },
+        "categories" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.categoriesEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "dbc6f250-0c67-442d-a6a2-16a9764edcfc",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "categoryList"
+  } ]
+}

@@ -44,49 +44,13 @@ App.onServiceError = function (errorMsg, xhrObj) {
 
 };
 
-const PREF_MAP = {
-    "no-preference": "N",
-    "prefer": "P",
-    "dislike": "D",
-    "cannot-work": "C"
+
+App.loginActionOnError = function (variable, data) {
+    App.Variables.loginAttemptCount.dataSet.dataValue += 1;
+    App.Variables.loginErrorVisible.dataSet.dataValue = true;
 };
 
-function convertWeekToApi(data, companyId, employeeId, editedBy, startDate) {
-    const result = [];
-
-    function getDate(baseDate, offset) {
-        const d = new Date(baseDate);
-        d.setDate(d.getDate() + offset);
-        return d.toISOString().split('T')[0];
-    }
-
-    Object.keys(data).forEach(key => {
-        if (isNaN(key)) return; // skip week metadata
-
-        const day = data[key];
-
-        let prefs = "";
-
-        day.hours.forEach(hour => {
-            hour.slots.forEach(slot => {
-                prefs += PREF_MAP[slot.preference] || "N";
-            });
-        });
-
-        // ✅ Ensure 96 length
-        if (prefs.length !== 96) {
-            console.error(`Invalid prefs length for day ${key}:`, prefs.length);
-        }
-
-        result.push({
-            companyId: companyId,
-            employeeId: employeeId,
-            date: day.date || getDate(startDate, Number(key)),
-            prefs: prefs,
-            compression: 0,
-            editedBy: editedBy
-        });
-    });
-
-    return result;
-}
+App.loginActionOnSuccess = function (variable, data) {
+    App.Variables.loginAttemptCount.dataSet.dataValue = 0;
+    App.Variables.loginErrorVisible.dataSet.dataValue = false;
+};

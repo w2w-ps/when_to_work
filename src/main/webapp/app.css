@@ -8,21 +8,19 @@
     src: url(https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf) format('truetype');
 }
 
-:root {
-    --wm-color-light-grey: #C0C0C0;
-    --wm-color-prefer: #9dee94;
-    --wm-color-dislike: #f9b4b7;
-    --wm-color-cannotwork: #de101c;
-    --wm-coor-mid-grey: #666666;
-    --wm-color-soft-black:rgba(0, 0, 0, 0.15);
-
-}
-
 .open-sans-700 {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
+}
+
+.wm-app .form-signin-control:focus, .wm-app .form-signin-control:active {
+        outline-style: auto !important;
+    outline-width: thick !important;
+    outline-color: #66afe9 !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
+    border-color: #66afe9 !important;
 }
 
 .wm-app .modal-backdrop.fade.in {
@@ -74,11 +72,11 @@
 
 
 .striped-even table .app-checkbox.checkbox>label .caption:before {
-    border-color: transparent;
+    /* border-color: transparent; */
 }
 
 .striped-even table .app-checkbox.checkbox>label>input[type="checkbox"]:checked+.caption:after {
-    border-color: transparent;
+    /* border-color: transparent; */
 }
 
 .striped-even .table .app-checkbox.checkbox>label>input[type="checkbox"],
@@ -103,6 +101,10 @@
     border-bottom: 1px solid var(--wm-color-tertiary);
 }
 
+.data-table-striped-even-large-header th {
+    height: 44px;
+}
+
 .striped-even .table thead th:not(:last-child):before {
     content: "";
     background-color: var(--wm-color-gray);
@@ -123,6 +125,10 @@
     text-align: center !important;
 }
 
+.striped-even th:last-child {
+    text-align: left !important;
+}
+
 .striped-even td {
     white-space: nowrap;
 }
@@ -140,9 +146,9 @@
     border: 1px solid var(--wm-color-border-color);
 }
 
-
-.table th .app-checkbox {
+.table .app-checkbox {
     height: 18px;
+    width: 18px !important;
 }
 
 .btn-transparent-icon-btn img {
@@ -150,8 +156,8 @@
 }
 
 .fa-diamond {
-    width: 12px !important;
-    height: 16px !important;
+    width: 11px !important;
+    height: 14px !important;
     min-width: 12px !important;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
@@ -172,7 +178,93 @@
     background-color: #FB5007;
 }
 
+.table .app-checkbox.checkbox>label .caption:before {
+    width: 12px;
+    height: 12px;
+    left: 3px;
+    top: 3px;
+    border-width: 1px;
+    border-radius: 0;
+}
+
+.table .app-checkbox.checkbox>label .caption:after {
+    top: 2px;
+    left: 2px;
+    width: 7px;
+    height: 2px;
+}
+
+.table .app-checkbox.checkbox>label>input[type="checkbox"] {
+    opacity: 0;
+}
+
+.striped-even,
+.data-table-striped-even-deleted-large-header,
+.data-table-striped-even-large-header {
+    box-shadow: none !important;
+}
+
+div[multiselect="true"] colgroup col:first-child {
+    width: 25px !important;
+}
+
+.data-table-striped-even-large-header.app-grid .table>tbody>tr td {
+    padding: 0px 4px;
+}
+
+wm-input[name="txtFind"].app-input-wrapper {
+    flex: none !important;
+}
+
+.wm-app .btn-trailing-icon {
+    left: auto;
+    right: 1px;
+    top: 1px;
+    background-color: #e0e0e0;
+    height: 30px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.wm-app .btn-trailing-icon .wi-clear:before {
+    font-size: medium;
+    font-weight: 700;
+}
+
 .wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
 .wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
-    margin-left: var(--wm-space-0) !important;
+    margin-left: 1px;
+}
+
+.table th {
+    border-top: 0 !important;
+}
+
+.container-grey-standard {
+    padding: 10px 20px;
+}
+
+.more:after {
+    font-family: fontAwesome, Arial;
+    content: "\f0a9  More";
+    font-size: 96%;
+    font-variant: normal;
+    font-style: normal;
+}
+
+.container-grey-container-white-border {
+    margin: 20px 10px;
+    width: 95%;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.form-signin-control {
+    width: 300px !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    text-align: center;
 }

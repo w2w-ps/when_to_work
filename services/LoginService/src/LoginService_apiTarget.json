@@ -1,0 +1,100 @@
+{
+  "basePath" : "${rest.LoginService.basepath}",
+  "paths" : {
+    "/login" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "LoginService_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "LoginService" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/login",
+      "x-WM-TAG" : "LoginService",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.LoginService.scheme}://${rest.LoginService.host}${rest.LoginService.basepath}/login"
+    }
+  },
+  "host" : "${rest.LoginService.host}",
+  "schemes" : [ "${rest.LoginService.scheme}" ],
+  "definitions" : {
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "LoginService.RootRequest",
+      "x-WM-TAGS" : [ "LoginService" ],
+      "required" : [ "password", "username" ],
+      "properties" : {
+        "password" : {
+          "type" : "string"
+        },
+        "username" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "LoginService.RootResponse",
+      "x-WM-TAGS" : [ "LoginService" ],
+      "required" : [ "displayName", "empId", "empType", "message", "role", "success", "token", "userId" ],
+      "properties" : {
+        "empId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "role" : {
+          "type" : "string"
+        },
+        "empType" : {
+          "type" : "string"
+        },
+        "success" : {
+          "type" : "boolean"
+        },
+        "displayName" : {
+          "type" : "string"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "userId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "token" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "0b44c51a-8633-42cc-8d54-d73b2f827539",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "LoginService"
+  } ]
+}

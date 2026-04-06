@@ -25,6 +25,12 @@ public class ResponseShiftsEntryItem {
   @JsonProperty("duration")
   private Integer duration = null;
 
+  @JsonProperty("shiftId")
+  private Integer shiftId = null;
+
+  @JsonProperty("color")
+  private String color = null;
+
   @JsonProperty("description")
   private String description = null;
 
@@ -55,6 +61,40 @@ public class ResponseShiftsEntryItem {
 
   public void setDuration(Integer duration) {
     this.duration = duration;
+  }
+
+  public ResponseShiftsEntryItem shiftId(Integer shiftId) {
+    this.shiftId = shiftId;
+    return this;
+  }
+
+   /**
+   * Get shiftId
+   * @return shiftId
+  **/
+  public Integer getShiftId() {
+    return shiftId;
+  }
+
+  public void setShiftId(Integer shiftId) {
+    this.shiftId = shiftId;
+  }
+
+  public ResponseShiftsEntryItem color(String color) {
+    this.color = color;
+    return this;
+  }
+
+   /**
+   * Get color
+   * @return color
+  **/
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
   }
 
   public ResponseShiftsEntryItem description(String description) {
@@ -153,6 +193,8 @@ public class ResponseShiftsEntryItem {
     }
     ResponseShiftsEntryItem Response_shiftsEntryItem = (ResponseShiftsEntryItem) o;
     return Objects.equals(this.duration, Response_shiftsEntryItem.duration) &&
+        Objects.equals(this.shiftId, Response_shiftsEntryItem.shiftId) &&
+        Objects.equals(this.color, Response_shiftsEntryItem.color) &&
         Objects.equals(this.description, Response_shiftsEntryItem.description) &&
         Objects.equals(this.startTime, Response_shiftsEntryItem.startTime) &&
         Objects.equals(this.endTime, Response_shiftsEntryItem.endTime) &&
@@ -162,7 +204,7 @@ public class ResponseShiftsEntryItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, description, startTime, endTime, position, category);
+    return Objects.hash(duration, shiftId, color, description, startTime, endTime, position, category);
   }
 
 
@@ -172,6 +214,8 @@ public class ResponseShiftsEntryItem {
     sb.append("class ResponseShiftsEntryItem {\n");
     
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    shiftId: ").append(toIndentedString(shiftId)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");

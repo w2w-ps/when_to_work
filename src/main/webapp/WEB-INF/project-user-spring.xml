@@ -8,4 +8,13 @@ and is an ideal location for end-users to put any code they need.
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--
+        Post-authentication success handler that promotes the LoginService token
+        (received from /api/login) to a SERVER_ONLY scoped attribute on WMAuthentication.
+        WaveMaker auto-discovers all WMAuthenticationSuccessHandler beans and invokes them
+        after every successful login.
+    -->
+    <bean id="loginServiceTokenSuccessHandler"
+          class="com.wavemaker.when_to_work.security.LoginServiceTokenSuccessHandler"/>
+
 </beans>
