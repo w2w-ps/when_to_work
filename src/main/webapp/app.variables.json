@@ -122,6 +122,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_Position_view" : {
+    "_id" : "wm-goToPage_Position_view-wm.NavigationAction-1775206599678",
+    "name" : "goToPage_Position_view",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Position_view",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_SignIn" : {
     "_id" : "wm-goToPage_SignIn-wm.NavigationAction-1775112869724",
     "name" : "goToPage_SignIn",
