@@ -3,6 +3,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "ConfigureByEmployeeView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Empchangepass",
   "type" : "PAGE",
   "params" : [ ]
