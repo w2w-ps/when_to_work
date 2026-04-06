@@ -3,6 +3,9 @@
  * eg: var DialogService = App.getDependency('DialogService');
  */
 
+var moment = App.importModule('moment');
+window.moment = moment;
+
 /* perform any action on the variables within this block(on-page-load) */
 App.onAppVariablesReady = function () {
     /*
