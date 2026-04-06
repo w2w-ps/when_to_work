@@ -30,6 +30,13 @@ Prefab.onPropertyChange = function (key, newVal, oldVal) {
 
             Prefab.readOnlyBtnTap();
             break;
+        case "weekpreferencedata":
+            if (newVal.length > 0) {
+                debugger
+                Prefab.Variables.weekPreferenceData.dataSet = newVal;
+            }
+
+            break;
     }
 
 };

@@ -18,54 +18,13 @@
     "category" : "wm.Variable",
     "dataBinding" : [ ],
     "dataSet" : [ {
-      "companyId" : 1,
       "employeeId" : 1,
-      "date" : "2026-03-30",
+      "companyId" : 1,
+      "date" : "2026-04-06",
       "prefs" : "DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
       "compression" : 0,
-      "editedBy" : 1
-    }, {
-      "companyId" : 1,
-      "employeeId" : 1,
-      "date" : "2026-03-31",
-      "prefs" : "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
-      "compression" : 0,
-      "editedBy" : 1
-    }, {
-      "companyId" : 1,
-      "employeeId" : 1,
-      "date" : "2026-04-01",
-      "prefs" : "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
-      "compression" : 0,
-      "editedBy" : 1
-    }, {
-      "companyId" : 1,
-      "employeeId" : 1,
-      "date" : "2026-04-02",
-      "prefs" : "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
-      "compression" : 0,
-      "editedBy" : 1
-    }, {
-      "companyId" : 1,
-      "employeeId" : 1,
-      "date" : "2026-04-03",
-      "prefs" : "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
-      "compression" : 0,
-      "editedBy" : 1
-    }, {
-      "companyId" : 1,
-      "employeeId" : 1,
-      "date" : "2026-04-04",
-      "prefs" : "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
-      "compression" : 0,
-      "editedBy" : 1
-    }, {
-      "companyId" : 1,
-      "employeeId" : 1,
-      "date" : "2026-04-05",
-      "prefs" : "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
-      "compression" : 0,
-      "editedBy" : 1
+      "editedBy" : 1,
+      "day" : "Monday"
     } ],
     "type" : "entry",
     "isList" : true,

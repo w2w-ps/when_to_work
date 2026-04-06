@@ -144,17 +144,6 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
-  "goToPage_variantsTest" : {
-    "_id" : "wm-goToPage_variantsTest-wm.NavigationAction-1775110503513",
-    "name" : "goToPage_variantsTest",
-    "owner" : "App",
-    "category" : "wm.NavigationAction",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "variantsTest",
-    "dataSet" : [ ],
-    "pageTransitions" : "none"
-  },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
     "name" : "supportedLocale",
