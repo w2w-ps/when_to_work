@@ -351,42 +351,57 @@
                 direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
                 <wm-label name="lblAutofillHeader" caption="AutoFill Options" class="label-label-20-700"
                     variant="label-20-700"></wm-label>
-                <wm-label name="lblMaximums" caption="Maximums" class="text-muted" variant="default"></wm-label>
+                <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container88_1"
+                    class="app-container-default" variant="default">
+                    <wm-container direction="row" alignment="top-left" gap="50" width="fill" name="container89"
+                        class="app-container-default" variant="default">
+                        <wm-label name="lblMaximums" caption="Maximums" class="text-muted" variant="default"></wm-label>
+                        <wm-container direction="column" alignment="top-left" gap="4" width="fill" name="container90"
+                            class="app-container-default" variant="default" wrap="false">
+                            <wm-container name="perWeekRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" wrap="false" padding="unset 30px">
+                                <wm-label name="lblPerWeek" caption="per week" variant="default"></wm-label>
+                                <wm-number name="numPerWeekHrs"
+                                    datavalue="bind:Variables.employeeData.dataSet.perWeekHrs" width="55px"></wm-number>
+                                <wm-label name="lblPerWeekHrs" caption="hrs" variant="default"></wm-label>
+                                <wm-number name="numPerWeekDays"
+                                    datavalue="bind:Variables.employeeData.dataSet.perWeekDays" width="55px">
+                                </wm-number>
+                                <wm-label name="lblPerWeekDays" caption="days" variant="default"></wm-label>
+                            </wm-container>
+                            <wm-container name="perDayRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" wrap="false" variant="default"
+                                padding="unset 30px">
+                                <wm-label name="lblPerDay" caption="per day" variant="default"></wm-label>
+                                <wm-number name="numPerDayHrs" datavalue="bind:Variables.employeeData.dataSet.perDayHrs"
+                                    variant="standard" width="55px"></wm-number>
+                                <wm-label name="lblPerDayHrs" caption="hrs" variant="default"></wm-label>
+                                <wm-number name="numPerDayShifts"
+                                    datavalue="bind:Variables.employeeData.dataSet.perDayShifts" variant="standard"
+                                    width="55px"></wm-number>
+                                <wm-label name="lblPerDayShifts" caption="shifts" variant="default"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
                 <!-- Per Week Row -->
-                <wm-container name="perWeekRow" class="app-container-default" direction="row" gap="8"
-                    alignment="middle-left" width="fill" height="hug">
-                    <wm-label name="lblPerWeek" caption="per week" variant="default"></wm-label>
-                    <wm-number name="numPerWeekHrs" datavalue="bind:Variables.employeeData.dataSet.perWeekHrs">
-                    </wm-number>
-                    <wm-label name="lblPerWeekHrs" caption="hrs" variant="default"></wm-label>
-                    <wm-number name="numPerWeekDays" datavalue="bind:Variables.employeeData.dataSet.perWeekDays">
-                    </wm-number>
-                    <wm-label name="lblPerWeekDays" caption="days" variant="default"></wm-label>
-                </wm-container>
                 <!-- Per Day Row -->
-                <wm-container name="perDayRow" class="app-container-default" direction="row" gap="8"
-                    alignment="middle-left" width="fill" height="hug">
-                    <wm-label name="lblPerDay" caption="per day" variant="default"></wm-label>
-                    <wm-number name="numPerDayHrs" datavalue="bind:Variables.employeeData.dataSet.perDayHrs">
-                    </wm-number>
-                    <wm-label name="lblPerDayHrs" caption="hrs" variant="default"></wm-label>
-                    <wm-number name="numPerDayShifts" datavalue="bind:Variables.employeeData.dataSet.perDayShifts">
-                    </wm-number>
-                    <wm-label name="lblPerDayShifts" caption="shifts" variant="default"></wm-label>
-                </wm-container>
                 <!-- By Seniority Row -->
                 <wm-container name="bySeniorityRow" class="app-container-default" direction="row" gap="8"
                     alignment="middle-left" width="fill" height="hug">
-                    <wm-label name="lblBySeniority" caption="By Seniority" variant="default"></wm-label>
-                    <wm-icon name="iconSeniorityCalendar" iconclass="wi wi-calendar-today" iconsize="1em"></wm-icon>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="30%" name="container93"
+                        class="app-container-default" variant="default" clipcontent="false">
+                        <wm-label name="lblBySeniority" caption="By Seniority" variant="default"></wm-label>
+                    </wm-container>
+                    <wm-icon name="iconSeniorityCalendar" iconclass="fa fa-calendar" iconsize="1em"></wm-icon>
                     <wm-date name="dateHireDateSeniority"
-                        datavalue="bind:Variables.employeeData.dataSet.hireDateSeniority"></wm-date>
+                        datavalue="bind:Variables.employeeData.dataSet.hireDateSeniority" width="96px"></wm-date>
                     <wm-label name="lblHireDate" caption="Hire Date" variant="default"></wm-label>
                 </wm-container>
                 <!-- By Group Row -->
                 <wm-container name="byGroupRow" class="app-container-default" direction="row" gap="8"
                     alignment="middle-left" width="fill" height="hug">
-                    <wm-label name="lblByGroup" caption="By Group" variant="default"></wm-label>
+                    <wm-label name="lblByGroup" caption="By Group" variant="default" width="30%"></wm-label>
                     <wm-select name="selectByGroup" dataset="bind:Variables.groupOptions.dataSet" datafield="label"
                         displayfield="label" datavalue="bind:Variables.employeeData.dataSet.byGroup"></wm-select>
                     <wm-label name="lblPriority" caption="priority" variant="default"></wm-label>
@@ -399,10 +414,12 @@
                 </wm-label>
                 <wm-container name="payRateRow" class="app-container-default" direction="row" gap="8"
                     alignment="middle-left" width="fill" height="hug">
-                    <wm-number name="numPayRate" datavalue="bind:Variables.employeeData.dataSet.payRate"></wm-number>
-                    <wm-label name="lblPayRateDesc" caption="per hour default or" variant="default"></wm-label>
-                    <wm-anchor name="ancSetPerPosition" caption="set per position" variant="standard-sm-underlined"
-                        class="anchor-standard-sm-underlined"></wm-anchor>
+                    <wm-number name="numPayRate" datavalue="bind:Variables.employeeData.dataSet.payRate" width="55px">
+                    </wm-number>
+                    <wm-label name="lblPayRateDesc" caption="per hour default or" variant="label-16-400"
+                        class="label-label-16-400"></wm-label>
+                    <wm-anchor name="ancSetPerPosition" caption="set per position" variant="standard-16"
+                        class="anchor-standard-16"></wm-anchor>
                 </wm-container>
             </wm-container>
             <!-- SECTION 9: Alert Date Card -->
@@ -412,11 +429,13 @@
                     variant="label-20-700"></wm-label>
                 <wm-container name="alertDateRow" class="app-container-default" direction="row" gap="8"
                     alignment="middle-left" width="fill" height="hug">
-                    <wm-icon name="iconAlertCalendar" iconclass="wi wi-calendar-today" iconsize="1em"></wm-icon>
-                    <wm-date name="dateAlertDate" datavalue="bind:Variables.employeeData.dataSet.alertDate"></wm-date>
-                    <wm-label name="lblAlertDateDesc" caption="default or" variant="default"></wm-label>
-                    <wm-anchor name="ancAlertSetPerPosition" caption="set per position" variant="standard-sm-underlined"
-                        class="anchor-standard-sm-underlined"></wm-anchor>
+                    <wm-icon name="iconAlertCalendar" iconclass="fa fa-calendar" iconsize="1em"></wm-icon>
+                    <wm-date name="dateAlertDate" datavalue="bind:Variables.employeeData.dataSet.alertDate"
+                        width="96px"></wm-date>
+                    <wm-label name="lblAlertDateDesc" caption="default or" variant="label-16-400"
+                        class="label-label-16-400"></wm-label>
+                    <wm-anchor name="ancAlertSetPerPosition" caption="set per position" variant="standard-16"
+                        class="anchor-standard-16"></wm-anchor>
                 </wm-container>
             </wm-container>
             <!-- SECTION 10: Custom Fields & Status Icon Card -->
@@ -454,7 +473,8 @@
                     <wm-button name="btnStatusDarkGreen" iconclass="wi wi-fiber-manual-record" class="btn-default">
                     </wm-button>
                     <wm-button name="btnStatusEdit" iconclass="wi wi-pencil" class="btn-default"></wm-button>
-                    <wm-anchor name="ancMoreStatus" caption="⊕ More" class="anchor-standard-sm"></wm-anchor>
+                    <wm-anchor name="ancMoreStatus" caption="More" class="anchor-standard-sm anchor-standard-sm-Arial"
+                        iconclass="wi wi-arrow-right-circle" variant="standard-sm-Arial"></wm-anchor>
                 </wm-container>
                 <wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label>
             </wm-container>
@@ -466,10 +486,10 @@
                     <wm-label name="lblCommentsHeader" caption="Comments" class="label-label-20-700"
                         variant="label-20-700"></wm-label>
                     <wm-label name="lblCommentsSub" caption="Settings DO NOT let employee see this comment"
-                        class="text-muted" variant="default"></wm-label>
+                        class="text-muted label-label-12-400" variant="label-12-400"></wm-label>
                 </wm-container>
-                <wm-textarea name="textareaComments" datavalue="bind:Variables.employeeData.dataSet.comments">
-                </wm-textarea>
+                <wm-textarea name="textareaComments" datavalue="bind:Variables.employeeData.dataSet.comments"
+                    height="128px" width="100%"></wm-textarea>
             </wm-container>
             <!-- SECTION 12: Options Card -->
             <wm-container name="optionsCard" class="container-grey-container container-grey-standard mb-2"
@@ -483,13 +503,14 @@
                         variant="default"></wm-label>
                     <wm-select name="selectCanEditShifts" dataset="bind:Variables.shiftChangeOptions.dataSet"
                         datafield="label" displayfield="label"
-                        datavalue="bind:Variables.employeeData.dataSet.canEditShifts"></wm-select>
+                        datavalue="bind:Variables.employeeData.dataSet.canEditShifts" width="300px"></wm-select>
                 </wm-container>
                 <!-- Accessibility Mode Row -->
                 <wm-container name="accessibilityRow" class="app-container-default" direction="row" gap="8"
                     alignment="middle-left" width="fill" height="hug">
                     <wm-checkbox name="chkAccessibilityMode" type="checkbox"
-                        datavalue="bind:Variables.employeeData.dataSet.accessibilityMode"></wm-checkbox>
+                        datavalue="bind:Variables.employeeData.dataSet.accessibilityMode" class="checkbox-blue-check-14"
+                        variant="blue-check-14"></wm-checkbox>
                     <wm-label name="lblAccessibilityMode" caption="Set this employee to 'Accessibility Mode'"
                         variant="default"></wm-label>
                 </wm-container>
@@ -497,29 +518,41 @@
             <!-- SECTION 13: Preferences Row -->
             <wm-container name="preferencesRow" class="container-grey-container container-grey-standard mb-2"
                 direction="row" gap="auto" alignment="center" width="fill" height="hug" variant="grey-standard">
-                <wm-label name="lblPreferences" caption="Preferences" class="label-label-20-700" variant="label-20-700">
-                </wm-label>
+                <wm-container direction="row" alignment="top-left" gap="4" width="30%" name="container92"
+                    class="app-container-default" variant="default" clipcontent="false">
+                    <wm-label name="lblPreferences" caption="Preferences" class="label-label-20-700"
+                        variant="label-20-700"></wm-label>
+                </wm-container>
                 <wm-container name="preferencesLinks" class="app-container-default" direction="row" gap="8"
-                    alignment="middle-right" width="hug" height="hug">
-                    <wm-anchor name="ancWorkTimePrefs" caption=" ✏ Work Time Prefs" variant="standard"
-                        iconurl="resources/images/icon/user-pen-solid_1_.png"></wm-anchor>
-                    <wm-anchor name="ancPositionPrefs" caption=" ✏ Position Prefs" variant="standard" iconclass=""
-                        iconurl="resources/images/icon/user-pen-solid_1_.png"></wm-anchor>
+                    alignment="middle-left" width="fill" height="hug" clipcontent="false">
+                    <wm-anchor name="ancWorkTimePrefs" caption="Work Time Prefs" variant="standard"
+                        iconurl="resources/images/icon/user-pen-solid_1_.png" iconclass="fa fa-pencil"></wm-anchor>
+                    <wm-anchor name="ancPositionPrefs" caption="Position Prefs" variant="standard"
+                        iconclass="fa fa-pencil" iconurl="resources/images/icon/user-pen-solid_1_.png"></wm-anchor>
                 </wm-container>
             </wm-container>
             <!-- SECTION 14: Time Off Row -->
             <wm-container name="timeOffRow" class="container-grey-container container-grey-standard mb-2"
                 direction="row" gap="auto" alignment="center" width="fill" height="hug" variant="grey-standard">
-                <wm-label name="lblTimeOff" caption="Time Off" class="label-label-20-700" variant="label-20-700">
-                </wm-label>
-                <wm-anchor name="ancTimeOffViewEdit" caption=" ✏ View / Edit" variant="standard"
-                    iconurl="./resources/images/icon/user-solid-full.svg"></wm-anchor>
+                <wm-container direction="row" alignment="top-left" gap="4" width="30%" name="container93_1"
+                    class="app-container-default" variant="default" clipcontent="false">
+                    <wm-label name="lblTimeOff" caption="Time Off" class="label-label-20-700" variant="label-20-700">
+                    </wm-label>
+                </wm-container>
+                <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container94"
+                    class="app-container-default" variant="default">
+                    <wm-anchor name="ancTimeOffViewEdit" caption="View / Edit" variant="standard"
+                        iconurl="./resources/images/icon/user-solid-full.svg" iconclass="fa fa-pencil"></wm-anchor>
+                </wm-container>
             </wm-container>
             <!-- SECTION 15: Bottom Action Row -->
-            <wm-container name="bottomActionRow" class="app-container-default" direction="row" gap="auto"
-                alignment="center" width="fill" height="hug">
+            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container95"
+                class="app-container-default optional-head-container" variant="default">
                 <wm-button name="btnDeleteBottom" caption="DELETE Employee" class="btn-danger btn-filled-bg-danger-sm"
-                    iconclass="fa fa-times" variant="filled-bg-danger-sm"></wm-button>
+                    iconclass="" variant="filled-bg-danger-sm"></wm-button>
+            </wm-container>
+            <wm-container name="bottomActionRow" class="app-container-default" direction="row" gap="8"
+                alignment="middle-center" width="fill" height="hug">
                 <wm-container name="saveButtonsBottom" class="app-container-default" direction="row" gap="8"
                     alignment="middle-right" width="hug" height="hug">
                     <wm-button name="btnSaveBottom" caption="SAVE" class="btn-outlined-primary"
@@ -529,7 +562,7 @@
                 </wm-container>
             </wm-container>
             <!-- SECTION 16: Information Card -->
-            <wm-container name="informationCard" class="container-grey-container container-grey-standard mb-2"
+            <wm-container name="informationCard" class="mt-2 container-grey-container container-grey-standard mb-2"
                 direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
                 <wm-label name="lblInformationHeader" caption="Information" class="label-label-20-700"
                     variant="label-20-700"></wm-label>
@@ -564,21 +597,26 @@
                     <wm-label caption="Per Diem" variant="default" name="label74"></wm-label>
                 </wm-container>
                 <!-- Static Info Labels -->
-                <wm-label name="lblInfoEmails"
-                    caption="Emails marked 'None' mean that employee has not set up any notifications."
-                    variant="default"></wm-label>
-                <wm-label name="lblInfoCustomFields"
-                    caption="¹ Custom fields: define on SETTINGS &gt; Company Info page." variant="default"></wm-label>
-                <wm-container name="lockInfoRow" class="app-container-default" direction="row" gap="4"
-                    alignment="middle-left" width="fill" height="hug">
-                    <wm-icon name="iconLockInfo" iconclass="wi wi-lock" iconsize="1em"></wm-icon>
-                    <wm-label name="lblLockInfo"
-                        caption=" Information will not be shown to other employees. For privacy reasons, employee must sign in and allow this on their INFO page."
-                        variant="default"></wm-label>
+                <wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container96"
+                    class="app-container-default" variant="default" wrap="false">
+                    <wm-label name="lblInfoEmails"
+                        caption="Emails marked 'None' mean that employee has not set up any notifications."
+                        variant="label-14-400" class="label-label-14-400"></wm-label>
+                    <wm-label name="lblInfoCustomFields"
+                        caption="¹ Custom fields: define on SETTINGS &gt; Company Info page." variant="label-14-400"
+                        class="label-label-14-400"></wm-label>
+                    <wm-container name="lockInfoRow" class="app-container-default" direction="row" gap="4"
+                        alignment="top-left" width="fill" height="hug" wrap="false">
+                        <wm-icon name="iconLockInfo" iconclass="fa fa-lock" iconsize="1em" class="icon-icon-grey"
+                            variant="icon-grey"></wm-icon>
+                        <wm-label name="lblLockInfo"
+                            caption=" Information will not be shown to other employees. For privacy reasons, employee must sign in and allow this on their INFO page."
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
+                    </wm-container>
+                    <wm-label name="lblManagerInfo"
+                        caption="- To make employee also a manager go to Settings&gt;Add/Edit Managers page. The employee will then have two usernames, one to access as employee and one as manager."
+                        variant="label-14-400" class="label-label-14-400"></wm-label>
                 </wm-container>
-                <wm-label name="lblManagerInfo"
-                    caption="- To make employee also a manager go to Settings&gt;Add/Edit Managers page. The employee will then have two usernames, one to access as employee and one as manager."
-                    variant="default"></wm-label>
             </wm-container>
         </wm-page-content>
     </wm-content>
