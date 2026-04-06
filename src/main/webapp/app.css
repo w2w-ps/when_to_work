@@ -8,6 +8,17 @@
     src: url(https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf) format('truetype');
 }
 
+
+:root {
+    --wm-color-light-grey: #C0C0C0;
+    --wm-color-prefer: #9dee94;
+    --wm-color-dislike: #f9b4b7;
+    --wm-color-cannotwork: #de101c;
+    --wm-coor-mid-grey: #666666;
+    --wm-color-soft-black: rgba(0, 0, 0, 0.15);
+
+}
+
 .open-sans-700 {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -15,11 +26,12 @@
     font-style: normal;
 }
 
-.wm-app .form-signin-control:focus, .wm-app .form-signin-control:active {
-        outline-style: auto !important;
+.wm-app .form-signin-control:focus,
+.wm-app .form-signin-control:active {
+    outline-style: auto !important;
     outline-width: thick !important;
     outline-color: #66afe9 !important;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6) !important;
     border-color: #66afe9 !important;
 }
 
@@ -267,4 +279,13 @@ wm-input[name="txtFind"].app-input-wrapper {
     width: 300px !important;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     text-align: center;
+}
+
+
+
+
+
+.wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
+.wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
+    margin-left: var(--wm-space-0) !important;
 }
