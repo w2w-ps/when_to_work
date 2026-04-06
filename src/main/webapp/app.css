@@ -288,7 +288,6 @@ wm-input[name="txtFind"].app-input-wrapper {
 .optional-head-container{
     position: absolute !important;
 }
-
 .wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
 .wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
     margin-left: var(--wm-space-0) !important;
