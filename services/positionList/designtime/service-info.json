@@ -1,0 +1,6 @@
+{
+  "id" : "positionList",
+  "type" : "RestService",
+  "title" : "positionList",
+  "mockEnabled" : false
+}

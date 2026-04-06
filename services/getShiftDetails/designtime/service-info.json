@@ -1,0 +1,6 @@
+{
+  "id" : "getShiftDetails",
+  "type" : "RestService",
+  "title" : "getShiftDetails",
+  "mockEnabled" : false
+}

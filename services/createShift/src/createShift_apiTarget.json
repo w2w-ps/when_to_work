@@ -1,0 +1,144 @@
+{
+  "basePath" : "${rest.createShift.basepath}",
+  "paths" : {
+    "/scheduling/shifts" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "createShift_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "createShift" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/scheduling/shifts",
+      "x-WM-TAG" : "createShift",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.createShift.scheme}://${rest.createShift.host}${rest.createShift.basepath}/scheduling/shifts"
+    }
+  },
+  "host" : "${rest.createShift.host}",
+  "schemes" : [ "${rest.createShift.scheme}" ],
+  "definitions" : {
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "createShift.Response.div",
+      "x-WM-TAGS" : [ "createShift" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "createShift.RootRequest",
+      "x-WM-TAGS" : [ "createShift" ],
+      "required" : [ "category", "color", "companyId", "date", "description", "employeeId", "endTime", "position", "startTime" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "position" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "category" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "createShift.Response.body",
+      "x-WM-TAGS" : [ "createShift" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "createShift.RootResponse",
+      "x-WM-TAGS" : [ "createShift" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "createShift.Response.parsererror",
+      "x-WM-TAGS" : [ "createShift" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "01a03d9e-d875-470e-8608-699a25a57234",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "createShift"
+  } ]
+}

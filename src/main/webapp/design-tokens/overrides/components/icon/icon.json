@@ -22,11 +22,36 @@
             "value" : "{space.1.value}"
           }
         }
+      },
+      "icon-14" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.on-background.@.value}"
+          },
+          "font-size" : {
+            "value" : "14px"
+          },
+          "min-width" : {
+            "value" : "14px"
+          },
+          "width" : {
+            "value" : "14px"
+          },
+          "height" : {
+            "value" : "14px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
       }
     },
     "meta" : {
       "appearances" : {
         "purple" : {
+          "source" : "user"
+        },
+        "icon-14" : {
           "source" : "user"
         }
       }

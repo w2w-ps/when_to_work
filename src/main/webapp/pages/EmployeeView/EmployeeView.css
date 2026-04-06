@@ -235,12 +235,13 @@ textarea {
 
 .create-copies-text {
     height: 30px;
-    top: -17px;
+    top: -8px;
     width: 45px !important;
     font-size: 14px;
     line-height: 1.428571;
     color: #555;
     padding: 9px;
+    left: -5px;
 }
 
 .form-control {
@@ -251,8 +252,9 @@ textarea {
 .dialog-heading {
     font-size: 8pt;
     font-family: Arial;
-    letter-spacing: normal;
+    letter-spacing: -0.25px;
     top: 5px;
+    font-weight: 400;
 }
 
 .mh-auto .form-group {
@@ -361,36 +363,9 @@ textarea {
     color: #e64a19;
 }
 
-.employee-action-bar {
-    border-top: 1px solid var(--wm-color-outline-variant);
-    border-bottom: 1px solid var(--wm-color-outline-variant);
-    background-color: var(--wm-color-surface);
-}
-
-.anchor-add-upload-employees {
-    color: var(--wm-color-primary);
-    font-size: var(--wm-font-size-base);
-    text-decoration: none;
-    font-weight: var(--wm-font-weight-medium);
-}
-
-.label-recently-deleted {
-    color: var(--wm-color-error);
-    font-size: var(--wm-font-size-base);
-    font-weight: var(--wm-font-weight-medium);
-    cursor: pointer;
-}
-
-.anchor-schedule-history {
-    color: var(--wm-color-on-surface-variant);
-    font-size: var(--wm-font-size-base);
-    text-decoration: none;
-}
-
 .footerInfoSection {
     width: 100%;
     padding: 16px 24px;
-    border-top: 1px solid #e0e0e0;
     background-color: #ffffff;
     position: relative;
 }
@@ -426,7 +401,6 @@ textarea {
 
 .btn-emp-shift3 {
     width: 26.5%;
-
 }
 
 .btn-emp-shift4 {
@@ -443,4 +417,50 @@ textarea {
 
 .weekday-container {
     min-height: 80px;
+}
+
+.confirm-dialog-msg {
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    line-height: 1.5;
+}
+
+.confirm-dialog-warning {
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #b00000;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.confirm-dialog-conflict-name {
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.5;
+}
+
+.confirm-dialog-sub-msg {
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.mh-list {
+    min-height: auto;
+}
+
+.create-copies-text>.live-field {
+    min-height: auto;
+    width: 32px;
+    height: 30px;
+
 }

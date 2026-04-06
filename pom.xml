@@ -37,8 +37,15 @@
             <configuration>
               <sources>
                 <source>services/LoginService/src</source>
+                <source>services/categoryList/src</source>
+                <source>services/createShift/src</source>
+                <source>services/getShiftDetails/src</source>
+                <source>services/positionList/src</source>
+                <source>services/precheck/src</source>
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
+                <source>services/svDeleteShiftById/src</source>
+                <source>services/updateShift/src</source>
                 <source>services/when2work/src</source>
               </sources>
             </configuration>

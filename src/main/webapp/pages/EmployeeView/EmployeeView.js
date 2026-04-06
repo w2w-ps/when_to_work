@@ -139,6 +139,7 @@ Page.onReady = function () {
     Page.isAdd = true;
     Page.dragState = null; // drag-and-drop state holder
     Page._dragDropInsertPayload = null;
+    Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
 };
 
 /**
@@ -146,7 +147,7 @@ Page.onReady = function () {
  * Returns false to abort the API call if startDate or endDate is missing.
  */
 Page.svScheduleListonBeforeServiceCall = function (variable, inputData) {
-    console.log("input data --->")
+    console.log("input data --->");
     if (!inputData.startDate || !inputData.endDate || !inputData.companyId) {
         return false;
     }
@@ -291,6 +292,27 @@ Page.openDialogForDay = function (item, dayName, dayIndex) {
     Page.Widgets.shiftDialog.open();
 };
 
+/**
+ * Shared helper invoked by all {day}ShiftItemClick handlers in edit mode.
+ * Sets context variables, fetches shift details via svGetShiftById,
+ * and opens the dialog only after the response is received (in the onSuccess callback).
+ */
+Page.openEditShiftDialog = function (item, dayName, dayIndex) {
+    Page.isAdd = false;
+    Page.selectedShiftdForIEmployee = item.shiftId;
+    Page.selectedShiftItem = item;
+    Page.selectedDay = dayName;
+
+    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
+    var shiftDate = moment(currentWeekStart).add(dayIndex, 'days');
+    Page.selectedShiftDate = shiftDate;
+    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
+
+    // Invoke svGetShiftById; dialog opens inside svGetShiftByIdSuccess
+    Page.Variables.svGetShiftById.setInput('id', item.shiftId);
+    Page.Variables.svGetShiftById.invoke();
+};
+
 function getFullDayName(shortDay) {
     const days = {
         'Fri': 'Friday',
@@ -359,153 +381,95 @@ Page.sundayShiftCellClick = function ($event, widget, item, currentItemWidgets) 
 
 /* -------------------------------------------------
    SHIFT ITEM CLICK: handlers for clicking an existing shift in the inner list
+   Each handler delegates to openEditShiftDialog which fetches shift data
+   before opening the dialog.
    ------------------------------------------------- */
 
 Page.mondayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
-
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day0Shifts && emp.day0Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
-
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(0, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
-
-    Page.Widgets.shiftDialog.open();
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day1 = getFullDayName(Page.Widgets.lblMondayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day1, 0);
 };
 
 Page.tuesdayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
-
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day1Shifts && emp.day1Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
-
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(1, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
-
-    Page.Widgets.shiftDialog.open();
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day2 = getFullDayName(Page.Widgets.lblTuesdayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day2, 1);
 };
 
 Page.wednesdayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
-
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day2Shifts && emp.day2Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
-
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(2, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
-
-    Page.Widgets.shiftDialog.open();
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day3 = getFullDayName(Page.Widgets.lblWednesdayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day3, 2);
 };
 
 Page.thursdayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
-
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day3Shifts && emp.day3Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
-
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(3, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
-
-    Page.Widgets.shiftDialog.open();
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day4 = getFullDayName(Page.Widgets.lblThursdayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day4, 3);
 };
 
 Page.fridayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
-
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day4Shifts && emp.day4Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
-
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(4, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
-
-    Page.Widgets.shiftDialog.open();
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day5 = getFullDayName(Page.Widgets.lblFridayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day5, 4);
 };
 
 Page.saturdayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
-
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day5Shifts && emp.day5Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
-
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(5, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
-
-    Page.Widgets.shiftDialog.open();
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day6 = getFullDayName(Page.Widgets.lblSaturdayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day6, 5);
 };
 
 Page.sundayShiftItemClick = function ($event, widget, item, currentItemWidgets) {
     $event.stopPropagation();
-    Page.isAdd = false;
-    Page.selectedShiftdForIEmployee = item.shiftId;
-    Page.selectedShiftItem = item;
+    Page.selectedEmployee = Page.Widgets.employeeScheduleList.selecteditem;
+    var day7 = getFullDayName(Page.Widgets.lblSundayDate.caption.split(" ")[1]);
+    Page.openEditShiftDialog(item, day7, 6);
+};
 
-    // Fix: find parent employee row from the schedule dataset
-    var scheduleData = Page.Variables.transformedScheduleVar.dataSet;
-    var employeeRow = scheduleData.find(function (emp) {
-        return emp.day6Shifts && emp.day6Shifts.some(function (s) { return s.shiftId === item.shiftId; });
-    });
-    Page.selectedEmployee = employeeRow || Page.selectedEmployee;
+/**
+ * onSuccess handler for svGetShiftById.
+ * Resolves position and category names to IDs, computes paidHours,
+ * sets all edit-mode form widgets programmatically, then opens the dialog.
+ */
+Page.svGetShiftByIdSuccess = function (variable, data) {
+    // Resolve position name -> id
+    var positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
+    var positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
+    var positionMatch = positionsList.find(function (p) { return p.name === data.position; });
+    var resolvedPositionId = positionMatch ? positionMatch.id : null;
 
-    var currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
-    var shiftDate = moment(currentWeekStart).add(6, 'days');
-    Page.selectedShiftDate = shiftDate;
-    Page.formattedShiftDate = shiftDate.format('dddd, MMM-D');
+    // Resolve category name -> id
+    var categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
+    var categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
+    var categoryMatch = categoriesList.find(function (c) { return c.name === data.category; });
+    var resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
 
+    // Open the dialog so its widgets are available in the DOM
     Page.Widgets.shiftDialog.open();
+
+    // Use a short timeout to allow dialog widgets to initialise before setting values
+    setTimeout(function () {
+        if (Page.Widgets.positionField) {
+            Page.Widgets.positionField.datavalue = resolvedPositionId;
+        }
+        if (Page.Widgets.categoryField) {
+            Page.Widgets.categoryField.datavalue = resolvedCategoryId;
+        }
+        if (Page.Widgets.paidHoursField) {
+            Page.Widgets.paidHoursField.datavalue = data.duration;
+        }
+        if (Page.Widgets.chkAutoCalculate) {
+            Page.Widgets.chkAutoCalculate.datavalue = false;
+        }
+    }, 100);
 };
 
 /**
@@ -516,10 +480,11 @@ Page.sundayShiftItemClick = function ($event, widget, item, currentItemWidgets) 
  *     (Page.selectedDay) to true; all other day checkboxes are false.
  *
  * EDIT mode (Page.isAdd === false):
- *   - Pre-fills every form field from Page.selectedShiftItem (set by the
- *     {day}ShiftItemClick handlers before opening the dialog).
- *   - All weekday checkboxes are cleared - day selection is not needed
- *     when editing an existing shift.
+ *   - Form fields startTime, endTime, color, description are pre-filled via
+ *     declarative defaultvalue bindings to svGetShiftById.dataSet.
+ *   - positionField, categoryField, paidHours, chkAutoCalculate are set
+ *     programmatically in svGetShiftByIdSuccess after the API call completes.
+ *   - All weekday checkboxes are cleared.
  */
 Page.shiftDialogOpened = function ($event, widget) {
     Page.isFromDraggable = false;
@@ -552,38 +517,13 @@ Page.shiftDialogOpened = function ($event, widget) {
             Page.Widgets[selectedCheckbox].datavalue = true;
         }
 
-        Page.Widgets.chkClearAll.datavalue = false;
-        Page.Widgets.chkSelectAll.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
     } else {
         // EDIT MODE
-        // Pre-fill form fields from the clicked shift item.
-        var item = Page.selectedShiftItem;
-        if (item) {
-            if (Page.Widgets.startTimeField) {
-                Page.Widgets.startTimeField.datavalue = item.startAt || '';
-            }
-            if (Page.Widgets.endTimeField) {
-                Page.Widgets.endTimeField.datavalue = item.endAt || '';
-            }
-            if (Page.Widgets.positionField) {
-                Page.Widgets.positionField.datavalue = item.positionId || '';
-            }
-            if (Page.Widgets.colorField) {
-                Page.Widgets.colorField.datavalue = item.color || '';
-            }
-            if (Page.Widgets.paidHoursField) {
-                Page.Widgets.paidHoursField.datavalue = item.paidHours || '';
-            }
-            if (Page.Widgets.form_field9) {
-                Page.Widgets.form_field9.datavalue = item.notes || '';
-            }
-
-            var calculatedHours = Page.calculateTotalHours(item.startAt, item.endAt);
-            if (calculatedHours !== null) {
-                Page.Widgets.paidHoursField.datavalue = calculatedHours;
-            }
-        }
+        // startTime, endTime, color, description are pre-filled via declarative
+        // defaultvalue bindings to svGetShiftById.dataSet (set in HTML).
+        // positionField, categoryField, paidHours, chkAutoCalculate are set
+        // programmatically in svGetShiftByIdSuccess.
 
         // Clear all weekday checkboxes - day selection is irrelevant in edit mode.
         Page.Widgets.chkMon.datavalue = false;
@@ -593,8 +533,6 @@ Page.shiftDialogOpened = function ($event, widget) {
         Page.Widgets.chkFri.datavalue = false;
         Page.Widgets.chkSat.datavalue = false;
         Page.Widgets.chkSun.datavalue = false;
-        Page.Widgets.chkClearAll.datavalue = false;
-        Page.Widgets.chkSelectAll.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
     }
 };
@@ -604,6 +542,7 @@ Page.button16Click = function ($event, widget) {
     var startTime = Page.Widgets.shiftForm.formWidgets.startTimeField.datavalue;
     var endTime = Page.Widgets.shiftForm.formWidgets.endTimeField.datavalue;
     var description = Page.Widgets.shiftForm.formWidgets.form_field9.datavalue;
+    var categoryId = Page.Widgets.shiftForm.formWidgets.categoryField.datavalue;
 
     if (!positionId) {
         console.error('Position is required');
@@ -658,12 +597,6 @@ Page.button16Click = function ($event, widget) {
         });
         return;
     }
-
-    console.log('=== Shift Creation Debug Info ===');
-    console.log('Selected Date:', Page.selectedShiftDate.format('YYYY-MM-DD'));
-    console.log('Input Start Time:', startTime);
-    console.log('Input End Time:', endTime);
-
     var startTimeMs;
     var endTimeMs;
 
@@ -705,40 +638,42 @@ Page.button16Click = function ($event, widget) {
     console.log('Final Start Time:', moment(startTimeMs).format('MMM DD, YYYY hh:mm:ss A'));
     console.log('Final End Time:', moment(endTimeMs).format('MMM DD, YYYY hh:mm:ss A'));
     console.log('================================');
+
     if (!Page.isAdd) {
-        // Store the update inputs for use after the position check completes
-        Page.Variables.svUpdateShiftDetails.setInput({
-            employeeId: Page.selectedEmployee.employeeId,
-            shiftDate: new Date(startTimeMs).toISOString().split('T')[0],
-            startAt: Page.formatDateTime(Page.selectedShiftDate.format('YYYY-MM-DD'), startTime),
-            endAt: Page.formatDateTime(Page.selectedShiftDate.format('YYYY-MM-DD'), endTime),
-            notes: description || '',
-            positionId: positionId
+        Page.Variables.svUpdateShift.setInput({
+            "shiftId": Page.selectedShiftItem.shiftId,
+            RequestBody: {
+                employeeId: Page.selectedEmployee.employeeId,
+                companyId: 1,
+                date: Page.selectedShiftDate.format('YYYY-MM-DD'),
+                description: description || '',
+                startTime: formatToStandardTime(startTime) || '',
+                endTime: formatToStandardTime(endTime) || '',
+                position: positionId || '',
+                category: categoryId || '',
+                color: 'amer'
+            }
         });
-        // First check if an employee-position record exists before updating the shift
-        var empId = Page.selectedEmployee.employeeId;
-        Page.Variables.svFindEmployeePositions.setInput({
-            q: 'tenantId = 1 AND employeeId = ' + empId + ' AND positionId = ' + positionId
-        });
-        Page.Variables.svFindEmployeePositions.invoke();
+        Page.Variables.svUpdateShift.invoke();
     } else {
-        console.log('Creating new shift for employee:', Page.selectedEmployee.employeeId);
-        // Stash all shift inputs so the async callback chain can use them
-        Page._pendingShiftInputs = {
-            tenantId: 1,
-            employeeId: Page.selectedEmployee.employeeId,
-            positionId: positionId,
-            startAt: Page.formatDateTime(Page.selectedShiftDate.format('YYYY-MM-DD'), startTime),
-            endAt: Page.formatDateTime(Page.selectedShiftDate.format('YYYY-MM-DD'), endTime),
-            status: 'scheduled',
-            notes: description || ''
-        };
-        // Check if an employee-position record already exists before inserting the shift
-        Page.Variables.svFindEmployeePositions.setInput({
-            q: 'tenantId = 1 AND employeeId = ' + Page.selectedEmployee.employeeId + ' AND positionId = ' + positionId
+        // ADD MODE: Build local shiftInfo for optimistic UI update
+        Page.Variables.svCreateShift.setInput({
+            RequestBody: {
+                employeeId: Page.selectedEmployee.employeeId,
+                companyId: 1,
+                date: Page.selectedShiftDate.format('YYYY-MM-DD'),
+                description: description || '',
+                startTime: formatToStandardTime(startTime) || '',
+                endTime: formatToStandardTime(endTime) || '',
+                position: positionId || '',
+                category: categoryId || '',
+                color: 'amer'
+            }
         });
-        Page.Variables.svFindEmployeePositions.invoke();
+        Page.Variables.svCreateShift.invoke();
     }
+
+    Page.Widgets.shiftDialog.close();
 };
 
 Page.parseTimeToMilliseconds = function (dateObj, timeString) {
@@ -995,10 +930,9 @@ Page._dayDateKey = function (dayKey) {
 
 /**
  * Resolves a YYYY-MM-DD date string for the given day0-day6 key.
- * Derives the date from currentWeekVar.dataSet.startDate + day index offset,
- * matching exactly how transformScheduleData builds dayDate (weekStart + i days).
- * Falls back to reading dayDate from the first employee slot in the dataset
- * if startDate is empty, then falls back to today as last resort.
+ * Derives the date from Weekview1.startdate + day index offset.
+ * Falls back to reading the shift date from the first employee's weeklyShifts
+ * slot if startdate is empty, then falls back to today as last resort.
  */
 Page._resolveShiftDateISO = function (dayKey) {
     var dayIndex = Page._dayDateKey(dayKey); // returns 0-6
@@ -1006,18 +940,17 @@ Page._resolveShiftDateISO = function (dayKey) {
         console.warn('_resolveShiftDateISO: unknown dayKey "' + dayKey + '"');
         return moment().format('YYYY-MM-DD');
     }
-    var startDate = Page.Variables.currentWeekVar.dataSet.startDate;
+    var startDate = Page.Widgets.Weekview1.startdate;
     if (!startDate) {
-        // Fallback: read dayDate directly from first employee day slot in dataset
-        var dataset = Page.Variables.transformedScheduleVar.dataSet;
+        // Fallback: read date directly from first employee weeklyShifts slot in dataset
+        var dataset = Page.Variables.svScheduleList.dataSet;
         if (dataset && dataset.length > 0) {
-            var daySlot = dataset[0][dayKey];
-            if (daySlot && daySlot.dayDate) {
-                // dayDate is stored as DD-MM-YYYY, convert to YYYY-MM-DD
-                return moment(daySlot.dayDate, 'DD-MM-YYYY').format('YYYY-MM-DD');
+            var emp = dataset[0];
+            if (emp.weeklyShifts && emp.weeklyShifts[dayIndex] && emp.weeklyShifts[dayIndex].date) {
+                return moment(emp.weeklyShifts[dayIndex].date).format('YYYY-MM-DD');
             }
         }
-        console.warn('_resolveShiftDateISO: currentWeekVar.startDate is empty and no fallback found');
+        console.warn('_resolveShiftDateISO: Weekview1.startdate is empty and no fallback found');
         return moment().format('YYYY-MM-DD');
     }
     return moment(startDate).add(dayIndex, 'days').format('YYYY-MM-DD');
@@ -1025,7 +958,7 @@ Page._resolveShiftDateISO = function (dayKey) {
 
 /**
  * Looks up positionId from positionsListVar by matching shiftName against
- * the position name field (tries both p.name and p.position).
+ * the position name field (tries p.title, p.code, p.name).
  */
 Page._resolvePositionId = function (shiftName) {
     var positions = Page.Variables.positionsListVar.dataSet;
@@ -1035,18 +968,224 @@ Page._resolvePositionId = function (shiftName) {
     return match ? match.id : null;
 };
 
+/* -------------------------------------------------
+   DRAG-AND-DROP: Two-step confirmation flow
+   ------------------------------------------------- */
+
+/**
+ * Executes the actual pending drop: applies optimistic UI update and invokes
+ * svUpdateShift with the payload stored in Page._pendingDropPayload.
+ * Called after both confirmation dialogs have been accepted.
+ */
+Page._executePendingDrop = function () {
+    var payload = Page._pendingDropPayload;
+    if (!payload) {
+        console.warn('_executePendingDrop: no pending payload found, aborting.');
+        return;
+    }
+
+    var dataset = Page.Variables.svScheduleList.dataSet;
+
+    // Apply optimistic UI update
+    var sourceEmpIndex = payload.sourceEmpIndex;
+    var targetEmpIndex = payload.targetEmpIndex;
+    var sourceDayIndex = payload.sourceDayIndex;
+    var targetDayIndex = payload.targetDayIndex;
+    var draggedShiftId = payload.draggedShiftId;
+    var sourceShift = payload.sourceShift;
+
+    var sourceShiftsArray = (dataset[sourceEmpIndex] &&
+        dataset[sourceEmpIndex].weeklyShifts &&
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex] &&
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex].shifts) || [];
+
+    var targetShiftsArray = (dataset[targetEmpIndex] &&
+        dataset[targetEmpIndex].weeklyShifts &&
+        dataset[targetEmpIndex].weeklyShifts[targetDayIndex] &&
+        dataset[targetEmpIndex].weeklyShifts[targetDayIndex].shifts) || [];
+
+    // Remove dragged shift from source day's shifts array
+    var updatedSourceShifts = sourceShiftsArray.filter(function (s) {
+        return s.shiftId !== draggedShiftId;
+    });
+    if (dataset[sourceEmpIndex] && dataset[sourceEmpIndex].weeklyShifts && dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex]) {
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex].shifts = updatedSourceShifts.slice();
+    }
+
+    // Append dragged shift to target day's shifts array
+    var updatedTargetShifts = targetShiftsArray.slice();
+    updatedTargetShifts.push(sourceShift);
+    if (dataset[targetEmpIndex] && dataset[targetEmpIndex].weeklyShifts && dataset[targetEmpIndex].weeklyShifts[targetDayIndex]) {
+        dataset[targetEmpIndex].weeklyShifts[targetDayIndex].shifts = updatedTargetShifts.slice();
+    }
+
+    // Persist optimistic UI update
+    Page.Variables.svScheduleList.setData(dataset.slice());
+
+    // Invoke svUpdateShift with stored payload
+    Page.Variables.svUpdateShift.setInput({
+        shiftId: draggedShiftId,
+        RequestBody: {
+            employeeId: payload.targetEmployeeId,
+            companyId: 1,
+            date: payload.targetShiftDate,
+            description: sourceShift.notes || '',
+            startTime: sourceShift.startAt || '',
+            endTime: sourceShift.endAt || '',
+            position: payload.resolvedPositionId,
+            category: payload.resolvedCategoryId,
+            color: sourceShift.color || 'amber'
+        }
+    });
+    Page.Variables.svUpdateShift.invoke(
+        {},
+        function (data) {
+            Page.Variables.svScheduleList.invoke();
+        },
+        function (error) {
+            console.error('Drag-drop shift update failed:', error);
+            Page.Variables.svScheduleList.invoke();
+        }
+    );
+
+    // Clear pending state
+    Page._pendingDropPayload = null;
+    Page.dragState = null;
+};
+
+/* -------------------------------------------------
+   Dialog 1 (confirmShiftChangeDialog) button handlers
+   ------------------------------------------------- */
+
+/**
+ * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
+ */
+Page.btnConfirmShiftYesClick = function ($event, widget) {
+    Page.Widgets.confirmShiftChangeDialog.close();
+
+    var payload = Page._pendingDropPayload;
+    if (!payload) {
+        console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
+        return;
+    }
+
+    // Build svchkHasConflicts request from pending drop payload
+    Page.Variables.svchkHasConflicts.setInput({
+        RequestBody: {
+            operationType: 'UPDATE',
+            shift: {
+                employeeId: payload.targetEmployeeId,
+                date: payload.targetShiftDate,
+                description: payload.sourceShift.notes || '',
+                startTime: payload.sourceShift.startAt || '',
+                endTime: payload.sourceShift.endAt || '',
+                position: payload.resolvedPositionId || 1,
+                category: payload.resolvedCategoryId || 1,
+                color: payload.sourceShift.color || 'amber',
+                duration: 8
+            }
+        }
+    });
+    Page.Variables.svchkHasConflicts.invoke();
+};
+
+/**
+ * No on Dialog 1: close dialog, clear pending state, refresh schedule.
+ */
+Page.btnConfirmShiftNoClick = function ($event, widget) {
+    Page.Widgets.confirmShiftChangeDialog.close();
+    Page._pendingDropPayload = null;
+    Page.dragState = null;
+    Page.Variables.svScheduleList.invoke();
+};
+
+/* -------------------------------------------------
+   svchkHasConflicts onSuccess handler
+   ------------------------------------------------- */
+
+/**
+ * Called when svchkHasConflicts API responds.
+ * If hasConflicts is true: build dynamic message and show Dialog 2.
+ * Otherwise: proceed with the drop directly.
+ */
+Page.svchkHasConflictsOnSuccess = function (variable, data) {
+    if (data && data.hasConflicts === true) {
+        // Build dynamic conflict message from conflicts array or payload context
+        var conflictMsg = '';
+        var payload = Page._pendingDropPayload;
+
+        if (data.conflicts && data.conflicts.length > 0) {
+            var firstConflict = data.conflicts[0];
+            // Try common field names returned by the API
+            var empName = firstConflict.employeeName || firstConflict.employee_name ||
+                (payload && payload.sourceEmployeeName) || '';
+            var posName = firstConflict.positionName || firstConflict.position_name ||
+                firstConflict.position || (payload && payload.sourceShift && payload.sourceShift.shiftName) || '';
+            if (empName && posName) {
+                conflictMsg = empName + ' is not authorized for position ' + posName + '.';
+            } else if (empName) {
+                conflictMsg = empName + ' has a scheduling conflict.';
+            } else if (posName) {
+                conflictMsg = 'Employee is not authorized for position ' + posName + '.';
+            } else {
+                conflictMsg = 'A scheduling conflict was detected.';
+            }
+        } else if (payload) {
+            var empName = (payload.sourceEmployeeName) || '';
+            var posName = (payload.sourceShift && payload.sourceShift.shiftName) || '';
+            if (empName && posName) {
+                conflictMsg = empName + ' is not authorized for position ' + posName + '.';
+            } else {
+                conflictMsg = 'A scheduling conflict was detected for this shift change.';
+            }
+        } else {
+            conflictMsg = 'A scheduling conflict was detected for this shift change.';
+        }
+
+        Page.Variables.conflictMessageVar.setData({ message: conflictMsg });
+        Page.Widgets.confirmConflictDialog.open();
+    } else {
+        // No conflict — proceed directly with the drop
+        Page._executePendingDrop();
+    }
+};
+
+/* -------------------------------------------------
+   Dialog 2 (confirmConflictDialog) button handlers
+   ------------------------------------------------- */
+
+/**
+ * Yes on Dialog 2: close dialog, proceed with the drop.
+ */
+Page.btnConflictYesClick = function ($event, widget) {
+    Page.Widgets.confirmConflictDialog.close();
+    Page._executePendingDrop();
+};
+
+/**
+ * No on Dialog 2: close dialog, clear pending state, refresh schedule.
+ */
+Page.btnConflictNoClick = function ($event, widget) {
+    Page.Widgets.confirmConflictDialog.close();
+    Page._pendingDropPayload = null;
+    Page.dragState = null;
+    Page.Variables.svScheduleList.invoke();
+};
+
+/* -------------------------------------------------
+   DRAG-AND-DROP: Core drop handler (modified for two-step confirmation)
+   ------------------------------------------------- */
+
 /**
  * Core drop handler -- shared by all 7 day-specific drop handlers.
- * MOVE  (empty target): places source into target cell, clears source, calls INSERT.
- * APPEND (occupied target): appends source shift to target cell's shifts array, calls INSERT.
  *
- * FIX (append vs replace): On MOVE or APPEND, the dropped shift is APPENDED to the
- * existing targetDayShifts array instead of replacing it. The array reference
- * is replaced with .slice() after the push so WaveMaker binding detects the
- * change. The root dataset array is also replaced with .slice() before setData
- * to ensure top-level reactivity.
+ * Instead of directly calling svUpdateShift, this now:
+ * 1. Computes all required drop payload (employee IDs, dates, position/category IDs)
+ * 2. Stores it in Page._pendingDropPayload
+ * 3. Opens confirmShiftChangeDialog (Dialog 1) for user confirmation
  *
- * Guards $event.currentTarget against null (WaveMaker async event wrapper).
+ * The actual update is deferred to Page._executePendingDrop(), which is called
+ * after both confirmation dialogs are accepted (or directly if no conflict).
  */
 Page._handleShiftDrop = function ($event, item, targetDayName) {
     Page.isFromDraggable = true;
@@ -1066,7 +1205,7 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
 
     var sourceEmpIndex = Page.dragState.employeeIndex;
     var sourceDayName = Page.dragState.dayName;
-    var dataset = Page.Variables.transformedScheduleVar.dataSet;
+    var dataset = Page.Variables.svScheduleList.dataSet;
 
     var targetEmpIndex = _.findIndex(dataset, { employeeId: item.employeeId });
     if (targetEmpIndex === -1) { Page.dragState = null; return; }
@@ -1077,10 +1216,18 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
         return;
     }
 
-    // FIX 2.2a: Prefer the exact shift object captured at dragstart (inner-list context).
-    // Fall back to the single-slot dataset entry for backward compatibility.
+    // Derive numeric day indices from 'day0'-'day6' keys
+    var sourceDayIndex = Page._dayDateKey(sourceDayName); // 0-6
+    var targetDayIndex = Page._dayDateKey(targetDayName); // 0-6
+
+    // Read source shift from weeklyShifts[N].shifts using the correct path.
+    var sourceShiftsArray = (dataset[sourceEmpIndex] &&
+        dataset[sourceEmpIndex].weeklyShifts &&
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex] &&
+        dataset[sourceEmpIndex].weeklyShifts[sourceDayIndex].shifts) || [];
+
     var sourceRaw = Page.dragState.shiftData ||
-        (dataset[sourceEmpIndex] && dataset[sourceEmpIndex][sourceDayName]);
+        (sourceShiftsArray.length > 0 ? sourceShiftsArray[0] : null);
 
     if (!sourceRaw || !sourceRaw.shiftId) {
         console.warn('Drag-drop aborted: no valid shift at source cell "' + sourceDayName + '"');
@@ -1088,137 +1235,50 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
         return;
     }
 
-    // Guard: ensure target shift data exists, fallback to empty shift
-    var targetRaw = (dataset[targetEmpIndex] && dataset[targetEmpIndex][targetDayName]) ||
-        { shiftType: '', timeRange: '', shiftName: '', startAt: '', endAt: '', shiftDate: '', notes: '', shiftId: '', positionId: '' };
-
-    // Safe deep clone
+    // Safe deep clone of source shift
     var sourceShift = JSON.parse(JSON.stringify(sourceRaw));
-    var targetShift = JSON.parse(JSON.stringify(targetRaw));
 
     // Resolve common API params
     var targetEmployeeId = dataset[targetEmpIndex].employeeId;
     var targetShiftDate = Page._resolveShiftDateISO(targetDayName);
-    var positionId = Page._resolvePositionId(sourceShift.shiftName);
-    var formattedStartAt = Page.formatDateTime(targetShiftDate, sourceShift.startAt);
-    var formattedEndAt = Page.formatDateTime(targetShiftDate, sourceShift.endAt);
+    var draggedShiftId = sourceShift.shiftId;
 
-    var emptyShift = { shiftType: '', timeRange: '', shiftName: '', startAt: '', endAt: '', shiftDate: '', notes: '', shiftId: '', positionId: '' };
-    var isTargetEmpty = !targetShift.shiftId && !targetShift.shiftType;
+    // Resolve position ID from svGetAllPositionsByCompanyId
+    var positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
+    var positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
+    var positionMatch = _.find(positionsList, function (p) {
+        return p.name === sourceShift.shiftName;
+    });
+    var resolvedPositionId = positionMatch ? positionMatch.id : (sourceShift.positionId || null);
 
-    if (isTargetEmpty) {
-        // MOVE: place source into target, clear source (optimistic UI)
-        dataset[targetEmpIndex][targetDayName] = sourceShift;
+    // Resolve category ID from svGetAllCategoriesByCompanyId
+    var categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
+    var categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
+    var categoryMatch = _.find(categoriesList, function (c) {
+        return c.name === sourceShift.category;
+    });
+    var resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
 
-        // FIX 2.2b: Filter the exact dragged shift out of the source day Shifts array
-        // so multi-shift cells reflect the removal correctly.
-        var draggedShiftId = sourceShift.shiftId;
-        var sourceShiftsKey = sourceDayName + 'Shifts';
-        if (dataset[sourceEmpIndex][sourceShiftsKey]) {
-            dataset[sourceEmpIndex][sourceShiftsKey] = dataset[sourceEmpIndex][sourceShiftsKey].filter(function (s) {
-                return s.shiftId !== draggedShiftId;
-            });
-            // Also update the single backward-compat slot: if other shifts remain, promote the
-            // first one; otherwise clear to emptyShift.
-            if (dataset[sourceEmpIndex][sourceShiftsKey].length > 0) {
-                dataset[sourceEmpIndex][sourceDayName] = dataset[sourceEmpIndex][sourceShiftsKey][0];
-            } else {
-                dataset[sourceEmpIndex][sourceDayName] = emptyShift;
-            }
-        } else {
-            dataset[sourceEmpIndex][sourceDayName] = emptyShift;
-        }
+    // Capture source employee name for conflict message display
+    var sourceEmployeeName = (dataset[sourceEmpIndex] && dataset[sourceEmpIndex].employeeName) || '';
 
-        // APPEND FIX: get the existing target Shifts array (or seed empty),
-        // push the dropped shift, then re-assign the reference with .slice()
-        // so WaveMaker binding detects the mutation.
-        var targetShiftsKey = targetDayName + 'Shifts';
-        var existingTargetShifts = dataset[targetEmpIndex][targetShiftsKey] || [];
-        existingTargetShifts.push(sourceShift);
-        dataset[targetEmpIndex][targetShiftsKey] = existingTargetShifts.slice();
+    // Store full drop payload for use in confirmation flow
+    Page._pendingDropPayload = {
+        sourceEmpIndex: sourceEmpIndex,
+        targetEmpIndex: targetEmpIndex,
+        sourceDayIndex: sourceDayIndex,
+        targetDayIndex: targetDayIndex,
+        draggedShiftId: draggedShiftId,
+        sourceShift: sourceShift,
+        targetEmployeeId: targetEmployeeId,
+        targetShiftDate: targetShiftDate,
+        resolvedPositionId: resolvedPositionId,
+        resolvedCategoryId: resolvedCategoryId,
+        sourceEmployeeName: sourceEmployeeName
+    };
 
-        // Keep the backward-compat single-slot in sync with the first shift in the array.
-        dataset[targetEmpIndex][targetDayName] = dataset[targetEmpIndex][targetShiftsKey][0];
-
-        // Re-assign the root array reference with .slice() so top-level WaveMaker
-        // binding also detects the change before calling setData.
-        Page.Variables.transformedScheduleVar.setData(dataset.slice());
-
-        $.ajax({
-            url: 'services/tcpw2w/queryExecutor/queries/insertShiftWithPosition',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                tenantId: 1,
-                employeeId: targetEmployeeId,
-                positionId: positionId,
-                startAt: formattedStartAt,
-                endAt: formattedEndAt,
-                status: 'scheduled',
-                notes: sourceShift.notes || ''
-            }),
-            success: function (data) {
-                Page._deleteSourceShift(draggedShiftId);
-            },
-            error: function (xhr, status, error) {
-                console.error('Drag-drop shift insert failed:', error, xhr.responseText);
-                // Rollback optimistic UI on failure
-                Page.Variables.scheduleQueryVar.invoke();
-            }
-        });
-
-    } else {
-        // APPEND: drop onto occupied cell - add sourceShift to target's shifts array
-        var draggedShiftId = sourceShift.shiftId;
-        var sourceShiftsKey = sourceDayName + 'Shifts';
-        var targetShiftsKey = targetDayName + 'Shifts';
-
-        // Remove dragged shift from source Shifts array
-        if (dataset[sourceEmpIndex][sourceShiftsKey]) {
-            dataset[sourceEmpIndex][sourceShiftsKey] = dataset[sourceEmpIndex][sourceShiftsKey].filter(function (s) {
-                return s.shiftId !== draggedShiftId;
-            });
-            if (dataset[sourceEmpIndex][sourceShiftsKey].length > 0) {
-                dataset[sourceEmpIndex][sourceDayName] = dataset[sourceEmpIndex][sourceShiftsKey][0];
-            } else {
-                dataset[sourceEmpIndex][sourceDayName] = emptyShift;
-            }
-        } else {
-            dataset[sourceEmpIndex][sourceDayName] = emptyShift;
-        }
-
-        // Append sourceShift to target Shifts array
-        var existingTargetShifts = dataset[targetEmpIndex][targetShiftsKey] || [];
-        existingTargetShifts.push(sourceShift);
-        dataset[targetEmpIndex][targetShiftsKey] = existingTargetShifts.slice();
-        dataset[targetEmpIndex][targetDayName] = dataset[targetEmpIndex][targetShiftsKey][0];
-
-        Page.Variables.transformedScheduleVar.setData(dataset.slice());
-
-        $.ajax({
-            url: 'services/tcpw2w/queryExecutor/queries/insertShiftWithPosition',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                tenantId: 1,
-                employeeId: targetEmployeeId,
-                positionId: positionId,
-                startAt: formattedStartAt,
-                endAt: formattedEndAt,
-                status: 'scheduled',
-                notes: sourceShift.notes || ''
-            }),
-            success: function (data) {
-                Page._deleteSourceShift(draggedShiftId);
-            },
-            error: function (xhr, status, error) {
-                console.error('Drag-drop shift insert failed:', error, xhr.responseText);
-                Page.Variables.scheduleQueryVar.invoke();
-            }
-        });
-    }
-
-    Page.dragState = null;
+    // Open Dialog 1 for user confirmation (actual drop deferred until confirmed)
+    Page.Widgets.confirmShiftChangeDialog.open();
 };
 
 /* -------------------------------------------------
@@ -1226,25 +1286,27 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
    ------------------------------------------------- */
 
 /**
- * Invokes svDeleteShifts to delete the original shift from the source cell.
- * Called after a successful MOVE (insert at target) during drag-and-drop.
+ * Uses svDeleteShiftById (correct REST variable) instead of the
+ * old svDeleteShifts DataService variable to delete the original shift from the
+ * source cell after a successful drag-and-drop move.
+ *
  * @param {number|string} shiftId - the shiftId of the dragged (source) shift
  */
 Page._deleteSourceShift = function (shiftId) {
     if (!shiftId) {
         console.warn('_deleteSourceShift: no shiftId provided, skipping delete.');
-        Page.Variables.scheduleQueryVar.invoke();
+        Page.Variables.svScheduleList.invoke();
         return;
     }
-    Page.Variables.svDeleteShifts.setInput({ id: shiftId });
-    Page.Variables.svDeleteShifts.invoke(
+    Page.Variables.svDeleteShiftById.setInput({ id: shiftId });
+    Page.Variables.svDeleteShiftById.invoke(
         {},
         function (data) {
-            Page.Variables.scheduleQueryVar.invoke();
+            Page.Variables.svScheduleList.invoke();
         },
         function (error) {
             console.error('Failed to delete source shift (id=' + shiftId + '):', error);
-            Page.Variables.scheduleQueryVar.invoke();
+            Page.Variables.svScheduleList.invoke();
         }
     );
 };
@@ -1278,30 +1340,30 @@ Page.shiftCellDragLeave = function ($event, widget, item, currentItemWidgets) {
 
 /* -------------------------------------------------
    DRAG-AND-DROP: DragStart handlers (inner shift item, one per day)
-   FIX: draggable and on-dragstart moved from outer shift cell container to
-   the inner shift item container inside wm-listtemplate. In this context,
-   item is the individual shift object (not the employee row), so we can
-   directly capture the exact clicked/dragged shift -- fixing the bug where
-   dragging always used the first shift when a cell had multiple shifts.
    ------------------------------------------------- */
 
 /**
  * Common inner-item dragstart logic.
- * @param {Event}  $event   - the native dragstart event
- * @param {Object} item     - the individual shift object from the inner list context
- * @param {string} dayKey   - 'day0' through 'day6'
- * @param {string} shiftsArrayKey - 'day0Shifts' through 'day6Shifts'
+ *
+ * @param {Event}  $event          - the native dragstart event
+ * @param {Object} item            - the individual shift object from the inner list context
+ * @param {string} dayKey          - 'day0' through 'day6'
+ * @param {number} dayNumericIndex - numeric day index 0-6 matching weeklyShifts array position
  */
-Page._innerShiftItemDragStart = function ($event, item, dayKey, shiftsArrayKey) {
+Page._innerShiftItemDragStart = function ($event, item, dayKey, dayNumericIndex) {
     // Stop propagation so the outer shift cell container does not also fire dragstart
     $event.stopPropagation();
 
-    var dataset = Page.Variables.transformedScheduleVar.dataSet;
+    var dataset = Page.Variables.svScheduleList.dataSet;
 
-    // Find the employee row that owns this exact shift by searching the correct Shifts array
+    // Find the employee row that owns this exact shift by searching
+    // emp.weeklyShifts[dayNumericIndex].shifts -- the correct path in svScheduleList data.
     var empIndex = -1;
     _.forEach(dataset, function (emp, idx) {
-        if (emp[shiftsArrayKey] && emp[shiftsArrayKey].some(function (s) { return s.shiftId === item.shiftId; })) {
+        var shiftsForDay = emp.weeklyShifts &&
+            emp.weeklyShifts[dayNumericIndex] &&
+            emp.weeklyShifts[dayNumericIndex].shifts;
+        if (shiftsForDay && shiftsForDay.some(function (s) { return s.shiftId === item.shiftId; })) {
             empIndex = idx;
         }
     });
@@ -1319,36 +1381,36 @@ Page._innerShiftItemDragStart = function ($event, item, dayKey, shiftsArrayKey) 
 };
 
 Page.mondayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day0', 'day0Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day0', 0);
 };
 
 Page.tuesdayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day1', 'day1Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day1', 1);
 };
 
 Page.wednesdayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day2', 'day2Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day2', 2);
 };
 
 Page.thursdayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day3', 'day3Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day3', 3);
 };
 
 Page.fridayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day4', 'day4Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day4', 4);
 };
 
 Page.saturdayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day5', 'day5Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day5', 5);
 };
 
 Page.sundayShiftItemDragStart = function ($event, widget, item, currentItemWidgets) {
-    Page._innerShiftItemDragStart($event, item, 'day6', 'day6Shifts');
+    Page._innerShiftItemDragStart($event, item, 'day6', 6);
 };
 
 /* -------------------------------------------------
    DRAG-AND-DROP: Drop handlers (one per day)
-   FIX 3: pass day0-day6 index keys to _handleShiftDrop
+   Pass day0-day6 index keys to _handleShiftDrop
    ------------------------------------------------- */
 
 Page.mondayShiftCellDrop = function ($event, widget, item, currentItemWidgets) {
@@ -1387,8 +1449,7 @@ Page.svUpdateShiftDetailsonSuccess = function (variable, data) {
             Page.Widgets.shiftDialog.close();
         }
     } catch (e) { /* dialog not open -- safe to ignore */ }
-    // Always refresh the schedule grid
-    Page.Variables.scheduleQueryVar.invoke();
+    Page.Variables.svScheduleList.invoke();
 };
 
 Page.svFindEmployeePositionsonSuccess = function (variable, data) {
@@ -1462,6 +1523,7 @@ Page.insertShiftWithPositionVaronBeforeUpdate = function (variable, inputData) {
         inputData.insertShiftWithPositionRequest = Page._dragDropInsertPayload;
     }
 };
+
 Page.anchor3Click = function ($event, widget) {
     Page.Widgets.chkMon.datavalue = true;
     Page.Widgets.chkTue.datavalue = true;
@@ -1472,6 +1534,7 @@ Page.anchor3Click = function ($event, widget) {
     Page.Widgets.chkSun.datavalue = true;
     Page.Widgets.chkClearAll.datavalue = false;
 };
+
 Page.anchor4Click = function ($event, widget) {
     Page.Widgets.chkMon.datavalue = false;
     Page.Widgets.chkTue.datavalue = false;
@@ -1486,6 +1549,32 @@ Page.anchor4Click = function ($event, widget) {
 Page.svDeleteShiftsonSuccess = function (variable, data) {
     if (!Page.isFromDraggable) {
         Page.isFromDraggable = false;
-        Page.Variables.scheduleQueryVar.invoke();
+        Page.Variables.svScheduleList.invoke();
     }
 };
+
+function formatToStandardTime(input) {
+    if (!input) return null;
+
+    // Normalize input (remove spaces, uppercase)
+    input = input.trim().toUpperCase().replace(/\s+/g, '');
+
+    // Match formats like:
+    // 9AM, 09AM, 9:00AM, 09:00AM
+    const match = input.match(/^(\d{1,2})(?::?(\d{2}))?(AM|PM)$/);
+
+    if (!match) return null; // invalid format
+
+    let hours = parseInt(match[1], 10);
+    let minutes = match[2] ? match[2] : '00';
+    let period = match[3];
+
+    // Validate hours and minutes
+    if (hours < 1 || hours > 12) return null;
+    if (parseInt(minutes) > 59) return null;
+
+    // Format to 2-digit
+    let formattedHours = hours.toString().padStart(2, '0');
+
+    return `${formattedHours}:${minutes}${period}`;
+}

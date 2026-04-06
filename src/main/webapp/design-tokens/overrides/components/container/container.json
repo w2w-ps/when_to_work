@@ -288,6 +288,78 @@
             "value" : "{elevation.shadow.none.value}"
           }
         }
+      },
+      "grey-container-white-border" : {
+        "mapping" : {
+          "background" : {
+            "value" : "{color.primary.container.@.value}"
+          },
+          "border" : {
+            "color" : {
+              "value" : "{color.white.@.value}"
+            },
+            "width" : {
+              "value" : "1px 0 1px 0"
+            },
+            "style" : {
+              "value" : "{border.style.solid.value}"
+            },
+            "radius" : {
+              "value" : "0"
+            }
+          },
+          "shadow" : {
+            "value" : "{elevation.shadow.none.value}"
+          }
+        }
+      },
+      "primary-filled" : {
+        "mapping" : {
+          "background" : {
+            "value" : "#2D467D"
+          },
+          "border" : {
+            "color" : {
+              "value" : "#2D467D"
+            },
+            "width" : {
+              "value" : "0"
+            },
+            "style" : {
+              "value" : "{border.style.none.value}"
+            },
+            "radius" : {
+              "value" : "0"
+            }
+          },
+          "shadow" : {
+            "value" : "{elevation.shadow.none.value}"
+          }
+        }
+      },
+      "white-container-with-border" : {
+        "mapping" : {
+          "background" : {
+            "value" : "{color.white.@.value}"
+          },
+          "border" : {
+            "color" : {
+              "value" : "#95989A"
+            },
+            "width" : {
+              "value" : "1px"
+            },
+            "style" : {
+              "value" : "{border.style.solid.value}"
+            },
+            "radius" : {
+              "value" : "15px"
+            }
+          },
+          "shadow" : {
+            "value" : "{elevation.shadow.none.value}"
+          }
+        }
       }
     },
     "meta" : {
@@ -326,6 +398,15 @@
           "source" : "user"
         },
         "warning-with-black-border" : {
+          "source" : "user"
+        },
+        "grey-container-white-border" : {
+          "source" : "user"
+        },
+        "primary-filled" : {
+          "source" : "user"
+        },
+        "white-container-with-border" : {
           "source" : "user"
         }
       }

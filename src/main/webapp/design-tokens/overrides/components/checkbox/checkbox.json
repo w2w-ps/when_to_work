@@ -1,0 +1,248 @@
+{
+  "checkbox" : {
+    "appearances" : {
+      "blue-check-14" : {
+        "mapping" : {
+          "gap" : {
+            "value" : "{space.0.value}"
+          },
+          "caption" : {
+            "color" : {
+              "value" : "inherit"
+            },
+            "font-size" : {
+              "value" : "14px"
+            },
+            "font-family" : {
+              "value" : "{body.large.font-family.value}"
+            },
+            "font-weight" : {
+              "value" : "{body.large.font-weight.value}"
+            },
+            "line-height" : {
+              "value" : "{body.large.line-height.value}"
+            },
+            "letter-spacing" : {
+              "value" : "{body.large.letter-spacing.value}"
+            }
+          },
+          "size" : {
+            "value" : "15px"
+          },
+          "icon" : {
+            "size" : {
+              "value" : "8px"
+            },
+            "color" : {
+              "value" : "{color.on-primary.@.value}"
+            }
+          },
+          "background" : {
+            "value" : "{color.transparent.value}"
+          },
+          "border" : {
+            "width" : {
+              "value" : "1px"
+            },
+            "color" : {
+              "value" : "{color.on-surface.variant.@.value}"
+            },
+            "radius" : {
+              "value" : "{radius.xxs.value}"
+            }
+          },
+          "state" : {
+            "layer" : {
+              "size" : {
+                "value" : "40px"
+              },
+              "color" : {
+                "value" : "{color.on-surface.@.value}"
+              },
+              "opacity" : {
+                "value" : "0"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.hover.value}"
+                  }
+                }
+              }
+            },
+            "focus" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.focus.value}"
+                  }
+                }
+              }
+            },
+            "active" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.active.value}"
+                  }
+                }
+              }
+            },
+            "checked" : {
+              "state" : {
+                "layer" : {
+                  "color" : {
+                    "value" : "#0078d4"
+                  }
+                }
+              },
+              "background" : {
+                "value" : "#0078d4"
+              },
+              "border" : {
+                "color" : {
+                  "value" : "#0078d4"
+                }
+              },
+              "icon" : {
+                "color" : {
+                  "value" : "{color.on-primary.@.value}"
+                }
+              }
+            }
+          }
+        }
+      },
+      "blue-check-8pt" : {
+        "mapping" : {
+          "gap" : {
+            "value" : "{space.0.value}"
+          },
+          "caption" : {
+            "color" : {
+              "value" : "inherit"
+            },
+            "font-size" : {
+              "value" : "8pt"
+            },
+            "font-family" : {
+              "value" : "Arial"
+            },
+            "font-weight" : {
+              "value" : "{body.large.font-weight.value}"
+            },
+            "line-height" : {
+              "value" : "{body.large.line-height.value}"
+            },
+            "letter-spacing" : {
+              "value" : "{body.large.letter-spacing.value}"
+            }
+          },
+          "size" : {
+            "value" : "15px"
+          },
+          "icon" : {
+            "size" : {
+              "value" : "8px"
+            },
+            "color" : {
+              "value" : "{color.on-primary.@.value}"
+            }
+          },
+          "background" : {
+            "value" : "{color.transparent.value}"
+          },
+          "border" : {
+            "width" : {
+              "value" : "1px"
+            },
+            "color" : {
+              "value" : "{color.on-surface.variant.@.value}"
+            },
+            "radius" : {
+              "value" : "{radius.xxs.value}"
+            }
+          },
+          "state" : {
+            "layer" : {
+              "size" : {
+                "value" : "40px"
+              },
+              "color" : {
+                "value" : "{color.on-surface.@.value}"
+              },
+              "opacity" : {
+                "value" : "0"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.hover.value}"
+                  }
+                }
+              }
+            },
+            "focus" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.focus.value}"
+                  }
+                }
+              }
+            },
+            "active" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.active.value}"
+                  }
+                }
+              }
+            },
+            "checked" : {
+              "state" : {
+                "layer" : {
+                  "color" : {
+                    "value" : "#0078d4"
+                  }
+                }
+              },
+              "background" : {
+                "value" : "#0078d4"
+              },
+              "border" : {
+                "color" : {
+                  "value" : "#0078d4"
+                }
+              },
+              "icon" : {
+                "color" : {
+                  "value" : "{color.on-primary.@.value}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "blue-check-14" : {
+          "source" : "user"
+        },
+        "blue-check-8pt" : {
+          "source" : "user"
+        }
+      }
+    }
+  }
+}
