@@ -281,9 +281,13 @@ wm-input[name="txtFind"].app-input-wrapper {
     text-align: center;
 }
 
-
-
-
+.label-label-16-400-Arial-Italic {
+    font-style: italic;
+    top: 8px;
+}
+.optional-head-container{
+    position: absolute !important;
+}
 
 .wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
 .wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
