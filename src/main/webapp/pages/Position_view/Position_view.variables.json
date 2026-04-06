@@ -1,0 +1,554 @@
+{
+  "conflictMessageVar" : {
+    "_id" : "wm-conflictMessageVar-wm.Variable-1775133285798",
+    "name" : "conflictMessageVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "message" : ""
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "currentWeekVar" : {
+    "_id" : "wm-currentWeekVar-wm.Variable-1772821385224",
+    "name" : "currentWeekVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "startDate" : "",
+      "endDate" : "",
+      "weekLabel" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "insertShiftWithPositionVar" : {
+    "_id" : "wm-insertShiftWithPositionVar-wm.ServiceVariable-1773213030033",
+    "name" : "insertShiftWithPositionVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "InsertShiftWithPositionRequest.tenantId",
+      "value" : "1",
+      "type" : "integer"
+    }, {
+      "target" : "InsertShiftWithPositionRequest.employeeId",
+      "value" : "bind:Page.selectedEmployee.employeeId",
+      "type" : "integer"
+    }, {
+      "target" : "InsertShiftWithPositionRequest.positionId",
+      "value" : "bind:Widgets.shiftForm.formdata.position",
+      "type" : "integer"
+    }, {
+      "target" : "InsertShiftWithPositionRequest.startAt",
+      "value" : "bind:Widgets.shiftForm.formdata.startTime",
+      "type" : "string"
+    }, {
+      "target" : "InsertShiftWithPositionRequest.endAt",
+      "value" : "bind:Widgets.shiftForm.formdata.endTime",
+      "type" : "string"
+    }, {
+      "target" : "InsertShiftWithPositionRequest.status",
+      "value" : "scheduled",
+      "type" : "string"
+    }, {
+      "target" : "InsertShiftWithPositionRequest.notes",
+      "value" : "bind:Widgets.shiftForm.formdata.description",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",
+    "service" : "tcpw2w",
+    "operation" : "executeInsertShiftWithPosition",
+    "operationId" : "QueryExecutionController_executeInsertShiftWithPosition",
+    "operationType" : "post",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onBeforeUpdate" : "insertShiftWithPositionVaronBeforeUpdate(variable, inputData)",
+    "onSuccess" : "Widgets.shiftDialog.close();Variables.scheduleQueryVar.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "pendingDropStateVar" : {
+    "_id" : "wm-pendingDropStateVar-wm.Variable-1775133281678",
+    "name" : "pendingDropStateVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "item" : null,
+      "targetDayName" : null,
+      "resolvedPayload" : null
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "positionsListVar" : {
+    "_id" : "wm-positionsListVar-wm.ServiceVariable-1773145126532",
+    "name" : "positionsListVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "q",
+      "value" : "tenantId=1",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.tcp_w2w.tcpw2w.Positions",
+    "service" : "tcpw2w",
+    "operation" : "findPositions",
+    "operationId" : "PositionsController_findPositions",
+    "operationType" : "get",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 100,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Positions",
+    "spinnerContext" : "page",
+    "spinnerMessage" : "Loading positions..."
+  },
+  "scheduleQueryVar" : {
+    "_id" : "wm-scheduleQueryVar-wm.ServiceVariable-1772821385220",
+    "name" : "scheduleQueryVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "tenant_id",
+      "value" : "1",
+      "type" : "integer"
+    }, {
+      "target" : "week_start_utc",
+      "value" : "bind:Widgets.Weekview1.startdate",
+      "type" : "string"
+    }, {
+      "target" : "week_end_utc",
+      "value" : "bind:Widgets.Weekview1.enddate",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.tcp_w2w.tcpw2w.models.query.Query1Response",
+    "service" : "tcpw2w",
+    "operation" : "executeQuery1",
+    "operationId" : "QueryExecutionController_executeQuery1",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 700,
+    "onSuccess" : "scheduleQueryVaronSuccess(variable, data)",
+    "onError" : "scheduleQueryVaronError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "svchkHasConflicts" : {
+    "_id" : "wm-svchkHasConflicts-wm.ServiceVariable-1775131444807",
+    "name" : "svchkHasConflicts",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "{\n  \"operationType\": \"CREATE\",\n  \"shift\": {\n    \"employeeId\": 1,\n    \"date\": \"2026-03-31\",\n    \"description\": \"Validation check\",\n    \"startTime\": \"09:00AM\",\n    \"endTime\": \"05:00PM\",\n    \"position\": 1,\n    \"category\": 1,\n    \"color\": \"amber\",\n    \"duration\": 8\n  }\n}",
+      "type" : "precheck.RootRequest"
+    } ],
+    "type" : "precheck.RootResponse",
+    "service" : "precheck",
+    "operation" : "invoke",
+    "operationId" : "precheck_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svchkHasConflictsOnSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "precheck"
+  },
+  "svCreatEmployeePositions" : {
+    "_id" : "wm-serviceVariable1-wm.ServiceVariable-1773746720381",
+    "name" : "svCreatEmployeePositions",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.wavemaker.tcp_w2w.tcpw2w.EmployeePositions",
+    "service" : "tcpw2w",
+    "operation" : "createEmployeePositions",
+    "operationId" : "EmployeePositionsController_createEmployeePositions",
+    "operationType" : "post",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svCreatEmployeePositionsonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "EmployeePositions"
+  },
+  "svCreateShift" : {
+    "_id" : "wm-svCreateShift-wm.ServiceVariable-1775027493437",
+    "name" : "svCreateShift",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.employeeId",
+      "value" : "bind:Page.selectedEmployee.employeeId",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.companyId",
+      "value" : "1",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.date",
+      "value" : "bind:Page.selectedShiftDate",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.description",
+      "value" : "bind:Widgets.shiftForm.formdata.description",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.startTime",
+      "value" : "bind:Widgets.shiftForm.formdata.startTime",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.endTime",
+      "value" : "bind:Widgets.shiftForm.formdata.endTime",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.position",
+      "value" : "bind:Widgets.shiftForm.formdata.position",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.category",
+      "value" : "bind:Widgets.shiftForm.formdata.category",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.color",
+      "value" : "bind:Widgets.shiftForm.formdata.color",
+      "type" : "string"
+    } ],
+    "type" : "createShift.RootResponse",
+    "service" : "createShift",
+    "operation" : "invoke",
+    "operationId" : "createShift_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Variables.svScheduleList.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "createShift"
+  },
+  "svDeleteShiftById" : {
+    "_id" : "wm-svDeleteShiftById-wm.ServiceVariable-1775039580378",
+    "name" : "svDeleteShiftById",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    }, {
+      "target" : "id",
+      "value" : "bind:selectedShiftItem.shiftId",
+      "type" : "string"
+    } ],
+    "type" : "svDeleteShiftById.RootResponse",
+    "service" : "svDeleteShiftById",
+    "operation" : "invoke",
+    "operationId" : "svDeleteShiftById_invoke",
+    "operationType" : "delete",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Widgets.shiftDialog.close();Variables.svScheduleList.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "svDeleteShiftById"
+  },
+  "svDeleteShifts" : {
+    "_id" : "wm-svDeleteShifts-wm.ServiceVariable-1773318624678",
+    "name" : "svDeleteShifts",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:selectedShiftdForIEmployee",
+      "type" : "integer"
+    } ],
+    "type" : "boolean",
+    "service" : "tcpw2w",
+    "operation" : "deleteShifts",
+    "operationId" : "ShiftsController_deleteShifts",
+    "operationType" : "delete",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Widgets.shiftDialog.close();svDeleteShiftsonSuccess(variable, data, options)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Shifts"
+  },
+  "svFindEmployeePositions" : {
+    "_id" : "wm-svFindEmployeePositions-wm.ServiceVariable-1773747315668",
+    "name" : "svFindEmployeePositions",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.wavemaker.tcp_w2w.tcpw2w.EmployeePositions",
+    "service" : "tcpw2w",
+    "operation" : "findEmployeePositions",
+    "operationId" : "EmployeePositionsController_findEmployeePositions",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onSuccess" : "svFindEmployeePositionsonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "controller" : "EmployeePositions"
+  },
+  "svGetAllCategoriesByCompanyId" : {
+    "_id" : "wm-svGetAllCategoriesByCompanyId-wm.ServiceVariable-1775034402515",
+    "name" : "svGetAllCategoriesByCompanyId",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    } ],
+    "type" : "categoryList.RootResponse",
+    "service" : "categoryList",
+    "operation" : "invoke",
+    "operationId" : "categoryList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "categoryList"
+  },
+  "svGetAllPositionsByCompanyId" : {
+    "_id" : "wm-svGetAllPositionsByCompanyId-wm.ServiceVariable-1775034368626",
+    "name" : "svGetAllPositionsByCompanyId",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    } ],
+    "type" : "positionList.RootResponse",
+    "service" : "positionList",
+    "operation" : "invoke",
+    "operationId" : "positionList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "positionList"
+  },
+  "svGetShiftById" : {
+    "_id" : "wm-svGetShiftById-wm.ServiceVariable-1775039103601",
+    "name" : "svGetShiftById",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    }, {
+      "target" : "id",
+      "value" : "bind:selectedShiftdForIEmployee",
+      "type" : "integer"
+    } ],
+    "type" : "getShiftDetails.RootResponse",
+    "service" : "getShiftDetails",
+    "operation" : "invoke",
+    "operationId" : "getShiftDetails_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svGetShiftByIdSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getShiftDetails"
+  },
+  "svScheduleList" : {
+    "_id" : "wm-svScheduleList-wm.ServiceVariable-1774866901855",
+    "name" : "svScheduleList",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Widgets.Weekview1.enddate",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "bind:Widgets.Weekview1.startdate",
+      "type" : "string"
+    } ],
+    "type" : "scheduleList.Response.RootResponseROOTEntryItem",
+    "service" : "scheduleList",
+    "operation" : "invoke",
+    "operationId" : "scheduleList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onBeforeUpdate" : "svScheduleListonBeforeServiceCall(variable, inputData)",
+    "onSuccess" : "svScheduleListonSuccess(variable, data, options)",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "scheduleList"
+  },
+  "svUpdateShift" : {
+    "_id" : "wm-svUpdateShift-wm.ServiceVariable-1775112892499",
+    "name" : "svUpdateShift",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "ngrok-skip-browser-warning",
+      "value" : [ "true" ],
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "  {\n  \"employeeId\": 2,\n  \"companyId\": 1,\n  \"date\": \"2026-04-02\",\n  \"description\": \"Opening shift 466\",\n  \"startTime\": \"9:00AM\",\n  \"endTime\": \"5:00PM\",\n  \"position\": 1,\n  \"category\": 1,\n  \"color\": \"amber\"\n}",
+      "type" : "updateShift.RootRequest"
+    } ],
+    "type" : "updateShift.RootResponse",
+    "service" : "updateShift",
+    "operation" : "invoke",
+    "operationId" : "updateShift_invoke",
+    "operationType" : "put",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Variables.svScheduleList.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "updateShift"
+  },
+  "svUpdateShiftDetails" : {
+    "_id" : "wm-svUpdateShiftDetails-wm.ServiceVariable-1773230566366",
+    "name" : "svUpdateShiftDetails",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",
+    "service" : "tcpw2w",
+    "operation" : "executeUpdateShiftDetailsType",
+    "operationId" : "QueryExecutionController_executeUpdateShiftDetailsType",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svUpdateShiftDetailsonSuccess(variable, data);Widgets.shiftDialog.close()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "transformedScheduleVar" : {
+    "_id" : "wm-transformedScheduleVar-wm.Variable-1772821385222",
+    "name" : "transformedScheduleVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  }
+}
