@@ -1,0 +1,35 @@
+{
+  "endpointAddress" : "https://uranylic-irritably-brittanie.ngrok-free.dev/api/preferences/day/range",
+  "method" : "GET",
+  "headers" : {
+    "ngrok-skip-browser-warning" : [ "true" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "companyId" : "1",
+    "endDate" : "2026-04-03",
+    "employeeId" : "1",
+    "startDate" : "2026-03-30"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Content-Type" : [ "application/json" ],
+      "Date" : [ "Thu, 02 Apr 2026 13:48:42 GMT" ],
+      "Expires" : [ "0" ],
+      "Pragma" : [ "no-cache" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-Frame-Options" : [ "DENY" ],
+      "X-Xss-Protection" : [ "0" ],
+      "Transfer-Encoding" : [ "chunked" ]
+    },
+    "responseBody" : "[{\"companyId\":1,\"employeeId\":1,\"date\":\"2026-04-01\",\"prefs\":\"DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\",\"compression\":0,\"editedBy\":1}]",
+    "convertedResponse" : null
+  }
+}

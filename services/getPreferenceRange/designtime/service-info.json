@@ -1,0 +1,6 @@
+{
+  "id" : "getPreferenceRange",
+  "type" : "RestService",
+  "title" : "getPreferenceRange",
+  "mockEnabled" : false
+}
