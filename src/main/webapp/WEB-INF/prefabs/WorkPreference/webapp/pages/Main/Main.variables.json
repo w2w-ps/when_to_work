@@ -17,17 +17,9 @@
     "owner" : "Page",
     "category" : "wm.Variable",
     "dataBinding" : [ ],
-    "dataSet" : [ {
-      "employeeId" : 1,
-      "companyId" : 1,
-      "date" : "2026-04-06",
-      "prefs" : "DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
-      "compression" : 0,
-      "editedBy" : 1,
-      "day" : "Monday"
-    } ],
+    "dataSet" : { },
     "type" : "entry",
-    "isList" : true,
+    "isList" : false,
     "twoWayBinding" : false,
     "saveInPhonegap" : false
   },
