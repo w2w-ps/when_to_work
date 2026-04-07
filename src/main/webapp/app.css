@@ -285,11 +285,71 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-style: italic;
     top: 8px;
 }
-.optional-head-container{
+
+.optional-head-container {
     position: absolute !important;
+    z-index: 1;
 }
 
 .wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
 .wm-app button:not(.btn-icon)+.btn:not(.btn-icon) {
     margin-left: var(--wm-space-0) !important;
+}
+
+.form-popout-control {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.form-popout-control:focus {
+    outline: none !important;
+    border: 1px solid #589CDD !important;
+    box-shadow: 0 0 5px #589CDD !important;
+}
+
+.show-hide-option-list ul, .show-hide-option-list li, .show-hide-option-list .bg-white{
+ background-color: white;
+}
+.show-hide-option-list ul{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+}
+.show-hide-option-list li{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.small-checkbox > label{
+        height: 22px !important;
+    min-height: 22px !important;
+}
+.small-checkbox input{
+    height: 22px !important;
+}
+.small-checkbox span.caption{
+        padding: 0 11px !important;
+    height: 22px !important;
+}
+.small-checkbox .caption:before{
+    width: 14px !important;
+    height: 14px !important;
+    top: 4px !important;
+    
+    border-width: 1px !important;
+}
+.small-checkbox .caption:after {
+    top: 3px !important; 
+    left: 10px !important;
+    width: 8px !important;
+    height: 3px !important;
+}
+.small-checkbox label:not(.unchecked) .caption:before{
+    border-color: #0078D4 !important;
+    background-color: #0078D4 !important;
+}
+.small-checkbox.app-checkbox.checkbox > label > input:hover, .small-checkbox.app-checkbox.checkbox > label > input:focus, .small-checkbox.app-checkbox.checkbox > label > input:active{
+    opacity: 0 !important;
+}
+.app-input-wrapper:has(.flex-0){
+    flex: 0 !important;
 }

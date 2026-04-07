@@ -36,6 +36,7 @@
             </goals>
             <configuration>
               <sources>
+                <source>services/GetWeekPreferences/src</source>
                 <source>services/LoginService/src</source>
                 <source>services/categoryList/src</source>
                 <source>services/createShift/src</source>
