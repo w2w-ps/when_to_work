@@ -24,19 +24,19 @@
                     </wm-container>
                 </wm-container>
                 <!-- SECTION 1: Page Title Bar -->
-                <wm-container name="titleBarRow" class="app-container-default pb-3" direction="row" gap="8"
-                    alignment="middle-center" width="fill" height="hug">
+                <wm-container name="titleBarRow" class="app-container-default pb-3" direction="row" gap="auto"
+                    alignment="center" width="fill" height="hug" padding="unset 40px">
                     <wm-container class="app-container-default" direction="row" gap="8" alignment="middle-right"
                         width="hug" height="hug" name="container69" variant="default">
                         <wm-anchor margin="unset 0.5em" variant="standard-sm" iconclass="" caption=""
-                            iconurl="./resources/images/imagelists/icon___fa-caret-left.png" name="anchor18">
-                        </wm-anchor>
+                            iconurl="./resources/images/imagelists/icon___fa-caret-left.png" name="anchor18"
+                            iconwidth="30px" iconheight="30px"></wm-anchor>
                     </wm-container>
                     <wm-container name="titleBarLeft" class="app-container-default" direction="row" gap="8"
                         alignment="middle-center" width="hug" height="hug">
                         <wm-label name="lblEdit" caption="EDIT" class=" label-label-18-700" variant="label-18-700">
                         </wm-label>
-                        <wm-icon name="iconDiamond" iconclass="fa fa-diamond" iconsize="1em" class="purple"
+                        <wm-icon name="iconDiamond" iconclass="fa fa-diamond" iconsize="1em" class="purple lg"
                             variant="default:md"></wm-icon>
                         <wm-label name="lblEmployeeName" caption="Luke Aaron" class="label-label-18-700"
                             variant="label-18-700"></wm-label>
@@ -44,7 +44,8 @@
                     <wm-container name="titleBarRight" class="app-container-default" direction="row" gap="8"
                         alignment="middle-right" width="hug" height="hug">
                         <wm-anchor margin="unset 0.5em" name="anchor16" variant="standard-sm" iconclass="" caption=""
-                            iconurl="resources/images/imagelists/icon___fa-caret-right.png"></wm-anchor>
+                            iconurl="resources/images/imagelists/icon___fa-caret-right.png" iconwidth="30px"
+                            iconheight="30px"></wm-anchor>
                     </wm-container>
                 </wm-container>
                 <!-- SECTION 2: Name Card -->
@@ -68,18 +69,22 @@
                     <wm-container name="nameCardBody" class="app-container-default" direction="row" gap="16"
                         alignment="bottom-left" width="fill" height="hug">
                         <!-- Left Column: First Name + Last Name -->
-                        <wm-container name="nameFieldsCol" class="app-container-default" direction="column" gap="8"
+                        <wm-container name="nameFieldsCol" class="app-container-default" direction="column" gap="2"
                             alignment="top-left" width="fill" height="hug">
-                            <wm-label name="lblFirstName" caption="First Name:" variant="default"></wm-label>
-                            <wm-text name="txtFirstName" datavalue="bind:Variables.employeeData.dataSet.firstName">
-                            </wm-text>
-                            <wm-label name="lblLastName" caption="Last Name:" variant="default"></wm-label>
-                            <wm-text name="txtLastName" datavalue="bind:Variables.employeeData.dataSet.lastName">
-                            </wm-text>
+                            <wm-label name="lblFirstName" caption="First Name:" variant="label-14-400"
+                                class="label-label-14-400"></wm-label>
+                            <wm-text name="txtFirstName" datavalue="bind:Variables.employeeData.dataSet.firstName"
+                                class="form-control app-textbox form-popout-control" variant="popout-control"
+                                width="240px"></wm-text>
+                            <wm-label name="lblLastName" caption="Last Name:" variant="label-14-400"
+                                class="label-label-14-400 pt-4"></wm-label>
+                            <wm-text name="txtLastName" datavalue="bind:Variables.employeeData.dataSet.lastName"
+                                class="form-control app-textbox form-popout-control" variant="popout-control"
+                                width="240px"></wm-text>
                         </wm-container>
                         <!-- Right Column: Avatar + Set Photo -->
                         <wm-container name="avatarCol" class="app-container-default mb-3" direction="column" gap="8"
-                            alignment="top-center" width="hug" height="hug">
+                            alignment="top-center" width="hug" height="hug" padding="unset 45px unset unset">
                             <wm-picture resizemode="cover" name="picture14_1" class="img-rounded"
                                 variant="default:rounded" picturesource="resources/images/icon/icon_empphoto-no.png">
                             </wm-picture>
@@ -97,7 +102,7 @@
                     <!-- Username Row -->
                     <wm-container name="usernameRow" class="app-container-default" direction="row" gap="8"
                         alignment="middle-left" width="fill" height="hug">
-                        <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container71_1"
+                        <wm-container direction="row" alignment="middle-left" gap="12" width="fill" name="container71_1"
                             class="app-container-default" variant="default">
                             <wm-label name="lblUsernameKey" caption="Username" variant="default"></wm-label>
                             <wm-picture resizemode="cover" class="img-rounded" variant="default:rounded"
@@ -119,8 +124,8 @@
                     </wm-container>
                     <!-- Last Sign In Row -->
                     <wm-container name="lastSignInRow" class="app-container-default" direction="row" gap="8"
-                        alignment="middle-left" width="fill" height="hug">
-                        <wm-container direction="row" alignment="middle-left" gap="16" width="fill" name="container72"
+                        alignment="middle-left" width="fill" height="hug" padding="8px unset unset unset">
+                        <wm-container direction="row" alignment="middle-left" gap="32" width="fill" name="container72"
                             class="app-container-default" variant="default">
                             <wm-label name="lblLastSignInKey" caption="Last Sign In" variant="default"></wm-label>
                             <wm-label name="lblLastSignInValue" caption="06/26/19 06:49am" variant="default"></wm-label>
@@ -145,19 +150,20 @@
                                 picturesource="resources/images/icon/user-solid-full.svg" width="17.25px"
                                 name="picture3"></wm-picture>
                         </wm-container>
-                        <wm-anchor margin="unset 0.5em" name="anchor17" variant="standard-sm"
-                            caption="+ Add New Position" class="anchor-standard-sm"></wm-anchor>
+                        <wm-anchor margin="unset 0.5em" name="anchor17" variant="standard-sm" caption="Add New Position"
+                            class="anchor-standard-sm" iconclass="fa fa-plus"></wm-anchor>
                     </wm-container>
-                    <wm-anchor name="ancShowSelected" caption="▲ Hide selected" class="anchor-standard-sm"
-                        on-click="ancShowSelectedClick($event, widget)"></wm-anchor>
+                    <wm-anchor name="ancShowSelected" caption="Hide selected"
+                        on-click="ancShowSelectedClick($event, widget)" iconclass="" variant="standard"></wm-anchor>
                     <wm-container name="selectedPositionsPanel" class="app-container-default" direction="column" gap="8"
                         alignment="top-left" width="fill" height="hug" show="false">
-                        <wm-list name="selectedPositionsList" class="list-card"
+                        <wm-list name="selectedPositionsList" class="list-card show-hide-option-list"
                             dataset="bind:Variables.positionsData.dataSet" itemsperrow="xs-1 sm-1 md-2 lg-2">
                             <wm-listtemplate name="selectedPositionsListTemplate" layout="inline">
-                                <wm-container name="selectedPositionItemRow" class="app-container-default"
+                                <wm-container name="selectedPositionItemRow" class="app-container-default bg-white"
                                     direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-                                    <wm-checkbox name="chkSelectedPosition" type="checkbox"
+                                    <wm-checkbox name="chkSelectedPosition" type="checkbox" variant="blue-check-14"
+                                        class="small-checkbox"
                                         datavalue="bind:Variables.positionsData.dataSet[$i].selected"></wm-checkbox>
                                     <wm-label name="lblSelectedPositionName"
                                         caption="bind:Variables.positionsData.dataSet[$i].name" class="app-label">
@@ -166,8 +172,9 @@
                             </wm-listtemplate>
                         </wm-list>
                     </wm-container>
-                    <wm-anchor name="ancShowUnselected" caption="▲ Hide unselected" class="anchor-standard-sm"
-                        on-click="ancShowUnselectedClick($event, widget)"></wm-anchor>
+                    <wm-anchor name="ancShowUnselected" caption="Hide unselected"
+                        on-click="ancShowUnselectedClick($event, widget)" iconclass="" variant="standard" class="pt-4">
+                    </wm-anchor>
                     <wm-container name="unselectedPositionsPanel" class="app-container-default" direction="column"
                         gap="8" alignment="top-left" width="fill" height="hug" show="false">
                         <wm-container name="unselectedPositionsToolbar" class="app-container-default" direction="row"
@@ -178,12 +185,13 @@
                             <wm-label name="lblGroupFilter" caption="Group Filter" class="app-label"></wm-label>
                             <wm-select name="selectGroupFilter" dataset="Show All"></wm-select>
                         </wm-container>
-                        <wm-list name="unselectedPositionsList" class="list-card"
+                        <wm-list name="unselectedPositionsList" class="list-card show-hide-option-list"
                             dataset="bind:Variables.positionsData.dataSet" itemsperrow="xs-1 sm-1 md-2 lg-2">
                             <wm-listtemplate name="unselectedPositionsListTemplate" layout="inline">
-                                <wm-container name="unselectedPositionItemRow" class="app-container-default"
+                                <wm-container name="unselectedPositionItemRow" class="app-container-default bg-white"
                                     direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-                                    <wm-checkbox name="chkUnselectedPosition" type="checkbox"
+                                    <wm-checkbox name="chkUnselectedPosition" type="checkbox" variant="blue-check-14"
+                                        class="small-checkbox"
                                         datavalue="bind:Variables.positionsData.dataSet[$i].selected"></wm-checkbox>
                                     <wm-label name="lblUnselectedPositionName"
                                         caption="bind:Variables.positionsData.dataSet[$i].name" class="app-label">
