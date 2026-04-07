@@ -211,6 +211,42 @@ Prefab.slotAreaClick = function ($event) {
     );
 };
 
+Prefab.dayLabelClick = function (dayIndex) {
+    var ds = Prefab._getWeekData();
+    if (!ds) { return; }
+    var dayData = ds[dayIndex];
+    if (!dayData) { return; }
+    var isoDate = dayData.date || '';
+
+    /* ── READ-ONLY MODE: select the date, do NOT navigate ── */
+    if (Prefab.restrictedit) {
+        if (!isoDate) { return; }
+        var selectedDate = new Date(isoDate + 'T00:00:00');
+        if (isNaN(selectedDate.getTime())) { return; }
+        // Update the startDatePicker widget to reflect the clicked row's date
+        if (Prefab.Widgets && Prefab.Widgets.startDatePicker) {
+            Prefab.Widgets.startDatePicker.datavalue = selectedDate;
+        }
+        // Sync the weekDay form field and weekDaySelect to match the selected date
+        var jsDay = selectedDate.getDay();
+        var wmDayIndex = jsDay === 0 ? 6 : jsDay - 1;
+        var fullDayName = FULL_DAY_NAMES[wmDayIndex];
+        var formDs = Prefab.Variables.worktimepreference && Prefab.Variables.worktimepreference.dataSet;
+        if (formDs) { formDs.weekDay = fullDayName; }
+        if (Prefab.Widgets && Prefab.Widgets.weekDaySelect) {
+            Prefab.Widgets.weekDaySelect.datavalue = fullDayName;
+        }
+        // Store the selected date for use by showpreferenceTap and other handlers
+        debugger
+        Prefab._selectedDate = selectedDate;
+
+        if (Prefab.onClick) {
+            Prefab.onClick(null, Prefab._selectedDate);
+        }
+        return Prefab._selectedDate; // Do NOT navigate in read-only mode
+
+    }
+}
 
 /* ============================================================
    DRAG SUPPORT

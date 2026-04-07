@@ -15,3 +15,11 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+Page.WorkPreference1Click = function ($event, $data) {
+    debugger
+    App.Actions.goToPage_emppreferencesday.invoke({
+        data: {
+            'selectedDate': $data
+        }
+    });
+};

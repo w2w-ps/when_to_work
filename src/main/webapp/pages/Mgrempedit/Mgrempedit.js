@@ -16,20 +16,39 @@ Page.onReady = function () {
      */
 };
 
-Page.ancShowSelectedClick = function($event, widget) {
+Page.ancShowSelectedClick = function ($event, widget) {
     var panel = Page.Widgets.selectedPositionsPanel;
     var isOpen = panel.show;
     panel.show = !isOpen;
     widget.caption = isOpen ? "▼ Show selected" : "▲ Hide selected";
 };
 
-Page.ancShowUnselectedClick = function($event, widget) {
+Page.ancShowUnselectedClick = function ($event, widget) {
     var panel = Page.Widgets.unselectedPositionsPanel;
     var isOpen = panel.show;
     panel.show = !isOpen;
     widget.caption = isOpen ? "▼ Show unselected" : "▲ Hide unselected";
 };
 
-Page.btnSetPhotoClick = function($event, widget) {
+Page.btnSetPhotoClick = function ($event, widget) {
     Page.Widgets.dlgUploadPhoto.open();
+};
+Page.btnStatusNoneClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = '';
+};
+Page.btnStatusPurpleClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = 'Full Time';
+};
+Page.btnStatusOrangeClick = function ($event, widget) {
+
+    Page.Widgets.lblFullTime.caption = 'Part Time';
+};
+Page.btnStatusGreenTealClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = '';
+};
+Page.btnStatusDarkGreenClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = 'Per Dim';
+};
+Page.btnStatusTealClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = ' ';
 };
