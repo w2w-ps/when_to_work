@@ -17,4 +17,39 @@ and is an ideal location for end-users to put any code they need.
     <bean id="loginServiceTokenSuccessHandler"
           class="com.wavemaker.when_to_work.security.LoginServiceTokenSuccessHandler"/>
 
+    <!--
+        Injects the LoginService Bearer token into the Authorization header of every
+        proxied outgoing REST API call. The token is read from the current user's
+        SERVER_ONLY WMAuthentication attribute "loginServiceToken".
+    -->
+    <bean id="securityTokenRequestProcessor"
+          class="com.wavemaker.when_to_work.rest.SecurityTokenRequestProcessor"/>
+
+    <!--
+        Override the default RestRuntimeConfig to include the SecurityTokenRequestProcessor
+        in the HTTP request processor chain. Processors are invoked in list order:
+          1. PassDefaultHeadersRequestProcessor  - forwards standard inbound headers
+          2. SecurityTokenRequestProcessor       - injects Authorization: Bearer token
+    -->
+    <bean id="restRuntimeConfig"
+          class="com.wavemaker.runtime.rest.processor.RestRuntimeConfig">
+        <property name="httpRequestProcessorList">
+            <list>
+                <bean class="com.wavemaker.runtime.rest.processor.request.PassDefaultHeadersRequestProcessor">
+                    <property name="enabled" value="true"/>
+                    <property name="defaultHeaders">
+                        <list>
+                            <value>User-Agent</value>
+                            <value>Content-Type</value>
+                            <value>Accept</value>
+                            <value>Accept-Charset</value>
+                            <value>Accept-Language</value>
+                        </list>
+                    </property>
+                </bean>
+                <ref bean="securityTokenRequestProcessor"/>
+            </list>
+        </property>
+    </bean>
+
 </beans>
