@@ -350,3 +350,6 @@ wm-input[name="txtFind"].app-input-wrapper {
 .small-checkbox.app-checkbox.checkbox > label > input:hover, .small-checkbox.app-checkbox.checkbox > label > input:focus, .small-checkbox.app-checkbox.checkbox > label > input:active{
     opacity: 0 !important;
 }
+.app-input-wrapper:has(.flex-0){
+    flex: 0 !important;
+}

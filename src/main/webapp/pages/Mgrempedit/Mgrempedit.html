@@ -256,8 +256,8 @@
                         </wm-container>
                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
                             class="app-container-default" variant="default" name="container76">
-                            <wm-text name="txtPhone" datavalue="bind:Variables.employeeData.dataSet.phone"
-                                width="150px"></wm-text>
+                            <wm-text name="txtPhone" datavalue="bind:Variables.employeeData.dataSet.phone" width="150px"
+                                class="form-control app-textbox form-popout-control" variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                     <wm-container class="app-container-default" direction="row" gap="24" alignment="middle-left"
@@ -273,7 +273,8 @@
                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
                             class="app-container-default" variant="default" name="container79">
                             <wm-text name="txtPhone2" datavalue="bind:Variables.employeeData.dataSet.phone2"
-                                width="150px"></wm-text>
+                                width="150px" class="form-control app-textbox form-popout-control"
+                                variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                     <wm-container class="app-container-default" direction="row" gap="24" alignment="middle-left"
@@ -288,8 +289,8 @@
                         </wm-container>
                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
                             class="app-container-default" variant="default" name="container81">
-                            <wm-text datavalue="bind:Variables.employeeData.dataSet.cell" name="text15" width="150px">
-                            </wm-text>
+                            <wm-text datavalue="bind:Variables.employeeData.dataSet.cell" name="text15" width="150px"
+                                class="form-control app-textbox form-popout-control" variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                     <wm-container class="app-container-default" direction="row" gap="24" alignment="middle-left"
@@ -304,8 +305,8 @@
                         </wm-container>
                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
                             class="app-container-default" variant="default" name="container84">
-                            <wm-text datavalue="bind:Variables.employeeData.dataSet.address" width="fill" name="text18">
-                            </wm-text>
+                            <wm-text datavalue="bind:Variables.employeeData.dataSet.address" width="fill" name="text18"
+                                class="form-control app-textbox form-popout-control" variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                     <wm-container class="app-container-default" direction="row" gap="24" alignment="middle-left"
@@ -321,7 +322,8 @@
                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
                             class="app-container-default" variant="default" name="container85">
                             <wm-text name="txtAddress" datavalue="bind:Variables.employeeData.dataSet.address"
-                                width="fill"></wm-text>
+                                width="fill" class="form-control app-textbox form-popout-control"
+                                variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                     <wm-container class="app-container-default" direction="row" gap="24" alignment="middle-left"
@@ -337,11 +339,14 @@
                         <wm-container direction="row" alignment="middle-left" gap="4" width="hug"
                             class="app-container-default" variant="default" name="container88" clipcontent="false">
                             <wm-text name="txtCity" datavalue="bind:Variables.employeeData.dataSet.city"
-                                placeholder="City" width="120px"></wm-text>
+                                placeholder="City" width="120px" class="form-control app-textbox form-popout-control"
+                                variant="popout-control"></wm-text>
                             <wm-text name="txtState" datavalue="bind:Variables.employeeData.dataSet.state"
-                                placeholder="State" width="50px"></wm-text>
+                                placeholder="State" width="50px" class="form-control app-textbox form-popout-control"
+                                variant="popout-control"></wm-text>
                             <wm-text name="txtZip" datavalue="bind:Variables.employeeData.dataSet.zip" placeholder="Zip"
-                                width="100px"></wm-text>
+                                width="100px" class="form-control app-textbox form-popout-control"
+                                variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                     <!-- Phone Row -->
@@ -360,7 +365,8 @@
                         <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container99"
                             class="app-container-default" variant="default">
                             <wm-text name="txtIdNumber" datavalue="bind:Variables.employeeData.dataSet.idNumber"
-                                width="150px"></wm-text>
+                                width="150px" class="form-control app-textbox form-popout-control"
+                                variant="popout-control"></wm-text>
                         </wm-container>
                     </wm-container>
                 </wm-container>
@@ -369,6 +375,8 @@
                     direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
                     <wm-label name="lblAutofillHeader" caption="AutoFill Options" class="label-label-20-700"
                         variant="label-20-700"></wm-label>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container98_1"
+                        class="white-divider" variant="default"></wm-container>
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container88_1"
                         class="app-container-default" variant="default">
                         <wm-container direction="row" alignment="top-left" gap="50" width="fill" name="container89"
@@ -377,30 +385,53 @@
                             </wm-label>
                             <wm-container direction="column" alignment="top-left" gap="4" width="fill"
                                 name="container90" class="app-container-default" variant="default" wrap="false">
-                                <wm-container name="perWeekRow" class="app-container-default" direction="row" gap="8"
+                                <wm-container name="perWeekRow" class="app-container-default" direction="row" gap="70"
                                     alignment="middle-left" width="fill" height="hug" wrap="false" padding="unset 30px">
-                                    <wm-label name="lblPerWeek" caption="per week" variant="default"></wm-label>
-                                    <wm-number name="numPerWeekHrs"
-                                        datavalue="bind:Variables.employeeData.dataSet.perWeekHrs" width="55px">
-                                    </wm-number>
-                                    <wm-label name="lblPerWeekHrs" caption="hrs" variant="default"></wm-label>
-                                    <wm-number name="numPerWeekDays"
-                                        datavalue="bind:Variables.employeeData.dataSet.perWeekDays" width="55px">
-                                    </wm-number>
-                                    <wm-label name="lblPerWeekDays" caption="days" variant="default"></wm-label>
+                                    <wm-container direction="row" alignment="middle-right" gap="4" width="30%"
+                                        name="container103" class="app-container-default" variant="default"
+                                        clipcontent="false">
+                                        <wm-label name="lblPerWeek" caption="per week" variant="default"></wm-label>
+                                        <wm-number name="numPerWeekHrs"
+                                            datavalue="bind:Variables.employeeData.dataSet.perWeekHrs"
+                                            class="flex-0 form-popout-control" variant="popout-control" width="55px">
+                                        </wm-number>
+                                        <wm-label name="lblPerWeekHrs" caption="hrs" variant="default"></wm-label>
+                                    </wm-container>
+                                    <wm-container direction="row" alignment="middle-left" gap="4" width="50%"
+                                        name="container104" class="app-container-default" variant="default"
+                                        clipcontent="false">
+                                        <wm-number name="numPerWeekDays"
+                                            datavalue="bind:Variables.employeeData.dataSet.perWeekDays"
+                                            class="flex-0 form-popout-control" variant="popout-control" width="55px">
+                                        </wm-number>
+                                        <wm-label name="lblPerWeekDays" caption="days" variant="default"></wm-label>
+                                    </wm-container>
                                 </wm-container>
-                                <wm-container name="perDayRow" class="app-container-default" direction="row" gap="8"
+                                <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                                    class="white-divider app-container-default" variant="default" name="container99_1">
+                                </wm-container>
+                                <wm-container name="perDayRow" class="app-container-default" direction="row" gap="70"
                                     alignment="middle-left" width="fill" height="hug" wrap="false" variant="default"
                                     padding="unset 30px">
-                                    <wm-label name="lblPerDay" caption="per day" variant="default"></wm-label>
-                                    <wm-number name="numPerDayHrs"
-                                        datavalue="bind:Variables.employeeData.dataSet.perDayHrs" variant="standard"
-                                        width="55px"></wm-number>
-                                    <wm-label name="lblPerDayHrs" caption="hrs" variant="default"></wm-label>
-                                    <wm-number name="numPerDayShifts"
-                                        datavalue="bind:Variables.employeeData.dataSet.perDayShifts" variant="standard"
-                                        width="55px"></wm-number>
-                                    <wm-label name="lblPerDayShifts" caption="shifts" variant="default"></wm-label>
+                                    <wm-container direction="row" alignment="middle-right" gap="4" width="30%"
+                                        name="container105" class="app-container-default" variant="default"
+                                        clipcontent="false">
+                                        <wm-label name="lblPerDay" caption="per day" variant="default"></wm-label>
+                                        <wm-number name="numPerDayHrs"
+                                            datavalue="bind:Variables.employeeData.dataSet.perDayHrs"
+                                            variant="popout-control" class="flex-0 form-popout-control" width="55px">
+                                        </wm-number>
+                                        <wm-label name="lblPerDayHrs" caption="hrs" variant="default"></wm-label>
+                                    </wm-container>
+                                    <wm-container direction="row" alignment="middle-left" gap="4" width="50%"
+                                        name="container106" class="app-container-default" variant="default"
+                                        clipcontent="false">
+                                        <wm-number name="numPerDayShifts"
+                                            datavalue="bind:Variables.employeeData.dataSet.perDayShifts"
+                                            variant="popout-control" class="flex-0 form-popout-control" width="55px">
+                                        </wm-number>
+                                        <wm-label name="lblPerDayShifts" caption="shifts" variant="default"></wm-label>
+                                    </wm-container>
                                 </wm-container>
                             </wm-container>
                         </wm-container>
@@ -408,6 +439,9 @@
                     <!-- Per Week Row -->
                     <!-- Per Day Row -->
                     <!-- By Seniority Row -->
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                        class="white-divider app-container-default" variant="default" name="container100">
+                    </wm-container>
                     <wm-container name="bySeniorityRow" class="app-container-default" direction="row" gap="8"
                         alignment="middle-left" width="fill" height="hug">
                         <wm-container direction="row" alignment="top-left" gap="4" width="30%" name="container93"
@@ -416,10 +450,14 @@
                         </wm-container>
                         <wm-icon name="iconSeniorityCalendar" iconclass="fa fa-calendar" iconsize="1em"></wm-icon>
                         <wm-date name="dateHireDateSeniority"
-                            datavalue="bind:Variables.employeeData.dataSet.hireDateSeniority" width="96px"></wm-date>
+                            datavalue="bind:Variables.employeeData.dataSet.hireDateSeniority" width="96px"
+                            class="form-popout-control" variant="popout-control"></wm-date>
                         <wm-label name="lblHireDate" caption="Hire Date" variant="default"></wm-label>
                     </wm-container>
                     <!-- By Group Row -->
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                        class="white-divider app-container-default" variant="default" name="container102">
+                    </wm-container>
                     <wm-container name="byGroupRow" class="app-container-default" direction="row" gap="8"
                         alignment="middle-left" width="fill" height="hug">
                         <wm-label name="lblByGroup" caption="By Group" variant="default" width="30%"></wm-label>
@@ -427,36 +465,49 @@
                             displayfield="label" datavalue="bind:Variables.employeeData.dataSet.byGroup"></wm-select>
                         <wm-label name="lblPriority" caption="priority" variant="default"></wm-label>
                     </wm-container>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                        class="white-divider app-container-default" variant="default" name="container101">
+                    </wm-container>
                 </wm-container>
                 <!-- SECTION 8: Pay Rate Card -->
                 <wm-container name="payRateCard" class="container-grey-container container-grey-standard mb-2"
                     direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
-                    <wm-label name="lblPayRateHeader" caption="Pay Rate" class="label-label-20-700"
-                        variant="label-20-700"></wm-label>
-                    <wm-container name="payRateRow" class="app-container-default" direction="row" gap="8"
-                        alignment="middle-left" width="fill" height="hug">
-                        <wm-number name="numPayRate" datavalue="bind:Variables.employeeData.dataSet.payRate"
-                            width="55px"></wm-number>
-                        <wm-label name="lblPayRateDesc" caption="per hour default or" variant="label-16-400"
-                            class="label-label-16-400"></wm-label>
-                        <wm-anchor name="ancSetPerPosition" caption="set per position" variant="standard-16"
-                            class="anchor-standard-16"></wm-anchor>
+                    <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container107"
+                        class="app-container-default" variant="default">
+                        <wm-label name="lblPayRateHeader" caption="Pay Rate" class="label-label-20-700"
+                            variant="label-20-700" width="31.25%"></wm-label>
+                        <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container108"
+                            class="app-container-default" variant="default">
+                            <wm-container name="payRateRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-number name="numPayRate" datavalue="bind:Variables.employeeData.dataSet.payRate"
+                                    width="55px" class="form-popout-control flex-0" variant="popout-control">
+                                </wm-number>
+                                <wm-label name="lblPayRateDesc" caption="per hour default or" variant="label-16-400"
+                                    class="label-label-16-400"></wm-label>
+                                <wm-anchor name="ancSetPerPosition" caption="set per position" variant="standard-16"
+                                    class="anchor-standard-16"></wm-anchor>
+                            </wm-container>
+                        </wm-container>
                     </wm-container>
                 </wm-container>
                 <!-- SECTION 9: Alert Date Card -->
                 <wm-container name="alertDateCard" class="container-grey-container container-grey-standard mb-2"
                     direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
-                    <wm-label name="lblAlertDateHeader" caption="Alert Date" class="label-label-20-700"
-                        variant="label-20-700"></wm-label>
-                    <wm-container name="alertDateRow" class="app-container-default" direction="row" gap="8"
-                        alignment="middle-left" width="fill" height="hug">
-                        <wm-icon name="iconAlertCalendar" iconclass="fa fa-calendar" iconsize="1em"></wm-icon>
-                        <wm-date name="dateAlertDate" datavalue="bind:Variables.employeeData.dataSet.alertDate"
-                            width="96px"></wm-date>
-                        <wm-label name="lblAlertDateDesc" caption="default or" variant="label-16-400"
-                            class="label-label-16-400"></wm-label>
-                        <wm-anchor name="ancAlertSetPerPosition" caption="set per position" variant="standard-16"
-                            class="anchor-standard-16"></wm-anchor>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container109"
+                        class="app-container-default" variant="default">
+                        <wm-label name="lblAlertDateHeader" caption="Alert Date" class="label-label-20-700"
+                            variant="label-20-700" width="31.25%"></wm-label>
+                        <wm-container name="alertDateRow" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-left" width="fill" height="hug">
+                            <wm-icon name="iconAlertCalendar" iconclass="fa fa-calendar" iconsize="1em"></wm-icon>
+                            <wm-date name="dateAlertDate" datavalue="bind:Variables.employeeData.dataSet.alertDate"
+                                width="96px" class="form-popout-control" variant="popout-control"></wm-date>
+                            <wm-label name="lblAlertDateDesc" caption="default or" variant="label-16-400"
+                                class="label-label-16-400"></wm-label>
+                            <wm-anchor name="ancAlertSetPerPosition" caption="set per position" variant="standard-16"
+                                class="anchor-standard-16"></wm-anchor>
+                        </wm-container>
                     </wm-container>
                 </wm-container>
                 <!-- SECTION 10: Custom Fields & Status Icon Card -->
@@ -469,14 +520,16 @@
                         alignment="middle-left" width="fill" height="hug">
                         <wm-label name="lblCustomField1Key" caption="Custom Field 1" variant="default"></wm-label>
                         <wm-text name="txtCustomField1" datavalue="bind:Variables.employeeData.dataSet.customField1"
-                            width="fill"></wm-text>
+                            width="fill" class="form-control app-textbox form-popout-control" variant="popout-control">
+                        </wm-text>
                     </wm-container>
                     <!-- Custom Field 2 Row -->
                     <wm-container name="customField2Row" class="app-container-default" direction="row" gap="8"
                         alignment="middle-left" width="fill" height="hug">
                         <wm-label name="lblCustomField2Key" caption="Custom Field 2" variant="default"></wm-label>
                         <wm-text name="txtCustomField2" datavalue="bind:Variables.employeeData.dataSet.customField2"
-                            width="fill"></wm-text>
+                            width="fill" class="form-control app-textbox form-popout-control" variant="popout-control">
+                        </wm-text>
                     </wm-container>
                     <!-- Status Row -->
                     <wm-container name="statusRow" class="app-container-default" direction="row" gap="8"
@@ -511,7 +564,7 @@
                             class="text-muted label-label-12-400" variant="label-12-400"></wm-label>
                     </wm-container>
                     <wm-textarea name="textareaComments" datavalue="bind:Variables.employeeData.dataSet.comments"
-                        height="128px" width="100%"></wm-textarea>
+                        height="128px" width="724px"></wm-textarea>
                 </wm-container>
                 <!-- SECTION 12: Options Card -->
                 <wm-container name="optionsCard" class="container-grey-container container-grey-standard mb-2"

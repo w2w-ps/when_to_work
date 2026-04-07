@@ -340,10 +340,10 @@
               "value" : "30px"
             },
             "padding" : {
-              "value" : "6px 10px"
+              "value" : "6px 5px"
             },
             "font-family" : {
-              "value" : "{body.medium.font-family.value}"
+              "value" : "Arial"
             },
             "font-size" : {
               "value" : "14px"
