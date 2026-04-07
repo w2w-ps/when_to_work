@@ -1,0 +1,97 @@
+{
+  "basePath" : "${rest.updateEmployeePwd.basepath}",
+  "paths" : {
+    "/login/update-password" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "updateEmployeePwd_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "updateEmployeePwd" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/login/update-password",
+      "x-WM-TAG" : "updateEmployeePwd",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.updateEmployeePwd.scheme}://${rest.updateEmployeePwd.host}${rest.updateEmployeePwd.basepath}/login/update-password"
+    }
+  },
+  "host" : "${rest.updateEmployeePwd.host}",
+  "schemes" : [ "${rest.updateEmployeePwd.scheme}" ],
+  "definitions" : {
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updateEmployeePwd.RootRequest",
+      "x-WM-TAGS" : [ "updateEmployeePwd" ],
+      "required" : [ "confirmPassword", "newPassword", "oldPassword", "username" ],
+      "properties" : {
+        "oldPassword" : {
+          "type" : "string"
+        },
+        "newPassword" : {
+          "type" : "string"
+        },
+        "confirmPassword" : {
+          "type" : "string"
+        },
+        "username" : {
+          "type" : "string"
+        }
+      }
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updateEmployeePwd.java.lang.Object",
+      "x-WM-TAGS" : [ "updateEmployeePwd" ]
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updateEmployeePwd.RootResponse",
+      "x-WM-TAGS" : [ "updateEmployeePwd" ],
+      "required" : [ "errors", "isValid", "message" ],
+      "properties" : {
+        "isValid" : {
+          "type" : "boolean"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "errors" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "b65871ad-e4fb-4407-b5d4-fcc46a14b229",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "updateEmployeePwd"
+  } ]
+}
