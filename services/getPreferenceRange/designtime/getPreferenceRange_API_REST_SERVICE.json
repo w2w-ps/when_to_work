@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "5d4d0507-71f4-4c1f-b124-dd3f95cc82bc",
+    "x-WM-API_ID" : "e851a6ef-258f-4b34-a163-7875ff593156",
     "x-WM-SERVICE_ID" : "restService",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -100,7 +100,7 @@
   },
   "definitions" : {
     "Response.RootResponseROOTEntryItem" : {
-      "required" : [ "companyId", "compression", "date", "editedBy", "employeeId", "prefs" ],
+      "required" : [ "companyId", "compression", "date", "day", "editedBy", "employeeId", "prefs" ],
       "properties" : {
         "date" : {
           "type" : "string"
@@ -120,6 +120,9 @@
         "compression" : {
           "type" : "integer",
           "format" : "int32"
+        },
+        "day" : {
+          "type" : "string"
         },
         "prefs" : {
           "type" : "string"
