@@ -178,10 +178,11 @@
                     <wm-container name="unselectedPositionsPanel" class="app-container-default" direction="column"
                         gap="8" alignment="top-left" width="fill" height="hug" show="false">
                         <wm-container name="unselectedPositionsToolbar" class="app-container-default" direction="row"
-                            gap="8" alignment="middle-left" width="fill" height="hug">
-                            <wm-checkbox name="chkSelectAllPositions" type="checkbox" caption="Select All">
-                            </wm-checkbox>
-                            <wm-checkbox name="chkClearAllPositions" type="checkbox" caption="Clear All"></wm-checkbox>
+                            gap="8" alignment="middle-left" width="fill" height="hug" show="true">
+                            <wm-anchor margin="unset 0.5em" name="anchor19" variant="standard" caption="Select All"
+                                iconclass="fa fa-check-square-o"></wm-anchor>
+                            <wm-anchor margin="unset 0.5em" name="ClearAll" variant="standard" caption="Clear All"
+                                iconclass="wi wi-check-box-outline-blank"></wm-anchor>
                             <wm-label name="lblGroupFilter" caption="Group Filter" class="app-label"></wm-label>
                             <wm-select name="selectGroupFilter" dataset="Show All"></wm-select>
                         </wm-container>
@@ -536,8 +537,7 @@
                         alignment="middle-left" width="fill" height="hug">
                         <wm-label name="lblStatusKey" caption="Status" variant="default"></wm-label>
                         <wm-button name="btnStatusNone" iconclass="" class="btn-default" caption="None"></wm-button>
-                        <wm-button name="btnStatusPurple" iconclass="wi wi-fiber-manual-record" class="btn-default">
-                        </wm-button>
+                        <wm-button name="btnStatusPurple" iconclass="fa fa-diamond"></wm-button>
                         <wm-button name="btnStatusTeal" iconclass="wi wi-fiber-manual-record" class="btn-default">
                         </wm-button>
                         <wm-button name="btnStatusOrange" iconclass="wi wi-fiber-manual-record" class="btn-default">
