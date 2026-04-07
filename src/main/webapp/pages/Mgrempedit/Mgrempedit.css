@@ -1,3 +1,18 @@
 .top-2 {
     top: -2px;
 }
+
+.lg .fa-diamond {
+    width: 16px !important;
+    height: 18px !important;
+}
+
+.white-divider {
+    background-color: white;
+    height: 1px;
+    width: 100%;
+}
+
+.btn-time i {
+    display: none !important;
+}
