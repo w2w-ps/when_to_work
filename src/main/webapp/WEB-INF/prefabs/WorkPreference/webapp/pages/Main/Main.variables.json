@@ -1,0 +1,53 @@
+{
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "weekPreferenceData" : {
+    "_id" : "wm-weekPreferenceData-wm.Variable-1774951599133",
+    "name" : "weekPreferenceData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "employeeId" : 1,
+      "companyId" : 1,
+      "date" : "2026-04-06",
+      "prefs" : "DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      "compression" : 0,
+      "editedBy" : 1,
+      "day" : "Monday"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "worktimepreference" : {
+    "_id" : "wm-worktimepreference-wm.Variable-1774951635482",
+    "name" : "worktimepreference",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "preferenceType" : "",
+      "weekDay" : "",
+      "beginHour" : "",
+      "beginMinute" : "",
+      "endHour" : "",
+      "endMinute" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : true,
+    "saveInPhonegap" : false
+  }
+}

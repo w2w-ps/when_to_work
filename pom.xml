@@ -39,6 +39,7 @@
                 <source>services/LoginService/src</source>
                 <source>services/categoryList/src</source>
                 <source>services/createShift/src</source>
+                <source>services/getPreferenceRange/src</source>
                 <source>services/getShiftDetails/src</source>
                 <source>services/positionList/src</source>
                 <source>services/precheck/src</source>

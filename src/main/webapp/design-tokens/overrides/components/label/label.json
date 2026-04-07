@@ -651,6 +651,37 @@
             "value" : "none"
           }
         }
+      },
+      "label-16-400-Arial-Italic" : {
+        "mapping" : {
+          "color" : {
+            "value" : "inherit"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "{h5.font-size.value}"
+          },
+          "font-weight" : {
+            "value" : "{h5.font-weight.value}"
+          },
+          "line-height" : {
+            "value" : "{font.line-height.120pct.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{h5.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "Arial"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
       }
     },
     "meta" : {
@@ -723,6 +754,9 @@
           "source" : "user"
         },
         "label-16-700-Arial" : {
+          "source" : "user"
+        },
+        "label-16-400-Arial-Italic" : {
           "source" : "user"
         }
       }

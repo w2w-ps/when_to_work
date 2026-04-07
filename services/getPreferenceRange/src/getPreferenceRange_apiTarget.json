@@ -1,0 +1,146 @@
+{
+  "basePath" : "${rest.getPreferenceRange.basepath}",
+  "paths" : {
+    "/preferences/day/range" : {
+      "x-WM-BASE_PATH" : "/preferences/day/range",
+      "x-WM-TAG" : "getPreferenceRange",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getPreferenceRange_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "x-WM-IS_LIST" : true,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              }
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "ngrok-skip-browser-warning",
+          "format" : "boolean",
+          "description" : "ngrok-skip-browser-warning",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "endDate",
+          "format" : "string",
+          "description" : "endDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "employeeId",
+          "format" : "string",
+          "description" : "employeeId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "startDate",
+          "format" : "string",
+          "description" : "startDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "getPreferenceRange" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getPreferenceRange.scheme}://${rest.getPreferenceRange.host}${rest.getPreferenceRange.basepath}/preferences/day/range"
+    }
+  },
+  "host" : "${rest.getPreferenceRange.host}",
+  "schemes" : [ "${rest.getPreferenceRange.scheme}" ],
+  "definitions" : {
+    "Response.RootResponseROOTEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPreferenceRange.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "getPreferenceRange" ],
+      "required" : [ "companyId", "compression", "date", "editedBy", "employeeId", "prefs" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "editedBy" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "compression" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "prefs" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPreferenceRange.RootResponse",
+      "x-WM-TAGS" : [ "getPreferenceRange" ],
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "5d4d0507-71f4-4c1f-b124-dd3f95cc82bc",
+    "x-WM-SERVICE_ID" : "restService",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getPreferenceRange"
+  } ]
+}
