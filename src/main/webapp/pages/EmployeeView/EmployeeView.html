@@ -67,7 +67,8 @@
                 </wm-container>
             </wm-container>
             <wm-container name="pageContainer" class="app-container-default" direction="column" gap="7"
-                alignment="top-left" width="fill" height="hug" clipcontent="false">
+                alignment="top-left" width="fill" height="hug" clipcontent="false"
+                conditionalclass="bind:App.Variables.employeeViewConfig.dataSet.fontSize ? 'font-size-' + App.Variables.employeeViewConfig.dataSet.fontSize.toLowerCase() : ''">
                 <!-- Week Navigation Header -->
                 <wm-container name="weekNavigationContainer"
                     class="app-container-default week-nav-hover-container p-0 bg-grey" direction="row" gap="auto"
@@ -78,13 +79,15 @@
                 <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79"
                     class="app-container-default" variant="default">
                     <wm-anchor margin="unset 0.5em" name="anchor9" variant="standard-sm" caption="Change Layout"
-                        iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm"></wm-anchor>
+                        iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm"
+                        on-click="anchor9Click($event, widget)"></wm-anchor>
                     <wm-button class="btn-outlined-primary-sm" caption="UNDO Drag / Drop" type="button" margin="unset"
                         name="button22" variant="outlined-primary-sm"></wm-button>
                 </wm-container>
                 <wm-container name="dayHeadersContainer"
                     class="app-container-default custom-border-bottom justify-content-between header-cont"
-                    direction="row" gap="auto" alignment="start" width="fill" height="hug">
+                    direction="row" gap="auto" alignment="start" width="fill" height="hug"
+                    show="bind:App.Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
                     <wm-container name="employeeHeaderCell" class="app-container-default" direction="column" gap="4"
                         alignment="top-left" width="18%" height="hug" clipcontent="false"
                         padding="unset unset unset 16px"></wm-container>
@@ -130,16 +133,18 @@
                 </wm-container>
                 <!-- Employee Schedule List -->
                 <wm-list name="employeeScheduleList" dataset="bind:Variables.svScheduleList.dataSet"
-                    class="list-card pl-2" itemsperrow="xs-1 sm-1 md-1 lg-1"
-                    itemclass="custom-border-bottom pr-0  list-hover p-0" listclass="list-group">
+                    itemsperrow="xs-1 sm-1 md-1 lg-1" itemclass="custom-border-bottom pr-0  list-hover p-0"
+                    listclass="list-group" class="list-card pl-2">
                     <wm-listtemplate layout="inline" name="listtemplate1">
                         <wm-container name="employeeRowContainer" class="app-container-default justify-content-between"
-                            direction="row" gap="auto" alignment="start" width="fill" clipcontent="false" height="hug">
+                            direction="row" gap="auto" alignment="start" width="fill" clipcontent="false" height="hug"
+                            show="bind:Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts ? (item.shiftCount &gt; 0 ? true : false) : true">
                             <!-- Employee Name Cell -->
                             <wm-container name="employeeNameCell"
                                 class="app-container-default custom-border-right  weekday-container" direction="row"
                                 gap="4" alignment="middle-left" width="18%" height="fill" clipcontent="false"
-                                padding="unset 10px 10px 10px">
+                                padding="unset 10px 10px 10px"
+                                show="bind:App.Variables.employeeViewConfig.dataSet.showNamesOnLeft">
                                 <wm-container direction="column" alignment="top-left" gap="4" width="fill"
                                     name="container85" class="app-container-default" variant="default" wrap="false">
                                     <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
@@ -147,16 +152,18 @@
                                         <wm-icon name="icon6" class="purple" variant="purple" iconclass="fa fa-diamond">
                                         </wm-icon>
                                         <wm-label name="lblEmployeeName"
-                                            caption="bind:item.firstName + ' ' + item.lastName" class="label-label-bold"
-                                            variant="label-bold"></wm-label>
+                                            caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ? (item.lastName + ', ' + item.firstName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'First') ? item.firstName : (item.firstName + ' ' + item.lastName)"
+                                            class="label-label-bold" variant="label-bold"></wm-label>
                                     </wm-container>
                                     <wm-container direction="column" alignment="start" gap="auto" width="hug"
                                         name="container87" class="app-container-default" variant="default" wrap="false"
-                                        padding="unset 10px" height="hug" clipcontent="false" overflow="No scrolling">
+                                        padding="unset 10px" height="hug" clipcontent="false" overflow="No scrolling"
+                                        show="true">
                                         <wm-list listclass="list-group" itemclass="list-group-item" template="true"
                                             template-name="Blank List" itemsperrow="xs-1 sm-1 md-1 lg-1"
                                             class="media-list" statehandler="URL" name="scheduleListList2"
-                                            dataset="bind:item.phones" navigation="None" variant="standard">
+                                            dataset="bind:item.phones" navigation="None" variant="standard"
+                                            show="bind:Variables.employeeViewConfig.dataSet.showPhoneNumber">
                                             <wm-listtemplate layout="inline" name="listtemplate10">
                                                 <wm-container direction="row" alignment="top-left" gap="4" width="hug"
                                                     name="List" class="app-elevated-container" variant="elevated"
@@ -170,7 +177,8 @@
                                         </wm-list>
                                         <wm-label padding="unset"
                                             caption="bind:item.shiftCount+ &quot; shifts- &quot; +item.totalHours.toFixed(2) + &quot; hours&quot;"
-                                            class="label-label-bold" type="p" variant="label-bold" name="label67_1">
+                                            class="label-label-bold" type="p" variant="label-bold" name="label67_1"
+                                            show="bind:App.Variables.employeeViewConfig.dataSet.showTotalHours">
                                         </wm-label>
                                     </wm-container>
                                 </wm-container>
@@ -200,9 +208,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="text-center label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblMondayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblMondayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -233,9 +245,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblTuesdayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblTuesdayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -266,9 +282,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblWednesdayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblWednesdayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -299,9 +319,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblThursdayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblThursdayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -332,9 +356,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblFridayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblFridayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -365,9 +393,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblSaturdayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblSaturdayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -398,9 +430,13 @@
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
                                             <wm-label name="lblSundayItemShift" caption="bind:item.position"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
                                             <wm-label name="lblSundayItemNotes" caption="bind:item.description"
-                                                class="label-label-normal" variant="label-normal"></wm-label>
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -634,8 +670,10 @@
                                     key="description" class="form-compact-input w-100 mh-auto  pt-0 pb-1"
                                     variant="compact-input"
                                     defaultvalue="bind:Variables.svGetShiftById.dataSet.description"></wm-form-field>
-                                <wm-form-field name="categoryField" show="true" placeholder="Optional Category - None"
-                                    required="false" type="text" key="category" widget="select"
+                                <wm-form-field name="categoryField"
+                                    show="bind:App.Variables.employeeViewConfig.dataSet.showCategory"
+                                    placeholder="Optional Category - None" required="false" type="text" key="category"
+                                    widget="select"
                                     dataset="bind:Variables.svGetAllCategoriesByCompanyId.dataSet.categories"
                                     class="py-0 form-compact-input w-100 min-height-32" variant="compact-input"
                                     height="32px" datafield="id" displayfield="name"></wm-form-field>
