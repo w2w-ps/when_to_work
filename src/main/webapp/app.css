@@ -376,3 +376,28 @@ wm-input[name="txtFind"].app-input-wrapper {
 .pull-right{
     text-align: end !important;
 }
+
+
+
+
+
+/* responsive code starts */
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 375px){
+
+}
+/* tablet */
+@media only screen and (min-width: 376px) and (max-width: 768px){
+
+}
+/* mobile and tablet combined */
+@media only screen and (max-width: 992px){
+.fixed-width-lg{
+    width: 100% !important;
+}
+}
+/* desktop */
+@media only screen and (min-width: 993px){
+
+}
+/* responsive code ends */
