@@ -1,0 +1,139 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "6bb1c9fd-7d4e-4ef9-a490-bbfabcf5f73f",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "updatePreferences"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/preferences/day/repeat" : {
+      "post" : {
+        "tags" : [ "updatePreferences" ],
+        "operationId" : "updatePreferences_invoke",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/preferences/day/repeat",
+      "x-WM-TAG" : "updatePreferences",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.updatePreferences.scheme}://${rest.updatePreferences.host}${rest.updatePreferences.basepath}/preferences/day/repeat"
+    }
+  },
+  "definitions" : {
+    "Response.div" : {
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.Response.div",
+      "x-WM-TAGS" : [ "updatePreferences" ]
+    },
+    "RootRequest" : {
+      "required" : [ "companyId", "compression", "date", "editedBy", "employeeId", "prefs", "repeatCount" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "editedBy" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "compression" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "prefs" : {
+          "type" : "string"
+        },
+        "repeatCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.RootRequest",
+      "x-WM-TAGS" : [ "updatePreferences" ]
+    },
+    "Response.body" : {
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.Response.body",
+      "x-WM-TAGS" : [ "updatePreferences" ]
+    },
+    "RootResponse" : {
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.RootResponse",
+      "x-WM-TAGS" : [ "updatePreferences" ]
+    },
+    "Response.parsererror" : {
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.Response.parsererror",
+      "x-WM-TAGS" : [ "updatePreferences" ]
+    }
+  }
+}

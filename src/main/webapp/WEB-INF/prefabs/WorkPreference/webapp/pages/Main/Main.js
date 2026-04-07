@@ -543,9 +543,14 @@ Prefab.dayLabelClick = function (dayIndex) {
             Prefab.Widgets.weekDaySelect.datavalue = fullDayName;
         }
         // Store the selected date for use by showpreferenceTap and other handlers
+        debugger
         Prefab._selectedDate = selectedDate;
-        Prefab.selectedday = selectedDate;
+
+        if (Prefab.onClick) {
+            Prefab.onClick(null, Prefab._selectedDate);
+        }
         return Prefab._selectedDate; // Do NOT navigate in read-only mode
+
     }
 }
 

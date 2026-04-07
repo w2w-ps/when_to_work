@@ -14,22 +14,8 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
-};
 
-Page.ancShowSelectedClick = function ($event, widget) {
-    var panel = Page.Widgets.selectedPositionsPanel;
-    var isOpen = panel.show;
-    panel.show = !isOpen;
-    widget.caption = isOpen ? "▼ Show selected" : "▲ Hide selected";
-};
+    // Page.selectedDay = "Mon Apr 6 2026";
 
-Page.ancShowUnselectedClick = function ($event, widget) {
-    var panel = Page.Widgets.unselectedPositionsPanel;
-    var isOpen = panel.show;
-    panel.show = !isOpen;
-    widget.caption = isOpen ? "▼ Show unselected" : "▲ Hide unselected";
-};
 
-Page.btnSetPhotoClick = function ($event, widget) {
-    Page.Widgets.dlgUploadPhoto.open();
 };

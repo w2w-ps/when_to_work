@@ -1,0 +1,28 @@
+{
+  "svUpdatePreferences" : {
+    "_id" : "wm-svUpdatePreferences-wm.ServiceVariable-1775476139545",
+    "name" : "svUpdatePreferences",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "RequestBody",
+      "value" : "{\n  \"companyId\": 1,\n  \"employeeId\": 1,\n  \"date\": \"2026-04-06\",\n  \"prefs\": \"REPEAT_PREF_EXAMPLE\",\n  \"repeatCount\": 2,\n  \"compression\": 0,\n  \"editedBy\": 1\n}",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "updatePreferences.RootResponse",
+    "service" : "updatePreferences",
+    "operation" : "invoke",
+    "operationId" : "updatePreferences_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "updatePreferences"
+  }
+}
