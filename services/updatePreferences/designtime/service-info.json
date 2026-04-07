@@ -1,0 +1,6 @@
+{
+  "id" : "updatePreferences",
+  "type" : "RestService",
+  "title" : "updatePreferences",
+  "mockEnabled" : false
+}

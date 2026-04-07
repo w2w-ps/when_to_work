@@ -69,14 +69,32 @@
       "showAt" : "",
       "disabled" : false
     },
-    "selectedday" : {
+    "selecteddate" : {
       "type" : "string",
-      "displayName" : "Selectedday",
+      "displayName" : "selecteddate",
       "description" : "User selected day to edit",
       "bindable" : "out-bound",
       "widget" : "string",
       "show" : false,
+      "showAt" : "",
       "disabled" : true
+    },
+    "showweekdropdown" : {
+      "type" : "boolean",
+      "displayName" : "Showweekdropdown",
+      "description" : "Show week dropdown",
+      "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    }
+  },
+  "events" : {
+    "onClick" : {
+      "description" : "callback action while selecting particular day",
+      "eventData" : "",
+      "displayName" : "Click"
     }
   }
 }

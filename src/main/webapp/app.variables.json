@@ -59,6 +59,39 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_emppreferences" : {
+    "_id" : "wm-goToPage_emppreferences-wm.NavigationAction-1775540308785",
+    "name" : "goToPage_emppreferences",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "emppreferences",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_emppreferencesday" : {
+    "_id" : "wm-goToPage_emppreferencesday-wm.NavigationAction-1775470525095",
+    "name" : "goToPage_emppreferencesday",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "emppreferencesday",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "emppreferencesday",
+    "dataSet" : [ {
+      "type" : "string",
+      "target" : "selecteddate",
+      "value" : "bind:Widgets.WorkPreference1.selecteddate"
+    } ],
+    "pageTransitions" : "none"
+  },
   "goToPage_footer_Copy" : {
     "_id" : "wm-goToPage_footer_Copy-wm.NavigationAction-1774261656689",
     "name" : "goToPage_footer_Copy",
