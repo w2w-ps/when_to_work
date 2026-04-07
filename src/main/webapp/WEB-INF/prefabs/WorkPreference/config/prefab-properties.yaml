@@ -1,0 +1,21 @@
+app:
+  apiUrl: ""
+  cdnUrl: ""
+  prefabs:
+    lazyInit: "true"
+  proxy:
+    enabled: "false"
+    host: ""
+    password: ""
+    port: ""
+    urls:
+      exclude: ""
+      include: ""
+    username: ""
+  web:
+    compression:
+      enabled: "true"
+      mimetypes:
+        excludePatterns: "image/*,text/event-stream"
+        includePatterns: "*/*"
+      minsize: "65536"
