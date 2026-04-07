@@ -33,3 +33,22 @@ Page.ancShowUnselectedClick = function ($event, widget) {
 Page.btnSetPhotoClick = function ($event, widget) {
     Page.Widgets.dlgUploadPhoto.open();
 };
+Page.btnStatusNoneClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = '';
+};
+Page.btnStatusPurpleClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = 'Full Time';
+};
+Page.btnStatusOrangeClick = function ($event, widget) {
+
+    Page.Widgets.lblFullTime.caption = 'Part Time';
+};
+Page.btnStatusGreenTealClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = '';
+};
+Page.btnStatusDarkGreenClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = 'Per Dim';
+};
+Page.btnStatusTealClick = function ($event, widget) {
+    Page.Widgets.lblFullTime.caption = ' ';
+};
