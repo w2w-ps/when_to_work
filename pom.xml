@@ -46,6 +46,8 @@
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
                 <source>services/svDeleteShiftById/src</source>
+                <source>services/updateEmployeePwd/src</source>
+                <source>services/updatePreferences/src</source>
                 <source>services/updateShift/src</source>
                 <source>services/when2work/src</source>
               </sources>

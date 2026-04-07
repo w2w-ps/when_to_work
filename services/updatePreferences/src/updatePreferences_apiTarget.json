@@ -1,0 +1,139 @@
+{
+  "basePath" : "${rest.updatePreferences.basepath}",
+  "paths" : {
+    "/preferences/day/repeat" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "updatePreferences_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "updatePreferences" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/preferences/day/repeat",
+      "x-WM-TAG" : "updatePreferences",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.updatePreferences.scheme}://${rest.updatePreferences.host}${rest.updatePreferences.basepath}/preferences/day/repeat"
+    }
+  },
+  "host" : "${rest.updatePreferences.host}",
+  "schemes" : [ "${rest.updatePreferences.scheme}" ],
+  "definitions" : {
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.Response.div",
+      "x-WM-TAGS" : [ "updatePreferences" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.RootRequest",
+      "x-WM-TAGS" : [ "updatePreferences" ],
+      "required" : [ "companyId", "compression", "date", "editedBy", "employeeId", "prefs", "repeatCount" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "editedBy" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "compression" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "prefs" : {
+          "type" : "string"
+        },
+        "repeatCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.Response.body",
+      "x-WM-TAGS" : [ "updatePreferences" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.RootResponse",
+      "x-WM-TAGS" : [ "updatePreferences" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePreferences.Response.parsererror",
+      "x-WM-TAGS" : [ "updatePreferences" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "6bb1c9fd-7d4e-4ef9-a490-bbfabcf5f73f",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "updatePreferences"
+  } ]
+}

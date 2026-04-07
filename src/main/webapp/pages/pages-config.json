@@ -59,6 +59,13 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "emppreferencesday",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "selecteddate",
+    "type" : "string"
+  } ]
+}, {
   "name" : "footer",
   "type" : "FOOTER",
   "params" : [ ]

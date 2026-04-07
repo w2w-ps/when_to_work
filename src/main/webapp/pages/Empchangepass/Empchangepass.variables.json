@@ -34,5 +34,32 @@
     },
     "isList" : false,
     "twoWayBinding" : false
+  },
+  "svUpdateEmpPwd" : {
+    "_id" : "wm-svUpdateEmpPwd-wm.ServiceVariable-1775546509606",
+    "name" : "svUpdateEmpPwd",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "{  \"username\": \"test\",  \"oldPassword\": \"admin123\",  \"newPassword\": \"Admin@123\",  \"confirmPassword\": \"Admin@123\"}",
+      "type" : "updateEmployeePwd.RootRequest"
+    } ],
+    "type" : "updateEmployeePwd.RootResponse",
+    "service" : "updateEmployeePwd",
+    "operation" : "invoke",
+    "operationId" : "updateEmployeePwd_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "updateEmployeePwd"
   }
 }

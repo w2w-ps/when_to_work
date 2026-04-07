@@ -36,7 +36,8 @@
                         class="app-container-default" variant="default">
                         <wm-prefab prefabname="WorkPreference" name="WorkPreference1" width="100%" restrictedit="true"
                             readonly="true" singleday="true"
-                            weekpreferencedata="bind:Variables.getWeekPreferenceRange.dataSet"></wm-prefab>
+                            weekpreferencedata="bind:Variables.getWeekPreferenceRange.dataSet"
+                            on-click="WorkPreference1Click($event, $data)"></wm-prefab>
                     </wm-container>
                     <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container22"
                         variant="default">
