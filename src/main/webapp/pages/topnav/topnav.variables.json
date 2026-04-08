@@ -304,15 +304,15 @@
       "children" : "#Home"
     }, {
       "caption" : "Schedule",
-      "hyperlink" : "#/Schedule",
+      "hyperlink" : "#/EmployeeView",
       "children" : "#View the Schedule"
     }, {
       "caption" : "Info",
-      "hyperlink" : "#/Info",
+      "hyperlink" : "#/Empinfo",
       "children" : "#Info - your username/password, emails and contact information and export to Google Calendar"
     }, {
       "caption" : "Prefs",
-      "hyperlink" : "#/Prefs",
+      "hyperlink" : "#/emppreferences",
       "children" : "#Your work time preferences"
     }, {
       "caption" : "Time Off",
