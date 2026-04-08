@@ -178,10 +178,11 @@
                     <wm-container name="unselectedPositionsPanel" class="app-container-default" direction="column"
                         gap="8" alignment="top-left" width="fill" height="hug" show="false">
                         <wm-container name="unselectedPositionsToolbar" class="app-container-default" direction="row"
-                            gap="8" alignment="middle-left" width="fill" height="hug">
-                            <wm-checkbox name="chkSelectAllPositions" type="checkbox" caption="Select All">
-                            </wm-checkbox>
-                            <wm-checkbox name="chkClearAllPositions" type="checkbox" caption="Clear All"></wm-checkbox>
+                            gap="8" alignment="middle-left" width="fill" height="hug" show="true">
+                            <wm-anchor margin="unset 0.5em" name="anchor19" variant="standard" caption="Select All"
+                                iconclass="fa fa-check-square-o"></wm-anchor>
+                            <wm-anchor margin="unset 0.5em" name="ClearAll" variant="standard" caption="Clear All"
+                                iconclass="wi wi-check-box-outline-blank"></wm-anchor>
                             <wm-label name="lblGroupFilter" caption="Group Filter" class="app-label"></wm-label>
                             <wm-select name="selectGroupFilter" dataset="Show All"></wm-select>
                         </wm-container>
@@ -535,18 +536,29 @@
                     <wm-container name="statusRow" class="app-container-default" direction="row" gap="8"
                         alignment="middle-left" width="fill" height="hug">
                         <wm-label name="lblStatusKey" caption="Status" variant="default"></wm-label>
-                        <wm-button name="btnStatusNone" iconclass="" class="btn-default" caption="None"></wm-button>
-                        <wm-button name="btnStatusPurple" iconclass="wi wi-fiber-manual-record" class="btn-default">
-                        </wm-button>
-                        <wm-button name="btnStatusTeal" iconclass="wi wi-fiber-manual-record" class="btn-default">
-                        </wm-button>
-                        <wm-button name="btnStatusOrange" iconclass="wi wi-fiber-manual-record" class="btn-default">
-                        </wm-button>
-                        <wm-button name="btnStatusGreenTeal" iconclass="wi wi-fiber-manual-record" class="btn-default">
-                        </wm-button>
-                        <wm-button name="btnStatusDarkGreen" iconclass="wi wi-fiber-manual-record" class="btn-default">
-                        </wm-button>
-                        <wm-button name="btnStatusEdit" iconclass="wi wi-pencil" class="btn-default"></wm-button>
+                        <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="containerStatus"
+                            class="app-container-default" variant="default">
+                            <wm-button name="btnStatusNone" iconclass="" class="btn-default btn-transparent-icon-btn"
+                                caption="None" variant="transparent-icon-btn"
+                                on-click="btnStatusNoneClick($event, widget)"></wm-button>
+                            <wm-button name="btnStatusPurple" iconclass="fa fa-diamond"
+                                class="btn-default purple btn-transparent-icon-btn" variant="transparent-icon-btn"
+                                on-click="btnStatusPurpleClick($event, widget)"></wm-button>
+                            <wm-button name="btnStatusTeal" iconclass="fa fa-diamond"
+                                class="btn-default btn-transparent-icon-btn orange" variant="transparent-icon-btn"
+                                on-click="btnStatusTealClick($event, widget)"></wm-button>
+                            <wm-button name="btnStatusOrange" iconclass="fa fa-diamond"
+                                class="btn-default btn-transparent-icon-btn blue" variant="transparent-icon-btn"
+                                on-click="btnStatusOrangeClick($event, widget)"></wm-button>
+                            <wm-button name="btnStatusGreenTeal" iconclass="fa fa-diamond"
+                                class="btn-default btn-transparent-icon-btn blue" variant="transparent-icon-btn"
+                                on-click="btnStatusGreenTealClick($event, widget)"></wm-button>
+                            <wm-button name="btnStatusDarkGreen" iconclass="fa fa-diamond"
+                                class="btn-default btn-transparent-icon-btn blue"
+                                on-click="btnStatusDarkGreenClick($event, widget)"></wm-button>
+                            <wm-button name="btnStatusEdit" iconclass="fa fa-wrench"
+                                class="btn-default btn-transparent-icon-btn" variant="transparent-icon-btn"></wm-button>
+                        </wm-container>
                         <wm-anchor name="ancMoreStatus" caption="More"
                             class="anchor-standard-sm anchor-standard-sm-Arial" iconclass="wi wi-arrow-right-circle"
                             variant="standard-sm-Arial"></wm-anchor>
