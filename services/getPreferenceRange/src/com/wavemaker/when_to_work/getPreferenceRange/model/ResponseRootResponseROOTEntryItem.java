@@ -37,6 +37,9 @@ public class ResponseRootResponseROOTEntryItem {
   @JsonProperty("compression")
   private Integer compression = null;
 
+  @JsonProperty("day")
+  private String day = null;
+
   @JsonProperty("prefs")
   private String prefs = null;
 
@@ -125,6 +128,23 @@ public class ResponseRootResponseROOTEntryItem {
     this.compression = compression;
   }
 
+  public ResponseRootResponseROOTEntryItem day(String day) {
+    this.day = day;
+    return this;
+  }
+
+   /**
+   * Get day
+   * @return day
+  **/
+  public String getDay() {
+    return day;
+  }
+
+  public void setDay(String day) {
+    this.day = day;
+  }
+
   public ResponseRootResponseROOTEntryItem prefs(String prefs) {
     this.prefs = prefs;
     return this;
@@ -157,12 +177,13 @@ public class ResponseRootResponseROOTEntryItem {
         Objects.equals(this.editedBy, Response_RootResponseROOTEntryItem.editedBy) &&
         Objects.equals(this.employeeId, Response_RootResponseROOTEntryItem.employeeId) &&
         Objects.equals(this.compression, Response_RootResponseROOTEntryItem.compression) &&
+        Objects.equals(this.day, Response_RootResponseROOTEntryItem.day) &&
         Objects.equals(this.prefs, Response_RootResponseROOTEntryItem.prefs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, companyId, editedBy, employeeId, compression, prefs);
+    return Objects.hash(date, companyId, editedBy, employeeId, compression, day, prefs);
   }
 
 
@@ -176,6 +197,7 @@ public class ResponseRootResponseROOTEntryItem {
     sb.append("    editedBy: ").append(toIndentedString(editedBy)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
+    sb.append("    day: ").append(toIndentedString(day)).append("\n");
     sb.append("    prefs: ").append(toIndentedString(prefs)).append("\n");
     sb.append("}");
     return sb.toString();
