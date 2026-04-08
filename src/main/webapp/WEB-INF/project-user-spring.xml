@@ -18,20 +18,24 @@ and is an ideal location for end-users to put any code they need.
           class="com.wavemaker.when_to_work.security.LoginServiceTokenSuccessHandler"/>
 
     <!--
-        Injects the LoginService Bearer token into the Authorization header of every
-        proxied outgoing REST API call. The token is read from the current user's
-        SERVER_ONLY WMAuthentication attribute "loginServiceToken".
-    -->
-    <bean id="securityTokenRequestProcessor"
-          class="com.wavemaker.when_to_work.rest.SecurityTokenRequestProcessor"/>
+        Overrides the platform's appDefaultRestRuntimeConfig (defined in project-rest-runtime-config.xml)
+        to inject the SecurityTokenRequestProcessor into the HTTP request processor chain.
+        All 13 REST services reference appDefaultRestRuntimeConfig, so this override ensures
+        the Bearer token Authorization header is applied globally to every outgoing REST API call.
 
-    <!--
-        Override the default RestRuntimeConfig to include the SecurityTokenRequestProcessor
-        in the HTTP request processor chain. Processors are invoked in list order:
-          1. PassDefaultHeadersRequestProcessor  - forwards standard inbound headers
-          2. SecurityTokenRequestProcessor       - injects Authorization: Bearer token
+        This definition is a full replacement of the platform default and therefore preserves
+        all original processors to avoid regressions:
+
+        Request processors (in order):
+          1. PassDefaultHeadersRequestProcessor  - forwards standard inbound headers (incl. X-Requested-With)
+          2. HttpRequestCookieProcessor          - forwards inbound cookies
+          3. SecurityTokenRequestProcessor       - injects Authorization: Bearer <loginServiceToken>
+
+        Response processors (in order):
+          1. HttpResponseCookieProcessor         - handles Set-Cookie from upstream responses
+          2. PrefixHttpResponseHeadersResponseProcessor - prefixes upstream response headers with X-WM-
     -->
-    <bean id="restRuntimeConfig"
+    <bean id="appDefaultRestRuntimeConfig"
           class="com.wavemaker.runtime.rest.processor.RestRuntimeConfig">
         <property name="httpRequestProcessorList">
             <list>
@@ -44,10 +48,35 @@ and is an ideal location for end-users to put any code they need.
                             <value>Accept</value>
                             <value>Accept-Charset</value>
                             <value>Accept-Language</value>
+                            <value>X-Requested-With</value>
                         </list>
                     </property>
                 </bean>
-                <ref bean="securityTokenRequestProcessor"/>
+                <bean class="com.wavemaker.runtime.rest.processor.request.HttpRequestCookieProcessor">
+                    <property name="enabled" value="true"/>
+                </bean>
+                <bean class="com.wavemaker.when_to_work.rest.SecurityTokenRequestProcessor">
+                    <property name="enabled" value="true"/>
+                </bean>
+            </list>
+        </property>
+        <property name="httpResponseProcessorList">
+            <list>
+                <bean class="com.wavemaker.runtime.rest.processor.response.HttpResponseCookieProcessor">
+                    <property name="enabled" value="true"/>
+                    <property name="persistenceStrategy" value="NONE"/>
+                </bean>
+                <bean class="com.wavemaker.runtime.rest.processor.response.PrefixHttpResponseHeadersResponseProcessor">
+                    <property name="enabled" value="true"/>
+                    <property name="headerPrefix" value="X-WM-"/>
+                    <property name="excludeList">
+                        <list>
+                            <value>Content-Disposition</value>
+                            <value>Content-Type</value>
+                            <value>Set-Cookie</value>
+                        </list>
+                    </property>
+                </bean>
             </list>
         </property>
     </bean>

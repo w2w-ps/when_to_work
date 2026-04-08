@@ -13,5 +13,45 @@
     },
     "isList" : false,
     "twoWayBinding" : false
+  },
+  "svMgrUpdateEmpPwd" : {
+    "_id" : "wm-svMgrUpdateEmpPwd-wm.ServiceVariable-1775563225707",
+    "name" : "svMgrUpdateEmpPwd",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "RequestBody.currentUsername",
+      "value" : "bind:Variables.employeeData.dataSet.username",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "RequestBody.newUsername",
+      "value" : "bind:Widgets.newUsernameInput.datavalue",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "RequestBody.newPassword",
+      "value" : "bind:Widgets.newPasswordInput.datavalue",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "RequestBody.confirmPassword",
+      "value" : "bind:Widgets.confirmPasswordInput.datavalue",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "mgrUpdateEmpPwd.RootResponse",
+    "service" : "mgrUpdateEmpPwd",
+    "operation" : "invoke",
+    "operationId" : "mgrUpdateEmpPwd_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Javascript",
+    "onError" : "svMgrUpdateEmpPwdOnError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "mgrUpdateEmpPwd"
   }
 }

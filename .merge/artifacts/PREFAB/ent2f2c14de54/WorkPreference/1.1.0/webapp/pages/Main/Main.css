@@ -1,0 +1,110 @@
+.grid-header-row {
+    border-bottom: 1px solid var(--wm-color-on-tertiary);
+    background: var(--wm-color-white);
+    border-top: 1px solid var(--wm-color-on-tertiary);
+}
+
+.grid-header-day-cell {
+    border-top: 2px solid var(--wm-color-on-tertiary);
+    border-bottom: 2px solid var(--wm-color-on-tertiary);
+}
+
+.grid-day-label-last-cell {
+    border-bottom: 2px solid var(--wm-color-on-tertiary);
+
+}
+
+.grid-hours-scroll {
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex: 1;
+}
+
+.grid-hour-header-cell {
+
+    border-right: 1px solid var(--wm-color-on-tertiary);
+    text-align: center;
+    padding: 4px 0;
+    background: var(--wm-color-white);
+    justify-content: center;
+    min-width: 4.167%;
+    box-sizing: border-box;
+
+}
+
+.grid-day-row {
+    border-bottom: 1px solid var(--wm-color-light-grey);
+}
+
+.grid-day-label-cell {
+    min-width: 6.5% !important;
+    border-right: 2px solid var(--wm-color-on-tertiary);
+    border-left: 2px solid var(--wm-color-on-tertiary);
+    border-bottom: 2px solid var(--wm-color-on-tertiary);
+
+}
+
+.grid-day-label-cell:first-child {
+    width: min-content !important;
+    padding: 4px 0;
+}
+
+
+.grid-hour-cell {
+    border-right: 1px solid var(--wm-coor-mid-grey);
+    border-bottom: 1px solid var(--wm-coor-mid-grey);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 5% !important;
+    box-sizing: border-box;
+}
+
+.slot-btn {
+
+    width: 25% !important;
+    min-height: 36px !important;
+    padding: 0;
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    border: 1px solid var(--wm-color-soft-black) !important;
+
+    box-sizing: border-box;
+}
+
+
+.legend-btn {
+    padding: 8px 16px;
+    border-radius: 0;
+    width: 15%;
+    text-wrap: auto;
+}
+
+.btn-prefer {
+    background-color: var(--wm-color-prefer) !important;
+    color: var(--wm-color-on-tertiary) !important;
+}
+
+.btn-dislike {
+    background-color: var(--wm-color-dislike) !important;
+    color: var(--wm-color-on-tertiary);
+}
+
+.btn-no-preference {
+    background-color: var(--wm-color-white) !important;
+    color: var(--wm-color-on-tertiary);
+}
+
+.btn-cannot-work {
+    background-color: var(--wm-color-cannotwork) !important;
+    color: var(--wm-color-white) !important;
+}
+
+.time-grid-wrapper.read-only-grid,
+.time-grid-wrapper.read-only-grid .slot-btn {
+    cursor: default !important;
+}
