@@ -1,114 +1,218 @@
 <wm-page name="page" pagetitle="Configure By Employee View">
-
     <wm-content name="content">
-        <wm-page-content columnwidth="10" name="pagecontent"> <wm-container name="configPageWrapper" direction="column" gap="16" alignment="top-left" width="fill" height="hug" class="app-container-default" padding="20px">
-
-  <!-- Page Title -->
-  <wm-label name="lblPageTitle" caption="Configure &quot;By Employee&quot; View" class="app-label h2"></wm-label>
-
-  <!-- ===================== SCREEN VIEW SECTION ===================== -->
-  <wm-container name="screenViewSection" direction="column" gap="0" alignment="top-left" width="fill" height="hug" class="container-config-section-panel" variant="config-section-panel">
-
-    <!-- Section Header -->
-    <wm-container name="screenViewHeader" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" class="app-container-default" padding="10px 14px 8px 14px">
-      <wm-label name="lblScreenViewTitle" caption="Screen View" class="app-label h3"></wm-label>
-    </wm-container>
-
-    <!-- Section Body -->
-    <wm-container name="screenViewBody" direction="column" gap="6" alignment="top-left" width="fill" height="hug" class="app-container-default" padding="8px 14px 14px 14px">
-
-      <!-- Show Row: Description, Position, Category -->
-      <wm-container name="screenShowRow" direction="row" gap="16" alignment="middle-left" width="fill" height="hug" class="app-container-default">
-        <wm-label name="lblScreenShow" caption="Show" class="app-label label-label-14-700"></wm-label>
-        <wm-checkbox name="chkScreenShowDescription" type="checkbox" caption="Description" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showDescription" on-change="chkScreenShowDescriptionChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        <wm-checkbox name="chkScreenShowPosition" type="checkbox" caption="Position" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showPosition" on-change="chkScreenShowPositionChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        <wm-checkbox name="chkScreenShowCategory" type="checkbox" caption="Category" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showCategory" on-change="chkScreenShowCategoryChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      </wm-container>
-
-      <!-- Individual checkbox rows -->
-      <wm-checkbox name="chkHideEmployeesNoShifts" type="checkbox" caption="Hide employees with no shifts" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts" on-change="chkHideEmployeesNoShiftsChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowTimeOff" type="checkbox" caption="Show time off" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showTimeOff" on-change="chkShowTimeOffChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowOffOnDays" type="checkbox" caption="Show &quot;OFF&quot; on days with no shifts or time off" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showOffOnDays" on-change="chkShowOffOnDaysChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowUnassignedShifts" type="checkbox" caption="Show unassigned shifts on the schedule" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showUnassignedShifts" on-change="chkShowUnassignedShiftsChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowTotalHours" type="checkbox" caption="Show employee's total hours" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showTotalHours" on-change="chkShowTotalHoursChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowPhoneNumber" type="checkbox" caption="Show employee's phone number" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showPhoneNumber" on-change="chkShowPhoneNumberChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowDateHeaderOnce" type="checkbox" caption="Show the date header once" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showDateHeaderOnce" on-change="chkShowDateHeaderOnceChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkShowNamesOnLeft" type="checkbox" caption="Show names on left (enables drag &amp; drop)" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.showNamesOnLeft" on-change="chkShowNamesOnLeftChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkUseQuickShiftEdit" type="checkbox" caption="Use the Quick Shift Edit and Add boxes" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.useQuickShiftEdit" on-change="chkUseQuickShiftEditChange($event, widget, newVal, oldVal)"></wm-checkbox>
-
-      <!-- Name Format + Font Size Row -->
-      <wm-container name="screenNameFontRow" direction="row" gap="24" alignment="middle-left" width="fill" height="hug" class="app-container-default" padding="6px 0 0 0">
-        <wm-container name="screenNameContainer" direction="row" gap="8" alignment="middle-left" width="hug" height="hug" class="app-container-default">
-          <wm-label name="lblScreenName" caption="Name" class="app-label label-label-14-700"></wm-label>
-          <wm-select name="selScreenNameFormat" dataset="First Last, Last\, First, First" datavalue="bind:App.Variables.employeeViewConfig.dataSet.nameFormat"></wm-select>
-        </wm-container>
-        <wm-container name="screenFontContainer" direction="row" gap="8" alignment="middle-left" width="hug" height="hug" class="app-container-default">
-          <wm-label name="lblScreenFontSize" caption="Font Size" class="app-label label-label-14-700"></wm-label>
-          <wm-select name="selScreenFontSize" dataset="Small, Medium, Large" datavalue="bind:App.Variables.employeeViewConfig.dataSet.fontSize"></wm-select>
-        </wm-container>
-      </wm-container>
-
-    </wm-container>
-  </wm-container>
-
-  <!-- ===================== PRINTOUT SECTION ===================== -->
-  <wm-container name="printoutSection" direction="column" gap="0" alignment="top-left" width="fill" height="hug" class="container-config-section-panel" variant="config-section-panel">
-
-    <!-- Section Header -->
-    <wm-container name="printoutHeader" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" class="app-container-default" padding="10px 14px 8px 14px">
-      <wm-label name="lblPrintoutTitle" caption="Printout" class="app-label h3"></wm-label>
-    </wm-container>
-
-    <!-- Section Body -->
-    <wm-container name="printoutBody" direction="column" gap="6" alignment="top-left" width="fill" height="hug" class="app-container-default" padding="8px 14px 14px 14px">
-
-      <!-- Show Row: Description, Position, Category -->
-      <wm-container name="printShowRow" direction="row" gap="16" alignment="middle-left" width="fill" height="hug" class="app-container-default">
-        <wm-label name="lblPrintShow" caption="Show" class="app-label label-label-14-700"></wm-label>
-        <wm-checkbox name="chkPrintShowDescription" type="checkbox" caption="Description" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowDescription" on-change="chkPrintShowDescriptionChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        <wm-checkbox name="chkPrintShowPosition" type="checkbox" caption="Position" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowPosition" on-change="chkPrintShowPositionChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        <wm-checkbox name="chkPrintShowCategory" type="checkbox" caption="Category" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowCategory" on-change="chkPrintShowCategoryChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      </wm-container>
-
-      <!-- Individual checkbox rows -->
-      <wm-checkbox name="chkPrintHideEmployeesNoShifts" type="checkbox" caption="Hide employees with no shifts" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printHideEmployeesNoShifts" on-change="chkPrintHideEmployeesNoShiftsChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkPrintShowApprovedTimeOff" type="checkbox" caption="Show approved time off on the printout" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowApprovedTimeOff" on-change="chkPrintShowApprovedTimeOffChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkPrintShowOffOnDays" type="checkbox" caption="Show &quot;OFF&quot; on days with no shifts or time off" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowOffOnDays" on-change="chkPrintShowOffOnDaysChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkPrintShowUnassignedShifts" type="checkbox" caption="Show unassigned shifts" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowUnassignedShifts" on-change="chkPrintShowUnassignedShiftsChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkPrintShowTotalHours" type="checkbox" caption="Show employee's total hours" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowTotalHours" on-change="chkPrintShowTotalHoursChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-checkbox name="chkPrintShowPhoneNumber" type="checkbox" caption="Show employee's phone number" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowPhoneNumber" on-change="chkPrintShowPhoneNumberChange($event, widget, newVal, oldVal)"></wm-checkbox>
-      <wm-container name="printDateHeaderContainer" direction="column" gap="2" alignment="top-left" width="fill" height="hug" class="app-container-default">
-        <wm-checkbox name="chkPrintShowDateHeaderOnce" type="checkbox" caption="Show the date header once per page" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowDateHeaderOnce" on-change="chkPrintShowDateHeaderOnceChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        <wm-label name="lblPrintDateHeaderNote" caption="(unchecking may result in better page breaks)" class="app-label text-muted" padding="0 0 0 20px"></wm-label>
-      </wm-container>
-      <wm-container name="printSeparatePageContainer" direction="column" gap="2" alignment="top-left" width="fill" height="hug" class="app-container-default">
-        <wm-checkbox name="chkPrintSeparatePage" type="checkbox" caption="Print each employee on separate page" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printSeparatePage" on-change="chkPrintSeparatePageChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        <wm-container name="printSignatureContainer" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" class="app-container-default" padding="0 0 0 20px">
-          <wm-checkbox name="chkPrintSignatureLine" type="checkbox" caption="Include signature line" class="checkbox-blue-check-8pt" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printSignatureLine" on-change="chkPrintSignatureLineChange($event, widget, newVal, oldVal)"></wm-checkbox>
-        </wm-container>
-      </wm-container>
-
-      <!-- Print Name Format + Font Size Row -->
-      <wm-container name="printNameFontRow" direction="row" gap="24" alignment="middle-left" width="fill" height="hug" class="app-container-default" padding="6px 0 0 0">
-        <wm-container name="printNameContainer" direction="row" gap="8" alignment="middle-left" width="hug" height="hug" class="app-container-default">
-          <wm-label name="lblPrintName" caption="Name" class="app-label label-label-14-700"></wm-label>
-          <wm-select name="selPrintNameFormat" dataset="First Last, Last\, First, First" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printNameFormat"></wm-select>
-        </wm-container>
-        <wm-container name="printFontContainer" direction="row" gap="8" alignment="middle-left" width="hug" height="hug" class="app-container-default">
-          <wm-label name="lblPrintFontSize" caption="Font Size" class="app-label label-label-14-700"></wm-label>
-          <wm-select name="selPrintFontSize" dataset="Small, Medium, Large" datavalue="bind:App.Variables.employeeViewConfig.dataSet.printFontSize"></wm-select>
-        </wm-container>
-      </wm-container>
-
-    </wm-container>
-  </wm-container>
-
-  <!-- ===================== SAVE BUTTON ===================== -->
-  <wm-container name="saveButtonRow" direction="row" gap="8" alignment="middle-center" width="fill" height="hug" class="app-container-default" padding="10px 0">
-    <wm-button name="btnSaveConfig" caption="Save" class="btn-config-save-btn" variant="config-save-btn" on-click="btnSaveConfigClick($event, widget)"></wm-button>
-  </wm-container>
-
-</wm-container></wm-page-content>
+        <wm-page-content columnwidth="10" name="pagecontent">
+            <wm-container name="configPageWrapper" direction="column" gap="16" alignment="top-left" width="fill"
+                height="hug" class="app-container-default margin-auto" padding="20px" variant="default">
+                <!-- Page Title -->
+                <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container20"
+                    class="app-container-default" variant="default">
+                    <wm-label name="lblPageTitle" caption="Configure &quot;By Employee&quot; View"
+                        class="label-label-18-700" variant="label-18-700"></wm-label>
+                </wm-container>
+                <!-- ===================== SCREEN VIEW SECTION ===================== -->
+                <wm-container name="screenViewSection" direction="column" gap="0" alignment="top-left" width="fill"
+                    height="hug" class="container-config-section-panel" variant="config-section-panel">
+                    <!-- Section Header -->
+                    <wm-container name="screenViewHeader" direction="row" gap="8" alignment="middle-left" width="fill"
+                        height="hug" class="app-container-default" padding="10px 14px 8px 14px">
+                        <wm-label name="lblScreenViewTitle" caption="Screen View" class="label-label-20-700"
+                            variant="label-20-700"></wm-label>
+                    </wm-container>
+                    <!-- Section Body -->
+                    <wm-container name="screenViewBody" direction="column" gap="6" alignment="top-left" width="fill"
+                        height="hug" class="app-container-default" padding="8px 14px 14px 14px">
+                        <!-- Show Row: Description, Position, Category -->
+                        <wm-container name="screenShowRow" direction="row" gap="16" alignment="middle-left" width="fill"
+                            height="hug" class="app-container-default">
+                            <wm-label name="lblScreenShow" caption="Show" class="label-label-14-700"
+                                variant="label-14-700"></wm-label>
+                            <wm-checkbox name="chkScreenShowDescription" type="checkbox" caption="Description"
+                                class="checkbox-blue-check-8pt small-checkbox"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                on-change="chkScreenShowDescriptionChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="chkScreenShowPosition" type="checkbox" caption="Position"
+                                class="checkbox-blue-check-8pt small-checkbox"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                on-change="chkScreenShowPositionChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox name="chkScreenShowCategory" type="checkbox" caption="Category"
+                                class="small-checkbox checkbox-blue-check-8pt"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.showCategory"
+                                on-change="chkScreenShowCategoryChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        </wm-container>
+                        <!-- Individual checkbox rows -->
+                        <wm-checkbox name="chkHideEmployeesNoShifts" type="checkbox"
+                            caption="Hide employees with no shifts" class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts"
+                            on-change="chkHideEmployeesNoShiftsChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowTimeOff" type="checkbox" caption="Show time off"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showTimeOff"
+                            on-change="chkShowTimeOffChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowOffOnDays" type="checkbox"
+                            caption="Show &quot;OFF&quot; on days with no shifts or time off"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showOffOnDays"
+                            on-change="chkShowOffOnDaysChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowUnassignedShifts" type="checkbox"
+                            caption="Show unassigned shifts on the schedule"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showUnassignedShifts"
+                            on-change="chkShowUnassignedShiftsChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowTotalHours" type="checkbox" caption="Show employee's total hours"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showTotalHours"
+                            on-change="chkShowTotalHoursChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowPhoneNumber" type="checkbox" caption="Show employee's phone number"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showPhoneNumber"
+                            on-change="chkShowPhoneNumberChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowDateHeaderOnce" type="checkbox" caption="Show the date header once"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showDateHeaderOnce"
+                            on-change="chkShowDateHeaderOnceChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkShowNamesOnLeft" type="checkbox"
+                            caption="Show names on left (enables drag &amp; drop)"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.showNamesOnLeft"
+                            on-change="chkShowNamesOnLeftChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkUseQuickShiftEdit" type="checkbox"
+                            caption="Use the Quick Shift Edit and Add boxes"
+                            class="small-checkbox checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.useQuickShiftEdit"
+                            on-change="chkUseQuickShiftEditChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <!-- Name Format + Font Size Row -->
+                        <wm-container name="screenNameFontRow" direction="row" gap="24" alignment="middle-left"
+                            width="fill" height="hug" class="app-container-default" padding="6px 0 0 0">
+                            <wm-container name="screenNameContainer" direction="row" gap="8" alignment="middle-left"
+                                width="hug" height="hug" class="app-container-default">
+                                <wm-label name="lblScreenName" caption="Name" class="app-label label-label-14-700">
+                                </wm-label>
+                                <wm-select name="selScreenNameFormat" dataset="First Last, Last\, First, First"
+                                    datavalue="bind:App.Variables.employeeViewConfig.dataSet.nameFormat"></wm-select>
+                            </wm-container>
+                            <wm-container name="screenFontContainer" direction="row" gap="8" alignment="middle-left"
+                                width="hug" height="hug" class="app-container-default">
+                                <wm-label name="lblScreenFontSize" caption="Font Size"
+                                    class="app-label label-label-14-700"></wm-label>
+                                <wm-select name="selScreenFontSize" dataset="Small, Medium, Large"
+                                    datavalue="bind:App.Variables.employeeViewConfig.dataSet.fontSize"></wm-select>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+                <!-- ===================== PRINTOUT SECTION ===================== -->
+                <wm-container name="printoutSection" direction="column" gap="0" alignment="top-left" width="fill"
+                    height="hug" class="container-config-section-panel" variant="config-section-panel">
+                    <!-- Section Header -->
+                    <wm-container name="printoutHeader" direction="row" gap="8" alignment="middle-left" width="fill"
+                        height="hug" class="app-container-default" padding="10px 14px 8px 14px">
+                        <wm-label name="lblPrintoutTitle" caption="Printout" class="app-label h3"></wm-label>
+                    </wm-container>
+                    <!-- Section Body -->
+                    <wm-container name="printoutBody" direction="column" gap="6" alignment="top-left" width="fill"
+                        height="hug" class="app-container-default" padding="8px 14px 14px 14px">
+                        <!-- Show Row: Description, Position, Category -->
+                        <wm-container name="printShowRow" direction="row" gap="16" alignment="middle-left" width="fill"
+                            height="hug" class="app-container-default">
+                            <wm-label name="lblPrintShow" caption="Show" class="app-label label-label-14-700">
+                            </wm-label>
+                            <wm-checkbox name="chkPrintShowDescription" type="checkbox" caption="Description"
+                                class="checkbox-blue-check-8pt"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowDescription"
+                                on-change="chkPrintShowDescriptionChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox name="chkPrintShowPosition" type="checkbox" caption="Position"
+                                class="checkbox-blue-check-8pt"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowPosition"
+                                on-change="chkPrintShowPositionChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox name="chkPrintShowCategory" type="checkbox" caption="Category"
+                                class="checkbox-blue-check-8pt"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowCategory"
+                                on-change="chkPrintShowCategoryChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        </wm-container>
+                        <!-- Individual checkbox rows -->
+                        <wm-checkbox name="chkPrintHideEmployeesNoShifts" type="checkbox"
+                            caption="Hide employees with no shifts" class="checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.printHideEmployeesNoShifts"
+                            on-change="chkPrintHideEmployeesNoShiftsChange($event, widget, newVal, oldVal)">
+                        </wm-checkbox>
+                        <wm-checkbox name="chkPrintShowApprovedTimeOff" type="checkbox"
+                            caption="Show approved time off on the printout" class="checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowApprovedTimeOff"
+                            on-change="chkPrintShowApprovedTimeOffChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkPrintShowOffOnDays" type="checkbox"
+                            caption="Show &quot;OFF&quot; on days with no shifts or time off"
+                            class="checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowOffOnDays"
+                            on-change="chkPrintShowOffOnDaysChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkPrintShowUnassignedShifts" type="checkbox"
+                            caption="Show unassigned shifts" class="checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowUnassignedShifts"
+                            on-change="chkPrintShowUnassignedShiftsChange($event, widget, newVal, oldVal)">
+                        </wm-checkbox>
+                        <wm-checkbox name="chkPrintShowTotalHours" type="checkbox" caption="Show employee's total hours"
+                            class="checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowTotalHours"
+                            on-change="chkPrintShowTotalHoursChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-checkbox name="chkPrintShowPhoneNumber" type="checkbox"
+                            caption="Show employee's phone number" class="checkbox-blue-check-8pt"
+                            datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowPhoneNumber"
+                            on-change="chkPrintShowPhoneNumberChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-container name="printDateHeaderContainer" direction="column" gap="2" alignment="top-left"
+                            width="fill" height="hug" class="app-container-default">
+                            <wm-checkbox name="chkPrintShowDateHeaderOnce" type="checkbox"
+                                caption="Show the date header once per page" class="checkbox-blue-check-8pt"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.printShowDateHeaderOnce"
+                                on-change="chkPrintShowDateHeaderOnceChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-label name="lblPrintDateHeaderNote"
+                                caption="(unchecking may result in better page breaks)" class="app-label text-muted"
+                                padding="0 0 0 20px"></wm-label>
+                        </wm-container>
+                        <wm-container name="printSeparatePageContainer" direction="column" gap="2" alignment="top-left"
+                            width="fill" height="hug" class="app-container-default">
+                            <wm-checkbox name="chkPrintSeparatePage" type="checkbox"
+                                caption="Print each employee on separate page" class="checkbox-blue-check-8pt"
+                                datavalue="bind:App.Variables.employeeViewConfig.dataSet.printSeparatePage"
+                                on-change="chkPrintSeparatePageChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-container name="printSignatureContainer" direction="row" gap="8" alignment="middle-left"
+                                width="fill" height="hug" class="app-container-default" padding="0 0 0 20px">
+                                <wm-checkbox name="chkPrintSignatureLine" type="checkbox"
+                                    caption="Include signature line" class="checkbox-blue-check-8pt"
+                                    datavalue="bind:App.Variables.employeeViewConfig.dataSet.printSignatureLine"
+                                    on-change="chkPrintSignatureLineChange($event, widget, newVal, oldVal)">
+                                </wm-checkbox>
+                            </wm-container>
+                        </wm-container>
+                        <!-- Print Name Format + Font Size Row -->
+                        <wm-container name="printNameFontRow" direction="row" gap="24" alignment="middle-left"
+                            width="fill" height="hug" class="app-container-default" padding="6px 0 0 0">
+                            <wm-container name="printNameContainer" direction="row" gap="8" alignment="middle-left"
+                                width="hug" height="hug" class="app-container-default">
+                                <wm-label name="lblPrintName" caption="Name" class="app-label label-label-14-700">
+                                </wm-label>
+                                <wm-select name="selPrintNameFormat" dataset="First Last, Last\, First, First"
+                                    datavalue="bind:App.Variables.employeeViewConfig.dataSet.printNameFormat">
+                                </wm-select>
+                            </wm-container>
+                            <wm-container name="printFontContainer" direction="row" gap="8" alignment="middle-left"
+                                width="hug" height="hug" class="app-container-default">
+                                <wm-label name="lblPrintFontSize" caption="Font Size"
+                                    class="app-label label-label-14-700"></wm-label>
+                                <wm-select name="selPrintFontSize" dataset="Small, Medium, Large"
+                                    datavalue="bind:App.Variables.employeeViewConfig.dataSet.printFontSize"></wm-select>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+                <!-- ===================== SAVE BUTTON ===================== -->
+                <wm-container name="saveButtonRow" direction="row" gap="8" alignment="middle-center" width="fill"
+                    height="hug" class="app-container-default" padding="10px 0">
+                    <wm-button name="btnSaveConfig" caption="Save" class="btn-config-save-btn" variant="config-save-btn"
+                        on-click="btnSaveConfigClick($event, widget)"></wm-button>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
     </wm-content>
     <wm-footer content="footer" name="footer"></wm-footer>
 </wm-page>
