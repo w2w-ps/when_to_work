@@ -11,16 +11,20 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    /*
-     * variables can be accessed through 'Page.Variables' property here
-     * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
-     * Page.Variables.loggedInUser.getData()
-     *
-     * widgets can be accessed through 'Page.Widgets' property here
-     * e.g. to get value of text widget named 'username' use following script
-     * 'Page.Widgets.username.datavalue'
-     */
-    Page.isFromDraggable = false;
+    Page.selectedEmployee;
+    Page.selectedDay;
+    Page.isAdd = true;
+    Page.dragState = null; // drag-and-drop state holder
+    Page._dragDropInsertPayload = null;
+    Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
+
+    Page.loadEmployeeViewConfig();
+    window.addEventListener('message', function (event) {
+        if (event.data && event.data.type === 'employeeViewConfigUpdated') {
+            Page.loadEmployeeViewConfig();
+            Page.Variables.svScheduleList.invoke();
+        }
+    });
 };
 
 Page.formatWeekLabel = function (startDate, endDate) {
@@ -125,6 +129,16 @@ Page.transformScheduleData = function (apiResponse) {
 
 Page.scheduleQueryVaronSuccess = function (variable, data) {
     var transformedData = Page.transformScheduleData(data);
+
+    // Filter out employees with no shifts when hideEmployeesNoShifts is enabled
+    if (App.Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts) {
+        transformedData = transformedData.filter(function (emp) {
+            return emp.weeklyShifts && emp.weeklyShifts.some(function (day) {
+                return day.shifts && day.shifts.length > 0;
+            });
+        });
+    }
+
     Page.Variables.transformedScheduleVar.setData(transformedData);
 };
 
@@ -133,13 +147,92 @@ Page.scheduleQueryVaronError = function (variable, data) {
     Page.Variables.transformedScheduleVar.setData([]);
 };
 
-Page.onReady = function () {
-    Page.selectedEmployee;
-    Page.selectedDay;
-    Page.isAdd = true;
-    Page.dragState = null; // drag-and-drop state holder
-    Page._dragDropInsertPayload = null;
-    Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
+/**
+ * Reads employeeViewConfig from localStorage, syncs the App variable,
+ * then applies show/hide to all corresponding EmployeeView widgets.
+ */
+Page.loadEmployeeViewConfig = function () {
+    var stored = localStorage.getItem('employeeViewConfig');
+    if (stored) {
+        try {
+            var config = JSON.parse(stored);
+            App.Variables.employeeViewConfig.setData(config);
+            Page.applyConfigToView(config);
+        } catch (e) {
+            console.warn('Could not parse employeeViewConfig from localStorage:', e);
+            Page.applyConfigToView(App.Variables.employeeViewConfig.dataSet);
+        }
+    } else {
+        // No stored config — use App variable defaults and persist them
+        localStorage.setItem('employeeViewConfig', JSON.stringify(App.Variables.employeeViewConfig.dataSet));
+        Page.applyConfigToView(App.Variables.employeeViewConfig.dataSet);
+    }
+};
+
+/**
+ * Applies show/hide visibility to EmployeeView widgets based on the config object.
+ * Defaults to true (visible) for any key that is missing or undefined.
+ *
+ * Config key → Widget(s) mapping:
+ *   showDescription      → lblMondayItemShift, lblTuesdayItemShift, lblWednesdayItemShift,
+ *                          lblThursdayItemShift, lblFridayItemShift, lblSaturdayItemShift, lblSundayItemShift
+ *   showPosition         → lblMondayItemNotes, lblTuesdayItemNotes, lblWednesdayItemNotes,
+ *                          lblThursdayItemNotes, lblFridayItemNotes, lblSaturdayItemNotes, lblSundayItemNotes
+ *   showTotalHours       → label67_1
+ *   showPhoneNumber      → scheduleListList2
+ *   showDateHeaderOnce   → dayHeadersContainer
+ *   showNamesOnLeft      → employeeNameCell
+ */
+Page.applyConfigToView = function (config) {
+    var cfg = config || {};
+
+    function val(key, defaultVal) {
+        return cfg.hasOwnProperty(key) ? cfg[key] : (defaultVal !== undefined ? defaultVal : true);
+    }
+
+    // showDescription: shift name/description labels inside each day's shift list
+    var showDesc = val('showDescription', true);
+    ['lblMondayItemShift', 'lblTuesdayItemShift', 'lblWednesdayItemShift',
+        'lblThursdayItemShift', 'lblFridayItemShift', 'lblSaturdayItemShift', 'lblSundayItemShift'
+    ].forEach(function (widgetName) {
+        if (Page.Widgets[widgetName]) {
+            Page.Widgets[widgetName].show = showDesc;
+        }
+    });
+
+    // showPosition: shift notes labels (used to display position/notes) inside each day's shift list
+    var showPos = val('showPosition', true);
+    ['lblMondayItemNotes', 'lblTuesdayItemNotes', 'lblWednesdayItemNotes',
+        'lblThursdayItemNotes', 'lblFridayItemNotes', 'lblSaturdayItemNotes', 'lblSundayItemNotes'
+    ].forEach(function (widgetName) {
+        if (Page.Widgets[widgetName]) {
+            Page.Widgets[widgetName].show = showPos;
+        }
+    });
+
+    // showTotalHours: total hours label inside each employee row
+    var showTotalHours = val('showTotalHours', true);
+    if (Page.Widgets.label67_1) {
+        Page.Widgets.label67_1.show = showTotalHours;
+    }
+
+    // showPhoneNumber: phone number list inside each employee cell
+    var showPhone = val('showPhoneNumber', false);
+    if (Page.Widgets.scheduleListList2) {
+        Page.Widgets.scheduleListList2.show = showPhone;
+    }
+
+    // showDateHeaderOnce: the day-headers row at the top of the schedule grid
+    var showDateHeader = val('showDateHeaderOnce', true);
+    if (Page.Widgets.dayHeadersContainer) {
+        Page.Widgets.dayHeadersContainer.show = showDateHeader;
+    }
+
+    // showNamesOnLeft: the employee name cell column
+    var showNames = val('showNamesOnLeft', true);
+    if (Page.Widgets.employeeNameCell) {
+        Page.Widgets.employeeNameCell.show = showNames;
+    }
 };
 
 /**
@@ -273,7 +366,9 @@ Page.chkClearAllChange = function ($event, widget, newVal, oldVal) {
 };
 
 /**
- * Helper function to open dialog and set employee/day context
+ * Helper function to open dialog and set employee/day context.
+ * shiftDialog.open() is guarded by useQuickShiftEdit config flag.
+ * The dialog only opens when useQuickShiftEdit is true.
  */
 Page.openDialogForDay = function (item, dayName, dayIndex) {
     Page.selectedEmployee = item;
@@ -289,7 +384,9 @@ Page.openDialogForDay = function (item, dayName, dayIndex) {
     Page.selectedShiftDate = shiftDate;
     Page.formattedShiftDate = formattedDate;
 
-    Page.Widgets.shiftDialog.open();
+    if (App.Variables.employeeViewConfig.dataSet.useQuickShiftEdit) {
+        Page.Widgets.shiftDialog.open();
+    }
 };
 
 /**
@@ -1578,3 +1675,13 @@ function formatToStandardTime(input) {
 
     return `${formattedHours}:${minutes}${period}`;
 }
+
+/**
+ * Opens the ConfigureByEmployeeView page as a browser pop-up window.
+ * Uses window.open() with specific dimensions and position to present
+ * it as a focused pop-up rather than a new full tab.
+ */
+Page.anchor9Click = function ($event, widget) {
+    var url = window.location.href.split('#')[0] + '#/ConfigureByEmployeeView';
+    window.open(url, 'ConfigureByEmployeeView', 'width=900,height=600,left=100,top=100');
+};

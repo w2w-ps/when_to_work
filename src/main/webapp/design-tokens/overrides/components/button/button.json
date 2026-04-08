@@ -2492,6 +2492,10 @@
         },
         "set-photo-btn" : {
           "source" : "user"
+        },
+        "config-save-btn" : {
+          "source" : "aira",
+          "description" : "Save button for configure section"
         }
       }
     }
