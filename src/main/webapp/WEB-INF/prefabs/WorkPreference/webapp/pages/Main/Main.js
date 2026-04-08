@@ -210,9 +210,20 @@ Prefab.refreshWeekData = function () {
 
         Prefab.applySlotColors();
 
+        // ✅ hide extra rows if single-day payload
+        var ds = Prefab._getWeekData();
+
+        if (ds && ds.length === 1) {
+
+            Prefab._selectedDate = ds[0].date;
+
+            setTimeout(function () {
+                Prefab.showSingleDay();
+            }, 10);
+        }
+
     });
 };
-
 
 /* =========================================================
 PROPERTY CHANGE HANDLER (ROUTER SAFE)
@@ -233,6 +244,16 @@ Prefab.onPropertyChange = function (key, newVal) {
 
             expanded =
                 Prefab.expandCompressedPrefs(newVal);
+
+            // ✅ detect single-day payload (96 chars)
+            if (newVal.prefs.length === 96) {
+
+                Prefab._selectedDate = newVal.startDate;
+
+                setTimeout(function () {
+                    Prefab.showSingleDay();
+                }, 20);
+            }
         }
 
         else if (Array.isArray(newVal)) {
@@ -258,23 +279,49 @@ CLICK HANDLER
 ========================================================= */
 
 Prefab.slotAreaClick = function ($event) {
-
-    if (Prefab.restrictedit)
-        return;
+    debugger;
 
     var el = $event.target.closest("[data-day]");
 
-    if (!el)
-        return;
+    if (!el) return;
 
-    Prefab.updateSlot(
-        parseInt(el.dataset.day),
-        parseInt(el.dataset.hour),
-        parseInt(el.dataset.slot),
-        Prefab._dragSelectedPreference
-    );
+    const selectedDay = parseInt(el.dataset.day);
+    const selectedHour = parseInt(el.dataset.hour);
+    const selectedSlot = parseInt(el.dataset.slot);
+
+    const selectedPreference = "prefer";
+
+    // update slot if editing allowed
+    if (!Prefab.restrictedit) {
+        Prefab.updateSlot(
+            selectedDay,
+            selectedHour,
+            selectedSlot,
+            selectedPreference
+        );
+    }
+
+    // ✅ get dataset correctly
+    var ds = Prefab._getWeekData();
+
+    if (!ds || !ds[selectedDay]) return;
+
+    // ✅ extract already-maintained 96-char string
+    var prefs = ds[selectedDay].prefs || "N".repeat(96);
+
+    // ✅ extract correct date
+    var selectedDate = ds[selectedDay].date;
+
+    // ✅ send correct payload
+    if (Prefab.onClick) {
+
+        Prefab.onClick({
+            startDate: selectedDate,
+            prefs: prefs
+        });
+
+    }
 };
-
 
 /* =========================================================
 DRAG SUPPORT
