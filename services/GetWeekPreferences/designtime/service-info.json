@@ -1,0 +1,6 @@
+{
+  "id" : "GetWeekPreferences",
+  "type" : "RestService",
+  "title" : "GetWeekPreferences",
+  "mockEnabled" : false
+}
