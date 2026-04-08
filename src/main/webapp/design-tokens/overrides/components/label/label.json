@@ -195,7 +195,7 @@
             "value" : "8pt"
           },
           "font-weight" : {
-            "value" : "{font.weight.600.value}"
+            "value" : "{font.weight.700.value}"
           },
           "line-height" : {
             "value" : "16px"

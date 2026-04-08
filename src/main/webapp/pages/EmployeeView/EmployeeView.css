@@ -491,3 +491,13 @@ textarea {
     justify-content: center;
     z-index: 999;
 }
+
+.simple-list {
+    box-shadow: none;
+    min-height: auto;
+    background-color: transparent;
+}
+
+.simple-list ul {
+    padding: 4px 8px 6px !important;
+}
