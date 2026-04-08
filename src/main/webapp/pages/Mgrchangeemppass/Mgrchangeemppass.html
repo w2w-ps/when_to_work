@@ -35,7 +35,7 @@
 <wm-text name="confirmPasswordInput" type="password" datavalue="bind:Variables.employeeData.dataSet.confirmPassword" width="60%"></wm-text></wm-container></wm-container>
 <!-- Save Button -->
 <wm-container name="saveButtonContainer" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug">
-<wm-button name="saveBtn" caption="Save" class="btn-outlined-primary" variant="outlined-primary"></wm-button></wm-container>
+<wm-button name="saveBtn" caption="Save" class="btn-outlined-primary" variant="outlined-primary" on-click="Variables.svMgrUpdateEmpPwd.invoke()"></wm-button></wm-container>
 <!-- Information Section -->
 <wm-container name="infoSection" class="container-grey-container" direction="column" gap="12" alignment="top-left" width="fill" height="hug" variant="grey-container">
 <wm-label name="infoHeading" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>

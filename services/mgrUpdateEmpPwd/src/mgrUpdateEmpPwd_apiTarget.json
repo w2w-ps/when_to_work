@@ -1,0 +1,111 @@
+{
+  "basePath" : "${rest.mgrUpdateEmpPwd.basepath}",
+  "paths" : {
+    "/login/reset-user-account" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "mgrUpdateEmpPwd_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "mgrUpdateEmpPwd" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/login/reset-user-account",
+      "x-WM-TAG" : "mgrUpdateEmpPwd",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.mgrUpdateEmpPwd.scheme}://${rest.mgrUpdateEmpPwd.host}${rest.mgrUpdateEmpPwd.basepath}/login/reset-user-account"
+    }
+  },
+  "host" : "${rest.mgrUpdateEmpPwd.host}",
+  "schemes" : [ "${rest.mgrUpdateEmpPwd.scheme}" ],
+  "definitions" : {
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "mgrUpdateEmpPwd.RootRequest",
+      "x-WM-TAGS" : [ "mgrUpdateEmpPwd" ],
+      "required" : [ "confirmPassword", "currentUsername", "newPassword", "newUsername" ],
+      "properties" : {
+        "currentUsername" : {
+          "type" : "string"
+        },
+        "newUsername" : {
+          "type" : "string"
+        },
+        "newPassword" : {
+          "type" : "string"
+        },
+        "confirmPassword" : {
+          "type" : "string"
+        }
+      }
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "mgrUpdateEmpPwd.java.lang.Object",
+      "x-WM-TAGS" : [ "mgrUpdateEmpPwd" ]
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "mgrUpdateEmpPwd.RootResponse",
+      "x-WM-TAGS" : [ "mgrUpdateEmpPwd" ],
+      "required" : [ "errors", "isValid", "message" ],
+      "properties" : {
+        "isValid" : {
+          "type" : "boolean"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "errors" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "c6e5b371-d0b0-4d7a-a541-8c3d3ab069c3",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "mgrUpdateEmpPwd"
+  } ]
+}

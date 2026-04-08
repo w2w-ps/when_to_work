@@ -15,3 +15,24 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+
+Page.svMgrUpdateEmpPwdonSuccess = function (variable, data) {
+    debugger
+    if (data.isValid === true) {
+        App.Actions.appNotification.invoke({
+            message: data.message,
+            position: "bottom right",
+            class: "success",
+            duration: 3000
+        });
+    } else {
+        var errorMsg = data.message || (data.errors && data.errors.length ? data.errors[0].message || data.errors[0] : "Failed to update password. Please try again.");
+        App.Actions.appNotification.invoke({
+            message: errorMsg,
+            position: "bottom right",
+            class: "error",
+            duration: 5000
+        });
+    }
+
+};

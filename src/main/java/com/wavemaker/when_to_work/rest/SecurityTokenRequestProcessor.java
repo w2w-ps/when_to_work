@@ -65,6 +65,9 @@ public class SecurityTokenRequestProcessor extends AbstractHttpRequestProcessor 
 
         HttpHeaders httpHeaders = context.getHttpRequestData().getHttpHeaders();
         httpHeaders.set(HttpHeaders.AUTHORIZATION, "Bearer " + token);
+        logger.info("SecurityTokenRequestProcessor: Authorization header for user '{}': {}",
+        wmAuth.getPrincipal(),
+        httpHeaders.getFirst(HttpHeaders.AUTHORIZATION));
 
         logger.debug("SecurityTokenRequestProcessor: Injected Authorization header for user '{}'.",
                 wmAuth.getPrincipal());
