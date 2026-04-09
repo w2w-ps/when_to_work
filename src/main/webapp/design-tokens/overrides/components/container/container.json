@@ -435,6 +435,10 @@
         },
         "warning-standard-no-radius" : {
           "source" : "user"
+        },
+        "config-section-panel" : {
+          "source" : "aira",
+          "description" : "Light blue-gray panel card for configure section"
         }
       }
     }

@@ -1,1 +1,9 @@
-{ }
+{
+  "configSavedNotification" : {
+    "_id" : "wm-configSavedNotification-wm.NotificationAction-1775470967757",
+    "name" : "configSavedNotification",
+    "owner" : "Page",
+    "category" : "wm.NotificationAction",
+    "operation" : "toast"
+  }
+}

@@ -15,3 +15,36 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+
+Page.svUpdateEmpPwdOnSuccess = function (variable, data) {
+    if (data.isValid === false) {
+        App.Actions.appNotification.invoke({
+            message: (data.errors && data.errors[0]) || 'Validation failed.',
+            position: 'bottom right',
+            class: 'error',
+            duration: 4000
+        });
+    } else {
+        App.Actions.appNotification.invoke({
+            message: data.message || 'Password updated successfully',
+            position: 'bottom right',
+            class: 'success',
+            duration: 4000
+        });
+        Page.Widgets.currentPassword.datavalue = '';
+        Page.Widgets.newPassword.datavalue = '';
+        Page.Widgets.confirmPassword.datavalue = '';
+    }
+};
+
+Page.svUpdateEmpPwdOnError = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: data.error || data.message || (data.errors && data.errors[0]) || 'Failed to update password. Please try again.',
+        position: 'bottom right',
+        class: 'error',
+        duration: 4000
+    });
+};
+
+Page.newSectionHeaderClick = function ($event, widget) {
+};

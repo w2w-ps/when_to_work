@@ -15,3 +15,15 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+Page.navMenuBtnClick = function ($event, widget, item, currentItemWidgets) {
+
+    switch (item.dataValue) {
+        case 'EMPLOYEES':
+            App.Actions.goToPage_Mgremplist.invoke();
+            break;
+        case 'SCHEDULES':
+            App.Actions.goToPage_EmployeeView.invoke();
+            break;
+    }
+
+};
