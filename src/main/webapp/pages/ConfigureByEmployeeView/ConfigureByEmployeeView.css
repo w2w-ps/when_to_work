@@ -1,6 +1,9 @@
-.container-config-section-panel {
-    background: #E8EBF3;
-    border: 1px solid #C8CEDC;
-    border-radius: 4px;
-    overflow: hidden;
+.small-checkbox .caption {
+    padding-left: 32px !important;
+}
+
+.small-checkbox .caption:after {
+    top: 4px !important;
+    left: 12px !important;
+    width: 7px !important;
 }

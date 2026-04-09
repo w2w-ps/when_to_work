@@ -1,0 +1,44 @@
+{
+  "progress-bar" : {
+    "appearances" : {
+      "password-danger" : {
+        "mapping" : {
+          "height" : {
+            "value" : "3px"
+          },
+          "radius" : {
+            "value" : "{radius.none.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "transition" : {
+            "time" : {
+              "value" : "0.5s"
+            }
+          },
+          "stroke" : {
+            "active" : {
+              "value" : "{color.error.@.value}"
+            },
+            "inactive" : {
+              "value" : "{color.error.@.value}"
+            }
+          },
+          "label" : {
+            "color" : {
+              "value" : "{color.on-error.@.value}"
+            }
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "password-danger" : {
+          "source" : "user"
+        }
+      }
+    }
+  }
+}
