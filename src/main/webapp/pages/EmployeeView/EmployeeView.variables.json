@@ -481,6 +481,7 @@
     "isList" : true,
     "maxResults" : 20,
     "onBeforeUpdate" : "svScheduleListonBeforeServiceCall(variable, inputData)",
+    "onSuccess" : "storeUnfilteredScheduleData()",
     "startUpdate" : false,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",
