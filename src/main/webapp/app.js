@@ -58,50 +58,18 @@ App.loginActionOnSuccess = function (variable, data) {
     App.Variables.loginErrorVisible.dataSet.dataValue = false;
 };
 
-// const PREF_MAP = {
-//     "no-preference": "N",
-//     "prefer": "P",
-//     "dislike": "D",
-//     "cannot-work": "C"
-// };
+App.onBeforeServiceCall = function (requestParams) {
 
-// function convertWeekToApi(data, companyId, employeeId, editedBy, startDate) {
-//     const result = [];
+    const isValidService = requestParams.url.includes("././services/") && 
+                      requestParams.url !== "./services/security/info" && 
+                      requestParams.url !== "././services/servicedefs";
 
-//     function getDate(baseDate, offset) {
-//         const d = new Date(baseDate);
-//         d.setDate(d.getDate() + offset);
-//         return d.toISOString().split('T')[0];
-//     }
+    if (isValidService) {
 
-//     Object.keys(data).forEach(key => {
-//         if (isNaN(key)) return; // skip week metadata
+        debugger
+        requestParams.headers.set('Authorization', 'Bearer ' + App.Variables.loggedInUser.dataSet.userAttributes.loginServiceToken);
 
-//         const day = data[key];
-
-//         let prefs = "";
-
-//         day.hours.forEach(hour => {
-//             hour.slots.forEach(slot => {
-//                 prefs += PREF_MAP[slot.preference] || "N";
-//             });
-//         });
-
-//         // ✅ Ensure 96 length
-//         if (prefs.length !== 96) {
-//             console.error(`Invalid prefs length for day ${key}:`, prefs.length);
-//         }
-
-//         result.push({
-//             companyId: companyId,
-//             employeeId: employeeId,
-//             date: day.date || getDate(startDate, Number(key)),
-//             prefs: prefs,
-//             compression: 0,
-//             editedBy: editedBy
-//         });
-//     });
-
-//     return result;
-// }
+    }
+    return requestParams;
+};
 
