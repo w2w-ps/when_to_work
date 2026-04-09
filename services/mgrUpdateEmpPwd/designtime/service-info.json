@@ -1,0 +1,6 @@
+{
+  "id" : "mgrUpdateEmpPwd",
+  "type" : "RestService",
+  "title" : "mgrUpdateEmpPwd",
+  "mockEnabled" : false
+}
