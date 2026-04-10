@@ -8,13 +8,26 @@
                 <wm-label name="lblPageTitle" caption="Info &amp; Settings" class="label-label-20-700"
                     variant="label-20-700"></wm-label>
             </wm-container>
-            <wm-tabs type="static" statehandler="URL" name="tabs1" variant="standard">
+            <wm-tabs type="static" statehandler="URL" name="tabs1" variant="standard" autotabactivation="true">
                 <wm-tabpane title="Info" name="tabpane1"></wm-tabpane>
                 <wm-tabpane title="My Notices" name="tabpane2"></wm-tabpane>
                 <wm-tabpane title="Permissions" name="tabpane3"></wm-tabpane>
                 <wm-tabpane title="Managers" name="tabpane1">
                     <wm-container direction="column" alignment="middle-center" gap="10" width="fill" name="container16"
                         class="app-container-default" variant="default" wrap="false">
+                        <wm-container direction="column" alignment="top-left" gap="4" width="60%" name="container32"
+                            class="container-grey-standard" variant="grey-standard" clipcontent="false"
+                            overflow="No scrolling" wrap="false">
+                            <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container33"
+                                class="app-container-default" variant="default">
+                                <wm-label caption="Main Manager" class="label-label-20-700" variant="label-20-700"
+                                    name="label35"></wm-label>
+                                <wm-anchor margin="unset 0.5em" variant="standard" caption="Change Main Manager"
+                                    name="anchor3" iconclass="wi wi-mode-edit"></wm-anchor>
+                            </wm-container>
+                            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container34_2"
+                                class="app-container-default" variant="default"></wm-container>
+                        </wm-container>
                         <wm-container direction="column" alignment="top-left" gap="16" width="60%" height="hug"
                             name="container1" class="app-container-default container-warning-with-black-border"
                             variant="warning-with-black-border" padding="10px" clipcontent="false"
@@ -36,14 +49,18 @@
                                 </wm-container>
                             </wm-container>
                             <!-- Input Fields Row -->
-                            <wm-container direction="row" alignment="top-left" gap="8" width="fill" height="hug"
-                                name="inputFieldsContainer" class="app-container-default" variant="default">
-                                <wm-text name="firstNameInput" placeholder="First Name" class="form-control app-textbox"
-                                    variant="standard"></wm-text>
-                                <wm-text name="lastNameInput" placeholder="Last Name" class="form-control app-textbox"
-                                    variant="standard"></wm-text>
-                                <wm-text name="emailInput" placeholder="Email" class="form-control app-textbox"
-                                    variant="standard"></wm-text>
+                            <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
+                                name="container28" class="app-container-default" variant="default">
+                                <wm-container direction="row" alignment="middle-center" gap="8" width="hug" height="hug"
+                                    name="inputFieldsContainer" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="No scrolling">
+                                    <wm-text name="firstNameInput" placeholder="First Name"
+                                        class="form-control app-textbox" variant="standard"></wm-text>
+                                    <wm-text name="lastNameInput" placeholder="Last Name"
+                                        class="form-control app-textbox" variant="standard"></wm-text>
+                                    <wm-text name="emailInput" placeholder="Email" class="form-control app-textbox"
+                                        variant="standard"></wm-text>
+                                </wm-container>
                             </wm-container>
                             <!-- Permissions Section -->
                             <wm-container direction="column" alignment="top-left" gap="8" width="fill" height="hug"
@@ -70,11 +87,11 @@
                                     <wm-container direction="column" alignment="top-left" gap="4" width="48%"
                                         height="hug" name="schedulesColumn" class="app-container-default"
                                         variant="default">
-                                        <wm-label name="schedulesLabel" caption="Schedules"
-                                            class="text-muted label-label-bold-20" variant="label-bold-20"></wm-label>
+                                        <wm-label name="schedulesLabel" caption="Schedules" class="text-muted"
+                                            variant="text:muted"></wm-label>
                                         <wm-checkbox name="addShiftsCheckbox" caption="Add Shifts" type="checkbox"
                                             on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"
-                                            class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                            class="checkbox-blue-check-14 " variant="blue-check-14"></wm-checkbox>
                                         <wm-checkbox name="importTemplatesCheckbox" caption="Import Templates"
                                             type="checkbox"
                                             on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"
@@ -119,8 +136,8 @@
                                         <wm-container direction="column" alignment="top-left" gap="4" width="fill"
                                             height="hug" name="employeesColumn" class="app-container-default"
                                             variant="default">
-                                            <wm-label name="employeesLabel" caption="Employees"
-                                                class="text-muted text-primary" variant="text:primary"></wm-label>
+                                            <wm-label name="employeesLabel" caption="Employees" class="text-muted"
+                                                variant="text:muted"></wm-label>
                                             <wm-checkbox name="addEmployeesCheckbox" caption="Add New / Restore Deleted"
                                                 type="checkbox"
                                                 on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"
@@ -198,25 +215,30 @@
                                 class="app-container-default" wrap="false" name="container35_1" variant="default">
                                 <wm-label caption="Add Tech User" class="h3 label-label-20-700" name="label21"
                                     variant="label-20-700"></wm-label>
-                                <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug"
-                                    class="app-container-default" clipcontent="false" overflow="No scrolling"
-                                    name="container36" variant="default">
+                                <wm-container direction="row" alignment="middle-right" gap="20" width="fill"
+                                    height="hug" class="app-container-default" clipcontent="false"
+                                    overflow="No scrolling" name="container36" variant="default">
                                     <wm-checkbox caption="Email new manager sign in instructions" type="checkbox"
-                                        name="checkbox45" variant="standard"></wm-checkbox>
+                                        name="checkbox45" variant="blue-check-8pt" class="checkbox-blue-check-8pt">
+                                    </wm-checkbox>
                                     <wm-button caption="Add New" variant="outlined-primary"
                                         on-click="handleAddManagerClick($event, widget)" name="button3"
                                         class="btn-outlined-primary"></wm-button>
                                 </wm-container>
                             </wm-container>
                             <!-- Input Fields Row -->
-                            <wm-container direction="row" alignment="top-left" gap="8" width="fill" height="hug"
-                                class="app-container-default" name="container37" variant="default">
-                                <wm-text placeholder="First Name" name="text7" class="form-control app-textbox"
-                                    variant="standard"></wm-text>
-                                <wm-text placeholder="Last Name" name="text8" class="form-control app-textbox"
-                                    variant="standard"></wm-text>
-                                <wm-text placeholder="Email" name="text9" class="form-control app-textbox"
-                                    variant="standard"></wm-text>
+                            <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
+                                name="container30" class="app-container-default" variant="default">
+                                <wm-container direction="row" alignment="middle-center" gap="8" width="hug" height="hug"
+                                    class="app-container-default" name="container37" variant="default"
+                                    clipcontent="false" overflow="No scrolling">
+                                    <wm-text placeholder="First Name" name="text7" class="form-control app-textbox"
+                                        variant="standard"></wm-text>
+                                    <wm-text placeholder="Last Name" name="text8" class="form-control app-textbox"
+                                        variant="standard"></wm-text>
+                                    <wm-text placeholder="Email" name="text9" class="form-control app-textbox"
+                                        variant="standard"></wm-text>
+                                </wm-container>
                             </wm-container>
                             <!-- Permissions Section -->
                         </wm-container>
