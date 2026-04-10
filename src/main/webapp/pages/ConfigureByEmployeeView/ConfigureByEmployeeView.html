@@ -32,7 +32,7 @@
 <wm-container name="screenNameFontRow" direction="row" gap="auto" alignment="center" width="70%" height="hug" class="app-container-default margin-auto" padding="6px 0 0 0" clipcontent="false">
 <wm-container name="screenNameContainer" direction="row" gap="8" alignment="middle-left" width="hug" height="hug" class="app-container-default">
 <wm-label name="lblScreenName" caption="Name" class="label-label-14-700 label-label-14-400" variant="label-14-400"></wm-label>
-<wm-select name="selScreenNameFormat" dataset="First Last, Last\, First, First" datavalue="bind:App.Variables.employeeViewConfig.dataSet.nameFormat"></wm-select></wm-container>
+<wm-select name="selScreenNameFormat" dataset="bind:Variables.stvNameFormat.dataSet" datavalue="bind:App.Variables.employeeViewConfig.dataSet.nameFormat ? App.Variables.employeeViewConfig.dataSet.nameFormat : &quot;First Last&quot;" datafield="All Fields"></wm-select></wm-container>
 <wm-container name="screenFontContainer" direction="row" gap="8" alignment="middle-left" width="hug" height="hug" class="app-container-default">
 <wm-label name="lblScreenFontSize" caption="Font Size" class="label-label-14-700 label-label-14-400" variant="label-14-400"></wm-label>
 <wm-select name="selScreenFontSize" dataset="Small, Medium, Large" datavalue="bind:App.Variables.employeeViewConfig.dataSet.fontSize"></wm-select></wm-container></wm-container></wm-container></wm-container>

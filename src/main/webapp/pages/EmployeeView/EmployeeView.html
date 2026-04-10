@@ -89,49 +89,73 @@
                 </wm-container>
                 <wm-container name="dayHeadersContainer"
                     class="app-container-default custom-border-bottom justify-content-between header-cont"
-                    direction="row" gap="auto" alignment="start" width="fill" height="hug"
-                    show="bind:App.Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
+                    direction="row" gap="auto" alignment="start" width="fill" height="hug">
                     <wm-container name="employeeHeaderCell" class="app-container-default" direction="column" gap="4"
                         alignment="top-left" width="18%" height="hug" clipcontent="false"
                         padding="unset unset unset 16px"></wm-container>
-                    <wm-container name="mondayHeaderCell" class="app-container-default" direction="column" gap="4"
-                        alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-                        <wm-label name="lblMondayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate"
-                            class="label-label-normal" variant="label-normal"></wm-label>
+                    <wm-container name="mondayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false" overflow="No scrolling">
+                        <wm-label name="lblMondayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[0]"
+                            class="p-0 label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[1]"
+                            class="p-0 label-label-normal" variant="label-normal" name="label73"></wm-label>
                     </wm-container>
-                    <wm-container name="tuesdayHeaderCell" class="app-container-default" direction="column" gap="4"
+                    <wm-container name="tuesdayHeaderCell" class="app-container-default" direction="row" gap="4"
                         alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-                        <wm-label name="lblTuesdayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate"
-                            class="label-label-normal" variant="label-normal"></wm-label>
+                        <wm-label name="lblTuesdayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.tuesdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label74"></wm-label>
                     </wm-container>
-                    <wm-container name="wednesdayHeaderCell" class="app-container-default" direction="column" gap="4"
+                    <wm-container name="wednesdayHeaderCell" class="app-container-default" direction="row" gap="4"
                         alignment="top-center" width="11.7%" height="hug" clipcontent="false">
                         <wm-label name="lblWednesdayDate"
-                            caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate"
-                            class="label-label-normal" variant="label-normal"></wm-label>
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.wednesdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label75"></wm-label>
                     </wm-container>
-                    <wm-container name="thursdayHeaderCell" class="app-container-default" direction="column" gap="4"
+                    <wm-container name="thursdayHeaderCell" class="app-container-default" direction="row" gap="4"
                         alignment="top-center" width="11.7%" height="hug" clipcontent="false">
                         <wm-label name="lblThursdayDate"
-                            caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate" class="label-label-normal"
-                            variant="label-normal"></wm-label>
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.thursdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label76"></wm-label>
                     </wm-container>
-                    <wm-container name="fridayHeaderCell" class="app-container-default" direction="column" gap="4"
+                    <wm-container name="fridayHeaderCell" class="app-container-default" direction="row" gap="4"
                         alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-                        <wm-label name="lblFridayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate"
-                            class="label-label-normal" variant="label-normal"></wm-label>
+                        <wm-label name="lblFridayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.fridayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label77"></wm-label>
                     </wm-container>
-                    <wm-container name="saturdayHeaderCell" class="app-container-default" direction="column" gap="4"
+                    <wm-container name="saturdayHeaderCell" class="app-container-default" direction="row" gap="4"
                         alignment="top-center" width="11.7%" height="hug" clipcontent="false">
                         <wm-label name="lblSaturdayDate"
-                            caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate" class="label-label-normal"
-                            variant="label-normal"></wm-label>
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.saturdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label78"></wm-label>
                     </wm-container>
-                    <wm-container name="sundayHeaderCell" class="app-container-default" direction="column" gap="4"
+                    <wm-container name="sundayHeaderCell" class="app-container-default" direction="row" gap="4"
                         alignment="top-center" width="11.7%" height="hug" clipcontent="false"
                         padding="unset 16px unset unset">
-                        <wm-label name="lblSundayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate"
-                            class="label-label-normal" variant="label-normal"></wm-label>
+                        <wm-label name="lblSundayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.sundayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label79"></wm-label>
                     </wm-container>
                 </wm-container>
                 <!-- Employee Schedule List -->
@@ -155,7 +179,7 @@
                                         <wm-icon name="icon6" class="purple" variant="purple" iconclass="fa fa-diamond">
                                         </wm-icon>
                                         <wm-label name="lblEmployeeName"
-                                            caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ? (item.lastName + ', ' + item.firstName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'First') ? item.firstName : (item.firstName + ' ' + item.lastName)"
+                                            caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First Last') ? (item.firstName + ' ' + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ?  (item.lastName + ', ' + item.firstName) :(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First L.') ? (item.firstName + ', ' + item.lastName.charAt(0)+&quot;.&quot;) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'F.Last') ? (item.firstName.charAt(0)+&quot;. &quot; + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, F.') ? (item.lastName+&quot;, &quot; +item.firstName+ &quot;.&quot;) : (item.firstName + &quot; &quot; + item.lastName)"
                                             class="label-label-bold" variant="label-bold"></wm-label>
                                     </wm-container>
                                     <wm-container direction="column" alignment="start" gap="auto" width="hug"
@@ -179,7 +203,7 @@
                                             </wm-listtemplate>
                                         </wm-list>
                                         <wm-label padding="unset"
-                                            caption="bind:item.shiftCount+ &quot; shifts- &quot; +item.totalHours.toFixed(2) + &quot; hours&quot;"
+                                            caption="bind:item.shiftCount &gt; 0 ? (item.shiftCount+ (item.shiftCount === 1 ? &quot; shift - &quot;: &quot;  shifts - &quot;) +item.totalHours.toFixed(2) + &quot; hours&quot;) : &quot;Not Scheduled&quot;"
                                             class="label-label-bold" type="p" variant="label-bold" name="label67_1"
                                             show="bind:App.Variables.employeeViewConfig.dataSet.showTotalHours">
                                         </wm-label>
@@ -200,7 +224,8 @@
                                     show-empty-message="false" scroll="false" class="list-card mh-list"
                                     listclass="list-group "
                                     show="bind:item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length &gt; 0"
-                                    itemclass="pb-0">
+                                    itemclass="pb-0"
+                                    nodatamessage="bind:(item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length === 0 &amp;&amp; Variables.employeeViewConfig.dataSet.showOffOnDays) ? &quot;OFF&quot; : &quot;&quot;">
                                     <wm-listtemplate layout="inline" name="mondayShiftListTemplate">
                                         <wm-container name="mondayShiftItem" direction="column" width="100%"
                                             height="auto" gap="none" alignment="middle-center" class="shift-item-card"
@@ -210,7 +235,8 @@
                                             <wm-label name="lblMondayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="text-center label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblMondayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblMondayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -247,7 +273,8 @@
                                             <wm-label name="lblTuesdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblTuesdayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblTuesdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -284,7 +311,8 @@
                                             <wm-label name="lblWednesdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblWednesdayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblWednesdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -321,7 +349,8 @@
                                             <wm-label name="lblThursdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblThursdayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblThursdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -358,7 +387,8 @@
                                             <wm-label name="lblFridayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblFridayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblFridayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -395,7 +425,8 @@
                                             <wm-label name="lblSaturdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblSaturdayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblSaturdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -432,7 +463,8 @@
                                             <wm-label name="lblSundayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
                                                 class="label-label-bold" variant="label-bold"></wm-label>
-                                            <wm-label name="lblSundayItemShift" caption="bind:item.position"
+                                            <wm-label name="lblSundayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
                                                 class="label-label-normal" variant="label-normal"
                                                 show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
                                             </wm-label>
@@ -555,6 +587,49 @@
                         </wm-container>
                     </wm-container>
                 </wm-container>
+                <wm-container class="app-container-default custom-border-bottom justify-content-between header-cont"
+                    direction="row" gap="auto" alignment="start" width="fill" height="hug" name="container88"
+                    variant="default" show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-left"
+                        width="18%" height="hug" clipcontent="false" padding="unset unset unset 16px" name="container89"
+                        variant="default"></wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container90" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate"
+                            class="label-label-normal" variant="label-normal" name="label66_1"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container91" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate"
+                            class="label-label-normal" variant="label-normal" name="label67_2"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container92" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate"
+                            class="label-label-normal" variant="label-normal" name="label68_1"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container93" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate"
+                            class="label-label-normal" variant="label-normal" name="label69"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container94" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate"
+                            class="label-label-normal" variant="label-normal" name="label70_1"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container95" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate"
+                            class="label-label-normal" variant="label-normal" name="label71"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" padding="unset 16px unset unset"
+                        name="container96" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate"
+                            class="label-label-normal" variant="label-normal" name="label72"></wm-label>
+                    </wm-container>
+                </wm-container>
                 <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container87_1"
                     class="app-container-default footerweek-nav-hover-container p-0 bg-grey" variant="default"
                     show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
@@ -602,18 +677,18 @@
                                 name="label42" variant="label-normal" required="false" width="155px"></wm-label>
                             <wm-form-field name="positionField" show="true" placeholder="Select a position"
                                 required="true" type="text" key="position" widget="select"
-                                dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions" datafield="id"
-                                displayfield="name" class="form-compact-input w-100 py-0" variant="compact-input">
-                            </wm-form-field>
+                                dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions"
+                                datafield="positionId" displayfield="description" class="form-compact-input w-100 py-0"
+                                variant="compact-input"></wm-form-field>
                         </wm-container>
                         <wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container43"
                             class="app-container-default" variant="default" height="32px" clipcontent="false">
                             <wm-label padding="unset" caption="Start" class="text-right label-label-normal" type="p"
                                 variant="label-normal" required="false" width="120px" name="label43"></wm-label>
-                            <wm-form-field name="startTimeField" show="true" placeholder="for eg : 09:30AM or 09:30 AM"
-                                required="true" regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text"
-                                key="startTime" validationmessage="Enter valid start time" widget="text"
-                                inputtype="text" on-change="startTimeFieldChange($event, widget, newVal, oldVal)"
+                            <wm-form-field name="startTimeField" show="true" placeholder="" required="true"
+                                regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="startTime"
+                                validationmessage="Enter valid start time" widget="text" inputtype="text"
+                                on-change="startTimeFieldChange($event, widget, newVal, oldVal)"
                                 class="form-compact-input" variant="compact-input"
                                 defaultvalue="bind:Variables.svGetShiftById.dataSet.startTime"></wm-form-field>
                         </wm-container>
@@ -623,8 +698,7 @@
                                 class="app-container-default" variant="default" clipcontent="false">
                                 <wm-label padding="unset" caption="End" class="text-right label-label-normal" type="p"
                                     variant="label-normal" required="false" width="120px" name="label44"></wm-label>
-                                <wm-form-field name="endTimeField" show="true"
-                                    placeholder="for eg : 09:30AM or 09:30 AM" required="true"
+                                <wm-form-field name="endTimeField" show="true" placeholder="" required="true"
                                     regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="endTime"
                                     validationmessage="Enter valid end time" widget="text" inputtype="text"
                                     on-change="endTimeFieldChange($event, widget, newVal, oldVal)"
@@ -677,7 +751,8 @@
                                 <wm-form-field widget="text" show="true" type="custom" name="form_field9"
                                     key="description" class="form-compact-input w-100 mh-auto  pt-0 pb-1"
                                     variant="compact-input"
-                                    defaultvalue="bind:Variables.svGetShiftById.dataSet.description"></wm-form-field>
+                                    defaultvalue="bind:Variables.svGetShiftById.dataSet.description" placeholder="">
+                                </wm-form-field>
                                 <wm-form-field name="categoryField"
                                     show="bind:App.Variables.employeeViewConfig.dataSet.showCategory"
                                     placeholder="Optional Category - None" required="false" type="text" key="category"
@@ -827,5 +902,17 @@
                     on-click="btnConflictNoClick($event, widget)"></wm-button>
             </wm-container>
         </wm-container>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="wi wi-file-text" name="alertdialog1"
+        class="modal-dialog modal-xs" variant="default:xs">
+        <wm-container direction="column" alignment="middle-center" width="fill" gap="4" wrap="false" name="container97">
+            <wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label80"></wm-label>
+            <wm-button class="btn-outlined-primary" caption="Ok" type="button" margin="unset" name="button17"
+                variant="outlined-primary" on-click="Widgets.alertdialog1.close()"></wm-button>
+        </wm-container>
+        <wm-dialogactions name="dialogactions1" show="false">
+            <wm-button class="btn-primary btn-filled" caption="Close" on-click="closeDialog()" name="button16_1">
+            </wm-button>
+        </wm-dialogactions>
     </wm-dialog>
 </wm-page>
