@@ -37,27 +37,37 @@ Page.checkPasswordStrength = function ($event, widget, newVal, oldVal) {
         debugger
         // Empty password - red
         strengthLabel.caption = 'Password Strength';
-        strengthLabel.class = 'password-strength-label strength-empty';
-        strengthBar.datavalue = 0;
+        strengthBar.class = 'app-progress bar-password-danger';
+        // strengthBar.datavalue = 0;
         strengthBar.type = 'danger';
 
-    } else if (password.length < 8) {
+
+    } else if (password.length <= 3) {
         // Too Short - red
         strengthLabel.caption = 'Too Short';
-        strengthLabel.class = 'password-strength-label strength-weak';
-        strengthBar.datavalue = 33;
+        strengthBar.class = 'app-progress  progress-bar-default';
+        // strengthBar.datavalue = 33;
         strengthBar.type = 'danger';
     } else if (isLongEnough && (!hasUpperCase || !hasDigit)) {
         // Medium - orange/warning
         strengthLabel.caption = 'Medium';
-        strengthLabel.class = 'password-strength-label strength-medium';
-        strengthBar.datavalue = 66;
+        strengthBar.class = 'app-progress  progress-bar-default';
+        // strengthBar.datavalue = 66;
         strengthBar.type = 'warning';
+
+    } else if (password.length < 6) {
+        // Medium - orange/warning
+        strengthLabel.caption = 'Week';
+        strengthBar.class = 'app-progress progress-bar-warning';
+        // strengthBar.datavalue = 66;
+        strengthBar.type = 'warning';
+
     } else if (isLongEnough && hasUpperCase && hasDigit) {
+        debugger
         // Strong - green
         strengthLabel.caption = 'Strong';
-        strengthLabel.class = 'password-strength-label strength-strong';
-        strengthBar.datavalue = 100;
+        strengthBar.class = 'app-progress progress-bar-success';
+        // strengthBar.datavalue = 100;
         strengthBar.type = 'success';
     }
 };
