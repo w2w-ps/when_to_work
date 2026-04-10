@@ -14,7 +14,7 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
-    
+
     // Initialize password strength bar to empty state
     Page.Widgets.passwordStrengthBar.datavalue = 0;
     Page.Widgets.passwordStrengthBar.type = 'danger';
@@ -22,23 +22,25 @@ Page.onReady = function () {
     Page.Widgets.passwordStrengthLabel.class = 'password-strength-label strength-empty';
 };
 
-Page.checkPasswordStrength = function($event, widget, newVal, oldVal) {
+Page.checkPasswordStrength = function ($event, widget, newVal, oldVal) {
     var password = newVal || '';
     var strengthBar = Page.Widgets.passwordStrengthBar;
     var strengthLabel = Page.Widgets.passwordStrengthLabel;
-    
+
     // Check password strength based on criteria
     var hasUpperCase = /[A-Z]/.test(password);
     var hasDigit = /\d/.test(password);
     var isLongEnough = password.length >= 8;
-    
+
     // Update strength bar and label based on password criteria
     if (password.length === 0) {
+        debugger
         // Empty password - red
         strengthLabel.caption = 'Password Strength';
         strengthLabel.class = 'password-strength-label strength-empty';
         strengthBar.datavalue = 0;
         strengthBar.type = 'danger';
+
     } else if (password.length < 8) {
         // Too Short - red
         strengthLabel.caption = 'Too Short';
@@ -60,6 +62,23 @@ Page.checkPasswordStrength = function($event, widget, newVal, oldVal) {
     }
 };
 
+Page.saveBtnClick = function ($event, widget) {
+    var password = Page.Widgets.newPasswordInput.datavalue;
+    var confirmPassword = Page.Widgets.confirmPasswordInput.datavalue;
+
+    if (!password || password.length < 8) {
+        Page.Widgets.pwdLength.open();
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        Page.Widgets.confirmpwd.open();
+        return;
+    }
+
+    Page.Variables.svMgrUpdateEmpPwd.invoke();
+};
+
 Page.svMgrUpdateEmpPwdonSuccess = function (variable, data) {
     debugger
     if (data.isValid === true) {
@@ -69,7 +88,9 @@ Page.svMgrUpdateEmpPwdonSuccess = function (variable, data) {
             class: "success",
             duration: 3000
         });
+
     } else {
+        debugger
         var errorMsg = data.message || (data.errors && data.errors.length ? data.errors[0].message || data.errors[0] : "Failed to update password. Please try again.");
         App.Actions.appNotification.invoke({
             message: errorMsg,
