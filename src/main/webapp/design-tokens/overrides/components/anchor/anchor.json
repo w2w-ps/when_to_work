@@ -512,7 +512,7 @@
             "value" : "{body.medium.line-height.value}"
           },
           "letter-spacing" : {
-            "value" : "{body.medium.letter-spacing.value}"
+            "value" : "0"
           },
           "text-transform" : {
             "value" : "none"

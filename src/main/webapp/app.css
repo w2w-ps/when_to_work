@@ -373,7 +373,8 @@ wm-input[name="txtFind"].app-input-wrapper {
     height: 1px;
     width: 100%;
 }
-.pull-right{
+
+.pull-right {
     text-align: end !important;
 }
 
@@ -383,21 +384,27 @@ wm-input[name="txtFind"].app-input-wrapper {
 
 /* responsive code starts */
 /* mobile */
-@media only screen and (min-width: 320px) and (max-width: 375px){
+@media only screen and (min-width: 320px) and (max-width: 375px) {}
 
-}
 /* tablet */
-@media only screen and (min-width: 376px) and (max-width: 768px){
+@media only screen and (min-width: 376px) and (max-width: 768px) {}
 
-}
 /* mobile and tablet combined */
-@media only screen and (max-width: 992px){
-.fixed-width-lg{
-    width: 100% !important;
+@media only screen and (max-width: 576px) {
+    .container-signin-card {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
 }
-}
-/* desktop */
-@media only screen and (min-width: 993px){
 
+@media only screen and (max-width: 992px) {
+    .fixed-width-lg {
+        width: 100% !important;
+    }
 }
+
+/* desktop */
+@media only screen and (min-width: 993px) {}
+
 /* responsive code ends */
