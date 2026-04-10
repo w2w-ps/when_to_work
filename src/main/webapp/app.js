@@ -8,20 +8,20 @@ window.moment = moment;
 
 /* perform any action on the variables within this block(on-page-load) */
 App.onAppVariablesReady = function () {
-    /*
-     * variables can be accessed through 'App.Variables' property here
-     * e.g. App.Variables.staticVariable1.getData()
-     */
+  /*
+   * variables can be accessed through 'App.Variables' property here
+   * e.g. App.Variables.staticVariable1.getData()
+   */
 };
 
 /* perform any action on session timeout here, e.g clearing some data, etc */
 App.onSessionTimeout = function () {
-    /*
-     * NOTE:
-     * On re-login after session timeout:
-     * if the same user logs in(through login dialog), app will retain its state
-     * if a different user logs in, app will be reloaded and user is redirected to respective landing page configured in Security.
-     */
+  /*
+   * NOTE:
+   * On re-login after session timeout:
+   * if the same user logs in(through login dialog), app will retain its state
+   * if a different user logs in, app will be reloaded and user is redirected to respective landing page configured in Security.
+   */
 };
 
 /*
@@ -49,27 +49,16 @@ App.onServiceError = function (errorMsg, xhrObj) {
 
 
 App.loginActionOnError = function (variable, data) {
-    App.Variables.loginAttemptCount.dataSet.dataValue += 1;
-    App.Variables.loginErrorVisible.dataSet.dataValue = true;
+  App.Variables.loginAttemptCount.dataSet.dataValue += 1;
+  App.Variables.loginErrorVisible.dataSet.dataValue = true;
 };
 
 App.loginActionOnSuccess = function (variable, data) {
-    App.Variables.loginAttemptCount.dataSet.dataValue = 0;
-    App.Variables.loginErrorVisible.dataSet.dataValue = false;
+  App.Variables.loginAttemptCount.dataSet.dataValue = 0;
+  App.Variables.loginErrorVisible.dataSet.dataValue = false;
 };
 
 App.onBeforeServiceCall = function (requestParams) {
 
-    const isValidService = requestParams.url.includes("././services/") && 
-                      requestParams.url !== "./services/security/info" && 
-                      requestParams.url !== "././services/servicedefs";
-
-    if (isValidService) {
-
-        debugger
-        requestParams.headers.set('Authorization', 'Bearer ' + App.Variables.loggedInUser.dataSet.userAttributes.loginServiceToken);
-
-    }
-    return requestParams;
 };
 
