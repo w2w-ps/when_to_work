@@ -402,9 +402,43 @@ wm-input[name="txtFind"].app-input-wrapper {
     .fixed-width-lg {
         width: 100% !important;
     }
+
+    .wm-app .app-page .app-top-nav {
+        margin-top: 0;
+    }
+
+    .flex-direction-md-column {
+        flex-direction: column !important;
+    }
+
+    .flex-direction-md-column>div {
+        width: 100% !important;
+    }
+
+    .flex-direction-md-column .custom-left {
+        left: 0 !important;
+    }
+
+    .d-md-none,
+    .d-md-none.d-flex {
+        display: none !important;
+    }
+
+    .d-md-block {
+        display: block !important;
+    }
 }
 
 /* desktop */
-@media only screen and (min-width: 993px) {}
+@media only screen and (min-width: 993px) {
+    .d-md-none {
+        display: block !important;
+    }
+
+    .d-md-block,
+    .d-md-block.d-flex {
+        display: none !important;
+    }
+}
 
 /* responsive code ends */
