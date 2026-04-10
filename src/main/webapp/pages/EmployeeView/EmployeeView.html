@@ -32,15 +32,18 @@
                         <wm-select name="selStatus"
                             dataset="No Status, Full Time, Part Time, Per Diem, Orange Diamond, Green Diamond"
                             placeholder="All Status" variant="compact-input" datafield="All Fields"
-                            class="form-compact-input"></wm-select>
-                        <wm-select name="selCategories"
-                            dataset="All Categories, Add/Edit Categories, ----------, Select / Group Categories, none, Night &amp; WE, ----------, East, Less Popular Shifts (LP),Morning (AM), Night Shifts (NIGHT),Sick - Called In (SICK), Tardy,Weekend Shifts (WE), West"
-                            placeholder="All Categories" variant="compact-input" datafield="All Fields"
-                            class="form-compact-input"></wm-select>
-                        <wm-select name="selPositions"
-                            dataset="All Positions, Add / Edit Positions, ----------,Select / Group Positions,-Hospital, -Store, Cashiers both locations,Pharm both locations, ----------,  NOTES -,Bookkeeper,Assistant,Cashier, Cashier (Main), Delivery, Driver, HOLIDAY, Hospital-Cashier,	Hospital-Pharm,Security, Store - Assistant, Store-Cosmetics, Store-Floor, Store-Giftware-Front, Store-Pharmacist, Store-Post Office, Store-Receiving, Refersh List"
-                            placeholder="All Positions" variant="compact-input" datafield="All Fields"
-                            class="form-compact-input"></wm-select>
+                            class="form-compact-input" on-change="selStatusChange($event, widget, newVal, oldVal)">
+                        </wm-select>
+                        <wm-select name="selCategories" placeholder="All Categories" variant="compact-input"
+                            datafield="All Fields" class="form-compact-input"
+                            on-change="selCategoriesChange($event, widget, newVal, oldVal)"
+                            dataset="bind:Variables.svGetAllCategoriesByCompanyId.dataSet.categories"
+                            displayfield="description"></wm-select>
+                        <wm-select name="selPositions" placeholder="All Positions" variant="compact-input"
+                            datafield="All Fields" class="form-compact-input"
+                            on-change="selPositionsChange($event, widget, newVal, oldVal)"
+                            dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions"
+                            displayfield="description"></wm-select>
                     </wm-container>
                 </wm-container>
                 <!-- Row 3: Action Button Bar -->

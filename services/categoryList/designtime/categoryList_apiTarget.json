@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "dbc6f250-0c67-442d-a6a2-16a9764edcfc",
+    "x-WM-API_ID" : "78f6ec92-0698-4a46-a2e3-412f1239f7b3",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -51,54 +51,26 @@
     }
   },
   "definitions" : {
-    "Response.groupsEntryItem" : {
-      "required" : [ "categories", "id", "name" ],
-      "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "id" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "categories" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Response.categoriesEntryItem"
-          },
-          "x-WM-IS_LIST" : true
-        }
-      },
-      "x-WM-FULLY_QUALIFIED_NAME" : "categoryList.Response.groupsEntryItem",
-      "x-WM-TAGS" : [ "categoryList" ]
-    },
     "Response.categoriesEntryItem" : {
-      "required" : [ "id", "name", "shortName" ],
+      "required" : [ "description", "id", "shortDesc" ],
       "properties" : {
-        "name" : {
+        "description" : {
+          "type" : "string"
+        },
+        "shortDesc" : {
           "type" : "string"
         },
         "id" : {
           "type" : "integer",
           "format" : "int32"
-        },
-        "shortName" : {
-          "type" : "string"
         }
       },
       "x-WM-FULLY_QUALIFIED_NAME" : "categoryList.Response.categoriesEntryItem",
       "x-WM-TAGS" : [ "categoryList" ]
     },
     "RootResponse" : {
-      "required" : [ "categories", "groups" ],
+      "required" : [ "categories" ],
       "properties" : {
-        "groups" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Response.groupsEntryItem"
-          },
-          "x-WM-IS_LIST" : true
-        },
         "categories" : {
           "type" : "array",
           "items" : {
