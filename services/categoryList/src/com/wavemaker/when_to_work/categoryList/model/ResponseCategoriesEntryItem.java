@@ -22,30 +22,47 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 
 public class ResponseCategoriesEntryItem {
-  @JsonProperty("name")
-  private String name = null;
+  @JsonProperty("description")
+  private String description = null;
+
+  @JsonProperty("shortDesc")
+  private String shortDesc = null;
 
   @JsonProperty("id")
   private Integer id = null;
 
-  @JsonProperty("shortName")
-  private String shortName = null;
-
-  public ResponseCategoriesEntryItem name(String name) {
-    this.name = name;
+  public ResponseCategoriesEntryItem description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get description
+   * @return description
   **/
-  public String getName() {
-    return name;
+  public String getDescription() {
+    return description;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public ResponseCategoriesEntryItem shortDesc(String shortDesc) {
+    this.shortDesc = shortDesc;
+    return this;
+  }
+
+   /**
+   * Get shortDesc
+   * @return shortDesc
+  **/
+  public String getShortDesc() {
+    return shortDesc;
+  }
+
+  public void setShortDesc(String shortDesc) {
+    this.shortDesc = shortDesc;
   }
 
   public ResponseCategoriesEntryItem id(Integer id) {
@@ -65,23 +82,6 @@ public class ResponseCategoriesEntryItem {
     this.id = id;
   }
 
-  public ResponseCategoriesEntryItem shortName(String shortName) {
-    this.shortName = shortName;
-    return this;
-  }
-
-   /**
-   * Get shortName
-   * @return shortName
-  **/
-  public String getShortName() {
-    return shortName;
-  }
-
-  public void setShortName(String shortName) {
-    this.shortName = shortName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -92,14 +92,14 @@ public class ResponseCategoriesEntryItem {
       return false;
     }
     ResponseCategoriesEntryItem Response_categoriesEntryItem = (ResponseCategoriesEntryItem) o;
-    return Objects.equals(this.name, Response_categoriesEntryItem.name) &&
-        Objects.equals(this.id, Response_categoriesEntryItem.id) &&
-        Objects.equals(this.shortName, Response_categoriesEntryItem.shortName);
+    return Objects.equals(this.description, Response_categoriesEntryItem.description) &&
+        Objects.equals(this.shortDesc, Response_categoriesEntryItem.shortDesc) &&
+        Objects.equals(this.id, Response_categoriesEntryItem.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, id, shortName);
+    return Objects.hash(description, shortDesc, id);
   }
 
 
@@ -108,9 +108,9 @@ public class ResponseCategoriesEntryItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponseCategoriesEntryItem {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    shortDesc: ").append(toIndentedString(shortDesc)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

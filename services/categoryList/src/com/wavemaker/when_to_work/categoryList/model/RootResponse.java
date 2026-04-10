@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wavemaker.when_to_work.categoryList.model.ResponseCategoriesEntryItem;
-import com.wavemaker.when_to_work.categoryList.model.ResponseGroupsEntryItem;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -26,33 +25,8 @@ import java.util.List;
  */
 
 public class RootResponse {
-  @JsonProperty("groups")
-  private List<ResponseGroupsEntryItem> groups = new ArrayList<>();
-
   @JsonProperty("categories")
   private List<ResponseCategoriesEntryItem> categories = new ArrayList<>();
-
-  public RootResponse groups(List<ResponseGroupsEntryItem> groups) {
-    this.groups = groups;
-    return this;
-  }
-
-  public RootResponse addGroupsItem(ResponseGroupsEntryItem groupsItem) {
-    this.groups.add(groupsItem);
-    return this;
-  }
-
-   /**
-   * Get groups
-   * @return groups
-  **/
-  public List<ResponseGroupsEntryItem> getGroups() {
-    return groups;
-  }
-
-  public void setGroups(List<ResponseGroupsEntryItem> groups) {
-    this.groups = groups;
-  }
 
   public RootResponse categories(List<ResponseCategoriesEntryItem> categories) {
     this.categories = categories;
@@ -86,13 +60,12 @@ public class RootResponse {
       return false;
     }
     RootResponse RootResponse = (RootResponse) o;
-    return Objects.equals(this.groups, RootResponse.groups) &&
-        Objects.equals(this.categories, RootResponse.categories);
+    return Objects.equals(this.categories, RootResponse.categories);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groups, categories);
+    return Objects.hash(categories);
   }
 
 
@@ -101,7 +74,6 @@ public class RootResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class RootResponse {\n");
     
-    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("}");
     return sb.toString();

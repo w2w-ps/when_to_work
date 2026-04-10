@@ -18,6 +18,12 @@ Page.onReady = function () {
     Page._dragDropInsertPayload = null;
     Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
 
+    // Initialize filter state
+    Page.currentCategoryFilter = null;
+    Page.currentStatusFilter = null;
+    Page.currentPositionFilter = null;
+    Page.unfilteredScheduleData = [];
+
     Page.loadEmployeeViewConfig();
     window.addEventListener('message', function (event) {
         if (event.data && event.data.type === 'employeeViewConfigUpdated') {
@@ -25,6 +31,160 @@ Page.onReady = function () {
             Page.Variables.svScheduleList.invoke();
         }
     });
+};
+
+/**
+ * Filters the employee schedule list based on category, status, and position selections.
+ * All three filters work together - if multiple filters are applied, employees must match all criteria.
+ * 
+ * Filter rules:
+ * - "All Categories", "All Positions", and "No Status" are treated as no filter
+ * - Separator entries ("----------") are ignored
+ * - Filtering is case-insensitive
+ * - Returns all data if no valid filters are applied
+ * 
+ * ENHANCED: Now filters both employees AND individual shifts within each employee.
+ * - Employees are included if they have at least one matching shift
+ * - Within each employee, only shifts matching the filter criteria are shown
+ * - Shifts that don't match category/position filters are removed from the employee's shifts array
+ */
+Page.applyScheduleFilters = function () {
+    debugger;
+    var sourceData = Page.unfilteredScheduleData;
+
+    if (!sourceData || sourceData.length === 0) {
+        Page.Widgets.employeeScheduleList.dataset = [];
+        return;
+    }
+
+    var categoryFilter = Page.currentCategoryFilter;
+    var statusFilter = Page.currentStatusFilter;
+    var positionFilter = Page.currentPositionFilter;
+
+    // Check if filters are effectively empty (no-filter conditions)
+    var isCategoryFilterActive = categoryFilter && categoryFilter.description
+    categoryFilter.description !== 'All Categories' &&
+        categoryFilter.description !== '----------' &&
+        categoryFilter.description.trim() !== '';
+
+    var isStatusFilterActive = statusFilter &&
+        statusFilter !== 'All Status' &&
+        statusFilter !== 'No Status' &&
+        statusFilter !== '----------' &&
+        statusFilter.trim() !== '';
+
+    var isPositionFilterActive = positionFilter && positionFilter.description &&
+        positionFilter.description !== 'All Positions' &&
+        positionFilter.description !== '----------' &&
+        positionFilter.description.trim() !== '';
+
+    // If no filters are active, show all data
+    if (!isCategoryFilterActive && !isStatusFilterActive && !isPositionFilterActive) {
+        Page.Widgets.employeeScheduleList.dataset = sourceData;
+        return;
+    }
+
+    // Apply filters with shift-level filtering
+    var filteredData = [];
+
+    sourceData.forEach(function (employee) {
+        var weeklyShiftsArray = Object.values(employee.weeklyShifts || {});
+
+        // Deep clone the employee to avoid modifying the original unfiltered data
+        var employeeCopy = JSON.parse(JSON.stringify(employee));
+        var hasMatchingShift = false;
+
+        // Filter shifts within each day of the week
+        if (employeeCopy.weeklyShifts && Array.isArray(employeeCopy.weeklyShifts)) {
+            employeeCopy.weeklyShifts.forEach(function (day) {
+                if (day.shifts && Array.isArray(day.shifts)) {
+                    // Filter the shifts array for this day
+                    var filteredShifts = day.shifts.filter(function (shift) {
+                        var matchesCategory = true;
+                        var matchesPosition = true;
+                        var matchesStatus = true;
+
+                        // Apply category filter to individual shift
+                        if (isCategoryFilterActive) {
+                            matchesCategory = shift.category &&
+                                shift.category.toLowerCase().indexOf(categoryFilter.toLowerCase()) > -1;
+                        }
+
+                        // Apply position filter to individual shift
+                        if (isPositionFilterActive) {
+                            matchesPosition = shift.position &&
+                                shift.position.toLowerCase().indexOf(positionFilter.toLowerCase()) > -1;
+                        }
+
+                        // Status filter - bypass for now (API doesn't provide status field)
+                        if (isStatusFilterActive) {
+                            matchesStatus = true;
+                        }
+
+                        // Shift must match all active filters
+                        return matchesCategory && matchesPosition && matchesStatus;
+                    });
+
+                    // Update the day's shifts array with filtered shifts
+                    day.shifts = filteredShifts;
+
+                    // Track if this employee has at least one matching shift
+                    if (filteredShifts.length > 0) {
+                        hasMatchingShift = true;
+                    }
+                }
+            });
+        }
+
+        // Only include employees that have at least one matching shift
+        if (hasMatchingShift) {
+            filteredData.push(employeeCopy);
+        }
+    });
+
+    Page.Widgets.employeeScheduleList.dataset = filteredData;
+};
+
+/**
+ * Event handler for category dropdown change
+ */
+Page.selCategoriesChange = function ($event, widget, newVal, oldVal) {
+    Page.currentCategoryFilter = newVal;
+    Page.applyScheduleFilters();
+};
+
+/**
+ * Event handler for status dropdown change
+ */
+Page.selStatusChange = function ($event, widget, newVal, oldVal) {
+    Page.currentStatusFilter = newVal;
+    Page.applyScheduleFilters();
+};
+
+/**
+ * Event handler for position dropdown change
+ */
+Page.selPositionsChange = function ($event, widget, newVal, oldVal) {
+    Page.currentPositionFilter = newVal;
+    Page.applyScheduleFilters();
+};
+
+/**
+ * Store unfiltered data when schedule list loads successfully.
+ * This is called after svScheduleList.dataSet is populated.
+ */
+Page.storeUnfilteredScheduleData = function () {
+    var dataset = Page.Variables.svScheduleList.dataSet;
+    if (dataset && dataset.length > 0) {
+        // Only update unfilteredScheduleData if we have actual data
+        // This prevents overwriting the backup when filters return empty results
+        Page.unfilteredScheduleData = dataset.slice();
+        Page.applyScheduleFilters();
+    } else {
+        // Don't clear unfilteredScheduleData when service returns no results
+        // Just apply filters to show the "no data" state
+        Page.applyScheduleFilters();
+    }
 };
 
 Page.formatWeekLabel = function (startDate, endDate) {
