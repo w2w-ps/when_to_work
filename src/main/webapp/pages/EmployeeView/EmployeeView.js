@@ -43,9 +43,13 @@ Page.onReady = function () {
  * - Filtering is case-insensitive
  * - Returns all data if no valid filters are applied
  * 
- * FIXED: Now properly traverses nested weeklyShifts[].shifts[] structure to match shift-level data
+ * ENHANCED: Now filters both employees AND individual shifts within each employee.
+ * - Employees are included if they have at least one matching shift
+ * - Within each employee, only shifts matching the filter criteria are shown
+ * - Shifts that don't match category/position filters are removed from the employee's shifts array
  */
 Page.applyScheduleFilters = function () {
+    debugger;
     var sourceData = Page.unfilteredScheduleData;
 
     if (!sourceData || sourceData.length === 0) {
@@ -58,10 +62,10 @@ Page.applyScheduleFilters = function () {
     var positionFilter = Page.currentPositionFilter;
 
     // Check if filters are effectively empty (no-filter conditions)
-    var isCategoryFilterActive = categoryFilter &&
-        categoryFilter !== 'All Categories' &&
-        categoryFilter !== '----------' &&
-        categoryFilter.trim() !== '';
+    var isCategoryFilterActive = categoryFilter && categoryFilter.description
+    categoryFilter.description !== 'All Categories' &&
+        categoryFilter.description !== '----------' &&
+        categoryFilter.description.trim() !== '';
 
     var isStatusFilterActive = statusFilter &&
         statusFilter !== 'All Status' &&
@@ -69,10 +73,10 @@ Page.applyScheduleFilters = function () {
         statusFilter !== '----------' &&
         statusFilter.trim() !== '';
 
-    var isPositionFilterActive = positionFilter &&
-        positionFilter !== 'All Positions' &&
-        positionFilter !== '----------' &&
-        positionFilter.trim() !== '';
+    var isPositionFilterActive = positionFilter && positionFilter.description &&
+        positionFilter.description !== 'All Positions' &&
+        positionFilter.description !== '----------' &&
+        positionFilter.description.trim() !== '';
 
     // If no filters are active, show all data
     if (!isCategoryFilterActive && !isStatusFilterActive && !isPositionFilterActive) {
@@ -80,53 +84,62 @@ Page.applyScheduleFilters = function () {
         return;
     }
 
-    // Apply filters - FIXED to traverse nested shift structure
-    var filteredData = sourceData.filter(function (employee) {
-        var matchesCategory = true;
-        var matchesStatus = true;
-        var matchesPosition = true;
-        const weeklyShiftsArray = Object.values(employee.weeklyShifts || {});
+    // Apply filters with shift-level filtering
+    var filteredData = [];
 
+    sourceData.forEach(function (employee) {
+        var weeklyShiftsArray = Object.values(employee.weeklyShifts || {});
 
-        // FIXED: Apply category filter by checking nested shift.category
-        if (isCategoryFilterActive) {
-            if (weeklyShiftsArray && weeklyShiftsArray.length > 0) {
-                matchesCategory = weeklyShiftsArray.some(function (day) {
-                    return day.shifts && day.shifts.some(function (shift) {
-                        return shift.category &&
-                            shift.category.toLowerCase().indexOf(categoryFilter.toLowerCase()) > -1;
+        // Deep clone the employee to avoid modifying the original unfiltered data
+        var employeeCopy = JSON.parse(JSON.stringify(employee));
+        var hasMatchingShift = false;
+
+        // Filter shifts within each day of the week
+        if (employeeCopy.weeklyShifts && Array.isArray(employeeCopy.weeklyShifts)) {
+            employeeCopy.weeklyShifts.forEach(function (day) {
+                if (day.shifts && Array.isArray(day.shifts)) {
+                    // Filter the shifts array for this day
+                    var filteredShifts = day.shifts.filter(function (shift) {
+                        var matchesCategory = true;
+                        var matchesPosition = true;
+                        var matchesStatus = true;
+
+                        // Apply category filter to individual shift
+                        if (isCategoryFilterActive) {
+                            matchesCategory = shift.category &&
+                                shift.category.toLowerCase().indexOf(categoryFilter.toLowerCase()) > -1;
+                        }
+
+                        // Apply position filter to individual shift
+                        if (isPositionFilterActive) {
+                            matchesPosition = shift.position &&
+                                shift.position.toLowerCase().indexOf(positionFilter.toLowerCase()) > -1;
+                        }
+
+                        // Status filter - bypass for now (API doesn't provide status field)
+                        if (isStatusFilterActive) {
+                            matchesStatus = true;
+                        }
+
+                        // Shift must match all active filters
+                        return matchesCategory && matchesPosition && matchesStatus;
                     });
-                });
-            }
-            else {
-                matchesCategory = false;
-            }
+
+                    // Update the day's shifts array with filtered shifts
+                    day.shifts = filteredShifts;
+
+                    // Track if this employee has at least one matching shift
+                    if (filteredShifts.length > 0) {
+                        hasMatchingShift = true;
+                    }
+                }
+            });
         }
 
-        // Status filter - API doesn't provide status field at any level
-        // Commenting out until API includes status or requirements are clarified
-        if (isStatusFilterActive) {
-            // Note: API response doesn't include status field
-            // If status filtering is needed, API must be updated to include status
-            matchesStatus = true; // Bypass status filter for now
+        // Only include employees that have at least one matching shift
+        if (hasMatchingShift) {
+            filteredData.push(employeeCopy);
         }
-        // FIXED: Apply position filter by checking nested shift.position
-
-        if (isPositionFilterActive) {
-            if (weeklyShiftsArray && weeklyShiftsArray.length > 0) {
-                matchesPosition = weeklyShiftsArray.some(function (day) {
-                    return day.shifts && day.shifts.some(function (shift) {
-                        return shift.position &&
-                            shift.position.toLowerCase().indexOf(positionFilter.toLowerCase()) > -1;
-                    });
-                });
-            } else {
-                matchesPosition = false;
-            }
-        }
-
-        // Employee must match all active filters
-        return matchesCategory && matchesStatus && matchesPosition;
     });
 
     Page.Widgets.employeeScheduleList.dataset = filteredData;
