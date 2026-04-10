@@ -55,7 +55,7 @@ Page.checkPasswordStrength = function ($event, widget, newVal, oldVal) {
         // strengthBar.datavalue = 66;
         strengthBar.type = 'warning';
 
-    } else if (password.length < 6) {
+    } else if (password.length <= 8) {
         // Medium - orange/warning
         strengthLabel.caption = 'Week';
         strengthBar.class = 'app-progress progress-bar-warning';

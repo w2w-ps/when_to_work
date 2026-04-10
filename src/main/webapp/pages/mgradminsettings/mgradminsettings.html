@@ -1,0 +1,89 @@
+<wm-page name="page" pagetitle="Mgradminsettings">
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="column" alignment="top-left" gap="16" width="fill" height="hug" name="container1" class="app-container-default container-warning-with-black-border" variant="warning-with-black-border" padding="10px">
+                <!-- Header Section with Title and Actions -->
+                <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug" name="headerContainer" class="app-container-default" wrap="false">
+                    <wm-label name="pageTitle" caption="Add Manager" class="h3"></wm-label>
+                    <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug" name="headerActionsContainer" class="app-container-default" clipcontent="false" overflow="No scrolling">
+                        <wm-checkbox name="emailInstructionsCheckbox" caption="Email new manager sign in instructions" type="checkbox"></wm-checkbox>
+                        <wm-button name="addNewButton" caption="Add New" class="btn-primary btn-outlined-primary" variant="outlined-primary" on-click="handleAddManagerClick($event, widget)"></wm-button>
+                    </wm-container>
+                </wm-container>
+                <!-- Input Fields Row -->
+                <wm-container direction="row" alignment="top-left" gap="8" width="fill" height="hug" name="inputFieldsContainer" class="app-container-default">
+                    <wm-text name="firstNameInput" placeholder="First Name" width="33%"></wm-text>
+                    <wm-text name="lastNameInput" placeholder="Last Name" width="33%"></wm-text>
+                    <wm-text name="emailInput" placeholder="Email" width="33%"></wm-text>
+                </wm-container>
+                <!-- Permissions Section -->
+                <wm-container direction="column" alignment="top-left" gap="8" width="fill" height="hug" name="permissionsContainer" class="app-container-default">
+                    <!-- Permissions Header -->
+                    <wm-container direction="row" alignment="middle-left" gap="8" width="fill" height="hug" name="permissionsHeaderContainer" class="app-container-default">
+                        <wm-label name="permissionsLabel" caption="Permissions" class="h5"></wm-label>
+                        <wm-checkbox name="selectAllCheckbox" caption="Select All" type="checkbox" on-change="handleSelectAllChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        <wm-label name="separatorLabel" caption="|"></wm-label>
+                        <wm-checkbox name="clearAllCheckbox" caption="Clear All" type="checkbox" on-change="handleClearAllChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                    </wm-container>
+                    <!-- Permission Groups Grid -->
+                    <wm-container direction="row" alignment="top-left" gap="16" width="fill" height="hug" name="permissionGroupsContainer" class="app-container-default" wrap="true">
+                        <!-- Schedules Column -->
+                        <wm-container direction="column" alignment="top-left" gap="4" width="48%" height="hug" name="schedulesColumn" class="app-container-default">
+                            <wm-label name="schedulesLabel" caption="Schedules" class="text-muted"></wm-label>
+                            <wm-checkbox name="addShiftsCheckbox" caption="Add Shifts" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox name="importTemplatesCheckbox" caption="Import Templates" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="uploadShiftsCheckbox" caption="Upload Shifts From File" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="autofillShiftsCheckbox" caption="AutoFill Shifts" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="clearSchedulesCheckbox" caption="Clear / Unassign or Erase Schedules" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox name="editShiftsCheckbox" caption="Edit Shifts &amp; Notes" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="saveTemplatesCheckbox" caption="Save / Edit Templates" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="publishSchedulesCheckbox" caption="Publish Schedules**" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                            </wm-checkbox>
+                            <wm-checkbox name="unpublishSchedulesCheckbox" caption="Unpublish Schedules**" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            <wm-checkbox name="manageCategoriesCheckbox" caption="Add / Edit / Delete Categories" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                        </wm-container>
+                        <!-- Right Column Container for Employees, Trades, Time Off, Company Settings -->
+                        <wm-container direction="column" alignment="top-left" gap="16" width="48%" height="hug" name="rightColumn" class="app-container-default">
+                            <!-- Employees Section -->
+                            <wm-container direction="column" alignment="top-left" gap="4" width="fill" height="hug" name="employeesColumn" class="app-container-default">
+                                <wm-label name="employeesLabel" caption="Employees" class="text-muted"></wm-label>
+                                <wm-checkbox name="addEmployeesCheckbox" caption="Add New / Restore Deleted" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                                <wm-checkbox name="viewPayRatesCheckbox" caption="View Pay Rates" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)">
+                                </wm-checkbox>
+                                <wm-checkbox name="editEmployeesCheckbox" caption="Edit / Delete Employees" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                            <!-- Trades Section -->
+                            <wm-container direction="column" alignment="top-left" gap="4" width="fill" height="hug" name="tradesColumn" class="app-container-default">
+                                <wm-label name="tradesLabel" caption="Trades" class="text-muted"></wm-label>
+                                <wm-checkbox name="approveTradesCheckbox" caption="Approve / Deny Trades" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                            <!-- Time Off Section -->
+                            <wm-container direction="column" alignment="top-left" gap="4" width="fill" height="hug" name="timeOffColumn" class="app-container-default">
+                                <wm-label name="timeOffLabel" caption="Time Off" class="text-muted"></wm-label>
+                                <wm-checkbox name="approveTimeOffCheckbox" caption="Approve / Deny Requests" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                            <!-- Company Settings Section -->
+                            <wm-container direction="column" alignment="top-left" gap="4" width="fill" height="hug" name="companySettingsColumn" class="app-container-default">
+                                <wm-label name="companySettingsLabel" caption="Company Settings" class="text-muted">
+                                </wm-label>
+                                <wm-checkbox name="changeCompanySettingsCheckbox" caption="Change Company Settings" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                                <wm-checkbox name="managePositionsCheckbox" caption="Add / Edit Account Positions" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                                <wm-checkbox name="manageTeamMembersCheckbox" caption="Add / Remove Team Members" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                    <!-- Notifications Section -->
+                    <wm-container direction="column" alignment="top-left" gap="4" width="fill" height="hug" name="notificationsColumn" class="app-container-default">
+                        <wm-label name="notificationsLabel" caption="Notifications" class="text-muted"></wm-label>
+                        <wm-checkbox name="managerNotificationsCheckbox" caption="Can be notified of other managers' actions" type="checkbox" on-change="handleIndividualCheckboxChange($event, widget, newVal, oldVal)"></wm-checkbox>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>
