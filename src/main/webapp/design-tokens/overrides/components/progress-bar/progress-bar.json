@@ -1,0 +1,146 @@
+{
+  "progress-bar" : {
+    "appearances" : {
+      "password-danger" : {
+        "mapping" : {
+          "height" : {
+            "value" : "3px"
+          },
+          "radius" : {
+            "value" : "{radius.none.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "transition" : {
+            "time" : {
+              "value" : "0.5s"
+            }
+          },
+          "stroke" : {
+            "active" : {
+              "value" : "{color.error.@.value}"
+            },
+            "inactive" : {
+              "value" : "{color.error.@.value}"
+            }
+          },
+          "label" : {
+            "color" : {
+              "value" : "{color.on-error.@.value}"
+            }
+          }
+        }
+      },
+      "password-weak" : {
+        "mapping" : {
+          "height" : {
+            "value" : "3px"
+          },
+          "radius" : {
+            "value" : "{radius.none.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "transition" : {
+            "time" : {
+              "value" : "0.5s"
+            }
+          },
+          "stroke" : {
+            "active" : {
+              "value" : "#FF8000"
+            },
+            "inactive" : {
+              "value" : "#FF8000"
+            }
+          },
+          "label" : {
+            "color" : {
+              "value" : "{color.on-error.@.value}"
+            }
+          }
+        }
+      },
+      "password-medium" : {
+        "mapping" : {
+          "height" : {
+            "value" : "3px"
+          },
+          "radius" : {
+            "value" : "{radius.none.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "transition" : {
+            "time" : {
+              "value" : "0.5s"
+            }
+          },
+          "stroke" : {
+            "active" : {
+              "value" : "#FFFF00"
+            },
+            "inactive" : {
+              "value" : "#FFFF00"
+            }
+          },
+          "label" : {
+            "color" : {
+              "value" : "{color.on-error.@.value}"
+            }
+          }
+        }
+      },
+      "password-strong" : {
+        "mapping" : {
+          "height" : {
+            "value" : "3px"
+          },
+          "radius" : {
+            "value" : "{radius.none.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "transition" : {
+            "time" : {
+              "value" : "0.5s"
+            }
+          },
+          "stroke" : {
+            "active" : {
+              "value" : "#80FF00"
+            },
+            "inactive" : {
+              "value" : "#80FF00"
+            }
+          },
+          "label" : {
+            "color" : {
+              "value" : "{color.on-error.@.value}"
+            }
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "password-danger" : {
+          "source" : "user"
+        },
+        "password-weak" : {
+          "source" : "user"
+        },
+        "password-medium" : {
+          "source" : "user"
+        },
+        "password-strong" : {
+          "source" : "user"
+        }
+      }
+    }
+  }
+}

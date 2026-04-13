@@ -228,6 +228,9 @@ wm-input[name="txtFind"].app-input-wrapper {
     flex: none !important;
 }
 
+
+
+
 .wm-app .btn-trailing-icon {
     left: auto;
     right: 1px;
@@ -306,50 +309,144 @@ wm-input[name="txtFind"].app-input-wrapper {
     box-shadow: 0 0 5px #589CDD !important;
 }
 
-.show-hide-option-list ul, .show-hide-option-list li, .show-hide-option-list .bg-white{
- background-color: white;
+.show-hide-option-list ul,
+.show-hide-option-list li,
+.show-hide-option-list .bg-white {
+    background-color: white;
 }
-.show-hide-option-list ul{
+
+.show-hide-option-list ul {
     padding-top: 8px;
     padding-bottom: 8px;
     margin-top: 8px !important;
     margin-bottom: 4px !important;
 }
-.show-hide-option-list li{
+
+.show-hide-option-list li {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
-.small-checkbox > label{
-        height: 22px !important;
+
+.small-checkbox>label {
+    height: 22px !important;
     min-height: 22px !important;
 }
-.small-checkbox input{
+
+.small-checkbox input {
     height: 22px !important;
 }
-.small-checkbox span.caption{
-        padding: 0 11px !important;
+
+.small-checkbox span.caption {
+    padding: 0 11px !important;
     height: 22px !important;
 }
-.small-checkbox .caption:before{
+
+.small-checkbox .caption:before {
     width: 14px !important;
     height: 14px !important;
     top: 4px !important;
-    
+
     border-width: 1px !important;
 }
+
 .small-checkbox .caption:after {
-    top: 3px !important; 
+    top: 3px !important;
     left: 10px !important;
     width: 8px !important;
     height: 3px !important;
 }
-.small-checkbox label:not(.unchecked) .caption:before{
+
+.small-checkbox label:not(.unchecked) .caption:before {
     border-color: #0078D4 !important;
     background-color: #0078D4 !important;
 }
-.small-checkbox.app-checkbox.checkbox > label > input:hover, .small-checkbox.app-checkbox.checkbox > label > input:focus, .small-checkbox.app-checkbox.checkbox > label > input:active{
+
+.small-checkbox.app-checkbox.checkbox>label>input:hover,
+.small-checkbox.app-checkbox.checkbox>label>input:focus,
+.small-checkbox.app-checkbox.checkbox>label>input:active {
     opacity: 0 !important;
 }
-.app-input-wrapper:has(.flex-0){
+
+.app-input-wrapper:has(.flex-0) {
     flex: 0 !important;
 }
+
+.white-divider {
+    background-color: white !important;
+    height: 1px;
+    width: 100%;
+}
+
+.pull-right {
+    text-align: end !important;
+}
+
+
+
+
+
+/* responsive code starts */
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 375px) {}
+
+/* tablet */
+@media only screen and (min-width: 376px) and (max-width: 768px) {}
+
+/* mobile and tablet combined */
+@media only screen and (max-width: 576px) {
+    .container-signin-card {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .fixed-width-lg {
+        width: 100% !important;
+    }
+
+    .wm-app .app-page .app-top-nav {
+        margin-top: 0;
+    }
+
+    .flex-direction-md-column {
+        flex-direction: column !important;
+    }
+
+    .flex-direction-md-column>div {
+        width: 100% !important;
+    }
+
+    .flex-direction-md-column .custom-left {
+        left: 0 !important;
+    }
+
+    .d-md-none,
+    .d-md-none.d-flex {
+        display: none !important;
+    }
+
+    .d-md-block {
+        display: block !important;
+    }
+}
+
+/* desktop */
+@media only screen and (min-width: 993px) {
+    .d-md-none {
+        display: block !important;
+    }
+
+    .d-md-block,
+    .d-md-block.d-flex {
+        display: none !important;
+    }
+
+    .popout-container-wrapper {
+        width: 800px !important;
+        margin: auto;
+    }
+}
+
+/* responsive code ends */

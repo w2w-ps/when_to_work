@@ -1,5 +1,5 @@
 <wm-page name="page" pagetitle="Emppreferences">
-    <wm-header content="header" name="header"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent">
             <wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container1"
@@ -36,7 +36,7 @@
                         class="app-container-default" variant="default">
                         <wm-prefab prefabname="WorkPreference" name="WorkPreference1" width="100%" restrictedit="true"
                             readonly="true" singleday="true"
-                            weekpreferencedata="bind:Variables.getWeekPreferenceRange.dataSet"
+                            weekpreferencedata="bind:Variables.SvGetWeekPreferences.dataSet"
                             on-click="WorkPreference1Click($event, $data)"></wm-prefab>
                     </wm-container>
                     <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container22"

@@ -11,16 +11,179 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    /*
-     * variables can be accessed through 'Page.Variables' property here
-     * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
-     * Page.Variables.loggedInUser.getData()
-     *
-     * widgets can be accessed through 'Page.Widgets' property here
-     * e.g. to get value of text widget named 'username' use following script
-     * 'Page.Widgets.username.datavalue'
-     */
-    Page.isFromDraggable = false;
+    Page.selectedEmployee;
+    Page.selectedDay;
+    Page.isAdd = true;
+    Page.dragState = null; // drag-and-drop state holder
+    Page._dragDropInsertPayload = null;
+    Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
+
+    // Initialize filter state
+    Page.currentCategoryFilter = null;
+    Page.currentStatusFilter = null;
+    Page.currentPositionFilter = null;
+    Page.unfilteredScheduleData = [];
+
+    Page.loadEmployeeViewConfig();
+    window.addEventListener('message', function (event) {
+        if (event.data && event.data.type === 'employeeViewConfigUpdated') {
+            Page.loadEmployeeViewConfig();
+            Page.Variables.svScheduleList.invoke();
+        }
+    });
+};
+
+/**
+ * Filters the employee schedule list based on category, status, and position selections.
+ * All three filters work together - if multiple filters are applied, employees must match all criteria.
+ * 
+ * Filter rules:
+ * - "All Categories", "All Positions", and "No Status" are treated as no filter
+ * - Separator entries ("----------") are ignored
+ * - Filtering is case-insensitive
+ * - Returns all data if no valid filters are applied
+ * 
+ * ENHANCED: Now filters both employees AND individual shifts within each employee.
+ * - Employees are included if they have at least one matching shift
+ * - Within each employee, only shifts matching the filter criteria are shown
+ * - Shifts that don't match category/position filters are removed from the employee's shifts array
+ */
+Page.applyScheduleFilters = function () {
+    var sourceData = Page.unfilteredScheduleData;
+
+    if (!sourceData || sourceData.length === 0) {
+        Page.Widgets.employeeScheduleList.dataset = [];
+        return;
+    }
+
+    var categoryFilter = Page.currentCategoryFilter;
+    var statusFilter = Page.currentStatusFilter;
+    var positionFilter = Page.currentPositionFilter;
+
+    // Check if filters are effectively empty (no-filter conditions)
+    var isCategoryFilterActive = categoryFilter && categoryFilter.description
+    categoryFilter.description !== 'All Categories' &&
+        categoryFilter.description !== '----------' &&
+        categoryFilter.description.trim() !== '';
+
+    var isStatusFilterActive = statusFilter &&
+        statusFilter !== 'All Status' &&
+        statusFilter !== 'No Status' &&
+        statusFilter !== '----------' &&
+        statusFilter.trim() !== '';
+
+    var isPositionFilterActive = positionFilter && positionFilter.description &&
+        positionFilter.description !== 'All Positions' &&
+        positionFilter.description !== '----------' &&
+        positionFilter.description.trim() !== '';
+
+    // If no filters are active, show all data
+    if (!isCategoryFilterActive && !isStatusFilterActive && !isPositionFilterActive) {
+        Page.Widgets.employeeScheduleList.dataset = sourceData;
+        return;
+    }
+
+    // Apply filters with shift-level filtering
+    var filteredData = [];
+
+    sourceData.forEach(function (employee) {
+        var weeklyShiftsArray = Object.values(employee.weeklyShifts || {});
+
+        // Deep clone the employee to avoid modifying the original unfiltered data
+        var employeeCopy = JSON.parse(JSON.stringify(employee));
+        var hasMatchingShift = false;
+
+        // Filter shifts within each day of the week
+        if (employeeCopy.weeklyShifts && Array.isArray(employeeCopy.weeklyShifts)) {
+            employeeCopy.weeklyShifts.forEach(function (day) {
+                if (day.shifts && Array.isArray(day.shifts)) {
+                    // Filter the shifts array for this day
+                    var filteredShifts = day.shifts.filter(function (shift) {
+                        var matchesCategory = true;
+                        var matchesPosition = true;
+                        var matchesStatus = true;
+
+                        // Apply category filter to individual shift
+                        if (isCategoryFilterActive) {
+                            matchesCategory = shift.category &&
+                                shift.category.toLowerCase().indexOf(categoryFilter.toLowerCase()) > -1;
+                        }
+
+                        // Apply position filter to individual shift
+                        if (isPositionFilterActive) {
+                            matchesPosition = shift.position &&
+                                shift.position.toLowerCase().indexOf(positionFilter.toLowerCase()) > -1;
+                        }
+
+                        // Status filter - bypass for now (API doesn't provide status field)
+                        if (isStatusFilterActive) {
+                            matchesStatus = true;
+                        }
+
+                        // Shift must match all active filters
+                        return matchesCategory && matchesPosition && matchesStatus;
+                    });
+
+                    // Update the day's shifts array with filtered shifts
+                    day.shifts = filteredShifts;
+
+                    // Track if this employee has at least one matching shift
+                    if (filteredShifts.length > 0) {
+                        hasMatchingShift = true;
+                    }
+                }
+            });
+        }
+
+        // Only include employees that have at least one matching shift
+        if (hasMatchingShift) {
+            filteredData.push(employeeCopy);
+        }
+    });
+
+    Page.Widgets.employeeScheduleList.dataset = filteredData;
+};
+
+/**
+ * Event handler for category dropdown change
+ */
+Page.selCategoriesChange = function ($event, widget, newVal, oldVal) {
+    Page.currentCategoryFilter = newVal;
+    Page.applyScheduleFilters();
+};
+
+/**
+ * Event handler for status dropdown change
+ */
+Page.selStatusChange = function ($event, widget, newVal, oldVal) {
+    Page.currentStatusFilter = newVal;
+    Page.applyScheduleFilters();
+};
+
+/**
+ * Event handler for position dropdown change
+ */
+Page.selPositionsChange = function ($event, widget, newVal, oldVal) {
+    Page.currentPositionFilter = newVal;
+    Page.applyScheduleFilters();
+};
+
+/**
+ * Store unfiltered data when schedule list loads successfully.
+ * This is called after svScheduleList.dataSet is populated.
+ */
+Page.storeUnfilteredScheduleData = function () {
+    var dataset = Page.Variables.svScheduleList.dataSet;
+    if (dataset && dataset.length > 0) {
+        // Only update unfilteredScheduleData if we have actual data
+        // This prevents overwriting the backup when filters return empty results
+        Page.unfilteredScheduleData = dataset.slice();
+        Page.applyScheduleFilters();
+    } else {
+        // Don't clear unfilteredScheduleData when service returns no results
+        // Just apply filters to show the "no data" state
+        Page.applyScheduleFilters();
+    }
 };
 
 Page.formatWeekLabel = function (startDate, endDate) {
@@ -125,6 +288,16 @@ Page.transformScheduleData = function (apiResponse) {
 
 Page.scheduleQueryVaronSuccess = function (variable, data) {
     var transformedData = Page.transformScheduleData(data);
+
+    // Filter out employees with no shifts when hideEmployeesNoShifts is enabled
+    if (App.Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts) {
+        transformedData = transformedData.filter(function (emp) {
+            return emp.weeklyShifts && emp.weeklyShifts.some(function (day) {
+                return day.shifts && day.shifts.length > 0;
+            });
+        });
+    }
+
     Page.Variables.transformedScheduleVar.setData(transformedData);
 };
 
@@ -133,13 +306,86 @@ Page.scheduleQueryVaronError = function (variable, data) {
     Page.Variables.transformedScheduleVar.setData([]);
 };
 
-Page.onReady = function () {
-    Page.selectedEmployee;
-    Page.selectedDay;
-    Page.isAdd = true;
-    Page.dragState = null; // drag-and-drop state holder
-    Page._dragDropInsertPayload = null;
-    Page._pendingDropPayload = null; // holds pending drop payload during confirmation dialogs
+/**
+ * Reads employeeViewConfig from localStorage, syncs the App variable,
+ * then applies show/hide to all corresponding EmployeeView widgets.
+ */
+Page.loadEmployeeViewConfig = function () {
+    var stored = localStorage.getItem('employeeViewConfig');
+    if (stored) {
+        try {
+            var config = JSON.parse(stored);
+            App.Variables.employeeViewConfig.setData(config);
+            Page.applyConfigToView(config);
+        } catch (e) {
+            console.warn('Could not parse employeeViewConfig from localStorage:', e);
+            Page.applyConfigToView(App.Variables.employeeViewConfig.dataSet);
+        }
+    } else {
+        // No stored config — use App variable defaults and persist them
+        localStorage.setItem('employeeViewConfig', JSON.stringify(App.Variables.employeeViewConfig.dataSet));
+        Page.applyConfigToView(App.Variables.employeeViewConfig.dataSet);
+    }
+};
+
+/**
+ * Applies show/hide visibility to EmployeeView widgets based on the config object.
+ * Defaults to true (visible) for any key that is missing or undefined.
+ *
+ * Config key → Widget(s) mapping:
+ *   showDescription      → lblMondayItemShift, lblTuesdayItemShift, lblWednesdayItemShift,
+ *                          lblThursdayItemShift, lblFridayItemShift, lblSaturdayItemShift, lblSundayItemShift
+ *   showPosition         → lblMondayItemNotes, lblTuesdayItemNotes, lblWednesdayItemNotes,
+ *                          lblThursdayItemNotes, lblFridayItemNotes, lblSaturdayItemNotes, lblSundayItemNotes
+ *   showTotalHours       → label67_1
+ *   showPhoneNumber      → scheduleListList2
+ *   showDateHeaderOnce   → dayHeadersContainer
+ *   showNamesOnLeft      → employeeNameCell
+ */
+Page.applyConfigToView = function (config) {
+    var cfg = config || {};
+
+    function val(key, defaultVal) {
+        return cfg.hasOwnProperty(key) ? cfg[key] : (defaultVal !== undefined ? defaultVal : true);
+    }
+
+    // showDescription: shift name/description labels inside each day's shift list
+    var showDesc = val('showDescription', true);
+    ['lblMondayItemShift', 'lblTuesdayItemShift', 'lblWednesdayItemShift',
+        'lblThursdayItemShift', 'lblFridayItemShift', 'lblSaturdayItemShift', 'lblSundayItemShift'
+    ].forEach(function (widgetName) {
+        if (Page.Widgets[widgetName]) {
+            Page.Widgets[widgetName].show = showDesc;
+        }
+    });
+
+    // showPosition: shift notes labels (used to display position/notes) inside each day's shift list
+    var showPos = val('showPosition', true);
+    ['lblMondayItemNotes', 'lblTuesdayItemNotes', 'lblWednesdayItemNotes',
+        'lblThursdayItemNotes', 'lblFridayItemNotes', 'lblSaturdayItemNotes', 'lblSundayItemNotes'
+    ].forEach(function (widgetName) {
+        if (Page.Widgets[widgetName]) {
+            Page.Widgets[widgetName].show = showPos;
+        }
+    });
+
+    // showTotalHours: total hours label inside each employee row
+    var showTotalHours = val('showTotalHours', true);
+    if (Page.Widgets.label67_1) {
+        Page.Widgets.label67_1.show = showTotalHours;
+    }
+
+    // showPhoneNumber: phone number list inside each employee cell
+    var showPhone = val('showPhoneNumber', false);
+    if (Page.Widgets.scheduleListList2) {
+        Page.Widgets.scheduleListList2.show = showPhone;
+    }
+
+    // showNamesOnLeft: the employee name cell column
+    var showNames = val('showNamesOnLeft', true);
+    if (Page.Widgets.employeeNameCell) {
+        Page.Widgets.employeeNameCell.show = showNames;
+    }
 };
 
 /**
@@ -273,7 +519,9 @@ Page.chkClearAllChange = function ($event, widget, newVal, oldVal) {
 };
 
 /**
- * Helper function to open dialog and set employee/day context
+ * Helper function to open dialog and set employee/day context.
+ * shiftDialog.open() is guarded by useQuickShiftEdit config flag.
+ * The dialog only opens when useQuickShiftEdit is true.
  */
 Page.openDialogForDay = function (item, dayName, dayIndex) {
     Page.selectedEmployee = item;
@@ -289,7 +537,9 @@ Page.openDialogForDay = function (item, dayName, dayIndex) {
     Page.selectedShiftDate = shiftDate;
     Page.formattedShiftDate = formattedDate;
 
-    Page.Widgets.shiftDialog.open();
+    if (App.Variables.employeeViewConfig.dataSet.useQuickShiftEdit) {
+        Page.Widgets.shiftDialog.open();
+    }
 };
 
 /**
@@ -545,29 +795,20 @@ Page.button16Click = function ($event, widget) {
     var categoryId = Page.Widgets.shiftForm.formWidgets.categoryField.datavalue;
 
     if (!positionId) {
-        console.error('Position is required');
-        App.Actions.appNotification.invoke({
-            message: 'Position is required',
-            class: 'error'
-        });
+        Page.alertMsg = 'Please select a position.';
+        Page.Widgets.alertdialog1.open();
         return;
     }
 
     if (!startTime) {
-        console.error('Start time is required');
-        App.Actions.appNotification.invoke({
-            message: 'Start time is required',
-            class: 'error'
-        });
+        Page.alertMsg = 'Please enter a start time.';
+        Page.Widgets.alertdialog1.open();
         return;
     }
 
     if (!endTime) {
-        console.error('End time is required');
-        App.Actions.appNotification.invoke({
-            message: 'End time is required',
-            class: 'error'
-        });
+        Page.alertMsg = 'Please enter an end time.';
+        Page.Widgets.alertdialog1.open();
         return;
     }
 
@@ -1578,3 +1819,13 @@ function formatToStandardTime(input) {
 
     return `${formattedHours}:${minutes}${period}`;
 }
+
+/**
+ * Opens the ConfigureByEmployeeView page as a browser pop-up window.
+ * Uses window.open() with specific dimensions and position to present
+ * it as a focused pop-up rather than a new full tab.
+ */
+Page.anchor9Click = function ($event, widget) {
+    var url = window.location.href.split('#')[0] + '#/ConfigureByEmployeeView';
+    window.open(url, 'ConfigureByEmployeeView', 'width=900,height=600,left=100,top=100');
+};

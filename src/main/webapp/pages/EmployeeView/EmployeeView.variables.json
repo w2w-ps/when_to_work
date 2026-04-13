@@ -359,17 +359,13 @@
     "controller" : "EmployeePositions"
   },
   "svGetAllCategoriesByCompanyId" : {
-    "_id" : "wm-svGetAllCategoriesByCompanyId-wm.ServiceVariable-1775034402515",
+    "_id" : "wm-svGetAllCategoriesByCompanyId-wm.ServiceVariable-1775799151063",
     "name" : "svGetAllCategoriesByCompanyId",
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
       "value" : "1",
-      "type" : "string"
-    }, {
-      "target" : "ngrok-skip-browser-warning",
-      "value" : [ "true" ],
       "type" : "string"
     } ],
     "type" : "categoryList.RootResponse",
@@ -389,17 +385,13 @@
     "controller" : "categoryList"
   },
   "svGetAllPositionsByCompanyId" : {
-    "_id" : "wm-svGetAllPositionsByCompanyId-wm.ServiceVariable-1775034368626",
+    "_id" : "wm-svGetAllPositionsByCompanyId-wm.ServiceVariable-1775799248481",
     "name" : "svGetAllPositionsByCompanyId",
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
       "value" : "1",
-      "type" : "string"
-    }, {
-      "target" : "ngrok-skip-browser-warning",
-      "value" : [ "true" ],
       "type" : "string"
     } ],
     "type" : "positionList.RootResponse",
@@ -481,6 +473,7 @@
     "isList" : true,
     "maxResults" : 20,
     "onBeforeUpdate" : "svScheduleListonBeforeServiceCall(variable, inputData)",
+    "onSuccess" : "storeUnfilteredScheduleData()",
     "startUpdate" : false,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",

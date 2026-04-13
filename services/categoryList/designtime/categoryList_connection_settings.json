@@ -14,7 +14,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Thu, 02 Apr 2026 09:55:58 GMT" ],
+      "Date" : [ "Fri, 10 Apr 2026 06:52:50 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Transfer-Encoding" : [ "chunked" ],
       "Connection" : [ "keep-alive" ],
@@ -26,7 +26,7 @@
       "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
       "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"categories\":[{\"id\":1,\"name\":\"Morning Shift\",\"shortName\":null}],\"groups\":[{\"id\":11,\"name\":\"Standard Shifts\",\"categories\":[{\"id\":2,\"name\":\"Afternoon Shift\",\"shortName\":null}]}]}",
+    "responseBody" : "{\"categories\":[{\"id\":1,\"description\":\"Morning Shift\",\"shortDesc\":null}]}",
     "convertedResponse" : null
   }
 }

@@ -15,6 +15,45 @@
     } ],
     "operation" : "toast"
   },
+  "employeeViewConfig" : {
+    "_id" : "wm-employeeViewConfig-wm.Variable-1775470939443",
+    "name" : "employeeViewConfig",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "showDescription" : true,
+      "showPosition" : true,
+      "showCategory" : true,
+      "hideEmployeesNoShifts" : false,
+      "showTimeOff" : true,
+      "showOffOnDays" : false,
+      "showUnassignedShifts" : true,
+      "showTotalHours" : true,
+      "showPhoneNumber" : false,
+      "showDateHeaderOnce" : true,
+      "showNamesOnLeft" : true,
+      "useQuickShiftEdit" : true,
+      "nameFormat" : "First Last",
+      "fontSize" : "Small",
+      "printShowDescription" : true,
+      "printShowPosition" : true,
+      "printShowCategory" : true,
+      "printHideEmployeesNoShifts" : true,
+      "printShowApprovedTimeOff" : false,
+      "printShowOffOnDays" : false,
+      "printShowUnassignedShifts" : false,
+      "printShowTotalHours" : true,
+      "printShowPhoneNumber" : true,
+      "printShowDateHeaderOnce" : true,
+      "printSeparatePage" : false,
+      "printSignatureLine" : true,
+      "printNameFormat" : "First Last",
+      "printFontSize" : "Medium"
+    },
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "goToPage_ConfigureByEmployeeView" : {
     "_id" : "wm-goToPage_ConfigureByEmployeeView-wm.NavigationAction-1775463179827",
     "name" : "goToPage_ConfigureByEmployeeView",
@@ -132,6 +171,17 @@
     "category" : "wm.NavigationAction",
     "operation" : "gotoPage",
     "pageName" : "Main"
+  },
+  "goToPage_mgradminsettings" : {
+    "_id" : "wm-goToPage_mgradminsettings-wm.NavigationAction-1775645402607",
+    "name" : "goToPage_mgradminsettings",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgradminsettings",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
   },
   "goToPage_Mgrchangeemppass" : {
     "_id" : "wm-goToPage_Mgrchangeemppass-wm.NavigationAction-1774425330925",
@@ -283,6 +333,21 @@
     "transformationRequired" : false,
     "redirectTo" : "Login",
     "useDefaultSuccessHandler" : true
+  },
+  "selectedpreference" : {
+    "_id" : "wm-selectedpreference-wm.Variable-1776063834402",
+    "name" : "selectedpreference",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "name0",
+      "dataValue" : "dataValue0"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",

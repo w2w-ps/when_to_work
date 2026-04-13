@@ -22,44 +22,44 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 
 public class ResponsePositionsEntryItem {
-  @JsonProperty("name")
-  private String name = null;
+  @JsonProperty("positionId")
+  private Integer positionId = null;
 
-  @JsonProperty("id")
-  private Integer id = null;
+  @JsonProperty("description")
+  private String description = null;
 
-  public ResponsePositionsEntryItem name(String name) {
-    this.name = name;
+  public ResponsePositionsEntryItem positionId(Integer positionId) {
+    this.positionId = positionId;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get positionId
+   * @return positionId
   **/
-  public String getName() {
-    return name;
+  public Integer getPositionId() {
+    return positionId;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setPositionId(Integer positionId) {
+    this.positionId = positionId;
   }
 
-  public ResponsePositionsEntryItem id(Integer id) {
-    this.id = id;
+  public ResponsePositionsEntryItem description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get description
+   * @return description
   **/
-  public Integer getId() {
-    return id;
+  public String getDescription() {
+    return description;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -72,13 +72,13 @@ public class ResponsePositionsEntryItem {
       return false;
     }
     ResponsePositionsEntryItem Response_positionsEntryItem = (ResponsePositionsEntryItem) o;
-    return Objects.equals(this.name, Response_positionsEntryItem.name) &&
-        Objects.equals(this.id, Response_positionsEntryItem.id);
+    return Objects.equals(this.positionId, Response_positionsEntryItem.positionId) &&
+        Objects.equals(this.description, Response_positionsEntryItem.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, id);
+    return Objects.hash(positionId, description);
   }
 
 
@@ -87,8 +87,8 @@ public class ResponsePositionsEntryItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponsePositionsEntryItem {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    positionId: ").append(toIndentedString(positionId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }
