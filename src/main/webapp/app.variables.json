@@ -334,6 +334,21 @@
     "redirectTo" : "Login",
     "useDefaultSuccessHandler" : true
   },
+  "selectedpreference" : {
+    "_id" : "wm-selectedpreference-wm.Variable-1776063834402",
+    "name" : "selectedpreference",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "name0",
+      "dataValue" : "dataValue0"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
     "name" : "supportedLocale",
