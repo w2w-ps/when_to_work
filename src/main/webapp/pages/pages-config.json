@@ -82,6 +82,10 @@
   "type" : "LEFTNAV",
   "params" : [ ]
 }, {
+  "name" : "mgradminsettings",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
   "params" : [ ]

@@ -1,101 +1,133 @@
 <wm-page name="page" pagetitle="Mgrchangeemppass">
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent">
-            <wm-container name="pageWrapper" class="app-container-default popout-container-wrapper" direction="column"
-                gap="16" alignment="top-center" width="fill" height="hug">
-                <!-- Page Title Area -->
-                <wm-container name="titleContainer" class="app-container-default" direction="column" gap="4"
-                    alignment="top-center" width="fill" height="hug">
-                    <wm-label name="pageTitle" caption="Change username/password" class="label-label-18-700"
-                        variant="label-18-700"></wm-label>
-                    <wm-label name="employeeNameTitle" caption="bind:Variables.employeeData.dataSet.username"
-                        class="label-label-18-700" variant="label-18-700"></wm-label>
-                </wm-container>
-                <!-- Current Section -->
-                <wm-container direction="column" alignment="top-left" gap="4" width="fill" name="container14"
-                    class="container-grey-standard" variant="grey-standard" wrap="false">
-                    <wm-container name="currentSection" class="container-grey-container" direction="column" gap="8"
-                        alignment="top-left" width="fill" height="hug" variant="grey-container">
-                        <wm-label name="currentHeading" caption="Current" class="label-label-20-700"
-                            variant="label-20-700"></wm-label>
-                        <wm-container name="currentUsernameRow" class="app-container-default" direction="row" gap="30"
-                            alignment="middle-left" width="fill" height="hug">
-                            <wm-label name="currentUsernameLabel" caption="Username:" variant="label-14-400"
-                                class="label-label-14-400 pull-right" width="40%"></wm-label>
-                            <wm-label name="currentUsernameValue" caption="bind:Variables.employeeData.dataSet.username"
-                                variant="label-14-400" class="label-label-14-400"></wm-label>
-                        </wm-container>
+            <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container24"
+                class="container-primary-filled" variant="primary-filled" padding="5px">
+                <wm-anchor margin="unset 0.5em" name="anchor2" variant="white-anchor-yellow-on-hover"
+                    iconclass="fa fa-close" caption="close" class="anchor-white-anchor-yellow-on-hover"></wm-anchor>
+            </wm-container>
+            <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container14"
+                class="app-container-default" variant="default">
+                <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="16"
+                    alignment="middle-center" width="hug" height="hug" clipcontent="false" overflow="none"
+                    variant="default">
+                    <!-- Page Title Area -->
+                    <wm-container name="titleContainer" class="app-container-default" direction="column" gap="4"
+                        alignment="top-center" width="fill" height="hug" variant="default">
+                        <wm-label name="pageTitle" caption="Change username/password" class="label-label-18-700"
+                            variant="label-18-700"></wm-label>
+                        <wm-label name="employeeNameTitle" caption="bind:Variables.employeeData.dataSet.username"
+                            class="label-label-18-700" variant="label-18-700"></wm-label>
                     </wm-container>
-                    <wm-container name="newSection" class="container-grey-container" direction="column" gap="8"
-                        alignment="top-left" width="fill" height="hug" variant="grey-container">
-                        <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container14_1"
-                            class="app-container-default white-divider" variant="default"></wm-container>
-                        <wm-label name="newHeading" caption="New" class="label-label-20-700" variant="label-20-700">
-                        </wm-label>
-                        <wm-container name="newDivider" class="app-container-default" direction="row" gap="0"
-                            alignment="middle-left" width="fill" height="1px"></wm-container>
-                        <!-- Username Field -->
-                        <wm-container name="newUsernameRow" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-right" width="fill" height="hug">
-                            <wm-label name="newUsernameLabel" caption="Username" variant="label-14-400" width="40%"
-                                class="label-label-14-400 pull-right"></wm-label>
-                            <wm-text name="newUsernameInput" datavalue="bind:Variables.employeeData.dataSet.newUsername"
-                                class="form-control app-textbox form-popout-control" variant="popout-control"
-                                required="true"></wm-text>
+                    <!-- Current Section -->
+                    <!-- New Section -->
+                    <!-- Save Button -->
+                    <wm-container direction="column" alignment="middle-center" gap="4" width="65%" name="container28"
+                        variant="grey-standard" wrap="false" clipcontent="false" overflow="none"
+                        class="container-grey-standard">
+                        <wm-container name="currentSection" class="container-grey-container" direction="column" gap="8"
+                            alignment="top-left" width="fill" height="hug" variant="grey-container">
+                            <wm-label name="currentHeading" caption="Current" class="label-label-20-700"
+                                variant="label-20-700"></wm-label>
+                            <wm-container name="currentUsernameRow" class="app-container-default" direction="row"
+                                gap="8" alignment="middle-center" width="fill" height="hug" variant="default">
+                                <wm-label name="currentUsernameLabel" caption="Username:" variant="default"></wm-label>
+                                <wm-label name="currentUsernameValue"
+                                    caption="bind:Variables.employeeData.dataSet.username" variant="default"></wm-label>
+                            </wm-container>
+                            <wm-container name="currentDivider" class="container-white-container-no-border-radius"
+                                direction="row" gap="0" alignment="middle-left" width="fill" height="1px"
+                                variant="white-container-no-border-radius"></wm-container>
                         </wm-container>
-                        <!-- Password Field -->
-                        <wm-container name="newPasswordRow" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-right" width="fill" height="hug">
-                            <wm-label name="newPasswordLabel" caption="Password" variant="label-14-400" width="40%"
-                                class="label-label-14-400 pull-right"></wm-label>
-                            <wm-text name="newPasswordInput" type="password"
-                                datavalue="bind:Variables.employeeData.dataSet.password"
-                                class="form-control app-textbox form-popout-control" variant="popout-control"
-                                required="true" on-change="checkPasswordStrength($event, widget, newVal, oldVal)">
-                            </wm-text>
-                        </wm-container>
-                        <!-- Password Strength -->
-                        <wm-container name="passwordStrengthRow" direction="column" gap="4" alignment="top-left"
-                            width="fill" height="hug" variant="grey-standard">
-                            <wm-label name="passwordStrengthLabel" caption="Password Strength"
-                                variant="label-12-400-grey" class="label-label-12-400-grey label-label-12-400-grey">
+                        <wm-container name="newSection" class="container-grey-container" direction="column" gap="12"
+                            alignment="top-left" width="fill" height="hug" variant="grey-container"
+                            padding="10px unset">
+                            <wm-label name="newHeading" caption="New" class="label-label-20-700" variant="label-20-700">
                             </wm-label>
-                            <wm-progress-bar name="passwordStrengthBar" datavalue="0" minvalue="0" maxvalue="100"
-                                type="danger" width="100%" class="progress-bar-password-danger"
-                                variant="password-danger" show="true"></wm-progress-bar>
-                        </wm-container>
-                        <!-- Confirm Password Field -->
-                        <wm-container name="confirmPasswordRow" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-right" width="fill" height="hug">
-                            <wm-label name="confirmPasswordLabel" caption="Confirm Password" variant="label-14-400"
-                                width="40%" class="pull-right label-label-14-400"></wm-label>
-                            <wm-text name="confirmPasswordInput" type="password"
-                                datavalue="bind:Variables.employeeData.dataSet.confirmPassword" required="true"
-                                class="form-control app-textbox form-popout-control" variant="popout-control"></wm-text>
+                            <!-- Username Field -->
+                            <wm-container name="newUsernameRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-center" width="fill" height="hug" variant="default">
+                                <wm-container direction="row" alignment="middle-right" gap="4" width="45%"
+                                    name="container31" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="none">
+                                    <wm-label name="newUsernameLabel" caption="Username" variant="default"></wm-label>
+                                </wm-container>
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="55%"
+                                    name="container18" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="none">
+                                    <wm-text name="newUsernameInput"
+                                        datavalue="bind:Variables.employeeData.dataSet.newUsername" width="100%"
+                                        class="form-control app-textbox" variant="standard" required="true"></wm-text>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Password Field -->
+                            <wm-container name="newPasswordRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-center" width="fill" height="hug" variant="default">
+                                <wm-container direction="row" alignment="middle-right" gap="4" width="45%"
+                                    name="container30" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="none">
+                                    <wm-label name="newPasswordLabel" caption="Password" variant="default"></wm-label>
+                                </wm-container>
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="55%"
+                                    name="container19" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="none">
+                                    <wm-text name="newPasswordInput" type="password"
+                                        datavalue="bind:Variables.employeeData.dataSet.password" width="100%"
+                                        class="form-control app-textbox" variant="standard" required="true"
+                                        on-change="checkPasswordStrength($event, widget, newVal, oldVal)"></wm-text>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Password Strength -->
+                            <wm-container name="passwordStrengthRow" direction="column" gap="4" alignment="top-left"
+                                width="fill" height="hug" variant="grey-standard">
+                                <wm-label name="passwordStrengthLabel" caption="Password Strength"
+                                    variant="label-12-400-grey" class="password-strength-label label-label-12-400-grey">
+                                </wm-label>
+                                <wm-progress-bar name="passwordStrengthBar" datavalue="0" minvalue="0" maxvalue="100"
+                                    type="danger" width="100%" class="progress-bar-password-danger"
+                                    variant="password-danger" height="5px" show="true"></wm-progress-bar>
+                            </wm-container>
+                            <!-- Confirm Password Field -->
+                            <wm-container name="confirmPasswordRow" class="app-container-default" direction="row"
+                                gap="8" alignment="middle-center" width="fill" height="hug" variant="default">
+                                <wm-container direction="row" alignment="middle-right" gap="4" width="45%"
+                                    name="container17" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="none">
+                                    <wm-label name="confirmPasswordLabel" caption="Confirm Password" variant="default">
+                                    </wm-label>
+                                </wm-container>
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="55%"
+                                    name="container20" class="app-container-default" variant="default"
+                                    clipcontent="false" overflow="none">
+                                    <wm-text name="confirmPasswordInput" type="password"
+                                        datavalue="bind:Variables.employeeData.dataSet.confirmPassword" width="100%"
+                                        required="true" class="form-control app-textbox" variant="standard"></wm-text>
+                                </wm-container>
+                            </wm-container>
                         </wm-container>
                     </wm-container>
-                </wm-container>
-                <!-- New Section -->
-                <!-- Save Button -->
-                <wm-container name="saveButtonContainer" class="app-container-default" direction="row" gap="8"
-                    alignment="middle-center" width="fill" height="hug">
-                    <wm-button name="saveBtn" caption="Save" class="btn-outlined-primary" variant="outlined-primary"
-                        on-click="saveBtnClick($event, widget)"></wm-button>
-                </wm-container>
-                <!-- Information Section -->
-                <wm-container name="infoSection" class="container-grey-container container-grey-standard"
-                    direction="column" gap="12" alignment="top-left" width="fill" height="hug" variant="grey-standard">
-                    <wm-label name="infoHeading" caption="Information" class="label-label-20-700"
-                        variant="label-20-700"></wm-label>
-                    <wm-label name="infoText1"
-                        caption="- You are creating a temporary username and password for this individual, and when they sign in using it they will be prompted to update this information for future access."
-                        variant="label-14-400" class="label-label-14-400"></wm-label>
-                    <wm-label name="infoText2"
-                        caption="- Saving this new information will expire all previous open sessions (like their bookmarked pages and mobile app icons)."
-                        variant="label-14-400" class="label-label-14-400"></wm-label>
-                    <wm-label name="infoText3"
-                        caption="-  A strong password should contain a mix of capital and lower-case letters, numbers and symbols, and not be used to access any other system."
-                        variant="label-14-400" class="label-label-14-400"></wm-label>
+                    <wm-container name="saveButtonContainer" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-center" width="65%" height="hug" variant="default" clipcontent="false"
+                        overflow="none">
+                        <wm-button name="saveBtn" caption="Save" class="btn-outlined-primary" variant="outlined-primary"
+                            on-click="saveBtnClick($event, widget)"></wm-button>
+                    </wm-container>
+                    <!-- Information Section -->
+                    <wm-container name="infoSection" class="container-grey-container container-grey-standard"
+                        direction="column" gap="12" alignment="top-left" width="65%" height="hug"
+                        variant="grey-standard" clipcontent="false" overflow="none">
+                        <wm-label name="infoHeading" caption="Information" class="label-label-20-700"
+                            variant="label-20-700"></wm-label>
+                        <wm-label name="infoText1"
+                            caption="- You are creating a temporary username and password for this individual, and when they sign in using it they will be prompted to update this information for future access."
+                            variant="default"></wm-label>
+                        <wm-label name="infoText2"
+                            caption="- Saving this new information will expire all previous open sessions (like their bookmarked pages and mobile app icons)."
+                            variant="default"></wm-label>
+                        <wm-label name="infoText3"
+                            caption="-  A strong password should contain a mix of capital and lower-case letters, numbers and symbols, and not be used to access any other system."
+                            variant="default"></wm-label>
+                    </wm-container>
                 </wm-container>
             </wm-container>
         </wm-page-content>
