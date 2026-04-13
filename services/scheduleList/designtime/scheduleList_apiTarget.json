@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "574ca62b-10c0-4597-b02c-5d5c2089f167",
+    "x-WM-API_ID" : "1ea23a92-75de-4fe0-8768-e847b16d20d9",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -16,13 +16,27 @@
   } ],
   "schemes" : [ "https" ],
   "paths" : {
-    "/scheduling/employees" : {
+    "/scheduling/shifts/employees" : {
       "get" : {
         "tags" : [ "scheduleList" ],
         "operationId" : "scheduleList_invoke",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
           "name" : "companyId",
           "in" : "query",
           "description" : "companyId",
@@ -68,10 +82,10 @@
         "x-WM-METHOD_NAME" : "invoke",
         "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
       },
-      "x-WM-BASE_PATH" : "/scheduling/employees",
+      "x-WM-BASE_PATH" : "/scheduling/shifts/employees",
       "x-WM-TAG" : "scheduleList",
       "x-WM-RELATIVE_PATH" : "",
-      "x-WM-COMPLETE_PATH" : "${rest.scheduleList.scheme}://${rest.scheduleList.host}${rest.scheduleList.basepath}/scheduling/employees"
+      "x-WM-COMPLETE_PATH" : "${rest.scheduleList.scheme}://${rest.scheduleList.host}${rest.scheduleList.basepath}/scheduling/shifts/employees"
     }
   },
   "definitions" : {
@@ -186,14 +200,14 @@
       "x-WM-TAGS" : [ "scheduleList" ]
     },
     "Response.availablePositionsEntryItem" : {
-      "required" : [ "id", "name" ],
+      "required" : [ "description", "positionId" ],
       "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "id" : {
+        "positionId" : {
           "type" : "integer",
           "format" : "int32"
+        },
+        "description" : {
+          "type" : "string"
         }
       },
       "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.availablePositionsEntryItem",
