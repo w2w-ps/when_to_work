@@ -439,6 +439,10 @@ wm-input[name="txtFind"].app-input-wrapper {
     .d-md-block.d-flex {
         display: none !important;
     }
+    .popout-container-wrapper{
+        width: 800px !important;
+        margin: auto;
+    }
 }
 
 /* responsive code ends */
