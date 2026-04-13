@@ -2,8 +2,13 @@
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent">
             <!-- Page outer wrapper: centers all content with max-width -->
+            <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container24"
+                class="container-primary-filled" variant="primary-filled" padding="5px">
+                <wm-anchor margin="unset 0.5em" name="anchor2" variant="white-anchor-yellow-on-hover"
+                    iconclass="fa fa-close" class="anchor-white-anchor-yellow-on-hover" caption="close"></wm-anchor>
+            </wm-container>
             <wm-container name="pageWrapper" direction="column" gap="16" alignment="top-center" width="fill"
-                height="hug" padding="16px" variant="grey-container">
+                height="hug" padding="unset 16px" variant="grey-container">
                 <!-- Row 1: Page Title -->
                 <wm-container name="titleRow" class="app-container-default" direction="column" gap="4"
                     alignment="top-center" width="fill" height="hug">
@@ -11,8 +16,9 @@
                         variant="label-18-700"></wm-label>
                 </wm-container>
                 <!-- Row 2+3: Combined Current + New credential card -->
-                <wm-container name="credentialCard" class="container-grey-container" direction="column" gap="16"
-                    alignment="top-left" width="fill" height="hug" variant="grey-container">
+                <wm-container name="credentialCard" class="container-grey-container container-grey-standard"
+                    direction="column" gap="16" alignment="top-left" width="55%" height="hug" variant="grey-standard"
+                    clipcontent="false" overflow="none">
                     <!-- Current Section Header -->
                     <wm-label name="currentSectionHeader" caption="Current" class="h4 label-label-20-700"
                         variant="label-20-700"></wm-label>
@@ -20,26 +26,30 @@
                     <wm-container name="currentUsernameField" class="app-container-default field-row" direction="row"
                         gap="auto" alignment="start" width="fill" height="hug">
                         <wm-container name="currentUsernameLeftSpacer" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
                         <wm-container name="currentUsernameRight" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="fill" height="hug">
+                            gap="4" alignment="middle-left" width="fill" height="hug" clipcontent="false"
+                            overflow="none">
                             <wm-label name="currentUsernameLabel" caption="Username" variant="default" required="true">
                             </wm-label>
                             <wm-text name="currentUsername" type="text" placeholder=""
-                                datavalue="bind:Variables.loggedInUser.dataSet.name" readonly="true"></wm-text>
+                                datavalue="bind:Variables.loggedInUser.dataSet.name" readonly="true" width="55%">
+                            </wm-text>
                         </wm-container>
                     </wm-container>
                     <!-- Current: Password field row -->
                     <wm-container name="currentPasswordField" class="app-container-default field-row" direction="row"
                         gap="auto" alignment="start" width="fill" height="hug">
                         <wm-container name="currentPasswordLeftSpacer" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
                         <wm-container name="currentPasswordRight" class="app-container-default" direction="column"
                             gap="4" alignment="top-left" width="fill" height="hug">
                             <wm-label name="currentPasswordLabel" caption="*Password" variant="default"></wm-label>
                             <wm-text name="currentPassword" type="password" placeholder=""
-                                datavalue="bind:Variables.currentPasswordVar.dataSet.dataValue" required="true">
-                            </wm-text>
+                                datavalue="bind:Variables.currentPasswordVar.dataSet.dataValue" required="true"
+                                width="55%"></wm-text>
                         </wm-container>
                     </wm-container>
                     <!-- New Section Header -->
@@ -49,30 +59,35 @@
                     <wm-container name="newUsernameField" class="app-container-default field-row" direction="row"
                         gap="auto" alignment="start" width="fill" height="hug">
                         <wm-container name="newUsernameLeftSpacer" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
                         <wm-container name="newUsernameRight" class="app-container-default" direction="column" gap="4"
                             alignment="top-left" width="fill" height="hug">
                             <wm-label name="newUsernameLabel" caption="Username" variant="default"></wm-label>
                             <wm-text name="newUsername" type="text" placeholder="" readonly="true"
-                                datavalue="bind:Variables.loggedInUser.dataSet.name"></wm-text>
+                                datavalue="bind:Variables.loggedInUser.dataSet.name" width="55%"></wm-text>
                         </wm-container>
                     </wm-container>
                     <!-- New: Password field row with strength bar -->
                     <wm-container name="newPasswordField" class="app-container-default field-row" direction="row"
                         gap="auto" alignment="start" width="fill" height="hug">
                         <wm-container name="newPasswordLeftSpacer" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
                         <wm-container name="newPasswordRight" class="app-container-default" direction="column" gap="4"
                             alignment="top-left" width="fill" height="hug">
                             <wm-label name="newPasswordLabel" caption="Password" variant="default"></wm-label>
                             <wm-text name="newPassword" type="password" placeholder=""
-                                datavalue="bind:Variables.newPasswordVar.dataSet.dataValue" required="true"></wm-text>
-                            <wm-container name="strengthBarRow" class="app-container-default" direction="row" gap="8"
-                                alignment="middle-left" width="fill" height="hug">
+                                datavalue="bind:Variables.newPasswordVar.dataSet.dataValue" required="true"
+                                on-change="newPasswordChange($event, widget, newVal, oldVal)" width="55%"></wm-text>
+                            <wm-container name="strengthBarRow" class="app-container-default" direction="column" gap="4"
+                                alignment="middle-left" width="55%" height="hug" wrap="false" clipcontent="false"
+                                overflow="none">
                                 <wm-label name="strengthLabel" caption="Password Strength:"
-                                    class="label-label-small-400" variant="label-small-400"></wm-label>
+                                    class="label-label-12-400-grey" variant="label-12-400-grey"></wm-label>
                                 <wm-progress-bar name="passwordStrengthBar" type="danger-striped" datavalue="25"
-                                    maxvalue="100" width="fill"></wm-progress-bar>
+                                    maxvalue="100" width="100%" class="progress-bar-password-danger"
+                                    variant="password-danger" height="5px"></wm-progress-bar>
                             </wm-container>
                         </wm-container>
                     </wm-container>
@@ -80,14 +95,15 @@
                     <wm-container name="confirmPasswordField" class="app-container-default field-row" direction="row"
                         gap="auto" alignment="start" width="fill" height="hug">
                         <wm-container name="confirmPasswordLeftSpacer" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
                         <wm-container name="confirmPasswordRight" class="app-container-default" direction="column"
                             gap="4" alignment="top-left" width="fill" height="hug">
                             <wm-label name="confirmPasswordLabel" caption="Confirm password" variant="default">
                             </wm-label>
                             <wm-text name="confirmPassword" type="password" placeholder=""
-                                datavalue="bind:Variables.confirmPasswordVar.dataSet.dataValue" required="true">
-                            </wm-text>
+                                datavalue="bind:Variables.confirmPasswordVar.dataSet.dataValue" required="true"
+                                width="55%"></wm-text>
                         </wm-container>
                     </wm-container>
                     <!-- New: Case sensitive checkbox row -->
@@ -101,13 +117,14 @@
                 </wm-container>
                 <!-- Row 4: Save Button -->
                 <wm-container name="saveButtonRow" class="app-container-default" direction="column" gap="4"
-                    alignment="top-center" width="fill" height="hug">
-                    <wm-button name="saveBtn" caption="Save" class="btn-filled-bg-primary-sm" type="button"
-                        variant="filled-bg-primary-sm" on-click="Variables.svUpdateEmpPwd.invoke()"></wm-button>
+                    alignment="top-center" width="55%" height="hug" clipcontent="false" overflow="none">
+                    <wm-button name="saveBtn" caption="Save" class="btn-outlined-primary" type="button"
+                        variant="outlined-primary" on-click="Variables.svUpdateEmpPwd.invoke()"></wm-button>
                 </wm-container>
                 <!-- Row 5: Information Panel -->
-                <wm-container name="infoCard" class="container-grey-container" direction="column" gap="12"
-                    alignment="top-left" width="fill" height="hug" variant="grey-container">
+                <wm-container name="infoCard" class="container-grey-container container-grey-standard"
+                    direction="column" gap="12" alignment="top-left" width="55%" height="hug" variant="grey-standard"
+                    padding="10px" clipcontent="false" overflow="none">
                     <wm-label name="infoHeader" caption="Information" class="label-label-20-700" variant="label-20-700">
                     </wm-label>
                     <wm-container name="infoLine1" class="app-container-default" direction="row" gap="4"
