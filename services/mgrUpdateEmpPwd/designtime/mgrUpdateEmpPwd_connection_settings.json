@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/login/reset-user-account",
+  "method" : "POST",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc1NTYyODA5LCJleHAiOjE3NzU1NjQ2MDl9.EgtavAi8s3d1bCt0Q3o8HsiLoy2ZL4_68T4Rvj3cFYXi-h483oMadr00w4uApc3tQB29a8id_jqP_BnZT1Esa2JZ4eYohFSO0S-43NGtgNqOhWfVPGlmc93fIoqbwWxUsyIiM6R9pfHcjrWNm9FwUdsbpZTeC1aKgUUREKSo8Edx9nnZttK6UEm_XGScd6Il2jt_PcdHr6IsIDTGIdEKwGklgG_WXEVIZ8Qy-nYFKJ1V2vEr_xerlNebPUp7BvEdHeUDLAVr623VkWfVVJGlGCcnEqO_JRvROtB31KcdN_JQ-3c-VrJ__LaLTz3GuDFB3xWuzE6w1c0dYzvP0J9h-Q" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "{\n       \"currentUsername\": \"test2\",\n       \"newUsername\": \"test3\",\n       \"newPassword\": \"Admin123!\",\n       \"confirmPassword\": \"Admin123!\"\n     }",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Tue, 07 Apr 2026 11:59:17 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"isValid\":true,\"errors\":[],\"message\":\"User account reset successfully.\"}",
+    "convertedResponse" : null
+  }
+}

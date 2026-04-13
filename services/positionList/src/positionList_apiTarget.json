@@ -38,53 +38,25 @@
   "host" : "${rest.positionList.host}",
   "schemes" : [ "${rest.positionList.scheme}" ],
   "definitions" : {
-    "Response.groupsEntryItem" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "positionList.Response.groupsEntryItem",
-      "x-WM-TAGS" : [ "positionList" ],
-      "required" : [ "id", "name", "positions" ],
-      "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "positions" : {
-          "x-WM-IS_LIST" : true,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Response.positionsEntryItem"
-          }
-        },
-        "id" : {
-          "format" : "int32",
-          "type" : "integer"
-        }
-      }
-    },
     "Response.positionsEntryItem" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "positionList.Response.positionsEntryItem",
       "x-WM-TAGS" : [ "positionList" ],
-      "required" : [ "id", "name" ],
+      "required" : [ "description", "positionId" ],
       "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "id" : {
+        "positionId" : {
           "format" : "int32",
           "type" : "integer"
+        },
+        "description" : {
+          "type" : "string"
         }
       }
     },
     "RootResponse" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "positionList.RootResponse",
       "x-WM-TAGS" : [ "positionList" ],
-      "required" : [ "groups", "positions" ],
+      "required" : [ "positions" ],
       "properties" : {
-        "groups" : {
-          "x-WM-IS_LIST" : true,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Response.groupsEntryItem"
-          }
-        },
         "positions" : {
           "x-WM-IS_LIST" : true,
           "type" : "array",
@@ -99,7 +71,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "73f7883c-7c80-4ac6-87d8-b64e1e7f329b",
+    "x-WM-API_ID" : "71b9ecc1-7450-430e-84a1-d59ff89d4e6e",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",

@@ -42,6 +42,7 @@
                 <source>services/createShift/src</source>
                 <source>services/getPreferenceRange/src</source>
                 <source>services/getShiftDetails/src</source>
+                <source>services/mgrUpdateEmpPwd/src</source>
                 <source>services/positionList/src</source>
                 <source>services/precheck/src</source>
                 <source>services/scheduleList/src</source>

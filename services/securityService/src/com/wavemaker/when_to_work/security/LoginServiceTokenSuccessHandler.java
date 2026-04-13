@@ -49,7 +49,7 @@ public class LoginServiceTokenSuccessHandler implements WMAuthenticationSuccessH
             authentication.addAttribute(
                 CustomAuthenticationManager.TOKEN_ATTRIBUTE_KEY,
                 token,
-                Attribute.AttributeScope.SERVER_ONLY
+                Attribute.AttributeScope.ALL
             );
 
             logger.info("LoginService token stored as SERVER_ONLY for user '{}'.",
