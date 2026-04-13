@@ -23,6 +23,7 @@ Page.onReady = function () {
     Page.currentStatusFilter = null;
     Page.currentPositionFilter = null;
     Page.unfilteredScheduleData = [];
+    Page.hasConflicts = false;
 
     Page.loadEmployeeViewConfig();
     window.addEventListener('message', function (event) {
@@ -693,13 +694,13 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     // Resolve position name -> id
     var positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     var positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
-    var positionMatch = positionsList.find(function (p) { return p.name === data.position; });
-    var resolvedPositionId = positionMatch ? positionMatch.id : null;
+    var positionMatch = positionsList.find(function (p) { return p.description === data.position; });
+    var resolvedPositionId = positionMatch ? positionMatch.positionId : null;
 
     // Resolve category name -> id
     var categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     var categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
-    var categoryMatch = categoriesList.find(function (c) { return c.name === data.category; });
+    var categoryMatch = categoriesList.find(function (c) { return c.description === data.category; });
     var resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
 
     // Open the dialog so its widgets are available in the DOM
@@ -1131,24 +1132,11 @@ Page.startTimeFieldChange = function ($event, widget, newVal, oldVal) {
     var startTime = newVal;
     var endTime = Page.Widgets.endTimeField.datavalue;
 
-    if (startTime && endTime) {
-        var calculatedHours = Page.calculateTotalHours(startTime, endTime);
-        if (calculatedHours !== null) {
-            Page.Widgets.paidHoursField.datavalue = calculatedHours;
-        }
-    }
 };
 
 Page.endTimeFieldChange = function ($event, widget, newVal, oldVal) {
     var startTime = Page.Widgets.startTimeField.datavalue;
     var endTime = newVal;
-
-    if (startTime && endTime) {
-        var calculatedHours = Page.calculateTotalHours(startTime, endTime);
-        if (calculatedHours !== null) {
-            Page.Widgets.paidHoursField.datavalue = calculatedHours;
-        }
-    }
 };
 
 
@@ -1302,32 +1290,35 @@ Page._executePendingDrop = function () {
  * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
  */
 Page.btnConfirmShiftYesClick = function ($event, widget) {
-    Page.Widgets.confirmShiftChangeDialog.close();
+    //Page.Widgets.confirmShiftChangeDialog.close();
 
     var payload = Page._pendingDropPayload;
     if (!payload) {
         console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
         return;
     }
-
-    // Build svchkHasConflicts request from pending drop payload
-    Page.Variables.svchkHasConflicts.setInput({
-        RequestBody: {
-            operationType: 'UPDATE',
-            shift: {
-                employeeId: payload.targetEmployeeId,
-                date: payload.targetShiftDate,
-                description: payload.sourceShift.notes || '',
-                startTime: payload.sourceShift.startAt || '',
-                endTime: payload.sourceShift.endAt || '',
-                position: payload.resolvedPositionId || 1,
-                category: payload.resolvedCategoryId || 1,
-                color: payload.sourceShift.color || 'amber',
-                duration: 8
+    if (!Page.hasConflicts) {
+        // Build svchkHasConflicts request from pending drop payload
+        Page.Variables.svchkHasConflicts.setInput({
+            RequestBody: {
+                operationType: 'UPDATE',
+                shift: {
+                    employeeId: payload.targetEmployeeId,
+                    date: payload.targetShiftDate,
+                    description: payload.sourceShift.notes || '',
+                    startTime: payload.sourceShift.startAt || '',
+                    endTime: payload.sourceShift.endAt || '',
+                    position: payload.resolvedPositionId || 1,
+                    category: payload.resolvedCategoryId || 1,
+                    color: payload.sourceShift.color || 'amber',
+                    duration: 8
+                }
             }
-        }
-    });
-    Page.Variables.svchkHasConflicts.invoke();
+        });
+        Page.Variables.svchkHasConflicts.invoke();
+    } else {
+        Page.btnConflictYesClick();
+    }
 };
 
 /**
@@ -1384,9 +1375,13 @@ Page.svchkHasConflictsOnSuccess = function (variable, data) {
         }
 
         Page.Variables.conflictMessageVar.setData({ message: conflictMsg });
-        Page.Widgets.confirmConflictDialog.open();
+        // Page.Widgets.confirmConflictDialog.open();
+        Page.hasConflicts = true;
+        Page.Widgets.container98.show = faslse;
+        Page.Widgets.conflictMsgcontainer.show = true;
     } else {
         // No conflict — proceed directly with the drop
+        Page.Widgets.confirmShiftChangeDialog.close();
         Page._executePendingDrop();
     }
 };
@@ -1399,7 +1394,8 @@ Page.svchkHasConflictsOnSuccess = function (variable, data) {
  * Yes on Dialog 2: close dialog, proceed with the drop.
  */
 Page.btnConflictYesClick = function ($event, widget) {
-    Page.Widgets.confirmConflictDialog.close();
+    Page.Widgets.confirmShiftChangeDialog.close();
+    Page.hasConflicts = false;
     Page._executePendingDrop();
 };
 
