@@ -49,7 +49,6 @@ Page.onReady = function () {
  * - Shifts that don't match category/position filters are removed from the employee's shifts array
  */
 Page.applyScheduleFilters = function () {
-    debugger;
     var sourceData = Page.unfilteredScheduleData;
 
     if (!sourceData || sourceData.length === 0) {
@@ -380,12 +379,6 @@ Page.applyConfigToView = function (config) {
     var showPhone = val('showPhoneNumber', false);
     if (Page.Widgets.scheduleListList2) {
         Page.Widgets.scheduleListList2.show = showPhone;
-    }
-
-    // showDateHeaderOnce: the day-headers row at the top of the schedule grid
-    var showDateHeader = val('showDateHeaderOnce', true);
-    if (Page.Widgets.dayHeadersContainer) {
-        Page.Widgets.dayHeadersContainer.show = showDateHeader;
     }
 
     // showNamesOnLeft: the employee name cell column
@@ -802,29 +795,20 @@ Page.button16Click = function ($event, widget) {
     var categoryId = Page.Widgets.shiftForm.formWidgets.categoryField.datavalue;
 
     if (!positionId) {
-        console.error('Position is required');
-        App.Actions.appNotification.invoke({
-            message: 'Position is required',
-            class: 'error'
-        });
+        Page.alertMsg = 'Please select a position.';
+        Page.Widgets.alertdialog1.open();
         return;
     }
 
     if (!startTime) {
-        console.error('Start time is required');
-        App.Actions.appNotification.invoke({
-            message: 'Start time is required',
-            class: 'error'
-        });
+        Page.alertMsg = 'Please enter a start time.';
+        Page.Widgets.alertdialog1.open();
         return;
     }
 
     if (!endTime) {
-        console.error('End time is required');
-        App.Actions.appNotification.invoke({
-            message: 'End time is required',
-            class: 'error'
-        });
+        Page.alertMsg = 'Please enter an end time.';
+        Page.Widgets.alertdialog1.open();
         return;
     }
 
