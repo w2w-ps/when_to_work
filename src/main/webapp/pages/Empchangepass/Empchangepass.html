@@ -3,13 +3,9 @@
         <wm-page-content columnwidth="12" name="pagecontent">
             <!-- Page outer wrapper: centers all content with max-width -->
             <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container24"
-                class="container-primary-filled" variant="primary-filled" padding="unset 10px">
-                <wm-anchor margin="unset 0.5em" name="anchor2" variant="standard" iconclass="fa fa-close"></wm-anchor>
-                <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container25"
-                    class="app-container-default" variant="default" clipcontent="false" overflow="none">
-                    <wm-label padding="unset" caption="label" class="p label-highlighted-white-14-400" type="p"
-                        name="label17" variant="highlighted-white-14-400"></wm-label>
-                </wm-container>
+                class="container-primary-filled" variant="primary-filled" padding="5px">
+                <wm-anchor margin="unset 0.5em" name="anchor2" variant="white-anchor-yellow-on-hover"
+                    iconclass="fa fa-close" class="anchor-white-anchor-yellow-on-hover" caption="close"></wm-anchor>
             </wm-container>
             <wm-container name="pageWrapper" direction="column" gap="16" alignment="top-center" width="fill"
                 height="hug" padding="unset 16px" variant="grey-container">
@@ -33,7 +29,8 @@
                             gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
                         </wm-container>
                         <wm-container name="currentUsernameRight" class="app-container-default" direction="column"
-                            gap="4" alignment="top-left" width="fill" height="hug">
+                            gap="4" alignment="middle-left" width="fill" height="hug" clipcontent="false"
+                            overflow="none">
                             <wm-label name="currentUsernameLabel" caption="Username" variant="default" required="true">
                             </wm-label>
                             <wm-text name="currentUsername" type="text" placeholder=""
