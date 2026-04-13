@@ -66,6 +66,10 @@
     "type" : "string"
   } ]
 }, {
+  "name" : "emppreferencesmonth",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
   "type" : "FOOTER",
   "params" : [ ]

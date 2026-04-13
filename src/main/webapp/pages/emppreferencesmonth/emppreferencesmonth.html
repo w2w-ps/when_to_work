@@ -1,0 +1,61 @@
+<wm-page name="page" pagetitle="Emppreferencesmonth">
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container10"
+                class="app-container-default" variant="default">
+                <wm-container direction="column" alignment="top-left" gap="10" width="65%" name="container8"
+                    variant="grey-standard" wrap="false" clipcontent="false" overflow="none"
+                    class="container-grey-standard">
+                    <wm-container name="containerInstruction"
+                        class="app-container-default container-warning-standard-no-radius" direction="column" gap="0"
+                        alignment="middle-left" width="fill" height="hug" variant="warning-standard-no-radius">
+                        <wm-label name="lblInstruction"
+                            caption="Click color and 'paint' days or 'double click' day to open hourly prefs."
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                    </wm-container>
+                    <wm-container name="containerButtons" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug" variant="default">
+
+                        <wm-container name="containerPreferWorking" direction="row" gap="0" alignment="middle-center"
+                            width="10%" height="hug" variant="green-bg" class="container-green-bg" wrap="false"
+                            padding="16px" clipcontent="false" overflow="none"
+                            on-tap="btnPreferWorkingClick($event, widget)">
+                            <wm-label name="lblPreferWorking" caption="Prefer Working" class="label-label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="containerDislikeWorking" direction="row" gap="0" alignment="middle-center"
+                            width="10%" height="hug" class="container-red-bg" variant="red-bg" wrap="false"
+                            padding="16px" clipcontent="false" overflow="none"
+                            on-tap="btnDislikeWorkingClick($event, widget)">
+                            <wm-label name="lblDislikeWorking" caption="Dislike Working" class="label-label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="containerCannotWork" direction="row" gap="0" alignment="middle-center"
+                            width="10%" height="hug" class="container-dark-red-bg" variant="dark-red-bg" wrap="false"
+                            padding="16px" clipcontent="false" overflow="none"
+                            on-tap="btnCannotWorkClick($event, widget)">
+                            <wm-label name="lblCannotWork" caption="Cannot Work" class="label-label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="containerClear" direction="row" gap="0" alignment="middle-center" width="5%"
+                            height="hug" wrap="false" padding="25px 20px" clipcontent="false" overflow="none"
+                            class="container-white-container-no-border-radius"
+                            variant="white-container-no-border-radius" on-tap="btnClearClick($event, widget)">
+                            <wm-label name="lblClear" caption="Clear" class="label-label-12-400" variant="label-12-400">
+                            </wm-label>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container9"
+                        class="app-container-default" variant="default">
+                        <wm-prefab prefabname="Weekview" name="Weekview1" width="100%"></wm-prefab>
+                    </wm-container>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container7"
+                        class="app-container-default" variant="default">
+                        <wm-calendar name="calPreferences" variant="standard"
+                            on-dateclick="calendarDateClick($dateInfo)"></wm-calendar>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

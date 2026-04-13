@@ -131,6 +131,17 @@
     } ],
     "pageTransitions" : "none"
   },
+  "goToPage_emppreferencesmonth" : {
+    "_id" : "wm-goToPage_emppreferencesmonth-wm.NavigationAction-1776077729854",
+    "name" : "goToPage_emppreferencesmonth",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "emppreferencesmonth",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_footer_Copy" : {
     "_id" : "wm-goToPage_footer_Copy-wm.NavigationAction-1774261656689",
     "name" : "goToPage_footer_Copy",

@@ -1,0 +1,152 @@
+{
+  "basePath" : "${rest.dayPreferenceList.basepath}",
+  "paths" : {
+    "/preferences/day/list" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "dayPreferenceList_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "dayPreferenceList" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/preferences/day/list",
+      "x-WM-TAG" : "dayPreferenceList",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.dayPreferenceList.scheme}://${rest.dayPreferenceList.host}${rest.dayPreferenceList.basepath}/preferences/day/list"
+    }
+  },
+  "host" : "${rest.dayPreferenceList.host}",
+  "schemes" : [ "${rest.dayPreferenceList.scheme}" ],
+  "definitions" : {
+    "Request.preferencesEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "dayPreferenceList.Request.preferencesEntryItem",
+      "x-WM-TAGS" : [ "dayPreferenceList" ],
+      "required" : [ "companyId", "compression", "date", "editedBy", "employeeId", "isDayPrefs", "prefs" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "editedBy" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "compression" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "isDayPrefs" : {
+          "type" : "boolean"
+        },
+        "prefs" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "dayPreferenceList.Response.div",
+      "x-WM-TAGS" : [ "dayPreferenceList" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "dayPreferenceList.RootRequest",
+      "x-WM-TAGS" : [ "dayPreferenceList" ],
+      "required" : [ "preferences" ],
+      "properties" : {
+        "preferences" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Request.preferencesEntryItem"
+          }
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "dayPreferenceList.Response.body",
+      "x-WM-TAGS" : [ "dayPreferenceList" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "dayPreferenceList.RootResponse",
+      "x-WM-TAGS" : [ "dayPreferenceList" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "dayPreferenceList.Response.parsererror",
+      "x-WM-TAGS" : [ "dayPreferenceList" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "81ffa76d-17ee-4b92-aa5b-1df099e8045f",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "dayPreferenceList"
+  } ]
+}

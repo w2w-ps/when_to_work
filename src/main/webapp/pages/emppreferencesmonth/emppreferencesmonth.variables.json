@@ -1,0 +1,38 @@
+{
+  "mvPreferenceDates" : {
+    "_id" : "wm-mvPreferenceDates-wm.Variable-1776081862586",
+    "name" : "mvPreferenceDates",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "svDayPreferenceListUpdate" : {
+    "_id" : "wm-svDayPreferenceList-wm.ServiceVariable-1776080424005",
+    "name" : "svDayPreferenceListUpdate",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "RequestBody",
+      "value" : "{\n  \"preferences\": [\n    {\n      \"companyId\": 1,\n      \"employeeId\": 1,\n      \"date\": \"2026-04-06\",\n      \"prefs\": \"N\",\n      \"compression\": 0,\n      \"editedBy\": 1,\n      \"isDayPrefs\": true\n    },\n    {\n      \"companyId\": 1,\n      \"employeeId\": 1,\n      \"date\": \"2026-04-07\",\n      \"prefs\": \"D\",\n      \"compression\": 0,\n      \"editedBy\": 1,\n      \"isDayPrefs\": true\n    }\n  ]\n}",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "dayPreferenceList.RootResponse",
+    "service" : "dayPreferenceList",
+    "operation" : "invoke",
+    "operationId" : "dayPreferenceList_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "dayPreferenceList"
+  }
+}
