@@ -1,84 +1,27 @@
 <wm-page name="page" pagetitle="Sign In">
-    <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent" class="p-0">
-            <wm-container name="pageWrapper" class="signin-page-font" direction="column" gap="0" alignment="top-center"
-                width="fill" height="fill">
-                <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container6"
-                    class="container-primary-filled" variant="primary-filled" height="30px" clipcontent="false">
-                </wm-container>
-                <wm-container name="signInCard"
-                    class="app-container-default signin-card container-signin-card col-md-8 col-md-offset-2 margin-auto container-white-container-with-border"
-                    direction="column" gap="12" alignment="top-center" width="fill" height="hug" clipcontent="false"
-                    variant="white-container-with-border" padding="unset unset 20px unset">
-                    <wm-picture name="logoImage" picturesource="resources/images/logos/w2w_logo_circle.png"
-                        alttext="WhenToWork Logo" class="logo" width="150px"></wm-picture>
-                    <wm-label name="brandLabel" caption="WhenToWork.com"
-                        class="brand-title label-brand-title label-label-18-400-primary signin-page-font"
-                        variant="label-18-400-primary"></wm-label>
-                    <wm-container name="forgotInfoSection" class="app-container-default" direction="column" gap="12"
-                        alignment="top-center" width="fill" height="hug"
-                        show="bind:Variables.loginErrorVisible.dataSet.dataValue">
-                        <wm-text name="forgotInfoEmailInput" placeholder="Enter Email Address" type="email"
-                            class="form-control app-textbox form-signin-control signin-page-font anchor-primary-link "
-                            variant="signin-control"></wm-text>
-                        <wm-button name="forgotInfoSendBtn" caption="SEND INFORMATION" type="button"
-                            class="btn-default signin-page-font btn-signin-btn" variant="signin-btn"></wm-button>
-                    </wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container7"
-                        class="divider-custom" variant="default"></wm-container>
-                    <wm-label name="signInHeading" caption="Sign In"
-                        class="section-heading label-section-heading label-label-24-400-primary signin-page-font pt-3"
-                        variant="label-24-400-primary"></wm-label>
-                    <wm-container direction="column" alignment="middle-center" gap="8" width="fill" name="container9"
-                        class="app-container-default" variant="default" wrap="false">
-                        <wm-text name="usernameInput" placeholder="username" type="text"
-                            datavalue="bind:Variables.signInFormData.dataSet.username"
-                            class="signin-page-font signin-input form-signin-control" variant="signin-control">
-                        </wm-text>
-                        <wm-container name="loginErrorBanner" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-center" width="fill" height="hug"
-                            show="bind:App.Variables.loginErrorVisible.dataSet.dataValue" variant="default">
-                            <wm-label name="loginErrorMsg" caption="bind:&quot;Invalid Username or Password!&quot;"
-                                class="text-danger text-primary signin-page-font font-bold" variant="text:primary">
-                            </wm-label>
-                        </wm-container>
-                        <wm-text name="passwordInput" placeholder="password" type="password"
-                            datavalue="bind:Variables.signInFormData.dataSet.password"
-                            class="signin-page-font signin-input signin-page-font form-signin-control"
-                            variant="signin-control"></wm-text>
-                        <wm-container name="loginErrorBanner" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-center" width="fill" height="hug"
-                            show="bind:App.Variables.loginErrorVisible.dataSet.dataValue" variant="default">
-                            <wm-label name="loginErrorMsg"
-                                caption="bind:'Invalid username or password attempt (' + App.Variables.loginAttemptCount.dataSet.dataValue + '/20)'"
-                                class="text-danger text-primary signin-page-font" variant="text:primary"></wm-label>
-                        </wm-container>
-                    </wm-container>
-                    <wm-button name="signInBtn" caption="SIGN IN"
-                        class="signin-page-font btn-default signin-primary btn-signin-primary btn-signin-btn"
-                        type="button" on-click="onSignInClick()" variant="signin-btn"></wm-button>
-                    <wm-anchor name="forgotPasswordLink" caption="Need username / password?"
-                        class="link-text signin-page-font anchor-primary-link pt-2 pb-4" variant="primary-link">
-                    </wm-anchor>
-                    <wm-anchor name="troubleConnectingLink" caption="Trouble Connecting? Try W2W.com"
-                        class="link-text signin-page-font anchor-primary-link" variant="primary-link"></wm-anchor>
-                    <wm-container direction="column" alignment="middle-center" gap="8" width="fill" name="container8"
-                        class="app-container-default" variant="default" wrap="false">
-                        <wm-button name="googleSignInBtn" caption="Sign In With Google" iconclass=""
-                            class="btn-default google-signin btn-google-signin signin-page-font btn-signin-google text-left"
-                            type="button" iconurl="./resources/images/imagelists/google-signin.png" iconwidth="15px"
-                            variant="signin-google"></wm-button>
-                        <wm-button name="facebookSignInBtn" caption="Sign In With Facebook" iconclass=""
-                            class="btn-default facebook-signin btn-facebook-signin signin-page-font btn-signin-facebook text-left"
-                            type="button" variant="signin-facebook"
-                            iconurl="./resources/images/imagelists/facebook-signin.png" iconwidth="17px"></wm-button>
-                        <wm-button name="microsoftSignInBtn" caption="Sign In With Microsoft" iconclass=""
-                            class="btn-default facebook-signin btn-facebook-signin signin-page-font btn-signin-facebook text-left btn-signin-microsoft"
-                            type="button" variant="signin-microsoft"
-                            iconurl="./resources/images/imagelists/microsoft-signin.png" iconwidth="15px"></wm-button>
-                    </wm-container>
-                </wm-container>
-            </wm-container>
-        </wm-page-content>
-    </wm-content>
-</wm-page>
+<wm-content name="content">
+<wm-page-content columnwidth="12" name="pagecontent" class="p-0">
+<wm-container name="pageWrapper" class="signin-page-font" direction="column" gap="0" alignment="top-center" width="fill" height="fill">
+<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container6" class="container-primary-filled" variant="primary-filled" height="30px" clipcontent="false"></wm-container>
+<wm-container name="signInCard" class="app-container-default signin-card container-signin-card col-md-8 col-md-offset-2 margin-auto container-white-container-with-border" direction="column" gap="12" alignment="top-center" width="fill" height="hug" clipcontent="false" variant="white-container-with-border" padding="unset unset 20px unset">
+<wm-picture name="logoImage" picturesource="resources/images/logos/w2w_logo_circle.png" alttext="WhenToWork Logo" class="logo" width="150px"></wm-picture>
+<wm-label name="brandLabel" caption="WhenToWork.com" class="brand-title label-brand-title signin-page-font label-signin-top-label-primary" variant="signin-top-label-primary"></wm-label>
+<wm-container name="forgotInfoSection" class="app-container-default" direction="column" gap="12" alignment="top-center" width="fill" height="hug" show="bind:Variables.loginErrorVisible.dataSet.dataValue">
+<wm-text name="forgotInfoEmailInput" placeholder="Enter Email Address" type="email" class="form-control app-textbox form-signin-control signin-page-font anchor-primary-link " variant="signin-control"></wm-text>
+<wm-button name="forgotInfoSendBtn" caption="SEND INFORMATION" type="button" class="btn-default signin-page-font btn-signin-btn" variant="signin-btn"></wm-button></wm-container>
+<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container7" class="divider-custom" variant="default"></wm-container>
+<wm-label name="signInHeading" caption="Sign In" class="section-heading label-section-heading label-label-24-400-primary signin-page-font pt-3" variant="label-24-400-primary"></wm-label>
+<wm-container direction="column" alignment="middle-center" gap="8" width="fill" name="container9" class="app-container-default" variant="default" wrap="false">
+<wm-text name="usernameInput" placeholder="username" type="text" datavalue="bind:Variables.signInFormData.dataSet.username" class="signin-page-font signin-input form-signin-control" variant="signin-control"></wm-text>
+<wm-container name="loginErrorBanner" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug" show="bind:App.Variables.loginErrorVisible.dataSet.dataValue" variant="default">
+<wm-label name="loginErrorMsg" caption="bind:&quot;Invalid Username or Password!&quot;" class="text-danger text-primary signin-page-font font-bold" variant="text:primary"></wm-label></wm-container>
+<wm-text name="passwordInput" placeholder="password" type="password" datavalue="bind:Variables.signInFormData.dataSet.password" class="signin-page-font signin-input signin-page-font form-signin-control" variant="signin-control"></wm-text>
+<wm-container name="loginErrorBanner" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug" show="bind:App.Variables.loginErrorVisible.dataSet.dataValue" variant="default">
+<wm-label name="loginErrorMsg" caption="bind:'Invalid username or password attempt (' + App.Variables.loginAttemptCount.dataSet.dataValue + '/20)'" class="text-danger text-primary signin-page-font" variant="text:primary"></wm-label></wm-container></wm-container>
+<wm-button name="signInBtn" caption="SIGN IN" class="signin-page-font btn-default signin-primary btn-signin-primary btn-signin-btn" type="button" on-click="onSignInClick()" variant="signin-btn"></wm-button>
+<wm-anchor name="forgotPasswordLink" caption="Need username / password?" class="link-text signin-page-font anchor-primary-link pt-2 pb-4" variant="primary-link"></wm-anchor>
+<wm-anchor name="troubleConnectingLink" caption="Trouble Connecting? Try W2W.com" class="link-text signin-page-font anchor-primary-link" variant="primary-link"></wm-anchor>
+<wm-container direction="column" alignment="middle-center" gap="8" width="fill" name="container8" class="app-container-default" variant="default" wrap="false">
+<wm-button name="googleSignInBtn" caption="Sign In With Google" iconclass="" class="btn-default google-signin btn-google-signin signin-page-font btn-signin-google text-left" type="button" iconurl="./resources/images/imagelists/google-signin.png" iconwidth="15px" variant="signin-google"></wm-button>
+<wm-button name="facebookSignInBtn" caption="Sign In With Facebook" iconclass="" class="btn-default facebook-signin btn-facebook-signin signin-page-font btn-signin-facebook text-left" type="button" variant="signin-facebook" iconurl="./resources/images/imagelists/facebook-signin.png" iconwidth="17px"></wm-button>
+<wm-button name="microsoftSignInBtn" caption="Sign In With Microsoft" iconclass="" class="btn-default facebook-signin btn-facebook-signin signin-page-font btn-signin-facebook text-left btn-signin-microsoft" type="button" variant="signin-microsoft" iconurl="./resources/images/imagelists/microsoft-signin.png" iconwidth="15px"></wm-button></wm-container></wm-container></wm-container></wm-page-content></wm-content></wm-page>

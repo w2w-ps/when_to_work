@@ -14,7 +14,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Thu, 02 Apr 2026 09:56:41 GMT" ],
+      "Date" : [ "Fri, 10 Apr 2026 06:54:47 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Transfer-Encoding" : [ "chunked" ],
       "Connection" : [ "keep-alive" ],
@@ -26,7 +26,7 @@
       "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
       "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"positions\":[{\"id\":1,\"name\":\"Front Desk\"}],\"groups\":[{\"id\":11,\"name\":\"Core Team\",\"positions\":[{\"id\":6,\"name\":\"Valet\"}]}]}",
+    "responseBody" : "{\"positions\":[{\"positionId\":1,\"description\":\"Front Desk\"}]}",
     "convertedResponse" : null
   }
 }
