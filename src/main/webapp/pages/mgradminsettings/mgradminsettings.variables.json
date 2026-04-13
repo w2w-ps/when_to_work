@@ -1,0 +1,125 @@
+{
+  "svAddManager" : {
+    "_id" : "wm-svAddManager-wm.ServiceVariable-1775721426428",
+    "name" : "svAddManager",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "isList" : false,
+      "target" : "RequestBody.firstName",
+      "value" : "bind:Widgets.firstNameInput.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody.lastName",
+      "value" : "bind:Widgets.lastNameInput.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody.email",
+      "value" : "bind:Widgets.emailInput.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody.companyId",
+      "value" : 1,
+      "type" : "integer"
+    }, {
+      "target" : "RequestBody.emailInstructions",
+      "value" : "bind:Widgets.emailInstructionsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canAddShifts",
+      "value" : "bind:Widgets.addShiftsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canImportTemplates",
+      "value" : "bind:Widgets.importTemplatesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canUploadShifts",
+      "value" : "bind:Widgets.uploadShiftsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canAutofillShifts",
+      "value" : "bind:Widgets.autofillShiftsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canClearSchedules",
+      "value" : "bind:Widgets.clearSchedulesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canEditShifts",
+      "value" : "bind:Widgets.editShiftsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canSaveTemplates",
+      "value" : "bind:Widgets.saveTemplatesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canPublishSchedules",
+      "value" : "bind:Widgets.publishSchedulesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canUnpublishSchedules",
+      "value" : "bind:Widgets.unpublishSchedulesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canManageCategories",
+      "value" : "bind:Widgets.manageCategoriesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canAddEmployees",
+      "value" : "bind:Widgets.addEmployeesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canViewPayRates",
+      "value" : "bind:Widgets.viewPayRatesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canEditEmployees",
+      "value" : "bind:Widgets.editEmployeesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canApproveTrades",
+      "value" : "bind:Widgets.approveTradesCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canApproveTimeOff",
+      "value" : "bind:Widgets.approveTimeOffCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canChangeCompanySettings",
+      "value" : "bind:Widgets.changeCompanySettingsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canManagePositions",
+      "value" : "bind:Widgets.managePositionsCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canManageTeamMembers",
+      "value" : "bind:Widgets.manageTeamMembersCheckbox.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.permissions.canReceiveManagerNotifications",
+      "value" : "bind:Widgets.managerNotificationsCheckbox.datavalue",
+      "type" : "boolean"
+    } ],
+    "type" : "addManager.RootResponse",
+    "service" : "addManager",
+    "operation" : "invoke",
+    "operationId" : "addManager_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svAddManageronSuccess(variable, data)",
+    "onError" : "svAddManageronError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "addManager",
+    "spinnerContext" : "addNewButton",
+    "spinnerMessage" : "Adding manager..."
+  }
+}

@@ -14,6 +14,10 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
+    Page.Widgets.passwordStrengthBar.datavalue = 0;
+    Page.Widgets.passwordStrengthBar.type = 'danger';
+    Page.Widgets.passwordStrengthLabel.caption = 'Password Strength';
+    Page.Widgets.passwordStrengthLabel.class = 'password-strength-label strength-empty';
 };
 
 Page.svUpdateEmpPwdOnSuccess = function (variable, data) {
@@ -46,5 +50,54 @@ Page.svUpdateEmpPwdOnError = function (variable, data) {
     });
 };
 
-Page.newSectionHeaderClick = function ($event, widget) {
+
+Page.newPasswordChange = function ($event, widget, newVal, oldVal) {
+    var password = newVal || '';
+    var strengthBar = Page.Widgets.passwordStrengthBar;
+    var strengthLabel = Page.Widgets.strengthLabel;
+
+    // Check password strength based on criteria
+    var hasUpperCase = /[A-Z]/.test(password);
+    var hasDigit = /\d/.test(password);
+    var isLongEnough = password.length >= 8;
+
+    // Update strength bar and label based on password criteria
+    if (password.length === 0) {
+        debugger
+        // Empty password - red
+        strengthLabel.caption = 'Password Strength';
+        strengthBar.class = 'app-progress progress-bar-password-danger';
+        // strengthBar.datavalue = 0;
+        strengthBar.type = 'danger';
+
+
+    } else if (password.length <= 3) {
+        // Too Short - red
+        strengthLabel.caption = 'Too Short';
+        strengthBar.class = 'app-progress  progress-bar-password-danger';
+        // strengthBar.datavalue = 33;
+        strengthBar.type = 'danger';
+    } else if (isLongEnough && (!hasUpperCase || !hasDigit)) {
+        // Medium - orange/warning
+        strengthLabel.caption = 'Medium';
+        strengthBar.class = 'app-progress  progress-bar-password-medium';
+        // strengthBar.datavalue = 66;
+        strengthBar.type = 'warning';
+
+    } else if (password.length <= 6) {
+        // Medium - orange/warning
+        strengthLabel.caption = 'Week';
+        strengthBar.class = 'app-progress progress-bar-password-weak';
+        // strengthBar.datavalue = 66;
+        strengthBar.type = 'warning';
+
+    } else if (isLongEnough && hasUpperCase && hasDigit) {
+        debugger
+        // Strong - green
+        strengthLabel.caption = 'Strong';
+        strengthBar.class = 'app-progress progress-bar-password-strong';
+        // strengthBar.datavalue = 100;
+        strengthBar.type = 'success';
+    }
+
 };

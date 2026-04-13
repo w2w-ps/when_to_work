@@ -172,6 +172,17 @@
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
+  "goToPage_mgradminsettings" : {
+    "_id" : "wm-goToPage_mgradminsettings-wm.NavigationAction-1775645402607",
+    "name" : "goToPage_mgradminsettings",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgradminsettings",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Mgrchangeemppass" : {
     "_id" : "wm-goToPage_Mgrchangeemppass-wm.NavigationAction-1774425330925",
     "name" : "goToPage_Mgrchangeemppass",
