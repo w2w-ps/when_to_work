@@ -1,64 +1,157 @@
 <wm-page name="page" pagetitle="Empchangepass">
-<wm-content name="content">
-<wm-page-content columnwidth="12" name="pagecontent">
-<!-- Page outer wrapper: centers all content with max-width -->
-<wm-container name="pageWrapper" direction="column" gap="16" alignment="top-center" width="fill" height="hug" padding="16px" variant="grey-container">
-<!-- Row 1: Page Title -->
-<wm-container name="titleRow" class="app-container-default" direction="column" gap="4" alignment="top-center" width="fill" height="hug">
-<wm-label name="pageTitle" caption="Change My Username / Password" class="label-label-18-700" variant="label-18-700"></wm-label></wm-container>
-<!-- Row 2+3: Combined Current + New credential card -->
-<wm-container name="credentialCard" class="container-grey-container" direction="column" gap="16" alignment="top-left" width="fill" height="hug" variant="grey-container">
-<!-- Current Section Header -->
-<wm-label name="currentSectionHeader" caption="Current" class="h4 label-label-20-700" variant="label-20-700"></wm-label>
-<!-- Current: Username field row -->
-<wm-container name="currentUsernameField" class="app-container-default field-row" direction="row" gap="auto" alignment="start" width="fill" height="hug">
-<wm-container name="currentUsernameLeftSpacer" class="app-container-default" direction="column" gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
-<wm-container name="currentUsernameRight" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="currentUsernameLabel" caption="Username" variant="default" required="true"></wm-label>
-<wm-text name="currentUsername" type="text" placeholder="" datavalue="bind:Variables.loggedInUser.dataSet.name" readonly="true"></wm-text></wm-container></wm-container>
-<!-- Current: Password field row -->
-<wm-container name="currentPasswordField" class="app-container-default field-row" direction="row" gap="auto" alignment="start" width="fill" height="hug">
-<wm-container name="currentPasswordLeftSpacer" class="app-container-default" direction="column" gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
-<wm-container name="currentPasswordRight" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="currentPasswordLabel" caption="*Password" variant="default"></wm-label>
-<wm-text name="currentPassword" type="password" placeholder="" datavalue="bind:Variables.currentPasswordVar.dataSet.dataValue" required="true"></wm-text></wm-container></wm-container>
-<!-- New Section Header -->
-<wm-label name="newSectionHeader" caption="New" class="label-label-20-700" variant="label-20-700" on-click="newSectionHeaderClick($event, widget)"></wm-label>
-<!-- New: Username field row -->
-<wm-container name="newUsernameField" class="app-container-default field-row" direction="row" gap="auto" alignment="start" width="fill" height="hug">
-<wm-container name="newUsernameLeftSpacer" class="app-container-default" direction="column" gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
-<wm-container name="newUsernameRight" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="newUsernameLabel" caption="Username" variant="default"></wm-label>
-<wm-text name="newUsername" type="text" placeholder="" readonly="true" datavalue="bind:Variables.loggedInUser.dataSet.name"></wm-text></wm-container></wm-container>
-<!-- New: Password field row with strength bar -->
-<wm-container name="newPasswordField" class="app-container-default field-row" direction="row" gap="auto" alignment="start" width="fill" height="hug">
-<wm-container name="newPasswordLeftSpacer" class="app-container-default" direction="column" gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
-<wm-container name="newPasswordRight" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="newPasswordLabel" caption="Password" variant="default"></wm-label>
-<wm-text name="newPassword" type="password" placeholder="" datavalue="bind:Variables.newPasswordVar.dataSet.dataValue" required="true" on-change="newPasswordChange($event, widget, newVal, oldVal)"></wm-text>
-<wm-container name="strengthBarRow" class="app-container-default" direction="column" gap="4" alignment="middle-left" width="fill" height="hug" wrap="false">
-<wm-label name="strengthLabel" caption="Password Strength:" class="label-label-12-400-grey" variant="label-12-400-grey"></wm-label>
-<wm-progress-bar name="passwordStrengthBar" type="danger-striped" datavalue="25" maxvalue="100" width="100%" class="app-progress progress-bar-danger" variant="filled:danger" height="5px"></wm-progress-bar></wm-container></wm-container></wm-container>
-<!-- New: Confirm Password field row -->
-<wm-container name="confirmPasswordField" class="app-container-default field-row" direction="row" gap="auto" alignment="start" width="fill" height="hug">
-<wm-container name="confirmPasswordLeftSpacer" class="app-container-default" direction="column" gap="4" alignment="top-left" width="35%" height="hug"></wm-container>
-<wm-container name="confirmPasswordRight" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="confirmPasswordLabel" caption="Confirm password" variant="default"></wm-label>
-<wm-text name="confirmPassword" type="password" placeholder="" datavalue="bind:Variables.confirmPasswordVar.dataSet.dataValue" required="true"></wm-text></wm-container></wm-container>
-<!-- New: Case sensitive checkbox row -->
-<wm-container name="caseSensitiveRow" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug">
-<wm-checkbox name="caseSensitiveCheck" type="checkbox" caption="" datavalue="true" checkedvalue="true" uncheckedvalue="false" variant="standard"></wm-checkbox>
-<wm-label padding="unset" caption="Make password case sensitive" type="p" name="label16" variant="default"></wm-label></wm-container></wm-container>
-<!-- Row 4: Save Button -->
-<wm-container name="saveButtonRow" class="app-container-default" direction="column" gap="4" alignment="top-center" width="fill" height="hug">
-<wm-button name="saveBtn" caption="Save" class="btn-filled-bg-primary-sm" type="button" variant="filled-bg-primary-sm" on-click="Variables.svUpdateEmpPwd.invoke()"></wm-button></wm-container>
-<!-- Row 5: Information Panel -->
-<wm-container name="infoCard" class="container-grey-container" direction="column" gap="12" alignment="top-left" width="fill" height="hug" variant="grey-container">
-<wm-label name="infoHeader" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
-<wm-container name="infoLine1" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
-<wm-label name="infoText1" caption="* Don't know your current password? " class="p" variant="default"></wm-label>
-<wm-anchor name="retrieveLoginLink" caption="Retrieve your login information by email." class="anchor-standard-sm-underlined" hyperlink="#" target="_self" variant="standard-sm-underlined"></wm-anchor></wm-container>
-<wm-label name="infoText2" caption="- A strong password should contain a mix of capital and lower-case letters, numbers and symbols, and not be used to access any other system." variant="default"></wm-label>
-<wm-label name="infoText3" caption="- Usernames should NEVER be shared. Each user should be signing in with their own username/password." variant="default"></wm-label>
-<wm-label name="infoText4" caption="- Resetting your password will expire all previous sessions (like bookmarked pages and mobile app icons)." variant="default"></wm-label>
-<wm-label name="infoText5" caption="- Any manager with permission to edit employees on this account can see your username and reset your password any time, so choose a username that is not used for any other websites." variant="default"></wm-label></wm-container></wm-container></wm-page-content></wm-content></wm-page>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <!-- Page outer wrapper: centers all content with max-width -->
+            <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container24"
+                class="container-primary-filled" variant="primary-filled" padding="unset 10px">
+                <wm-anchor margin="unset 0.5em" name="anchor2" variant="standard" iconclass="fa fa-close"></wm-anchor>
+                <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container25"
+                    class="app-container-default" variant="default" clipcontent="false" overflow="none">
+                    <wm-label padding="unset" caption="label" class="p label-highlighted-white-14-400" type="p"
+                        name="label17" variant="highlighted-white-14-400"></wm-label>
+                </wm-container>
+            </wm-container>
+            <wm-container name="pageWrapper" direction="column" gap="16" alignment="top-center" width="fill"
+                height="hug" padding="unset 16px" variant="grey-container">
+                <!-- Row 1: Page Title -->
+                <wm-container name="titleRow" class="app-container-default" direction="column" gap="4"
+                    alignment="top-center" width="fill" height="hug">
+                    <wm-label name="pageTitle" caption="Change My Username / Password" class="label-label-18-700"
+                        variant="label-18-700"></wm-label>
+                </wm-container>
+                <!-- Row 2+3: Combined Current + New credential card -->
+                <wm-container name="credentialCard" class="container-grey-container container-grey-standard"
+                    direction="column" gap="16" alignment="top-left" width="55%" height="hug" variant="grey-standard"
+                    clipcontent="false" overflow="none">
+                    <!-- Current Section Header -->
+                    <wm-label name="currentSectionHeader" caption="Current" class="h4 label-label-20-700"
+                        variant="label-20-700"></wm-label>
+                    <!-- Current: Username field row -->
+                    <wm-container name="currentUsernameField" class="app-container-default field-row" direction="row"
+                        gap="auto" alignment="start" width="fill" height="hug">
+                        <wm-container name="currentUsernameLeftSpacer" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
+                        <wm-container name="currentUsernameRight" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="fill" height="hug">
+                            <wm-label name="currentUsernameLabel" caption="Username" variant="default" required="true">
+                            </wm-label>
+                            <wm-text name="currentUsername" type="text" placeholder=""
+                                datavalue="bind:Variables.loggedInUser.dataSet.name" readonly="true" width="55%">
+                            </wm-text>
+                        </wm-container>
+                    </wm-container>
+                    <!-- Current: Password field row -->
+                    <wm-container name="currentPasswordField" class="app-container-default field-row" direction="row"
+                        gap="auto" alignment="start" width="fill" height="hug">
+                        <wm-container name="currentPasswordLeftSpacer" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
+                        <wm-container name="currentPasswordRight" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="fill" height="hug">
+                            <wm-label name="currentPasswordLabel" caption="*Password" variant="default"></wm-label>
+                            <wm-text name="currentPassword" type="password" placeholder=""
+                                datavalue="bind:Variables.currentPasswordVar.dataSet.dataValue" required="true"
+                                width="55%"></wm-text>
+                        </wm-container>
+                    </wm-container>
+                    <!-- New Section Header -->
+                    <wm-label name="newSectionHeader" caption="New" class="label-label-20-700" variant="label-20-700"
+                        on-click="newSectionHeaderClick($event, widget)"></wm-label>
+                    <!-- New: Username field row -->
+                    <wm-container name="newUsernameField" class="app-container-default field-row" direction="row"
+                        gap="auto" alignment="start" width="fill" height="hug">
+                        <wm-container name="newUsernameLeftSpacer" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
+                        <wm-container name="newUsernameRight" class="app-container-default" direction="column" gap="4"
+                            alignment="top-left" width="fill" height="hug">
+                            <wm-label name="newUsernameLabel" caption="Username" variant="default"></wm-label>
+                            <wm-text name="newUsername" type="text" placeholder="" readonly="true"
+                                datavalue="bind:Variables.loggedInUser.dataSet.name" width="55%"></wm-text>
+                        </wm-container>
+                    </wm-container>
+                    <!-- New: Password field row with strength bar -->
+                    <wm-container name="newPasswordField" class="app-container-default field-row" direction="row"
+                        gap="auto" alignment="start" width="fill" height="hug">
+                        <wm-container name="newPasswordLeftSpacer" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
+                        <wm-container name="newPasswordRight" class="app-container-default" direction="column" gap="4"
+                            alignment="top-left" width="fill" height="hug">
+                            <wm-label name="newPasswordLabel" caption="Password" variant="default"></wm-label>
+                            <wm-text name="newPassword" type="password" placeholder=""
+                                datavalue="bind:Variables.newPasswordVar.dataSet.dataValue" required="true"
+                                on-change="newPasswordChange($event, widget, newVal, oldVal)" width="55%"></wm-text>
+                            <wm-container name="strengthBarRow" class="app-container-default" direction="column" gap="4"
+                                alignment="middle-left" width="55%" height="hug" wrap="false" clipcontent="false"
+                                overflow="none">
+                                <wm-label name="strengthLabel" caption="Password Strength:"
+                                    class="label-label-12-400-grey" variant="label-12-400-grey"></wm-label>
+                                <wm-progress-bar name="passwordStrengthBar" type="danger-striped" datavalue="25"
+                                    maxvalue="100" width="100%" class="progress-bar-password-danger"
+                                    variant="password-danger" height="5px"></wm-progress-bar>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                    <!-- New: Confirm Password field row -->
+                    <wm-container name="confirmPasswordField" class="app-container-default field-row" direction="row"
+                        gap="auto" alignment="start" width="fill" height="hug">
+                        <wm-container name="confirmPasswordLeftSpacer" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="30%" height="hug" clipcontent="false" overflow="none">
+                        </wm-container>
+                        <wm-container name="confirmPasswordRight" class="app-container-default" direction="column"
+                            gap="4" alignment="top-left" width="fill" height="hug">
+                            <wm-label name="confirmPasswordLabel" caption="Confirm password" variant="default">
+                            </wm-label>
+                            <wm-text name="confirmPassword" type="password" placeholder=""
+                                datavalue="bind:Variables.confirmPasswordVar.dataSet.dataValue" required="true"
+                                width="55%"></wm-text>
+                        </wm-container>
+                    </wm-container>
+                    <!-- New: Case sensitive checkbox row -->
+                    <wm-container name="caseSensitiveRow" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-center" width="fill" height="hug">
+                        <wm-checkbox name="caseSensitiveCheck" type="checkbox" caption="" datavalue="true"
+                            checkedvalue="true" uncheckedvalue="false" variant="standard"></wm-checkbox>
+                        <wm-label padding="unset" caption="Make password case sensitive" type="p" name="label16"
+                            variant="default"></wm-label>
+                    </wm-container>
+                </wm-container>
+                <!-- Row 4: Save Button -->
+                <wm-container name="saveButtonRow" class="app-container-default" direction="column" gap="4"
+                    alignment="top-center" width="55%" height="hug" clipcontent="false" overflow="none">
+                    <wm-button name="saveBtn" caption="Save" class="btn-outlined-primary" type="button"
+                        variant="outlined-primary" on-click="Variables.svUpdateEmpPwd.invoke()"></wm-button>
+                </wm-container>
+                <!-- Row 5: Information Panel -->
+                <wm-container name="infoCard" class="container-grey-container container-grey-standard"
+                    direction="column" gap="12" alignment="top-left" width="55%" height="hug" variant="grey-standard"
+                    padding="10px" clipcontent="false" overflow="none">
+                    <wm-label name="infoHeader" caption="Information" class="label-label-20-700" variant="label-20-700">
+                    </wm-label>
+                    <wm-container name="infoLine1" class="app-container-default" direction="row" gap="4"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="infoText1" caption="* Don't know your current password? " class="p"
+                            variant="default"></wm-label>
+                        <wm-anchor name="retrieveLoginLink" caption="Retrieve your login information by email."
+                            class="anchor-standard-sm-underlined" hyperlink="#" target="_self"
+                            variant="standard-sm-underlined"></wm-anchor>
+                    </wm-container>
+                    <wm-label name="infoText2"
+                        caption="- A strong password should contain a mix of capital and lower-case letters, numbers and symbols, and not be used to access any other system."
+                        variant="default"></wm-label>
+                    <wm-label name="infoText3"
+                        caption="- Usernames should NEVER be shared. Each user should be signing in with their own username/password."
+                        variant="default"></wm-label>
+                    <wm-label name="infoText4"
+                        caption="- Resetting your password will expire all previous sessions (like bookmarked pages and mobile app icons)."
+                        variant="default"></wm-label>
+                    <wm-label name="infoText5"
+                        caption="- Any manager with permission to edit employees on this account can see your username and reset your password any time, so choose a username that is not used for any other websites."
+                        variant="default"></wm-label>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>
