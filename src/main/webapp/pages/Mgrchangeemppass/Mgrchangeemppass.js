@@ -37,7 +37,7 @@ Page.checkPasswordStrength = function ($event, widget, newVal, oldVal) {
         debugger
         // Empty password - red
         strengthLabel.caption = 'Password Strength';
-        strengthBar.class = 'app-progress bar-password-danger';
+        strengthBar.class = 'app-progress  progress-bar-password-danger';
         // strengthBar.datavalue = 0;
         strengthBar.type = 'danger';
 
@@ -45,20 +45,20 @@ Page.checkPasswordStrength = function ($event, widget, newVal, oldVal) {
     } else if (password.length <= 3) {
         // Too Short - red
         strengthLabel.caption = 'Too Short';
-        strengthBar.class = 'app-progress  progress-bar-default';
+        strengthBar.class = 'app-progress  progress-bar-password-danger';
         // strengthBar.datavalue = 33;
         strengthBar.type = 'danger';
     } else if (isLongEnough && (!hasUpperCase || !hasDigit)) {
         // Medium - orange/warning
         strengthLabel.caption = 'Medium';
-        strengthBar.class = 'app-progress  progress-bar-default';
+        strengthBar.class = 'app-progress  progress-bar-password-medium';
         // strengthBar.datavalue = 66;
         strengthBar.type = 'warning';
 
-    } else if (password.length < 6) {
+    } else if (password.length <= 8) {
         // Medium - orange/warning
         strengthLabel.caption = 'Week';
-        strengthBar.class = 'app-progress progress-bar-warning';
+        strengthBar.class = 'app-progress progress-bar-password-weak';
         // strengthBar.datavalue = 66;
         strengthBar.type = 'warning';
 
@@ -66,7 +66,7 @@ Page.checkPasswordStrength = function ($event, widget, newVal, oldVal) {
         debugger
         // Strong - green
         strengthLabel.caption = 'Strong';
-        strengthBar.class = 'app-progress progress-bar-success';
+        strengthBar.class = 'app-progress progress-bar-password-strong';
         // strengthBar.datavalue = 100;
         strengthBar.type = 'success';
     }

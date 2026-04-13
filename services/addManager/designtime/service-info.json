@@ -1,0 +1,6 @@
+{
+  "id" : "addManager",
+  "type" : "RestService",
+  "title" : "addManager",
+  "mockEnabled" : false
+}
