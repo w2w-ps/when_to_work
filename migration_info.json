@@ -6,5 +6,9 @@
       "msg" : "Migrated Variables to Actions in app.variables.json",
       "args" : [ ]
     } ]
+  }, {
+    "onReleaseVersion" : "11.15",
+    "migrationVersion" : 1115.05,
+    "migrationMessages" : [ ]
   } ]
 }
