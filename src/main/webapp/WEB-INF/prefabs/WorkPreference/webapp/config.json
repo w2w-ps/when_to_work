@@ -69,9 +69,9 @@
       "showAt" : "",
       "disabled" : false
     },
-    "editedrowsindex" : {
+    "editedrows" : {
       "type" : "object",
-      "displayName" : "Edited Rows Index",
+      "displayName" : "Edited Rows",
       "description" : "list of edited rows index",
       "bindable" : "in-out-bound",
       "isList" : true,
