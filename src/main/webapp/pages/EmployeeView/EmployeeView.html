@@ -759,7 +759,7 @@
                                     widget="select"
                                     dataset="bind:Variables.svGetAllCategoriesByCompanyId.dataSet.categories"
                                     class="py-0 form-compact-input w-100 min-height-32" variant="compact-input"
-                                    height="32px" datafield="id" displayfield="name"></wm-form-field>
+                                    height="32px" datafield="id" displayfield="description"></wm-form-field>
                             </wm-container>
                         </wm-container>
                         <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container52"
@@ -869,37 +869,35 @@
         class="modal-confirm-dialog" variant="confirm-dialog">
         <wm-container name="confirmDialog1Body" class="app-container-default" direction="column" gap="16"
             alignment="middle-center" width="fill" height="hug" padding="16px 24px">
-            <wm-label name="lblConfirmShiftMsg"
-                caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)"
-                class="text-center label-label-14-400" width="fill" variant="label-14-400"></wm-label>
+            <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container100"
+                class="app-container-default" variant="default">
+                <wm-label padding="unset" caption="Confirm" class="p text-primary" type="p" name="label81"
+                    variant="text:primary"></wm-label>
+            </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container98"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-label name="lblConfirmShiftMsg"
+                    caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)"
+                    class="text-center label-label-14-400" width="fill" variant="label-14-400"></wm-label>
+            </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="12" width="fill" name="conflictMsgcontainer"
+                class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false"
+                overflow="none" show="false">
+                <wm-label padding="unset"
+                    caption="WARNING: There is a conflict with the shift you are trying to change:"
+                    class="app-label confirm-dialog-warning text-center" type="p" name="label82" variant="text:primary">
+                </wm-label>
+                <wm-label padding="unset" caption="bind:Variables.conflictMessageVar.dataSet.message"
+                    class="p label-label-14-700" type="p" name="label83" variant="label-14-700"></wm-label>
+                <wm-label padding="unset" caption="Would you like to change the shift anyway?"
+                    class="p label-label-14-400" type="p" name="label84" variant="label-14-400"></wm-label>
+            </wm-container>
             <wm-container name="confirmDialog1Actions" class="app-container-default" direction="row" gap="24"
                 alignment="middle-center" width="fill" height="hug">
                 <wm-button name="btnConfirmShiftYes" caption="Yes" class="btn-success-btn" variant="success-btn"
                     on-click="btnConfirmShiftYesClick($event, widget)"></wm-button>
                 <wm-button name="btnConfirmShiftNo" caption="No" class="btn-danger-btn" variant="danger-btn"
                     on-click="btnConfirmShiftNoClick($event, widget)"></wm-button>
-            </wm-container>
-        </wm-container>
-    </wm-dialog>
-    <wm-dialog name="confirmConflictDialog" title="Confirm" modal="true" closable="false" showheader="true"
-        class="modal-confirm-dialog" variant="confirm-dialog">
-        <wm-container name="confirmDialog2Body" class="app-container-default" direction="column" gap="12"
-            alignment="middle-center" width="fill" height="hug" padding="16px 24px">
-            <wm-label name="lblConflictWarningStatic"
-                caption="WARNING: There is a conflict with the shift you are trying to change:"
-                class="app-label confirm-dialog-warning text-center" width="fill"></wm-label>
-            <wm-label name="lblConflictWarningDynamic" caption="bind:Variables.conflictMessageVar.dataSet.message"
-                class="confirm-dialog-conflict-name text-center label-label-14-700" width="fill" variant="label-14-700">
-            </wm-label>
-            <wm-label name="lblConflictQuestion" caption="Would you like to change the shift anyway?"
-                class="confirm-dialog-sub-msg text-center label-label-14-400" width="fill" variant="label-14-400">
-            </wm-label>
-            <wm-container name="confirmDialog2Actions" class="app-container-default" direction="row" gap="24"
-                alignment="middle-center" width="fill" height="hug">
-                <wm-button name="btnConflictYes" caption="Yes" class="btn-success-btn" variant="success-btn"
-                    on-click="btnConflictYesClick($event, widget)"></wm-button>
-                <wm-button name="btnConflictNo" caption="No" class="btn-danger-btn" variant="danger-btn"
-                    on-click="btnConflictNoClick($event, widget)"></wm-button>
             </wm-container>
         </wm-container>
     </wm-dialog>
