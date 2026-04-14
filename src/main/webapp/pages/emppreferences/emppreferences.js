@@ -18,5 +18,5 @@ Page.onReady = function () {
 Page.WorkPreference1Click = function ($event, $data) {
 
     App.Actions.goToPage_emppreferencesday.invoke();
-    App.Variables.selectedpreference.dataSet = $data;
+    App.Variables.selectedpreference.dataSet = $event;
 };
