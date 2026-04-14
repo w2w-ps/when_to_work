@@ -15,8 +15,11 @@
 
 .pref-cannot-work {
     background-color: var(--wm-color-cannotwork) !important;
-
     border-color: var(--wm-color-cannotwork) !important;
+}
+
+.app-calendar .fc-header-toolbar.fc-toolbar {
+    display: none !important;
 }
 
 .pref-selected {

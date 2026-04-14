@@ -16,10 +16,39 @@ Page.onReady = function () {
     Page.isDragging = false;
     Page.draggedDates = [];
 
+    // Restrict calendar selection to current month via validRange
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var startStr = new Date(year, month, 1).toISOString().split('T')[0];
+    var endStr = new Date(year, month + 1, 1).toISOString().split('T')[0];
+    Page.Widgets.calPreferences.applyCalendarOptions('option', 'validRange', {
+        start: startStr,
+        end: endStr
+    });
+    Page.Widgets.calPreferences.applyCalendarOptions('option', 'fixedWeekCount', false);
+
     // Attach drag listeners after calendar DOM is ready
     setTimeout(function () {
         Page.attachCalendarDragListeners();
     }, 600);
+};
+
+/**
+ * Updates validRange whenever the user navigates to a different month.
+ * $view is the FullCalendar view object containing currentStart.
+ */
+Page.calPreferencesViewrender = function ($view) {
+    var viewStart = $view && $view.currentStart ? new Date($view.currentStart) : new Date();
+    var year = viewStart.getFullYear();
+    var month = viewStart.getMonth();
+    var startStr = new Date(year, month, 1).toISOString().split('T')[0];
+    var endStr = new Date(year, month + 1, 1).toISOString().split('T')[0];
+    Page.Widgets.calPreferences.applyCalendarOptions('option', 'validRange', {
+        start: startStr,
+        end: endStr
+    });
+    Page.Widgets.calPreferences.applyCalendarOptions('option', 'fixedWeekCount', false);
 };
 
 /**
@@ -266,6 +295,16 @@ Page.attachCalendarDragListeners = function () {
 };
 
 Page.calendarDateClick = function ($dateInfo) {
+    // Guard: reject dates outside current displayed month
+    var clickedDate = new Date($dateInfo.date || $dateInfo.dateStr);
+    var calEl = Page.Widgets.calPreferences;
+    var currentView = calEl.getCalendar ? calEl.getCalendar().view : null;
+    var viewMonth = currentView ? new Date(currentView.currentStart).getMonth() : new Date().getMonth();
+    var viewYear = currentView ? new Date(currentView.currentStart).getFullYear() : new Date().getFullYear();
+    if (clickedDate.getMonth() !== viewMonth || clickedDate.getFullYear() !== viewYear) {
+        return; // Ignore clicks on dates outside the current month
+    }
+
     if (Page.selectedPreference === null) {
         return;
     }
