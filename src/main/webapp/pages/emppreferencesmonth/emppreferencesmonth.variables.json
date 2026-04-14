@@ -1,13 +1,19 @@
 {
-  "mvPreferenceDates" : {
-    "_id" : "wm-mvPreferenceDates-wm.Variable-1776081862586",
-    "name" : "mvPreferenceDates",
+  "stDateSpecific" : {
+    "_id" : "wm-stDateSpecific-wm.Variable-1776167602497",
+    "name" : "stDateSpecific",
     "owner" : "Page",
     "category" : "wm.Variable",
     "dataBinding" : [ ],
-    "dataSet" : [ ],
+    "dataSet" : [ {
+      "date" : "10-04-2026"
+    }, {
+      "date" : "11-04-2026"
+    } ],
+    "type" : "entry",
     "isList" : true,
-    "twoWayBinding" : false
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   },
   "svDayPreferenceListUpdate" : {
     "_id" : "wm-svDayPreferenceList-wm.ServiceVariable-1776080424005",
@@ -15,9 +21,10 @@
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
+      "isList" : false,
       "target" : "RequestBody",
       "value" : "{\n  \"preferences\": [\n    {\n      \"companyId\": 1,\n      \"employeeId\": 1,\n      \"date\": \"2026-04-06\",\n      \"prefs\": \"N\",\n      \"compression\": 0,\n      \"editedBy\": 1,\n      \"isDayPrefs\": true\n    },\n    {\n      \"companyId\": 1,\n      \"employeeId\": 1,\n      \"date\": \"2026-04-07\",\n      \"prefs\": \"D\",\n      \"compression\": 0,\n      \"editedBy\": 1,\n      \"isDayPrefs\": true\n    }\n  ]\n}",
-      "type" : "java.lang.String"
+      "type" : "dayPreferenceList.RootRequest"
     } ],
     "type" : "dayPreferenceList.RootResponse",
     "service" : "dayPreferenceList",
@@ -29,7 +36,7 @@
     "isList" : false,
     "maxResults" : 20,
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,

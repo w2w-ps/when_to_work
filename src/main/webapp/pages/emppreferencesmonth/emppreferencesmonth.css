@@ -26,3 +26,14 @@
     outline: 3px solid #333 !important;
     outline-offset: 2px;
 }
+
+.app-calPreferences .fc-col-header-cell-cushion {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+.pref-specific-date {
+    background-color: var(--wm-color-purple) !important;
+    border-color: var(--wm-color-purple) !important;
+}

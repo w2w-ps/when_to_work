@@ -3,18 +3,27 @@
  * eg: var DialogService = App.getDependency('DialogService');
  */
 
+Page.prefClassMap = {
+    'P': 'pref-prefer-working',
+    'D': 'pref-dislike-working',
+    'C': 'pref-cannot-work'
+};
+
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
     Page.selectedPreference = null;
     Page.prefClassMap = {
         'P': 'pref-prefer-working',
         'D': 'pref-dislike-working',
-        'N': 'pref-cannot-work'
+        'C': 'pref-cannot-work'
     };
 
     // Drag state
     Page.isDragging = false;
     Page.draggedDates = [];
+
+    // Plain JS array replacing mvPreferenceDates Model Variable
+    Page.preferenceDates = [];
 
     // Restrict calendar selection to current month via validRange
     var now = new Date();
@@ -27,11 +36,64 @@ Page.onReady = function () {
         end: endStr
     });
     Page.Widgets.calPreferences.applyCalendarOptions('option', 'fixedWeekCount', false);
+    Page.Widgets.calPreferences.applyCalendarOptions('option', 'dayHeaderFormat', { weekday: 'long' });
 
     // Attach drag listeners after calendar DOM is ready
     setTimeout(function () {
         Page.attachCalendarDragListeners();
+        Page.renderSpecificDatesOnCalendar();
     }, 600);
+};
+
+/**
+ * Reads stDateSpecific dataSet (dates in DD-MM-YYYY format) and applies
+ * the pref-specific-date CSS class to matching FullCalendar day cells.
+ * Converts DD-MM-YYYY → YYYY-MM-DD to match [data-date] attribute format.
+ *
+ * Dates that already have a P/D/N preference entry in preferenceDates
+ * are treated as "claimed" — they do NOT receive (or keep) the purple
+ * pref-specific-date class so that the user's override colour shows through.
+ */
+Page.renderSpecificDatesOnCalendar = function () {
+    var calWidget = Page.Widgets.calPreferences;
+    if (!calWidget) return;
+    var calEl = calWidget.nativeElement;
+    if (!calEl) return;
+
+    var specificDates = Page.Variables.stDateSpecific.dataSet || [];
+
+    // Build a Set of dates (YYYY-MM-DD) that already have a P/D/N preference
+    // so we can skip re-stamping purple on those cells (Task 1.1)
+    var prefData = Page.preferenceDates || [];
+    var claimedDates = {};
+    prefData.forEach(function (p) {
+        if (p && p.date) {
+            claimedDates[p.date] = true;
+        }
+    });
+
+    // Task 1.3 — existing bulk-clear pass: unchanged and still correct.
+    // Removes pref-specific-date from every day cell before re-stamping.
+    calEl.querySelectorAll('[data-date]').forEach(function (cell) {
+        cell.classList.remove('pref-specific-date');
+    });
+
+    // Convert DD-MM-YYYY → YYYY-MM-DD and apply class only to un-claimed cells (Task 1.2)
+    specificDates.forEach(function (entry) {
+        if (!entry || !entry.date) return;
+        var parts = entry.date.split('-');
+        if (parts.length !== 3) return;
+        // parts[0]=DD, parts[1]=MM, parts[2]=YYYY
+        var isoDate = parts[2] + '-' + parts[1] + '-' + parts[0];
+
+        // Task 1.2: skip purple re-stamp if this date has been overridden with P/D/N
+        if (claimedDates[isoDate]) return;
+
+        var cell = calEl.querySelector('[data-date="' + isoDate + '"]');
+        if (cell) {
+            cell.classList.add('pref-specific-date');
+        }
+    });
 };
 
 /**
@@ -49,6 +111,12 @@ Page.calPreferencesViewrender = function ($view) {
         end: endStr
     });
     Page.Widgets.calPreferences.applyCalendarOptions('option', 'fixedWeekCount', false);
+    Page.Widgets.calPreferences.applyCalendarOptions('option', 'dayHeaderFormat', { weekday: 'long' });
+
+    // Re-apply specific-date highlights after view re-renders
+    setTimeout(function () {
+        Page.renderSpecificDatesOnCalendar();
+    }, 100);
 };
 
 /**
@@ -77,20 +145,21 @@ Page.btnDislikeWorkingClick = function ($event, widget) {
     Page.selectedPreference = 'D';
     Page.updatePreferenceHighlight('containerDislikeWorking');
 };
-
+,
 Page.btnCannotWorkClick = function ($event, widget) {
-    Page.selectedPreference = 'N';
+    Page.selectedPreference = 'C';
     Page.updatePreferenceHighlight('containerCannotWork');
 };
 
 Page.btnClearClick = function ($event, widget) {
-    Page.selectedPreference = '';
+    Page.selectedPreference = ;
     Page.updatePreferenceHighlight('containerClear');
 };
 
 /**
- * Reads mvPreferenceDates and applies className to matching FullCalendar day cells.
+ * Reads preferenceDates and applies className to matching FullCalendar day cells.
  * Clears old pref classes first, then paints current stored preferences.
+ * Also re-applies specific-date purple highlights after painting preferences.
  */
 Page.renderPreferencesOnCalendar = function () {
     var calWidget = Page.Widgets.calPreferences;
@@ -99,7 +168,7 @@ Page.renderPreferencesOnCalendar = function () {
     if (!calEl) return;
 
     var allPrefClasses = ['pref-prefer-working', 'pref-dislike-working', 'pref-cannot-work'];
-    var prefData = Page.Variables.mvPreferenceDates.dataSet || [];
+    var prefData = Page.preferenceDates || [];
 
     // Clear all existing preference classes from every day cell
     calEl.querySelectorAll('[data-date]').forEach(function (cell) {
@@ -109,17 +178,24 @@ Page.renderPreferencesOnCalendar = function () {
     });
 
     // Apply stored preference className to matching day cells
+    // Falls back to deriving className from prefs if className is missing
     prefData.forEach(function (p) {
-        if (!p.date || !p.className) return;
+        if (!p.date) return;
+        var cls = p.className || Page.prefClassMap[p.prefs];
+        if (!cls) return;
         var cell = calEl.querySelector('[data-date="' + p.date + '"]');
         if (cell) {
-            cell.classList.add(p.className);
+            cell.classList.add(cls);
         }
     });
+
+    // Re-apply specific-date purple highlights after preference repaint.
+    // renderSpecificDatesOnCalendar will skip any date already in preferenceDates.
+    Page.renderSpecificDatesOnCalendar();
 };
 
 /**
- * Updates mvPreferenceDates in memory for a given dateStr.
+ * Updates preferenceDates in memory for a given dateStr.
  * Does NOT invoke the API — call is batched to drag-end (mouseup).
  */
 Page.applyPreferenceToDate = function (dateStr) {
@@ -128,7 +204,7 @@ Page.applyPreferenceToDate = function (dateStr) {
     }
 
     var prefs = Page.selectedPreference;
-    var prefData = _.cloneDeep(Page.Variables.mvPreferenceDates.dataSet) || [];
+    var prefData = _.cloneDeep(Page.preferenceDates) || [];
     var existing = _.findIndex(prefData, function (p) { return p.date === dateStr; });
 
     if (prefs === '' || prefs === null) {
@@ -136,10 +212,11 @@ Page.applyPreferenceToDate = function (dateStr) {
             prefData.splice(existing, 1);
         }
     } else {
+        var className = Page.prefClassMap[prefs] || '';
         var newEntry = {
             date: dateStr,
             prefs: prefs,
-            className: Page.prefClassMap[prefs],
+            className: className,
             companyId: 1,
             employeeId: 1,
             compression: 0,
@@ -153,7 +230,7 @@ Page.applyPreferenceToDate = function (dateStr) {
         }
     }
 
-    Page.Variables.mvPreferenceDates.setData(prefData);
+    Page.preferenceDates = prefData;
 
     // Re-render calendar colors after updating in-memory data
     Page.renderPreferencesOnCalendar();
@@ -161,15 +238,17 @@ Page.applyPreferenceToDate = function (dateStr) {
 
 /**
  * Invokes the batch API update with the current full preference list.
+ * Single-character prefs (e.g. "P", "D", "N") are expanded to 96 repetitions
+ * before being sent in the payload; already-expanded strings are sent as-is.
  */
 Page.flushPreferenceUpdate = function () {
-    var prefData = Page.Variables.mvPreferenceDates.dataSet || [];
+    var prefData = Page.preferenceDates || [];
     var apiPrefs = prefData.map(function (p) {
         return {
             date: p.date,
             companyId: p.companyId,
             employeeId: p.employeeId,
-            prefs: p.prefs,
+            prefs: (p.prefs && p.prefs.length === 1) ? p.prefs.repeat(96) : p.prefs,
             compression: p.compression || 0,
             editedBy: p.editedBy || 1,
             isDayPrefs: p.isDayPrefs !== undefined ? p.isDayPrefs : true
@@ -288,6 +367,9 @@ Page.attachCalendarDragListeners = function () {
 
             // Re-render preference colors after calendar navigates to a new month
             Page.renderPreferencesOnCalendar();
+
+            // Re-apply specific-date purple highlights after calendar re-renders
+            Page.renderSpecificDatesOnCalendar();
         }
     });
     observer.observe(fcBody, { childList: true, subtree: true });

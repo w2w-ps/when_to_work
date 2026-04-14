@@ -1,33 +1,103 @@
 <wm-page name="page" pagetitle="Emppreferencesmonth">
-<wm-content name="content">
-<wm-page-content columnwidth="12" name="pagecontent">
-<wm-container direction="column" alignment="middle-center" gap="20" width="fill" name="container10" class="app-container-default" variant="default" wrap="false">
-<wm-container direction="column" alignment="top-left" gap="10" width="55%" name="container8" variant="grey-standard" wrap="false" clipcontent="false" overflow="none" class="container-grey-standard">
-<wm-container name="containerInstruction" class="app-container-default container-warning-standard-no-radius" direction="column" gap="0" alignment="middle-left" width="fill" height="hug" variant="warning-standard-no-radius">
-<wm-label name="lblInstruction" caption="Click color and 'paint' days or 'double click' day to open hourly prefs." class="label-label-14-400" variant="label-14-400"></wm-label></wm-container>
-<wm-container name="containerButtons" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" variant="default">
-<wm-container name="containerPreferWorking" direction="row" gap="0" alignment="middle-center" width="10%" height="hug" variant="green-bg" class="container-green-bg" wrap="false" padding="16px" clipcontent="false" overflow="none" on-tap="btnPreferWorkingClick($event, widget)">
-<wm-label name="lblPreferWorking" caption="Prefer Working" class="label-label-12-400" variant="label-12-400"></wm-label></wm-container>
-<wm-container name="containerDislikeWorking" direction="row" gap="0" alignment="middle-center" width="10%" height="hug" class="container-red-bg" variant="red-bg" wrap="false" padding="16px" clipcontent="false" overflow="none" on-tap="btnDislikeWorkingClick($event, widget)">
-<wm-label name="lblDislikeWorking" caption="Dislike Working" class="label-label-12-400" variant="label-12-400"></wm-label></wm-container>
-<wm-container name="containerCannotWork" direction="row" gap="0" alignment="middle-center" width="10%" height="hug" class="container-dark-red-bg" variant="dark-red-bg" wrap="false" padding="16px" clipcontent="false" overflow="none" on-tap="btnCannotWorkClick($event, widget)">
-<wm-label name="lblCannotWork" caption="Cannot Work" class="label-label-12-400" variant="label-12-400"></wm-label></wm-container>
-<wm-container name="containerClear" direction="row" gap="0" alignment="middle-center" width="5%" height="hug" wrap="false" padding="25px 20px" clipcontent="false" overflow="none" class="container-white-container-no-border-radius" variant="white-container-no-border-radius" on-tap="btnClearClick($event, widget)">
-<wm-label name="lblClear" caption="Clear" class="label-label-12-400" variant="label-12-400"></wm-label></wm-container></wm-container>
-<wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container9" class="app-container-default" variant="default">
-<wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday"></wm-prefab></wm-container>
-<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container7" class="app-container-default" variant="default">
-<wm-calendar name="calPreferences" variant="standard" on-dateclick="calendarDateClick($dateInfo)" calendartype="list" show="true" controls="month" on-viewrender="calPreferencesViewrender($view)"></wm-calendar></wm-container></wm-container>
-<wm-container direction="column" alignment="middle-center" gap="4" width="55%" name="container12" class="app-container-default" variant="default" wrap="false" clipcontent="false" overflow="none">
-<wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset" name="button1" variant="outlined-primary" on-click="flushPreferenceUpdate($event, widget)"></wm-button></wm-container>
-<wm-container direction="column" alignment="top-left" gap="20" width="55%" name="container12_1" class="container-grey-standard" variant="grey-standard" clipcontent="false" overflow="none" wrap="false">
-<wm-label padding="unset" caption="Information" class="label-label-20-700" type="p" name="label6" variant="label-20-700"></wm-label>
-<wm-anchor margin="unset 0.5em" name="anchor1" class="anchor-standard-14-underlined" variant="standard-14-underlined" caption="Trouble with this page? Change to touch-screen friendly interface"></wm-anchor>
-<wm-label padding="unset" caption="- Your changes will be saved when you click &quot;Save&quot; button or double click a date to edit a specific day" class=" label-label-14-400" type="p" name="label7" variant="label-14-400"></wm-label>
-<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container13" class="app-container-default" variant="default">
-<wm-label padding="unset" caption="-  Leave days white to use your Weekly Repeating" class="p label-highlighted-white-14-400" type="p" name="label8" variant="highlighted-white-14-400"></wm-label>
-<wm-label padding="unset" caption="(Only change the days that will be different from repeating)." class="p label-label-14-400" type="p" variant="label-14-400" name="label9"></wm-label></wm-container>
-<wm-label padding="unset" caption="- Means the date has special hourly preferences." class="p label-highlighted-purple-label-14-400" type="p" name="label10" variant="highlighted-purple-label-14-400"></wm-label>
-<wm-label padding="unset" caption="- To set a whole day preferences click on a roller button, then &lt;b&gt;CLICK ONCE&lt;/b&gt; on a day or &lt;b&gt;&quot;PAINT&quot;&lt;/b&gt; multiple days on the calendar" class="label-label-14-400" type="p" name="label11" variant="label-14-400"></wm-label>
-<wm-label padding="unset" caption="- To set specific hourly preferences for a day &lt;b&gt;DOUBLE CLICK the day to edit.&lt;/b&gt;" class="label-label-14-400" type="p" variant="label-14-400" name="label12"></wm-label>
-<wm-label padding="unset" caption="&lt;b&gt; - Entering preferences in no way guarantees your schedule&lt;/b&gt; will follow these times nor that your existing schedule will be changed in any way, but may increase the likelihood that you are assigned to times that you prefer." class=" label-label-14-400" type="p" variant="label-14-400" name="label13"></wm-label></wm-container></wm-container></wm-page-content></wm-content></wm-page>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="column" alignment="middle-center" gap="20" width="fill" name="container10"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-container direction="column" alignment="top-left" gap="10" width="55%" name="container8"
+                    variant="grey-standard" wrap="false" clipcontent="false" overflow="none"
+                    class="container-grey-standard">
+                    <wm-container name="containerInstruction"
+                        class="app-container-default container-warning-standard-no-radius" direction="column" gap="0"
+                        alignment="middle-left" width="fill" height="hug" variant="warning-standard-no-radius">
+                        <wm-label name="lblInstruction"
+                            caption="Click color and 'paint' days or 'double click' day to open hourly prefs."
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                    </wm-container>
+                    <wm-container name="containerButtons" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug" variant="default">
+                        <wm-container name="containerPreferWorking" direction="row" gap="0" alignment="middle-center"
+                            width="10%" height="hug" variant="green-bg" class="container-green-bg" wrap="false"
+                            padding="16px" clipcontent="false" overflow="none"
+                            on-tap="btnPreferWorkingClick($event, widget)">
+                            <wm-label name="lblPreferWorking" caption="Prefer Working" class="label-label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="containerDislikeWorking" direction="row" gap="0" alignment="middle-center"
+                            width="10%" height="hug" class="container-red-bg" variant="red-bg" wrap="false"
+                            padding="16px" clipcontent="false" overflow="none"
+                            on-tap="btnDislikeWorkingClick($event, widget)">
+                            <wm-label name="lblDislikeWorking" caption="Dislike Working" class="label-label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="containerCannotWork" direction="row" gap="0" alignment="middle-center"
+                            width="10%" height="hug" class="container-dark-red-bg" variant="dark-red-bg" wrap="false"
+                            padding="16px" clipcontent="false" overflow="none"
+                            on-tap="btnCannotWorkClick($event, widget)">
+                            <wm-label name="lblCannotWork" caption="Cannot Work" class="label-label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="containerClear" direction="row" gap="0" alignment="middle-center" width="5%"
+                            height="hug" wrap="false" padding="25px 20px" clipcontent="false" overflow="none"
+                            class="container-white-container-no-border-radius"
+                            variant="white-container-no-border-radius" on-tap="btnClearClick($event, widget)">
+                            <wm-label name="lblClear" caption="Clear" class="label-label-12-400" variant="label-12-400">
+                            </wm-label>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container9"
+                        class="app-container-default" variant="default">
+                        <wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday">
+                        </wm-prefab>
+                    </wm-container>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container7"
+                        class="app-container-default" variant="default">
+                        <wm-calendar name="calPreferences" variant="standard"
+                            on-dateclick="calendarDateClick($dateInfo)" calendartype="list" show="true" controls="month"
+                            on-viewrender="calPreferencesViewrender($view)"></wm-calendar>
+                    </wm-container>
+                </wm-container>
+                <wm-container direction="column" alignment="middle-center" gap="4" width="55%" name="container12"
+                    class="app-container-default" variant="default" wrap="false" clipcontent="false" overflow="none">
+                    <wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset" name="button1"
+                        variant="outlined-primary" on-click="flushPreferenceUpdate($event, widget)"></wm-button>
+                </wm-container>
+                <wm-container direction="column" alignment="top-left" gap="20" width="55%" name="container12_1"
+                    class="container-grey-standard" variant="grey-standard" clipcontent="false" overflow="none"
+                    wrap="false">
+                    <wm-label padding="unset" caption="Information" class="label-label-20-700" type="p" name="label6"
+                        variant="label-20-700"></wm-label>
+                    <wm-anchor margin="unset 0.5em" name="anchor1" class="anchor-standard-14-underlined"
+                        variant="standard-14-underlined"
+                        caption="Trouble with this page? Change to touch-screen friendly interface"></wm-anchor>
+                    <wm-label padding="unset"
+                        caption="- Your changes will be saved when you click &quot;Save&quot; button or double click a date to edit a specific day"
+                        class=" label-label-14-400" type="p" name="label7" variant="label-14-400"></wm-label>
+                    <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container13"
+                        class="app-container-default" variant="default">
+                        <wm-label padding="unset" caption="-  Leave days white to use your Weekly Repeating"
+                            class="p label-highlighted-white-14-400" type="p" name="label8"
+                            variant="highlighted-white-14-400"></wm-label>
+                        <wm-label padding="unset"
+                            caption="(Only change the days that will be different from repeating)."
+                            class="p label-label-14-400" type="p" variant="label-14-400" name="label9"></wm-label>
+                    </wm-container>
+                    <wm-label padding="unset" caption="- Means the date has special hourly preferences."
+                        class="p label-highlighted-purple-label-14-400" type="p" name="label10"
+                        variant="highlighted-purple-label-14-400"></wm-label>
+                    <wm-label padding="unset"
+                        caption="- To set a whole day preferences click on a roller button, then &lt;b&gt;CLICK ONCE&lt;/b&gt; on a day or &lt;b&gt;&quot;PAINT&quot;&lt;/b&gt; multiple days on the calendar"
+                        class="label-label-14-400" type="p" name="label11" variant="label-14-400"></wm-label>
+                    <wm-label padding="unset"
+                        caption="- To set specific hourly preferences for a day &lt;b&gt;DOUBLE CLICK the day to edit.&lt;/b&gt;"
+                        class="label-label-14-400" type="p" variant="label-14-400" name="label12"></wm-label>
+                    <wm-label padding="unset"
+                        caption="&lt;b&gt; - Entering preferences in no way guarantees your schedule&lt;/b&gt; will follow these times nor that your existing schedule will be changed in any way, but may increase the likelihood that you are assigned to times that you prefer."
+                        class=" label-label-14-400" type="p" variant="label-14-400" name="label13"></wm-label>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+    <wm-confirmdialog on-ok="Widgets.confirmdialog1.close()" on-cancel="Widgets.confirmdialog1.close()"
+        name="confirmdialog1" class="modal-dialog modal-xs" variant="default:xs" title="" message="Changes saved."
+        iconclass="" canceltext="CANCEL"></wm-confirmdialog>
+</wm-page>
