@@ -688,7 +688,6 @@
                             <wm-form-field name="startTimeField" show="true" placeholder="" required="true"
                                 regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="startTime"
                                 validationmessage="Enter valid start time" widget="text" inputtype="text"
-                                on-change="startTimeFieldChange($event, widget, newVal, oldVal)"
                                 class="form-compact-input" variant="compact-input"
                                 defaultvalue="bind:Variables.svGetShiftById.dataSet.startTime"></wm-form-field>
                         </wm-container>
@@ -701,7 +700,6 @@
                                 <wm-form-field name="endTimeField" show="true" placeholder="" required="true"
                                     regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="endTime"
                                     validationmessage="Enter valid end time" widget="text" inputtype="text"
-                                    on-change="endTimeFieldChange($event, widget, newVal, oldVal)"
                                     class="form-compact-input" variant="compact-input"
                                     defaultvalue="bind:Variables.svGetShiftById.dataSet.endTime"></wm-form-field>
                             </wm-container>
