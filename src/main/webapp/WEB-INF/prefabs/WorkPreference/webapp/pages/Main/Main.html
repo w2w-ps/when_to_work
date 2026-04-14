@@ -1,30 +1,32 @@
 <wm-prefab-container name="prefab_container1">
-    <wm-container name="topToolbarSection" class="app-container-default toolbar-section" direction="row" gap="16"
+    <wm-container name="topToolbarSection" class="app-container-default toolbar-section" direction="column" gap="16"
         alignment="top-left" width="fill" height="hug" clipcontent="false" overflow="No scrolling"
         show="bind:!restrictedit">
         <!-- LEFT AREA: ~60% -->
-        <wm-container name="toolbarLeftArea" class="app-container-default" direction="column" gap="8"
-            alignment="top-left" width="fill" height="hug" clipcontent="false" overflow="No scrolling">
-            <!-- Title Row: CHOOSE DATE + calendar icon + date input + label -->
-            <!-- Legend Row: instruction text + 4 colored legend buttons -->
+        <wm-container name="container234">
             <wm-container name="chooseDateRow" class="app-container-default  gap-4" direction="row" gap="8"
                 alignment="middle-left" width="fill" height="hug" wrap="true" show="bind:!choosedate">
-                <wm-label name="chooseDateLabel" caption="CHOOSE DATE" class=" label-label-20-700"></wm-label>
+                <wm-label name="chooseDateLabel" caption="CHOOSE DATE" class="label-label-14-700"></wm-label>
                 <wm-icon name="calendarIcon" iconclass="wi wi-calendar" class="choose-date-icon" iconsize="1.4em">
                 </wm-icon>
                 <wm-date name="startDatePicker" class="choose-date-input" placeholder="Select date" width="130px"
                     on-change="startDatePickerChange($event, newVal, oldVal, widget)"></wm-date>
-                <wm-label padding="unset" caption="to start these preferences" class="label-label-20-700" type="p"
+                <wm-label padding="unset" caption="to start these preferences" class="label-label-14-700" type="p"
                     name="label38"></wm-label>
             </wm-container>
-            <wm-container name="legendRow" class="app-container-default gap-1 flex-column  align-items-start "
-                direction="row" gap="8" alignment="middle-left" width="hug" height="hug" wrap="true" clipcontent="false"
-                overflow="No scrolling">
-                <wm-container name="container231" class="container-warning-standard-no-radius">
+        </wm-container>
+        <wm-container name="toolbarLeftArea" class="app-container-default flex-direction-row justify-content-between"
+            direction="column" gap="8" alignment="top-left" width="fill" height="hug" clipcontent="false"
+            overflow="No scrolling">
+            <!-- Title Row: CHOOSE DATE + calendar icon + date input + label -->
+            <!-- Legend Row: instruction text + 4 colored legend buttons -->
+            <wm-container name="legendRow" class="app-container-default gap-1" direction="column" gap="8" width="60%"
+                height="hug">
+                <wm-container name="container231" class="container-warning-standard-no-radius" width="hug">
                     <wm-label padding="unset" caption="Click color and &quot;paint&quot; times on grid" type="p"
                         name="label39"></wm-label>
                 </wm-container>
-                <wm-container name="container232" class="d-flex gap-3">
+                <wm-container name="container232" class="d-flex gap-1">
                     <wm-button name="legendPreferBtn" caption="Prefer Working" class="btn-prefer legend-btn"
                         variant="prefer"></wm-button>
                     <wm-button name="legendDislikeBtn" caption="Dislike Working" class="btn-dislike legend-btn"
@@ -36,8 +38,8 @@
                 </wm-container>
             </wm-container>
             <wm-container name="formPanel" class="container-white-container-no-border-radius" direction="column" gap="8"
-                alignment="top-left" height="hug" clipcontent="false" width="25%">
-                <wm-container name="container233" class="container-warning-standard-no-radius">
+                alignment="top-left" height="hug" clipcontent="false" width="40%" overflow="none">
+                <wm-container name="container233" class="container-warning-standard-no-radius" width="fill">
                     <wm-label name="formPanelTitle" caption="OR Use form to add preferences to grid"
                         class="form-panel-title"></wm-label>
                 </wm-container>
@@ -46,10 +48,12 @@
                     gap="12" alignment="top-left" width="fill" height="hug">
                     <!-- Radio buttons column -->
                     <wm-container name="radioColumn" class="container-white-container-no-border-radius"
-                        direction="column" gap="4" alignment="top-left" width="hug" height="hug">
+                        direction="column" gap="4" alignment="top-left" width="40%" height="hug" clipcontent="false"
+                        overflow="none">
                         <wm-radioset name="preferenceTypeRadio" dataset="Prefer, Dislike, No Preference, Cannot Work"
                             datavalue="bind:Variables.worktimepreference.dataSet.preferenceType" layout="stacked"
-                            on-change="preferenceTypeRadioChange($event, newVal, oldVal, widget)"></wm-radioset>
+                            on-change="preferenceTypeRadioChange($event, newVal, oldVal, widget)"
+                            class="radiobutton-small-radio"></wm-radioset>
                     </wm-container>
                     <!-- Fields column: Day, Begin, End, Add button -->
                     <wm-container name="formFieldsColumn" class="container-white-container-no-border-radius"

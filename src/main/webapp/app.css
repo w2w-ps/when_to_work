@@ -385,6 +385,10 @@ wm-input[name="txtFind"].app-input-wrapper {
     color: white !important;
 }
 
+.flex-direction-row {
+    flex-flow: row !important;
+}
+
 
 
 

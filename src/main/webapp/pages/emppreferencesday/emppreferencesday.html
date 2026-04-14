@@ -4,19 +4,20 @@
         <wm-page-content columnwidth="12" name="pagecontent">
             <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container11_1"
                 class="app-container-default" variant="default" wrap="false">
-                <wm-label padding="unset" caption="Special Hourly Preferences for" class="label-label-14pt-700 pt-4"
-                    type="p" name="label1" variant="label-14pt-700"></wm-label>
-                <wm-label padding="unset" caption="Friday, Jun 14, 2024" class="label-label-14pt-700 pt-4" type="p"
-                    variant="label-14pt-700" name="label6"></wm-label>
+                <wm-label padding="unset" caption="Special Hourly Preferences for" class="pt-4 label-label-18-700"
+                    type="p" name="label1" variant="label-18-700"></wm-label>
+                <wm-label padding="unset" caption="Friday, Jun 14, 2024" class="label-label-18-700" type="p"
+                    variant="label-18-700" name="label6"></wm-label>
                 <wm-label padding="unset" caption="(These preferences override your Repeating Weekly Preferences)"
-                    class="label-label-14pt-700 pt-4" type="p" variant="label-14pt-700" name="label7"></wm-label>
+                    class="pt-2 label-label-12-700 pb-2" type="p" variant="label-12-700" name="label7"></wm-label>
             </wm-container>
             <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container11"
                 class="app-container-default" variant="default">
                 <wm-container direction="column" alignment="top-center" gap="20" width="fill" name="container7"
                     variant="default" wrap="false" clipcontent="false">
-                    <wm-container direction="column" alignment="top-left" gap="4" width="fill" name="container1"
-                        class="container-grey-standard" variant="grey-standard" wrap="false" clipcontent="false">
+                    <wm-container direction="column" alignment="top-left" gap="4" width="65%" name="container1"
+                        class="container-grey-standard" variant="grey-standard" wrap="false" clipcontent="false"
+                        overflow="none">
                         <wm-prefab prefabname="WorkPreference" name="WorkPreference2" singleday="true" width="100%"
                             readonly="false" showweekdropdown="false"
                             weekpreferencedata="bind:Variables.selectedpreference.dataSet"
@@ -44,8 +45,8 @@
                         </wm-container>
                         <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container10"
                             class="app-container-default" variant="default">
-                            <wm-button class="btn-outlined-primary-sm" caption="Save" type="button" margin="unset"
-                                variant="outlined-primary-sm" name="button3"
+                            <wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset"
+                                variant="outlined-primary" name="button3"
                                 on-click="Variables.svUpdatePreferences.invoke()"></wm-button>
                         </wm-container>
                     </wm-container>
