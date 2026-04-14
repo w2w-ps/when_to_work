@@ -1,0 +1,36 @@
+{
+  "SvGetWeekPreferences" : {
+    "_id" : "wm-SvGetWeekPreferences-wm.ServiceVariable-1775589980506",
+    "name" : "SvGetWeekPreferences",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "employeeId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "2026-04-06",
+      "type" : "string"
+    } ],
+    "type" : "GetWeekPreferences.RootResponse",
+    "service" : "GetWeekPreferences",
+    "operation" : "invoke",
+    "operationId" : "GetWeekPreferences_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "GetWeekPreferences"
+  }
+}

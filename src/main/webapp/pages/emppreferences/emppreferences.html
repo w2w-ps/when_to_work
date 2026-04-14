@@ -1,130 +1,51 @@
 <wm-page name="page" pagetitle="Emppreferences">
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
-    <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent" class="py-0 px-5">
-            <wm-container direction="column" alignment="top-left" gap="12" width="fill" name="container1"
-                class="app-container-default" variant="default" wrap="false">
-                <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container2"
-                    class="app-container-default" variant="default" wrap="false" clipcontent="false"
-                    position="relative">
-                    <wm-container direction="row" alignment="middle-left" gap="4" width="20%" name="container3"
-                        class="app-container-default" variant="default" clipcontent="false"
-                        padding="unset unset unset 40px">
-                        <wm-picture resizemode="cover" name="picture1" class="img-rounded" variant="default:rounded"
-                            picturesource="resources/images/logos/w2w_logo_circle.png" width="150" height="150">
-                        </wm-picture>
-                    </wm-container>
-                    <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container4"
-                        class="app-container-default" variant="default" wrap="false" height="fill" clipcontent="false">
-                        <wm-label padding="unset" caption="Sample Company" class="label-label-14pt-700 pt-4" type="p"
-                            name="label1" variant="label-14pt-700"></wm-label>
-                        <wm-label padding="unset" caption="John Asgard" class="label-label-16-700" type="p"
-                            variant="label-16-700" name="label2"></wm-label>
-                        <wm-label padding="unset" caption="My Work Time Preferences" class="label-label-16-700 pt-4"
-                            type="p" variant="label-16-700" name="label3"></wm-label>
-                    </wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="20%" class="app-container-default"
-                        variant="default" name="container5" clipcontent="false" height="fill"></wm-container>
-                </wm-container>
-                <wm-container direction="column" alignment="middle-left" gap="10" width="fill" name="container7"
-                    class="container-grey-standard" variant="grey-standard" padding="20px" wrap="false">
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container23"
-                        class="app-container-default" variant="default">
-                        <wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday">
-                        </wm-prefab>
-                    </wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container21"
-                        class="app-container-default" variant="default">
-                        <wm-prefab prefabname="WorkPreference" name="WorkPreference1" width="100%" restrictedit="true"
-                            readonly="true" singleday="true"
-                            weekpreferencedata="bind:Variables.SvGetWeekPreferences.dataSet"
-                            on-click="WorkPreference1Click($event, $data)"
-                            editedrowsindex="bind:[{dataValue: 0}, {dataValue: 3}]"></wm-prefab>
-                    </wm-container>
-                    <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container22"
-                        variant="default">
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container19"
-                            class="container-purple-bg" variant="purple-bg" clipcontent="false" padding="8px">
-                            <wm-label padding="unset" caption="Date" class="p label-label-14-700" type="p"
-                                name="label15_1" variant="label-14-700"></wm-label>
-                        </wm-container>
-                        <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container20"
-                            class="app-container-default" variant="default" clipcontent="false">
-                            <wm-label padding="unset" caption="if highlighted has specific preferences overriding"
-                                class="label-label-16-700" type="p" name="label16" variant="label-16-700"></wm-label>
-                        </wm-container>
-                    </wm-container>
-                </wm-container>
-                <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container8"
-                    class="app-container-default" variant="default">
-                    <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container10"
-                        class="app-container-default" variant="default">
-                        <wm-button class="btn-purple-bg-primary" caption="DATE SPECIFIC" type="button" margin="unset"
-                            name="button1" variant="purple-bg-primary"></wm-button>
-                        <wm-label padding="unset" caption=" (or click date above)" class="label-label-14-700" type="p"
-                            name="label4" variant="label-14-700"></wm-label>
-                    </wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container11"
-                        class="app-container-default" variant="default">
-                        <wm-button class="btn-outlined-primary" caption="REAPITING WEEKLY" type="button" margin="unset"
-                            name="button2" variant="outlined-primary"></wm-button>
-                        <wm-button class="btn-outlined-primary" caption="FUTURE Weekly" type="button" margin="unset"
-                            variant="outlined-primary" name="button3"></wm-button>
-                    </wm-container>
-                    <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container12"
-                        class="app-container-default" variant="default">
-                        <wm-button class="btn-outlined-primary" caption="POSITION Prefs" type="button" margin="unset"
-                            name="button4" variant="outlined-primary"></wm-button>
-                    </wm-container>
-                </wm-container>
-                <wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container9"
-                    class="container-grey-standard" variant="grey-standard" wrap="false" padding="20px">
-                    <wm-label padding="unset" caption="Information" class="label-label-20-700" type="p" name="label7"
-                        variant="label-20-700"></wm-label>
-                    <wm-container direction="row" alignment="middle-left" gap="10" width="fill" name="container13"
-                        class="app-container-default" variant="default">
-                        <wm-label padding="unset" caption="Times:" class="label-label-14-700" type="p" name="label8"
-                            variant="label-14-700"></wm-label>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container14_1"
-                            class="container-green-bg" variant="green-bg" clipcontent="false" padding="8px">
-                            <wm-label padding="unset" caption="Prefer" class="label-label-16-400" type="p"
-                                name="label11" variant="label-16-400"></wm-label>
-                            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container15"
-                                class="app-container-default" variant="default"></wm-container>
-                        </wm-container>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container16"
-                            class="container-red-bg" variant="red-bg" clipcontent="false" padding="8px">
-                            <wm-label padding="unset" caption="Dislike" class="label-label-16-400" type="p"
-                                name="label12" variant="label-16-400"></wm-label>
-                        </wm-container>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container17"
-                            class="container-dark-red-bg" variant="dark-red-bg" clipcontent="false" padding="8px">
-                            <wm-label padding="unset" caption="Cannot Work" class="p" type="p" name="label13"
-                                variant="default"></wm-label>
-                        </wm-container>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container18"
-                            class="container-white-container-no-border-radius"
-                            variant="white-container-no-border-radius" clipcontent="false" padding="unset 8px">
-                            <wm-label padding="unset" caption="No Preference" class="p label-label-16-400" type="p"
-                                name="label14" variant="label-16-400"></wm-label>
-                        </wm-container>
-                    </wm-container>
-                    <wm-label padding="unset"
-                        caption="- If preferences are not appearing as you expect, it is likely due to &quot;Date Specific&quot; or &quot;Future Weekly&quot; preferences that are overriding your Repeating Weekly preferences."
-                        class="p label-label-14-700" type="p" name="label9" variant="label-14-700"></wm-label>
-                    <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container14"
-                        variant="default" clipcontent="false">
-                        <wm-label padding="unset" caption="- Entering preferences in no way guarantees your schedule"
-                            class="label-label-14-700" type="p" name="label15" variant="label-14-700"></wm-label>
-                        <wm-label padding="unset"
-                            caption="will follow these times nor that your existing schedule will be changed in any way, but may increase the likelihood that you are assigned to times that you prefer."
-                            class="p label-label-16-400" type="p" name="label5" variant="label-16-400"></wm-label>
-                    </wm-container>
-                    <wm-label padding="unset" caption="- Always check your weekly schedule for your actual shift times."
-                        class="label-label-14-700" type="p" name="label6" variant="label-14-700"></wm-label>
-                </wm-container>
-            </wm-container>
-        </wm-page-content>
-    </wm-content>
-    <wm-footer content="footer" name="footer"></wm-footer>
-</wm-page>
+<wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+<wm-content name="content">
+<wm-page-content columnwidth="12" name="pagecontent" class="py-0 px-5">
+<wm-container direction="column" alignment="top-left" gap="12" width="fill" name="container1" class="app-container-default" variant="default" wrap="false">
+<wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container2" class="app-container-default" variant="default" wrap="false" clipcontent="false" position="relative">
+<wm-container direction="row" alignment="middle-left" gap="4" width="20%" name="container3" class="app-container-default" variant="default" clipcontent="false" padding="unset unset unset 40px">
+<wm-picture resizemode="cover" name="picture1" class="img-rounded" variant="default:rounded" picturesource="resources/images/logos/w2w_logo_circle.png" width="150" height="150"></wm-picture></wm-container>
+<wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container4" class="app-container-default" variant="default" wrap="false" height="fill" clipcontent="false">
+<wm-label padding="unset" caption="Sample Company" class="label-label-14pt-700 pt-4" type="p" name="label1" variant="label-14pt-700"></wm-label>
+<wm-label padding="unset" caption="John Asgard" class="label-label-16-700" type="p" variant="label-16-700" name="label2"></wm-label>
+<wm-label padding="unset" caption="My Work Time Preferences" class="label-label-16-700 pt-4" type="p" variant="label-16-700" name="label3"></wm-label></wm-container>
+<wm-container direction="row" alignment="top-left" gap="4" width="20%" class="app-container-default" variant="default" name="container5" clipcontent="false" height="fill"></wm-container></wm-container>
+<wm-container direction="column" alignment="middle-left" gap="10" width="fill" name="container7" class="container-grey-standard" variant="grey-standard" padding="20px" wrap="false">
+<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container23" class="app-container-default" variant="default">
+<wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday"></wm-prefab></wm-container>
+<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container21" class="app-container-default" variant="default">
+<wm-prefab prefabname="WorkPreference" name="WorkPreference1" width="100%" restrictedit="true" readonly="true" singleday="true" weekpreferencedata="bind:Variables.SvGetWeekPreferences.dataSet" on-click="WorkPreference1Click($event, $data)" editedrowsindex="bind:[{dataValue: 0}, {dataValue: 3}]"></wm-prefab></wm-container>
+<wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container22" variant="default">
+<wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container19" class="container-purple-bg" variant="purple-bg" clipcontent="false" padding="8px">
+<wm-label padding="unset" caption="Date" class="p label-label-14-700" type="p" name="label15_1" variant="label-14-700"></wm-label></wm-container>
+<wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container20" class="app-container-default" variant="default" clipcontent="false">
+<wm-label padding="unset" caption="if highlighted has specific preferences overriding" class="label-label-16-700" type="p" name="label16" variant="label-16-700"></wm-label></wm-container></wm-container></wm-container>
+<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container8" class="app-container-default" variant="default">
+<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container10" class="app-container-default" variant="default">
+<wm-button class="btn-purple-bg-primary" caption="DATE SPECIFIC" type="button" margin="unset" name="button1" variant="purple-bg-primary"></wm-button>
+<wm-label padding="unset" caption=" (or click date above)" class="label-label-14-700" type="p" name="label4" variant="label-14-700"></wm-label></wm-container>
+<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container11" class="app-container-default" variant="default">
+<wm-button class="btn-outlined-primary" caption="REAPITING WEEKLY" type="button" margin="unset" name="button2" variant="outlined-primary" on-click="Actions.goToPage_emppreferencesrepeat.invoke()"></wm-button>
+<wm-button class="btn-outlined-primary" caption="FUTURE Weekly" type="button" margin="unset" variant="outlined-primary" name="button3"></wm-button></wm-container>
+<wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container12" class="app-container-default" variant="default">
+<wm-button class="btn-outlined-primary" caption="POSITION Prefs" type="button" margin="unset" name="button4" variant="outlined-primary"></wm-button></wm-container></wm-container>
+<wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container9" class="container-grey-standard" variant="grey-standard" wrap="false" padding="20px">
+<wm-label padding="unset" caption="Information" class="label-label-20-700" type="p" name="label7" variant="label-20-700"></wm-label>
+<wm-container direction="row" alignment="middle-left" gap="10" width="fill" name="container13" class="app-container-default" variant="default">
+<wm-label padding="unset" caption="Times:" class="label-label-14-700" type="p" name="label8" variant="label-14-700"></wm-label>
+<wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container14_1" class="container-green-bg" variant="green-bg" clipcontent="false" padding="8px">
+<wm-label padding="unset" caption="Prefer" class="label-label-16-400" type="p" name="label11" variant="label-16-400"></wm-label>
+<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container15" class="app-container-default" variant="default"></wm-container></wm-container>
+<wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container16" class="container-red-bg" variant="red-bg" clipcontent="false" padding="8px">
+<wm-label padding="unset" caption="Dislike" class="label-label-16-400" type="p" name="label12" variant="label-16-400"></wm-label></wm-container>
+<wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container17" class="container-dark-red-bg" variant="dark-red-bg" clipcontent="false" padding="8px">
+<wm-label padding="unset" caption="Cannot Work" class="p" type="p" name="label13" variant="default"></wm-label></wm-container>
+<wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container18" class="container-white-container-no-border-radius" variant="white-container-no-border-radius" clipcontent="false" padding="unset 8px">
+<wm-label padding="unset" caption="No Preference" class="p label-label-16-400" type="p" name="label14" variant="label-16-400"></wm-label></wm-container></wm-container>
+<wm-label padding="unset" caption="- If preferences are not appearing as you expect, it is likely due to &quot;Date Specific&quot; or &quot;Future Weekly&quot; preferences that are overriding your Repeating Weekly preferences." class="p label-label-14-700" type="p" name="label9" variant="label-14-700"></wm-label>
+<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container14" variant="default" clipcontent="false">
+<wm-label padding="unset" caption="- Entering preferences in no way guarantees your schedule" class="label-label-14-700" type="p" name="label15" variant="label-14-700"></wm-label>
+<wm-label padding="unset" caption="will follow these times nor that your existing schedule will be changed in any way, but may increase the likelihood that you are assigned to times that you prefer." class="p label-label-16-400" type="p" name="label5" variant="label-16-400"></wm-label></wm-container>
+<wm-label padding="unset" caption="- Always check your weekly schedule for your actual shift times." class="label-label-14-700" type="p" name="label6" variant="label-14-700"></wm-label></wm-container></wm-container></wm-page-content></wm-content>
+<wm-footer content="footer" name="footer"></wm-footer></wm-page>
