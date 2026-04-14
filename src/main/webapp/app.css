@@ -381,6 +381,10 @@ wm-input[name="txtFind"].app-input-wrapper {
     text-align: end !important;
 }
 
+.text-white {
+    color: white !important;
+}
+
 
 
 
