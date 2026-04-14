@@ -1,7 +1,7 @@
 <wm-prefab-container name="prefab_container1">
     <wm-container name="topToolbarSection" class="app-container-default toolbar-section" direction="row" gap="16"
         alignment="top-left" width="fill" height="hug" clipcontent="false" overflow="No scrolling"
-        show="bind:!readonly">
+        show="bind:!restrictedit">
         <!-- LEFT AREA: ~60% -->
         <wm-container name="toolbarLeftArea" class="app-container-default" direction="column" gap="8"
             alignment="top-left" width="fill" height="hug" clipcontent="false" overflow="No scrolling">
@@ -35,171 +35,175 @@
                         variant="cannot-work"></wm-button>
                 </wm-container>
             </wm-container>
+            <wm-container name="formPanel" class="container-white-container-no-border-radius" direction="column" gap="8"
+                alignment="top-left" height="hug" clipcontent="false" width="25%">
+                <wm-container name="container233" class="container-warning-standard-no-radius">
+                    <wm-label name="formPanelTitle" caption="OR Use form to add preferences to grid"
+                        class="form-panel-title"></wm-label>
+                </wm-container>
+                <!-- Form body: radio column + fields column -->
+                <wm-container name="formBody" class="container-white-container-no-border-radius" direction="row"
+                    gap="12" alignment="top-left" width="fill" height="hug">
+                    <!-- Radio buttons column -->
+                    <wm-container name="radioColumn" class="container-white-container-no-border-radius"
+                        direction="column" gap="4" alignment="top-left" width="hug" height="hug">
+                        <wm-radioset name="preferenceTypeRadio" dataset="Prefer, Dislike, No Preference, Cannot Work"
+                            datavalue="bind:Variables.worktimepreference.dataSet.preferenceType" layout="stacked"
+                            on-change="preferenceTypeRadioChange($event, newVal, oldVal, widget)"></wm-radioset>
+                    </wm-container>
+                    <!-- Fields column: Day, Begin, End, Add button -->
+                    <wm-container name="formFieldsColumn" class="container-white-container-no-border-radius"
+                        direction="column" gap="6" alignment="top-left" width="60%" height="hug" clipcontent="false">
+                        <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="weekDayRow"
+                            class="container-white-container-no-border-radius" variant="default:container-default"
+                            height="hug" show="bind:showweekdropdown">
+                            <wm-label name="weekLabel" caption="Week:" variant="default:p"></wm-label>
+                            <wm-select name="weekDaySelect"
+                                dataset="Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+                                variant="standard" datavalue="bind:Variables.worktimepreference.dataSet.weekDay">
+                            </wm-select>
+                        </wm-container>
+                        <wm-container name="beginTimeRow" class="container-white-container-no-border-radius"
+                            direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+                            <wm-label name="beginLabel" caption="Begin:"></wm-label>
+                            <wm-select name="beginHourSelect"
+                                dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
+                                datavalue="bind:Variables.worktimepreference.dataSet.beginHour"></wm-select>
+                            <wm-select name="beginMinuteSelect" dataset="00, 15, 30, 45"
+                                datavalue="bind:Variables.worktimepreference.dataSet.beginMinute"></wm-select>
+                        </wm-container>
+                        <wm-container name="endTimeRow" class="container-white-container-no-border-radius"
+                            direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+                            <wm-label name="endLabel" caption="End:"></wm-label>
+                            <wm-select name="endHourSelect"
+                                dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
+                                datavalue="bind:Variables.worktimepreference.dataSet.endHour"></wm-select>
+                            <wm-select name="endMinuteSelect" dataset="00, 15, 30, 45"
+                                datavalue="bind:Variables.worktimepreference.dataSet.endMinute"></wm-select>
+                        </wm-container>
+                        <wm-container name="addBtnRow"
+                            class="container-white-container-no-border-radius justify-content-center" direction="row"
+                            gap="4" alignment="middle-right" width="fill" height="hug">
+                            <wm-button name="addPreferenceBtn" caption="Add" class="btn-outlined-primary"
+                                on-click="addPreferenceBtnClick($event, widget)"></wm-button>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
         </wm-container>
         <!-- RIGHT FORM PANEL: ~40% -->
-        <wm-container name="formPanel" class="container-white-container-no-border-radius" direction="column" gap="8"
-            alignment="top-left" height="hug" clipcontent="false" width="25%">
-            <wm-container name="container233" class="container-warning-standard-no-radius">
-                <wm-label name="formPanelTitle" caption="OR Use form to add preferences to grid"
-                    class="form-panel-title"></wm-label>
-            </wm-container>
-            <!-- Form body: radio column + fields column -->
-            <wm-container name="formBody" class="container-white-container-no-border-radius" direction="row" gap="12"
-                alignment="top-left" width="fill" height="hug">
-                <!-- Radio buttons column -->
-                <wm-container name="radioColumn" class="container-white-container-no-border-radius" direction="column"
-                    gap="4" alignment="top-left" width="hug" height="hug">
-                    <wm-radioset name="preferenceTypeRadio" dataset="Prefer, Dislike, No Preference, Cannot Work"
-                        datavalue="bind:Variables.worktimepreference.dataSet.preferenceType" layout="stacked"
-                        on-change="preferenceTypeRadioChange($event, newVal, oldVal, widget)"></wm-radioset>
-                </wm-container>
-                <!-- Fields column: Day, Begin, End, Add button -->
-                <wm-container name="formFieldsColumn" class="container-white-container-no-border-radius"
-                    direction="column" gap="6" alignment="top-left" width="60%" height="hug" clipcontent="false">
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="weekDayRow"
-                        class="container-white-container-no-border-radius" variant="default:container-default"
-                        height="hug" show="bind:showweekdropdown">
-                        <wm-label name="weekLabel" caption="Week:" variant="default:p"></wm-label>
-                        <wm-select name="weekDaySelect"
-                            dataset="Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" variant="standard"
-                            datavalue="bind:Variables.worktimepreference.dataSet.weekDay"></wm-select>
-                    </wm-container>
-                    <wm-container name="beginTimeRow" class="container-white-container-no-border-radius" direction="row"
-                        gap="4" alignment="middle-left" width="fill" height="hug">
-                        <wm-label name="beginLabel" caption="Begin:"></wm-label>
-                        <wm-select name="beginHourSelect"
-                            dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
-                            datavalue="bind:Variables.worktimepreference.dataSet.beginHour"></wm-select>
-                        <wm-select name="beginMinuteSelect" dataset="00, 15, 30, 45"
-                            datavalue="bind:Variables.worktimepreference.dataSet.beginMinute"></wm-select>
-                    </wm-container>
-                    <wm-container name="endTimeRow" class="container-white-container-no-border-radius" direction="row"
-                        gap="4" alignment="middle-left" width="fill" height="hug">
-                        <wm-label name="endLabel" caption="End:"></wm-label>
-                        <wm-select name="endHourSelect"
-                            dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
-                            datavalue="bind:Variables.worktimepreference.dataSet.endHour"></wm-select>
-                        <wm-select name="endMinuteSelect" dataset="00, 15, 30, 45"
-                            datavalue="bind:Variables.worktimepreference.dataSet.endMinute"></wm-select>
-                    </wm-container>
-                    <wm-container name="addBtnRow"
-                        class="container-white-container-no-border-radius justify-content-center" direction="row"
-                        gap="4" alignment="middle-right" width="fill" height="hug">
-                        <wm-button name="addPreferenceBtn" caption="Add" class="btn-outlined-primary"
-                            on-click="addPreferenceBtnClick($event, widget)"></wm-button>
-                    </wm-container>
-                </wm-container>
-            </wm-container>
-        </wm-container>
     </wm-container>
     <wm-container name="gridWrapper" direction="column" alignment="top-left" gap="0" width="fill" height="hug"
-        class="app-container-default time-grid-wrapper pt-5" clipcontent="false" overflow="No scrolling">
+        class="app-container-default time-grid-wrapper pt-1" clipcontent="false" overflow="No scrolling">
         <!-- HOUR SUB-HEADER ROW -->
-        <wm-container name="gridHeaderRow" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
-            class="app-container-default grid-header-row">
+        <wm-container name="gridHeaderRow" direction="row" alignment="middle-left" gap="0" width="fill" height="53px"
+            class="app-container-default grid-header-row" clipcontent="false" overflow="none">
             <wm-container name="gridHeaderDayCell" direction="column" alignment="middle-center" gap="2" width="110px"
-                height="hug" class="app-container-default grid-day-label-cell grid-header-day-cell p-1">
+                height="hug" class="app-container-default grid-day-label-cell grid-header-day-cell">
                 <wm-label name="headerTimeLabel"
-                    caption="bind:headercaption || &quot;Click date to set Date Specific&quot;" class="text-center">
-                </wm-label>
+                    caption="bind:headercaption || &quot;Click date to set Date Specific&quot;"
+                    class="text-center label-preference-table-head"></wm-label>
             </wm-container>
             <wm-container name="gridHeaderHoursScroll" direction="row" alignment="middle-left" gap="0" width="fill"
                 height="fill" class="app-container-default grid-hours-scroll" overflow="Horizontal" clipcontent="false">
                 <wm-container name="hdrH0" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr0" caption="12a" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr0" caption="12a" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH1" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr1" caption="1" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr1" caption="1" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH2" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr2" caption="2" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr2" caption="2" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH3" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr3" caption="3" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr3" caption="3" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH4" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr4" caption="4" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr4" caption="4" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH5" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr5" caption="5" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr5" caption="5" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH6" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr6" caption="6a" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr6" caption="6a" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH7" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr7" caption="7" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr7" caption="7" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH8" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr8" caption="8" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr8" caption="8" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH9" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr9" caption="9" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr9" caption="9" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH10" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell hour-header-highlight" clipcontent="false">
-                    <wm-label name="lhdr10" caption="10" class="hour-header-lbl hour-lbl-blue"></wm-label>
+                    <wm-label name="lhdr10" caption="10"
+                        class="hour-header-lbl hour-lbl-blue hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH11" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr11" caption="11" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr11" caption="11" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrHNoon" direction="row" alignment="middle-center" gap="0" width="48px"
                     height="fill" class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdrNoon" caption="12p" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdrNoon" caption="12p" class="hour-header-lbl label-preference-table-num">
+                    </wm-label>
                 </wm-container>
                 <wm-container name="hdrH13" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr13" caption="1" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr13" caption="1" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH14" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr14" caption="2" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr14" caption="2" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH15" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr15" caption="3" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr15" caption="3" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH16" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr16" caption="4" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr16" caption="4" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH17" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr17" caption="5" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr17" caption="5" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH18" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr18" caption="6p" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr18" caption="6p" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH19" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr19" caption="7" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr19" caption="7" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH20" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr20" caption="8" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr20" caption="8" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH21" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr21" caption="9" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr21" caption="9" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH22" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr22" caption="10" class="hour-header-lbl hour-lbl-blue"></wm-label>
+                    <wm-label name="lhdr22" caption="10"
+                        class="hour-header-lbl hour-lbl-blue hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
                 <wm-container name="hdrH23" direction="row" alignment="middle-center" gap="0" width="48px" height="fill"
                     class="app-container-default grid-hour-header-cell" clipcontent="false">
-                    <wm-label name="lhdr23" caption="11" class="hour-header-lbl"></wm-label>
+                    <wm-label name="lhdr23" caption="11" class="hour-header-lbl label-preference-table-num"></wm-label>
                 </wm-container>
             </wm-container>
         </wm-container>
@@ -211,7 +215,7 @@
                 on-click="dayLabelClick(0)" clipcontent="false">
                 <wm-label name="lbl_day0"
                     caption="bind:Variables.weekPreferenceData.dataSet[0].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[0].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours0" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-0" overflow="Horizontal"
@@ -586,7 +590,7 @@
                 on-click="dayLabelClick(1)" clipcontent="false">
                 <wm-label name="lbl_day1"
                     caption="bind:Variables.weekPreferenceData.dataSet[1].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[1].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours1" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-1" overflow="Horizontal"
@@ -960,7 +964,7 @@
                 on-click="dayLabelClick(2)" clipcontent="false">
                 <wm-label name="lbl_day2"
                     caption="bind:Variables.weekPreferenceData.dataSet[2].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[2].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours2" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-2" overflow="Horizontal"
@@ -1334,7 +1338,7 @@
                 on-click="dayLabelClick(3)" clipcontent="false">
                 <wm-label name="lbl_day3"
                     caption="bind:Variables.weekPreferenceData.dataSet[3].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[3].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours3" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-3" overflow="Horizontal"
@@ -1708,7 +1712,7 @@
                 on-click="dayLabelClick(4)" clipcontent="false">
                 <wm-label name="lbl_day4"
                     caption="bind:Variables.weekPreferenceData.dataSet[4].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[4].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours4" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-4" overflow="Horizontal"
@@ -2082,7 +2086,7 @@
                 on-click="dayLabelClick(5)" clipcontent="false">
                 <wm-label name="lbl_day5"
                     caption="bind:Variables.weekPreferenceData.dataSet[5].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[5].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours5" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-5" overflow="Horizontal"
@@ -2456,7 +2460,7 @@
                 styles="cursor:pointer;" on-click="dayLabelClick(6)" clipcontent="false">
                 <wm-label name="lbl_day6"
                     caption="bind:Variables.weekPreferenceData.dataSet[6].day.slice(0, 3) +&quot; &quot;+ (Variables.weekPreferenceData.dataSet[6].date | toDate: 'MMM-dd')"
-                    class="day-label-text"></wm-label>
+                    class="day-label-text label-preference-table-text"></wm-label>
             </wm-container>
             <wm-container name="dayHours6" direction="row" alignment="middle-left" gap="0" width="fill" height="hug"
                 class="app-container-default grid-hours-scroll slots-day-6" overflow="Horizontal"
