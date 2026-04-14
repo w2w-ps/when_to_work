@@ -9,11 +9,11 @@
   "artifactDependencyList" : null
 }, {
   "name" : "WorkPreference",
-  "version" : "0.0.8",
+  "version" : "1.1.1",
   "readableVersion" : null,
   "platformVersion" : null,
-  "publisherId" : null,
-  "publisherName" : null,
+  "publisherId" : "ent2f2c14de54",
+  "publisherName" : "tcp",
   "artifactType" : "PREFAB",
   "artifactDependencyList" : null
 } ]
