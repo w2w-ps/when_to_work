@@ -17,26 +17,6 @@
       "showAt" : "",
       "disabled" : false
     },
-    "singleday" : {
-      "type" : "boolean",
-      "displayName" : "Show_Day_Only",
-      "description" : "Show Single Day",
-      "bindable" : "in-bound",
-      "widget" : "string",
-      "show" : true,
-      "showAt" : "",
-      "disabled" : false
-    },
-    "readonly" : {
-      "type" : "boolean",
-      "displayName" : "Readonly",
-      "description" : "Readonly",
-      "bindable" : "in-bound",
-      "widget" : "string",
-      "show" : true,
-      "showAt" : "",
-      "disabled" : false
-    },
     "weekpreferencedata" : {
       "type" : "object",
       "displayName" : "Week Preference Data",
@@ -84,6 +64,18 @@
       "displayName" : "Showweekdropdown",
       "description" : "Show week dropdown",
       "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "editedrowsindex" : {
+      "type" : "object",
+      "displayName" : "Edited Rows Index",
+      "description" : "list of edited rows index",
+      "bindable" : "in-out-bound",
+      "isList" : true,
+      "value" : null,
       "widget" : "string",
       "show" : true,
       "showAt" : "",

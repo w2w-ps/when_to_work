@@ -1,39 +1,35 @@
-/*
-============================================================
-WorkTimePreferences Prefab Script (FINAL STABLE VERSION)
-
-Supports:
-✔ compressed weekly input {startDate, prefs(672)}
-✔ compressed single-day input {startDate, prefs(96)}
-✔ expanded dataset array input
-✔ router-safe rendering
-✔ drag selection
-✔ click selection
-✔ readonly mode
-✔ single-day mode
-✔ compressed payload export
-============================================================
-*/
-
-var EMPTY_PREFS = "N".repeat(96);
+const EMPTY_PREFS = "N".repeat(96);
 
 
 /* =========================================================
 COLOR MAPS
 ========================================================= */
 
-var PREF_COLOR_MAP = {
-    prefer: "#4CAF50",
-    dislike: "#FFCDD2",
-    "no-preference": "#ffffff",
-    "cannot-work": "#F44336"
+const PREF_COLOR_MAP = {
+    P: "#4CAF50",
+    D: "#FFCDD2",
+    N: "#ffffff",
+    C: "#F44336"
 };
 
-var BORDER_COLOR_MAP = {
-    prefer: "#388E3C",
-    dislike: "#e57373",
-    "no-preference": "#aaaaaa",
-    "cannot-work": "#c62828"
+const BORDER_COLOR_MAP = {
+    P: "#388E3C",
+    D: "#e57373",
+    N: "#aaaaaa",
+    C: "#c62828"
+};
+
+
+/* =========================================================
+DEFAULT PROPERTY INITIALIZATION
+========================================================= */
+
+Prefab.initDefaults = function () {
+    Prefab.restrictedit = !!Prefab.restrictedit;
+};
+
+Prefab.isReadOnly = function () {
+    return Prefab.restrictedit;
 };
 
 
@@ -42,11 +38,9 @@ DATA ACCESS
 ========================================================= */
 
 Prefab._getWeekData = function () {
-
-    if (!Prefab.Variables.weekPreferenceData)
-        return null;
-
-    return Prefab.Variables.weekPreferenceData.dataSet;
+    return Prefab.Variables.weekPreferenceData
+        ? Prefab.Variables.weekPreferenceData.dataSet
+        : null;
 };
 
 
@@ -56,39 +50,28 @@ EXPAND COMPRESSED PREF STRING
 
 Prefab.expandCompressedPrefs = function (obj) {
 
-    if (!obj || !obj.startDate || !obj.prefs)
+    if (!obj?.startDate || !obj?.prefs) {
         return null;
+    }
 
-    var startDate = new Date(obj.startDate);
+    const startDate = new Date(obj.startDate);
 
-    if (isNaN(startDate.getTime()))
+    if (Number.isNaN(startDate)) {
         return null;
+    }
 
-    var DAY_SIZE = 96;
+    const DAY_SIZE = 96;
+    const days = Math.ceil(obj.prefs.length / DAY_SIZE);
+    const expanded = [];
 
-    var days = Math.ceil(obj.prefs.length / DAY_SIZE);
+    for (let i = 0; i < days; i++) {
 
-    var expanded = [];
-
-    for (var i = 0; i < days; i++) {
-
-        var d = new Date(startDate);
-
+        const d = new Date(startDate);
         d.setDate(startDate.getDate() + i);
 
         expanded.push({
-
             date: d.toISOString().slice(0, 10),
-
-            prefs: obj.prefs.substring(
-                i * DAY_SIZE,
-                (i + 1) * DAY_SIZE
-            ),
-
-            employeeId: 1,
-            companyId: 1,
-            compression: 0,
-            editedBy: 1
+            prefs: obj.prefs.substring(i * DAY_SIZE, (i + 1) * DAY_SIZE)
         });
     }
 
@@ -97,52 +80,30 @@ Prefab.expandCompressedPrefs = function (obj) {
 
 
 /* =========================================================
-PREF CHAR HELPERS
-========================================================= */
-
-function prefsCharToPref(ch) {
-
-    if (ch === "P") return "prefer";
-    if (ch === "D") return "dislike";
-    if (ch === "C") return "cannot-work";
-
-    return "no-preference";
-}
-
-function prefToChar(pref) {
-
-    if (pref === "prefer") return "P";
-    if (pref === "dislike") return "D";
-    if (pref === "cannot-work") return "C";
-
-    return "N";
-}
-
-
-/* =========================================================
 UPDATE SLOT
 ========================================================= */
 
-Prefab.updateSlot = function (dayIdx, hourIdx, slotIdx, pref) {
+Prefab.updateSlot = function (dayIdx, hourIdx, slotIdx, prefChar) {
 
-    if (Prefab.restrictedit)
+    if (Prefab.isReadOnly()) {
         return;
+    }
 
-    var ds = Prefab._getWeekData();
+    const ds = Prefab._getWeekData();
 
-    if (!ds || !ds[dayIdx])
+    if (!ds?.[dayIdx]) {
         return;
+    }
 
-    var prefs = ds[dayIdx].prefs || EMPTY_PREFS;
-
-    var index = hourIdx * 4 + slotIdx;
+    const prefs = ds[dayIdx].prefs || EMPTY_PREFS;
+    const index = hourIdx * 4 + slotIdx;
 
     ds[dayIdx].prefs =
         prefs.substring(0, index) +
-        prefToChar(pref) +
+        prefChar +
         prefs.substring(index + 1);
 
-    Prefab.paintSlot(dayIdx, hourIdx, slotIdx, pref);
+    Prefab.paintSlot(dayIdx, hourIdx, slotIdx, prefChar);
 };
 
 
@@ -150,19 +111,19 @@ Prefab.updateSlot = function (dayIdx, hourIdx, slotIdx, pref) {
 PAINT SLOT
 ========================================================= */
 
-Prefab.paintSlot = function (dayIdx, hourIdx, slotIdx, pref) {
+Prefab.paintSlot = function (dayIdx, hourIdx, slotIdx, prefChar) {
 
-    var widgetName = "d" + dayIdx + "h" + hourIdx + "s" + slotIdx;
+    const widget =
+        Prefab.Widgets["d" + dayIdx + "h" + hourIdx + "s" + slotIdx];
 
-    var widget = Prefab.Widgets[widgetName];
-
-    if (!widget || !widget.$element)
+    if (!widget?.$element) {
         return;
+    }
 
-    var el = widget.$element[0];
+    const el = widget.$element[0];
 
-    el.style.backgroundColor = PREF_COLOR_MAP[pref];
-    el.style.borderColor = BORDER_COLOR_MAP[pref];
+    el.style.backgroundColor = PREF_COLOR_MAP[prefChar];
+    el.style.borderColor = BORDER_COLOR_MAP[prefChar];
 };
 
 
@@ -172,29 +133,68 @@ PAINT GRID
 
 Prefab.applySlotColors = function () {
 
-    var ds = Prefab._getWeekData();
+    const ds = Prefab._getWeekData();
 
-    if (!ds)
+    if (!ds) {
         return;
+    }
 
-    for (var d = 0; d < ds.length; d++) {
+    for (let d = 0; d < ds.length; d++) {
 
-        if (!ds[d])
-            continue;
+        const prefs = ds[d].prefs || EMPTY_PREFS;
 
-        var prefs = ds[d].prefs || EMPTY_PREFS;
+        for (let h = 0; h < 24; h++) {
 
-        for (var h = 0; h < 24; h++) {
-
-            for (var s = 0; s < 4; s++) {
+            for (let s = 0; s < 4; s++) {
 
                 Prefab.paintSlot(
                     d,
                     h,
                     s,
-                    prefsCharToPref(prefs[h * 4 + s])
+                    prefs[h * 4 + s]
                 );
             }
+        }
+    }
+};
+
+
+/* =========================================================
+DAY VISIBILITY CONTROL
+========================================================= */
+
+Prefab.showSingleDay = function () {
+
+    const selected = Prefab._selectedDate;
+    const ds = Prefab._getWeekData();
+
+    if (!selected || !ds) {
+        return;
+    }
+
+    for (let i = 0; i < 7; i++) {
+
+        const row = Prefab.Widgets["dayRow" + i];
+
+        if (row) {
+
+            row.show =
+                ds[i] &&
+                new Date(ds[i].date).toDateString() ===
+                new Date(selected).toDateString();
+        }
+    }
+};
+
+
+Prefab.showAllDays = function () {
+
+    for (let i = 0; i < 7; i++) {
+
+        const row = Prefab.Widgets["dayRow" + i];
+
+        if (row) {
+            row.show = true;
         }
     }
 };
@@ -206,71 +206,61 @@ SAFE REFRESH PIPELINE
 
 Prefab.refreshWeekData = function () {
 
-    requestAnimationFrame(function () {
+    requestAnimationFrame(() => {
 
         Prefab.applySlotColors();
 
-        // ✅ hide extra rows if single-day payload
-        var ds = Prefab._getWeekData();
-
-        if (ds && ds.length === 1) {
-
-            Prefab._selectedDate = ds[0].date;
-
-            setTimeout(function () {
-                Prefab.showSingleDay();
-            }, 10);
-        }
+        Prefab._selectedDate
+            ? Prefab.showSingleDay()
+            : Prefab.showAllDays();
 
     });
 };
 
+
 /* =========================================================
-PROPERTY CHANGE HANDLER (ROUTER SAFE)
+PROPERTY CHANGE HANDLER
 ========================================================= */
 
 Prefab.onPropertyChange = function (key, newVal) {
 
-    if (key !== "weekpreferencedata" || !newVal)
+    if (key === "editedrowsindex") {
+        Prefab.highlightEditedDayLabels();
         return;
+    }
 
-    setTimeout(function () {
+    if (key !== "weekpreferencedata" || !newVal) {
+        return;
+    }
 
-        var expanded = null;
+    let expanded;
 
-        if (!Array.isArray(newVal)
-            && newVal.startDate
-            && newVal.prefs) {
+    if (!Array.isArray(newVal)) {
 
-            expanded =
-                Prefab.expandCompressedPrefs(newVal);
+        expanded = Prefab.expandCompressedPrefs(newVal);
 
-            // ✅ detect single-day payload (96 chars)
-            if (newVal.prefs.length === 96) {
+        Prefab._selectedDate =
+            newVal.prefs.length === 96
+                ? newVal.startDate
+                : null;
 
-                Prefab._selectedDate = newVal.startDate;
+    } else {
 
-                setTimeout(function () {
-                    Prefab.showSingleDay();
-                }, 20);
-            }
-        }
+        expanded = JSON.parse(JSON.stringify(newVal));
 
-        else if (Array.isArray(newVal)) {
+        Prefab._selectedDate =
+            expanded.length === 1
+                ? expanded[0].date
+                : null;
+    }
 
-            expanded =
-                JSON.parse(JSON.stringify(newVal));
-        }
+    if (!expanded) {
+        return;
+    }
 
-        if (!expanded)
-            return;
+    Prefab.Variables.weekPreferenceData.dataSet = expanded;
 
-        Prefab.Variables.weekPreferenceData.dataSet =
-            expanded;
-
-        Prefab.refreshWeekData();
-
-    }, 0);
+    Prefab.refreshWeekData();
 };
 
 
@@ -279,129 +269,76 @@ CLICK HANDLER
 ========================================================= */
 
 Prefab.slotAreaClick = function ($event) {
-    debugger;
 
-    var el = $event.target.closest("[data-day]");
+    const el = $event.target.closest("[data-day]");
 
-    if (!el) return;
-
-    const selectedDay = parseInt(el.dataset.day);
-    const selectedHour = parseInt(el.dataset.hour);
-    const selectedSlot = parseInt(el.dataset.slot);
-
-    const selectedPreference = "prefer";
-
-    // update slot if editing allowed
-    if (!Prefab.restrictedit) {
-        Prefab.updateSlot(
-            selectedDay,
-            selectedHour,
-            selectedSlot,
-            selectedPreference
-        );
+    if (!el) {
+        return;
     }
 
-    // ✅ get dataset correctly
-    var ds = Prefab._getWeekData();
+    const d = +el.dataset.day;
+    const h = +el.dataset.hour;
+    const s = +el.dataset.slot;
 
-    if (!ds || !ds[selectedDay]) return;
+    if (!Prefab.isReadOnly()) {
+        Prefab.updateSlot(d, h, s, "P");
+    }
 
-    // ✅ extract already-maintained 96-char string
-    var prefs = ds[selectedDay].prefs || "N".repeat(96);
+    const ds = Prefab._getWeekData();
 
-    // ✅ extract correct date
-    var selectedDate = ds[selectedDay].date;
+    if (!ds?.[d]) {
+        return;
+    }
 
-    // ✅ send correct payload
     if (Prefab.onClick) {
 
         Prefab.onClick({
-            startDate: selectedDate,
-            prefs: prefs
+            startDate: ds[d].date,
+            prefs: ds[d].prefs || EMPTY_PREFS
         });
-
     }
 };
+
 
 /* =========================================================
 DRAG SUPPORT
 ========================================================= */
 
-Prefab._dragSelectedPreference = "prefer";
 Prefab._mouseDown = false;
 
 Prefab.initDrag = function () {
 
-    var grid =
+    const grid =
         document.querySelector(".time-grid-wrapper");
 
-    if (!grid)
+    if (!grid) {
         return;
+    }
 
-    grid.addEventListener("mousedown", function (e) {
+    grid.addEventListener("mousedown", (e) => {
+
+        if (Prefab.isReadOnly()) {
+            return;
+        }
 
         Prefab._mouseDown = true;
-
         Prefab.slotAreaClick(e);
+
     });
 
-    grid.addEventListener("mousemove", function (e) {
+    grid.addEventListener("mousemove", (e) => {
 
-        if (Prefab._mouseDown)
+        if (Prefab._mouseDown) {
             Prefab.slotAreaClick(e);
+        }
+
     });
 
-    document.addEventListener("mouseup", function () {
+    document.addEventListener("mouseup", () => {
 
         Prefab._mouseDown = false;
+
     });
-};
-
-
-/* =========================================================
-READONLY MODE
-========================================================= */
-
-Prefab.toggleReadOnly = function () {
-
-    var grid =
-        document.querySelector(".time-grid-wrapper");
-
-    if (!grid)
-        return;
-
-    if (Prefab.restrictedit)
-        grid.classList.add("read-only-grid");
-    else
-        grid.classList.remove("read-only-grid");
-};
-
-
-/* =========================================================
-SINGLE DAY FILTER
-========================================================= */
-
-Prefab.showSingleDay = function () {
-
-    var selected = Prefab._selectedDate;
-
-    if (!selected)
-        return;
-
-    var ds = Prefab._getWeekData();
-
-    if (!ds)
-        return;
-
-    for (var i = 0; i < ds.length; i++) {
-
-        if (!Prefab.Widgets["dayRow" + i])
-            continue;
-
-        Prefab.Widgets["dayRow" + i].show =
-            new Date(ds[i].date).toDateString() ===
-            new Date(selected).toDateString();
-    }
 };
 
 
@@ -411,45 +348,72 @@ EXPORT COMPRESSED PAYLOAD
 
 Prefab.getPrefsPayload = function () {
 
-    var ds = Prefab._getWeekData();
+    const ds = Prefab._getWeekData();
 
-    if (!Array.isArray(ds) || ds.length === 0)
+    if (!ds?.length) {
         return null;
+    }
 
-    ds = ds.slice().sort(function (a, b) {
-
-        return new Date(a.date) - new Date(b.date);
-
-    });
-
-    var combined = "";
-
-    ds.forEach(function (day) {
-
-        combined += (day.prefs || EMPTY_PREFS);
-
-    });
+    ds.sort((a, b) =>
+        new Date(a.date) - new Date(b.date)
+    );
 
     return {
-
         startDate: ds[0].date,
-
-        prefs: combined
+        prefs: ds
+            .map(d => d.prefs || EMPTY_PREFS)
+            .join("")
     };
 };
 
 
 /* =========================================================
-INIT (ROUTER SAFE)
+HIGHLIGHT EDITED DAY LABELS
+========================================================= */
+
+Prefab.highlightEditedDayLabels = function () {
+
+    const TOTAL_DAYS = 7;
+
+    for (let i = 0; i < TOTAL_DAYS; i++) {
+
+        const widget =
+            Prefab.Widgets["dayLabel" + i];
+
+        if (widget?.$element) {
+
+            widget.$element[0].style.backgroundColor = "";
+            widget.$element[0].style.color = "";
+
+        }
+    }
+
+    (Prefab.editedrowsindex || [])
+        .forEach(rowObj => {
+
+            const dayIdx = rowObj.dataValue;
+
+            const labelWidget =
+                Prefab.Widgets["dayLabel" + dayIdx];
+
+            if (labelWidget?.$element) {
+
+                labelWidget.$element[0].style.backgroundColor = "purple";
+                labelWidget.$element[0].style.color = "white";
+
+            }
+        });
+};
+
+
+/* =========================================================
+INIT
 ========================================================= */
 
 Prefab.onReady = function () {
 
+    Prefab.initDefaults();
     Prefab.initDrag();
+    Prefab.highlightEditedDayLabels();
 
-    setTimeout(function () {
-
-        Prefab.refreshWeekData();
-
-    }, 60);
 };
