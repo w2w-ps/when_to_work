@@ -62,7 +62,7 @@ Page.applyScheduleFilters = function () {
     let positionFilter = Page.currentPositionFilter;
 
     // Check if filters are effectively empty (no-filter conditions)
-    let isCategoryFilterActive = categoryFilter && categoryFilter.description
+    let isCategoryFilterActive = categoryFilter != "" && categoryFilter.description
     categoryFilter.description !== 'All Categories' &&
         categoryFilter.description !== '----------' &&
         categoryFilter.description.trim() !== '';
@@ -89,7 +89,7 @@ Page.applyScheduleFilters = function () {
 
     sourceData.forEach(function (employee) {
         // Deep clone the employee to avoid modifying the original unfiltered data
-        let employeeCopy = JSON.parse(JSON.stringify(employee));
+        let employeeCopy = structuredClone(employee);
         let hasMatchingShift = false;
 
         // Filter shifts within each day of the week
@@ -105,13 +105,13 @@ Page.applyScheduleFilters = function () {
                         // Apply category filter to individual shift
                         if (isCategoryFilterActive) {
                             matchesCategory = shift.category &&
-                                shift.category.toLowerCase().indexOf(categoryFilter.toLowerCase()) > -1;
+                                shift.category.toLowerCase().includes(categoryFilter.toLowerCase()) > -1;
                         }
 
                         // Apply position filter to individual shift
                         if (isPositionFilterActive) {
                             matchesPosition = shift.position &&
-                                shift.position.toLowerCase().indexOf(positionFilter.toLowerCase()) > -1;
+                                shift.position.toLowerCase().includes(positionFilter.toLowerCase()) > -1;
                         }
 
                         // Shift must match all active filters
@@ -172,7 +172,6 @@ Page.storeUnfilteredScheduleData = function () {
         // Only update unfilteredScheduleData if we have actual data
         // This prevents overwriting the backup when filters return empty results
         Page.unfilteredScheduleData = dataset.slice();
-        //Page.applyScheduleFilters();
     } else {
         // Don't clear unfilteredScheduleData when service returns no results
         // Just apply filters to show the "no data" state
@@ -187,13 +186,10 @@ Page.storeUnfilteredScheduleData = function () {
 Page.loadEmployeeViewConfig = function () {
     let stored = localStorage.getItem('employeeViewConfig');
     if (stored) {
-        try {
-            let config = JSON.parse(stored);
-            App.Variables.employeeViewConfig.setData(config);
-            Page.applyConfigToView(config);
-        } catch (e) {
-            Page.applyConfigToView(App.Variables.employeeViewConfig.dataSet);
-        }
+        let config = JSON.parse(stored);
+        App.Variables.employeeViewConfig.setData(config);
+        Page.applyConfigToView(config);
+
     } else {
         // No stored config — use App variable defaults and persist them
         localStorage.setItem('employeeViewConfig', JSON.stringify(App.Variables.employeeViewConfig.dataSet));
@@ -219,7 +215,15 @@ Page.applyConfigToView = function (config) {
     let cfg = config || {};
 
     function val(key, defaultVal) {
-        return cfg.hasOwnProperty(key) ? cfg[key] : (defaultVal !== undefined ? defaultVal : true);
+        if (cfg.hasOwnProperty(key)) {
+            return cfg[key];
+        }
+
+        if (defaultVal !== undefined) {
+            return defaultVal;
+        }
+
+        return true;
     }
 
     // showDescription: shift name/description labels inside each day's shift list
@@ -300,7 +304,7 @@ Page.resetShiftForm = function () {
  * @param {String} dayName - The weekday name (e.g., 'Monday', 'Tuesday')
  */
 Page.setWeekdayCheckbox = function (dayName) {
-    var checkboxMap = {
+    let checkboxMap = {
         'Monday': 'chkMon',
         'Tuesday': 'chkTue',
         'Wednesday': 'chkWed',
@@ -310,22 +314,22 @@ Page.setWeekdayCheckbox = function (dayName) {
         'Sunday': 'chkSun'
     };
 
-    var checkboxName = checkboxMap[dayName];
+    let checkboxName = checkboxMap[dayName];
     if (checkboxName && Page.Widgets[checkboxName]) {
         Page.Widgets[checkboxName].datavalue = true;
     }
 };
 
 Page.saveShift = function () {
-    var formData = Page.Widgets.shiftForm.formdata;
+    let formData = Page.Widgets.shiftForm.formdata;
 
     if (!Page.selectedEmployee || !Page.selectedDay) {
         return;
     }
 
-    var dayLowerCase = Page.selectedDay.toLowerCase();
+    let dayLowerCase = Page.selectedDay.toLowerCase();
 
-    var shiftInfo = {
+    let shiftInfo = {
         position: formData.position || '',
         startTime: formData.startTime || '',
         endTime: formData.endTime || '',
@@ -791,7 +795,7 @@ Page._resolveShiftDateISO = function (dayKey) {
  * Called after both confirmation dialogs have been accepted.
  */
 Page._executePendingDrop = function () {
-    var payload = Page._pendingDropPayload;
+    let payload = Page._pendingDropPayload;
     if (!payload) {
         console.warn('_executePendingDrop: no pending payload found, aborting.');
         return;
@@ -873,14 +877,15 @@ Page._executePendingDrop = function () {
  * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
  */
 Page.btnConfirmShiftYesClick = function ($event, widget) {
-    //Page.Widgets.confirmShiftChangeDialog.close();
 
     let payload = Page._pendingDropPayload;
     if (!payload) {
         console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
         return;
     }
-    if (!Page.hasConflicts) {
+    if (Page.hasConflicts) {
+        Page.btnConflictYesClick();
+    } else {
         // Build svchkHasConflicts request from pending drop payload
         Page.Variables.svchkHasConflicts.setInput({
             RequestBody: {
@@ -899,8 +904,6 @@ Page.btnConfirmShiftYesClick = function ($event, widget) {
             }
         });
         Page.Variables.svchkHasConflicts.invoke();
-    } else {
-        Page.btnConflictYesClick();
     }
 };
 
@@ -1312,6 +1315,13 @@ function formatToStandardTime(input) {
  * it as a focused pop-up rather than a new full tab.
  */
 Page.anchor9Click = function ($event, widget) {
-    let url = window.location.href.split('#')[0] + '#/ConfigureByEmployeeView';
-    window.open(url, 'ConfigureByEmployeeView', 'width=900,height=600,left=100,top=100');
+
+    let url =
+        window.location.href.split('react-pages')[0] +
+        'react-pages/ConfigureByEmployeeView';
+    window.open(
+        url,
+        'ConfigureByEmployeeView',
+        'width=900,height=600,left=100,top=100'
+    );
 };
