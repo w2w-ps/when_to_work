@@ -5,13 +5,12 @@
 }
 
 .grid-header-day-cell {
-    border-top: 2px solid var(--wm-color-on-tertiary);
-    border-bottom: 2px solid var(--wm-color-on-tertiary);
+    border-top: 1px solid var(--wm-color-on-tertiary);
+    border-bottom: 1px solid var(--wm-color-on-tertiary);
 }
 
 .grid-day-label-last-cell {
-    border-bottom: 2px solid var(--wm-color-on-tertiary);
-
+    border-bottom: 1px solid var(--wm-color-on-tertiary);
 }
 
 .grid-hours-scroll {
@@ -21,34 +20,29 @@
 }
 
 .grid-hour-header-cell {
-
     border-right: 1px solid var(--wm-color-on-tertiary);
     text-align: center;
-    padding: 4px 0;
     background: var(--wm-color-white);
     justify-content: center;
     min-width: 4.167%;
     box-sizing: border-box;
-
 }
 
 .grid-day-row {
-    border-bottom: 1px solid var(--wm-color-light-grey);
+    border-bottom: 1px solid var(--wm-color-black);
 }
 
 .grid-day-label-cell {
     min-width: 6.5% !important;
     border-right: 2px solid var(--wm-color-on-tertiary);
     border-left: 2px solid var(--wm-color-on-tertiary);
-    border-bottom: 2px solid var(--wm-color-on-tertiary);
+    background-color: var(--wm-color-white);
 
 }
 
 .grid-day-label-cell:first-child {
-    width: min-content !important;
-    padding: 4px 0;
+    width: 110px !important;
 }
-
 
 .grid-hour-cell {
     border-right: 1px solid var(--wm-coor-mid-grey);
@@ -59,7 +53,7 @@
     justify-content: center;
     padding: 0;
     margin: 0;
-    width: 5% !important;
+    width: 48.4px !important;
     box-sizing: border-box;
 }
 
@@ -71,11 +65,14 @@
     border-radius: 0px;
     cursor: pointer;
     transition: background-color 0.15s ease;
-    border: 1px solid var(--wm-color-soft-black) !important;
-
+    border-right: 1px solid var(--wm-color-light-grey) !important;
+    border: none;
     box-sizing: border-box;
 }
 
+.grid-hour-cell .slot-btn:last-child {
+    border-right: none !important;
+}
 
 .legend-btn {
     padding: 8px 16px;
