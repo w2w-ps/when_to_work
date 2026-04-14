@@ -775,6 +775,99 @@
             "value" : "none"
           }
         }
+      },
+      "preference-table-head" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "15px"
+          },
+          "font-weight" : {
+            "value" : "700"
+          },
+          "line-height" : {
+            "value" : "16.5px"
+          },
+          "letter-spacing" : {
+            "value" : "0"
+          },
+          "font-family" : {
+            "value" : "sans-serif"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
+      },
+      "preference-table-text" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "10pt"
+          },
+          "font-weight" : {
+            "value" : "400"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "-0.25px"
+          },
+          "font-family" : {
+            "value" : "sans-serif"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
+      },
+      "preference-table-num" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.black.@.value}"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "font-weight" : {
+            "value" : "400"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "-0.25px"
+          },
+          "font-family" : {
+            "value" : "sans-serif"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
       }
     },
     "meta" : {
@@ -859,6 +952,15 @@
           "source" : "user"
         },
         "signin-top-label-primary" : {
+          "source" : "user"
+        },
+        "preference-table-head" : {
+          "source" : "user"
+        },
+        "preference-table-text" : {
+          "source" : "user"
+        },
+        "preference-table-num" : {
           "source" : "user"
         }
       }
