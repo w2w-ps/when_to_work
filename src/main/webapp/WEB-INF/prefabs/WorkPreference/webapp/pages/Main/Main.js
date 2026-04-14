@@ -6,10 +6,10 @@ COLOR MAPS
 ========================================================= */
 
 const PREF_COLOR_MAP = {
-    P: "#4CAF50",
-    D: "#FFCDD2",
+    P: "#90f68e",
+    D: "#ffaeae",
     N: "#ffffff",
-    C: "#F44336"
+    C: "#ff0000"
 };
 
 const BORDER_COLOR_MAP = {
@@ -467,7 +467,7 @@ Prefab.highlightEditedDayLabels = function () {
 
         if (labelWidget?.$element) {
 
-            labelWidget.$element[0].style.backgroundColor = "purple";
+            labelWidget.$element[0].style.backgroundColor = "#BFBFFF";
             labelWidget.$element[0].style.color = "white";
         }
     });

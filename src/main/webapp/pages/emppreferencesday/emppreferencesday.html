@@ -1,8 +1,16 @@
 <wm-page name="page" pagetitle="Emppreferencesday">
-    <wm-header content="header" name="header"></wm-header>
+    <wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent">
-            <wm-prefab prefabname="Weekview" name="Weekview1" show="false"></wm-prefab>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container11_1"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-label padding="unset" caption="Special Hourly Preferences for" class="label-label-14pt-700 pt-4"
+                    type="p" name="label1" variant="label-14pt-700"></wm-label>
+                <wm-label padding="unset" caption="Friday, Jun 14, 2024" class="label-label-14pt-700 pt-4" type="p"
+                    variant="label-14pt-700" name="label6"></wm-label>
+                <wm-label padding="unset" caption="(These preferences override your Repeating Weekly Preferences)"
+                    class="label-label-14pt-700 pt-4" type="p" variant="label-14pt-700" name="label7"></wm-label>
+            </wm-container>
             <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container11"
                 class="app-container-default" variant="default">
                 <wm-container direction="column" alignment="top-center" gap="20" width="fill" name="container7"
