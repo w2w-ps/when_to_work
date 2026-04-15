@@ -131,14 +131,14 @@
     } ],
     "pageTransitions" : "none"
   },
-  "goToPage_emppreferencesrepeat" : {
-    "_id" : "wm-goToPage_emppreferencesrepeat-wm.NavigationAction-1776156016316",
-    "name" : "goToPage_emppreferencesrepeat",
+  "goToPage_emppreferencesmonth" : {
+    "_id" : "wm-goToPage_emppreferencesmonth-wm.NavigationAction-1776077729854",
+    "name" : "goToPage_emppreferencesmonth",
     "owner" : "App",
     "category" : "wm.NavigationAction",
     "dataBinding" : [ ],
     "operation" : "gotoPage",
-    "pageName" : "emppreferencesrepeat",
+    "pageName" : "emppreferencesmonth",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -224,6 +224,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Mgremplist",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_monthlyView" : {
+    "_id" : "wm-goToPage_monthlyView-wm.NavigationAction-1776232179086",
+    "name" : "goToPage_monthlyView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "monthlyView",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },

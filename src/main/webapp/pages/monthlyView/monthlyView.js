@@ -1,15 +1,15 @@
 Partial.onReady = function () {
     var MONTHS = [
-        'January','February','March','April','May','June',
-        'July','August','September','October','November','December'
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
     var today = new Date();
     var currentIndex = today.getMonth();
-    var currentYear  = today.getFullYear();
+    var currentYear = today.getFullYear();
 
-    var leftLabels  = ['lblFebruary','lblMarch','lblApril','lblMay'];
-    var rightLabels = ['lblJuly','lblAugust','lblSeptember','lblOctober'];
+    var leftLabels = ['lblFebruary', 'lblMarch', 'lblApril', 'lblMay'];
+    var rightLabels = ['lblJuly', 'lblAugust', 'lblSeptember', 'lblOctober'];
 
     function getWrappedIndex(idx) {
         return ((idx % 12) + 12) % 12;
@@ -33,13 +33,13 @@ Partial.onReady = function () {
     function renderMonthNav() {
         Partial.Widgets.lblCurrentMonth.caption = MONTHS[currentIndex] + ' ' + currentYear;
 
-        leftLabels.forEach(function(widgetName, i) {
+        leftLabels.forEach(function (widgetName, i) {
             var offset = i - 4;
             var idx = getWrappedIndex(currentIndex + offset);
             Partial.Widgets[widgetName].caption = MONTHS[idx];
         });
 
-        rightLabels.forEach(function(widgetName, i) {
+        rightLabels.forEach(function (widgetName, i) {
             var offset = i + 1;
             var idx = getWrappedIndex(currentIndex + offset);
             Partial.Widgets[widgetName].caption = MONTHS[idx];
@@ -50,7 +50,7 @@ Partial.onReady = function () {
         notifyPageOfMonthChange(currentYear, currentIndex);
     }
 
-    Partial.iconPrevMonthTap = function($event, widget) {
+    Partial.iconPrevMonthTap = function ($event, widget) {
         currentIndex--;
         if (currentIndex < 0) {
             currentIndex = 11;
@@ -59,7 +59,7 @@ Partial.onReady = function () {
         renderMonthNav();
     };
 
-    Partial.iconNextMonthTap = function($event, widget) {
+    Partial.iconNextMonthTap = function ($event, widget) {
         currentIndex++;
         if (currentIndex > 11) {
             currentIndex = 0;
@@ -68,9 +68,9 @@ Partial.onReady = function () {
         renderMonthNav();
     };
 
-    Partial.monthLabelTap = function($event, widget) {
+    Partial.monthLabelTap = function ($event, widget) {
         var allLabels = leftLabels.concat(rightLabels);
-        var position  = allLabels.indexOf(widget.name);
+        var position = allLabels.indexOf(widget.name);
 
         if (position >= 0 && position <= 3) {
             var offset = position - 4;
@@ -86,10 +86,10 @@ Partial.onReady = function () {
         renderMonthNav();
     };
 
-    Partial.calendarPopupDateclick = function($dateInfo) {
+    Partial.calendarPopupDateclick = function ($dateInfo) {
         var selectedDate = new Date($dateInfo);
         currentIndex = selectedDate.getMonth();
-        currentYear  = selectedDate.getFullYear();
+        currentYear = selectedDate.getFullYear();
         renderMonthNav();
         Partial.Variables.isCalendarVisible.dataSet = false;
     };
@@ -97,10 +97,10 @@ Partial.onReady = function () {
     renderMonthNav();
 };
 
-Partial.centerNavWrapperMouseenter = function($event, widget) {
+Partial.centerNavWrapperMouseenter = function ($event, widget) {
     Partial.Variables.isCalendarVisible.dataSet = true;
 };
 
-Partial.centerNavWrapperMouseleave = function($event, widget) {
+Partial.centerNavWrapperMouseleave = function ($event, widget) {
     Partial.Variables.isCalendarVisible.dataSet = false;
 };
