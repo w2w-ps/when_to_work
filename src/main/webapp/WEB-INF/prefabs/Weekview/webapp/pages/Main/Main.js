@@ -76,6 +76,7 @@ Prefab.getWeekDates = function (date, dayName) {
 };
 
 Prefab.formatDaysOfWeek = function (weekDates) {
+    Prefab.weekDates = weekDates;
     Prefab.Variables.currentWeekVar.setData({
         startDate: Prefab.formatDateToUserTZ(weekDates.startDate),
         endDate: Prefab.formatDateToUserTZ(weekDates.endDate),
@@ -185,3 +186,18 @@ Prefab.weekPickerCalendarSelect = function ($start, $end, $view, $data) {
     Prefab.formatDaysOfWeek(weekDates);
     Prefab.updateWeekNavigationButtonCaptions();
 };
+Prefab.tabs1Change = function ($event, widget, newPaneIndex, oldPaneIndex) {
+    if (newPaneIndex >= 0 && newPaneIndex <= 6) {
+        let positionviewStartDate = getStartAndEndDateForPostionView(newPaneIndex + 1);
+        Prefab.startdate = positionviewStartDate;
+        Prefab.enddate = positionviewStartDate;
+    }
+    if (newPaneIndex == 7) {
+        Prefab.startdate = Prefab.weekDates.startDate.format('YYYY-MM-DD');
+        Prefab.enddate = Prefab.weekDates.endDate.format('YYYY-MM-DD');
+    }
+};
+
+function getStartAndEndDateForPostionView(index) {
+    return (Prefab.weekDates["day" + index]).format('YYYY-MM-DD')
+}
