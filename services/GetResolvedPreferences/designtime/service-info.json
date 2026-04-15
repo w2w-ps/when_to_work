@@ -1,0 +1,6 @@
+{
+  "id" : "GetResolvedPreferences",
+  "type" : "RestService",
+  "title" : "GetResolvedPreferences",
+  "mockEnabled" : false
+}
