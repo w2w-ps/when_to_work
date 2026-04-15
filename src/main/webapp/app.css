@@ -16,7 +16,10 @@
     --wm-color-cannotwork: #de101c;
     --wm-coor-mid-grey: #666666;
     --wm-color-soft-black: rgba(0, 0, 0, 0.15);
-    --wm-color-purple: #bfbfff;
+    --wm-bg-color-prefer: #90F68E;
+    --wm-bg-color-dislike: #FFAEAE;
+    --wm-bg-color-cannot-work: #FF0000;
+
 }
 
 .open-sans-700 {
@@ -381,8 +384,59 @@ wm-input[name="txtFind"].app-input-wrapper {
     text-align: end !important;
 }
 
+.text-white {
+    color: white !important;
+}
 
+.flex-direction-row {
+    flex-flow: row !important;
+}
 
+.radiobutton-small-radio {
+    gap: 0 !important;
+    padding-left: 3px !important;
+}
+
+.radiobutton-small-radio .app-radio.radio>label .caption {
+    width: 98%;
+    text-align: end;
+    padding-right: 24px;
+    padding-left: 0;
+}
+
+.radiobutton-small-radio .app-radio.radio>label .caption:before {
+    left: unset;
+    right: 3px;
+    top: 0;
+    background-color: white;
+}
+
+.radiobutton-small-radio .app-radio.radio>label .caption:after {
+    right: 5.75px;
+    left: unset;
+}
+
+.radiobutton-small-radio.app-radioset.list-group>li {
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.radiobutton-small-radio li:first-child {
+    background-color: var(--wm-bg-color-prefer);
+}
+
+.radiobutton-small-radio li:nth-child(2) {
+    background-color: var(--wm-bg-color-dislike);
+}
+
+.radiobutton-small-radio li:nth-child(4) {
+    background-color: var(--wm-bg-color-cannot-work) !important;
+}
+
+.radiobutton-small-radio li:nth-child(4) .caption {
+    color: white !important;
+}
 
 
 /* responsive code starts */
