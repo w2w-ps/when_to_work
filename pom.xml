@@ -41,6 +41,7 @@
                 <source>services/addManager/src</source>
                 <source>services/categoryList/src</source>
                 <source>services/createShift/src</source>
+                <source>services/dayPreferenceList/src</source>
                 <source>services/getPreferenceRange/src</source>
                 <source>services/getShiftDetails/src</source>
                 <source>services/mgrUpdateEmpPwd/src</source>

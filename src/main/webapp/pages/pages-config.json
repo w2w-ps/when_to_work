@@ -70,6 +70,10 @@
     "type" : "string"
   } ]
 }, {
+  "name" : "emppreferencesmonth",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "emppreferencesrepeat",
   "type" : "PAGE",
   "params" : [ ]
@@ -92,6 +96,10 @@
 }, {
   "name" : "mgradminsettings",
   "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "monthlyView",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "rightnav",
