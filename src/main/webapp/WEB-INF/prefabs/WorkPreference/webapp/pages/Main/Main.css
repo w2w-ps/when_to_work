@@ -77,8 +77,10 @@
 .legend-btn {
     padding: 8px 16px;
     border-radius: 0;
-    width: 15%;
+    width: 80px;
     text-wrap: auto;
+    letter-spacing: -0.5px;
+    font-family: sans-serif;
 }
 
 .btn-prefer {
