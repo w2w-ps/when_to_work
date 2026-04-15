@@ -389,8 +389,50 @@ wm-input[name="txtFind"].app-input-wrapper {
     flex-flow: row !important;
 }
 
+.radiobutton-small-radio {
+    gap: 0 !important;
+    padding-left: 3px !important;
+}
 
+.radiobutton-small-radio .app-radio.radio>label .caption {
+    width: 100%;
+    text-align: end;
+    padding-right: 24px;
+}
 
+.radiobutton-small-radio .app-radio.radio>label .caption:before {
+    left: unset;
+    right: 3px;
+    top: 0;
+    background-color: white;
+}
+
+.radiobutton-small-radio .app-radio.radio>label .caption:after {
+    right: 5.75px;
+    left: unset;
+}
+
+.radiobutton-small-radio.app-radioset.list-group>li {
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.radiobutton-small-radio li:first-child {
+    background-color: #90F68E;
+}
+
+.radiobutton-small-radio li:nth-child(2) {
+    background-color: #FFAEAE;
+}
+
+.radiobutton-small-radio li:nth-child(4) {
+    background-color: #FF0000 !important;
+}
+
+.radiobutton-small-radio li:nth-child(4) .caption {
+    color: white !important;
+}
 
 
 /* responsive code starts */
