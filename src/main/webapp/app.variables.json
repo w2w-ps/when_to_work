@@ -131,6 +131,17 @@
     } ],
     "pageTransitions" : "none"
   },
+  "goToPage_emppreferencesmonth" : {
+    "_id" : "wm-goToPage_emppreferencesmonth-wm.NavigationAction-1776077729854",
+    "name" : "goToPage_emppreferencesmonth",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "emppreferencesmonth",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_footer_Copy" : {
     "_id" : "wm-goToPage_footer_Copy-wm.NavigationAction-1774261656689",
     "name" : "goToPage_footer_Copy",
@@ -172,6 +183,17 @@
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
+  "goToPage_mgradminsettings" : {
+    "_id" : "wm-goToPage_mgradminsettings-wm.NavigationAction-1775645402607",
+    "name" : "goToPage_mgradminsettings",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgradminsettings",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Mgrchangeemppass" : {
     "_id" : "wm-goToPage_Mgrchangeemppass-wm.NavigationAction-1774425330925",
     "name" : "goToPage_Mgrchangeemppass",
@@ -202,6 +224,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Mgremplist",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_monthlyView" : {
+    "_id" : "wm-goToPage_monthlyView-wm.NavigationAction-1776232179086",
+    "name" : "goToPage_monthlyView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "monthlyView",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -322,6 +355,21 @@
     "transformationRequired" : false,
     "redirectTo" : "Login",
     "useDefaultSuccessHandler" : true
+  },
+  "selectedpreference" : {
+    "_id" : "wm-selectedpreference-wm.Variable-1776063834402",
+    "name" : "selectedpreference",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "name0",
+      "dataValue" : "dataValue0"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",

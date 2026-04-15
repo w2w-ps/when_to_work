@@ -1,8 +1,8 @@
 {
   "basePath" : "${rest.scheduleList.basepath}",
   "paths" : {
-    "/scheduling/employees" : {
-      "x-WM-BASE_PATH" : "/scheduling/employees",
+    "/scheduling/shifts/employees" : {
+      "x-WM-BASE_PATH" : "/scheduling/shifts/employees",
       "x-WM-TAG" : "scheduleList",
       "x-WM-RELATIVE_PATH" : "",
       "get" : {
@@ -23,6 +23,20 @@
           }
         },
         "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
           "in" : "query",
@@ -56,7 +70,7 @@
         "tags" : [ "scheduleList" ],
         "consumes" : [ "application/json" ]
       },
-      "x-WM-COMPLETE_PATH" : "${rest.scheduleList.scheme}://${rest.scheduleList.host}${rest.scheduleList.basepath}/scheduling/employees"
+      "x-WM-COMPLETE_PATH" : "${rest.scheduleList.scheme}://${rest.scheduleList.host}${rest.scheduleList.basepath}/scheduling/shifts/employees"
     }
   },
   "host" : "${rest.scheduleList.host}",
@@ -175,14 +189,14 @@
     "Response.availablePositionsEntryItem" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.availablePositionsEntryItem",
       "x-WM-TAGS" : [ "scheduleList" ],
-      "required" : [ "id", "name" ],
+      "required" : [ "description", "positionId" ],
       "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "id" : {
+        "positionId" : {
           "format" : "int32",
           "type" : "integer"
+        },
+        "description" : {
+          "type" : "string"
         }
       }
     },
@@ -337,7 +351,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "574ca62b-10c0-4597-b02c-5d5c2089f167",
+    "x-WM-API_ID" : "1ea23a92-75de-4fe0-8768-e847b16d20d9",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",

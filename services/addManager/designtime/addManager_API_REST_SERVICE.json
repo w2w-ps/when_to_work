@@ -1,0 +1,282 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "61ac651a-1690-4532-b6b9-8b78e621de50",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "addManager"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/addManager/managers" : {
+      "post" : {
+        "tags" : [ "addManager" ],
+        "operationId" : "addManager_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/addManager/managers",
+      "x-WM-TAG" : "addManager",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.addManager.scheme}://${rest.addManager.host}${rest.addManager.basepath}/managers"
+    }
+  },
+  "definitions" : {
+    "Response.empType" : {
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.Response.empType",
+      "x-WM-TAGS" : [ "addManager" ]
+    },
+    "Request.permissions" : {
+      "required" : [ "canAddEmployees", "canAddShifts", "canApproveTimeOff", "canApproveTrades", "canAutofillShifts", "canChangeCompanySettings", "canClearSchedules", "canEditEmployees", "canEditShifts", "canImportTemplates", "canManageCategories", "canManagePositions", "canManageTeamMembers", "canPublishSchedules", "canReceiveManagerNotifications", "canSaveTemplates", "canUnpublishSchedules", "canUploadShifts", "canViewPayRates" ],
+      "properties" : {
+        "canPublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canApproveTrades" : {
+          "type" : "boolean"
+        },
+        "canEditEmployees" : {
+          "type" : "boolean"
+        },
+        "canUnpublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canEditShifts" : {
+          "type" : "boolean"
+        },
+        "canAddEmployees" : {
+          "type" : "boolean"
+        },
+        "canAutofillShifts" : {
+          "type" : "boolean"
+        },
+        "canChangeCompanySettings" : {
+          "type" : "boolean"
+        },
+        "canManageTeamMembers" : {
+          "type" : "boolean"
+        },
+        "canUploadShifts" : {
+          "type" : "boolean"
+        },
+        "canSaveTemplates" : {
+          "type" : "boolean"
+        },
+        "canApproveTimeOff" : {
+          "type" : "boolean"
+        },
+        "canAddShifts" : {
+          "type" : "boolean"
+        },
+        "canImportTemplates" : {
+          "type" : "boolean"
+        },
+        "canViewPayRates" : {
+          "type" : "boolean"
+        },
+        "canManageCategories" : {
+          "type" : "boolean"
+        },
+        "canReceiveManagerNotifications" : {
+          "type" : "boolean"
+        },
+        "canManagePositions" : {
+          "type" : "boolean"
+        },
+        "canClearSchedules" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.Request.permissions",
+      "x-WM-TAGS" : [ "addManager" ]
+    },
+    "Response.employee" : {
+      "required" : [ "companyId", "email", "employeeId", "employeeNumber", "firstName", "hireDate", "lastLogon", "lastName", "logonCount", "maxDailyHours", "maxScheduledHours", "payRate", "phones", "status" ],
+      "properties" : {
+        "maxScheduledHours" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "hireDate" : {
+          "type" : "string"
+        },
+        "logonCount" : {
+          "type" : "string"
+        },
+        "maxDailyHours" : {
+          "type" : "string"
+        },
+        "payRate" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "employeeNumber" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "lastLogon" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.Response.employee",
+      "x-WM-TAGS" : [ "addManager" ]
+    },
+    "RootRequest" : {
+      "required" : [ "companyId", "email", "emailInstructions", "firstName", "lastName", "permissions" ],
+      "properties" : {
+        "emailInstructions" : {
+          "type" : "boolean"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "permissions" : {
+          "$ref" : "#/definitions/Request.permissions"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.RootRequest",
+      "x-WM-TAGS" : [ "addManager" ]
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.java.lang.Object",
+      "x-WM-TAGS" : [ "addManager" ]
+    },
+    "Response.role" : {
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.Response.role",
+      "x-WM-TAGS" : [ "addManager" ]
+    },
+    "RootResponse" : {
+      "required" : [ "companyId", "empType", "employee", "employeeId", "encryptionType", "id", "loginFailures", "loginId", "role" ],
+      "properties" : {
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "loginId" : {
+          "type" : "string"
+        },
+        "role" : {
+          "$ref" : "#/definitions/Response.role"
+        },
+        "empType" : {
+          "$ref" : "#/definitions/Response.empType"
+        },
+        "encryptionType" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "employee" : {
+          "$ref" : "#/definitions/Response.employee"
+        },
+        "loginFailures" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "addManager.RootResponse",
+      "x-WM-TAGS" : [ "addManager" ]
+    }
+  }
+}

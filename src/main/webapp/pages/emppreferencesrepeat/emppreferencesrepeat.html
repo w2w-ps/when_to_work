@@ -1,0 +1,85 @@
+<wm-page name="page" pagetitle="Emppreferences">
+    <wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent" class="py-0 px-5">
+            <wm-container direction="column" alignment="top-left" gap="12" width="fill" name="container1"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container4"
+                    class="app-container-default" variant="default" wrap="false" height="fill" clipcontent="false">
+                    <wm-label padding="unset" caption="REPEATING WEEKLY Preferences" class="label-label-14pt-700 pt-4"
+                        type="p" name="label1" variant="label-14pt-700"></wm-label>
+                </wm-container>
+                <wm-container direction="column" alignment="middle-left" gap="10" width="fill" name="container7"
+                    class="container-grey-standard" variant="grey-standard" padding="20px" wrap="false">
+                    <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container2"
+                        class="app-container-default" variant="default" wrap="false" clipcontent="false"
+                        position="relative"></wm-container>
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container21"
+                        class="app-container-default" variant="default">
+                        <wm-prefab prefabname="WorkPreference" name="WorkPreference1" width="100%" restrictedit="false"
+                            readonly="true" singleday="true"
+                            weekpreferencedata="bind:Variables.SvGetWeekPreferences.dataSet"
+                            on-click="WorkPreference1Click($event, $data)"
+                            editedrowsindex="bind:[{dataValue: 0}, {dataValue: 3}]" showweekdropdown="true"
+                            headercaption="Time &gt;" choosedate="bind:Variables.SvGetWeekPreferences.dataSet.startDate"
+                            usagecontext="emppreferencesrepeat"></wm-prefab>
+                    </wm-container>
+                </wm-container>
+                <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container8"
+                    class="app-container-default" variant="default">
+                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container11"
+                        class="app-container-default" variant="default">
+                        <wm-button class="btn-outlined-primary" caption="FUTURE Weekly Prefs" type="button"
+                            margin="unset" variant="outlined-primary" name="button3"></wm-button>
+                    </wm-container>
+                    <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container12"
+                        class="app-container-default" variant="default">
+                        <wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset"
+                            name="button4" variant="outlined-primary"></wm-button>
+                    </wm-container>
+                </wm-container>
+                <wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container9"
+                    class="container-grey-standard" variant="grey-standard" wrap="false" padding="20px">
+                    <wm-label padding="unset" caption="Information" class="label-label-20-700" type="p" name="label7"
+                        variant="label-20-700"></wm-label>
+                    <wm-container direction="row" alignment="middle-left" gap="4" width="fill" height="hug"
+                        name="container_colorkey" class="app-container-default" wrap="true">
+                        <wm-label padding="unset" caption="- Color key:" class="label-label-14-400" type="p"
+                            name="label_colorkey_title" variant="label-14-400"></wm-label>
+                        <wm-label padding="unset" caption="Prefer" class="app-label text-success label-label-14-700"
+                            type="p" name="label_prefer" variant="label-14-700"></wm-label>
+                        <wm-label padding="unset" caption="Dislike" class="app-label text-warning label-label-14-700"
+                            type="p" name="label_dislike" variant="label-14-700"></wm-label>
+                        <wm-label padding="unset" caption="Cannot Work"
+                            class="app-label label-danger label-label-14-700" type="p" name="label_cannotwork"
+                            variant="label-14-700"></wm-label>
+                        <wm-label padding="unset" caption="No Preference" class="label-label-14-400" type="p"
+                            name="label_nopreference" variant="label-14-400"></wm-label>
+                    </wm-container>
+                    <wm-label padding="unset"
+                        caption="- Click on a roller to choose a preference, then &quot;paint&quot; the time blocks on the grid with that color or click the day name to change the whole day, or time to change whole column; OR"
+                        class="label-label-14-400" type="p" name="label_instruction1" variant="label-14-400"></wm-label>
+                    <wm-label padding="unset"
+                        caption="- Use form to add preferences: choose color, day and times, then click &quot;Add&quot; button"
+                        class="label-label-14-400" type="p" name="label_instruction2" variant="label-14-400"></wm-label>
+                    <wm-label padding="unset" caption="- Click &quot;Save&quot; button when done"
+                        class="label-label-14-400" type="p" name="label_instruction3" variant="label-14-400"></wm-label>
+                    <wm-label padding="unset"
+                        caption="- If preferences are not appearing as you expect, it is likely due to &quot;Date Specific&quot; or &quot;Future Weekly&quot; preferences that are overriding your Repeating Weekly preferences."
+                        class="p label-label-14-700" type="p" name="label9" variant="label-14-700"></wm-label>
+                    <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container14"
+                        variant="default" clipcontent="false">
+                        <wm-label padding="unset" caption="- Entering preferences in no way guarantees your schedule"
+                            class="label-label-14-700" type="p" name="label15" variant="label-14-700"></wm-label>
+                        <wm-label padding="unset"
+                            caption="will follow these times nor that your existing schedule will be changed in any way, but may increase the likelihood that you are assigned to times that you prefer."
+                            class="p label-label-16-400" type="p" name="label5" variant="label-16-400"></wm-label>
+                    </wm-container>
+                    <wm-label padding="unset" caption="- Always check your weekly schedule for your actual shift times."
+                        class="label-label-14-700" type="p" name="label6" variant="label-14-700"></wm-label>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer"></wm-footer>
+</wm-page>
