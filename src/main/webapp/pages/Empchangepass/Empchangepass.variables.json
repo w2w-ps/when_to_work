@@ -42,9 +42,24 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "isList" : false,
-      "target" : "RequestBody",
-      "value" : "{  \"username\": \"test\",  \"oldPassword\": \"admin123\",  \"newPassword\": \"Admin@123\",  \"confirmPassword\": \"Admin@123\"}",
-      "type" : "updateEmployeePwd.RootRequest"
+      "target" : "RequestBody.username",
+      "value" : "bind:Widgets.currentUsername.datavalue",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.oldPassword",
+      "value" : "bind:Widgets.currentPassword.datavalue",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.newPassword",
+      "value" : "bind:Widgets.newPassword.datavalue",
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody.confirmPassword",
+      "value" : "bind:Widgets.confirmPassword.datavalue",
+      "type" : "string"
     } ],
     "type" : "updateEmployeePwd.RootResponse",
     "service" : "updateEmployeePwd",
@@ -55,8 +70,10 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onSuccess" : "svUpdateEmpPwdOnSuccess(variable, data)",
+    "onError" : "svUpdateEmpPwdOnError(variable, data)",
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,

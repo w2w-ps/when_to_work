@@ -1,0 +1,26 @@
+{
+  "isCalendarVisible" : {
+    "_id" : "wm-isCalendarVisible-wm.Variable-1776238678568",
+    "name" : "isCalendarVisible",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : false,
+    "type" : "boolean",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "selectedMonthDate" : {
+    "_id" : "wm-selectedMonthDate-wm.Variable-1776240888926",
+    "name" : "selectedMonthDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  }
+}

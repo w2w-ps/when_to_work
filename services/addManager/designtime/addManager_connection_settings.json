@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/managers",
+  "method" : "POST",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbjEiLCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTc3NTcxNDY4MCwiZXhwIjoxNzc1NzE2NDgwfQ.Q_asSMtyuQuHt0l_LP9r0b-hYfDAEkS6R4Ue4VTquK7oIws29c8GyR-2eo21QIMQJtkS_-uJci0Dhaj_9Ax_Rh5SU0LYpxLV8ZUtXbmfZe5OmRXq7_ptE0K0lzFo0BffYfxr5-Pd8ZMpAxAqOo-R2B00rmA6cfIuYmEIlb_PQ0wp2vRkrtKYuOYcxxt8V46dTnv5-1rbuCZt5dOWUIYbxE_Lo1xufpwpC1xgjrspub-OMX80qJWkJyhRGyudKMJMAaBAPSMT8DpnVsJ0GUnmQkaSbBiET184kuR2tse9PRgDAzjB_lisFWNU2RTpOOmdWAkNt0aQBHRpgGx9N22csw" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "{\n    \"firstName\": \"san\",\n    \"lastName\": \"patel\",\n    \"email\": \"santhoshpatel12gmail.com\",\n    \"companyId\": 1,\n    \"emailInstructions\": true,\n    \"permissions\": {\n        \"canAddShifts\": true,\n        \"canImportTemplates\": true,\n        \"canUploadShifts\": true,\n        \"canAutofillShifts\": true,\n        \"canClearSchedules\": true,\n        \"canEditShifts\": true,\n        \"canSaveTemplates\": true,\n        \"canPublishSchedules\": true,\n        \"canUnpublishSchedules\": true,\n        \"canManageCategories\": true,\n        \"canAddEmployees\": true,\n        \"canViewPayRates\": true,\n        \"canEditEmployees\": true,\n        \"canApproveTrades\": true,\n        \"canApproveTimeOff\": true,\n        \"canChangeCompanySettings\": true,\n        \"canManagePositions\": true,\n        \"canManageTeamMembers\": true,\n        \"canReceiveManagerNotifications\": true\n    }\n}",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Thu, 09 Apr 2026 06:30:16 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"companyId\":1,\"empType\":{\"id\":1,\"name\":\"Full Time\"},\"employee\":{\"companyId\":1,\"email\":\"santhoshpatel12gmail.com\",\"employeeId\":14557,\"employeeNumber\":null,\"firstName\":\"san\",\"hireDate\":null,\"lastLogon\":null,\"lastName\":\"patel\",\"logonCount\":null,\"maxDailyHours\":null,\"maxScheduledHours\":null,\"payRate\":null,\"phones\":[],\"status\":\"Active\"},\"employeeId\":14557,\"encryptionType\":null,\"id\":10,\"loginFailures\":null,\"loginId\":\"santhoshpatel12gmail.com\",\"role\":{\"id\":3,\"name\":\"AddManager\"}}",
+    "convertedResponse" : null
+  }
+}

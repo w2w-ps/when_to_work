@@ -5,5 +5,17 @@
     "owner" : "Page",
     "category" : "wm.NotificationAction",
     "operation" : "toast"
+  },
+  "stvNameFormat" : {
+    "_id" : "wm-stvNameFormat-wm.Variable-1775820425983",
+    "name" : "stvNameFormat",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ "First Last", "Last, First", "First L.", "F.Last", "Last, F." ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   }
 }
