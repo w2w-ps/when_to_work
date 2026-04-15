@@ -395,9 +395,10 @@ wm-input[name="txtFind"].app-input-wrapper {
 }
 
 .radiobutton-small-radio .app-radio.radio>label .caption {
-    width: 100%;
+    width: 98%;
     text-align: end;
     padding-right: 24px;
+    padding-left: 0;
 }
 
 .radiobutton-small-radio .app-radio.radio>label .caption:before {

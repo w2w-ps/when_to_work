@@ -20,8 +20,8 @@
             overflow="No scrolling">
             <!-- Title Row: CHOOSE DATE + calendar icon + date input + label -->
             <!-- Legend Row: instruction text + 4 colored legend buttons -->
-            <wm-container name="legendRow" class="app-container-default gap-1" direction="column" gap="8" width="60%"
-                height="hug">
+            <wm-container name="legendRow" class="app-container-default gap-1" direction="column" gap="8" width="55%"
+                height="hug" clipcontent="false" overflow="none">
                 <wm-container name="container231" class="container-warning-standard-no-radius" width="hug">
                     <wm-label padding="unset" caption="Click color and &quot;paint&quot; times on grid" type="p"
                         name="label39"></wm-label>
@@ -37,11 +37,11 @@
                         variant="cannot-work"></wm-button>
                 </wm-container>
             </wm-container>
-            <wm-container name="formPanel" class="container-white-container-no-border-radius" direction="column" gap="8"
+            <wm-container name="formPanel" class="container-white-container-no-border-radius" direction="column" gap="0"
                 alignment="top-left" height="hug" clipcontent="false" width="40%" overflow="none">
                 <wm-container name="container233" class="container-warning-standard-no-radius" width="fill">
                     <wm-label name="formPanelTitle" caption="OR Use form to add preferences to grid"
-                        class="form-panel-title"></wm-label>
+                        class="form-panel-title p-1"></wm-label>
                 </wm-container>
                 <!-- Form body: radio column + fields column -->
                 <wm-container name="formBody" class="container-white-container-no-border-radius" direction="row"
@@ -57,7 +57,8 @@
                     </wm-container>
                     <!-- Fields column: Day, Begin, End, Add button -->
                     <wm-container name="formFieldsColumn" class="container-white-container-no-border-radius"
-                        direction="column" gap="6" alignment="top-left" width="60%" height="hug" clipcontent="false">
+                        direction="column" gap="6" alignment="top-left" width="54%" height="hug" clipcontent="false"
+                        overflow="none">
                         <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="weekDayRow"
                             class="container-white-container-no-border-radius" variant="default:container-default"
                             height="hug" show="bind:showweekdropdown">
@@ -67,8 +68,9 @@
                                 variant="standard" datavalue="bind:Variables.worktimepreference.dataSet.weekDay">
                             </wm-select>
                         </wm-container>
-                        <wm-container name="beginTimeRow" class="container-white-container-no-border-radius"
-                            direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="beginTimeRow"
+                            class="container-white-container-no-border-radius justify-content-end" direction="row"
+                            gap="4" alignment="middle-left" width="fill" height="hug">
                             <wm-label name="beginLabel" caption="Begin:"></wm-label>
                             <wm-select name="beginHourSelect"
                                 dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
@@ -76,8 +78,9 @@
                             <wm-select name="beginMinuteSelect" dataset="00, 15, 30, 45"
                                 datavalue="bind:Variables.worktimepreference.dataSet.beginMinute"></wm-select>
                         </wm-container>
-                        <wm-container name="endTimeRow" class="container-white-container-no-border-radius"
-                            direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="endTimeRow"
+                            class="container-white-container-no-border-radius justify-content-end" direction="row"
+                            gap="4" alignment="middle-left" width="fill" height="hug">
                             <wm-label name="endLabel" caption="End:"></wm-label>
                             <wm-select name="endHourSelect"
                                 dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
@@ -86,8 +89,8 @@
                                 datavalue="bind:Variables.worktimepreference.dataSet.endMinute"></wm-select>
                         </wm-container>
                         <wm-container name="addBtnRow"
-                            class="container-white-container-no-border-radius justify-content-center" direction="row"
-                            gap="4" alignment="middle-right" width="fill" height="hug">
+                            class="container-white-container-no-border-radius justify-content-center pb-2"
+                            direction="row" gap="4" alignment="middle-right" width="fill" height="hug">
                             <wm-button name="addPreferenceBtn" caption="Add" class="btn-outlined-primary"
                                 on-click="addPreferenceBtnClick($event, widget)"></wm-button>
                         </wm-container>
