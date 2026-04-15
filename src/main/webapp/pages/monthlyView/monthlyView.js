@@ -1,38 +1,38 @@
 Partial.onReady = function () {
-    var MONTHS = [
+    const MONTHS = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
-    var DAYS_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const DAYS_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    var today = new Date();
-    var currentIndex = today.getMonth();
-    var currentYear = today.getFullYear();
+    const today = new Date();
+    let currentIndex = today.getMonth();
+    let currentYear = today.getFullYear();
 
     // Tracks the calendar popup's displayed month/year (JS state — single source of truth for the label,
     // because calendar widget view updates are asynchronous and cannot be read back immediately).
-    var calPopupMonth = currentIndex;
-    var calPopupYear = currentYear;
+    let calPopupMonth = currentIndex;
+    let calPopupYear = currentYear;
 
-    var leftLabels = ['lblFebruary', 'lblMarch', 'lblApril', 'lblMay'];
-    var rightLabels = ['lblJuly', 'lblAugust', 'lblSeptember', 'lblOctober'];
+    const leftLabels = ['lblFebruary', 'lblMarch', 'lblApril', 'lblMay'];
+    const rightLabels = ['lblJuly', 'lblAugust', 'lblSeptember', 'lblOctober'];
 
     // Default label for the Select Date button
-    var DEFAULT_SELECT_LABEL = 'Select date';
+    const DEFAULT_SELECT_LABEL = 'Select date';
 
     function getWrappedIndex(idx) {
         return ((idx % 12) + 12) % 12;
     }
 
     function notifyPageOfMonthChange(year, month) {
-        var mm = String(month + 1).padStart(2, '0');
-        var dateStr = year + '-' + mm + '-01';
+        const mm = String(month + 1).padStart(2, '0');
+        const dateStr = year + '-' + mm + '-01';
 
         Partial.Variables.selectedMonthDate.dataSet = { dataValue: dateStr };
 
-        var parentScope = Partial.App.activePage;
+        const parentScope = Partial.App.activePage;
         if (parentScope && parentScope.Variables && parentScope.Variables.activeMonthDate) {
             parentScope.Variables.activeMonthDate.dataSet = { dataValue: dateStr };
         }
@@ -45,14 +45,14 @@ Partial.onReady = function () {
         Partial.Widgets.lblCurrentMonth.caption = MONTHS[currentIndex] + ' ' + currentYear;
 
         leftLabels.forEach(function (widgetName, i) {
-            var offset = i - 4;
-            var idx = getWrappedIndex(currentIndex + offset);
+            const offset = i - 4;
+            const idx = getWrappedIndex(currentIndex + offset);
             Partial.Widgets[widgetName].caption = MONTHS[idx];
         });
 
         rightLabels.forEach(function (widgetName, i) {
-            var offset = i + 1;
-            var idx = getWrappedIndex(currentIndex + offset);
+            const offset = i + 1;
+            const idx = getWrappedIndex(currentIndex + offset);
             Partial.Widgets[widgetName].caption = MONTHS[idx];
         });
 
@@ -79,9 +79,9 @@ Partial.onReady = function () {
      * Formats a Date object into "Day, Mon DD" (e.g., "Mon, Jun 09").
      */
     function formatHoveredDate(date) {
-        var day = DAYS_SHORT[date.getDay()];
-        var mon = MONTHS_SHORT[date.getMonth()];
-        var dd = String(date.getDate()).padStart(2, '0');
+        const day = DAYS_SHORT[date.getDay()];
+        const mon = MONTHS_SHORT[date.getMonth()];
+        const dd = String(date.getDate()).padStart(2, '0');
         return day + ', ' + mon + ' ' + dd;
     }
 
@@ -92,7 +92,7 @@ Partial.onReady = function () {
      * the calendar navigates to a different month (cells are re-rendered by FullCalendar).
      */
     function attachCalendarHoverListener() {
-        var calEl = Partial.Widgets.calendarPopup.$element;
+        const calEl = Partial.Widgets.calendarPopup.$element;
         if (!calEl || !calEl.length) {
             return;
         }
@@ -104,11 +104,11 @@ Partial.onReady = function () {
         // Delegate mouseover to any FullCalendar day cell (td[data-date]) or
         // the inner day-number anchor/span that carries the date string
         calEl.on('mouseover.dateHover', 'td[data-date]', function (e) {
-            var dateStr = $(this).attr('data-date'); // format: YYYY-MM-DD
+            const dateStr = $(this).attr('data-date'); // format: YYYY-MM-DD
             if (dateStr) {
                 // Parse parts directly to avoid timezone offset issues with new Date(string)
-                var parts = dateStr.split('-');
-                var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+                const parts = dateStr.split('-');
+                const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
                 var label = formatHoveredDate(d);
                 Partial.Variables.hoveredDateLabel.dataSet = { dataValue: label };
             }
@@ -178,7 +178,7 @@ Partial.onReady = function () {
             Partial.calendarPopupDateclick(dateVal);
         } else {
             // No explicit selection — use the calendar popup's displayed month/year first day
-            var fallback = new Date(calPopupYear, calPopupMonth, 1).getTime();
+            const fallback = new Date(calPopupYear, calPopupMonth, 1).getTime();
             Partial.calendarPopupDateclick(fallback);
         }
     };

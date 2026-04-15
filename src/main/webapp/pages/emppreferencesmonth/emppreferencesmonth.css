@@ -1,43 +1,43 @@
 .btn-dislike-working {
-  background-color: var(--wm-color-dislike) !important;
-  border-color: var(--wm-color-dislike) !important;
+    background-color: var(--wm-color-dislike) !important;
+    border-color: var(--wm-color-dislike) !important;
 }
 
 .pref-prefer-working {
-  background-color: var(--wm-color-prefer) !important;
-  border-color: var(--wm-color-prefer) !important;
+    background-color: var(--wm-color-prefer) !important;
+    border-color: var(--wm-color-prefer) !important;
 }
 
 .pref-dislike-working {
-  background-color: var(--wm-color-dislike) !important;
-  border-color: var(--wm-color-dislike) !important;
+    background-color: var(--wm-color-dislike) !important;
+    border-color: var(--wm-color-dislike) !important;
 }
 
 .pref-cannot-work {
-  background-color: var(--wm-color-cannotwork) !important;
-  border-color: var(--wm-color-cannotwork) !important;
+    background-color: var(--wm-color-cannotwork) !important;
+    border-color: var(--wm-color-cannotwork) !important;
 }
 
 .main-celender .fc-header-toolbar.fc-toolbar {
-  display: none !important;
+    display: none !important;
 }
 
 .pref-selected {
-  outline: 3px solid #333 !important;
-  outline-offset: 2px;
+    outline: 3px solid #333 !important;
+    outline-offset: 2px;
 }
 
 .app-calPreferences .fc-col-header-cell-cushion {
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
 }
 
 .pref-specific-date {
-  background-color: var(--wm-color-purple) !important;
-  border-color: var(--wm-color-purple) !important;
+    background-color: var(--wm-color-purple) !important;
+    border-color: var(--wm-color-purple) !important;
 }
 
 app-partial-monthlyview {
-  width: 100%;
+    width: 100%;
 }
