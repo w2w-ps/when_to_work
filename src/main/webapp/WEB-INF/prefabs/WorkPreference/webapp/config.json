@@ -80,6 +80,15 @@
       "show" : true,
       "showAt" : "",
       "disabled" : false
+    },
+    "usagecontext" : {
+      "type" : "string",
+      "displayName" : "Usage Context",
+      "description" : "Usage Context",
+      "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
     }
   },
   "events" : {

@@ -15,3 +15,8 @@ Partial.onReady = function () {
      * 'Partial.Widgets.username.datavalue'
      */
 };
+Partial.anchor1Click = function ($event, widget) {
+    window.history.back();
+};
+
+
