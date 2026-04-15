@@ -16,6 +16,9 @@
     --wm-color-cannotwork: #de101c;
     --wm-coor-mid-grey: #666666;
     --wm-color-soft-black: rgba(0, 0, 0, 0.15);
+    --wm-bg-color-prefer: #90F68E;
+    --wm-bg-color-dislike: #FFAEAE;
+    --wm-bg-color-cannot-work: #FF0000;
 
 }
 
@@ -420,15 +423,15 @@ wm-input[name="txtFind"].app-input-wrapper {
 }
 
 .radiobutton-small-radio li:first-child {
-    background-color: #90F68E;
+    background-color: var(--wm-bg-color-prefer);
 }
 
 .radiobutton-small-radio li:nth-child(2) {
-    background-color: #FFAEAE;
+    background-color: var(--wm-bg-color-dislike);
 }
 
 .radiobutton-small-radio li:nth-child(4) {
-    background-color: #FF0000 !important;
+    background-color: var(--wm-bg-color-cannot-work) !important;
 }
 
 .radiobutton-small-radio li:nth-child(4) .caption {
