@@ -17,5 +17,5 @@ Page.onReady = function () {
 
     // Page.selectedDay = "Mon Apr 6 2026";
 
-
+    Page.Widgets.WorkPreference2.weekpreferencedata = App.Variables.selectedpreference.dataSet;
 };

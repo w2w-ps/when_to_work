@@ -142,6 +142,21 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_emppreferencesrepeat" : {
+    "_id" : "wm-goToPage_emppreferencesrepeat_Copy-wm.NavigationAction-1776249910735",
+    "name" : "goToPage_emppreferencesrepeat",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "emppreferencesrepeat",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage",
+    "pageName" : "emppreferencesrepeat_Copy",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_footer_Copy" : {
     "_id" : "wm-goToPage_footer_Copy-wm.NavigationAction-1774261656689",
     "name" : "goToPage_footer_Copy",
