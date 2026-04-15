@@ -6,8 +6,8 @@
             <wm-label name="lblApril" caption="April" class="month-label label-highlighted-white-14-400" on-tap="monthLabelTap($event, widget)"></wm-label>
             <wm-label name="lblMay" caption="May" class="month-label label-highlighted-white-14-400" on-tap="monthLabelTap($event, widget)"></wm-label>
         </wm-container>
-        <wm-container name="centerNavWrapper" class="app-container-default center-nav-wrapper" direction="row" gap="auto" alignment="center" width="20%" height="hug" on-mouseenter="centerNavWrapperMouseenter($event, widget)" on-mouseleave="centerNavWrapperMouseleave($event, widget)" overflow="visible" clipcontent="false">
-            <wm-container name="centerNavContainer" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" clipcontent="false" overflow="visible">
+        <wm-container name="centerNavWrapper" class="app-container-default center-nav-wrapper" direction="row" gap="auto" alignment="center" width="20%" height="hug" overflow="visible" clipcontent="false">
+            <wm-container name="centerNavContainer" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" clipcontent="false" overflow="visible" on-tap="centerNavContainerTap($event, widget)">
                 <wm-anchor name="iconPrevMonth" iconclass="wi wi-chevron-left" caption="" class="nav-chevron-btn" on-tap="iconPrevMonthTap($event, widget)"></wm-anchor>
                 <wm-label name="lblCurrentMonth" caption="Month Year" fontweight="bold" class="current-month-label">
                 </wm-label>

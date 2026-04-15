@@ -21,16 +21,16 @@ Page.syncCalendarToMonth = function (year, month) {
 
     // Build ISO date strings for the target month boundaries.
     // Use UTC-safe string construction to avoid timezone-related day shifts.
-    var mm      = String(month + 1).padStart(2, '0');
-    var mmNext  = String(month + 2).padStart(2, '0');
+    var mm = String(month + 1).padStart(2, '0');
+    //var mmNext = String(month + 2).padStart(2, '0');
     var nextYear = year;
     var nextMonth = month + 1;
     if (nextMonth > 11) {
         nextMonth = 0;
-        nextYear  = year + 1;
+        nextYear = year + 1;
     }
     var startStr = year + '-' + mm + '-01';
-    var endStr   = nextYear + '-' + String(nextMonth + 1).padStart(2, '0') + '-01';
+    var endStr = nextYear + '-' + String(nextMonth + 1).padStart(2, '0') + '-01';
 
     // Suppress the viewrender handler while we programmatically change the view
     // so it cannot trigger a recursive re-render that blanks the calendar.
@@ -355,7 +355,7 @@ Page.calendarDateClick = function ($dateInfo) {
     var calEl = Page.Widgets.calPreferences;
     var currentView = calEl.getCalendar ? calEl.getCalendar().view : null;
     var viewMonth = currentView ? new Date(currentView.currentStart).getMonth() : new Date().getMonth();
-    var viewYear  = currentView ? new Date(currentView.currentStart).getFullYear() : new Date().getFullYear();
+    var viewYear = currentView ? new Date(currentView.currentStart).getFullYear() : new Date().getFullYear();
     if (clickedDate.getMonth() !== viewMonth || clickedDate.getFullYear() !== viewYear) {
         return;
     }
@@ -364,8 +364,8 @@ Page.calendarDateClick = function ($dateInfo) {
 
     var date = new Date($dateInfo);
     var yyyy = date.getFullYear();
-    var mm   = String(date.getMonth() + 1).padStart(2, '0');
-    var dd   = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0');
+    var dd = String(date.getDate()).padStart(2, '0');
     var dateStr = yyyy + '-' + mm + '-' + dd;
 
     Page.applyPreferenceToDate(dateStr);

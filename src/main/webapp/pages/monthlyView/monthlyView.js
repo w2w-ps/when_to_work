@@ -219,20 +219,19 @@ Partial.onReady = function () {
         Partial.Widgets.calendarPopup.gotoNextYear();
     };
 
-    // When calendar popup becomes visible, sync it to the current month and attach hover listener
-    Partial.centerNavWrapperMouseenter = function ($event, widget) {
-        Partial.Variables.isCalendarVisible.dataSet = true;
-        openCalendarAtCurrentMonth();
-        // Defer listener attachment slightly to allow FullCalendar to finish rendering cells
-        setTimeout(function () {
-            attachCalendarHoverListener();
-        }, 300);
+    // Toggle calendar dropdown visibility on click; open syncs to current month
+    Partial.centerNavContainerTap = function ($event, widget) {
+        var isVisible = !Partial.Variables.isCalendarVisible.dataSet;
+        Partial.Variables.isCalendarVisible.dataSet = isVisible;
+        if (isVisible) {
+            openCalendarAtCurrentMonth();
+            // Defer listener attachment slightly to allow FullCalendar to finish rendering cells
+            setTimeout(function () {
+                attachCalendarHoverListener();
+            }, 300);
+        }
     };
 
     renderMonthNav();
     updateCalendarNavLabel();
-};
-
-Partial.centerNavWrapperMouseleave = function ($event, widget) {
-    Partial.Variables.isCalendarVisible.dataSet = false;
 };
