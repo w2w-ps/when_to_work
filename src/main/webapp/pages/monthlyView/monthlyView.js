@@ -4,6 +4,9 @@ Partial.onReady = function () {
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
+    var DAYS_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
     var today = new Date();
     var currentIndex = today.getMonth();
     var currentYear = today.getFullYear();
@@ -15,6 +18,9 @@ Partial.onReady = function () {
 
     var leftLabels = ['lblFebruary', 'lblMarch', 'lblApril', 'lblMay'];
     var rightLabels = ['lblJuly', 'lblAugust', 'lblSeptember', 'lblOctober'];
+
+    // Default label for the Select Date button
+    var DEFAULT_SELECT_LABEL = 'Select date';
 
     function getWrappedIndex(idx) {
         return ((idx % 12) + 12) % 12;
@@ -67,6 +73,51 @@ Partial.onReady = function () {
         // currently displayed date, so we first set datavalue to anchor to the target year.
         Partial.Widgets.calendarPopup.datavalue = new Date(calPopupYear, calPopupMonth, 1);
         Partial.Widgets.calendarPopup.gotoDate();
+    }
+
+    /**
+     * Formats a Date object into "Day, Mon DD" (e.g., "Mon, Jun 09").
+     */
+    function formatHoveredDate(date) {
+        var day = DAYS_SHORT[date.getDay()];
+        var mon = MONTHS_SHORT[date.getMonth()];
+        var dd = String(date.getDate()).padStart(2, '0');
+        return day + ', ' + mon + ' ' + dd;
+    }
+
+    /**
+     * Attaches DOM mouseover delegation to the calendar popup's date cells.
+     * Called after the calendar popup becomes visible so the cells are rendered.
+     * Uses event delegation on the calendar container so it works even after
+     * the calendar navigates to a different month (cells are re-rendered by FullCalendar).
+     */
+    function attachCalendarHoverListener() {
+        var calEl = Partial.Widgets.calendarPopup.$element;
+        if (!calEl || !calEl.length) {
+            return;
+        }
+
+        // Remove any previously attached delegated listener to avoid duplicates
+        calEl.off('mouseover.dateHover');
+        calEl.off('mouseleave.dateHover');
+
+        // Delegate mouseover to any FullCalendar day cell (td[data-date]) or
+        // the inner day-number anchor/span that carries the date string
+        calEl.on('mouseover.dateHover', 'td[data-date]', function (e) {
+            var dateStr = $(this).attr('data-date'); // format: YYYY-MM-DD
+            if (dateStr) {
+                // Parse parts directly to avoid timezone offset issues with new Date(string)
+                var parts = dateStr.split('-');
+                var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+                var label = formatHoveredDate(d);
+                Partial.Variables.hoveredDateLabel.dataSet = { dataValue: label };
+            }
+        });
+
+        // Reset label when mouse leaves the entire calendar widget area
+        calEl.on('mouseleave.dateHover', function () {
+            Partial.Variables.hoveredDateLabel.dataSet = { dataValue: DEFAULT_SELECT_LABEL };
+        });
     }
 
     Partial.iconPrevMonthTap = function ($event, widget) {
@@ -133,9 +184,6 @@ Partial.onReady = function () {
     };
 
     // Single arrow ‹ — navigate to previous month (same year if possible).
-    // We update calPopupMonth/calPopupYear state first (JS is synchronous and reliable),
-    // then call gotoPrevMonth() to move the widget.  We do NOT read back currentview.start
-    // because the widget renders asynchronously and the view object would still hold the old value.
     Partial.calendarPrevMonthTap = function ($event, widget) {
         calPopupMonth--;
         if (calPopupMonth < 0) {
@@ -158,8 +206,6 @@ Partial.onReady = function () {
     };
 
     // Double arrow « — navigate to the same month, previous year.
-    // Use gotoPrevYear() (supported widget method) instead of gotoMonth() which only accepts
-    // a single monthVal (1–12) parameter and cannot target a specific year.
     Partial.calendarPrevYearTap = function ($event, widget) {
         calPopupYear--;
         updateCalendarNavLabel();
@@ -167,17 +213,20 @@ Partial.onReady = function () {
     };
 
     // Double arrow » — navigate to the same month, next year.
-    // Use gotoNextYear() (supported widget method) instead of gotoMonth().
     Partial.calendarNextYearTap = function ($event, widget) {
         calPopupYear++;
         updateCalendarNavLabel();
         Partial.Widgets.calendarPopup.gotoNextYear();
     };
 
-    // When calendar popup becomes visible, sync it to the current month
+    // When calendar popup becomes visible, sync it to the current month and attach hover listener
     Partial.centerNavWrapperMouseenter = function ($event, widget) {
         Partial.Variables.isCalendarVisible.dataSet = true;
         openCalendarAtCurrentMonth();
+        // Defer listener attachment slightly to allow FullCalendar to finish rendering cells
+        setTimeout(function () {
+            attachCalendarHoverListener();
+        }, 300);
     };
 
     renderMonthNav();

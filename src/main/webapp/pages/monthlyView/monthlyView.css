@@ -13,7 +13,7 @@
 .calendar-dropdown-popup {
   position: absolute;
   top: 100%;
-  right: 100%;
+  left: 260px;
   transform: translateX(-50%);
   z-index: 1000;
   background: #ffffff;

@@ -27,7 +27,7 @@
     </wm-container>
     <wm-calendar name="calendarPopup" width="fill" controls="none" on-dateclick="calendarPopupDateclick($dateInfo)" calendartype="basic" height="250px"></wm-calendar>
     <wm-container name="calendarSelectBar" class="app-container-default" direction="row" gap="0" alignment="middle-center" width="fill" height="hug">
-        <wm-button name="btnSelectDate" caption="Select date" class="btn-primary calendar-select-btn" on-click="calendarSelectDateClick($event, widget)" width="fill"></wm-button>
+        <wm-button name="btnSelectDate" caption="bind:Variables.hoveredDateLabel.dataSet.dataValue" class="btn-primary calendar-select-btn" on-click="calendarSelectDateClick($event, widget)" width="fill"></wm-button>
     </wm-container>
 </wm-container>
         </wm-container>
