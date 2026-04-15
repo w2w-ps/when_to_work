@@ -20,3 +20,7 @@ Page.WorkPreference1Click = function ($event) {
     App.Actions.goToPage_emppreferencesday.invoke();
     App.Variables.selectedpreference.dataSet = $event;
 };
+
+Page.button4Click = function ($event, widget) {
+    debugger
+};
