@@ -227,6 +227,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_monthlyView" : {
+    "_id" : "wm-goToPage_monthlyView-wm.NavigationAction-1776232179086",
+    "name" : "goToPage_monthlyView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "monthlyView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Position_view" : {
     "_id" : "wm-goToPage_Position_view-wm.NavigationAction-1775206599678",
     "name" : "goToPage_Position_view",

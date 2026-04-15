@@ -1,4 +1,17 @@
 {
+  "activeMonthDate" : {
+    "_id" : "wm-activeMonthDate-wm.Variable-1776240893694",
+    "name" : "activeMonthDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "stDateSpecific" : {
     "_id" : "wm-stDateSpecific-wm.Variable-1776167602497",
     "name" : "stDateSpecific",

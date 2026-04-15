@@ -1,0 +1,28 @@
+.month-label {
+  width: 82px;
+}
+
+.center-nav-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible !important;
+}
+
+.calendar-dropdown-popup {
+  position: absolute;
+  top: 100%;
+  left: 70%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  padding: 8px;
+  width: 300px;
+}
+
+.month-nav-bar {
+  overflow: visible !important;
+}

@@ -90,6 +90,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "monthlyView",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
   "params" : [ ]
