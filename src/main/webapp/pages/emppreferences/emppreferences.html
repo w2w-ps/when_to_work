@@ -40,7 +40,8 @@
                             weekpreferencedata="bind:Variables.SvGetWeekPreferences.dataSet"
                             on-click="WorkPreference1Click($event, $data)"
                             editedrowsindex="bind:[{dataValue: 0}, {dataValue: 3}]"
-                            editedrows="bind:[{dataValue: 0}, {dataValue: 3}]"></wm-prefab>
+                            editedrows="bind:[{dataValue: 0}, {dataValue: 3}]" usagecontext="emppreferences">
+                        </wm-prefab>
                     </wm-container>
                     <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container22"
                         variant="default">
@@ -69,7 +70,8 @@
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container11"
                         class="app-container-default" variant="default">
                         <wm-button class="btn-outlined-primary" caption="REAPITING WEEKLY" type="button" margin="unset"
-                            name="button2" variant="outlined-primary"></wm-button>
+                            name="button2" variant="outlined-primary"
+                            on-click="Actions.goToPage_emppreferencesrepeat.invoke()"></wm-button>
                         <wm-button class="btn-outlined-primary" caption="FUTURE Weekly" type="button" margin="unset"
                             variant="outlined-primary" name="button3"></wm-button>
                     </wm-container>

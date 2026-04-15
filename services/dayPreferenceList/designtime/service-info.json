@@ -1,0 +1,6 @@
+{
+  "id" : "dayPreferenceList",
+  "type" : "RestService",
+  "title" : "dayPreferenceList",
+  "mockEnabled" : false
+}

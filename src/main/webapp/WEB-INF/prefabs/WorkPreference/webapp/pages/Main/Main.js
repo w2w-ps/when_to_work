@@ -553,3 +553,230 @@ Prefab.legendNoPrefBtnClick = () =>
 
 Prefab.legendCannotWorkBtnClick = () =>
     Prefab._dragSelectedPreference = "C";
+
+
+Prefab.addPreferenceBtnClick = function ($event, widget) {
+
+    if (Prefab.isReadOnly()) {
+        return;
+    }
+
+    const formData =
+        Prefab.Variables.worktimepreference?.dataSet;
+
+    const ds = Prefab._getWeekData();
+
+    if (!formData || !ds) {
+        return;
+    }
+
+    const prefType = formData.preferenceType;
+    const selectedWeekDay =
+        Prefab.Widgets.weekDaySelect?.datavalue ||
+        formData.weekDay;
+
+    const beginHour = formData.beginHour;
+    const beginMinute = formData.beginMinute || "00";
+    const endHour = formData.endHour;
+    const endMinute = formData.endMinute || "00";
+
+
+    if (!prefType || !selectedWeekDay ||
+        !beginHour || !endHour) {
+        debugger
+        alert("Please fill all required fields.");
+
+        return;
+    }
+
+
+    const DAY_NAMES = [
+        "Sun", "Mon", "Tue", "Wed",
+        "Thu", "Fri", "Sat"
+    ];
+
+    const FULL_DAY_NAMES = [
+        "Sunday", "Monday", "Tuesday",
+        "Wednesday", "Thursday",
+        "Friday", "Saturday"
+    ];
+
+
+    const fullDayIdx =
+        FULL_DAY_NAMES.indexOf(
+            String(selectedWeekDay).trim()
+        );
+
+    if (fullDayIdx === -1) {
+
+        alert("Invalid weekday selected.");
+
+        return;
+    }
+
+
+    const targetDayKey =
+        DAY_NAMES[fullDayIdx];
+
+
+    let dayEntryIndex = -1;
+
+    for (let i = 0; i <= 6; i++) {
+
+        if (ds[i]?.dayKey === targetDayKey) {
+
+            dayEntryIndex = i;
+
+            break;
+        }
+    }
+
+
+    if (dayEntryIndex === -1) {
+
+        alert("Selected day not found in grid.");
+
+        return;
+    }
+
+
+    /* ===============================
+       TIME PARSING
+    =============================== */
+
+    function parseHourLabel(label) {
+
+        if (!label) return NaN;
+
+        const match =
+            String(label).match(/\d+/);
+
+        return match
+            ? parseInt(match[0], 10)
+            : NaN;
+    }
+
+
+    function parseMinuteSlot(min) {
+
+        const map = {
+            "00": 0,
+            "15": 1,
+            "30": 2,
+            "45": 3
+        };
+
+        return map[min];
+    }
+
+
+    function parsePrefLabel(label) {
+
+        return {
+            Prefer: "P",
+            Dislike: "D",
+            "No Preference": "N",
+            "Cannot Work": "C"
+        }[label];
+    }
+
+
+    const beginHourIdx =
+        parseHourLabel(beginHour);
+
+    const endHourIdx =
+        parseHourLabel(endHour);
+
+    let beginSlotIdx =
+        parseMinuteSlot(beginMinute);
+
+    let endSlotIdx =
+        parseMinuteSlot(endMinute);
+
+    const prefValue =
+        parsePrefLabel(prefType);
+
+
+    if (isNaN(beginHourIdx) ||
+        isNaN(endHourIdx)) {
+
+        alert("Invalid time selected.");
+
+        return;
+    }
+
+
+    if (beginSlotIdx == null)
+        beginSlotIdx = 0;
+
+    if (endSlotIdx == null)
+        endSlotIdx = 0;
+
+
+    if (!prefValue) {
+
+        alert("Invalid preference type.");
+
+        return;
+    }
+
+
+    const beginAbsolute =
+        beginHourIdx * 4 + beginSlotIdx;
+
+    const endAbsolute =
+        endHourIdx * 4 + endSlotIdx;
+
+
+    if (beginAbsolute > endAbsolute) {
+
+        alert("Begin time must be before end time.");
+
+        return;
+    }
+
+
+    /* ===============================
+       APPLY RANGE
+    =============================== */
+
+    for (let absSlot = beginAbsolute;
+        absSlot <= endAbsolute;
+        absSlot++) {
+
+        const h =
+            Math.floor(absSlot / 4);
+
+        const s =
+            absSlot % 4;
+
+        Prefab.updateSlot(
+            dayEntryIndex,
+            h,
+            s,
+            prefValue
+        );
+    }
+
+
+    Prefab.applySlotColors();
+
+    Prefab._markDayAsEdited(dayEntryIndex);
+
+    Prefab._triggerOnChange();
+
+
+    /* ===============================
+       RESET FORM
+    =============================== */
+
+    Prefab.Variables.worktimepreference.dataSet =
+        {};
+
+    if (Prefab.Widgets.weekDaySelect) {
+
+        Prefab.Widgets.weekDaySelect.datavalue =
+            "";
+    }
+};
+
