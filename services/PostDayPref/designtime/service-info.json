@@ -1,0 +1,6 @@
+{
+  "id" : "PostDayPref",
+  "type" : "RestService",
+  "title" : "PostDayPref",
+  "mockEnabled" : false
+}

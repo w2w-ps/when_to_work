@@ -1,0 +1,142 @@
+{
+  "basePath" : "${rest.PostDayPref.basepath}",
+  "paths" : {
+    "/preferences/day/repeat" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "PostDayPref_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "PostDayPref" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/preferences/day/repeat",
+      "x-WM-TAG" : "PostDayPref",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.PostDayPref.scheme}://${rest.PostDayPref.host}${rest.PostDayPref.basepath}/preferences/day/repeat"
+    }
+  },
+  "host" : "${rest.PostDayPref.host}",
+  "schemes" : [ "${rest.PostDayPref.scheme}" ],
+  "definitions" : {
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostDayPref.Response.div",
+      "x-WM-TAGS" : [ "PostDayPref" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostDayPref.RootRequest",
+      "x-WM-TAGS" : [ "PostDayPref" ],
+      "required" : [ "companyId", "compression", "date", "editedBy", "employeeId", "isDayPrefs", "prefs", "repeatCount" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "editedBy" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "compression" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "isDayPrefs" : {
+          "type" : "boolean"
+        },
+        "prefs" : {
+          "type" : "string"
+        },
+        "repeatCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostDayPref.Response.body",
+      "x-WM-TAGS" : [ "PostDayPref" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostDayPref.RootResponse",
+      "x-WM-TAGS" : [ "PostDayPref" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostDayPref.Response.parsererror",
+      "x-WM-TAGS" : [ "PostDayPref" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "c7088246-85e9-424c-9a3c-b385ca45ff78",
+    "x-WM-SERVICE_ID" : "onwavemaker2",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "PostDayPref"
+  } ]
+}
