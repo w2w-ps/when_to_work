@@ -1,0 +1,37 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/preferences/resolved",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2MjQ3MDQ0LCJleHAiOjE3NzYyNDg4NDR9.IwLb-9r-LbFOfghaoP9BLDikVrm4QGUR6v7BTymOjQeQ6NsdWy7_wQF3ofCc_TTad1oGAUl6GbjsvI7-aonhXQgRbM4aKNqBzpztIyfQGUm8zOv_6w68dj5XUwV_KE86Vl1xEC69FQP0k8Jx-LC8dSlwX4efqNQdIVIeto34FNYhlNxuLAeOWyF0e34jyGHGnHK2Tm6TrZ60F6Yr0d_Ui9rlsBJz_aqt6oH5kcwCezPs4rymnyMPTHz0hhTZeL84L7y8roXW0pnz7tVYfVx7zwpxR1aVBDZQITKRY5xnI9IOMK03aUORecRx5Fza0PfIggpP9pu0qlFY8TKfgKiEmw" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "companyId" : "1",
+    "endDate" : "2026-04-13",
+    "employeeId" : "1",
+    "startDate" : "2026-04-06"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Wed, 15 Apr 2026 10:17:33 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "[{\"date\":\"2026-04-06\",\"prefs\":\"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\",\"preferenceType\":\"DAY\",\"day\":\"Monday\"}]",
+    "convertedResponse" : null
+  }
+}

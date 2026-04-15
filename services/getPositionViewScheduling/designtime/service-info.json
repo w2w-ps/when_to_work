@@ -1,0 +1,6 @@
+{
+  "id" : "getPositionViewScheduling",
+  "type" : "RestService",
+  "title" : "getPositionViewScheduling",
+  "mockEnabled" : false
+}
