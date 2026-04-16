@@ -1,7 +1,67 @@
 {
-  "navItemList" : {
+  "navItemListEmployee" : {
+    "_id" : "wm-navItemListEmployee-wm.Variable-1774340094749",
+    "name" : "navItemListEmployee",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "caption" : "Home",
+      "hyperlink" : "#/Home",
+      "children" : "#Home"
+    }, {
+      "caption" : "Schedule",
+      "hyperlink" : "#/EmployeeView",
+      "children" : "#View the Schedule"
+    }, {
+      "caption" : "Info",
+      "hyperlink" : "#/Empinfo",
+      "children" : "#Info - your username/password, emails and contact information and export to Google Calendar"
+    }, {
+      "caption" : "Prefs",
+      "hyperlink" : "#/emppreferences",
+      "children" : "#Your work time preferences"
+    }, {
+      "caption" : "Time Off",
+      "hyperlink" : "#/TimeOff",
+      "children" : "#Time off"
+    }, {
+      "caption" : "Trades",
+      "hyperlink" : "#/Trades",
+      "children" : "#Trades"
+    }, {
+      "caption" : "Messaging",
+      "hyperlink" : "#/Messaging",
+      "children" : "#Messaging"
+    }, {
+      "caption" : "Staff",
+      "hyperlink" : "#/Staff",
+      "children" : "#Staff List"
+    }, {
+      "caption" : "On Now",
+      "hyperlink" : "#/OnNow",
+      "children" : "#Who's on now"
+    }, {
+      "caption" : "Bulletins",
+      "hyperlink" : "#/Bulletins",
+      "children" : "#Bulletin Board"
+    }, {
+      "caption" : "Help",
+      "hyperlink" : "#/Help",
+      "children" : "#View help pages and videos"
+    }, {
+      "caption" : "Sign Out",
+      "hyperlink" : "#/SignOut",
+      "children" : "#Sign Out"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "navItemListManager" : {
     "_id" : "wm-navItemList-wm.Variable-1774000872595",
-    "name" : "navItemList",
+    "name" : "navItemListManager",
     "owner" : "Page",
     "category" : "wm.Variable",
     "dataBinding" : [ ],
@@ -286,66 +346,6 @@
       "caption" : "SIGNOUT",
       "hyperlink" : "",
       "children" : [ ]
-    } ],
-    "type" : "entry",
-    "isList" : true,
-    "twoWayBinding" : false,
-    "saveInPhonegap" : false
-  },
-  "navItemListEmployee" : {
-    "_id" : "wm-navItemListEmployee-wm.Variable-1774340094749",
-    "name" : "navItemListEmployee",
-    "owner" : "Page",
-    "category" : "wm.Variable",
-    "dataBinding" : [ ],
-    "dataSet" : [ {
-      "caption" : "Home",
-      "hyperlink" : "#/Home",
-      "children" : "#Home"
-    }, {
-      "caption" : "Schedule",
-      "hyperlink" : "#/EmployeeView",
-      "children" : "#View the Schedule"
-    }, {
-      "caption" : "Info",
-      "hyperlink" : "#/Empinfo",
-      "children" : "#Info - your username/password, emails and contact information and export to Google Calendar"
-    }, {
-      "caption" : "Prefs",
-      "hyperlink" : "#/emppreferences",
-      "children" : "#Your work time preferences"
-    }, {
-      "caption" : "Time Off",
-      "hyperlink" : "#/TimeOff",
-      "children" : "#Time off"
-    }, {
-      "caption" : "Trades",
-      "hyperlink" : "#/Trades",
-      "children" : "#Trades"
-    }, {
-      "caption" : "Messaging",
-      "hyperlink" : "#/Messaging",
-      "children" : "#Messaging"
-    }, {
-      "caption" : "Staff",
-      "hyperlink" : "#/Staff",
-      "children" : "#Staff List"
-    }, {
-      "caption" : "On Now",
-      "hyperlink" : "#/OnNow",
-      "children" : "#Who's on now"
-    }, {
-      "caption" : "Bulletins",
-      "hyperlink" : "#/Bulletins",
-      "children" : "#Bulletin Board"
-    }, {
-      "caption" : "Help",
-      "hyperlink" : "#/Help",
-      "children" : "#View help pages and videos"
-    }, {
-      "caption" : "Sign Out",
-      "hyperlink" : "#/SignOut",
-      "children" : "#Sign Out"
     } ],
     "type" : "entry",
     "isList" : true,
