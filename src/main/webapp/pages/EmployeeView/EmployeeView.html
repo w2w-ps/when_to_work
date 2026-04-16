@@ -688,7 +688,7 @@
                             <wm-form-field name="startTimeField" show="true" placeholder="" required="true"
                                 regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="startTime"
                                 validationmessage="Enter valid start time" widget="text" inputtype="text"
-                                class="form-compact-input" variant="compact-input"
+                                class="form-compact-input time-height" variant="compact-input"
                                 defaultvalue="bind:Variables.svGetShiftById.dataSet.startTime"></wm-form-field>
                         </wm-container>
                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container44"
@@ -700,7 +700,7 @@
                                 <wm-form-field name="endTimeField" show="true" placeholder="" required="true"
                                     regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="endTime"
                                     validationmessage="Enter valid end time" widget="text" inputtype="text"
-                                    class="form-compact-input" variant="compact-input"
+                                    class="form-compact-input time-height" variant="compact-input"
                                     defaultvalue="bind:Variables.svGetShiftById.dataSet.endTime"></wm-form-field>
                             </wm-container>
                             <wm-form-field name="colorField" show="true" placeholder="Color" required="true" type="text"
@@ -713,7 +713,7 @@
                         <wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container46"
                             class="app-container-default" variant="default" height="32px" clipcontent="false">
                             <wm-label padding="unset" caption="Paid Hours" class="text-right label-label-normal"
-                                type="p" variant="label-normal" required="false" width="154px" name="label45">
+                                type="p" variant="label-normal" required="false" width="120px" name="label45">
                             </wm-label>
                             <wm-container direction="row" alignment="middle-left" gap="0" width="fill"
                                 name="container47_1" class="app-container-default" variant="default">
@@ -865,18 +865,18 @@
     </wm-content>
     <wm-dialog name="confirmShiftChangeDialog" title="Confirm" modal="true" closable="false" showheader="true"
         class="modal-confirm-dialog" variant="confirm-dialog">
-        <wm-container name="confirmDialog1Body" class="app-container-default" direction="column" gap="16"
+        <wm-container name="confirmDialog1Body" class="app-container-default pt-0" direction="column" gap="16"
             alignment="middle-center" width="fill" height="hug" padding="16px 24px">
             <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container100"
                 class="app-container-default" variant="default">
-                <wm-label padding="unset" caption="Confirm" class="p text-primary" type="p" name="label81"
-                    variant="text:primary"></wm-label>
+                <wm-label padding="unset" caption="Confirm" class=" label-label-16-400 py-font" type="p" name="label81"
+                    variant="label-16-400"></wm-label>
             </wm-container>
             <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container98"
                 class="app-container-default" variant="default" wrap="false">
                 <wm-label name="lblConfirmShiftMsg"
                     caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)"
-                    class="text-center label-label-14-400" width="fill" variant="label-14-400"></wm-label>
+                    class="text-center label-label-14-400 pb-4 py-font" width="fill" variant="label-14-400"></wm-label>
             </wm-container>
             <wm-container direction="column" alignment="middle-center" gap="12" width="fill" name="conflictMsgcontainer"
                 class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false"
@@ -900,11 +900,12 @@
         </wm-container>
     </wm-dialog>
     <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="wi wi-file-text" name="alertdialog1"
-        class="modal-dialog modal-xs" variant="default:xs">
-        <wm-container direction="column" alignment="middle-center" width="fill" gap="4" wrap="false" name="container97">
-            <wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label80"></wm-label>
-            <wm-button class="btn-outlined-primary" caption="Ok" type="button" margin="unset" name="button17"
-                variant="outlined-primary" on-click="Widgets.alertdialog1.close()"></wm-button>
+        class="modal-confirm-dialog" variant="confirm-dialog">
+        <wm-container direction="column" alignment="middle-center" width="fill" gap="4" wrap="false" name="container97"
+            class="pb-2">
+            <wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label80" class="pt-4 pb-4"></wm-label>
+            <wm-button class="mt-4 btn-alert-outlined-primary" caption="OK" type="button" margin="unset" name="button17"
+                variant="alert-outlined-primary" on-click="Widgets.alertdialog1.close()"></wm-button>
         </wm-container>
         <wm-dialogactions name="dialogactions1" show="false">
             <wm-button class="btn-primary btn-filled" caption="Close" on-click="closeDialog()" name="button16_1">
