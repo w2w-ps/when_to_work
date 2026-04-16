@@ -139,18 +139,22 @@ Prefab.normalizeWeekPreferenceData = function (data) {
 /* =========================================================
 PROPERTY CHANGE HANDLER
 ========================================================= */
-
 Prefab.onPropertyChange = function (key, newVal) {
 
     if (key === "editedrows") {
 
         Prefab.highlightEditedDayLabels();
-
         return;
     }
 
     if (key !== "weekpreferencedata" || !newVal)
         return;
+
+    /* IMPORTANT: skip normalization if update came internally */
+
+    if (Prefab._internalUpdate) {
+        return;
+    }
 
     const normalized =
         Prefab.normalizeWeekPreferenceData(newVal);
@@ -371,29 +375,17 @@ Prefab.updateSlot = function (dayIdx, hourIdx, slotIdx, prefChar) {
 
     if (Prefab.isReadOnly()) return;
 
-    let ds = Prefab._getWeekData();
+    const ds = Prefab.Variables.weekPreferenceData.dataSet;
 
-    /* initialize dataset if missing */
+    if (!ds || !ds[dayIdx]) return;
 
-    if (!ds) {
+    let prefs = ds[dayIdx].prefs;
 
-        Prefab.Variables.weekPreferenceData.dataSet = [];
-
-        ds = Prefab.Variables.weekPreferenceData.dataSet;
+    if (!prefs || prefs.length !== 96) {
+        prefs = EMPTY_PREFS;
     }
-
-    if (!ds[dayIdx]) {
-
-        ds[dayIdx] = {
-            prefs: EMPTY_PREFS
-        };
-    }
-
-    let prefs = ds[dayIdx].prefs || EMPTY_PREFS;
 
     const index = hourIdx * 4 + slotIdx;
-
-    if (index < 0 || index >= 96) return;
 
     prefs =
         prefs.substring(0, index) +
@@ -403,6 +395,10 @@ Prefab.updateSlot = function (dayIdx, hourIdx, slotIdx, prefChar) {
     ds[dayIdx].prefs = prefs;
 
     Prefab.paintSlot(dayIdx, hourIdx, slotIdx, prefChar);
+
+    /* NEW: update outward binding immediately */
+
+    Prefab._triggerOnChange();
 };
 
 
@@ -441,6 +437,10 @@ Prefab.slotAreaClick = function (e) {
                 slotIndex: s,
 
                 startDate: ds[d].date || null,
+                selectedDay: ds[d].day,
+                selectedDate: ds[d].date || null,
+
+
 
                 prefs: ds[d].prefs || EMPTY_PREFS,
 
@@ -462,6 +462,9 @@ Prefab.slotAreaClick = function (e) {
         s,
         Prefab._dragSelectedPreference
     );
+    if (!Prefab._mouseDown) {
+        Prefab._triggerOnChange();
+    }
 };
 
 
@@ -495,11 +498,15 @@ Prefab.initDrag = function () {
                 Prefab.slotAreaClick(e);
         });
 
-    document.addEventListener("mouseup",
-        () => {
+    document.addEventListener("mouseup", () => {
+
+        if (Prefab._mouseDown) {
 
             Prefab._mouseDown = false;
-        });
+
+            Prefab._triggerOnChange();
+        }
+    });
 };
 
 
@@ -787,18 +794,24 @@ Prefab.addPreferenceBtnClick = function () {
 CHANGE EVENT EMITTER
 ========================================================= */
 
+Prefab._internalUpdate = false;
+
 Prefab._triggerOnChange = function () {
 
-    if (typeof Prefab.onChange !==
-        "function") return;
+    const updatedData = Prefab._getWeekData();
+
+    Prefab._internalUpdate = true;
+
+    Prefab.weekpreferencedata =
+        JSON.parse(JSON.stringify(updatedData));
+
+    Prefab._internalUpdate = false;
+
+    if (typeof Prefab.onChange !== "function") return;
 
     Prefab.onChange({
-
-        weekpreferencedata:
-            Prefab._getWeekData(),
-
-        editedrows:
-            Prefab.editedrows
+        weekpreferencedata: updatedData,
+        editedrows: Prefab.editedrows
     });
 };
 

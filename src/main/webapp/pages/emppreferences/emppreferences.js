@@ -17,7 +17,6 @@ Page.onReady = function () {
 };
 
 Page.WorkPreference1Click = function ($event) {
-
     App.Variables.selectedpreference.dataSet = $event;
 
     setTimeout(() => {
