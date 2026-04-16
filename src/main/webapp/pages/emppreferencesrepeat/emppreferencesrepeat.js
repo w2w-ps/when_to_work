@@ -16,11 +16,42 @@ Page.onReady = function () {
      */
 };
 Page.WorkPreference1Click = function ($event) {
-    debugger
+
     App.Actions.goToPage_emppreferencesday.invoke();
     App.Variables.selectedpreference.dataSet = $event;
 };
 
+function getCombinedWeekPrefs(weekData) {
+    return weekData.map(day => day.prefs || "").join("");
+}
+
+function getTodayDate() {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+}
+
+
 Page.button4Click = function ($event, widget) {
-    debugger
+
+
+
+    const combinedPrefs = getCombinedWeekPrefs(
+        Page.Widgets.WorkPreference1.weekpreferencedata
+    );
+
+    let data = {
+        companyId: 1,
+        employeeId: 1,
+        startDate: getTodayDate(),
+        prefs: combinedPrefs,
+        compression: 0,
+        editedBy: 1,
+    };
+
+    Page.Variables.PostWeekPref.invoke({
+        "inputFields": { RequestBody: data }
+    });
+
+
+
 };
