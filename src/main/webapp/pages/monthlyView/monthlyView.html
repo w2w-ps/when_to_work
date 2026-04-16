@@ -7,29 +7,31 @@
             <wm-label name="lblMay" caption="May" class="month-label label-highlighted-white-14-400" on-tap="monthLabelTap($event, widget)"></wm-label>
         </wm-container>
         <wm-container name="centerNavWrapper" class="app-container-default center-nav-wrapper" direction="row" gap="auto" alignment="center" width="20%" height="hug" overflow="visible" clipcontent="false">
-            <wm-container name="centerNavContainer" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" clipcontent="false" overflow="visible" on-tap="centerNavContainerTap($event, widget)">
+            <wm-container name="centerNavContainer" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" clipcontent="false" overflow="visible">
                 <wm-anchor name="iconPrevMonth" iconclass="wi wi-chevron-left" caption="" class="nav-chevron-btn" on-tap="iconPrevMonthTap($event, widget)"></wm-anchor>
-                <wm-label name="lblCurrentMonth" caption="Month Year" fontweight="bold" class="current-month-label">
-                </wm-label>
-                <wm-icon name="iconCalendar" iconclass="fa fa-calendar" iconsize="1.1em"></wm-icon>
+                <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container10" class="app-container-default" variant="default" on-tap="centerNavContainerTap($event, widget)">
+                    <wm-label name="lblCurrentMonth" caption="Month Year" fontweight="bold" class="current-month-label text-primary" variant="text:primary"></wm-label>
+                    <wm-icon name="iconCalendar" iconclass="fa fa-calendar fa-lg" iconsize="1.1em" class="fa-xs" variant="default:xs"></wm-icon>
+                </wm-container>
                 <wm-anchor name="iconNextMonth" iconclass="wi wi-chevron-right" caption="" class="nav-chevron-btn" on-tap="iconNextMonthTap($event, widget)"></wm-anchor>
             </wm-container>
             <wm-container name="calendarDropdown" class="app-container-default calendar-dropdown-popup" show="bind:Variables.isCalendarVisible.dataSet" direction="column" gap="0" alignment="top-left" width="320px" height="auto" overflow="visible" padding="unset" clipcontent="false" position="absolute" zindex="1000">
-    <wm-container name="calendarCloseBar" class="app-container-default" direction="row" gap="0" alignment="top-right" width="fill" height="hug" padding="4px 8px">
-        <wm-anchor name="btnCloseCalendar" caption="" iconclass="wi wi-close" class="calendar-close-btn" on-click="calendarCloseClick($event, widget)" on-tap="calendarCloseClick($event, widget)"></wm-anchor>
-    </wm-container>
-    <wm-container name="calendarYearNavBar" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="0 8px 4px 8px">
-        <wm-anchor name="btnPrevYear" caption="" iconclass="wi wi-skip-previous" class="calendar-year-nav-btn" on-click="calendarPrevYearTap($event, widget)"></wm-anchor>
-        <wm-anchor name="btnPrevMonthInline" caption="" iconclass="wi wi-chevron-left" class="calendar-year-nav-btn" on-click="calendarPrevMonthTap($event, widget)"></wm-anchor>
-        <wm-label name="lblCalendarMonthYear" caption="Month Year" class="calendar-month-year-label" width="fill"></wm-label>
-        <wm-anchor name="btnNextMonthInline" caption="" iconclass="wi wi-chevron-right" class="calendar-year-nav-btn" on-click="calendarNextMonthTap($event, widget)"></wm-anchor>
-        <wm-anchor name="btnNextYear" caption="" iconclass="wi wi-skip-next" class="calendar-year-nav-btn" on-click="calendarNextYearTap($event, widget)"></wm-anchor>
-    </wm-container>
-    <wm-calendar name="calendarPopup" width="fill" controls="none" on-dateclick="calendarPopupDateclick($dateInfo)" calendartype="basic" height="250px"></wm-calendar>
-    <wm-container name="calendarSelectBar" class="app-container-default" direction="row" gap="0" alignment="middle-center" width="fill" height="hug">
-        <wm-button name="btnSelectDate" caption="bind:Variables.hoveredDateLabel.dataSet.dataValue" class="btn-primary calendar-select-btn" on-click="calendarSelectDateClick($event, widget)" width="fill"></wm-button>
-    </wm-container>
-</wm-container>
+                <wm-container name="calendarCloseBar" class="app-container-default" direction="row" gap="0" alignment="top-right" width="fill" height="hug" padding="4px 8px">
+                    <wm-anchor name="btnCloseCalendar" caption="" iconclass="wi wi-close" class="calendar-close-btn" on-click="calendarCloseClick($event, widget)" on-tap="calendarCloseClick($event, widget)">
+                    </wm-anchor>
+                </wm-container>
+                <wm-container name="calendarYearNavBar" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="0 8px 4px 8px">
+                    <wm-anchor name="btnPrevYear" caption="" iconclass="wi wi-skip-previous" class="calendar-year-nav-btn" on-click="calendarPrevYearTap($event, widget)"></wm-anchor>
+                    <wm-anchor name="btnPrevMonthInline" caption="" iconclass="wi wi-chevron-left" class="calendar-year-nav-btn" on-click="calendarPrevMonthTap($event, widget)"></wm-anchor>
+                    <wm-label name="lblCalendarMonthYear" caption="Month Year" class="calendar-month-year-label" width="fill"></wm-label>
+                    <wm-anchor name="btnNextMonthInline" caption="" iconclass="wi wi-chevron-right" class="calendar-year-nav-btn" on-click="calendarNextMonthTap($event, widget)"></wm-anchor>
+                    <wm-anchor name="btnNextYear" caption="" iconclass="wi wi-skip-next" class="calendar-year-nav-btn" on-click="calendarNextYearTap($event, widget)"></wm-anchor>
+                </wm-container>
+                <wm-calendar name="calendarPopup" width="fill" controls="none" on-dateclick="calendarPopupDateclick($dateInfo)" calendartype="basic" height="250px"></wm-calendar>
+                <wm-container name="calendarSelectBar" class="app-container-default" direction="row" gap="0" alignment="middle-center" width="fill" height="hug">
+                    <wm-button name="btnSelectDate" caption="bind:Variables.hoveredDateLabel.dataSet.dataValue" class="btn-primary calendar-select-btn" on-click="calendarSelectDateClick($event, widget)" width="fill"></wm-button>
+                </wm-container>
+            </wm-container>
         </wm-container>
         <wm-container name="rightMonthsContainer" class="app-container-default right-months-container" direction="row" gap="4" alignment="middle-left" width="40%" height="hug" clipcontent="false" overflow="none">
             <wm-label name="lblJuly" caption="July" class=" month-label label-highlighted-white-14-400" on-tap="monthLabelTap($event, widget)" variant="highlighted-white-14-400"></wm-label>
