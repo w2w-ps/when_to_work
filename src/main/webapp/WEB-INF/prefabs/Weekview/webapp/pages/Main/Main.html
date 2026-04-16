@@ -25,4 +25,14 @@
 <wm-button name="btnNext3Week" caption="+3" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(3)" variant="button-small"></wm-button>
 <wm-button name="btnNext4Week" caption="+4" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(4)" variant="button-small"></wm-button>
 <wm-button name="btnNext5Week" caption="+5" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(5)" variant="button-small"></wm-button>
-<wm-button name="btnNext6Week" caption="+6" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(6)" variant="button-small"></wm-button></wm-container></wm-container></wm-prefab-container>
+<wm-button name="btnNext6Week" caption="+6" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(6)" variant="button-small"></wm-button></wm-container></wm-container>
+<wm-container name="container6" show="bind:viewParent.activePageName === &quot;Position_view&quot;">
+<wm-tabs type="static" statehandler="URL" name="tabs1" defaultpaneindex="7" on-change="tabs1Change($event, widget, newPaneIndex, oldPaneIndex)">
+<wm-tabpane title="bind:selectedweekdataset.mondayDate.split(&quot; &quot;)[1]" name="mon_tabpane"></wm-tabpane>
+<wm-tabpane title="bind:selectedweekdataset.tuesdayDate.split(&quot; &quot;)[1]" name="tue_tabpane"></wm-tabpane>
+<wm-tabpane title="bind:selectedweekdataset.wednesdayDate.split(&quot; &quot;)[1]" name="wed_tabpane"></wm-tabpane>
+<wm-tabpane title="bind:selectedweekdataset.thursdayDate.split(&quot; &quot;)[1]" name="thur_tabpane"></wm-tabpane>
+<wm-tabpane title="bind:selectedweekdataset.fridayDate.split(&quot; &quot;)[1]" name="fri_tabpane"></wm-tabpane>
+<wm-tabpane title="bind:selectedweekdataset.saturdayDate.split(&quot; &quot;)[1]" name="sat_tabpane"></wm-tabpane>
+<wm-tabpane title="bind:selectedweekdataset.sundayDate.split(&quot; &quot;)[1]" name="sun_tabpane"></wm-tabpane>
+<wm-tabpane title="Weekly" name="tabpane8_1"></wm-tabpane></wm-tabs></wm-container></wm-prefab-container>

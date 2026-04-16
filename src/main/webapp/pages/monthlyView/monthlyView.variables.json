@@ -1,4 +1,17 @@
 {
+  "hoveredDateLabel" : {
+    "_id" : "wm-hoveredDateLabel-wm.Variable-1776251890738",
+    "name" : "hoveredDateLabel",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "Select date"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "isCalendarVisible" : {
     "_id" : "wm-isCalendarVisible-wm.Variable-1776238678568",
     "name" : "isCalendarVisible",

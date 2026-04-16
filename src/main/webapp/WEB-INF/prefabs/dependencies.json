@@ -1,15 +1,15 @@
 [ {
   "name" : "Weekview",
-  "version" : "0.0.3",
+  "version" : "0.0.4",
   "readableVersion" : null,
   "platformVersion" : null,
-  "publisherId" : "ent2f2c14de54",
+  "publisherId" : "ent1d7b96fdb50",
   "publisherName" : "tcp",
   "artifactType" : "PREFAB",
   "artifactDependencyList" : null
 }, {
   "name" : "WorkPreference",
-  "version" : "0.1.6",
+  "version" : "1.0.0",
   "readableVersion" : null,
   "platformVersion" : null,
   "publisherId" : "ent1d7b96fdb50",

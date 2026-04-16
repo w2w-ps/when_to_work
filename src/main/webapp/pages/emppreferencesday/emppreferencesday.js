@@ -17,5 +17,19 @@ Page.onReady = function () {
 
     // Page.selectedDay = "Mon Apr 6 2026";
 
-
+    Page.Widgets.WorkPreference2.weekpreferencedata = App.Variables.selectedpreference.dataSet;
+};
+Page.button3Click = function ($event, widget) {
+    debugger
+    //     {
+    //   "companyId": 1,
+    //   "employeeId": 1,
+    //   "date": "2026-04-01",
+    //   "prefs": "DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCNNNNN",
+    //   "repeatCount": 5,
+    //   "compression": 0,
+    //   "editedBy": 1,
+    //   "isDayPrefs": false
+    // }
+    Page.Variables.PostDayPref.invoke();
 };
