@@ -5,8 +5,8 @@
 <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container12" class="app-container-default popout-container-wrapper" variant="default" wrap="false">
 <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container11_1" class="app-container-default" variant="default" wrap="false">
 <wm-label padding="unset" caption="Special Hourly Preferences for" class="pt-4 label-label-18-700" type="p" name="label1" variant="label-18-700"></wm-label>
-<wm-label padding="unset" caption="bind:Variables.selectedpreference.dataSet.day+&quot;, &quot; + Variables.selectedpreference.dataSet.date | toDate: 'MMM dd, yyyy'
-" class="label-label-18-700" type="p" variant="label-18-700" name="label6"></wm-label>
+<wm-label padding="unset" caption="bind:Variables.selectedpreference.dataSet.selectedDay + &quot;, &quot; +
+((Variables.selectedpreference.dataSet.selectedDate | toDate:'MMM dd, yyyy') || &quot;&quot;)" class="label-label-18-700" type="p" variant="label-18-700" name="label6"></wm-label>
 <wm-label padding="unset" caption="(These preferences override your Repeating Weekly Preferences)" class="pt-2 label-label-12-700 pb-2" type="p" variant="label-12-700" name="label7"></wm-label></wm-container>
 <wm-container direction="row" alignment="middle-center" gap="4" name="container11" class="app-container-default" variant="default" clipcontent="false" overflow="none" width="100%">
 <wm-container direction="column" alignment="top-center" gap="20" name="container7" variant="default" wrap="false" clipcontent="false" overflow="none" width="100%">
