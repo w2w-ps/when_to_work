@@ -16,26 +16,3 @@ Page.onReady = function () {
      */
 };
 
-function toggleSelectAllLabelClass(widget) {
-    var tableEl = widget.nativeElement;
-    var headerCheckboxLabel = tableEl.querySelector('th .header-checkbox-container label, th .app-checkbox label, th [class*="select-all"] label, th input[type="checkbox"] + label');
-    if (headerCheckboxLabel) {
-        headerCheckboxLabel.classList.toggle('checked-box');
-    }
-}
-
-Page.onTable1HeaderClick = function ($event, widget, column) {
-    var target = $event.target;
-    // Toggle only when the select-all checkbox or its label in the header is clicked
-    if (target && (target.tagName === 'INPUT' && target.type === 'checkbox' || target.tagName === 'LABEL')) {
-        toggleSelectAllLabelClass(Page.Widgets.supportedLocaleTable1_1);
-    }
-};
-
-Page.onTable3HeaderClick = function ($event, widget, column) {
-    var target = $event.target;
-    // Toggle only when the select-all checkbox or its label in the header is clicked
-    if (target && (target.tagName === 'INPUT' && target.type === 'checkbox' || target.tagName === 'LABEL')) {
-        toggleSelectAllLabelClass(Page.Widgets.supportedLocaleTable3);
-    }
-};
