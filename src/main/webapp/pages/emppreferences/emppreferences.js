@@ -22,19 +22,19 @@ Page.WorkPreference1Click = function ($event) {
     App.Variables.selectedpreference.dataSet = $event;
 };
 
-Page.GetResolvedPreferencesSuccess = function (variable, data) {
-    var records = (variable.dataSet || []).slice(0, 7);
-    if (!records.length) {
-        return;
-    }
-    var firstItem = records[0];
-    var concatenatedPrefs = records.map(function (item) {
-        return item.prefs || '';
-    }).join('');
-    var transformed = {
-        startDate: firstItem.date,
-        prefs: concatenatedPrefs
-    };
-    Page.Variables.resolvedPrefsFormatted.setData(transformed);
-    Page.Widgets.WorkPreference1.resolvedpreferences = transformed;
-};
+// Page.GetResolvedPreferencesSuccess = function (variable, data) {
+//     var records = (variable.dataSet || []).slice(0, 7);
+//     if (!records.length) {
+//         return;
+//     }
+//     var firstItem = records[0];
+//     var concatenatedPrefs = records.map(function (item) {
+//         return item.prefs || '';
+//     }).join('');
+//     var transformed = {
+//         startDate: firstItem.date,
+//         prefs: concatenatedPrefs
+//     };
+//     Page.Variables.resolvedPrefsFormatted.setData(transformed);
+//    // Page.Widgets.WorkPreference1.resolvedpreferences = transformed;
+// };
