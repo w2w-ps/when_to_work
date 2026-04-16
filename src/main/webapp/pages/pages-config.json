@@ -7,6 +7,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "ConfigureByPositionView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Empchangepass",
   "type" : "PAGE",
   "params" : [ ]
