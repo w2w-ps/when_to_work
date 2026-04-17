@@ -55,6 +55,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "calenderView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "dialogViewTopNav",
   "type" : "TOPNAV",
   "params" : [ ]

@@ -91,6 +91,8 @@ Prefab.formatDaysOfWeek = function (weekDates) {
     });
     Prefab.startdate = weekDates.startDate.format('YYYY-MM-DD');
     Prefab.enddate = weekDates.endDate.format('YYYY-MM-DD');
+    Prefab.notifyDateRangeChange(weekDates.startDate.format('YYYY-MM-DD'), weekDates.endDate.format('YYYY-MM-DD'));
+
     Prefab.selectedweekdataset = Prefab.Variables.currentWeekVar.dataSet;
 
 }
@@ -191,13 +193,25 @@ Prefab.tabs1Change = function ($event, widget, newPaneIndex, oldPaneIndex) {
         let positionviewStartDate = getStartAndEndDateForPostionView(newPaneIndex + 1);
         Prefab.startdate = positionviewStartDate;
         Prefab.enddate = positionviewStartDate;
+        Prefab.notifyDateRangeChange(positionviewStartDate, positionviewStartDate);
     }
     if (newPaneIndex == 7) {
         Prefab.startdate = Prefab.weekDates.startDate.format('YYYY-MM-DD');
         Prefab.enddate = Prefab.weekDates.endDate.format('YYYY-MM-DD');
+        Prefab.notifyDateRangeChange(Prefab.weekDates.startDate.format('YYYY-MM-DD'), Prefab.weekDates.endDate.format('YYYY-MM-DD'));
     }
 };
 
 function getStartAndEndDateForPostionView(index) {
     return (Prefab.weekDates["day" + index]).format('YYYY-MM-DD')
 }
+
+
+Prefab.notifyDateRangeChange = function (startdate, enddate) {
+    if (Prefab.onDateRangeChange) {
+        Prefab.onDateRangeChange({
+            startdate: startdate,
+            enddate: enddate
+        });
+    }
+};

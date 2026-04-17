@@ -1,6 +1,6 @@
 [ {
   "name" : "Weekview",
-  "version" : "0.0.4",
+  "version" : "0.0.5",
   "readableVersion" : null,
   "platformVersion" : null,
   "publisherId" : "ent1d7b96fdb50",
@@ -9,7 +9,7 @@
   "artifactDependencyList" : null
 }, {
   "name" : "WorkPreference",
-  "version" : "1.0.0",
+  "version" : "1.0.2",
   "readableVersion" : null,
   "platformVersion" : null,
   "publisherId" : "ent1d7b96fdb50",

@@ -54,6 +54,17 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "goToPage_calenderView" : {
+    "_id" : "wm-goToPage_calenderView-wm.NavigationAction-1776325282809",
+    "name" : "goToPage_calenderView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "calenderView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_ConfigureByEmployeeView" : {
     "_id" : "wm-goToPage_ConfigureByEmployeeView-wm.NavigationAction-1775463179827",
     "name" : "goToPage_ConfigureByEmployeeView",
