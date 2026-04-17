@@ -1,0 +1,67 @@
+{
+  "PostWeekPref" : {
+    "_id" : "wm-PostWeekPref-wm.ServiceVariable-1776295651906",
+    "name" : "PostWeekPref",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2MjQ3OTY3LCJleHAiOjE3NzYyNDk3Njd9.QqUDaQe7K23ztSoHMZqkp-sQOXKn9tw_Qu_7h-FuBrYuQY9dfHZD1-VPuluR7oNvERUOVbOB_RJqdNvZtSsQAIGkjpPmnq1qHd7fQPIY8SzJ5iZAy2VRQPfJBdsZtjS_Ys1FMP_MrGi1Ho7sH8YJEDYz3jS8zrI5rg3klZ5U8FpTmwZfIupU6nTF9upu7mFGstMcS4SBRxUh-K1wBOnV-S_e-8GKmOZkIepEOQZlNQWz_A8SRlwP5abhyzjCJf9G6k3GOa96g1tN0h2mj1hLBEbUW9pvMVWK3yRBY9dTErZLEP0SA4BEr1p5txnfrHdIzTMhkT_WXLCLR9KSfN7rZw" ],
+      "type" : "string"
+    }, {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "{\n  \"companyId\": 1,\n  \"employeeId\": 1,\n  \"startDate\": \"2026-04-01\",\n  \"prefs\": \"DDDDDDDDDDDDDNDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNPPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCPPPPPPPPCPPPPPPPPPPPPPPPPPPPPPPPPCCCPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCCPCPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDDDDDDDDDDDDDDDPPPPPPPPPPPPPPPPPPPDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\",\n  \"compression\": 0,\n  \"editedBy\": 1\n}",
+      "type" : "PostWeekPref.RootRequest"
+    } ],
+    "type" : "PostWeekPref.RootResponse",
+    "service" : "PostWeekPref",
+    "operation" : "invoke",
+    "operationId" : "PostWeekPref_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "PostWeekPref"
+  },
+  "SvGetWeekPreferences" : {
+    "_id" : "wm-SvGetWeekPreferences-wm.ServiceVariable-1775589980506",
+    "name" : "SvGetWeekPreferences",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "employeeId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "2026-04-06",
+      "type" : "string"
+    } ],
+    "type" : "GetWeekPreferences.RootResponse",
+    "service" : "GetWeekPreferences",
+    "operation" : "invoke",
+    "operationId" : "GetWeekPreferences_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "GetWeekPreferences"
+  }
+}

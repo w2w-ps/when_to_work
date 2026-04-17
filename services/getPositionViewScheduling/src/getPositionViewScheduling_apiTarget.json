@@ -1,0 +1,217 @@
+{
+  "basePath" : "${rest.getPositionViewScheduling.basepath}",
+  "paths" : {
+    "/scheduling/shifts/date-position" : {
+      "x-WM-BASE_PATH" : "/scheduling/shifts/date-position",
+      "x-WM-TAG" : "getPositionViewScheduling",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getPositionViewScheduling_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "endDate",
+          "format" : "string",
+          "description" : "endDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "startDate",
+          "format" : "string",
+          "description" : "startDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "getPositionViewScheduling" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getPositionViewScheduling.scheme}://${rest.getPositionViewScheduling.host}${rest.getPositionViewScheduling.basepath}/scheduling/shifts/date-position"
+    }
+  },
+  "host" : "${rest.getPositionViewScheduling.host}",
+  "schemes" : [ "${rest.getPositionViewScheduling.scheme}" ],
+  "definitions" : {
+    "Response.positionsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "getPositionViewScheduling" ],
+      "required" : [ "position", "shiftCount", "shifts", "totalDuration" ],
+      "properties" : {
+        "totalDuration" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "shiftCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          }
+        },
+        "position" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.datesEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.datesEntryItem",
+      "x-WM-TAGS" : [ "getPositionViewScheduling" ],
+      "required" : [ "date", "positions", "shiftCount", "totalDuration", "weekday" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "totalDuration" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "shiftCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "weekday" : {
+          "type" : "string"
+        },
+        "positions" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.shiftsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.shiftsEntryItem",
+      "x-WM-TAGS" : [ "getPositionViewScheduling" ],
+      "required" : [ "category", "color", "description", "duration", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
+      "properties" : {
+        "duration" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "shiftId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "employmentType" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.RootResponse",
+      "x-WM-TAGS" : [ "getPositionViewScheduling" ],
+      "required" : [ "dates", "title", "totalHours", "totalShifts" ],
+      "properties" : {
+        "totalHours" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "dates" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.datesEntryItem"
+          }
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "totalShifts" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "5a9ba6f7-886c-49ea-984c-3377c25168ee",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getPositionViewScheduling"
+  } ]
+}

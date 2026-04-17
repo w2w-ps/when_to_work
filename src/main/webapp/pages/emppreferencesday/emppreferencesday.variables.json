@@ -1,28 +1,29 @@
 {
-  "svUpdatePreferences" : {
-    "_id" : "wm-svUpdatePreferences-wm.ServiceVariable-1775476139545",
-    "name" : "svUpdatePreferences",
+  "PostDayPref" : {
+    "_id" : "wm-PostDayPref-wm.ServiceVariable-1776295066273",
+    "name" : "PostDayPref",
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
+      "isList" : false,
       "target" : "RequestBody",
-      "value" : "{\n  \"companyId\": 1,\n  \"employeeId\": 1,\n  \"date\": \"2026-04-06\",\n  \"prefs\": \"REPEAT_PREF_EXAMPLE\",\n  \"repeatCount\": 2,\n  \"compression\": 0,\n  \"editedBy\": 1\n}",
-      "type" : "java.lang.String"
+      "value" : "bind:Widgets.WorkPreference2.weekpreferencedata",
+      "type" : "PostDayPref.RootRequest"
     } ],
-    "type" : "updatePreferences.RootResponse",
-    "service" : "updatePreferences",
+    "type" : "PostDayPref.RootResponse",
+    "service" : "PostDayPref",
     "operation" : "invoke",
-    "operationId" : "updatePreferences_invoke",
+    "operationId" : "PostDayPref_invoke",
     "operationType" : "post",
     "serviceType" : "RestService",
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,
-    "controller" : "updatePreferences"
+    "controller" : "PostDayPref"
   }
 }

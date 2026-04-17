@@ -7,6 +7,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "ConfigureByPositionView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Empchangepass",
   "type" : "PAGE",
   "params" : [ ]
@@ -55,6 +59,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "dialogViewTopNav",
+  "type" : "TOPNAV",
+  "params" : [ ]
+}, {
   "name" : "emppreferences",
   "type" : "PAGE",
   "params" : [ ]
@@ -65,6 +73,14 @@
     "name" : "selecteddate",
     "type" : "string"
   } ]
+}, {
+  "name" : "emppreferencesmonth",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "emppreferencesrepeat",
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "footer",
   "type" : "FOOTER",
@@ -84,6 +100,10 @@
 }, {
   "name" : "mgradminsettings",
   "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "monthlyView",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "rightnav",

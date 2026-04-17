@@ -1,0 +1,6 @@
+{
+  "id" : "PostWeekPref",
+  "type" : "RestService",
+  "title" : "PostWeekPref",
+  "mockEnabled" : false
+}

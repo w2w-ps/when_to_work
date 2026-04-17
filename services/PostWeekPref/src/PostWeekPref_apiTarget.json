@@ -1,0 +1,149 @@
+{
+  "basePath" : "${rest.PostWeekPref.basepath}",
+  "paths" : {
+    "/preferences/week" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "PostWeekPref_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "PostWeekPref" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/preferences/week",
+      "x-WM-TAG" : "PostWeekPref",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.PostWeekPref.scheme}://${rest.PostWeekPref.host}${rest.PostWeekPref.basepath}/preferences/week"
+    }
+  },
+  "host" : "${rest.PostWeekPref.host}",
+  "schemes" : [ "${rest.PostWeekPref.scheme}" ],
+  "definitions" : {
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostWeekPref.Response.div",
+      "x-WM-TAGS" : [ "PostWeekPref" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostWeekPref.RootRequest",
+      "x-WM-TAGS" : [ "PostWeekPref" ],
+      "required" : [ "companyId", "compression", "editedBy", "employeeId", "prefs", "startDate" ],
+      "properties" : {
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "editedBy" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "compression" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "startDate" : {
+          "type" : "string"
+        },
+        "prefs" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostWeekPref.Response.body",
+      "x-WM-TAGS" : [ "PostWeekPref" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostWeekPref.RootResponse",
+      "x-WM-TAGS" : [ "PostWeekPref" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PostWeekPref.Response.parsererror",
+      "x-WM-TAGS" : [ "PostWeekPref" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "fca2dcb2-f4dc-40b2-a20f-baa0b6b9594c",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "PostWeekPref"
+  } ]
+}
