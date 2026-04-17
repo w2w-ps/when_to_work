@@ -55,13 +55,63 @@ Page.selectAdditionalManager = function ($event, widget, item, currentItemWidget
 
 /**
  * Save permissions for the selected additional manager.
+ * Reads per-item widget values from currentItemWidgets and invokes the update API.
  */
 Page.saveMgrPermissions = function ($event, widget, item, currentItemWidgets) {
+    Page.Variables.wsUpdateAdditionalManagers.invoke({
+        inputFields: {
+            id: item.userId,
+            RequestBody: {
+                firstName: currentItemWidgets.mgrFirstNameInput.datavalue,
+                lastName: currentItemWidgets.mgrLastNameInput.datavalue,
+                email: item.email,
+                permissions: {
+                    canAddShifts: currentItemWidgets.mgrAddShiftsChk.datavalue,
+                    canImportTemplates: currentItemWidgets.mgrImportTemplatesChk.datavalue,
+                    canUploadShifts: currentItemWidgets.mgrUploadShiftsChk.datavalue,
+                    canAutofillShifts: currentItemWidgets.mgrAutofillShiftsChk.datavalue,
+                    canClearSchedules: currentItemWidgets.mgrClearSchedulesChk.datavalue,
+                    canEditShifts: currentItemWidgets.mgrEditShiftsChk.datavalue,
+                    canSaveTemplates: currentItemWidgets.mgrSaveTemplatesChk.datavalue,
+                    canPublishSchedules: currentItemWidgets.mgrPublishSchedulesChk.datavalue,
+                    canUnpublishSchedules: currentItemWidgets.mgrUnpublishSchedulesChk.datavalue,
+                    canManageCategories: currentItemWidgets.mgrManageCategoriesChk.datavalue,
+                    canAddEmployees: currentItemWidgets.mgrAddEmployeesChk.datavalue,
+                    canViewPayRates: currentItemWidgets.mgrViewPayRatesChk.datavalue,
+                    canApproveTimeOff: currentItemWidgets.mgrApproveTimeOffChk.datavalue,
+                    canChangeCompanySettings: currentItemWidgets.mgrChangeCompanySettingsChk.datavalue,
+                    canManagePositions: currentItemWidgets.mgrManagePositionsChk.datavalue,
+                    canManageTeamMembers: currentItemWidgets.mgrManageTeamMembersChk.datavalue,
+                    canApproveTrades: currentItemWidgets.mgrApproveTradesChk.datavalue,
+                    canReceiveManagerNotifications: currentItemWidgets.mgrNotificationsChk.datavalue
+                }
+            }
+        }
+    });
+};
+
+/**
+ * Callback invoked when wsUpdateAdditionalManagers succeeds.
+ */
+Page.wsUpdateAdditionalManagersonSuccess = function (variable, data) {
     App.Actions.appNotification.invoke({
-        message: 'Manager permissions saved.',
+        message: 'Manager updated successfully.',
         position: 'top center',
         class: 'success',
         duration: 3000
+    });
+    Page.Variables.wsGetAdditionalManagers.invoke();
+};
+
+/**
+ * Callback invoked when wsUpdateAdditionalManagers fails.
+ */
+Page.wsUpdateAdditionalManagersonError = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Failed to update manager. Please try again.',
+        position: 'top center',
+        class: 'error',
+        duration: 5000
     });
 };
 
