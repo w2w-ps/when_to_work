@@ -544,7 +544,7 @@
             "value" : "0 15px"
           },
           "min-width" : {
-            "value" : "auto"
+            "value" : "112px"
           },
           "height" : {
             "value" : "28px"
@@ -798,7 +798,7 @@
             "value" : "0 15px"
           },
           "min-width" : {
-            "value" : "auto"
+            "value" : "112px"
           },
           "height" : {
             "value" : "28px"
@@ -928,7 +928,7 @@
             "value" : "0 15px"
           },
           "min-width" : {
-            "value" : "auto"
+            "value" : "112px"
           },
           "height" : {
             "value" : "28px"
