@@ -439,6 +439,23 @@ wm-input[name="txtFind"].app-input-wrapper {
     color: white !important;
 }
 
+.modal-confirm-dialog::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--wm-modal-backdrop-z-index);
+    background:
+        color-mix(in srgb, var(--wm-modal-backdrop-background), transparent calc(100% - var(--wm-modal-backdrop-opacity)));
+}
+.modal-confirm-dialog .modal-content{
+    z-index: 999;
+}
+.py-font{
+    font-family: 'Open Sans';
+}
+
 
 /* responsive code starts */
 /* mobile */
