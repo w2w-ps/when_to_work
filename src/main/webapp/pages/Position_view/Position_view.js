@@ -21,3 +21,18 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+
+Page.formatDateDisplay = function (dateStr) {
+    if (!dateStr) {
+        return '';
+    }
+    const parsed = moment(dateStr, 'YYYY-MM-DD', true);
+    if (!parsed.isValid()) {
+        return dateStr;
+    }
+    return parsed.format('MMM-DD');
+};
+
+Page.changeLayoutAnchorClick = function ($event, widget) {
+    App.redirectTo('ConfigureByPositionView');
+};

@@ -1,11 +1,7 @@
 <wm-partial name="topnav" type="topnav">
-    <wm-container name="navbarWrapper" class="app-container-default" height="hug" width="fill" direction="column"
-        gap="0" alignment="top-left" on-load="navbarWrapperLoad($event, widget)">
+    <wm-container name="navbarWrapper" class="app-container-default" height="hug" width="fill" direction="column" gap="0" alignment="top-left" on-load="navbarWrapperLoad(widget)">
         <wm-navbar name="navbar1" show="true" class="w-100">
-            <wm-nav name="leftTopLinks" type="navbar" class="navbar-left"
-                dataset="bind:'Employee' === 'Employee' ? Variables.navItemListEmployee.dataSet : Variables.navItemList.dataSet"
-                layout="justified" showonhover="true" show="true" itemlabel="caption" itemlink="hyperlink"
-                itemhint="children" itemchildren="children"></wm-nav>
+            <wm-nav name="leftTopLinks" type="navbar" class="navbar-left" dataset="bind:Variables.loggedInUser.dataSet.roles.indexOf('Manager') > -1 ? Variables.navItemListManager.dataSet : Variables.navItemListEmployee.dataSet" layout="justified" showonhover="true" show="true" itemlabel="caption" itemlink="hyperlink" itemhint="children" itemchildren="children"></wm-nav>
         </wm-navbar>
     </wm-container>
 </wm-partial>

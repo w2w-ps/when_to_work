@@ -30,8 +30,8 @@
                     class="container-grey-standard" variant="grey-standard" padding="20px" wrap="false">
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container23"
                         class="app-container-default" variant="default">
-                        <wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday">
-                        </wm-prefab>
+                        <wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday"
+                            on-load="Weekview1Load($event, $data)"></wm-prefab>
                     </wm-container>
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container21"
                         class="app-container-default" variant="default">
@@ -63,7 +63,8 @@
                     <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container10"
                         class="app-container-default" variant="default">
                         <wm-button class="btn-purple-bg-primary" caption="DATE SPECIFIC" type="button" margin="unset"
-                            name="button1" variant="purple-bg-primary"></wm-button>
+                            name="button1" variant="purple-bg-primary"
+                            on-click="Actions.goToPage_emppreferencesmonth.invoke()"></wm-button>
                         <wm-label padding="unset" caption=" (or click date above)" class="label-label-14-700" type="p"
                             name="label4" variant="label-14-700"></wm-label>
                     </wm-container>

@@ -1,93 +1,109 @@
 <wm-page name="mainpage" pagetitle="Main">
-    <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav" navtype="rail" navheight="full"></wm-left-panel>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
-        <wm-header content="header" name="header" height="auto"></wm-header>
-        <wm-page-content columnwidth="10" name="mainContent">
-            <wm-icon name="icon1" variant="purple" iconclass="fa fa-diamond" class="purple"></wm-icon>
-            <wm-icon variant="purple" iconclass="fa fa-diamond" class="blue" name="icon2"></wm-icon>
-            <wm-icon variant="purple" iconclass="fa fa-diamond" class="orange" name="icon2"></wm-icon>
-
-            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container1"
-                class="app-container-default" variant="default" padding="12px unset">
-                <wm-table editmode="inline" statehandler="URL" name="supportedLocaleTable1_1" title=""
-                    dataset="bind:Variables.stvTableData.dataSet" navigation="None" class="striped-even"
-                    variant="striped-even" radioselect="false" multiselect="true" isrowselectable="true"
-                    on-headerclick="onTable1HeaderClick($event, widget, column)" enablesort="false" height="145px">
-                    <wm-table-column binding="name" caption="Name" widget-type="button" edit-widget-type="text"
-                        show="true" type="string" showineditmode="true" readonly="false">
-                        <wm-button caption="" show="true" class="btn-transparent-icon-btn"
-                            iconurl=" ./resources/images/imagelists/icon__fa-pencil.png" on-click="" conditionalclass=""
-                            conditionalstyle=""></wm-button>
-                    </wm-table-column>
-                    <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="start" caption="Start" edit-widget-type="text" show="true" type="string"
-                        showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="end" caption="End" edit-widget-type="text" show="true" type="string"
-                        showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="First Name" caption="First Name" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="Last Name" caption="Last Name" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="Comment" caption="Comment" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                </wm-table>
+        <wm-page-content columnwidth="12" name="mainContent">
+            <!-- Header Row: Logo | Company Info | Home label -->
+            <wm-container name="headerRow" class="app-container-default" direction="row" gap="16"
+                alignment="middle-left" width="fill" height="hug" padding="16px 0px">
+                <wm-container name="headerLogoCol" class="app-container-default" direction="column" gap="4"
+                    alignment="top-left" width="33%" height="hug">
+                    <wm-picture name="companyLogo" alttext="Company Logo"
+                        picturesource="resources/images/logos/when-to-work-logo.png" class="img-responsive">
+                    </wm-picture>
+                </wm-container>
+                <wm-container name="headerInfoCol" class="app-container-default" direction="column" gap="8"
+                    alignment="top-center" width="33%" height="hug">
+                    <wm-label name="companyNameLabel" caption="Sample Company" class="h2"></wm-label>
+                    <wm-label name="userNameLabel" caption="bind:Variables.loggedInUser.dataSet.name" class="h2">
+                    </wm-label>
+                    <wm-label name="homePageTitle" caption="Home" class="h2"></wm-label>
+                </wm-container>
             </wm-container>
-            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container2"
-                class="app-container-default" variant="default"></wm-container>
-            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container3"
-                class="app-container-default" variant="default" padding="12px unset">
-                <wm-table editmode="inline" statehandler="URL" title="" dataset="bind:Variables.stvTableData.dataSet"
-                    navigation="None" class="striped-even data-table-striped-even-large-header"
-                    variant="striped-even-large-header" radioselect="false" multiselect="true" isrowselectable="true"
-                    on-headerclick="onTable1HeaderClick($event, widget, column)" enablesort="false" height="245px"
-                    name="table2">
-                    <wm-table-column binding="name" caption="Name" widget-type="label" edit-widget-type="text"
-                        show="true" type="string" showineditmode="true" readonly="false">
-                        <wm-label caption="bind:row.getProperty('undefined')" class="" conditionalclass=""
-                            conditionalstyle=""></wm-label>
-                    </wm-table-column>
-                    <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="start" caption="Start" edit-widget-type="text" show="true" type="string"
-                        showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="end" caption="End" edit-widget-type="text" show="true" type="string"
-                        showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="First Name" caption="First Name" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="Last Name" caption="Last Name" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="Comment" caption="Comment" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                </wm-table>
-            </wm-container>
-            <wm-container direction="row" alignment="top-left" gap="4" width="fill" class="app-container-default"
-                variant="default" padding="12px unset" name="container4">
-                <wm-table editmode="inline" statehandler="URL" title="" dataset="bind:Variables.stvTableData.dataSet"
-                    navigation="None" class="striped-even data-table-striped-even-deleted-large-header"
-                    variant="striped-even-deleted-large-header" radioselect="false" multiselect="true"
-                    isrowselectable="true" on-headerclick="onTable1HeaderClick($event, widget, column)"
-                    enablesort="false" height="245px" name="table3">
-                    <wm-table-column binding="name" caption="Name" widget-type="label" edit-widget-type="text"
-                        show="true" type="string" showineditmode="true" readonly="false">
-                        <wm-label caption="bind:row.getProperty('undefined')" class="" conditionalclass=""
-                            conditionalstyle=""></wm-label>
-                    </wm-table-column>
-                    <wm-table-column binding="position" caption="Position" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="start" caption="Start" edit-widget-type="text" show="true" type="string"
-                        showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="end" caption="End" edit-widget-type="text" show="true" type="string"
-                        showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="First Name" caption="First Name" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="Last Name" caption="Last Name" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="Comment" caption="Comment" edit-widget-type="text" show="true"
-                        type="string" showineditmode="true" readonly="false"></wm-table-column>
-                </wm-table>
+            <!-- Main 3-Column Content Row -->
+            <wm-container name="mainContentRow" class="app-container-default" direction="row" gap="32"
+                alignment="top-left" width="fill" height="hug">
+                <!-- Left Column -->
+                <wm-container name="leftCol" class="app-container-default" direction="column" gap="16"
+                    alignment="top-left" width="30%" height="hug">
+                    <wm-container name="whatsNewCard" class="app-elevated-container" direction="column" gap="8"
+                        alignment="top-left" width="fill" height="hug" padding="16px">
+                        <wm-label name="whatsNewTitle" caption="What's New!" class="h2"></wm-label>
+                        <wm-label name="whatsNewMsg1" caption="8 new messages" class="label-text-14"></wm-label>
+                        <wm-label name="whatsNewMsg2" caption="9 trade offers awaiting manager approval"
+                            class="label-text-14"></wm-label>
+                        <wm-label name="whatsNewMsg3" caption="2 shifts picked up" class="label-text-14"></wm-label>
+                        <wm-label name="whatsNewMsg4" caption="1 time off approved" class="label-text-14"></wm-label>
+                    </wm-container>
+                    <wm-container name="connectCard" class="app-elevated-container" direction="column" gap="8"
+                        alignment="top-left" width="fill" height="hug" padding="16px">
+                        <wm-label name="connectTitle" caption="Connect" class="h2"></wm-label>
+                        <wm-label name="connectQuestion" caption="Questions about your schedule?"
+                            class="label-label-bold"></wm-label>
+                        <wm-anchor name="contactManagerLink" caption="Click here to contact your manager" hyperlink="#"
+                            class="anchor-standard-sm"></wm-anchor>
+                    </wm-container>
+                    <wm-container name="leftFooterLinks" class="app-container-default" direction="column" gap="4"
+                        alignment="top-center" width="fill" height="hug" padding="16px 0px">
+                        <wm-container name="footerLinksRow" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-center" width="fill" height="hug">
+                            <wm-anchor name="termsLink" caption="Terms of Service" hyperlink="#"
+                                class="anchor-standard-sm"></wm-anchor>
+                            <wm-label name="footerSep" caption="|"></wm-label>
+                            <wm-anchor name="privacyLink" caption="Privacy Policy" hyperlink="#"
+                                class="anchor-standard-sm"></wm-anchor>
+                        </wm-container>
+                        <wm-label name="lastUpdatedLabel" caption="Last updated: May 2018" class="label-p-sm">
+                        </wm-label>
+                    </wm-container>
+                </wm-container>
+                <!-- Center Column: Navigation Buttons -->
+                <wm-container name="centerCol" class="app-container-default" direction="column" gap="8"
+                    alignment="top-left" width="36%" height="hug">
+                    <wm-button name="btnMySchedule" caption="My Schedule"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnEveryonesSchedule" caption="Everyone's Schedule"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnChangeMyInfo" caption="Change My Information"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnChooseTimes" caption="Choose Times I Prefer to Work"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnRequestTimeOff" caption="Request Time Off"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnTradeboard" caption="Tradeboard - Pick Up Open Shifts"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnMessaging" caption="Messaging"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnSendMessage" caption="Send Message to My Manager"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnViewStaff" caption="View Staff List"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnWhoIsScheduled" caption="See Who Is Scheduled Right Now"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnBulletinBoard" caption="View Bulletin Board"
+                        class="btn-filled-bg-primary justify-content-start" width="fill"></wm-button>
+                    <wm-button name="btnSignOut" caption="Sign Out" class="btn-filled-bg-primary justify-content-start"
+                        width="fill" on-click="Actions.logoutAction.invoke()"></wm-button>
+                </wm-container>
+                <!-- Right Column: Next Shift + Notice -->
+                <wm-container name="rightCol" class="app-container-default" direction="column" gap="16"
+                    alignment="top-left" width="30%" height="hug">
+                    <wm-container name="nextShiftCard" direction="column" gap="8" alignment="top-left" width="fill"
+                        height="hug" padding="16px">
+                        <wm-label name="nextShiftTitle" caption="Next Shift" class="h2"></wm-label>
+                        <wm-label name="nextShiftMsg" caption="No shifts found in the next 30 days."
+                            class="label-label-bold"></wm-label>
+                    </wm-container>
+                    <wm-container name="noticeCard" direction="column" gap="8" alignment="top-left" width="fill"
+                        height="hug" padding="16px">
+                        <wm-label name="noticeTitle" caption="Notice" class="h2"></wm-label>
+                        <wm-label name="noticeLine1" caption="Don't forget to sign up for the free trip to"
+                            class="label-text-14"></wm-label>
+                        <wm-label name="noticeLine2" caption="Disneyland in July!" class="label-label-bold"></wm-label>
+                        <wm-label name="noticeLine3" caption="Bring the whole family." class="label-text-14"></wm-label>
+                    </wm-container>
+                </wm-container>
             </wm-container>
         </wm-page-content>
-        <wm-footer name="footer" content="footer"></wm-footer>
     </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>

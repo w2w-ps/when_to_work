@@ -77,8 +77,9 @@
                 <!-- Day Column Headers -->
                 <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79"
                     class="app-container-default" variant="default">
-                    <wm-anchor margin="unset 0.5em" name="anchor9" variant="standard" caption="Change Layout"
-                        iconclass="wm-sl-r sl-layout-two-columns"></wm-anchor>
+                    <wm-anchor margin="unset 0.5em" name="changeLayoutAnchor" variant="standard" caption="Change Layout"
+                        iconclass="wm-sl-r sl-layout-two-columns" on-click="changeLayoutAnchorClick($event, widget)">
+                    </wm-anchor>
                     <wm-button class="btn-actions-btn" caption="UNDO Drag / Drop" type="button" margin="unset"
                         name="button22" variant="actions-btn"></wm-button>
                 </wm-container>
@@ -111,8 +112,9 @@
                             <wm-container name="dateGroupHeaderRow" direction="row" alignment="start" gap="auto"
                                 width="fill" height="hug" class="date-group-header-row"
                                 show="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate">
-                                <wm-label name="lblDateGroupTitle" caption="bind:item.weekday + ' ' + item.date"
-                                    class="h6" width="fill" height="hug"></wm-label>
+                                <wm-label name="lblDateGroupTitle"
+                                    caption="bind:item.weekday + ' ' + formatDateDisplay(item.date)" class="h6"
+                                    width="fill" height="hug"></wm-label>
                                 <wm-container name="dateGroupSummary" direction="row" alignment="middle-right" gap="8"
                                     width="hug" height="hug" class="app-container-default">
                                     <wm-label name="lblDateShiftCount" caption="bind:item.shiftCount + ' shifts'"
@@ -130,7 +132,8 @@
                                     alignment="top-left" width="fill" height="hug">
                                     <!-- Position Sub-Group Header Row -->
                                     <wm-container name="positionGroupHeaderRow" direction="row" alignment="start"
-                                        gap="auto" width="fill" height="hug" class="position-group-header-row">
+                                        gap="auto" width="fill" height="hug" class="position-group-header-row"
+                                        show="bind:item.shiftCount &gt; 0">
                                         <wm-label name="lblPositionName" caption="bind:item.position" class="h6"
                                             width="fill" height="hug"></wm-label>
                                         <wm-container name="positionGroupSummary" direction="row"
@@ -147,7 +150,7 @@
                                     <!-- Shifts Inner List -->
                                     <wm-list name="shiftsInnerList" class="list-card" direction="column" gap="0"
                                         alignment="top-left" width="fill" height="hug" dataset="bind:item.shifts"
-                                        listclass="list-group">
+                                        listclass="list-group" show="bind:item.shifts.length &gt; 0">
                                         <wm-listtemplate name="shiftsInnerListTemplate" direction="row" gap="auto"
                                             alignment="start" width="fill" height="hug">
                                             <!-- Employee Color Dot -->
