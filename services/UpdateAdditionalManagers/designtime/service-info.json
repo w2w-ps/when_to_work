@@ -1,0 +1,6 @@
+{
+  "id" : "UpdateAdditionalManagers",
+  "type" : "RestService",
+  "title" : "UpdateAdditionalManagers",
+  "mockEnabled" : false
+}

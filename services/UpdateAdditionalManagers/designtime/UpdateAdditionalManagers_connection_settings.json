@@ -1,0 +1,30 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/managers/{id}",
+  "method" : "PUT",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyLjQ1NTEiLCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTc3NjQxNjc3MiwiZXhwIjoxNzc2NDE4NTcyfQ.bE31Xl5JsEc6jxVfsuJxJXCSD6AidR4rcoTiuiYhdk6XvBIE9Zzu3ZCcfDG89pWqU90Ng6DGzmP3k43zPXY8kdnCMysxfcaiIF0vQ_2NLSiY9G8H5gWrx_h0S6zMJqDLT_RVbYrk2xaWDRgJhoIh029H0HBwbawvXVbc2nQsp-ZUayr3jTYKF_qNYbZ8CNce3HWFpcz-dLydizL5YxCEMWrTfvwPup0iFP-Gi8nF5k2gsKGYvc4CzTtbGNR99tXiZvdyJegUu-0grFriiDhecJuBGVvQ1kwRINiy3iV8lTCU0KUbC4ywrPkhUAFdyq7SmqQ_XeoenKJV03LWTzWMeQ" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "{\n    \"firstName\": \"new\",\n    \"lastName\": \"patel\",\n    \"email\": \"santhsoshpatel@example.com\",\n    \"permissions\": {\n        \"canUploadShifts\": true,\n        \"canAutofillShifts\": true,\n        \"canClearSchedules\": true,\n        \"canEditShifts\": true,\n        \"canSaveTemplates\": true,\n        \"canPublishSchedules\": true,\n        \"canUnpublishSchedules\": true,\n        \"canManageCategories\": true,\n        \"canAddEmployees\": true,\n        \"canViewPayRates\": true,\n        \"canEditEmployees\": true,\n        \"canApproveTimeOff\": true,\n        \"canChangeCompanySettings\": true,\n        \"canManagePositions\": true,\n        \"canManageTeamMembers\": true,\n        \"canReceiveManagerNotifications\": true\n    }\n}",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Fri, 17 Apr 2026 09:06:48 GMT" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "",
+    "convertedResponse" : "{\"body\":{\"parsererror\":{\"h3\":[\"This page contains the following errors:\",\"Below is a rendering of the page up to the first error.\"],\"div\":{\"style\":\"font-family:monospace;font-size:12px\",\"__text\":\"error on line 1 at column 1: Document is empty\"},\"style\":\"display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black\"}}}"
+  }
+}
