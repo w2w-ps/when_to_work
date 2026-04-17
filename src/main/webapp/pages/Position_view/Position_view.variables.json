@@ -1,4 +1,20 @@
 {
+  "positionViewConfig" : {
+    "_id" : "wm-positionViewConfig-wm.Variable-1776421775742",
+    "name" : "positionViewConfig",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "screenShowDescription" : true,
+      "screenHidePositions" : true,
+      "screenShowDailyTotals" : true,
+      "screenShowPositionTotals" : true
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "svGetPositionViewScheduling" : {
     "_id" : "wm-svGetPositionViewScheduling-wm.ServiceVariable-1776246613205",
     "name" : "svGetPositionViewScheduling",

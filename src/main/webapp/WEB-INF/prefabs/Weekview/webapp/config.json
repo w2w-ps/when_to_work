@@ -48,5 +48,12 @@
       "showAt" : "",
       "disabled" : false
     }
+  },
+  "events" : {
+    "onDaterangechange" : {
+      "description" : "Callback action which will be triggered when date range change of the prefab.",
+      "eventData" : "",
+      "displayName" : "Daterangechange"
+    }
   }
 }
