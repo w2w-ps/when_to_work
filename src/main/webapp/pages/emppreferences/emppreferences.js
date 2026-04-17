@@ -14,6 +14,7 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
+
 };
 
 Page.WorkPreference1Click = function ($event) {
@@ -22,4 +23,7 @@ Page.WorkPreference1Click = function ($event) {
     setTimeout(() => {
         App.Actions.goToPage_emppreferencesday.invoke();
     }, 0);
+};
+Page.Weekview1Load = function ($event, $data) {
+    App.Variables.GetResolvedPreferences.invoke();
 };
