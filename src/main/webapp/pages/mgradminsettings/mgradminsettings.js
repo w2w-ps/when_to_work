@@ -119,12 +119,13 @@ Page.wsUpdateAdditionalManagersonError = function (variable, data) {
  * Delete the selected additional manager item.
  */
 Page.deleteMgrItem = function ($event, widget, item, currentItemWidgets) {
-    App.Actions.appNotification.invoke({
-        message: 'Manager deleted.',
-        position: 'top center',
-        class: 'success',
-        duration: 3000
+
+    Page.Variables.wsDeleteAdditionalManagers.invoke({
+        inputFields: {
+            id: item.userId
+        }
     });
+
 };
 
 /**
@@ -278,6 +279,23 @@ Page.svAddManageronError = function (variable, data) {
     App.Actions.appNotification.invoke({
         message: errorMessage,
         position: "top center",
+        class: 'error',
+        duration: 5000
+    });
+};
+Page.wsDeleteAdditionalManagersonSuccess = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Additional Manager deleted.',
+        position: 'top center',
+        class: 'success',
+        duration: 3000
+    });
+    Page.Variables.wsGetAdditionalManagers.invoke();
+
+}; Page.wsDeleteAdditionalManagersonError = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Failed to Delete manager. Please try again.',
+        position: 'top center',
         class: 'error',
         duration: 5000
     });
