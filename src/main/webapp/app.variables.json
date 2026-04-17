@@ -379,7 +379,7 @@
     "saveInPhonegap" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
-    "redirectTo" : "Login",
+    "redirectTo" : "SignIn",
     "useDefaultSuccessHandler" : true
   },
   "selectedpreference" : {
