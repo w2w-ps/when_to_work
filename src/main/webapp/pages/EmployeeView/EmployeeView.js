@@ -1325,6 +1325,5 @@ Page.anchor9Click = function ($event, widget) {
     //     'width=900,height=600,left=100,top=100'
     // );
 
-    let url = window.location.href.split('#')[0] + '#/ConfigureByEmployeeView';
-    window.open(url, 'ConfigureByEmployeeView', 'width=900,height=600,left=100,top=100');
+    App.redirectTo("ConfigureByEmployeeView");
 };

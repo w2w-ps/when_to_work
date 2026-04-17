@@ -3,91 +3,48 @@
         <wm-page-content columnwidth="10" name="pagecontent">
             <!-- Row 1: Blue Header Bar -->
             <!-- Row 2: Screen View Card -->
-            <wm-container direction="column" alignment="top-left" gap="16" width="fill" name="container11"
-                class="app-container-default" variant="default" wrap="false">
-                <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container12"
-                    class="app-container-default" variant="default">
-                    <wm-label name="pageTitle" caption="Configure &quot;List Weekly&quot; View"
-                        class="h4 text-center label-label-18-700" width="hug" height="hug" variant="label-18-700">
+            <wm-container direction="column" alignment="top-left" gap="16" width="fill" name="container11" class="app-container-default" variant="default" wrap="false">
+                <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container12" class="app-container-default" variant="default">
+                    <wm-label name="pageTitle" caption="Configure &quot;List Weekly&quot; View" class="h4 text-center label-label-18-700" width="hug" height="hug" variant="label-18-700">
                     </wm-label>
                 </wm-container>
-                <wm-container name="screenViewCard" class="container-grey-standard app-container-default"
-                    direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="16px 20px"
-                    variant="default">
-                    <wm-label name="screenViewTitle" caption="Screen View" class="label-label-20-700" width="hug"
-                        height="hug" variant="label-20-700"></wm-label>
-                    <wm-checkbox name="screenShowDescription" caption="Show description" class="checkbox-blue-check-14"
-                        datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                        variant="standard"></wm-checkbox>
-                    <wm-checkbox name="screenHidePositions" caption="Hide positions with no shifts"
-                        class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false"
-                        width="hug" height="hug" variant="standard"></wm-checkbox>
-                    <wm-checkbox name="screenShowDailyTotals" caption="Show daily totals" class="checkbox-blue-check-14"
-                        datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                        variant="standard"></wm-checkbox>
-                    <wm-checkbox name="screenShowPositionTotals" caption="Show position totals"
-                        class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false"
-                        width="hug" height="hug" variant="standard"></wm-checkbox>
-                    <wm-container name="screenNameFontRow" class="app-container-default" direction="row" gap="16"
-                        alignment="middle-left" width="fill" height="hug" variant="default">
-                        <wm-container name="screenNameCol" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="50%" height="hug" variant="default">
-                            <wm-label name="screenNameLabel" caption="Name" width="hug" height="hug"
-                                class="text-primary" variant="text:primary"></wm-label>
-                            <wm-select name="screenNameSelect" dataset="First Last, Last First" width="fill"
-                                height="hug" variant="standard"></wm-select>
+                <wm-container name="screenViewCard" class="container-grey-standard app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="16px 20px" variant="default">
+                    <wm-label name="screenViewTitle" caption="Screen View" class="label-label-20-700" width="hug" height="hug" variant="label-20-700"></wm-label>
+                    <wm-checkbox name="screenShowDescription" caption="Show description" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="screenHidePositions" caption="Hide positions with no shifts" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="screenShowDailyTotals" caption="Show daily totals" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="screenShowPositionTotals" caption="Show position totals" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-container name="screenNameFontRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug" variant="default">
+                        <wm-container name="screenNameCol" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="50%" height="hug" variant="default">
+                            <wm-label name="screenNameLabel" caption="Name" width="hug" height="hug" class="text-primary" variant="text:primary"></wm-label>
+                            <wm-select name="screenNameSelect" dataset="First Last, Last First" width="fill" height="hug" variant="standard"></wm-select>
                         </wm-container>
-                        <wm-container name="screenFontCol" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-right" width="50%" height="hug" variant="default">
-                            <wm-label name="screenFontLabel" caption="Font Size" width="hug" height="hug"
-                                class="text-primary" variant="text:primary"></wm-label>
-                            <wm-select name="screenFontSelect" dataset="Small, Medium, Large" width="fill" height="hug"
-                                variant="standard"></wm-select>
+                        <wm-container name="screenFontCol" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="50%" height="hug" variant="default">
+                            <wm-label name="screenFontLabel" caption="Font Size" width="hug" height="hug" class="text-primary" variant="text:primary"></wm-label>
+                            <wm-select name="screenFontSelect" dataset="Small, Medium, Large" width="fill" height="hug" variant="standard"></wm-select>
                         </wm-container>
                     </wm-container>
                 </wm-container>
-                <wm-container name="printoutCard" class="container-grey-standard app-container-default"
-                    direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="20px"
-                    variant="default">
-                    <wm-label name="printoutTitle" caption="Printout" class="h3 label-label-20-700" width="hug"
-                        height="hug" variant="label-20-700"></wm-label>
-                    <wm-checkbox name="printShowDescription" caption="Show description" class="checkbox-blue-check-14"
-                        datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                        variant="standard"></wm-checkbox>
-                    <wm-checkbox name="printHidePositions" caption="Hide positions with no shifts"
-                        class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false"
-                        width="hug" height="hug" variant="standard"></wm-checkbox>
-                    <wm-checkbox name="printHideUnassigned" caption="Hide unassigned shifts"
-                        class="checkbox-blue-check-14" datavalue="false" checkedvalue="true" uncheckedvalue="false"
-                        width="hug" height="hug" variant="standard"></wm-checkbox>
-                    <wm-checkbox name="printShowDailyTotals" caption="Show daily totals" class="checkbox-blue-check-14"
-                        datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                        variant="standard"></wm-checkbox>
-                    <wm-checkbox name="printShowPositionTotals" caption="Show position totals"
-                        class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false"
-                        width="hug" height="hug" variant="standard"></wm-checkbox>
-                    <wm-container name="printNameFontRow" class="app-container-default" direction="row" gap="16"
-                        alignment="middle-left" width="fill" height="hug" variant="default">
-                        <wm-container name="printNameCol" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-left" width="50%" height="hug" variant="default">
-                            <wm-label name="printNameLabel" caption="Name" width="hug" height="hug" class="text-primary"
-                                variant="text:primary"></wm-label>
-                            <wm-select name="printNameSelect" dataset="First Last, Last First" width="fill" height="hug"
-                                variant="standard"></wm-select>
+                <wm-container name="printoutCard" class="container-grey-standard app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="20px" variant="default">
+                    <wm-label name="printoutTitle" caption="Printout" class="h3 label-label-20-700" width="hug" height="hug" variant="label-20-700"></wm-label>
+                    <wm-checkbox name="printShowDescription" caption="Show description" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="printHidePositions" caption="Hide positions with no shifts" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="printHideUnassigned" caption="Hide unassigned shifts" class="checkbox-blue-check-14" datavalue="false" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="printShowDailyTotals" caption="Show daily totals" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-checkbox name="printShowPositionTotals" caption="Show position totals" class="checkbox-blue-check-14" datavalue="true" checkedvalue="true" uncheckedvalue="false" width="hug" height="hug" variant="standard"></wm-checkbox>
+                    <wm-container name="printNameFontRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug" variant="default">
+                        <wm-container name="printNameCol" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="50%" height="hug" variant="default">
+                            <wm-label name="printNameLabel" caption="Name" width="hug" height="hug" class="text-primary" variant="text:primary"></wm-label>
+                            <wm-select name="printNameSelect" dataset="First Last, Last First" width="fill" height="hug" variant="standard"></wm-select>
                         </wm-container>
-                        <wm-container name="printFontCol" class="app-container-default" direction="row" gap="8"
-                            alignment="middle-right" width="50%" height="hug" variant="default">
-                            <wm-label name="printFontLabel" caption="Font Size" width="hug" height="hug"
-                                class="text-primary" variant="text:primary"></wm-label>
-                            <wm-select name="printFontSelect" dataset="Small, Medium, Large" width="fill" height="hug"
-                                variant="standard"></wm-select>
+                        <wm-container name="printFontCol" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="50%" height="hug" variant="default">
+                            <wm-label name="printFontLabel" caption="Font Size" width="hug" height="hug" class="text-primary" variant="text:primary"></wm-label>
+                            <wm-select name="printFontSelect" dataset="Small, Medium, Large" width="fill" height="hug" variant="standard"></wm-select>
                         </wm-container>
                     </wm-container>
                 </wm-container>
-                <wm-container name="saveActionRow" class="app-container-default" direction="row" gap="8"
-                    alignment="middle-center" width="fill" height="hug" padding="unset 0px" variant="default">
-                    <wm-button name="saveBtn" caption="Save" width="hug" height="hug" variant="outlined-primary"
-                        class="btn-default btn-outlined-primary"></wm-button>
+                <wm-container name="saveActionRow" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug" padding="unset 0px" variant="default">
+                    <wm-button name="saveBtn" caption="Save" width="hug" height="hug" variant="outlined-primary" class="btn-default btn-outlined-primary" on-click="saveBtnClick($event, widget)"></wm-button>
                 </wm-container>
             </wm-container>
             <!-- Row 3: Printout Card -->
