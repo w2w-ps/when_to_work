@@ -1,0 +1,173 @@
+{
+  "basePath" : "${rest.getAdditionalManagers.basepath}",
+  "paths" : {
+    "/managers/additional-managers" : {
+      "x-WM-BASE_PATH" : "/managers/additional-managers",
+      "x-WM-TAG" : "getAdditionalManagers",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getAdditionalManagers_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "x-WM-IS_LIST" : true,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              }
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "getAdditionalManagers" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getAdditionalManagers.scheme}://${rest.getAdditionalManagers.host}${rest.getAdditionalManagers.basepath}/managers/additional-managers"
+    }
+  },
+  "host" : "${rest.getAdditionalManagers.host}",
+  "schemes" : [ "${rest.getAdditionalManagers.scheme}" ],
+  "definitions" : {
+    "Response.permissions" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getAdditionalManagers.Response.permissions",
+      "x-WM-TAGS" : [ "getAdditionalManagers" ],
+      "required" : [ "canAddEmployees", "canAddShifts", "canApproveTimeOff", "canApproveTrades", "canAutofillShifts", "canChangeCompanySettings", "canClearSchedules", "canEditEmployees", "canEditShifts", "canImportTemplates", "canManageCategories", "canManagePositions", "canManageTeamMembers", "canPublishSchedules", "canReceiveManagerNotifications", "canSaveTemplates", "canUnpublishSchedules", "canUploadShifts", "canViewPayRates", "isMainManager" ],
+      "properties" : {
+        "canPublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canApproveTrades" : {
+          "type" : "boolean"
+        },
+        "canEditEmployees" : {
+          "type" : "boolean"
+        },
+        "canUnpublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canEditShifts" : {
+          "type" : "boolean"
+        },
+        "canAddEmployees" : {
+          "type" : "boolean"
+        },
+        "canAutofillShifts" : {
+          "type" : "boolean"
+        },
+        "canChangeCompanySettings" : {
+          "type" : "boolean"
+        },
+        "canManageTeamMembers" : {
+          "type" : "boolean"
+        },
+        "canUploadShifts" : {
+          "type" : "boolean"
+        },
+        "canSaveTemplates" : {
+          "type" : "boolean"
+        },
+        "canApproveTimeOff" : {
+          "type" : "boolean"
+        },
+        "isMainManager" : {
+          "type" : "boolean"
+        },
+        "canAddShifts" : {
+          "type" : "boolean"
+        },
+        "canImportTemplates" : {
+          "type" : "boolean"
+        },
+        "canViewPayRates" : {
+          "type" : "boolean"
+        },
+        "canManageCategories" : {
+          "type" : "boolean"
+        },
+        "canReceiveManagerNotifications" : {
+          "type" : "boolean"
+        },
+        "canManagePositions" : {
+          "type" : "boolean"
+        },
+        "canClearSchedules" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Response.RootResponseROOTEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getAdditionalManagers.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "getAdditionalManagers" ],
+      "required" : [ "email", "firstName", "lastName", "lastSignIn", "permissions", "roleName", "userId" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "lastSignIn" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "$ref" : "#/definitions/Response.permissions"
+        },
+        "roleName" : {
+          "type" : "string"
+        },
+        "userId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getAdditionalManagers.RootResponse",
+      "x-WM-TAGS" : [ "getAdditionalManagers" ],
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "abb36d9b-e6c7-4397-b088-b63659dd4cc9",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getAdditionalManagers"
+  } ]
+}
