@@ -26,3 +26,37 @@ Page.viewRowClick = function ($event, widget) {
 Page.editRowClick = function ($event, widget) {
     Page.Actions.goToPage_Mgrempedit.invoke();
 };
+
+/* Handler for search1 on-submit — filters employeeTable rows by search term across all fields except employeePhoto */
+Page.search1Change = function ($event, widget, newVal, oldVal) {
+    var fullDataSet = Page.Variables.wsGetEmployeeDetails.dataSet;
+    var term = (newVal || '').toString().trim().toLowerCase();
+    var excludedFields = ['employeePhoto'];
+
+    if (!term) {
+        Page.Widgets.employeeTable.dataset = fullDataSet;
+        return;
+    }
+
+    var filtered = _.filter(fullDataSet, function (row) {
+        return _.some(_.keys(row), function (key) {
+            if (excludedFields.indexOf(key) !== -1) {
+                return false;
+            }
+            var val = row[key];
+            if (val === null || val === undefined) {
+                return false;
+            }
+            if (typeof val === 'object') {
+                return _.some(_.values(val), function (nestedVal) {
+                    return nestedVal !== null &&
+                        nestedVal !== undefined &&
+                        nestedVal.toString().toLowerCase().indexOf(term) !== -1;
+                });
+            }
+            return val.toString().toLowerCase().indexOf(term) !== -1;
+        });
+    });
+
+    Page.Widgets.employeeTable.dataset = filtered;
+};
