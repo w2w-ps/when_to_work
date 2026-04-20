@@ -19,11 +19,17 @@ Page.onReady = function () {
 
 Page.WorkPreference1Click = function ($event) {
     App.Variables.selectedpreference.dataSet = $event;
-
     setTimeout(() => {
-        App.Actions.goToPage_emppreferencesday.invoke();
+        App.redirectTo('emppreferencesday');
     }, 0);
 };
-Page.Weekview1Load = function ($event, $data) {
-    App.Variables.GetResolvedPreferences.invoke();
+
+Page.Weekview1Daterangechange = function ($event, $data) {
+    Page.Variables.GetResolvedPreferences.invoke();
+};
+Page.button1Click = function ($event, widget) {
+    App.redirectTo('emppreferencesmonth');
+};
+Page.button2Click = function ($event, widget) {
+    App.redirectTo('emppreferencesrepeat');
 };
