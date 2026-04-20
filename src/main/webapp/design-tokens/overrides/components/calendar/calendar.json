@@ -1,0 +1,91 @@
+{
+  "calendar" : {
+    "mapping" : {
+      "background" : {
+        "value" : "{color.white.@.value}"
+      },
+      "border" : {
+        "color" : {
+          "value" : "#aaaaaaff"
+        },
+        "width" : {
+          "value" : "0px 0px 1px 0px"
+        }
+      },
+      "button" : {
+        "active" : {
+          "background" : {
+            "value" : "{color.white.@.value}"
+          },
+          "color" : {
+            "value" : "#2c467c"
+          }
+        },
+        "background" : {
+          "value" : "{color.white.@.value}"
+        },
+        "border-color" : {
+          "value" : "{color.transparent.value}"
+        },
+        "color" : {
+          "value" : "#2c467c"
+        },
+        "font-family" : {
+          "value" : "Tahoma"
+        },
+        "font-size" : {
+          "value" : "16px"
+        }
+      },
+      "date" : {
+        "color" : {
+          "value" : "#2c467c"
+        },
+        "today" : {
+          "background" : {
+            "value" : "{color.white.@.value}"
+          },
+          "text" : {
+            "color" : {
+              "value" : "#2c467c"
+            }
+          }
+        },
+        "padding" : {
+          "value" : "{space.1.value}"
+        },
+        "font-family" : {
+          "value" : "Tahoma"
+        },
+        "font-size" : {
+          "value" : "16px"
+        }
+      },
+      "header" : {
+        "color" : {
+          "value" : "#98a6c4"
+        },
+        "font-size" : {
+          "value" : "14px"
+        },
+        "font-weight" : {
+          "value" : "{font.weight.700.value}"
+        }
+      },
+      "toolbar-title" : {
+        "font-size" : {
+          "value" : "20px"
+        },
+        "font-weight" : {
+          "value" : "{font.weight.400.value}"
+        },
+        "font-family" : {
+          "value" : "Tahoma"
+        },
+        "letter-spacing" : {
+          "value" : "0"
+        }
+      }
+    }
+  }
+}
