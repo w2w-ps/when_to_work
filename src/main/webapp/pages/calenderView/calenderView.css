@@ -1,0 +1,95 @@
+.cal-header-row {
+  border-bottom: 2px solid #333;
+  background: #fff;
+}
+
+.cal-header-cell {
+  flex: 1;
+  text-align: center;
+  padding: 8px 4px;
+  font-weight: 600;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.cal-header-label {
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+}
+
+.cal-week-row {
+  border-bottom: 1px solid #ccc;
+}
+
+.cal-day-cell {
+  width: 14.2857% !important;
+  min-width: 14.2857% !important;
+  max-width: 14.2857% !important;
+  box-sizing: border-box !important;
+  border: 1px solid #e0e0e0;
+  min-height: 100px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.cal-day-num {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.cal-pos-block {
+  margin-bottom: 4px;
+  background: #f0f0f8;
+  border-radius: 2px;
+  padding: 2px 4px;
+}
+
+
+
+
+.cal-emp-row {
+  padding: 1px 0;
+}
+
+
+.cal-emp-anchor {
+  font-size: 11px;
+  color: #222;
+}
+
+.cal-weeks-list {
+  width: 100%;
+}
+
+.cal-pos-list {
+  width: 100%;
+}
+
+.cal-emp-list {
+  width: 100%;
+}
+
+
+
+.cal-day-slots-listgroup {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+.cal-day-slot-item {
+  width: 14.2857% !important;
+  min-width: 14.2857% !important;
+  max-width: 14.2857% !important;
+  box-sizing: border-box !important;
+  border: 1px solid black !important;
+  min-height: 100px;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}

@@ -59,6 +59,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "calenderView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "dialogViewTopNav",
   "type" : "TOPNAV",
   "params" : [ ]
@@ -99,6 +103,10 @@
   "params" : [ ]
 }, {
   "name" : "mgradminsettings",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrschedulecfgmonth",
   "type" : "PAGE",
   "params" : [ ]
 }, {
