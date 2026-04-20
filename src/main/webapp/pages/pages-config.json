@@ -102,6 +102,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "mgrschedulecfgmonth",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "monthlyView",
   "type" : "PARTIAL",
   "params" : [ ]

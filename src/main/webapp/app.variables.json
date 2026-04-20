@@ -253,6 +253,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgrschedulecfgmonth" : {
+    "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776665125736",
+    "name" : "goToPage_mgrschedulecfgmonth",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrschedulecfgmonth",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_monthlyView" : {
     "_id" : "wm-goToPage_monthlyView-wm.NavigationAction-1776232179086",
     "name" : "goToPage_monthlyView",

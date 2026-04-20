@@ -25,7 +25,7 @@
 <wm-container direction="column" alignment="middle-center" gap="0" width="fill" height="hug" name="hdrSat" class="cal-header-cell app-container-default" variant="default" clipcontent="false" overflow="none" wrap="false">
 <wm-label caption="Saturday" name="lblHdrSat" class="cal-header-label app-label"></wm-label></wm-container></wm-container>
 <!-- Weeks list: each item is a week row with 7 day slots -->
-<wm-list name="daySlotsList" dataset="bind:calendarDaySlots" class="cal-day-slots-list" listclass="cal-day-slots-listgroup" direction="row" gap="0" alignment="top-left" width="fill" height="hug" wrap="true" itemclass="cal-day-slot-item" variant="standard">
+<wm-list name="daySlotsList" dataset="bind:calendarDaySlots" class="cal-day-slots-list list-card pl-2" listclass="cal-day-slots-listgroup" direction="row" gap="0" alignment="top-left" width="fill" height="hug" wrap="true" itemclass="cal-day-slot-item" variant="standard">
 <wm-listtemplate name="daySlotTemplate" direction="column" gap="0" alignment="middle-center" width="fill" height="hug" class="daySlotTemplate">
 <wm-label caption="bind:item.dayNum" name="lblDayNum" class="cal-day-num label-label-16-700-Arial" show="bind:item.hasDate" variant="label-16-700-Arial"></wm-label>
 <wm-list name="posListDay" dataset="bind:item.positions" class="cal-pos-list" listclass="list-group" direction="column" gap="0" alignment="top-left" width="fill" height="hug" show="bind:item.hasDate">
@@ -35,5 +35,5 @@
 <wm-label caption="bind:item.timeRange" name="lblTimeRange" class="label-label-12-400" variant="label-12-400"></wm-label>
 <wm-list name="empListDay" dataset="bind:item.employees" class="cal-emp-list" listclass="list-group" direction="column" gap="0" alignment="top-left" width="fill" height="hug">
 <wm-listtemplate name="empListDayTpl" direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
-<wm-icon name="iconEmpDay" iconclass="fa fa-circle" class="icon-icon-14" variant="icon-14"></wm-icon>
+<wm-icon name="iconEmpDay" iconclass="fa fa-diamond" variant="purple" class="orange"></wm-icon>
 <wm-anchor caption="bind:item.employeeName" name="anchorEmpDay" variant="standard"></wm-anchor></wm-listtemplate></wm-list></wm-listtemplate></wm-list></wm-listtemplate></wm-list></wm-container></wm-container></wm-page-content></wm-content></wm-page>

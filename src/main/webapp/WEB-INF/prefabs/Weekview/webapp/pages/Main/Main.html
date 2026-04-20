@@ -1,38 +1,86 @@
 <wm-prefab-container name="prefab_container1">
-<wm-container name="weekNavigationContainer" class="app-container-default week-nav-hover-container p-0 bg-grey" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-container name="previousWeeksContainer" class="app-container-default nav-buttons-hidden" direction="row" gap="0" alignment="middle-left" width="fill" height="hug" clipcontent="false">
-<wm-button name="btnPrevious6Week" caption="-6" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(-6)" variant="button-small"></wm-button>
-<wm-button name="btnPrevious5Week" caption="-5" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(-5)" variant="button-small"></wm-button>
-<wm-button name="btnPrevious4Week" caption="-4" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(-4)" variant="button-small"></wm-button>
-<wm-button name="btnPrevious3Week" caption="-3" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(-3)" variant="button-small"></wm-button>
-<wm-button name="btnPrevious2Week" caption="-2" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(-2)" variant="button-small"></wm-button>
-<wm-button name="btnPrevious1Week" caption="-1" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(-1)" variant="button-small"></wm-button></wm-container>
-<!-- Existing Single Previous Button -->
-<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container40" class="app-container-default align-items-baseline" variant="default" padding="unset unset 2px unset">
-<wm-button name="btnPreviousWeek" caption="" iconclass="" class="btn-transparent p-0" on-click="previousWeek()" variant="transparent" iconurl="resources/images/imagelists/icon___fa-caret-left.png" iconwidth="24px"></wm-button>
-<wm-container name="weekLabelContainer" class="app-container-default" direction="row" gap="4" alignment="middle-center" width="hug" height="hug" variant="default" on-click="weekLabelContainerClick($event, widget)">
-<wm-label name="lblWeekRange" caption="bind:Variables.currentWeekVar.dataSet.weekLabel" class="label-label-14-700" variant="week-label"></wm-label>
-<wm-picture resizemode="cover" name="picture3" class="img-rounded top-4" variant="default:rounded" picturesource="resources/images/imagelists/icon___fa-calendar-check-o.png" width="20px"></wm-picture>
-<wm-picture resizemode="cover" class="img-rounded top-4" variant="default:rounded" name="picture4" picturesource="./resources/images/imagelists/icon__fa-calendar.png" width="20px"></wm-picture></wm-container>
-<wm-calendar name="weekPickerCalendar" show="false" selectionmode="single" view="month" controls="navigation" class="week-picker-calendar" on-select="weekPickerCalendarSelect($start, $end, $view, $data)" width="50%"></wm-calendar>
-<wm-button name="btnNextWeek" caption="" iconclass="" class="btn-transparent p-0" on-click="nextWeek()" variant="transparent" iconurl="resources/images/imagelists/icon___fa-caret-right.png" iconwidth="24px"></wm-button></wm-container>
-<!-- Week Label Container (Hover Target) -->
-<!-- Existing Single Next Button -->
-<!-- Next Week Buttons Container -->
-<wm-container name="nextWeeksContainer" class="app-container-default nav-buttons-hidden" direction="row" gap="0" alignment="middle-right" width="hug" height="hug">
-<wm-button name="btnNext1Week" caption="+1" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(1)" variant="button-small"></wm-button>
-<wm-button name="btnNext2Week" caption="+2" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(2)" variant="button-small"></wm-button>
-<wm-button name="btnNext3Week" caption="+3" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(3)" variant="button-small"></wm-button>
-<wm-button name="btnNext4Week" caption="+4" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(4)" variant="button-small"></wm-button>
-<wm-button name="btnNext5Week" caption="+5" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(5)" variant="button-small"></wm-button>
-<wm-button name="btnNext6Week" caption="+6" class="btn-transparent btn-sm btn-button-small" on-click="navigateToWeekOffset(6)" variant="button-small"></wm-button></wm-container></wm-container>
-<wm-container name="container6" show="bind:viewParent.activePageName === &quot;Position_view&quot;">
-<wm-tabs type="static" statehandler="URL" name="tabs1" defaultpaneindex="7" on-change="tabs1Change($event, widget, newPaneIndex, oldPaneIndex)">
-<wm-tabpane title="bind:selectedweekdataset.mondayDate.split(&quot; &quot;)[1]" name="mon_tabpane"></wm-tabpane>
-<wm-tabpane title="bind:selectedweekdataset.tuesdayDate.split(&quot; &quot;)[1]" name="tue_tabpane"></wm-tabpane>
-<wm-tabpane title="bind:selectedweekdataset.wednesdayDate.split(&quot; &quot;)[1]" name="wed_tabpane"></wm-tabpane>
-<wm-tabpane title="bind:selectedweekdataset.thursdayDate.split(&quot; &quot;)[1]" name="thur_tabpane"></wm-tabpane>
-<wm-tabpane title="bind:selectedweekdataset.fridayDate.split(&quot; &quot;)[1]" name="fri_tabpane"></wm-tabpane>
-<wm-tabpane title="bind:selectedweekdataset.saturdayDate.split(&quot; &quot;)[1]" name="sat_tabpane"></wm-tabpane>
-<wm-tabpane title="bind:selectedweekdataset.sundayDate.split(&quot; &quot;)[1]" name="sun_tabpane"></wm-tabpane>
-<wm-tabpane title="Weekly" name="tabpane8_1"></wm-tabpane></wm-tabs></wm-container></wm-prefab-container>
+    <wm-container name="weekNavigationContainer" class="app-container-default week-nav-hover-container p-0 bg-grey"
+        direction="row" gap="auto" alignment="center" width="fill" height="hug">
+        <wm-container name="previousWeeksContainer" class="app-container-default nav-buttons-hidden" direction="row"
+            gap="0" alignment="middle-left" width="fill" height="hug" clipcontent="false">
+            <wm-button name="btnPrevious6Week" caption="-6" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(-6)" variant="button-small"></wm-button>
+            <wm-button name="btnPrevious5Week" caption="-5" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(-5)" variant="button-small"></wm-button>
+            <wm-button name="btnPrevious4Week" caption="-4" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(-4)" variant="button-small"></wm-button>
+            <wm-button name="btnPrevious3Week" caption="-3" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(-3)" variant="button-small"></wm-button>
+            <wm-button name="btnPrevious2Week" caption="-2" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(-2)" variant="button-small"></wm-button>
+            <wm-button name="btnPrevious1Week" caption="-1" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(-1)" variant="button-small"></wm-button>
+        </wm-container>
+        <!-- Existing Single Previous Button -->
+        <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container40"
+            class="app-container-default align-items-baseline" variant="default" padding="unset unset 2px unset">
+            <wm-button name="btnPreviousWeek" caption="" iconclass="" class="btn-transparent p-0"
+                on-click="previousWeek()" variant="transparent"
+                iconurl="resources/images/imagelists/icon___fa-caret-left.png" iconwidth="24px"></wm-button>
+            <wm-container name="weekLabelContainer" class="app-container-default" direction="row" gap="4"
+                alignment="middle-center" width="hug" height="hug" variant="default"
+                on-click="weekLabelContainerClick($event, widget)">
+                <wm-label name="lblWeekRange" caption="bind:Variables.currentWeekVar.dataSet.weekLabel"
+                    class="label-label-14-700" variant="week-label"></wm-label>
+                <wm-picture resizemode="cover" name="picture3" class="img-rounded top-4" variant="default:rounded"
+                    picturesource="resources/images/imagelists/icon___fa-calendar-check-o.png" width="20px">
+                </wm-picture>
+                <wm-picture resizemode="cover" class="img-rounded top-4" variant="default:rounded" name="picture4"
+                    picturesource="./resources/images/imagelists/icon__fa-calendar.png" width="20px"></wm-picture>
+            </wm-container>
+            <wm-calendar name="weekPickerCalendar" show="false" selectionmode="single" view="month"
+                controls="navigation" class="week-picker-calendar"
+                on-select="weekPickerCalendarSelect($start, $end, $view, $data)" width="50%"></wm-calendar>
+            <wm-button name="btnNextWeek" caption="" iconclass="" class="btn-transparent p-0" on-click="nextWeek()"
+                variant="transparent" iconurl="resources/images/imagelists/icon___fa-caret-right.png" iconwidth="24px">
+            </wm-button>
+        </wm-container>
+        <!-- Week Label Container (Hover Target) -->
+        <!-- Existing Single Next Button -->
+        <!-- Next Week Buttons Container -->
+        <wm-container name="nextWeeksContainer" class="app-container-default nav-buttons-hidden" direction="row" gap="0"
+            alignment="middle-right" width="hug" height="hug">
+            <wm-button name="btnNext1Week" caption="+1" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(1)" variant="button-small"></wm-button>
+            <wm-button name="btnNext2Week" caption="+2" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(2)" variant="button-small"></wm-button>
+            <wm-button name="btnNext3Week" caption="+3" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(3)" variant="button-small"></wm-button>
+            <wm-button name="btnNext4Week" caption="+4" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(4)" variant="button-small"></wm-button>
+            <wm-button name="btnNext5Week" caption="+5" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(5)" variant="button-small"></wm-button>
+            <wm-button name="btnNext6Week" caption="+6" class="btn-transparent btn-sm btn-button-small"
+                on-click="navigateToWeekOffset(6)" variant="button-small"></wm-button>
+        </wm-container>
+    </wm-container>
+    <wm-container name="container6" show="bind:viewParent.activePageName === &quot;Position_view&quot;  || viewParent.activePageName === &quot;calenderView&quot;
+">
+        <wm-tabs type="static" statehandler="URL" name="tabs1"
+            defaultpaneindex="bind:viewParent.activePageName === &quot;calenderView&quot; ? 8 : 7"
+            on-change="tabs1Change($event, widget, newPaneIndex, oldPaneIndex)">
+            <wm-tabpane title="bind:selectedweekdataset.mondayDate.split(&quot; &quot;)[1]" name="mon_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="bind:selectedweekdataset.tuesdayDate.split(&quot; &quot;)[1]" name="tue_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="bind:selectedweekdataset.wednesdayDate.split(&quot; &quot;)[1]" name="wed_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="bind:selectedweekdataset.thursdayDate.split(&quot; &quot;)[1]" name="thur_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="bind:selectedweekdataset.fridayDate.split(&quot; &quot;)[1]" name="fri_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="bind:selectedweekdataset.saturdayDate.split(&quot; &quot;)[1]" name="sat_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="bind:selectedweekdataset.sundayDate.split(&quot; &quot;)[1]" name="sun_tabpane">
+            </wm-tabpane>
+            <wm-tabpane title="Weekly" name="tabpane8_1"></wm-tabpane>
+            <wm-tabpane title="MONTHLY" name="tabpane9"
+                show="bind:viewParent.activePageName === &quot;calenderView&quot;"></wm-tabpane>
+        </wm-tabs>
+    </wm-container>
+</wm-prefab-container>
