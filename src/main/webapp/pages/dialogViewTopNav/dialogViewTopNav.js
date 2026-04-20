@@ -16,7 +16,5 @@ Partial.onReady = function () {
      */
 };
 Partial.anchor1Click = function ($event, widget) {
-    window.history.back();
+    window.close();
 };
-
-

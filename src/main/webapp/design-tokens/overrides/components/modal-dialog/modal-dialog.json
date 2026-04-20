@@ -293,10 +293,10 @@
           },
           "backdrop" : {
             "opacity" : {
-              "value" : "0"
+              "value" : "50%"
             },
             "background" : {
-              "value" : "{color.transparent.value}"
+              "value" : "{color.scrim.@.value}"
             },
             "z-index" : {
               "value" : "999"
@@ -315,7 +315,7 @@
             "value" : "{color.white.@.value}"
           },
           "radius" : {
-            "value" : "{radius.lg.value}"
+            "value" : "5px"
           },
           "header" : {
             "padding" : {

@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/managers/additional-managers",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyLjQ1NTEiLCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTc3NjQwODc5OCwiZXhwIjoxNzc2NDEwNTk4fQ.KwlsBnnHNcZtEi8mv8ZgCE6_6JkWbO5L02LQlKqV_bz4-3KHgCb-xvUUaA9tjlgbxinrtg-nuo5BpLAs40XLsf-I9AZdIF4gbPziaotiLr2_i6wD913aZcd4CR5GqCYZGHZZfhVBX6oiiy0gpOweO9Q5omO6LQf1lYHrxiRySKLzdyckEr6TghzCPykDhS2CaZhuaiE1tXySF2qAOGOjbgNlxWHBEciT-8TPfHS6RNBN6DdOyZ2rw3f_8e7rL9X67CABopf7mc5m28KZ5RH02Fd_c62wY1Gg884dsiJx5VyrbWoXc0HWwrDqBAwdy8d9zwJ-6b0FgpHvDA9ltzDFfA" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Fri, 17 Apr 2026 06:55:41 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "[{\"userId\":14563,\"firstName\":\"Betty\",\"lastName\":\"Robinson\",\"email\":\"betty.robinson4556@example.com\",\"lastSignIn\":null,\"roleName\":\"AddManager\",\"permissions\":{\"isMainManager\":false,\"canAddShifts\":false,\"canImportTemplates\":false,\"canUploadShifts\":false,\"canAutofillShifts\":false,\"canClearSchedules\":false,\"canEditShifts\":false,\"canSaveTemplates\":false,\"canPublishSchedules\":false,\"canUnpublishSchedules\":false,\"canManageCategories\":false,\"canAddEmployees\":false,\"canViewPayRates\":false,\"canEditEmployees\":false,\"canApproveTrades\":false,\"canApproveTimeOff\":false,\"canChangeCompanySettings\":false,\"canManagePositions\":false,\"canManageTeamMembers\":false,\"canReceiveManagerNotifications\":true}}]",
+    "convertedResponse" : null
+  }
+}

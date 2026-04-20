@@ -5,21 +5,133 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    /*
-     * variables can be accessed through 'Page.Variables' property here
-     * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
-     * Page.Variables.loggedInUser.getData()
-     *
-     * widgets can be accessed through 'Page.Widgets' property here
-     * e.g. to get value of text widget named 'username' use following script
-     * 'Page.Widgets.username.datavalue'
-     */
+    // Initialize the Additional Managers section as EXPANDED by default
+    Page.additionalManagersExpanded = true;
+
+    // Update chevron icon to show up-arrow (expanded state)
+    // Page.Widgets.iconAdditionalManagers.iconclass = 'wi wi-keyboard-arrow-up';
+
+    // Fetch additional managers data on page load
+    Page.Variables.wsGetAdditionalManagers.invoke();
+
+    // Initialize selected manager tracker to null (no item expanded)
+    Page.Variables.selectedManagerId.setData({ dataValue: 0 });
+};
+
+/**
+ * Toggle the Additional Managers collapsible section.
+ */
+Page.toggleAdditionalManagers = function ($event, widget) {
+    Page.additionalManagersExpanded = !Page.additionalManagersExpanded;
+
+    // Page.Widgets.iconAdditionalManagers.iconclass = Page.additionalManagersExpanded
+    //     ? 'wi wi-keyboard-arrow-up'
+    //     : 'wi wi-keyboard-arrow-down';
+
+    if (Page.additionalManagersExpanded) {
+        var existing = Page.Variables.wsGetAdditionalManagers.dataSet;
+        if (!existing || (Array.isArray(existing) && existing.length === 0)) {
+            Page.Variables.wsGetAdditionalManagers.invoke();
+        }
+    }
+};
+
+/**
+ * Select/deselect an additional manager list item to show/hide inline detail.
+ * Clicking the same item again collapses it.
+ */
+Page.selectAdditionalManager = function ($event, widget, item, currentItemWidgets) {
+    var currentItem = item || (widget && widget.currentItem);
+    if (!currentItem) { return; }
+    var userId = currentItem.userId;
+    var currentSelected = Page.Variables.selectedManagerId.dataSet.dataValue;
+
+    if (currentSelected === userId) {
+        Page.Variables.selectedManagerId.setData({ dataValue: 0 });
+    } else {
+        Page.Variables.selectedManagerId.setData({ dataValue: userId });
+    }
+};
+
+/**
+ * Save permissions for the selected additional manager.
+ * Reads per-item widget values from currentItemWidgets and invokes the update API.
+ */
+Page.saveMgrPermissions = function ($event, widget, item, currentItemWidgets) {
+    Page.Variables.wsUpdateAdditionalManagers.invoke({
+        inputFields: {
+            id: item.userId,
+            RequestBody: {
+                firstName: currentItemWidgets.mgrFirstNameInput.datavalue,
+                lastName: currentItemWidgets.mgrLastNameInput.datavalue,
+                email: item.email,
+                permissions: {
+                    canAddShifts: currentItemWidgets.mgrAddShiftsChk.datavalue,
+                    canImportTemplates: currentItemWidgets.mgrImportTemplatesChk.datavalue,
+                    canUploadShifts: currentItemWidgets.mgrUploadShiftsChk.datavalue,
+                    canAutofillShifts: currentItemWidgets.mgrAutofillShiftsChk.datavalue,
+                    canClearSchedules: currentItemWidgets.mgrClearSchedulesChk.datavalue,
+                    canEditShifts: currentItemWidgets.mgrEditShiftsChk.datavalue,
+                    canSaveTemplates: currentItemWidgets.mgrSaveTemplatesChk.datavalue,
+                    canPublishSchedules: currentItemWidgets.mgrPublishSchedulesChk.datavalue,
+                    canUnpublishSchedules: currentItemWidgets.mgrUnpublishSchedulesChk.datavalue,
+                    canManageCategories: currentItemWidgets.mgrManageCategoriesChk.datavalue,
+                    canAddEmployees: currentItemWidgets.mgrAddEmployeesChk.datavalue,
+                    canViewPayRates: currentItemWidgets.mgrViewPayRatesChk.datavalue,
+                    canApproveTimeOff: currentItemWidgets.mgrApproveTimeOffChk.datavalue,
+                    canChangeCompanySettings: currentItemWidgets.mgrChangeCompanySettingsChk.datavalue,
+                    canManagePositions: currentItemWidgets.mgrManagePositionsChk.datavalue,
+                    canManageTeamMembers: currentItemWidgets.mgrManageTeamMembersChk.datavalue,
+                    canApproveTrades: currentItemWidgets.mgrApproveTradesChk.datavalue,
+                    canReceiveManagerNotifications: currentItemWidgets.mgrNotificationsChk.datavalue
+                }
+            }
+        }
+    });
+};
+
+/**
+ * Callback invoked when wsUpdateAdditionalManagers succeeds.
+ */
+Page.wsUpdateAdditionalManagersonSuccess = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Manager updated successfully.',
+        position: 'top center',
+        class: 'success',
+        duration: 3000
+    });
+    Page.Variables.wsGetAdditionalManagers.invoke();
+};
+
+/**
+ * Callback invoked when wsUpdateAdditionalManagers fails.
+ */
+Page.wsUpdateAdditionalManagersonError = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Failed to update manager. Please try again.',
+        position: 'top center',
+        class: 'error',
+        duration: 5000
+    });
+};
+
+/**
+ * Delete the selected additional manager item.
+ */
+Page.deleteMgrItem = function ($event, widget, item, currentItemWidgets) {
+
+    Page.Variables.wsDeleteAdditionalManagers.invoke({
+        inputFields: {
+            id: item.userId
+        }
+    });
+
 };
 
 /**
  * Get array of all permission checkbox names
  */
-Page.getPermissionCheckboxes = function() {
+Page.getPermissionCheckboxes = function () {
     return [
         'addShiftsCheckbox',
         'importTemplatesCheckbox',
@@ -46,16 +158,13 @@ Page.getPermissionCheckboxes = function() {
 /**
  * Handle Select All checkbox change event
  */
-Page.handleSelectAllChange = function($event, widget, newVal, oldVal) {
+Page.handleSelectAllChange = function ($event, widget, newVal, oldVal) {
     var checkboxNames = Page.getPermissionCheckboxes();
     var isChecked = newVal;
-    
-    // When Select All is checked, uncheck Clear All
     if (isChecked) {
         Page.Widgets.clearAllCheckbox.datavalue = false;
     }
-    
-    checkboxNames.forEach(function(checkboxName) {
+    checkboxNames.forEach(function (checkboxName) {
         Page.Widgets[checkboxName].datavalue = isChecked;
     });
 };
@@ -63,15 +172,12 @@ Page.handleSelectAllChange = function($event, widget, newVal, oldVal) {
 /**
  * Handle Clear All checkbox change event
  */
-Page.handleClearAllChange = function($event, widget, newVal, oldVal) {
+Page.handleClearAllChange = function ($event, widget, newVal, oldVal) {
     var checkboxNames = Page.getPermissionCheckboxes();
     var isChecked = newVal;
-    
-    // When Clear All is checked, uncheck Select All and clear all permissions
     if (isChecked) {
         Page.Widgets.selectAllCheckbox.datavalue = false;
-        
-        checkboxNames.forEach(function(checkboxName) {
+        checkboxNames.forEach(function (checkboxName) {
             Page.Widgets[checkboxName].datavalue = false;
         });
     }
@@ -79,62 +185,38 @@ Page.handleClearAllChange = function($event, widget, newVal, oldVal) {
 
 /**
  * Handle individual permission checkbox change event
- * Updates Select All and Clear All state based on individual checkbox states
  */
-Page.handleIndividualCheckboxChange = function($event, widget, newVal, oldVal) {
+Page.handleIndividualCheckboxChange = function ($event, widget, newVal, oldVal) {
     var checkboxNames = Page.getPermissionCheckboxes();
     var allChecked = true;
     var allUnchecked = true;
-    
     for (var i = 0; i < checkboxNames.length; i++) {
         var isChecked = Page.Widgets[checkboxNames[i]].datavalue;
-        
-        if (!isChecked) {
-            allChecked = false;
-        }
-        if (isChecked) {
-            allUnchecked = false;
-        }
+        if (!isChecked) { allChecked = false; }
+        if (isChecked) { allUnchecked = false; }
     }
-    
-    // Update Select All state
     Page.Widgets.selectAllCheckbox.datavalue = allChecked;
-    
-    // Update Clear All state
     Page.Widgets.clearAllCheckbox.datavalue = allUnchecked;
 };
 
 /**
  * Handle Add Manager button click with validation
  */
-Page.handleAddManagerClick = function($event, widget) {
-    // Validate required fields
+Page.handleAddManagerClick = function ($event, widget) {
     var firstName = Page.Widgets.firstNameInput.datavalue;
     var lastName = Page.Widgets.lastNameInput.datavalue;
     var email = Page.Widgets.emailInput.datavalue;
-    
     var errors = [];
-    
-    // Check for empty fields
-    if (!firstName || firstName.trim() === '') {
-        errors.push('First Name is required');
-    }
-    
-    if (!lastName || lastName.trim() === '') {
-        errors.push('Last Name is required');
-    }
-    
+
+    if (!firstName || firstName.trim() === '') { errors.push('First Name is required'); }
+    if (!lastName || lastName.trim() === '') { errors.push('Last Name is required'); }
     if (!email || email.trim() === '') {
         errors.push('Email is required');
     } else {
-        // Basic email format validation
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            errors.push('Please enter a valid email address');
-        }
+        if (!emailRegex.test(email)) { errors.push('Please enter a valid email address'); }
     }
-    
-    // Show validation errors if any
+
     if (errors.length > 0) {
         App.Actions.appNotification.invoke({
             message: errors.join(', '),
@@ -144,11 +226,7 @@ Page.handleAddManagerClick = function($event, widget) {
         });
         return;
     }
-    
-    // Disable button to prevent double submission
     widget.disabled = true;
-    
-    // Invoke the service variable
     Page.Variables.svAddManager.invoke();
 };
 
@@ -156,86 +234,39 @@ Page.handleAddManagerClick = function($event, widget) {
  * Service Variable onBeforeUpdate event handler
  */
 Page.svAddManageronBeforeUpdate = function (variable, inputData, options) {
-    console.log("=== DEBUG: svAddManager Request Payload ===");
-    console.log("Complete inputData object:", JSON.stringify(inputData, null, 2));
-    console.log("Authorization header:", variable.dataBinding.find(function(b) { return b.target === "Authorization"; })?.value);
-    console.log("=== Widget Values ===");
-    console.log("firstName:", Page.Widgets.firstNameInput.datavalue);
-    console.log("lastName:", Page.Widgets.lastNameInput.datavalue);
-    console.log("email:", Page.Widgets.emailInput.datavalue);
-    console.log("emailInstructions:", Page.Widgets.emailInstructionsCheckbox.datavalue);
-    console.log("=== Permission Checkboxes ===");
-    console.log("addShifts:", Page.Widgets.addShiftsCheckbox.datavalue);
-    console.log("importTemplates:", Page.Widgets.importTemplatesCheckbox.datavalue);
-    console.log("uploadShifts:", Page.Widgets.uploadShiftsCheckbox.datavalue);
-    console.log("autofillShifts:", Page.Widgets.autofillShiftsCheckbox.datavalue);
-    console.log("clearSchedules:", Page.Widgets.clearSchedulesCheckbox.datavalue);
-    console.log("editShifts:", Page.Widgets.editShiftsCheckbox.datavalue);
-    console.log("saveTemplates:", Page.Widgets.saveTemplatesCheckbox.datavalue);
-    console.log("publishSchedules:", Page.Widgets.publishSchedulesCheckbox.datavalue);
-    console.log("unpublishSchedules:", Page.Widgets.unpublishSchedulesCheckbox.datavalue);
-    console.log("manageCategories:", Page.Widgets.manageCategoriesCheckbox.datavalue);
-    console.log("addEmployees:", Page.Widgets.addEmployeesCheckbox.datavalue);
-    console.log("viewPayRates:", Page.Widgets.viewPayRatesCheckbox.datavalue);
-    console.log("editEmployees:", Page.Widgets.editEmployeesCheckbox.datavalue);
-    console.log("approveTrades:", Page.Widgets.approveTradesCheckbox.datavalue);
-    console.log("approveTimeOff:", Page.Widgets.approveTimeOffCheckbox.datavalue);
-    console.log("changeCompanySettings:", Page.Widgets.changeCompanySettingsCheckbox.datavalue);
-    console.log("managePositions:", Page.Widgets.managePositionsCheckbox.datavalue);
-    console.log("manageTeamMembers:", Page.Widgets.manageTeamMembersCheckbox.datavalue);
-    console.log("managerNotifications:", Page.Widgets.managerNotificationsCheckbox.datavalue);
-    console.log("===========================================");
-
-    // CRITICAL: Return inputData to allow the API call to proceed
     return inputData;
 };
 
 /**
  * Service Variable onSuccess event handler
  */
-Page.svAddManageronSuccess = function(variable, data) {
-    console.log("Manager added successfully:", data);
-    
-    // Re-enable the button
+Page.svAddManageronSuccess = function (variable, data) {
     Page.Widgets.addNewButton.disabled = false;
-    
-    // Show success notification
     App.Actions.appNotification.invoke({
         message: 'Manager added successfully!',
         position: "top center",
         class: 'success',
         duration: 4000
     });
-    
-    // Reset form fields
     Page.Widgets.firstNameInput.datavalue = '';
     Page.Widgets.lastNameInput.datavalue = '';
     Page.Widgets.emailInput.datavalue = '';
     Page.Widgets.emailInstructionsCheckbox.datavalue = false;
-    
-    // Reset Select All and Clear All checkboxes
     Page.Widgets.selectAllCheckbox.datavalue = false;
     Page.Widgets.clearAllCheckbox.datavalue = false;
-    
-    // Reset all permission checkboxes
     var checkboxNames = Page.getPermissionCheckboxes();
-    checkboxNames.forEach(function(checkboxName) {
+    checkboxNames.forEach(function (checkboxName) {
         Page.Widgets[checkboxName].datavalue = false;
     });
+    Page.Variables.wsGetAdditionalManagers.invoke();
 };
 
 /**
  * Service Variable onError event handler
  */
-Page.svAddManageronError = function(variable, data) {
-    console.error("Error adding manager:", data);
-    
-    // Re-enable the button
+Page.svAddManageronError = function (variable, data) {
     Page.Widgets.addNewButton.disabled = false;
-    
-    // Extract error message
     var errorMessage = 'Failed to add manager. Please try again.';
-    
     if (data && data.error) {
         if (typeof data.error === 'string') {
             errorMessage = data.error;
@@ -245,11 +276,26 @@ Page.svAddManageronError = function(variable, data) {
             errorMessage = data.error.errorMessage;
         }
     }
-    
-    // Show error notification
     App.Actions.appNotification.invoke({
         message: errorMessage,
         position: "top center",
+        class: 'error',
+        duration: 5000
+    });
+};
+Page.wsDeleteAdditionalManagersonSuccess = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Additional Manager deleted.',
+        position: 'top center',
+        class: 'success',
+        duration: 3000
+    });
+    Page.Variables.wsGetAdditionalManagers.invoke();
+
+}; Page.wsDeleteAdditionalManagersonError = function (variable, data) {
+    App.Actions.appNotification.invoke({
+        message: 'Failed to Delete manager. Please try again.',
+        position: 'top center',
         class: 'error',
         duration: 5000
     });

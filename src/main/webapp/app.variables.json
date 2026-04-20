@@ -76,6 +76,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_ConfigureByPositionView" : {
+    "_id" : "wm-goToPage_ConfigureByPositionView-wm.NavigationAction-1776317199754",
+    "name" : "goToPage_ConfigureByPositionView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ConfigureByPositionView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Empchangepass" : {
     "_id" : "wm-goToPage_Empchangepass-wm.NavigationAction-1774590810582",
     "name" : "goToPage_Empchangepass",
@@ -390,7 +401,7 @@
     "saveInPhonegap" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
-    "redirectTo" : "Login",
+    "redirectTo" : "SignIn",
     "useDefaultSuccessHandler" : true
   },
   "selectedpreference" : {
