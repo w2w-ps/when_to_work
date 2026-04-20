@@ -118,6 +118,10 @@
   "type" : "RIGHTNAV",
   "params" : [ ]
 }, {
+  "name" : "scheduleTopNav",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
   "name" : "topnav",
   "type" : "TOPNAV",
   "params" : [ ]
