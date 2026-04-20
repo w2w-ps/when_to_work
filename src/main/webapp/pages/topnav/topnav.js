@@ -143,3 +143,10 @@ Partial.navbar1Mouseleave = function ($event, widget) {
         console.error('Error in navbar1Mouseleave:', error);
     }
 };
+
+Partial.leftTopLinksSelect = function ($event, widget, $item) {
+    if ($item && ($item.caption === 'Sign Out' || $item.caption === 'SIGNOUT')) {
+
+        App.Actions.logoutAction.invoke();
+    }
+};

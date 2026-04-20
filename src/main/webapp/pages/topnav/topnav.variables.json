@@ -51,8 +51,8 @@
       "children" : "#View help pages and videos"
     }, {
       "caption" : "Sign Out",
-      "hyperlink" : "#/SignOut",
-      "children" : "#Sign Out"
+      "hyperlink" : "",
+      "children" : ""
     } ],
     "type" : "entry",
     "isList" : true,
