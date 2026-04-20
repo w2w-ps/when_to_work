@@ -1,0 +1,41 @@
+{
+  "svcalendarPositionView" : {
+    "_id" : "wm-svcalendarPositionView-wm.ServiceVariable-1776339721979",
+    "name" : "svcalendarPositionView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Widgets.Weekview1.enddate",
+      "type" : "string"
+    }, {
+      "target" : "grouping",
+      "value" : "position_shift_timings",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "bind:Widgets.Weekview1.startdate",
+      "type" : "string"
+    } ],
+    "type" : "calendarPositionView.RootResponse",
+    "service" : "calendarPositionView",
+    "operation" : "invoke",
+    "operationId" : "calendarPositionView_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svcalendarPositionViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "calendarPositionView"
+  }
+}

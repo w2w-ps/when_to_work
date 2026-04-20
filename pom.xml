@@ -43,6 +43,7 @@
                 <source>services/PostWeekPref/src</source>
                 <source>services/UpdateAdditionalManagers/src</source>
                 <source>services/addManager/src</source>
+                <source>services/calendarPositionView/src</source>
                 <source>services/categoryList/src</source>
                 <source>services/createShift/src</source>
                 <source>services/dayPreferenceList/src</source>

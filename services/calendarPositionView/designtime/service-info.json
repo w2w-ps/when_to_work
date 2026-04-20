@@ -1,0 +1,6 @@
+{
+  "id" : "calendarPositionView",
+  "type" : "RestService",
+  "title" : "calendarPositionView",
+  "mockEnabled" : false
+}
