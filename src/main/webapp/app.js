@@ -63,12 +63,20 @@ App.onBeforeServiceCall = function (requestParams) {
 };
 
 App.redirectTo = function (pageName) {
-    let url =
-        window.location.href.split('react-pages')[0] +
-        `react-pages/${pageName}`;
+    const currentUrl = window.location.href;
+    let popupUrl;
+
+    if (currentUrl.includes("https://stage-platform.wavemaker.ai")) {
+        // Removes the last segment (e.g., /current-page) to get the base path
+        popupUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + "/" + pageName;
+    } else {
+        // Assumes the structure has 'react-pages/' and replaces the suffix
+        const baseUrl = currentUrl.split('react-pages')[0];
+        popupUrl = `${baseUrl}react-pages/${pageName}`;
+    }
 
     window.open(
-        url,
+        popupUrl,
         pageName,
         'width=900,height=600,left=100,top=100'
     );
