@@ -1,0 +1,202 @@
+{
+  "basePath" : "${rest.UpdateAdditionalManagers.basepath}",
+  "paths" : {
+    "/managers/{id}" : {
+      "x-WM-BASE_PATH" : "/managers/{id}",
+      "x-WM-TAG" : "UpdateAdditionalManagers",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.UpdateAdditionalManagers.scheme}://${rest.UpdateAdditionalManagers.host}${rest.UpdateAdditionalManagers.basepath}/managers/{id}",
+      "put" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "UpdateAdditionalManagers_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "in" : "path",
+          "name" : "id",
+          "format" : "string",
+          "type" : "string",
+          "required" : true,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "UpdateAdditionalManagers" ],
+        "consumes" : [ "application/json" ]
+      }
+    }
+  },
+  "host" : "${rest.UpdateAdditionalManagers.host}",
+  "schemes" : [ "${rest.UpdateAdditionalManagers.scheme}" ],
+  "definitions" : {
+    "Request.permissions" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateAdditionalManagers.Request.permissions",
+      "x-WM-TAGS" : [ "UpdateAdditionalManagers" ],
+      "required" : [ "canAddEmployees", "canApproveTimeOff", "canAutofillShifts", "canChangeCompanySettings", "canClearSchedules", "canEditEmployees", "canEditShifts", "canManageCategories", "canManagePositions", "canManageTeamMembers", "canPublishSchedules", "canReceiveManagerNotifications", "canSaveTemplates", "canUnpublishSchedules", "canUploadShifts", "canViewPayRates" ],
+      "properties" : {
+        "canPublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canEditEmployees" : {
+          "type" : "boolean"
+        },
+        "canUnpublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canEditShifts" : {
+          "type" : "boolean"
+        },
+        "canAddEmployees" : {
+          "type" : "boolean"
+        },
+        "canAutofillShifts" : {
+          "type" : "boolean"
+        },
+        "canChangeCompanySettings" : {
+          "type" : "boolean"
+        },
+        "canManageTeamMembers" : {
+          "type" : "boolean"
+        },
+        "canUploadShifts" : {
+          "type" : "boolean"
+        },
+        "canSaveTemplates" : {
+          "type" : "boolean"
+        },
+        "canApproveTimeOff" : {
+          "type" : "boolean"
+        },
+        "canViewPayRates" : {
+          "type" : "boolean"
+        },
+        "canManageCategories" : {
+          "type" : "boolean"
+        },
+        "canReceiveManagerNotifications" : {
+          "type" : "boolean"
+        },
+        "canManagePositions" : {
+          "type" : "boolean"
+        },
+        "canClearSchedules" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateAdditionalManagers.Response.div",
+      "x-WM-TAGS" : [ "UpdateAdditionalManagers" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateAdditionalManagers.RootRequest",
+      "x-WM-TAGS" : [ "UpdateAdditionalManagers" ],
+      "required" : [ "email", "firstName", "lastName", "permissions" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "$ref" : "#/definitions/Request.permissions"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateAdditionalManagers.Response.body",
+      "x-WM-TAGS" : [ "UpdateAdditionalManagers" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateAdditionalManagers.RootResponse",
+      "x-WM-TAGS" : [ "UpdateAdditionalManagers" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateAdditionalManagers.Response.parsererror",
+      "x-WM-TAGS" : [ "UpdateAdditionalManagers" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "075ac6d8-a79d-4a57-a3ab-066c7f263a80",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "UpdateAdditionalManagers"
+  } ]
+}

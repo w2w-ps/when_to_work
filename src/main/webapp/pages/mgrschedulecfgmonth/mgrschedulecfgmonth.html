@@ -1,0 +1,148 @@
+<wm-page name="page" pagetitle="Mgrschedulecfgmonth">
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <!-- Page Title -->
+            <wm-container name="pageTitleRow" direction="column" gap="4" alignment="top-center" width="fill"
+                height="hug" class="app-container-default">
+                <wm-label name="lblPageTitle" caption="Configure &quot;Monthly&quot; View" class="h4" width="hug"
+                    height="hug"></wm-label>
+            </wm-container>
+            <!-- Row 1: Note Banner -->
+            <wm-container name="noteBannerRow" direction="column" gap="4" alignment="top-left" width="fill" height="hug"
+                class="app-container-default alert alert-warning">
+                <wm-label name="lblNoteHeading" caption="Note" class="h4" width="hug" height="hug"></wm-label>
+                <wm-label name="lblNoteBody"
+                    caption="These settings will also control what your employees see when they view Everyone's Monthly Schedule."
+                    width="fill" height="hug"></wm-label>
+            </wm-container>
+            <!-- Row 2: Screen View Section -->
+            <wm-container name="screenViewPanel" direction="column" gap="8" alignment="top-left" width="fill"
+                height="hug" class="app-container-default well">
+                <!-- Sub-row 2.1: Section title (75%) + Start On dropdown (25%) -->
+                <wm-container name="screenViewTitleRow" direction="row" gap="auto" alignment="middle-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-container name="screenViewTitleCol" direction="column" gap="4" alignment="top-left" width="75%"
+                        height="hug" class="app-container-default">
+                        <wm-label name="lblScreenViewTitle" caption="Screen View" class="h4" width="hug" height="hug">
+                        </wm-label>
+                    </wm-container>
+                    <wm-container name="screenViewStartOnCol" direction="row" gap="4" alignment="middle-right"
+                        width="25%" height="hug" class="app-container-default">
+                        <wm-label name="lblStartOn" caption="Start On" width="hug" height="hug"></wm-label>
+                        <wm-select name="selStartOn" dataset="bind:Variables.startOnDaysVar.dataSet" datavalue="Tuesday"
+                            width="hug" height="hug"></wm-select>
+                    </wm-container>
+                </wm-container>
+                <!-- Sub-row 2.2: Group By radioset -->
+                <wm-container name="screenViewGroupByRow" direction="row" gap="4" alignment="middle-left" width="fill"
+                    height="hug" class="app-container-default" wrap="false">
+                    <wm-label name="lblScreenGroupBy" caption="Group by" class="control-label" width="hug" height="hug"
+                        fontweight="bold"></wm-label>
+                    <wm-radioset name="rsScreenGroupBy" dataset="Position, Category, Cat, None" datavalue="Category"
+                        layout="inline" width="hug" height="hug" class="d-flex flex-row"></wm-radioset>
+                </wm-container>
+                <!-- Sub-row 2.3: Checkbox - Show description -->
+                <wm-container name="screenViewCb1Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbScreenShowDesc" caption="Show description" datavalue="true" checkedvalue="true"
+                        uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 2.4: Checkbox - Hide groups with no shifts -->
+                <wm-container name="screenViewCb2Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbScreenHideGroups" caption="Hide groups with no shifts" datavalue="false"
+                        checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 2.5: Checkbox - Show category/position -->
+                <wm-container name="screenViewCb3Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbScreenShowCatPos" caption="Show category/position" datavalue="false"
+                        checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 2.6: Name (50%) + Font Size (50%) -->
+                <wm-container name="screenViewNameFontRow" direction="row" gap="auto" alignment="middle-left"
+                    width="fill" height="hug" class="app-container-default">
+                    <wm-container name="screenViewNameCol" direction="row" gap="4" alignment="middle-left" width="50%"
+                        height="hug" class="app-container-default">
+                        <wm-label name="lblScreenName" caption="Name" class="control-label" width="hug" height="hug">
+                        </wm-label>
+                        <wm-select name="selScreenName" dataset="bind:Variables.nameFormatsVar.dataSet"
+                            datavalue="First L." width="hug" height="hug"></wm-select>
+                    </wm-container>
+                    <wm-container name="screenViewFontCol" direction="row" gap="4" alignment="middle-right" width="50%"
+                        height="hug" class="app-container-default">
+                        <wm-label name="lblScreenFontSize" caption="Font Size" class="control-label" width="hug"
+                            height="hug"></wm-label>
+                        <wm-select name="selScreenFontSize" dataset="bind:Variables.fontSizesVar.dataSet"
+                            datavalue="Medium" width="hug" height="hug"></wm-select>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+            <!-- Row 3: Printout Section -->
+            <wm-container name="printoutPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                class="app-container-default well">
+                <!-- Sub-row 3.1: Section title -->
+                <wm-container name="printoutTitleRow" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-label name="lblPrintoutTitle" caption="Printout" class="h4" width="hug" height="hug"></wm-label>
+                </wm-container>
+                <!-- Sub-row 3.2: Group By radioset -->
+                <wm-container name="printoutGroupByRow" direction="row" gap="8" alignment="middle-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-label name="lblPrintGroupBy" caption="Group by" class="control-label" width="hug" height="hug"
+                        fontweight="bold"></wm-label>
+                    <wm-radioset name="rsPrintGroupBy" dataset="Position, Category, Cat, None" datavalue="Position"
+                        layout="inline" width="hug" height="hug"></wm-radioset>
+                </wm-container>
+                <!-- Sub-row 3.3: Checkbox - Show description -->
+                <wm-container name="printoutCb1Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbPrintShowDesc" caption="Show description" datavalue="true" checkedvalue="true"
+                        uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 3.4: Checkbox - Hide groups with no shifts -->
+                <wm-container name="printoutCb2Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbPrintHideGroups" caption="Hide groups with no shifts" datavalue="true"
+                        checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 3.5: Checkbox - Show category/position -->
+                <wm-container name="printoutCb3Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbPrintShowCatPos" caption="Show category/position" datavalue="true"
+                        checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 3.6: Checkbox - Hide unassigned shifts -->
+                <wm-container name="printoutCb4Row" direction="column" gap="4" alignment="top-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-checkbox name="cbPrintHideUnassigned" caption="Hide unassigned shifts" datavalue="false"
+                        checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"></wm-checkbox>
+                </wm-container>
+                <!-- Sub-row 3.7: Name (50%) + Font Size (50%) -->
+                <wm-container name="printoutNameFontRow" direction="row" gap="auto" alignment="middle-left" width="fill"
+                    height="hug" class="app-container-default">
+                    <wm-container name="printoutNameCol" direction="row" gap="4" alignment="middle-left" width="50%"
+                        height="hug" class="app-container-default">
+                        <wm-label name="lblPrintName" caption="Name" class="control-label" width="hug" height="hug">
+                        </wm-label>
+                        <wm-select name="selPrintName" dataset="bind:Variables.nameFormatsVar.dataSet"
+                            datavalue="First Last" width="hug" height="hug"></wm-select>
+                    </wm-container>
+                    <wm-container name="printoutFontCol" direction="row" gap="4" alignment="middle-right" width="50%"
+                        height="hug" class="app-container-default">
+                        <wm-label name="lblPrintFontSize" caption="Font Size" class="control-label" width="hug"
+                            height="hug"></wm-label>
+                        <wm-select name="selPrintFontSize" dataset="bind:Variables.fontSizesVar.dataSet"
+                            datavalue="Small" width="hug" height="hug"></wm-select>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+            <!-- Row 4: Save Button -->
+            <wm-container name="saveButtonRow" direction="column" gap="4" alignment="top-center" width="fill"
+                height="hug" class="app-container-default">
+                <wm-button name="btnSave" caption="Save" class="btn-default" type="button" width="hug" height="hug">
+                </wm-button>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

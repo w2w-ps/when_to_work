@@ -14,12 +14,22 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
+
 };
 
 Page.WorkPreference1Click = function ($event) {
     App.Variables.selectedpreference.dataSet = $event;
-
     setTimeout(() => {
-        App.Actions.goToPage_emppreferencesday.invoke();
+        App.redirectTo('emppreferencesday');
     }, 0);
+};
+
+Page.Weekview1Daterangechange = function ($event, $data) {
+    Page.Variables.GetResolvedPreferences.invoke();
+};
+Page.button1Click = function ($event, widget) {
+    App.redirectTo('emppreferencesmonth');
+};
+Page.button2Click = function ($event, widget) {
+    App.redirectTo('emppreferencesrepeat');
 };

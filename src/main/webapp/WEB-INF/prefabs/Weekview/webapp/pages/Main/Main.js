@@ -21,18 +21,49 @@ Prefab.onPropertyChange = function (key, newVal, oldVal) {
     }
     */
 };
+Prefab.getMonthStartAndEndFromDate = function (inputDate) {
+    const date = new Date(inputDate);
+
+    const startDate = new Date(date.getFullYear(), date.getMonth(), 1);
+    const endDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+    const formatDate = (d) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+    };
+
+    return {
+        startDate: formatDate(startDate),
+        endDate: formatDate(endDate)
+    };
+}
 
 Prefab.onReady = function () {
     // this method will be triggered post initialization of the prefab.
     Prefab.initializeCurrentWeek();
     Prefab.updateWeekNavigationButtonCaptions();
+
 };
 
 
 Prefab.initializeCurrentWeek = function () {
+
     var today = moment();
-    var weekDates = Prefab.getWeekDates(today, Prefab.startdayofweek);
-    Prefab.formatDaysOfWeek(weekDates);
+    if (Prefab.viewParent.activePageName === "calenderView") {
+        const result = Prefab.getMonthStartAndEndFromDate(today)
+        Prefab.startdate = result.startDate;
+        Prefab.enddate = result.endDate
+        Prefab.notifyDateRangeChange(result.startDate, result.endDate);
+
+    }
+    else {
+
+        var weekDates = Prefab.getWeekDates(today, Prefab.startdayofweek);
+        Prefab.formatDaysOfWeek(weekDates);
+    }
+
 };
 
 
@@ -91,6 +122,8 @@ Prefab.formatDaysOfWeek = function (weekDates) {
     });
     Prefab.startdate = weekDates.startDate.format('YYYY-MM-DD');
     Prefab.enddate = weekDates.endDate.format('YYYY-MM-DD');
+    Prefab.notifyDateRangeChange(weekDates.startDate.format('YYYY-MM-DD'), weekDates.endDate.format('YYYY-MM-DD'));
+
     Prefab.selectedweekdataset = Prefab.Variables.currentWeekVar.dataSet;
 
 }
@@ -177,6 +210,7 @@ Prefab.weekLabelContainerClick = function ($event, widget) {
 };
 
 Prefab.weekPickerCalendarSelect = function ($start, $end, $view, $data) {
+
     Prefab.Widgets.weekPickerCalendar.show = false;
 
     // Clone to prevent mutation of the original moment object passed by the calendar widget
@@ -185,19 +219,45 @@ Prefab.weekPickerCalendarSelect = function ($start, $end, $view, $data) {
 
     Prefab.formatDaysOfWeek(weekDates);
     Prefab.updateWeekNavigationButtonCaptions();
+    const result = Prefab.getMonthStartAndEndFromDate(selectedDate);
+    Prefab.startdate = result.startDate;
+    Prefab.enddate = result.endDate;
+    Prefab.notifyDateRangeChange(result.startDate, result.endDate);
 };
 Prefab.tabs1Change = function ($event, widget, newPaneIndex, oldPaneIndex) {
+
     if (newPaneIndex >= 0 && newPaneIndex <= 6) {
         let positionviewStartDate = getStartAndEndDateForPostionView(newPaneIndex + 1);
         Prefab.startdate = positionviewStartDate;
         Prefab.enddate = positionviewStartDate;
+        Prefab.notifyDateRangeChange(positionviewStartDate, positionviewStartDate);
     }
     if (newPaneIndex == 7) {
         Prefab.startdate = Prefab.weekDates.startDate.format('YYYY-MM-DD');
         Prefab.enddate = Prefab.weekDates.endDate.format('YYYY-MM-DD');
+        Prefab.notifyDateRangeChange(Prefab.weekDates.startDate.format('YYYY-MM-DD'), Prefab.weekDates.endDate.format('YYYY-MM-DD'));
+    }
+    if (newPaneIndex == 8) {
+        const d = new Date();
+        const today = d.toDateString() + " 00:00:00";
+        const result = Prefab.getMonthStartAndEndFromDate(today);
+        Prefab.startdate = result.startDate;
+        Prefab.enddate = result.endDate
+        Prefab.notifyDateRangeChange(result.startDate, result.endDate);
     }
 };
 
 function getStartAndEndDateForPostionView(index) {
     return (Prefab.weekDates["day" + index]).format('YYYY-MM-DD')
 }
+
+
+Prefab.notifyDateRangeChange = function (startdate, enddate) {
+    if (Prefab.onDaterangechange) {
+        Prefab.onDaterangechange({
+            startdate: startdate,
+            enddate: enddate
+        });
+    }
+
+};

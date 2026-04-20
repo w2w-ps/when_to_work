@@ -32,7 +32,7 @@
     "maxResults" : 20,
     "onSuccess" : "GetResolvedPreferencesSuccess(variable, data)",
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,
