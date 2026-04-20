@@ -514,6 +514,15 @@ td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day a {
     color: var(--wm-color-primary) !important;
 }
 
+.fc .fc-button:hover,
+.fc .fc-button:active,
+.fc .fc-button:focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--fc-button-text-color);
+    --wm-btn-state-layer-opacity: 0;
+}
+
 .fc-theme-standard th {
     border: none !important;
 }
