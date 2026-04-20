@@ -500,11 +500,13 @@ wm-input[name="txtFind"].app-input-wrapper {
     height: 411px !important;
 }
 
-td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day {
+td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day,
+td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day {
     background: var(--wm-color-light-grey);
 }
 
-td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day a {
+td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day a,
+td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day a {
     visibility: hidden;
 }
 
@@ -536,6 +538,10 @@ td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day a {
     border-collapse: separate !important;
 }
 
+.fc-day-today a {
+    font-size: 18px;
+    font-weight: 700;
+}
 
 /* responsive code starts */
 /* mobile */
