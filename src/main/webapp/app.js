@@ -64,17 +64,7 @@ App.onBeforeServiceCall = function (requestParams) {
 
 App.redirectTo = function (pageName) {
     const currentUrl = window.location.href;
-    let popupUrl;
-
-    if (currentUrl.includes("https://stage-platform.wavemaker.ai")) {
-        // Removes the last segment (e.g., /current-page) to get the base path
-        popupUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + "/" + pageName;
-    } else {
-        // Assumes the structure has 'react-pages/' and replaces the suffix
-        const baseUrl = currentUrl.split('react-pages')[0];
-        popupUrl = `${baseUrl}react-pages/${pageName}`;
-    }
-
+    let popupUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + "/" + pageName;
     window.open(
         popupUrl,
         pageName,
