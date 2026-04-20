@@ -1,35 +1,14 @@
 {
-  "fontSizesVar" : {
-    "_id" : "wm-fontSizesVar-wm.Variable-1776667611764",
-    "name" : "fontSizesVar",
+  "goToPage_calenderView" : {
+    "_id" : "wm-goToPage_calenderView-wm.NavigationAction-1776676515248",
+    "name" : "goToPage_calenderView",
     "owner" : "Page",
-    "category" : "wm.Variable",
-    "dataBinding" : [ ],
-    "dataSet" : [ "Small", "Medium", "Large" ],
-    "type" : "string",
-    "isList" : true,
-    "twoWayBinding" : false
-  },
-  "nameFormatsVar" : {
-    "_id" : "wm-nameFormatsVar-wm.Variable-1776667608290",
-    "name" : "nameFormatsVar",
-    "owner" : "Page",
-    "category" : "wm.Variable",
-    "dataBinding" : [ ],
-    "dataSet" : [ "First L.", "First Last", "Last First", "Last F." ],
-    "type" : "string",
-    "isList" : true,
-    "twoWayBinding" : false
-  },
-  "startOnDaysVar" : {
-    "_id" : "wm-startOnDaysVar-wm.Variable-1776667603330",
-    "name" : "startOnDaysVar",
-    "owner" : "Page",
-    "category" : "wm.Variable",
-    "dataBinding" : [ ],
-    "dataSet" : [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
-    "type" : "string",
-    "isList" : true,
-    "twoWayBinding" : false
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "calenderView",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage"
   }
 }
