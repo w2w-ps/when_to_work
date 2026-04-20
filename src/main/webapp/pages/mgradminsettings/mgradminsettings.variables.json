@@ -1,4 +1,17 @@
 {
+  "selectedManagerId" : {
+    "_id" : "wm-selectedManagerId-wm.Variable-1776410485614",
+    "name" : "selectedManagerId",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "svAddManager" : {
     "_id" : "wm-svAddManager-wm.ServiceVariable-1775721426428",
     "name" : "svAddManager",
@@ -121,5 +134,80 @@
     "controller" : "addManager",
     "spinnerContext" : "addNewButton",
     "spinnerMessage" : "Adding manager..."
+  },
+  "wsDeleteAdditionalManagers" : {
+    "_id" : "wm-wsDeleteAdditionalManagers-wm.ServiceVariable-1776418787749",
+    "name" : "wsDeleteAdditionalManagers",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "deleteAdditonalManager.RootResponse",
+    "service" : "deleteAdditonalManager",
+    "operation" : "invoke",
+    "operationId" : "deleteAdditonalManager_invoke",
+    "operationType" : "delete",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "wsDeleteAdditionalManagersonSuccess(variable, data, options)",
+    "onError" : "wsDeleteAdditionalManagersonError(variable, data, options)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "deleteAdditonalManager"
+  },
+  "wsGetAdditionalManagers" : {
+    "_id" : "wm-wsGetAdditionalManagers-wm.ServiceVariable-1776409008718",
+    "name" : "wsGetAdditionalManagers",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "getAdditionalManagers.Response.RootResponseROOTEntryItem",
+    "service" : "getAdditionalManagers",
+    "operation" : "invoke",
+    "operationId" : "getAdditionalManagers_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getAdditionalManagers"
+  },
+  "wsUpdateAdditionalManagers" : {
+    "_id" : "wm-wsUpdateAdditionalManagers-wm.ServiceVariable-1776416860278",
+    "name" : "wsUpdateAdditionalManagers",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "isList" : false,
+      "target" : "RequestBody",
+      "value" : "{\n    \"firstName\": \"new\",\n    \"lastName\": \"patel\",\n    \"email\": \"santhsoshpatel@example.com\",\n    \"permissions\": {\n        \"canUploadShifts\": true,\n        \"canAutofillShifts\": true,\n        \"canClearSchedules\": true,\n        \"canEditShifts\": true,\n        \"canSaveTemplates\": true,\n        \"canPublishSchedules\": true,\n        \"canUnpublishSchedules\": true,\n        \"canManageCategories\": true,\n        \"canAddEmployees\": true,\n        \"canViewPayRates\": true,\n        \"canEditEmployees\": true,\n        \"canApproveTimeOff\": true,\n        \"canChangeCompanySettings\": true,\n        \"canManagePositions\": true,\n        \"canManageTeamMembers\": true,\n        \"canReceiveManagerNotifications\": true\n    }\n}",
+      "type" : "UpdateAdditionalManagers.RootRequest"
+    } ],
+    "type" : "UpdateAdditionalManagers.RootResponse",
+    "service" : "UpdateAdditionalManagers",
+    "operation" : "invoke",
+    "operationId" : "UpdateAdditionalManagers_invoke",
+    "operationType" : "put",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "wsUpdateAdditionalManagersonSuccess(variable, data, options)",
+    "onError" : "wsUpdateAdditionalManagersonError(variable, data, options)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "UpdateAdditionalManagers"
   }
 }

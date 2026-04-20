@@ -1,0 +1,173 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "abb36d9b-e6c7-4397-b088-b63659dd4cc9",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "getAdditionalManagers"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/getAdditionalManagers/managers/additional-managers" : {
+      "get" : {
+        "tags" : [ "getAdditionalManagers" ],
+        "operationId" : "getAdditionalManagers_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              },
+              "x-WM-IS_LIST" : true
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/getAdditionalManagers/managers",
+      "x-WM-TAG" : "getAdditionalManagers",
+      "x-WM-RELATIVE_PATH" : "/additional-managers",
+      "x-WM-COMPLETE_PATH" : "${rest.getAdditionalManagers.scheme}://${rest.getAdditionalManagers.host}${rest.getAdditionalManagers.basepath}/managers/additional-managers"
+    }
+  },
+  "definitions" : {
+    "Response.permissions" : {
+      "required" : [ "canAddEmployees", "canAddShifts", "canApproveTimeOff", "canApproveTrades", "canAutofillShifts", "canChangeCompanySettings", "canClearSchedules", "canEditEmployees", "canEditShifts", "canImportTemplates", "canManageCategories", "canManagePositions", "canManageTeamMembers", "canPublishSchedules", "canReceiveManagerNotifications", "canSaveTemplates", "canUnpublishSchedules", "canUploadShifts", "canViewPayRates", "isMainManager" ],
+      "properties" : {
+        "canPublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canApproveTrades" : {
+          "type" : "boolean"
+        },
+        "canEditEmployees" : {
+          "type" : "boolean"
+        },
+        "canUnpublishSchedules" : {
+          "type" : "boolean"
+        },
+        "canEditShifts" : {
+          "type" : "boolean"
+        },
+        "canAddEmployees" : {
+          "type" : "boolean"
+        },
+        "canAutofillShifts" : {
+          "type" : "boolean"
+        },
+        "canChangeCompanySettings" : {
+          "type" : "boolean"
+        },
+        "canManageTeamMembers" : {
+          "type" : "boolean"
+        },
+        "canUploadShifts" : {
+          "type" : "boolean"
+        },
+        "canSaveTemplates" : {
+          "type" : "boolean"
+        },
+        "canApproveTimeOff" : {
+          "type" : "boolean"
+        },
+        "isMainManager" : {
+          "type" : "boolean"
+        },
+        "canAddShifts" : {
+          "type" : "boolean"
+        },
+        "canImportTemplates" : {
+          "type" : "boolean"
+        },
+        "canViewPayRates" : {
+          "type" : "boolean"
+        },
+        "canManageCategories" : {
+          "type" : "boolean"
+        },
+        "canReceiveManagerNotifications" : {
+          "type" : "boolean"
+        },
+        "canManagePositions" : {
+          "type" : "boolean"
+        },
+        "canClearSchedules" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "getAdditionalManagers.Response.permissions",
+      "x-WM-TAGS" : [ "getAdditionalManagers" ]
+    },
+    "Response.RootResponseROOTEntryItem" : {
+      "required" : [ "email", "firstName", "lastName", "lastSignIn", "permissions", "roleName", "userId" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "lastSignIn" : {
+          "type" : "string"
+        },
+        "permissions" : {
+          "$ref" : "#/definitions/Response.permissions"
+        },
+        "roleName" : {
+          "type" : "string"
+        },
+        "userId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "getAdditionalManagers.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "getAdditionalManagers" ]
+    },
+    "RootResponse" : {
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "getAdditionalManagers.RootResponse",
+      "x-WM-TAGS" : [ "getAdditionalManagers" ]
+    }
+  }
+}
