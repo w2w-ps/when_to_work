@@ -1,0 +1,6 @@
+{
+  "id" : "deleteAdditonalManager",
+  "type" : "RestService",
+  "title" : "deleteAdditonalManager",
+  "mockEnabled" : false
+}
