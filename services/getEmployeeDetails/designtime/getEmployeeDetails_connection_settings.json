@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/employees",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyLjQ1NTEiLCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTc3NjY3MTY3OCwiZXhwIjoxNzc2NjczNDc4fQ.ld3BhXUwyOZj9WN6t-MnpRlxX7DccQvX80gdXwYhBosx54Vtw11n2qhfD8MLufk9AOYLcW7_zWJcDhsNeShwdPNJ9JCdKGHcIXmj9KQs2N8j1DMVvKY15zTY3NG3CX_2YfMmrrFVR8OUCJnBYLZhXo9sOvWJf3OpjUIwWjlHBD9nHRJTj8nl4Sz4_K6Z5rFCwbG8rxbOznTN7ls8yQPWGUizvasCUu0w7mtHmhKzqGx4jk9zzPZXQWCeoY2wlgY9h7h3IDVBhSE_SU52VqGJwO7c1EmrEysIhwF2R1hEWVyYrZo9spq1PVo9kqbEI6o4hW1McYndRBwLwAJHxErbsw" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Mon, 20 Apr 2026 07:55:56 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "[{\"employeeId\":4552,\"companyId\":6,\"status\":\"active\",\"lastLogon\":null,\"logonCount\":0,\"firstName\":\"Ravi\",\"lastName\":\"patel\",\"email\":\"santhosh@example.com\",\"employeeNumber\":null,\"phone\":\"555-4955\",\"phone2\":\"555-4740\",\"cell\":null,\"hireDate\":\"2026-04-17T12:19:57.41086\",\"maxScheduledHours\":null,\"maxDailyHours\":null,\"payRate\":17,\"empType\":{\"id\":2,\"name\":\"Part Time\"},\"address\":{\"address\":\"1918 Oak St\",\"address2\":null,\"city\":\"Houston\",\"state\":\"TX\",\"zip\":\"63994\"},\"maxWeeklyDays\":3,\"maxDailyShifts\":1,\"comments\":null,\"priorityGroup\":\"Group B\",\"googleCalExport\":false,\"nextAlertDate\":null,\"customField1\":null,\"customField2\":null,\"employeePhoto\":null,\"accessibilityMode\":false}]",
+    "convertedResponse" : null
+  }
+}

@@ -15,3 +15,14 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
+
+/* Handler for View button in employee table */
+Page.viewRowClick = function ($event, widget) {
+    // Access the current row data via the table's selecteditem
+    // e.g. var employee = Page.Widgets.employeeTable.selecteditem;
+};
+
+/* Handler for Edit button in employee table */
+Page.editRowClick = function ($event, widget) {
+    Page.Actions.goToPage_Mgrempedit.invoke();
+};
