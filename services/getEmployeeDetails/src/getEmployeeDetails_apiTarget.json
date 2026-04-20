@@ -1,0 +1,210 @@
+{
+  "basePath" : "${rest.getEmployeeDetails.basepath}",
+  "paths" : {
+    "/employees" : {
+      "x-WM-BASE_PATH" : "/employees",
+      "x-WM-TAG" : "getEmployeeDetails",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getEmployeeDetails_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "x-WM-IS_LIST" : true,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              }
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "getEmployeeDetails" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getEmployeeDetails.scheme}://${rest.getEmployeeDetails.host}${rest.getEmployeeDetails.basepath}/employees"
+    }
+  },
+  "host" : "${rest.getEmployeeDetails.host}",
+  "schemes" : [ "${rest.getEmployeeDetails.scheme}" ],
+  "definitions" : {
+    "Response.empType" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getEmployeeDetails.Response.empType",
+      "x-WM-TAGS" : [ "getEmployeeDetails" ],
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.address" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getEmployeeDetails.Response.address",
+      "x-WM-TAGS" : [ "getEmployeeDetails" ],
+      "required" : [ "address", "address2", "city", "state", "zip" ],
+      "properties" : {
+        "zip" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "address2" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.RootResponseROOTEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getEmployeeDetails.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "getEmployeeDetails" ],
+      "required" : [ "accessibilityMode", "address", "cell", "comments", "companyId", "customField1", "customField2", "email", "empType", "employeeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastLogon", "lastName", "logonCount", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phone", "phone2", "priorityGroup", "status" ],
+      "properties" : {
+        "lastName" : {
+          "type" : "string"
+        },
+        "logonCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "customField1" : {
+          "type" : "string"
+        },
+        "empType" : {
+          "$ref" : "#/definitions/Response.empType"
+        },
+        "customField2" : {
+          "type" : "string"
+        },
+        "phone2" : {
+          "type" : "string"
+        },
+        "cell" : {
+          "type" : "string"
+        },
+        "employeeNumber" : {
+          "type" : "string"
+        },
+        "maxWeeklyDays" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "lastLogon" : {
+          "type" : "string"
+        },
+        "maxScheduledHours" : {
+          "type" : "string"
+        },
+        "hireDate" : {
+          "type" : "string"
+        },
+        "accessibilityMode" : {
+          "type" : "boolean"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Response.address"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "maxDailyHours" : {
+          "type" : "string"
+        },
+        "employeePhoto" : {
+          "type" : "string"
+        },
+        "payRate" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "priorityGroup" : {
+          "type" : "string"
+        },
+        "nextAlertDate" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "googleCalExport" : {
+          "type" : "boolean"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "maxDailyShifts" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "status" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getEmployeeDetails.RootResponse",
+      "x-WM-TAGS" : [ "getEmployeeDetails" ],
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "4f835a29-eadd-45ea-bedd-3f1a1c40765e",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getEmployeeDetails"
+  } ]
+}
