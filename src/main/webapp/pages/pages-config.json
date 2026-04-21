@@ -61,7 +61,10 @@
 }, {
   "name" : "calenderView",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "configureValue",
+    "type" : "string"
+  } ]
 }, {
   "name" : "dialogViewTopNav",
   "type" : "TOPNAV",
