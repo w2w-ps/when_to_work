@@ -15,11 +15,6 @@ Page.onReady = function () {
      * 'Page.Widgets.username.datavalue'
      */
 };
-Page.WorkPreference1Click = function ($event) {
-
-    App.Actions.goToPage_emppreferencesday.invoke();
-    App.Variables.selectedpreference.dataSet = $event;
-};
 
 function getCombinedWeekPrefs(weekData) {
     return weekData.map(day => day.prefs || "").join("");
