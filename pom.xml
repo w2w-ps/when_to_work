@@ -54,6 +54,7 @@
                 <source>services/getAdditionalManagers/src</source>
                 <source>services/getCategoryGroups/src</source>
                 <source>services/getEmployeeDetails/src</source>
+                <source>services/getPositionGroup/src</source>
                 <source>services/getPositionViewScheduling/src</source>
                 <source>services/getPreferenceRange/src</source>
                 <source>services/getShiftDetails/src</source>
