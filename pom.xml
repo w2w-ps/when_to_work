@@ -36,9 +36,11 @@
             </goals>
             <configuration>
               <sources>
+                <source>services/GetEmployeeById/src</source>
                 <source>services/GetResolvedPreferences/src</source>
                 <source>services/GetWeekPreferences/src</source>
                 <source>services/LoginService/src</source>
+                <source>services/PatchEmployeeById/src</source>
                 <source>services/PostDayPref/src</source>
                 <source>services/PostWeekPref/src</source>
                 <source>services/UpdateAdditionalManagers/src</source>

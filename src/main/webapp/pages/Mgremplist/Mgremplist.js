@@ -17,14 +17,15 @@ Page.onReady = function () {
 };
 
 /* Handler for View button in employee table */
-Page.viewRowClick = function ($event, widget) {
-    // Access the current row data via the table's selecteditem
-    // e.g. var employee = Page.Widgets.employeeTable.selecteditem;
+Page.employeeTable_ViewAction = function (row) {
+    empid = row.employeeId
+    App.redirectTo('mgrempinfopop?empid=' + empid);
 };
 
 /* Handler for Edit button in employee table */
-Page.editRowClick = function ($event, widget) {
-    Page.Actions.goToPage_Mgrempedit.invoke();
+Page.employeeTable_EditAction = function (row) {
+    empid = row.employeeId
+    App.redirectTo('Mgrempedit?empid=' + empid);
 };
 
 /* Handler for search1 on-submit — filters employeeTable rows by search term across all fields except employeePhoto */

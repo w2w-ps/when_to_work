@@ -253,6 +253,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgrempinfopop" : {
+    "_id" : "wm-goToPage_mgrempinfopop-wm.NavigationAction-1776743345347",
+    "name" : "goToPage_mgrempinfopop",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrempinfopop",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Mgremplist" : {
     "_id" : "wm-goToPage_Mgremplist-wm.NavigationAction-1774416134446",
     "name" : "goToPage_Mgremplist",

@@ -1,0 +1,6 @@
+{
+  "id" : "PatchEmployeeById",
+  "type" : "RestService",
+  "title" : "PatchEmployeeById",
+  "mockEnabled" : false
+}

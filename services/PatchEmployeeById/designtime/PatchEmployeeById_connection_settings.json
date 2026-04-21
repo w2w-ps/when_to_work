@@ -1,0 +1,30 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/employees/1",
+  "method" : "PATCH",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "{\n  \"firstName\": \"Alex\",\n  \"lastName\": \"Morgan-Revised\",\n  \"email\": \"santoshpatel121@gmail.com\"\n  \n}",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Tue, 21 Apr 2026 03:45:54 GMT" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "",
+    "convertedResponse" : "{\"body\":{\"parsererror\":{\"h3\":[\"This page contains the following errors:\",\"Below is a rendering of the page up to the first error.\"],\"div\":{\"style\":\"font-family:monospace;font-size:12px\",\"__text\":\"error on line 1 at column 1: Document is empty\"},\"style\":\"display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black\"}}}"
+  }
+}

@@ -25,7 +25,10 @@
 }, {
   "name" : "Home",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "empId",
+    "type" : "string"
+  } ]
 }, {
   "name" : "Login",
   "type" : "PAGE",
@@ -105,6 +108,13 @@
   "name" : "mgradminsettings",
   "type" : "PAGE",
   "params" : [ ]
+}, {
+  "name" : "mgrempinfopop",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "empid",
+    "type" : "string"
+  } ]
 }, {
   "name" : "mgrschedulecfgmonth",
   "type" : "PAGE",
