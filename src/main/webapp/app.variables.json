@@ -548,5 +548,39 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "getCategoryGroups"
+  },
+  "svGetPositionGroup" : {
+    "_id" : "wm-svGetPositionGroup-wm.ServiceVariable-1776763595689",
+    "name" : "svGetPositionGroup",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "status",
+      "value" : "all",
+      "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzYyOTc3LCJleHAiOjE3NzY3NjQ3Nzd9.p9eZRAAKG_e4NtKA7IWEt4sUTINpDbo9cXGIdzDM9MW8jvw7pSDkMsgaF6aJ-w44B4btkKcLZOhcS2H0OCFRO3YL2MlgTKvV63eZmeiCEDhQfXEtPlB8qp2X04Ysfj8-qACeOYo7wznlAPW7VHHzqAQrNkuRy0zh9VwmahXrzdg6wWyo1BYT-uh0BibjBN6Th8CTVKqGdX4MsXzG5GvW0N2KHPiXfpjQzouGIbesL_FBKi69647GYSrsikaLDT4vsMchkZoIkTf0-2BdTOv2vHiulNInicfkFcokuLDRVKyLUKHgZvMh34Psy0YX3AKmxWjfYfvri0etNvOsqUgqyQ" ],
+      "type" : "string"
+    } ],
+    "type" : "getPositionGroup.RootResponse",
+    "service" : "getPositionGroup",
+    "operation" : "invoke",
+    "operationId" : "getPositionGroup_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getPositionGroup"
   }
 }

@@ -6,21 +6,30 @@
 /* perform any action on widgets/variables within this block */
 Partial.onReady = function () {
     buildCombinedCategoriesDataset();
+    buildCombinedPositionsDataset();
 
-    // Re-build if either variable refreshes
+    // Re-build if either categories variable refreshes
     App.Variables.svGetAllCategoriesByCompanyId.onSuccess = function () {
         buildCombinedCategoriesDataset();
     };
     App.Variables.svGetCategoryGroup.onSuccess = function () {
         buildCombinedCategoriesDataset();
     };
+
+    // Re-build if either positions variable refreshes
+    App.Variables.svGetAllPositionsByCompanyId.onSuccess = function () {
+        buildCombinedPositionsDataset();
+    };
+    App.Variables.svGetPositionGroup.onSuccess = function () {
+        buildCombinedPositionsDataset();
+    };
 };
 
 function buildCombinedCategoriesDataset() {
-    var flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
-    var categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
+    let flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
+    let categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
 
-    var combined = [];
+    let combined = [];
 
     combined.push({
         displayLabel: "Add/Edit Categories",
@@ -69,9 +78,64 @@ function buildCombinedCategoriesDataset() {
     Partial.Variables.mvCombinedCategories.dataSet = combined;
 }
 
+function buildCombinedPositionsDataset() {
+    let flatPositions = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
+    let positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
+
+    let combined = [];
+
+    combined.push({
+        displayLabel: "Add/Edit Positions",
+        isHeader: false
+    });
+
+    combined.push({
+        displayLabel: "-------------------",
+        isHeader: false
+    });
+
+    combined.push({
+        displayLabel: "Select Group / Positions",
+        isHeader: false
+    });
+
+    // Add group names from svGetPositionGroup (group name only, selectable)
+    positionGroups.forEach(function (group) {
+        let subPositionIds = "";
+        group.positions.forEach(function (subPosition) {
+            subPositionIds = subPositionIds + subPosition.positionId + ",";
+        });
+
+        combined.push({
+            id: group.id,
+            displayLabel: group.name,
+            isHeader: false,
+            subPositionIds: subPositionIds
+        });
+    });
+
+    combined.push({
+        displayLabel: "-------------------",
+        isHeader: false
+    });
+
+    // Add flat positions from svGetAllPositionsByCompanyId
+    flatPositions.forEach(function (pos) {
+        combined.push({
+            id: pos.positionId,
+            displayLabel: pos.description,
+            isHeader: false
+        });
+    });
+
+    Partial.Variables.mvCombinedPositions.dataSet = combined;
+}
+
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    Partial.selectedPositionId = newVal.positionId;
-    filterShifts();
+    Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
+    if (newVal.id) {
+        filterShifts();
+    }
 };
 
 filterShifts = function () {
@@ -96,5 +160,15 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
     Partial.selectedCategoryId = newVal.subCategoryIds ? newVal.subCategoryIds : newVal.id;
     if (newVal.id) {
         filterShifts();
+    }
+};
+
+Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
+    if (newVal == 'Calendar View') {
+        Partial.App.Actions.goToPage_calenderView.invoke()
+    } else if (newVal == 'By Position View') {
+        Partial.App.Actions.goToPage_Position_view.invoke()
+    } else if (newVal == 'By Employee View') {
+        Partial.App.Actions.goToPage_EmployeeView.invoke()
     }
 };
