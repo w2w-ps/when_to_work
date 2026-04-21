@@ -26,10 +26,10 @@ Partial.onReady = function () {
 };
 
 function buildCombinedCategoriesDataset() {
-    var flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
-    var categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
+    let flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
+    let categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
 
-    var combined = [];
+    let combined = [];
 
     combined.push({
         displayLabel: "Add/Edit Categories",
@@ -79,10 +79,10 @@ function buildCombinedCategoriesDataset() {
 }
 
 function buildCombinedPositionsDataset() {
-    var flatPositions = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
-    var positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
+    let flatPositions = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
+    let positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
 
-    var combined = [];
+    let combined = [];
 
     combined.push({
         displayLabel: "Add/Edit Positions",
