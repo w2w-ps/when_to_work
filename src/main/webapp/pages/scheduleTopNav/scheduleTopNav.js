@@ -5,16 +5,70 @@
 
 /* perform any action on widgets/variables within this block */
 Partial.onReady = function () {
-    /*
-     * variables can be accessed through 'Partial.Variables' property here
-     * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
-     * Partial.Variables.loggedInUser.getData()
-     *
-     * widgets can be accessed through 'Partial.Widgets' property here
-     * e.g. to get value of text widget named 'username' use following script
-     * 'Partial.Widgets.username.datavalue'
-     */
+    buildCombinedCategoriesDataset();
+
+    // Re-build if either variable refreshes
+    App.Variables.svGetAllCategoriesByCompanyId.onSuccess = function () {
+        buildCombinedCategoriesDataset();
+    };
+    App.Variables.svGetCategoryGroup.onSuccess = function () {
+        buildCombinedCategoriesDataset();
+    };
 };
+
+function buildCombinedCategoriesDataset() {
+    var flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
+    var categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
+
+    var combined = [];
+
+    combined.push({
+        displayLabel: "Add/Edit Categories",
+        isHeader: false
+    });
+
+    combined.push({
+        displayLabel: "-------------------",
+        isHeader: false
+    });
+
+    combined.push({
+        displayLabel: "Select Group / Categories",
+        isHeader: false
+    });
+
+    // Add group names from svGetCategoryGroup (group name only, selectable)
+    categoryGroups.forEach(function (group) {
+        let subCategoryIds = "";
+        group.categories.forEach(function (subCategory) {
+            subCategoryIds = subCategoryIds + subCategory.id + ","
+        });
+
+        combined.push({
+            id: group.id,
+            displayLabel: group.name,
+            isHeader: false,
+            subCategoryIds: subCategoryIds
+        });
+    });
+
+    combined.push({
+        displayLabel: "-------------------",
+        isHeader: false
+    });
+
+    // Add flat categories from svGetAllCategoriesByCompanyId
+    flatCategories.forEach(function (cat) {
+        combined.push({
+            id: cat.categoryId,
+            displayLabel: cat.description + (cat.shortDesc ? ' (' + cat.shortDesc + ')' : ''),
+            isHeader: false
+        });
+    });
+
+    Partial.Variables.mvCombinedCategories.dataSet = combined;
+}
+
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
     Partial.selectedPositionId = newVal.positionId;
     filterShifts();
@@ -22,7 +76,7 @@ Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
 
 filterShifts = function () {
     let varName = "";
-    if (Partial.varName = App.activePageName === 'Position_view') {
+    if (Partial.App.activePageName === 'Position_view') {
         varName = 'svGetPositionViewScheduling';
     } else if (Partial.App.activePageName === 'EmployeeView') {
         varName = 'svScheduleList';
@@ -31,14 +85,16 @@ filterShifts = function () {
     const weekview = currentPage['Widgets']['Weekview1'];
     const scheduleVar = currentPage['Variables'][varName];
     scheduleVar.setInput('positionIds', Partial.selectedPositionId);
-    scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);              // selected position from dropdown
-    scheduleVar.setInput('companyId', 1);                     // hardcoded as requested
-    scheduleVar.setInput('startDate', weekview.startdate);    // from Weekview1 on active page
-    scheduleVar.setInput('endDate', weekview.enddate);        // from Weekview1 on active page
+    scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
+    scheduleVar.setInput('companyId', 1);
+    scheduleVar.setInput('startDate', weekview.startdate);
+    scheduleVar.setInput('endDate', weekview.enddate);
     scheduleVar.invoke();
-}
+};
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    Partial.selectedCategoryId = newVal.categoryId;
-    filterShifts();
+    Partial.selectedCategoryId = newVal.subCategoryIds ? newVal.subCategoryIds : newVal.id;
+    if (newVal.id) {
+        filterShifts();
+    }
 };
