@@ -12,7 +12,7 @@
   <version>1.0</version>
   <packaging>war</packaging>
   <properties>
-    <wavemaker.app.runtime.ui.version>1.0.0-next.27529</wavemaker.app.runtime.ui.version>
+    <wavemaker.app.runtime.ui.version>1.0.0-next.27531</wavemaker.app.runtime.ui.version>
     <wavemaker.artifactType>wmapp</wavemaker.artifactType>
   </properties>
   <dependencies>
@@ -44,7 +44,10 @@
                 <source>services/UpdateAdditionalManagers/src</source>
                 <source>services/addManager/src</source>
                 <source>services/calendarPositionView/src</source>
+                <source>services/calendarShiftTimingView/src</source>
+                <source>services/calendarShortCategoryView/src</source>
                 <source>services/categoryList/src</source>
+                <source>services/categoryShiftTimings/src</source>
                 <source>services/createShift/src</source>
                 <source>services/dayPreferenceList/src</source>
                 <source>services/deleteAdditonalManager/src</source>

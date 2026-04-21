@@ -15,6 +15,25 @@
     } ],
     "operation" : "toast"
   },
+  "appSelectedGrouping" : {
+    "_id" : "wm-appSelectedGrouping-wm.Variable-1776676538917",
+    "name" : "appSelectedGrouping",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "grouping" : "position_shift_timings",
+      "showDescription" : false,
+      "hideGroupsNoShifts" : true,
+      "showCatPos" : false,
+      "nameFormat" : "First Last",
+      "startOn" : "Sunday"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "employeeViewConfig" : {
     "_id" : "wm-employeeViewConfig-wm.Variable-1775470939443",
     "name" : "employeeViewConfig",
