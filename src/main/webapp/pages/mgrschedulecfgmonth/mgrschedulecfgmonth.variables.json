@@ -10,5 +10,32 @@
       "type" : "string"
     } ],
     "operation" : "gotoPage"
+  },
+  "stvNames" : {
+    "_id" : "wm-staticVariable1-wm.Variable-1776754629077",
+    "name" : "stvNames",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "dataValue" : "First Last",
+      "name" : "First Last"
+    }, {
+      "dataValue" : "First, last",
+      "name" : "First, last"
+    }, {
+      "dataValue" : "First L.",
+      "name" : "First L."
+    }, {
+      "dataValue" : "F. last",
+      "name" : "F. last"
+    }, {
+      "dataValue" : "last, F.",
+      "name" : "last, F."
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   }
 }

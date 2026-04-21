@@ -22,8 +22,12 @@
     "category" : "wm.Variable",
     "dataBinding" : [ ],
     "dataSet" : {
-      "grouping" : "",
-      "showDescription" : false
+      "grouping" : "position_shift_timings",
+      "showDescription" : false,
+      "hideGroupsNoShifts" : true,
+      "showCatPos" : false,
+      "nameFormat" : "First Last",
+      "startOn" : "Sunday"
     },
     "type" : "entry",
     "isList" : false,

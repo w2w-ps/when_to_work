@@ -1,4 +1,16 @@
 {
+  "goToPage_mgrschedulecfgmonth" : {
+    "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776749028247",
+    "name" : "goToPage_mgrschedulecfgmonth",
+    "owner" : "Page",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "mgrschedulecfgmonth",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage"
+  },
   "svcalendarCategoryView" : {
     "_id" : "wm-svcalendarCategoryView-wm.ServiceVariable-1776672486984",
     "name" : "svcalendarCategoryView",
