@@ -53,6 +53,5 @@ Page.formatDateDisplay = function (dateStr) {
 };
 
 Page.changeLayoutAnchorClick = function ($event, widget) {
-
     App.redirectTo("ConfigureByPositionView");
 };
