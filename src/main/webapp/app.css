@@ -20,6 +20,7 @@
     --wm-bg-color-dislike: #FFAEAE;
     --wm-bg-color-cannot-work: #FF0000;
     --wm-color-purple: #bfbfff;
+   
 
 }
 
@@ -231,6 +232,7 @@ div[multiselect="true"] colgroup col:first-child {
 wm-input[name="txtFind"].app-input-wrapper {
     flex: none !important;
 }
+
 
 
 
