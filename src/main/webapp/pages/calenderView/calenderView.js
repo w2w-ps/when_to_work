@@ -5,8 +5,16 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
+    // Guard: only invoke API if the user session is authenticated
+    if (!App.Variables.loggedInUser.dataSet.isAUthenticated) {
+        return;
+    }
     Page.applyStartDay();
     Page.calendarDaySlots = [];
+    Page.invokeCalendarVariable();
+};
+
+Page.invokeCalendarVariable = function () {
     const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
     if (selectedGrouping === 'position_shift_timings') {
         Page.Variables.svcalendarPositionView.invoke();
@@ -20,16 +28,7 @@ Page.onReady = function () {
 };
 
 Page.Weekview1Daterangechange = function ($event, $data) {
-    const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
-    if (selectedGrouping === 'position_shift_timings') {
-        Page.Variables.svcalendarPositionView.invoke();
-    } else if (selectedGrouping === 'category_shift_timings') {
-        Page.Variables.svcalendarCategoryView.invoke();
-    } else if (selectedGrouping === 'cat_shift_timings') {
-        Page.Variables.svCalendarShortCategoryView.invoke();
-    } else {
-        Page.Variables.svCalendarShiftTimingView.invoke();
-    }
+    Page.invokeCalendarVariable();
 };
 
 Page.Weekview1Load = function ($event, widget) {
@@ -81,11 +80,11 @@ Page.formatEmployeeName = function (firstName, lastName, fallback, format) {
     if (!fn && !ln) { return (fallback || '').trim(); }
     switch (format) {
         case 'First, last': return fn + (ln ? ', ' + ln : '');
-        case 'First L.':    return fn + (ln ? ' ' + ln.charAt(0) + '.' : '');
-        case 'F. last':     return (fn ? fn.charAt(0) + '. ' : '') + ln;
-        case 'last, F.':    return ln + (fn ? ', ' + fn.charAt(0) + '.' : '');
+        case 'First L.': return fn + (ln ? ' ' + ln.charAt(0) + '.' : '');
+        case 'F. last': return (fn ? fn.charAt(0) + '. ' : '') + ln;
+        case 'last, F.': return ln + (fn ? ', ' + fn.charAt(0) + '.' : '');
         case 'First Last':
-        default:            return (fn + (ln ? ' ' + ln : '')).trim();
+        default: return (fn + (ln ? ' ' + ln : '')).trim();
     }
 };
 
@@ -124,82 +123,77 @@ Page.buildCalendarDaySlots = function (data) {
         if (!dateKey) { return; }
 
         const positions = [];
-        // dateEntry.shiftGroups -> outer group (position/category label)
         const rawPositions = dateEntry.shiftGroups || [];
 
         rawPositions.forEach(function (posGroup) {
             const posName = posGroup.label || '';
             const timeSlots = posGroup.shiftGroups || [];
-            const allEmployees = [];
+            const showCatPos = App.Variables.appSelectedGrouping.dataSet.showCatPos === true;
+            const nameFormat = (App.Variables.appSelectedGrouping && App.Variables.appSelectedGrouping.dataSet.nameFormat) || 'First Last';
+
+            // Build timeGroups: one entry per time slot, each with its own employees array
+            const timeGroups = [];
+            let hasRealShifts = false;
 
             if (timeSlots.length === 0) {
-                // No inner time slots — show "(No Shifts)" row
-                allEmployees.push({
-                    employeeName: '(No Shifts)',
-                    categoryName: '',
-                    iconClass: '',
-                    color: '',
-                    description: '',
+                // No inner time slots — show a single "(No Shifts)" time group
+                timeGroups.push({
                     timeRange: '',
-                    isNoShifts: true
+                    employees: [{
+                        employeeName: '(No Shifts)',
+                        categoryName: '',
+                        iconClass: '',
+                        color: '',
+                        description: '',
+                        isNoShifts: true
+                    }]
                 });
             } else {
                 timeSlots.forEach(function (timeSlot) {
                     const timeRange = timeSlot.label || '';
                     const shifts = timeSlot.shifts || [];
+                    const employees = [];
 
                     if (shifts.length === 0) {
-                        allEmployees.push({
+                        employees.push({
                             employeeName: '(No Shifts)',
                             categoryName: '',
                             iconClass: '',
                             color: '',
                             description: '',
-                            timeRange: timeRange,
                             isNoShifts: true
                         });
                     } else {
-                        const showCatPos = App.Variables.appSelectedGrouping.dataSet.showCatPos === true;
-                        const nameFormat = (App.Variables.appSelectedGrouping && App.Variables.appSelectedGrouping.dataSet.nameFormat) || 'First Last';
                         shifts.forEach(function (shift) {
                             const empName = Page.formatEmployeeName(shift.firstName, shift.lastName, shift.employeeName, nameFormat);
-                            const color   = shift.color || '';
+                            const color = shift.color || '';
                             const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
-                            allEmployees.push({
+                            employees.push({
                                 employeeName: empName || '(No Shifts)',
                                 categoryName: (showCatPos && empName && shift.category) ? shift.category : '',
-                                iconClass:    empName ? iconCls : '',
-                                color:        color,
-                                description:  shift.description || '',
-                                timeRange:    timeRange,
-                                isNoShifts:   !empName
+                                iconClass: empName ? iconCls : '',
+                                color: color,
+                                description: shift.description || '',
+                                isNoShifts: !empName
                             });
+                            if (empName) { hasRealShifts = true; }
                         });
                     }
+
+                    timeGroups.push({ timeRange: timeRange, employees: employees });
                 });
             }
 
             // If hideGroupsNoShifts is enabled, skip positions where all employees are "(No Shifts)"
-            const hasRealShifts = allEmployees.some(function (e) { return !e.isNoShifts; });
             if (hideGroupsNoShifts && !hasRealShifts) {
                 return;
             }
 
-            if (timeSlots.length === 0) {
-                positions.push({
-                    positionName: posName,
-                    timeRange: '',
-                    showHeader: true,
-                    employees: allEmployees
-                });
-            } else {
-                positions.push({
-                    positionName: posName,
-                    timeRange: '',
-                    showHeader: true,
-                    employees: allEmployees
-                });
-            }
+            positions.push({
+                positionName: posName,
+                showHeader: true,
+                timeGroups: timeGroups
+            });
         });
 
         dateMap[dateKey] = { positions: positions };
@@ -223,8 +217,8 @@ Page.buildCalendarDaySlots = function (data) {
         startDateStr = dominantMonth + '-01';
     }
 
-    const monthStart  = moment(startDateStr, 'YYYY-MM-DD').startOf('month');
-    const totalDays   = moment(startDateStr, 'YYYY-MM-DD').endOf('month').date();
+    const monthStart = moment(startDateStr, 'YYYY-MM-DD').startOf('month');
+    const totalDays = moment(startDateStr, 'YYYY-MM-DD').endOf('month').date();
     const firstDayOfWeek = monthStart.day(); // 0=Sun, 1=Mon, ..., 6=Sat
     const allDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const startOn = (App.Variables.appSelectedGrouping && App.Variables.appSelectedGrouping.dataSet.startOn) || 'Sunday';
@@ -241,9 +235,9 @@ Page.buildCalendarDaySlots = function (data) {
         const dateStr = monthStart.clone().date(d).format('YYYY-MM-DD');
         const dayData = dateMap[dateStr];
         slots.push({
-            hasDate:   true,
-            dayNum:    d,
-            dateStr:   dateStr,
+            hasDate: true,
+            dayNum: d,
+            dateStr: dateStr,
             positions: dayData ? dayData.positions : []
         });
     }
@@ -294,7 +288,6 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                     iconClass: '',
                     color: '',
                     description: '',
-                    timeRange: label,
                     isNoShifts: true
                 });
             } else {
@@ -302,17 +295,16 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                 const nameFormat = (App.Variables.appSelectedGrouping && App.Variables.appSelectedGrouping.dataSet.nameFormat) || 'First Last';
                 shifts.forEach(function (shift) {
                     const empName = Page.formatEmployeeName(shift.firstName, shift.lastName, shift.employeeName, nameFormat);
-                    const color   = shift.color || '';
+                    const color = shift.color || '';
                     const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
                     if (empName) {
                         employees.push({
                             employeeName: empName,
                             categoryName: (showCatPos && shift.category) ? shift.category : '',
-                            iconClass:    iconCls,
-                            color:        color,
-                            description:  shift.description || '',
-                            timeRange:    label,
-                            isNoShifts:   false
+                            iconClass: iconCls,
+                            color: color,
+                            description: shift.description || '',
+                            isNoShifts: false
                         });
                     }
                 });
@@ -324,7 +316,6 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                         iconClass: '',
                         color: '',
                         description: '',
-                        timeRange: label,
                         isNoShifts: true
                     });
                 }
@@ -336,11 +327,14 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
             }
 
             if (label || employees.length > 0) {
+                // Each shift-timing group becomes one position with one timeGroup entry
                 positions.push({
                     positionName: label,
-                    timeRange: '',
                     showHeader: false,
-                    employees: employees
+                    timeGroups: [{
+                        timeRange: label,
+                        employees: employees
+                    }]
                 });
             }
         });
@@ -365,8 +359,8 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
         startDateStr = dominantMonth + '-01';
     }
 
-    const monthStart  = moment(startDateStr, 'YYYY-MM-DD').startOf('month');
-    const totalDays   = moment(startDateStr, 'YYYY-MM-DD').endOf('month').date();
+    const monthStart = moment(startDateStr, 'YYYY-MM-DD').startOf('month');
+    const totalDays = moment(startDateStr, 'YYYY-MM-DD').endOf('month').date();
     const firstDayOfWeek = monthStart.day(); // 0=Sun, 1=Mon, ..., 6=Sat
     const allDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const startOn = (App.Variables.appSelectedGrouping && App.Variables.appSelectedGrouping.dataSet.startOn) || 'Sunday';
@@ -383,9 +377,9 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
         const dateStr = monthStart.clone().date(d).format('YYYY-MM-DD');
         const dayData = dateMap[dateStr];
         slots.push({
-            hasDate:   true,
-            dayNum:    d,
-            dateStr:   dateStr,
+            hasDate: true,
+            dayNum: d,
+            dateStr: dateStr,
             positions: dayData ? dayData.positions : []
         });
     }
@@ -398,4 +392,8 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
         }
     }
     return slots;
+};
+Page.anchor2Click = function ($event, widget) {
+    App.redirectTo('mgrschedulecfgmonth');
+
 };
