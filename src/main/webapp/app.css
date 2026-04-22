@@ -20,8 +20,7 @@
     --wm-bg-color-dislike: #FFAEAE;
     --wm-bg-color-cannot-work: #FF0000;
     --wm-color-purple: #bfbfff;
-   
-
+    --wm-color-bordernew-color: #eeeeee;
 }
 
 .open-sans-700 {
@@ -552,6 +551,28 @@ td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day a {
 .fc-day-today a {
     font-size: 18px;
     font-weight: 700;
+}
+
+app-partial-scheduletopnav {
+    width: 100%;
+}
+
+.no-padding-only-border {
+    border: 1px solid var(--wm-color-bordernew-color) !important;
+}
+
+.mh-list {
+    min-height: auto !important;
+}
+.footerInfoSection {
+    width: 100%;
+    padding: 16px 24px;
+    background-color: var(--wm-color-white);
+    position: relative !important;
+}
+.lblContactW2W {
+    text-align: center;
+    flex: 1;
 }
 
 /* responsive code starts */

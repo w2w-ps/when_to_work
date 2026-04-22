@@ -2,7 +2,7 @@
 <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
 <wm-content name="content">
 <wm-page-content name="pagecontent" class="p-0" columnwidth="12">
-<wm-container name="scheduleHeaderSection" class="app-container-default" direction="column" gap="0" alignment="top-left" width="fill" height="hug" content="scheduleTopNav"></wm-container>
+<wm-container name="scheduleHeaderSection" class="app-container-default w-100" direction="column" gap="0" alignment="top-left" width="fill" height="hug" content="scheduleTopNav"></wm-container>
 <wm-container name="pageContainer" class="app-container-default" direction="column" gap="7" alignment="top-left" width="fill" height="hug" clipcontent="false" conditionalclass="bind:App.Variables.employeeViewConfig.dataSet.fontSize ? 'font-size-' + App.Variables.employeeViewConfig.dataSet.fontSize.toLowerCase() : ''">
 <!-- Week Navigation Header -->
 <wm-container name="weekNavigationContainer" class="app-container-default week-nav-hover-container p-0 bg-grey" direction="row" gap="auto" alignment="center" width="fill" height="hug">
@@ -171,7 +171,7 @@
 <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container87_1" class="app-container-default footerweek-nav-hover-container p-0 bg-grey" variant="default" show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
 <wm-prefab prefabname="Weekview" name="Weekview2" width="100%" startdayofweek="tuesday"></wm-prefab></wm-container>
 <wm-container name="footerInfoSection" class="app-container-default footerInfoSection" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="60px unset unset unset">
-<wm-label name="lblContactW2W" caption="Questions, comments or suggestions? Contact W2W" class="app-label lblContactW2W" on-click="Widgets.confirmShiftChangeDialog.open()"></wm-label>
+<wm-label name="lblContactW2W" caption="Questions, comments or suggestions? Contact W2W" class="lblContactW2W label-label-13-700-black" on-click="Widgets.confirmShiftChangeDialog.open()" variant="label-13-700-black"></wm-label>
 <wm-button name="btnHelpFab" iconclass="fa fa-question" class="btn-default btnHelpFab btn-filled-primary-circle" variant="filled-primary-circle"></wm-button></wm-container></wm-container>
 <!-- Shift Management Dialog -->
 <wm-dialog name="shiftDialog" title="bind:&quot;Quick Shift &quot;+(isAdd ? &quot;Add&quot; : &quot;Edit&quot;)" modal="false" closable="true" on-opened="shiftDialogOpened($event, widget)" class="modal-add-shift" variant="add-shift" headinglevel="h5">
