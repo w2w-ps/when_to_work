@@ -1,0 +1,131 @@
+{
+  "basePath" : "${rest.getCategoryGroups.basepath}",
+  "paths" : {
+    "/category-groups" : {
+      "x-WM-BASE_PATH" : "/category-groups",
+      "x-WM-TAG" : "getCategoryGroups",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getCategoryGroups_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "status",
+          "format" : "string",
+          "description" : "status",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "getCategoryGroups" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getCategoryGroups.scheme}://${rest.getCategoryGroups.host}${rest.getCategoryGroups.basepath}/category-groups"
+    }
+  },
+  "host" : "${rest.getCategoryGroups.host}",
+  "schemes" : [ "${rest.getCategoryGroups.scheme}" ],
+  "definitions" : {
+    "Response.categoriesEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getCategoryGroups.Response.categoriesEntryItem",
+      "x-WM-TAGS" : [ "getCategoryGroups" ],
+      "required" : [ "description", "id", "shortDesc" ],
+      "properties" : {
+        "description" : {
+          "type" : "string"
+        },
+        "shortDesc" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.categoryGroupsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getCategoryGroups.Response.categoryGroupsEntryItem",
+      "x-WM-TAGS" : [ "getCategoryGroups" ],
+      "required" : [ "categories", "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "categories" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.categoriesEntryItem"
+          }
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getCategoryGroups.RootResponse",
+      "x-WM-TAGS" : [ "getCategoryGroups" ],
+      "required" : [ "categoryGroups" ],
+      "properties" : {
+        "categoryGroups" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.categoryGroupsEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "cf732c95-61bc-4863-8d61-78fe60a6d4bc",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getCategoryGroups"
+  } ]
+}

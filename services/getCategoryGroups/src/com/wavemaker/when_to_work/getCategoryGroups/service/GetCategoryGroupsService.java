@@ -1,8 +1,8 @@
-package com.wavemaker.when_to_work.getPositionViewScheduling.service;
+package com.wavemaker.when_to_work.getCategoryGroups.service;
 
 
-import com.wavemaker.when_to_work.getPositionViewScheduling.model.*;
-import com.wavemaker.when_to_work.getPositionViewScheduling.model.RootResponse;
+import com.wavemaker.when_to_work.getCategoryGroups.model.*;
+import com.wavemaker.when_to_work.getCategoryGroups.model.RootResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,24 +12,21 @@ import java.lang.Object;
 import org.springframework.util.MultiValueMap;
 import feign.*;
 
-public interface GetPositionViewSchedulingService {
+public interface GetCategoryGroupsService {
 
   /**
    * 
    * 
     * @param Authorization Authorization (optional)
-    * @param positionIds positionIds (optional)
     * @param companyId companyId (optional)
-    * @param categoryIds categoryIds (optional)
-    * @param endDate endDate (optional)
-    * @param startDate startDate (optional)
+    * @param status status (optional)
    * @return RootResponse
    */
-  @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
+  @RequestLine("GET /category-groups?companyId={companyId}&status={status}")
   @Headers({
     "Accept: application/json",
     "Authorization: {Authorization}"  })
-  RootResponse invoke(@Param("Authorization") String Authorization, @Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate);
+  RootResponse invoke(@Param("Authorization") String Authorization, @Param("companyId") String companyId, @Param("status") String status);
 
 
     /**
@@ -44,15 +41,12 @@ public interface GetPositionViewSchedulingService {
      * @param queryParams Map of query parameters as name-value pairs
      *   <p>The following elements may be specified in the query map:</p>
      *   <ul>
-     *   <li>positionIds - positionIds (optional)</li>
      *   <li>companyId - companyId (optional)</li>
-     *   <li>categoryIds - categoryIds (optional)</li>
-     *   <li>endDate - endDate (optional)</li>
-     *   <li>startDate - startDate (optional)</li>
+     *   <li>status - status (optional)</li>
      *   </ul>
      * @return RootResponse
      */
-    @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
+    @RequestLine("GET /category-groups?companyId={companyId}&status={status}")
     @Headers({
     "Accept: application/json",
         "Authorization: {Authorization}"    })
