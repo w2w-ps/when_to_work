@@ -1,0 +1,28 @@
+<wm-page name="page" pagetitle="Edit Delete Position">
+    <wm-left-panel columnwidth="2" content="leftnav" name="leftpanel" navtype="rail" navheight="full"></wm-left-panel>
+    <wm-content name="content">
+        <wm-header content="header" name="header" height="auto"></wm-header>
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="column" alignment="top-left" gap="0" width="fill" height="hug" name="editDeleteParentcontainer" class="app-container-default">
+                <wm-container direction="column" alignment="top-left" gap="12" width="fill" height="hug" name="currentPositionsSectionContainer" class="positions-section-container" padding="16px">
+                    <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug" name="positionsHeaderRow" class="app-container-default">
+                        <wm-label name="currentPositionsTitle" caption="Current Positions" class="app-label h4">
+                        </wm-label>
+                        <wm-button name="savePositionsBtn" caption="Save" class="btn-outlined btn-default"></wm-button>
+                    </wm-container>
+                    <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug" name="positionsSortRow" class="app-container-default">
+                        <wm-anchor margin="unset 0.5em" name="sortAlphabeticallyAnchor" variant="standard" caption="Sort alphabetically" on-click="sortAlphabeticallyAnchorClick($event, widget)"></wm-anchor>
+                        <wm-label name="sortHintLabel" caption="≡  Use to move sort order" class="app-label text-muted">
+                        </wm-label>
+                    </wm-container>
+                    <wm-list name="positionsList" dataset="bind:Variables.sortedPositionsList.dataSet" class="list-card" direction="column" gap="8" alignment="top-left" width="fill" height="hug" listclass="list-group" itemclass="position-list-item" on-render="positionsListRender($data)">
+                        <wm-listtemplate name="positionsListTemplate" direction="row" alignment="center" gap="auto" width="fill" height="hug">
+                            <wm-container direction="row" alignment="middle-left" gap="4" width="fill" height="hug" name="container5" class="app-container-default" variant="default"><wm-label name="positionNameLabel" caption="bind:item.description" class="text-primary" variant="text:primary" width="10%"></wm-label><wm-icon name="dragHandleIcon" class="fa-xs drag-handle" variant="default:xs" iconclass="wi wi-menu"></wm-icon></wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+        <wm-footer content="footer" name="footer"></wm-footer>
+    </wm-content>
+</wm-page>

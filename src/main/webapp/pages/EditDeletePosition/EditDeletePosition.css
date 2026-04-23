@@ -1,0 +1,22 @@
+.positions-section-container {
+  background-color: #e8eaf0;
+  border-radius: 8px;
+}
+
+.position-list-item {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+}
+
+.drag-handle-icon {
+  font-size: 18px;
+  color: #666666;
+  cursor: grab;
+}
+
+.drag-handle {
+  cursor: grab;
+}

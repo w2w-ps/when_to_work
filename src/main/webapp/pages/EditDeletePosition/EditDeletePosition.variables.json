@@ -1,0 +1,16 @@
+{
+  "sortedPositionsList" : {
+    "_id" : "wm-sortedPositionsList-wm.Variable-1776939788855",
+    "name" : "sortedPositionsList",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "positionId" : 0,
+      "description" : ""
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  }
+}

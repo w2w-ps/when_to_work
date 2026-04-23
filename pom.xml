@@ -50,6 +50,7 @@
                 <source>services/calendarShortCategoryView/src</source>
                 <source>services/categoryList/src</source>
                 <source>services/categoryShiftTimings/src</source>
+                <source>services/createPosition/src</source>
                 <source>services/createShift/src</source>
                 <source>services/dayPreferenceList/src</source>
                 <source>services/deleteAdditonalManager/src</source>
