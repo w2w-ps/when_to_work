@@ -87,7 +87,7 @@
     },
     "isList" : false,
     "maxResults" : 20,
-    "onBeforeUpdate" : "Javascript",
+    "onBeforeUpdate" : "",
     "onSuccess" : "svcalendarPositionViewonSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
