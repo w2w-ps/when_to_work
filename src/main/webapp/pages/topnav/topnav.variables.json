@@ -94,7 +94,7 @@
         } ]
       }, {
         "caption" : "Calendar View",
-        "hyperlink" : "",
+        "hyperlink" : "#/calenderView",
         "children" : [ {
           "caption" : "Daily",
           "hyperlink" : ""
