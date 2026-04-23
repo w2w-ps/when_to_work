@@ -261,6 +261,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgrcoinfo" : {
+    "_id" : "wm-goToPage_mgrcoinfo-wm.NavigationAction-1776852766610",
+    "name" : "goToPage_mgrcoinfo",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrcoinfo",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Mgrempedit" : {
     "_id" : "wm-goToPage_Mgrempedit-wm.NavigationAction-1774420490307",
     "name" : "goToPage_Mgrempedit",
