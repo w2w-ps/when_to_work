@@ -109,6 +109,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "mgrcoinfo",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "mgrschedulecfgmonth",
   "type" : "PAGE",
   "params" : [ ]

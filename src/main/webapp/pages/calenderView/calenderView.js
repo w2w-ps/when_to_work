@@ -6,7 +6,7 @@
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
     // Guard: only invoke API if the user session is authenticated
-    if (!App.Variables.loggedInUser.dataSet.isAUthenticated) {
+    if (!App.Variables.loggedInUser.dataSet.authenticated) {
         return;
     }
     Page.applyStartDay();

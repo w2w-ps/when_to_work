@@ -1,0 +1,79 @@
+{
+  "companyInfo" : {
+    "_id" : "wm-companyInfo-wm.Variable-1776853080913",
+    "name" : "companyInfo",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "accountId" : "247117",
+        "employeeCount" : 73,
+        "expiresDate" : "Mar 1, 2030",
+        "companyName" : "Sample Company",
+        "billingAddress" : "123 Main St",
+        "city" : "Anytown",
+        "stateRegion" : "CA",
+        "postalCode" : "90000",
+        "country" : "United States",
+        "phone" : ""
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "globalSettings" : {
+    "_id" : "wm-globalSettings-wm.Variable-1776853089362",
+    "name" : "globalSettings",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "minTimeBetweenShifts" : 12,
+        "notificationType" : "",
+        "timeZone" : "GMT-8 Pacific US",
+        "daylightSavings" : true,
+        "displayTime" : "12hour",
+        "customLabel1" : "Custom Field 1",
+        "customLabel2" : "Custom Field 2",
+        "startDay" : "Monday",
+        "employeeLabel" : "Employee",
+        "sessionSecurityLevel" : "level2"
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "myInfo" : {
+    "_id" : "wm-myInfo-wm.Variable-1776853084293",
+    "name" : "myInfo",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "firstName" : "John",
+        "lastName" : "Smith"
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "sessionSecurityLevel" : {
+    "_id" : "wm-sessionSecurityLevel-wm.Variable-1776922806107",
+    "name" : "sessionSecurityLevel",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "Level 2"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  }
+}
