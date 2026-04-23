@@ -15,6 +15,17 @@
     } ],
     "operation" : "toast"
   },
+  "empIdList" : {
+    "_id" : "wm-empIdList-wm.Variable-1776759465310",
+    "name" : "empIdList",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "string",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
   "employeeViewConfig" : {
     "_id" : "wm-employeeViewConfig-wm.Variable-1775470939443",
     "name" : "employeeViewConfig",

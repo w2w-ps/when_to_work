@@ -1,4 +1,17 @@
 {
+  "currentEmpIndex" : {
+    "_id" : "wm-currentEmpIndex-wm.Variable-1776759485011",
+    "name" : "currentEmpIndex",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "svGetEmployeeById" : {
     "_id" : "wm-svGetEmployeeById-wm.ServiceVariable-1776743649488",
     "name" : "svGetEmployeeById",

@@ -44,7 +44,10 @@
 }, {
   "name" : "Mgrempedit",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
 }, {
   "name" : "Mgremplist",
   "type" : "PAGE",

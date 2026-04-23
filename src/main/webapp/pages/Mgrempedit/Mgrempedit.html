@@ -14,13 +14,13 @@
 <!-- SECTION 1: Page Title Bar -->
 <wm-container name="titleBarRow" class="app-container-default pb-3" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="unset 40px">
 <wm-container class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug" name="container69" variant="default">
-<wm-anchor margin="unset 0.5em" variant="standard-sm" iconclass="" caption="" iconurl="./resources/images/imagelists/icon___fa-caret-left.png" name="anchor18" iconwidth="30px" iconheight="30px"></wm-anchor></wm-container>
+<wm-anchor margin="unset 0.5em" variant="standard-sm" iconclass="" caption="" iconurl="./resources/images/imagelists/icon___fa-caret-left.png" name="anchor18" iconwidth="30px" iconheight="30px" on-click="anchor18Click($event, widget)"></wm-anchor></wm-container>
 <wm-container name="titleBarLeft" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="hug" height="hug">
 <wm-label name="lblEdit" caption="EDIT" class=" label-label-18-700" variant="label-18-700"></wm-label>
 <wm-icon name="iconDiamond" iconclass="fa fa-diamond" iconsize="1em" class="purple lg" variant="default:md"></wm-icon>
-<wm-label name="lblEmployeeName" caption="Luke Aaron" class="label-label-18-700" variant="label-18-700"></wm-label></wm-container>
+<wm-label name="lblEmployeeName" caption="bind:Variables.employeeData.dataSet.firstName+ &quot; &quot; + Variables.employeeData.dataSet.lastName" class="label-label-18-700" variant="label-18-700"></wm-label></wm-container>
 <wm-container name="titleBarRight" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
-<wm-anchor margin="unset 0.5em" name="anchor16" variant="standard-sm" iconclass="" caption="" iconurl="resources/images/imagelists/icon___fa-caret-right.png" iconwidth="30px" iconheight="30px"></wm-anchor></wm-container></wm-container>
+<wm-anchor margin="unset 0.5em" name="anchor16" variant="standard-sm" iconclass="" caption="" iconurl="resources/images/imagelists/icon___fa-caret-right.png" iconwidth="30px" iconheight="30px" on-click="anchor16Click($event, widget)"></wm-anchor></wm-container></wm-container>
 <!-- SECTION 2: Name Card -->
 <wm-container name="nameCard" class="app-container-default container-grey-container container-grey-standard mb-2" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
 <!-- Name Card Header -->
@@ -94,8 +94,8 @@
 <wm-label name="lblOptionalInfo" caption="Optional Info:" class="label-label-16-400-Arial-Italic optional-head-container" variant="label-16-400-Arial-Italic"></wm-label>
 <wm-container name="saveRowTop" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
 <wm-container name="saveButtonsTop" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug" clipcontent="false">
-<wm-button name="btnSaveTop" caption="SAVE" class="btn-outlined-primary" variant="outlined-primary"></wm-button>
-<wm-button name="btnSaveNextTop" caption="SAVE &amp; NEXT" class="btn-outlined-primary" variant="outlined-primary"></wm-button></wm-container></wm-container></wm-container>
+<wm-button name="btnSaveTop" caption="SAVE" class="btn-outlined-primary" variant="outlined-primary" on-click="Variables.patchEmployeeVar.invoke()"></wm-button>
+<wm-button name="btnSaveNextTop" caption="SAVE &amp; NEXT" class="btn-outlined-primary" variant="outlined-primary" on-click="btnSaveNextClick($event, widget)"></wm-button></wm-container></wm-container></wm-container>
 <!-- SECTION 6: Contact Card -->
 <wm-container name="contactCard" class="container-grey-container container-grey-standard mb-2 mt-2" direction="column" gap="4" alignment="top-left" width="fill" height="hug" variant="grey-standard">
 <wm-label name="lblContactHeader" caption="Contact" class="label-label-20-700" variant="label-20-700"></wm-label>
@@ -277,8 +277,8 @@
 <wm-button name="btnDeleteBottom" caption="DELETE Employee" class="btn-danger btn-filled-bg-danger-sm optional-head-container" iconclass="" variant="filled-bg-danger-sm"></wm-button>
 <wm-container name="bottomActionRow" class="app-container-default" direction="row" gap="8" alignment="middle-center" width="fill" height="hug">
 <wm-container name="saveButtonsBottom" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
-<wm-button name="btnSaveBottom" caption="SAVE" class="btn-outlined-primary" variant="outlined-primary"></wm-button>
-<wm-button name="btnSaveNextBottom" caption="SAVE &amp; NEXT" class="btn-outlined-primary" variant="outlined-primary"></wm-button></wm-container></wm-container></wm-container>
+<wm-button name="btnSaveBottom" caption="SAVE" class="btn-outlined-primary" variant="outlined-primary" on-click="Variables.patchEmployeeVar.invoke()"></wm-button>
+<wm-button name="btnSaveNextBottom" caption="SAVE &amp; NEXT" class="btn-outlined-primary" variant="outlined-primary" on-click="btnSaveNextClick($event, widget)"></wm-button></wm-container></wm-container></wm-container>
 <!-- SECTION 16: Information Card -->
 <wm-container name="informationCard" class="mt-2 container-grey-container container-grey-standard mb-2" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard">
 <wm-label name="lblInformationHeader" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
