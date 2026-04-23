@@ -1,0 +1,44 @@
+{
+  "currentEmpIndex" : {
+    "_id" : "wm-currentEmpIndex-wm.Variable-1776759485011",
+    "name" : "currentEmpIndex",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "svGetEmployeeById" : {
+    "_id" : "wm-svGetEmployeeById-wm.ServiceVariable-1776743649488",
+    "name" : "svGetEmployeeById",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:pageParams.empid",
+      "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg",
+      "type" : "string"
+    } ],
+    "type" : "GetEmployeeById.RootResponse",
+    "service" : "GetEmployeeById",
+    "operation" : "invoke",
+    "operationId" : "GetEmployeeById_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "controller" : "GetEmployeeById"
+  }
+}

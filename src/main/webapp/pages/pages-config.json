@@ -41,7 +41,10 @@
 }, {
   "name" : "Mgrempedit",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
 }, {
   "name" : "Mgremplist",
   "type" : "PAGE",
@@ -108,6 +111,17 @@
   "name" : "mgradminsettings",
   "type" : "PAGE",
   "params" : [ ]
+}, {
+  "name" : "mgrcoinfo",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrempinfopop",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "empid",
+    "type" : "string"
+  } ]
 }, {
   "name" : "mgrschedulecfgmonth",
   "type" : "PAGE",
