@@ -149,7 +149,11 @@
     "name" : "wsGetEmployeeDetails",
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
-    "dataBinding" : [ ],
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyLjQ1NTEiLCJyb2xlIjoiTWFuYWdlciIsImlhdCI6MTc3NjY3MTY3OCwiZXhwIjoxNzc2NjczNDc4fQ.ld3BhXUwyOZj9WN6t-MnpRlxX7DccQvX80gdXwYhBosx54Vtw11n2qhfD8MLufk9AOYLcW7_zWJcDhsNeShwdPNJ9JCdKGHcIXmj9KQs2N8j1DMVvKY15zTY3NG3CX_2YfMmrrFVR8OUCJnBYLZhXo9sOvWJf3OpjUIwWjlHBD9nHRJTj8nl4Sz4_K6Z5rFCwbG8rxbOznTN7ls8yQPWGUizvasCUu0w7mtHmhKzqGx4jk9zzPZXQWCeoY2wlgY9h7h3IDVBhSE_SU52VqGJwO7c1EmrEysIhwF2R1hEWVyYrZo9spq1PVo9kqbEI6o4hW1McYndRBwLwAJHxErbsw",
+      "type" : "string"
+    } ],
     "type" : "getEmployeeDetails.Response.RootResponseROOTEntryItem",
     "service" : "getEmployeeDetails",
     "operation" : "invoke",
@@ -159,6 +163,7 @@
     "dataSet" : [ ],
     "isList" : true,
     "maxResults" : 20,
+    "onSuccess" : "wsGetEmployeeDetailsonSuccess(variable, data)",
     "startUpdate" : true,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",

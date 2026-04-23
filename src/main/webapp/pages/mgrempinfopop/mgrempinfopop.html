@@ -1,0 +1,302 @@
+<wm-page name="page" pagetitle="Mgrempinfopop">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container name="empinfo_root" class="app-container-default" direction="column" gap="8"
+                alignment="top-left" width="fill" height="hug" padding="8px">
+                <!-- Employee Name Header -->
+                <wm-container name="emp_name_header" class="app-container-default" direction="row" gap="0"
+                    alignment="top-center" width="fill" height="hug" padding="8px 0px">
+                    <wm-button name="btn_prev_emp" iconclass="wi wi-chevron-left" class="btn-transparent" caption=""
+                        on-click="btn_prev_empClick($event, widget)"></wm-button>
+                    <wm-label name="lbl_emp_name"
+                        caption="bind:(Variables.svGetEmployeeById.dataSet.firstName || '') + ' ' + (Variables.svGetEmployeeById.dataSet.lastName || '')"
+                        class="text-center label-20-700" variant="label-20-700"></wm-label>
+                    <wm-button name="btn_next_emp" iconclass="wi wi-chevron-right" class="btn-transparent" caption=""
+                        on-click="btn_next_empClick($event, widget)"></wm-button>
+                </wm-container>
+                <!-- Tabs -->
+                <wm-tabs name="emp_tabs" defaultpaneindex="0">
+                    <!-- TAB 1: Info -->
+                    <wm-tabpane name="tab_info" title="Info">
+                        <!-- Details Section -->
+                        <wm-container name="details_section"
+                            class="grey-no-radius-small-container container-grey-no-radius-small-container"
+                            direction="column" gap="0" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <!-- Details Header -->
+                            <wm-label name="lbl_details_heading" caption="Details" variant="label-18-700"
+                                class="label-18-700"></wm-label>
+                            <!-- Row: Name -->
+                            <wm-container name="row_name" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_name_field" caption="Name" class="text-right label-14-400"
+                                    width="140px" variant="label-14-400"></wm-label>
+                                <wm-icon name="icon_name_person" iconclass="wm-sl-l sl-user" iconsize="18px"></wm-icon>
+                                <wm-label name="lbl_name_value"
+                                    caption="bind:(Variables.svGetEmployeeById.dataSet.firstName || '') + ' ' + (Variables.svGetEmployeeById.dataSet.lastName || '')"
+                                    variant="label-bold" class="label-bold"></wm-label>
+                            </wm-container>
+                            <!-- Divider -->
+                            <wm-container name="divider1" class="app-container-default" direction="row" gap="0"
+                                alignment="top-left" width="fill" height="1px" backgroundcolor="#cccccc"></wm-container>
+                            <!-- Row: Emails/Texts -->
+                            <wm-container name="row_email" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_email_field" caption="Emails/Texts" class="text-right label-14-400"
+                                    width="140px" variant="label-14-400"></wm-label>
+                                <wm-icon name="icon_email_person" iconclass="wm-sl-l sl-user" iconsize="18px"></wm-icon>
+                                <wm-container name="email_value_col" class="app-container-default" direction="column"
+                                    gap="2" alignment="top-left" width="fill" height="hug">
+                                    <wm-label name="lbl_email_value"
+                                        caption="bind:Variables.svGetEmployeeById.dataSet.email || 'No emails entered'"
+                                        variant="label-16-400-Arial-Italic" class="label-16-400-Arial-Italic">
+                                    </wm-label>
+                                    <wm-anchor name="anc_edit_emails" caption="Add / Edit Emails &amp; Notifications"
+                                        iconclass="wi wi-edit" iconposition="left"></wm-anchor>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Divider -->
+                            <wm-container name="divider2" class="app-container-default" direction="row" gap="0"
+                                alignment="top-left" width="fill" height="1px" backgroundcolor="#cccccc"></wm-container>
+                            <!-- Row: Phone -->
+                            <wm-container name="row_phone" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_phone_field" caption="Phone" class="text-right label-14-400"
+                                    width="140px" variant="label-14-400"></wm-label>
+                                <wm-icon name="icon_phone_person" iconclass="wm-sl-l sl-user" iconsize="18px"></wm-icon>
+                                <wm-icon name="icon_lock" iconclass="wi wi-lock" iconsize="14px"></wm-icon>
+                                <wm-label name="lbl_phone_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.phone" variant="label-bold"
+                                    class="label-bold"></wm-label>
+                            </wm-container>
+                            <!-- Row: Address -->
+                            <wm-container name="row_address" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_address_field" caption="Address" class="text-right label-14-400"
+                                    width="140px" variant="label-14-400"></wm-label>
+                                <wm-icon name="icon_address_person" iconclass="wm-sl-l sl-user" iconsize="18px">
+                                </wm-icon>
+                                <wm-label name="lbl_address_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.address.address"
+                                    variant="label-bold" class="label-bold"></wm-label>
+                            </wm-container>
+                            <!-- Divider -->
+                            <wm-container name="divider3" class="app-container-default" direction="row" gap="0"
+                                alignment="top-left" width="fill" height="1px" backgroundcolor="#cccccc"></wm-container>
+                            <!-- Row: Last Sign In -->
+                            <wm-container name="row_lastsignin" class="app-container-default" direction="row" gap="8"
+                                alignment="top-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_lastsignin_field" caption="Last Sign In"
+                                    class="text-right label-14-400" width="140px" variant="label-14-400"></wm-label>
+                                <wm-container name="lastsignin_value_col" class="app-container-default"
+                                    direction="column" gap="2" alignment="top-left" width="fill" height="hug">
+                                    <wm-label name="lbl_lastsignin_value"
+                                        caption="bind:Variables.svGetEmployeeById.dataSet.lastLogon"
+                                        variant="label-bold" class="label-bold"></wm-label>
+                                    <wm-anchor name="anc_email_signin" caption="Email Sign In" iconclass="wi wi-email"
+                                        iconposition="left"></wm-anchor>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Divider -->
+                            <wm-container name="divider4" class="app-container-default" direction="row" gap="0"
+                                alignment="top-left" width="fill" height="1px" backgroundcolor="#cccccc"></wm-container>
+                            <!-- Row: Custom Field 1 -->
+                            <wm-container name="row_customfield1" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_customfield1_field" caption="*Custom Field 1"
+                                    class="text-right label-14-400" width="140px" variant="label-14-400"></wm-label>
+                                <wm-label name="lbl_customfield1_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.customField1" variant="label-bold"
+                                    class="label-bold"></wm-label>
+                            </wm-container>
+                            <!-- Row: Default Pay Rate -->
+                            <wm-container name="row_payrate" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_payrate_field" caption="Default Pay Rate"
+                                    class="text-right label-14-400" width="140px" variant="label-14-400"></wm-label>
+                                <wm-label name="lbl_payrate_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.payRate" variant="label-bold"
+                                    class="label-bold"></wm-label>
+                            </wm-container>
+                            <!-- Row: Next Alert Date -->
+                            <wm-container name="row_alertdate" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" padding="8px 0px">
+                                <wm-label name="lbl_alertdate_field" caption="Next Alert Date"
+                                    class="text-right label-14-400" width="140px" variant="label-14-400"></wm-label>
+                                <wm-label name="lbl_alertdate_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.nextAlertDate"
+                                    variant="highlighted-danger-label-14-400"
+                                    class="label-highlighted-danger-label-14-400"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                        <!-- Positions Section -->
+                        <wm-container name="positions_section"
+                            class="grey-no-radius-small-container container-grey-no-radius-small-container"
+                            direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <!-- Positions Header -->
+                            <wm-container name="positions_header_row" class="app-container-default" direction="row"
+                                gap="8" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_positions_heading" caption="Positions" variant="label-18-700"
+                                    class="label-18-700"></wm-label>
+                                <wm-icon name="icon_positions_person" iconclass="wm-sl-l sl-user" iconsize="20px">
+                                </wm-icon>
+                            </wm-container>
+                            <!-- Positions List -->
+                            <wm-list name="positions_list" dataset="bind:Variables.svGetEmployeeById.dataSet.positions"
+                                class="list-card" direction="column" gap="0" alignment="top-left" width="fill"
+                                height="hug" listclass="list-group" wrap="true">
+                                <wm-listtemplate name="positions_listtemplate" direction="row" gap="0"
+                                    alignment="top-left" width="50%" height="hug">
+                                    <wm-label name="lbl_position_item" caption="bind:item.description"
+                                        variant="label-14-400" class="label-14-400"></wm-label>
+                                </wm-listtemplate>
+                            </wm-list>
+                        </wm-container>
+                        <wm-container name="autofill_section"
+                            class="grey-no-radius-small-container container-grey-no-radius-small-container"
+                            direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <!-- AutoFill Header -->
+                            <wm-label name="lbl_autofill_heading" caption="AutoFill Options" variant="label-18-700"
+                                class="label-18-700"></wm-label>
+                            <!-- Row: Maximum per week -->
+                            <wm-container name="row_max_weekly" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_max_weekly_field" caption="Maximum per week" variant="label-14-400"
+                                    class="text-right label-14-400" width="160px"></wm-label>
+                                <wm-label name="lbl_max_weekly_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.maxScheduledHours"
+                                    variant="label-14-400" class="label-14-400"></wm-label>
+                            </wm-container>
+                            <!-- Row: Maximum per day -->
+                            <wm-container name="row_max_daily" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_max_daily_field" caption="Maximum per day" variant="label-14-400"
+                                    class="text-right label-14-400" width="160px"></wm-label>
+                                <wm-label name="lbl_max_daily_value"
+                                    caption="bind:(Variables.svGetEmployeeById.dataSet.maxDailyHours || '') + ' - ' + (Variables.svGetEmployeeById.dataSet.maxDailyShifts || '') + ' Shifts'"
+                                    variant="label-14-400" class="label-14-400"></wm-label>
+                            </wm-container>
+                            <!-- Row: Hire Date -->
+                            <wm-container name="row_hire_date" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_hire_date_field" caption="Hire Date" variant="label-14-400"
+                                    class="text-right label-14-400" width="160px"></wm-label>
+                                <wm-label name="lbl_hire_date_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.hireDate" variant="label-14-400"
+                                    class="label-14-400"></wm-label>
+                            </wm-container>
+                            <!-- Row: Priority Group -->
+                            <wm-container name="row_priority_group" class="app-container-default" direction="row"
+                                gap="8" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_priority_group_field" caption="Priority Group"
+                                    variant="label-14-400" class="text-right label-14-400" width="160px"></wm-label>
+                                <wm-label name="lbl_priority_group_value"
+                                    caption="bind:Variables.svGetEmployeeById.dataSet.priorityGroup"
+                                    variant="label-14-400" class="label-14-400"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                        <wm-container name="comment_section"
+                            class="grey-no-radius-small-container container-grey-no-radius-small-container"
+                            direction="row" gap="16" alignment="middle-left" width="fill" height="hug" padding="16px">
+                            <wm-label name="lbl_comment_heading" caption="Comment" variant="label-18-700"
+                                class="label-18-700"></wm-label>
+                            <wm-label name="lbl_comment_value"
+                                caption="bind:Variables.svGetEmployeeById.dataSet.comments"
+                                variant="label-16-400-Arial-Italic" class="label-16-400-Arial-Italic"></wm-label>
+                        </wm-container>
+                        <wm-container name="information_section"
+                            class="grey-no-radius-small-container container-grey-no-radius-small-container"
+                            direction="column" gap="12" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <wm-label name="lbl_information_heading" caption="Information" variant="label-18-700"
+                                class="label-18-700"></wm-label>
+                            <wm-label name="lbl_info_emails_note"
+                                caption="- Emails marked &quot;None&quot; mean that employee has not set up any notifications."
+                                variant="label-14-400" class="label-14-400"></wm-label>
+                            <wm-container name="row_viewable_editable" class="app-container-default" direction="row"
+                                gap="16" alignment="middle-left" width="fill" height="hug">
+                                <wm-container name="col_viewable" class="app-container-default" direction="row" gap="4"
+                                    alignment="middle-left" width="hug" height="hug">
+                                    <wm-icon name="icon_viewable" iconclass="wm-sl-l sl-user" iconsize="16px"></wm-icon>
+                                    <wm-label name="lbl_viewable" caption="Viewable by employee" variant="label-14-400"
+                                        class="label-14-400"></wm-label>
+                                </wm-container>
+                                <wm-container name="col_editable" class="app-container-default" direction="row" gap="4"
+                                    alignment="middle-left" width="hug" height="hug">
+                                    <wm-icon name="icon_editable" iconclass="wi wi-edit" iconsize="16px"></wm-icon>
+                                    <wm-label name="lbl_editable" caption="Editable by employee" variant="label-14-400"
+                                        class="label-14-400"></wm-label>
+                                </wm-container>
+                            </wm-container>
+                            <wm-container name="row_privacy_note" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-icon name="icon_privacy_lock" iconclass="wi wi-lock" iconsize="16px"></wm-icon>
+                                <wm-label name="lbl_privacy_note"
+                                    caption="Information will not be shown to other workers. For privacy reasons, worker must sign in and allow this on their INFO page."
+                                    variant="label-14-400" class="label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="divider_info" class="app-container-default" direction="row" gap="0"
+                                alignment="top-left" width="fill" height="1px" backgroundcolor="#cccccc"></wm-container>
+                            <wm-container name="row_status_legend" class="app-container-default" direction="row"
+                                gap="16" alignment="middle-left" width="fill" height="hug">
+                                <wm-container name="col_status_label" class="app-container-default" direction="row"
+                                    gap="4" alignment="middle-left" width="hug" height="hug">
+                                    <wm-icon name="icon_status_wrench" iconclass="wi wi-build" iconsize="16px">
+                                    </wm-icon>
+                                    <wm-label name="lbl_status_label" caption="Status" variant="label-bold"
+                                        class="label-bold"></wm-label>
+                                </wm-container>
+                                <wm-container name="col_status_fulltime" class="app-container-default" direction="row"
+                                    gap="4" alignment="middle-left" width="hug" height="hug">
+                                    <wm-icon name="icon_fulltime_diamond" iconclass="wi wi-diamond" iconsize="14px"
+                                        color="#6B4FA0"></wm-icon>
+                                    <wm-label name="lbl_fulltime" caption="Full Time" variant="label-14-400"
+                                        class="label-14-400"></wm-label>
+                                </wm-container>
+                                <wm-container name="col_status_parttime" class="app-container-default" direction="row"
+                                    gap="4" alignment="middle-left" width="hug" height="hug">
+                                    <wm-icon name="icon_parttime_diamond" iconclass="wi wi-diamond" iconsize="14px"
+                                        color="#4FA0A0"></wm-icon>
+                                    <wm-label name="lbl_parttime" caption="Part Time" variant="label-14-400"
+                                        class="label-14-400"></wm-label>
+                                </wm-container>
+                                <wm-container name="col_status_perdiem" class="app-container-default" direction="row"
+                                    gap="4" alignment="middle-left" width="hug" height="hug">
+                                    <wm-icon name="icon_perdiem_diamond" iconclass="wi wi-diamond" iconsize="14px"
+                                        color="#D0572A"></wm-icon>
+                                    <wm-label name="lbl_perdiem" caption="Per Diem" variant="label-14-400"
+                                        class="label-14-400"></wm-label>
+                                </wm-container>
+                            </wm-container>
+                        </wm-container>
+                    </wm-tabpane>
+                    <!-- TAB 2: Schedules - Prefs -->
+                    <wm-tabpane name="tab_schedules" title="Schedules - Prefs">
+                        <wm-container name="schedules_placeholder" class="app-container-default" direction="column"
+                            gap="8" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <wm-label name="lbl_schedules_placeholder" caption="Schedules - Prefs content coming soon"
+                                variant="label-14-400"></wm-label>
+                        </wm-container>
+                    </wm-tabpane>
+                    <!-- TAB 3: Time Off -->
+                    <wm-tabpane name="tab_timeoff" title="Time Off">
+                        <wm-container name="timeoff_placeholder" class="app-container-default" direction="column"
+                            gap="8" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <wm-label name="lbl_timeoff_placeholder" caption="Time Off content coming soon"
+                                variant="label-14-400"></wm-label>
+                        </wm-container>
+                    </wm-tabpane>
+                    <!-- TAB 4: History -->
+                    <wm-tabpane name="tab_history" title="History">
+                        <wm-container name="history_placeholder" class="app-container-default" direction="column"
+                            gap="8" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <wm-label name="lbl_history_placeholder" caption="History content coming soon"
+                                variant="label-14-400"></wm-label>
+                        </wm-container>
+                    </wm-tabpane>
+                </wm-tabs>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>
