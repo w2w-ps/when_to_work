@@ -1,0 +1,24 @@
+{
+  "mvCombinedCategories" : {
+    "_id" : "wm-mvCombinedCategories-wm.Variable-1776755832634",
+    "name" : "mvCombinedCategories",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "mvCombinedPositions" : {
+    "_id" : "wm-mvCombinedPositions-wm.Variable-1776764127885",
+    "name" : "mvCombinedPositions",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  }
+}

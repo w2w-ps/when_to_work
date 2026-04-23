@@ -25,10 +25,7 @@
 }, {
   "name" : "Home",
   "type" : "PAGE",
-  "params" : [ {
-    "name" : "empId",
-    "type" : "string"
-  } ]
+  "params" : [ ]
 }, {
   "name" : "Login",
   "type" : "PAGE",
@@ -67,7 +64,10 @@
 }, {
   "name" : "calenderView",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "configureValue",
+    "type" : "string"
+  } ]
 }, {
   "name" : "dialogViewTopNav",
   "type" : "TOPNAV",
@@ -112,6 +112,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "mgrcoinfo",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "mgrempinfopop",
   "type" : "PAGE",
   "params" : [ {
@@ -129,6 +133,10 @@
 }, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "scheduleTopNav",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "topnav",

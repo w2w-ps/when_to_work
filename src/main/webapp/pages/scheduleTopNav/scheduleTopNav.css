@@ -1,0 +1,40 @@
+.schedule-action-bar {
+    background-color: var(--wm-color-primary);
+    border-bottom: 20px solid #E70101;
+}
+
+.schedule-bar-btn {
+    flex: 1;
+    color: #ffffff;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 700;
+    min-height: 30px;
+}
+
+.btn-emp-shift1 {
+    width: 18.75%;
+}
+
+.btn-emp-shift2 {
+    width: 13%;
+}
+
+.btn-emp-shift3 {
+    width: 26.5%;
+}
+
+.btn-emp-shift4 {
+    width: 10%;
+}
+
+.btn-emp-shift5 {
+    width: 19%;
+}
+
+.btn-emp-shift6 {
+    width: 13%;
+}

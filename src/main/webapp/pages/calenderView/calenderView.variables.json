@@ -1,4 +1,55 @@
 {
+  "goToPage_mgrschedulecfgmonth" : {
+    "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776749028247",
+    "name" : "goToPage_mgrschedulecfgmonth",
+    "owner" : "Page",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "mgrschedulecfgmonth",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage"
+  },
+  "svcalendarCategoryView" : {
+    "_id" : "wm-svcalendarCategoryView-wm.ServiceVariable-1776672486984",
+    "name" : "svcalendarCategoryView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "2026-04-30",
+      "type" : "string"
+    }, {
+      "target" : "grouping",
+      "value" : "bind:App.Variables.appSelectedGrouping.dataSet.grouping",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "2026-04-01",
+      "type" : "string"
+    } ],
+    "type" : "categoryShiftTimings.RootResponse",
+    "service" : "categoryShiftTimings",
+    "operation" : "invoke",
+    "operationId" : "categoryShiftTimings_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svcalendarCategoryViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "categoryShiftTimings"
+  },
   "svcalendarPositionView" : {
     "_id" : "wm-svcalendarPositionView-wm.ServiceVariable-1776339721979",
     "name" : "svcalendarPositionView",
@@ -20,6 +71,10 @@
       "target" : "startDate",
       "value" : "bind:Widgets.Weekview1.startdate",
       "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2MzM5NjY1LCJleHAiOjE3NzYzNDE0NjV9.jm1Hpi_vvKq2h_xyb3jtmHaUcYgZvEoPZeGfDTZSzeHU5gXl_wnyi_Dfut41bpEXRjV1I3K8ajhG5CuDbiZnFUa4uSECc1lYjXIwnkJnz33rIzSnfgJgQylKMHF6_t16Jpf6hvRsDjDX8xhrY6bswFzuUanHiiBy7nPw0-CTgKYohZ4zWBfxYAXBd5RdH8J8mxSPm2rBQp-MsGap7t-pGE6NTQq9EKPJwvC1FT1Kre_hraJ4AccqozXJGMXw-Rv-aBlfJGAtuBvUQVV7ZTBVQE7uqvBGZcAFU_3gNcU4Ig9Ri93NcPqvBkeGiHvEazT9V0szqwd2nmXoWYQ0v3jQ0g",
+      "type" : "string"
     } ],
     "type" : "calendarPositionView.RootResponse",
     "service" : "calendarPositionView",
@@ -27,15 +82,100 @@
     "operationId" : "calendarPositionView_invoke",
     "operationType" : "get",
     "serviceType" : "RestService",
-    "dataSet" : [ ],
+    "dataSet" : {
+      "dataValue" : { }
+    },
     "isList" : false,
     "maxResults" : 20,
+    "onBeforeUpdate" : "",
     "onSuccess" : "svcalendarPositionViewonSuccess(variable, data)",
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "calendarPositionView"
+  },
+  "svCalendarShiftTimingView" : {
+    "_id" : "wm-svCalendarShiftTimingView-wm.ServiceVariable-1776684454622",
+    "name" : "svCalendarShiftTimingView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "bind:Widgets.Weekview1.startdate",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Widgets.Weekview1.enddate",
+      "type" : "string"
+    }, {
+      "target" : "grouping",
+      "value" : "shift_timings",
+      "type" : "string"
+    } ],
+    "type" : "calendarShiftTimingView.RootResponse",
+    "service" : "calendarShiftTimingView",
+    "operation" : "invoke",
+    "operationId" : "calendarShiftTimingView_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : {
+      "dataValue" : { }
+    },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svCalendarShiftTimingViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "calendarShiftTimingView"
+  },
+  "svCalendarShortCategoryView" : {
+    "_id" : "wm-svCalendarShortCategoryView-wm.ServiceVariable-1776681757747",
+    "name" : "svCalendarShortCategoryView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "endDate",
+      "value" : "2026-04-30",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "grouping",
+      "value" : "cat_shift_timings",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "startDate",
+      "value" : "2026-04-01",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "calendarShortCategoryView.RootResponse",
+    "service" : "calendarShortCategoryView",
+    "operation" : "invoke",
+    "operationId" : "calendarShortCategoryView_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : {
+      "dataValue" : { }
+    },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svCalendarShortCategoryViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "calendarShortCategoryView"
   }
 }

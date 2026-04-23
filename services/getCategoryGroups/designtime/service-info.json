@@ -1,0 +1,6 @@
+{
+  "id" : "getCategoryGroups",
+  "type" : "RestService",
+  "title" : "getCategoryGroups",
+  "mockEnabled" : false
+}

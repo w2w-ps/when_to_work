@@ -384,6 +384,30 @@
             "value" : "{elevation.shadow.none.value}"
           }
         }
+      },
+      "no-padding-only-border" : {
+        "mapping" : {
+          "background" : {
+            "value" : "{color.transparent.value}"
+          },
+          "border" : {
+            "color" : {
+              "value" : "{color.border-color.@.value}"
+            },
+            "width" : {
+              "value" : "{border.width.1.value}"
+            },
+            "style" : {
+              "value" : "{border.style.solid.value}"
+            },
+            "radius" : {
+              "value" : "{radius.none.value}"
+            }
+          },
+          "shadow" : {
+            "value" : "{elevation.shadow.none.value}"
+          }
+        }
       }
     },
     "meta" : {
@@ -439,6 +463,9 @@
         "config-section-panel" : {
           "source" : "aira",
           "description" : "Light blue-gray panel card for configure section"
+        },
+        "no-padding-only-border" : {
+          "source" : "user"
         }
       }
     }

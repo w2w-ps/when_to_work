@@ -1315,15 +1315,5 @@ function formatToStandardTime(input) {
  * it as a focused pop-up rather than a new full tab.
  */
 Page.anchor9Click = function ($event, widget) {
-
-    // let url =
-    //     window.location.href.split('react-pages')[0] +
-    //     'react-pages/ConfigureByEmployeeView';
-    // window.open(
-    //     url,
-    //     'ConfigureByEmployeeView',
-    //     'width=900,height=600,left=100,top=100'
-    // );
-
     App.redirectTo("ConfigureByEmployeeView");
 };
