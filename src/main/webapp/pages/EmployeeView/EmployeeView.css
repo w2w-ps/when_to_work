@@ -363,19 +363,6 @@ textarea {
     color: #e64a19;
 }
 
-.footerInfoSection {
-    width: 100%;
-    padding: 16px 24px;
-    background-color: #ffffff;
-    position: relative;
-}
-
-.lblContactW2W {
-    font-weight: 600;
-    text-align: center;
-    flex: 1;
-}
-
 .btnHelpFab {
     position: fixed;
     bottom: 24px;
@@ -389,30 +376,6 @@ textarea {
     align-items: center;
     justify-content: center;
     z-index: 999;
-}
-
-.btn-emp-shift1 {
-    width: 18.75%;
-}
-
-.btn-emp-shift2 {
-    width: 13%;
-}
-
-.btn-emp-shift3 {
-    width: 26.5%;
-}
-
-.btn-emp-shift4 {
-    width: 10%;
-}
-
-.btn-emp-shift5 {
-    width: 19%;
-}
-
-.btn-emp-shift6 {
-    width: 13%;
 }
 
 .weekday-container {
