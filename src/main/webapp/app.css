@@ -21,6 +21,18 @@
     --wm-bg-color-cannot-work: #FF0000;
     --wm-color-purple: #bfbfff;
     --wm-color-bordernew-color: #eeeeee;
+    --wm-color-weekly: #9EE694;
+    --wm-color-monthly: #FDFEA2;
+    --wm-color-violet: #8080FF;
+    --wm-color-tableborder: #D0D0D0;
+    --wm-color-tablecolumnbg: #E9E9E9;
+    --wm-color-tablecolumnborder: #E70101;
+    --wm-color-violetcontainer: #F9F1FF;
+    --wm-color-violetcontainerborder: #b765dd;
+
+
+
+
 }
 
 .open-sans-700 {
@@ -564,12 +576,14 @@ app-partial-scheduletopnav {
 .mh-list {
     min-height: auto !important;
 }
+
 .footerInfoSection {
     width: 100%;
     padding: 16px 24px;
     background-color: var(--wm-color-white);
     position: relative !important;
 }
+
 .lblContactW2W {
     text-align: center;
     flex: 1;
