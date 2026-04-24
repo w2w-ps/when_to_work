@@ -3,26 +3,74 @@
     <wm-content name="content">
         <wm-header content="header" name="header" height="auto"></wm-header>
         <wm-page-content columnwidth="12" name="pagecontent">
-            <wm-container direction="column" alignment="top-left" gap="0" width="fill" height="hug" name="editDeleteParentcontainer" class="app-container-default">
-                <wm-container direction="column" alignment="top-left" gap="12" width="fill" height="hug" name="currentPositionsSectionContainer" class="positions-section-container" padding="16px">
-                    <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug" name="positionsHeaderRow" class="app-container-default">
-                        <wm-label name="currentPositionsTitle" caption="Current Positions" class="app-label h4">
-                        </wm-label>
-                        <wm-button name="savePositionsBtn" caption="Save" class="btn-outlined btn-default"></wm-button>
-                    </wm-container>
-                    <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug" name="positionsSortRow" class="app-container-default">
-                        <wm-anchor margin="unset 0.5em" name="sortAlphabeticallyAnchor" variant="standard" caption="Sort alphabetically" on-click="sortAlphabeticallyAnchorClick($event, widget)"></wm-anchor>
-                        <wm-label name="sortHintLabel" caption="≡  Use to move sort order" class="app-label text-muted">
-                        </wm-label>
-                    </wm-container>
-                    <wm-list name="positionsList" dataset="bind:Variables.sortedPositionsList.dataSet" class="list-card" direction="column" gap="8" alignment="top-left" width="fill" height="hug" listclass="list-group" itemclass="position-list-item" on-render="positionsListRender($data)">
-                        <wm-listtemplate name="positionsListTemplate" direction="row" alignment="center" gap="auto" width="fill" height="hug">
-                            <wm-container direction="row" alignment="middle-left" gap="4" width="fill" height="hug" name="container5" class="app-container-default" variant="default"><wm-label name="positionNameLabel" caption="bind:item.description" class="text-primary" variant="text:primary" width="10%"></wm-label><wm-icon name="dragHandleIcon" class="fa-xs drag-handle" variant="default:xs" iconclass="wi wi-menu"></wm-icon></wm-container>
-                        </wm-listtemplate>
-                    </wm-list>
-                </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" height="hug"
+                name="container6" class="app-container-default" variant="default" wrap="false">
+                <wm-label padding="unset" caption="Edit Positions" class="p text-primary" type="p" name="label4"
+                    variant="text:primary"></wm-label>
+                <wm-tabs type="static" statehandler="URL" name="tabs1" variant="standard">
+                    <wm-tabpane title="Edit" name="tabpane1">
+                        <wm-container direction="column" alignment="top-left" gap="0" width="fill" height="hug"
+                            name="editDeleteParentcontainer" class="app-container-default" variant="default">
+                            <wm-container direction="column" alignment="top-left" gap="12" width="fill" height="hug"
+                                name="currentPositionsSectionContainer"
+                                class="positions-section-container app-container-default" padding="16px"
+                                variant="default">
+                                <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug"
+                                    name="positionsHeaderRow" class="app-container-default" variant="default">
+                                    <wm-label name="currentPositionsTitle" caption="Current Positions"
+                                        class="h4 text-primary" variant="text:primary"></wm-label>
+                                    <wm-button name="savePositionsBtn" caption="Save" class="btn-filled btn-default"
+                                        variant="filled:default"></wm-button>
+                                </wm-container>
+                                <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug"
+                                    name="positionsSortRow" class="app-container-default" variant="default">
+                                    <wm-anchor margin="unset 0.5em" name="sortAlphabeticallyAnchor" variant="standard"
+                                        caption="Sort alphabetically"
+                                        on-click="sortAlphabeticallyAnchorClick($event, widget)"></wm-anchor>
+                                    <wm-label name="sortHintLabel" caption="≡  Use to move sort order"
+                                        class="text-muted text-primary" variant="text:primary"></wm-label>
+                                </wm-container>
+                                <wm-list name="positionsList" dataset="bind:Variables.sortedPositionsList.dataSet"
+                                    class="list-card" direction="column" gap="8" alignment="top-left" width="fill"
+                                    height="hug" listclass="list-group" itemclass="position-list-item"
+                                    on-render="positionsListRender($data)" variant="standard">
+                                    <wm-listtemplate name="positionsListTemplate" direction="row" alignment="center"
+                                        gap="auto" width="fill" height="hug">
+                                        <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
+                                            height="hug" name="container5" class="app-container-default"
+                                            variant="default">
+                                            <wm-label name="positionNameLabel" caption="bind:item.description"
+                                                class="text-primary" variant="text:primary" width="10%"
+                                                on-click="Widgets.editPositionDialog.open()"></wm-label>
+                                            <wm-icon name="dragHandleIcon" class="fa-xs drag-handle"
+                                                variant="default:xs" iconclass="wi wi-menu"></wm-icon>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                        </wm-container>
+                    </wm-tabpane>
+                    <wm-tabpane title="Delete" name="tabpane2"></wm-tabpane>
+                </wm-tabs>
             </wm-container>
         </wm-page-content>
         <wm-footer content="footer" name="footer"></wm-footer>
     </wm-content>
+    <wm-dialog name="editPositionDialog" title="Edit this position" closable="true" modal="true">
+        <wm-container name="editPositionDialogBody" direction="column" alignment="top-left" gap="16" width="fill"
+            height="hug" class="app-container-default" padding="16px 24px">
+            <wm-label name="editPositionWarningLabel"
+                caption="This edited position name will display for all existing Bookkeeper shifts in all schedules including PAST schedules."
+                class="text-center" whitespace="normal"></wm-label>
+            <wm-text name="editPositionNameInput" datavalue="bind:Widgets.positionsList.selecteditem.description"
+                width="100%"></wm-text>
+            <wm-container name="editPositionActionsContainer" direction="row" alignment="middle-center" gap="24"
+                width="fill" height="hug" class="app-container-default">
+                <wm-button name="editPositionOkBtn" caption="OK" class="btn-success-btn" variant="success-btn"
+                    on-click="Widgets.editPositionDialog.close();Variables.svUpdatePosition.invoke()"></wm-button>
+                <wm-button name="editPositionCancelBtn" caption="Cancel" class="btn-danger-btn" variant="danger-btn"
+                    on-click="Widgets.editPositionDialog.close()"></wm-button>
+            </wm-container>
+        </wm-container>
+    </wm-dialog>
 </wm-page>

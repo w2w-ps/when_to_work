@@ -54,6 +54,7 @@
                 <source>services/createShift/src</source>
                 <source>services/dayPreferenceList/src</source>
                 <source>services/deleteAdditonalManager/src</source>
+                <source>services/deletePosition/src</source>
                 <source>services/getAdditionalManagers/src</source>
                 <source>services/getCategoryGroups/src</source>
                 <source>services/getEmployeeDetails/src</source>
@@ -68,6 +69,7 @@
                 <source>services/securityService/src</source>
                 <source>services/svDeleteShiftById/src</source>
                 <source>services/updateEmployeePwd/src</source>
+                <source>services/updatePosition/src</source>
                 <source>services/updatePreferences/src</source>
                 <source>services/updateShift/src</source>
                 <source>services/when2work/src</source>

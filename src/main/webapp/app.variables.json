@@ -541,6 +541,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onSuccess" : "svGetAllPositionsByCompanyIdonSuccess(variable, data, options)",
     "startUpdate" : true,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",

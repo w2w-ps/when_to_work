@@ -1,0 +1,6 @@
+{
+  "id" : "updatePosition",
+  "type" : "RestService",
+  "title" : "updatePosition",
+  "mockEnabled" : false
+}
