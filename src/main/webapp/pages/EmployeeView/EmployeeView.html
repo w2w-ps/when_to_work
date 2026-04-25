@@ -548,19 +548,19 @@
               <wm-form-field name="startTimeField" show="true" placeholder="" required="true"
                 regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="startTime"
                 validationmessage="Enter valid start time" widget="text" inputtype="text"
-                class="form-compact-input time-height" variant="compact-input"
+                class="form-compact-input time-height grey-caption" variant="compact-input"
                 defaultvalue="bind:Variables.svGetShiftById.dataSet.startTime"></wm-form-field>
             </wm-container>
             <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container44"
               class="app-container-default" variant="default" height="32px" clipcontent="false">
-              <wm-container direction="row" alignment="middle-left" gap="0" width="81%" name="container45"
-                class="app-container-default" variant="default" clipcontent="false">
+              <wm-container direction="row" alignment="middle-left" gap="0" width="80%" name="container45"
+                class="app-container-default" variant="default" clipcontent="false" overflow="none">
                 <wm-label padding="unset" caption="End" class="text-right label-label-normal" type="p"
                   variant="label-normal" required="false" width="120px" name="label44"></wm-label>
                 <wm-form-field name="endTimeField" show="true" placeholder="" required="true"
                   regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="endTime"
                   validationmessage="Enter valid end time" widget="text" inputtype="text"
-                  class="form-compact-input time-height" variant="compact-input"
+                  class="form-compact-input time-height grey-caption" variant="compact-input"
                   defaultvalue="bind:Variables.svGetShiftById.dataSet.endTime"></wm-form-field>
               </wm-container>
               <wm-form-field name="colorField" show="true" placeholder="Color" required="true" type="text" key="color"
@@ -576,8 +576,9 @@
               <wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container47_1"
                 class="app-container-default" variant="default">
                 <wm-form-field name="paidHoursField" show="true" placeholder="" required="true" type="text"
-                  key="paidHours" widget="number" inputtype="number" class="py-0 form-compact-input"
-                  variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.duration"></wm-form-field>
+                  key="paidHours" widget="number" inputtype="number" class="py-0 form-compact-input grey-caption"
+                  variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.duration" width="104px">
+                </wm-form-field>
                 <wm-container name="paidHoursContainer" class="app-container-default" direction="row" gap="8"
                   alignment="middle-left" width="fill" height="hug" variant="default">
                   <wm-label name="lblOr" caption="or" class="label-label-normal" variant="label-normal"></wm-label>
@@ -600,7 +601,7 @@
               <wm-container direction="column" alignment="top-left" gap="0" width="fill" name="container46_1"
                 class="app-container-default" variant="default" wrap="false">
                 <wm-form-field widget="text" show="true" type="custom" name="form_field9" key="description"
-                  class="form-compact-input w-100 mh-auto  pt-0 pb-1" variant="compact-input"
+                  class="form-compact-input w-100 mh-auto pt-0 pb-1 grey-caption" variant="compact-input"
                   defaultvalue="bind:Variables.svGetShiftById.dataSet.description" placeholder=""></wm-form-field>
                 <wm-form-field name="categoryField" show="bind:App.Variables.employeeViewConfig.dataSet.showCategory"
                   placeholder="Optional Category - None" required="false" type="text" key="category" widget="select"
@@ -611,9 +612,8 @@
             </wm-container>
             <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container52"
               class="app-container-default" variant="default" clipcontent="false"></wm-container>
-            <wm-container direction="row" alignment="middle-left" width="fill" class="app-container-default"
-              variant="default" clipcontent="false" name="container50" show="bind:!isAdd" padding="unset 120px"
-              height="40">
+            <wm-container direction="row" alignment="middle-left" width="fill" class="app-container-default pl24"
+              variant="default" clipcontent="false" name="container50" show="bind:!isAdd" height="40">
               <wm-label padding="unset" caption="Create" class="label-label-normal" type="p" name="label48"
                 variant="label-normal"></wm-label>
               <wm-form-field name="form_field13" show="true" placeholder="0" type="custom" key="form_field13"

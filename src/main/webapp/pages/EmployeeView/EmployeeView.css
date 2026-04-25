@@ -239,7 +239,7 @@ textarea {
   width: 45px !important;
   font-size: 14px;
   line-height: 1.428571;
-  color: #555;
+  color: var(--wm-color-form-caption);
   padding: 9px;
   left: -5px;
 }
@@ -252,7 +252,7 @@ textarea {
 .dialog-heading {
   font-size: 8pt;
   font-family: Arial;
-  letter-spacing: -0.25px;
+  letter-spacing: 0px;
   top: 5px;
   font-weight: 400;
 }
@@ -452,12 +452,16 @@ textarea {
 .time-height {
   height: 32px;
   padding: 0 !important;
-  top: -6px;
-  right: -8px;
+  top: 0px;
+  right: -1px;
 }
 
 .time-height .help-block.text-danger {
   visibility: hidden;
+}
+
+.time-height .app-composite-widget {
+  min-height: 32px;
 }
 
 .sticky-day-header {
@@ -471,4 +475,21 @@ textarea {
   border-top: 6px solid var(--wm-bg-color-cannot-work) !important;
   border: 1px solid var(--wm-color-black);
   padding: 3px 1px;
+}
+
+.grey-caption {
+  color: var(--wm-color-form-caption);
+}
+
+.time-height.grey-caption {
+  padding-left: 5px !important;
+}
+
+.pl24 {
+  padding-left: 24%;
+}
+
+.wm-app .app-form>.form-body>.form-elements [data-role="form-field"] {
+  padding: 5px !important;
+
 }
