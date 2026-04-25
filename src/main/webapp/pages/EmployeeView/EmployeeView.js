@@ -32,6 +32,24 @@ Page.onReady = function () {
             Page.Variables.svScheduleList.invoke();
         }
     });
+
+    // IntersectionObserver: add/remove 'is-sticky' class on dayHeadersContainer when it sticks
+    const headerEl = document.querySelector('[name="dayHeadersContainer"]');
+    if (headerEl && headerEl.parentNode) {
+        const sentinel = document.createElement('div');
+        sentinel.style.height = '1px';
+        headerEl.parentNode.insertBefore(sentinel, headerEl);
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) {
+                    headerEl.classList.add('is-sticky');
+                } else {
+                    headerEl.classList.remove('is-sticky');
+                }
+            });
+        }, { threshold: [0], root: null });
+        observer.observe(sentinel);
+    }
 };
 
 /**
