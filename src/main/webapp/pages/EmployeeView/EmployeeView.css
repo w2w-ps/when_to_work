@@ -265,23 +265,6 @@ textarea {
     font-size: 16px !important;
 }
 
-.schedule-action-bar {
-    background-color: var(--wm-color-primary);
-    border-bottom: 20px solid #E70101;
-}
-
-.schedule-bar-btn {
-    flex: 1;
-    color: #ffffff;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 1px 0px 1px 1px;
-    border-radius: 0;
-    font-size: 12px;
-    font-weight: 700;
-    min-height: 30px;
-}
-
 .schedule-notes-section {
     width: 100%;
     margin-top: 16px;
