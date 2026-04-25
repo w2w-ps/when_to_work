@@ -14,11 +14,11 @@
 }
 
 .custom-border-bottom {
-  border-bottom: 1px solid #e5e5ec;
+  border-bottom: 1px solid var(--wm-color-light-grey);
 }
 
 .custom-border-right {
-  border-right: 1px solid #e5e5ec;
+  border-right: 1px solid var(--wm-color-light-grey);
 }
 
 .dialog-form-section {
@@ -361,8 +361,9 @@ textarea {
   z-index: 999;
 }
 
+
 .weekday-container {
-  min-height: 80px;
+  min-height: 47px;
 }
 
 .confirm-dialog-msg {
@@ -469,5 +470,5 @@ textarea {
 .sticky-day-header.is-sticky {
   border-top: 6px solid var(--wm-bg-color-cannot-work) !important;
   border: 1px solid var(--wm-color-black);
-  padding: 5px 1px;
+  padding: 3px 1px;
 }
