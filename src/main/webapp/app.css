@@ -586,6 +586,18 @@ app-partial-scheduletopnav {
     flex: 1;
 }
 
+button.close:hover {
+    --wm-btn-state-layer-opacity: 0 !important;
+    --wm-btn-state-layer-color: transparent !important;
+}
+
+.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title{
+  display: none;
+}
+.modal-confirm-dialog .modal-body{
+    margin: 10px 8px 14px 8px !important;
+}
+
 /* responsive code starts */
 /* mobile */
 @media only screen and (min-width: 320px) and (max-width: 375px) {}
