@@ -29,10 +29,7 @@
     --wm-color-tablecolumnborder: #E70101;
     --wm-color-violetcontainer: #F9F1FF;
     --wm-color-violetcontainerborder: #b765dd;
-
-
-
-
+    --wm-color-form-caption: #555;
 }
 
 .open-sans-700 {
@@ -587,6 +584,18 @@ app-partial-scheduletopnav {
 .lblContactW2W {
     text-align: center;
     flex: 1;
+}
+
+button.close:hover {
+    --wm-btn-state-layer-opacity: 0 !important;
+    --wm-btn-state-layer-color: transparent !important;
+}
+
+.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title{
+  display: none;
+}
+.modal-confirm-dialog .modal-body{
+    margin: 10px 8px 14px 8px !important;
 }
 
 /* responsive code starts */
