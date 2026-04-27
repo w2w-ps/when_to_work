@@ -26,7 +26,7 @@ Page.radioSessionSecurityChange = function ($event, widget, newVal, oldVal) {
 
 Page.wsGetTenantsonSuccess = function (variable, data) {
     const tenant = data && data[0] ? data[0] : {};
-    const dayMap = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 7: 'Sunday'};
+    const dayMap = { 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 7: 'Sunday' };
 
     if (tenant.companyName !== undefined && tenant.companyName !== null) {
         Page.Widgets.txtCompanyName.datavalue = tenant.companyName;

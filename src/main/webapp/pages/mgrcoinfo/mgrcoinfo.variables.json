@@ -506,6 +506,8 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onSuccess" : "wsUpdateTenantsonSuccess(variable, data, options)",
+    "onError" : "Javascript",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
