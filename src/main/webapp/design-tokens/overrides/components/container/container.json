@@ -408,6 +408,24 @@
             "value" : "{elevation.shadow.none.value}"
           }
         }
+      },
+      "info-lavender-box" : {
+        "mapping" : {
+          "background" : {
+            "value" : "#d8daea"
+          },
+          "border" : {
+            "color" : {
+              "value" : "{color.transparent.value}"
+            },
+            "width" : {
+              "value" : "0"
+            },
+            "radius" : {
+              "value" : "6px"
+            }
+          }
+        }
       }
     },
     "meta" : {

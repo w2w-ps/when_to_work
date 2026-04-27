@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/positions/{positionId}",
+  "method" : "PUT",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDExMjQ4LCJleHAiOjE3NzcwMTMwNDh9.FkRRp91Dsqhiu_zxcRvSVpGUr-47m5mZOdXDMDXVbKcPo7C_iOcpmsI6jvaMKMx4X6iBNvkAWY9_bA6EE3cxqMAgWFi3l4zvAeTrKXGM2g5ULCa3ARdsIwr9reemCAwpVftVLzL-g-K0YtXSzh0oS2SIhbcMdBTkIz3QT1vhVfvqm3q4nUeakril0l5BAJeKOSyJZV4DpVX9fGRzu54fAbmS6f18VByNbjSFQURFuUtjqFlffFgm1AOP42pTJoOvvnWy4zFkSs57fvYSu2PuNqaHUWcAqxWPQ72h0l7oCFqhZD-wWhF7SytLFOp4mwrW4uTfd-UL33QLI2z0LY3JVQ" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "{\n  \"description\": \"Bell hops\"\n}\n",
+  "queryParams" : {
+    "companyId" : "1"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Fri, 24 Apr 2026 06:15:37 GMT" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "",
+    "convertedResponse" : "{\"body\":{\"parsererror\":{\"h3\":[\"This page contains the following errors:\",\"Below is a rendering of the page up to the first error.\"],\"div\":{\"style\":\"font-family:monospace;font-size:12px\",\"__text\":\"error on line 1 at column 1: Document is empty\"},\"style\":\"display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black\"}}}"
+  }
+}
