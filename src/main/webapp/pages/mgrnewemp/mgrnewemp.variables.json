@@ -1,1 +1,34 @@
-{ }
+{
+  "SvAddEmployee" : {
+    "_id" : "wm-SvAddEmployee-wm.ServiceVariable-1777316789528",
+    "name" : "SvAddEmployee",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDA3NzczLCJleHAiOjE3NzcwMDk1NzN9.laqZNmQ00o1s_uYhdq-BrY7PWbOj8kDZ017OebPF_qp2HyoEeYHDBPqVBlZTwB1k8dK3LbS1IItj1dGOQcL8eeWirKfVieLPrsZ0l3kesPthFRpgNkTEacSiYn5aVlioWsbuE4h8Qt3fP4lYiRCDq_3nTmIn3M-gRTeQJLkoxnWAaoD9Uo-k6AsUejtvZyk6XVa7iyitjeh6l6mKhN7CqjJtlJU0fXqGnjCietOm8WMSsCkZ1x3ViqOzRO5Nb0RJAksCI1pZPs2J3RaWndn3eqhqkNGme-besenB4wRlQzT7tNulCgoRUZbghf1FvRtMW3gz0tfYUT6NpFSjUDZwdQ" ],
+      "type" : "java.lang.String"
+    }, {
+      "target" : "RequestBody",
+      "value" : "{\n    \"firstName\": \"sandy\",\n    \"lastName\": \"pate;\",\n    \"email\": \"sandypatel@example.com\",\n    \"employeeNumber\": \"EMP-101\",\n    \"phones\": [\"555-0199\", \"555-0200\"],\n    \"hireDate\": \"2026-04-13T09:00:00\",\n    \"maxScheduledHours\": 40,\n    \"maxDailyHours\": 8,\n    \"payRate\": 25.50,\n    \"empTypeId\": 1,\n    \"cell\":\"9848022338\",\n    \"address\": {\n        \"address\": \"123 Main St\",\n        \"address2\": \"Suite 400\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"78701\"\n    },\n    \"maxWeeklyDays\": 5,\n    \"maxDailyShifts\": 1,\n    \"comments\": \"Onboarding package sent.\",\n    \"priorityGroup\": \"A\",\n    \"googleCalExport\": true,\n    \"nextAlertDate\": \"2026-05-01\",\n    \"customField1\": \"Remote\",\n    \"customField2\": \"Level 2\",\n    \"employeePhoto\": \"base64_encoded_string_or_url\"\n}",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "AddEmployee.RootResponse",
+    "service" : "AddEmployee",
+    "operation" : "invoke",
+    "operationId" : "AddEmployee_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : { },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "SvAddEmployeeonSuccess(variable, data)",
+    "onError" : "SvAddEmployeeonError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "AddEmployee"
+  }
+}
