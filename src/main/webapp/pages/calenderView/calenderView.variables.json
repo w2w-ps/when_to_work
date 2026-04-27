@@ -1,4 +1,18 @@
 {
+  "activeMonthDate" : {
+    "_id" : "wm-activeMonthDate-wm.Variable-1777286423656",
+    "name" : "activeMonthDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "goToPage_mgrschedulecfgmonth" : {
     "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776749028247",
     "name" : "goToPage_mgrschedulecfgmonth",
@@ -61,7 +75,7 @@
       "type" : "string"
     }, {
       "target" : "endDate",
-      "value" : "bind:Widgets.Weekview1.enddate",
+      "value" : "2026-04-30",
       "type" : "string"
     }, {
       "target" : "grouping",
@@ -69,7 +83,7 @@
       "type" : "string"
     }, {
       "target" : "startDate",
-      "value" : "bind:Widgets.Weekview1.startdate",
+      "value" : "2026-04-01",
       "type" : "string"
     }, {
       "target" : "Authorization",
@@ -87,7 +101,6 @@
     },
     "isList" : false,
     "maxResults" : 20,
-    "onBeforeUpdate" : "",
     "onSuccess" : "svcalendarPositionViewonSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
@@ -107,11 +120,11 @@
       "type" : "string"
     }, {
       "target" : "startDate",
-      "value" : "bind:Widgets.Weekview1.startdate",
+      "value" : "2026-04-01",
       "type" : "string"
     }, {
       "target" : "endDate",
-      "value" : "bind:Widgets.Weekview1.enddate",
+      "value" : "2026-04-30",
       "type" : "string"
     }, {
       "target" : "grouping",

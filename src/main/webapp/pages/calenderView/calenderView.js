@@ -15,6 +15,22 @@ Page.onReady = function () {
 };
 
 Page.invokeCalendarVariable = function () {
+    // Always sync startDate/endDate from activeMonthDate before invoking
+    var monthDateStr = (Page.Variables.activeMonthDate &&
+        Page.Variables.activeMonthDate.dataSet &&
+        Page.Variables.activeMonthDate.dataSet.dataValue) || '';
+    if (monthDateStr) {
+        var range = Page.getMonthDateRange(monthDateStr);
+        Page.Variables.svcalendarPositionView.setInput('startDate', range.startDate);
+        Page.Variables.svcalendarPositionView.setInput('endDate', range.endDate);
+        Page.Variables.svcalendarCategoryView.setInput('startDate', range.startDate);
+        Page.Variables.svcalendarCategoryView.setInput('endDate', range.endDate);
+        Page.Variables.svCalendarShortCategoryView.setInput('startDate', range.startDate);
+        Page.Variables.svCalendarShortCategoryView.setInput('endDate', range.endDate);
+        Page.Variables.svCalendarShiftTimingView.setInput('startDate', range.startDate);
+        Page.Variables.svCalendarShiftTimingView.setInput('endDate', range.endDate);
+    }
+
     const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
     if (selectedGrouping === 'position_shift_timings') {
         Page.Variables.svcalendarPositionView.invoke();
@@ -27,49 +43,25 @@ Page.invokeCalendarVariable = function () {
     }
 };
 
-Page.Weekview1Daterangechange = function ($event, $data) {
-    Page.invokeCalendarVariable();
-};
-
-Page.Weekview1Load = function ($event, widget) {
-    if (widget && typeof widget.onDaterangechange === 'undefined') {
-        widget.onDaterangechange = function ($event, $data) {
-            Page.Weekview1Daterangechange($event, $data);
-        };
-    }
-};
-
 // --- onSuccess handlers (one per service variable) ---
 
 Page.svcalendarPositionViewonSuccess = function (variable, data) {
-    let resolvedData = data;
-    if (Array.isArray(data) && data.length === 0) {
-        resolvedData = variable.dataSet || data;
-    }
+    const resolvedData = (variable.dataSet && variable.dataSet.dates) ? variable.dataSet : data;
     Page.calendarDaySlots = Page.buildCalendarDaySlots(resolvedData);
 };
 
 Page.svcalendarCategoryViewonSuccess = function (variable, data) {
-    let resolvedData = data;
-    if (Array.isArray(data) && data.length === 0) {
-        resolvedData = variable.dataSet || data;
-    }
+    const resolvedData = (variable.dataSet && variable.dataSet.dates) ? variable.dataSet : data;
     Page.calendarDaySlots = Page.buildCalendarDaySlots(resolvedData);
 };
 
 Page.svCalendarShortCategoryViewonSuccess = function (variable, data) {
-    let resolvedData = data;
-    if (Array.isArray(data) && data.length === 0) {
-        resolvedData = variable.dataSet || data;
-    }
+    const resolvedData = (variable.dataSet && variable.dataSet.dates) ? variable.dataSet : data;
     Page.calendarDaySlots = Page.buildCalendarDaySlots(resolvedData);
 };
 
 Page.svCalendarShiftTimingViewonSuccess = function (variable, data) {
-    let resolvedData = data;
-    if (Array.isArray(data) && data.length === 0) {
-        resolvedData = variable.dataSet || data;
-    }
+    const resolvedData = (variable.dataSet && variable.dataSet.dates) ? variable.dataSet : data;
     Page.calendarDaySlots = Page.buildCalendarDaySlotsShiftTiming(resolvedData);
 };
 
@@ -99,6 +91,42 @@ Page.applyStartDay = function () {
         const dayIndex = (startIndex + col) % 7;
         Page.Widgets[lblWidgets[col]].caption = allDays[dayIndex];
     }
+};
+
+// --- Helper: derive startDate (YYYY-MM-01) and endDate (YYYY-MM-DD last day) from "YYYY-MM-01" string ---
+Page.getMonthDateRange = function (dateStr) {
+    var d = new Date(dateStr);
+    var year = d.getFullYear();
+    var month = d.getMonth(); // 0-based
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    var startDate = year + '-' + pad(month + 1) + '-01';
+    var lastDay = new Date(year, month + 1, 0).getDate();
+    var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
+    return { startDate: startDate, endDate: endDate };
+};
+
+// --- Called by monthlyView partial whenever the user selects a new month ---
+Page.syncCalendarToMonth = function (year, month) {
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    var startDate = year + '-' + pad(month + 1) + '-01';
+    var lastDay = new Date(year, month + 1, 0).getDate();
+    var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
+
+    // Update startDate and endDate inputs on ALL 4 service variables
+    Page.Variables.svcalendarPositionView.setInput('startDate', startDate);
+    Page.Variables.svcalendarPositionView.setInput('endDate', endDate);
+
+    Page.Variables.svcalendarCategoryView.setInput('startDate', startDate);
+    Page.Variables.svcalendarCategoryView.setInput('endDate', endDate);
+
+    Page.Variables.svCalendarShortCategoryView.setInput('startDate', startDate);
+    Page.Variables.svCalendarShortCategoryView.setInput('endDate', endDate);
+
+    Page.Variables.svCalendarShiftTimingView.setInput('startDate', startDate);
+    Page.Variables.svCalendarShiftTimingView.setInput('endDate', endDate);
+
+    // Now invoke only the active one based on current grouping
+    Page.invokeCalendarVariable();
 };
 
 // --- Slot Builder: Position / Category / Cat views (nested shiftGroups.shiftGroups) ---
@@ -393,7 +421,7 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
     }
     return slots;
 };
+
 Page.anchor2Click = function ($event, widget) {
     App.redirectTo('mgrschedulecfgmonth');
-
 };
