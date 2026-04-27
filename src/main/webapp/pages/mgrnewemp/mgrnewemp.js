@@ -74,7 +74,7 @@ Page.onAddEmployeeClick = function ($event, widget) {
  */
 Page.SvAddEmployeeonSuccess = function (variable, data) {
     App.Actions.appNotification.setMessage("Employee added successfully");
-    App.Actions.appNotification.setClass("Success");
+    App.Actions.appNotification.dataclass = "success";
     App.Actions.appNotification.invoke();
 
     // Reset name fields
@@ -126,6 +126,6 @@ Page.SvAddEmployeeonError = function (variable, data) {
         : "Failed to add employee. Please try again.";
 
     App.Actions.appNotification.setMessage(errorMsg);
-    App.Actions.appNotification.setClass("Error");
+    App.Actions.appNotification.dataclass = "danger";
     App.Actions.appNotification.invoke();
 };
