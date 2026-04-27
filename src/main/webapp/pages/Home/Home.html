@@ -12,16 +12,17 @@
                 </wm-container>
                 <wm-container name="headerInfoCol" class="app-container-default" direction="column" gap="14"
                     alignment="top-center" width="33%" height="hug" clipcontent="false">
-                    <wm-label name="companyName" caption="bind:Variables.companyInfoVar.dataSet.companyName" class="h2"
-                        variant="default:h2"></wm-label>
+                    <wm-label name="companyName" caption="bind:Variables.companyInfoVar.dataSet.companyName"
+                        class="h2 open-sans-700" variant="default:h2"></wm-label>
                     <wm-label name="accountNumber" caption="bind:Variables.companyInfoVar.dataSet.accountNumber"
                         class="pb-3 p" variant="default:p"></wm-label>
                     <wm-label name="welcomeUser" caption="bind:Variables.companyInfoVar.dataSet.welcomeMessage"
                         class="h2" variant="default:h2"></wm-label>
                 </wm-container>
             </wm-container>
-            <wm-container name="mainContentRow" class="app-container-default flex-direction-md-column" direction="row"
-                gap="32" alignment="top-left" width="fill" height="hug" clipcontent="false">
+            <wm-container name="mainContentRow"
+                class="app-container-default flex-direction-md-column justify-content-between" direction="row"
+                gap="2.5%" alignment="top-left" width="fill" height="hug" clipcontent="false">
                 <wm-container name="leftCol" class="app-container-default" direction="column" gap="5"
                     alignment="top-left" width="29.5%" height="fill" clipcontent="false">
                     <wm-card name="quickLinksCard" class="app-card card-default" variant="default">
@@ -81,7 +82,7 @@
                     </wm-list>
                 </wm-container>
                 <wm-container name="rightCol" class="app-container-default" direction="column" gap="5"
-                    alignment="top-left" width="30%" height="fill" clipcontent="false">
+                    alignment="top-left" width="29.5%" height="fill" clipcontent="false" overflow="none">
                     <wm-card name="whatsNewCard" class="app-card card-default" variant="default">
                         <wm-card-content name="whatsNewCardContent">
                             <wm-container name="whatsNewCardBody" class="app-container-default" direction="column"

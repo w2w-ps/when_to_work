@@ -1,25 +1,78 @@
+.nav-tabs {
+    background-color: var(--wm-color-grey-bg-color);
+}
+
+.nav-tabs li:nth-child(8):not(.active) a {
+    background-color: var(--wm-color-weekly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) a {
+    text-transform: uppercase;
+}
+
+.nav-tabs li:nth-child(9):not(.active) a {
+    background-color: var(--wm-color-monthly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+    text-transform: uppercase;
+}
+
 .cal-day-slot-item {
     width: 14.2857% !important;
-    border: 1px solid black !important;
+    border: 1px solid var(--wm-color-black) !important;
     min-height: stretch;
 }
 
 .cal-cell-current-month {
-    border-top: 3px #E70101 solid !important;
+    border-top: 3px solid var(--wm-color-tablecolumnborder) !important;
     justify-content: flex-start !important;
 }
 
 .cal-cell-other-month {
-    border-top: 3px solid black !important;
-    background-color: #E9E9E9 !important;
+    border-top: 3px solid var(--wm-color-black) !important;
+    background-color: var(--wm-color-tablecolumnbg) !important;
 }
 
 .app-livelist.cal-emp-list {
     min-height: auto !important;
+    box-shadow: none;
 }
 
 .time-group-divider {
-    border-top: 1px solid #D0D0D0;
+    border-top: 2px solid var(--wm-color-tableborder);
     margin-top: 4px;
     margin-bottom: 4px;
+}
+
+.cal-emp-list ul li,
+.list-group-autolayout li,
+div[name="posListDay"] {
+    background-color: var(--wm-color-white);
+    box-shadow: none !important;
+}
+
+.list-group-autolayout li p {
+    padding-left: 3px;
+}
+
+.red-underlined {
+    border-bottom: 4px var(--wm-color-tablecolumnborder) solid !important;
+}
+
+.black-boxed {
+    background: var(--wm-color-tablecolumnbg);
+    border: 1px solid var(--wm-color-border-color);
+    padding: 2px 5px;
+    border-bottom: 2px solid var(--wm-color-black) !important;
+}
+
+.violet-box {
+    background: var(--wm-color-violetcontainer);
+    border: 1px var(--wm-color-border-color) solid;
+    padding: 2px 5px;
+    border-bottom: 4px solid var(--wm-color-violetcontainerborder) !important;
 }
