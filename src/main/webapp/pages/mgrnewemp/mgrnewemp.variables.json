@@ -30,5 +30,31 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "AddEmployee"
+  },
+  "SVGetPositions" : {
+    "_id" : "wm-SVGetPositions-wm.ServiceVariable-1777320838853",
+    "name" : "SVGetPositions",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDA3NzczLCJleHAiOjE3NzcwMDk1NzN9.laqZNmQ00o1s_uYhdq-BrY7PWbOj8kDZ017OebPF_qp2HyoEeYHDBPqVBlZTwB1k8dK3LbS1IItj1dGOQcL8eeWirKfVieLPrsZ0l3kesPthFRpgNkTEacSiYn5aVlioWsbuE4h8Qt3fP4lYiRCDq_3nTmIn3M-gRTeQJLkoxnWAaoD9Uo-k6AsUejtvZyk6XVa7iyitjeh6l6mKhN7CqjJtlJU0fXqGnjCietOm8WMSsCkZ1x3ViqOzRO5Nb0RJAksCI1pZPs2J3RaWndn3eqhqkNGme-besenB4wRlQzT7tNulCgoRUZbghf1FvRtMW3gz0tfYUT6NpFSjUDZwdQ" ],
+      "type" : "string"
+    } ],
+    "type" : "GetPositions.RootResponse",
+    "service" : "GetPositions",
+    "operation" : "invoke",
+    "operationId" : "GetPositions_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "GetPositions"
   }
 }

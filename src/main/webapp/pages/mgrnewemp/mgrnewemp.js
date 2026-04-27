@@ -17,17 +17,14 @@ Page.onReady = function () {
  * sets it on SvAddEmployee, then invokes the variable.
  */
 Page.onAddEmployeeClick = function ($event, widget) {
-    const leftChecked = Page.Widgets.chk_positions_left.datavalue;
-    const rightChecked = Page.Widgets.chk_positions_right.datavalue;
+    const allChecked = Page.Widgets.chk_positions.datavalue;
 
-    // Combine both checkbox groups and take the first selected value as empTypeId
+    // Take the first selected value as empTypeId
     let empTypeId = null;
-    const allChecked = [].concat(
-        Array.isArray(leftChecked) ? leftChecked : (leftChecked ? [leftChecked] : []),
-        Array.isArray(rightChecked) ? rightChecked : (rightChecked ? [rightChecked] : [])
-    );
-    if (allChecked.length > 0) {
+    if (Array.isArray(allChecked) && allChecked.length > 0) {
         empTypeId = allChecked[0];
+    } else if (allChecked) {
+        empTypeId = allChecked;
     }
 
     // Build phone array — omit empty values
@@ -97,8 +94,7 @@ Page.SvAddEmployeeonSuccess = function (variable, data) {
     Page.Widgets.txt_employeeNumber.datavalue = "";
 
     // Reset positions checkboxes
-    Page.Widgets.chk_positions_left.datavalue = [];
-    Page.Widgets.chk_positions_right.datavalue = [];
+    Page.Widgets.chk_positions.datavalue = [];
 
     // Reset autofill fields
     Page.Widgets.date_hireDate.datavalue = "";
