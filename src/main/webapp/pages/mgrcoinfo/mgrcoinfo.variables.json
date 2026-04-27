@@ -23,6 +23,315 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "countryList" : {
+    "_id" : "wm-countryList-wm.Variable-1777283915543",
+    "name" : "countryList",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "Afghanistan",
+      "dataValue" : "Afghanistan"
+    }, {
+      "name" : "Albania",
+      "dataValue" : "Albania"
+    }, {
+      "name" : "Algeria",
+      "dataValue" : "Algeria"
+    }, {
+      "name" : "Andorra",
+      "dataValue" : "Andorra"
+    }, {
+      "name" : "Angola",
+      "dataValue" : "Angola"
+    }, {
+      "name" : "Antigua and Barbuda",
+      "dataValue" : "Antigua and Barbuda"
+    }, {
+      "name" : "Argentina",
+      "dataValue" : "Argentina"
+    }, {
+      "name" : "Armenia",
+      "dataValue" : "Armenia"
+    }, {
+      "name" : "Australia",
+      "dataValue" : "Australia"
+    }, {
+      "name" : "Austria",
+      "dataValue" : "Austria"
+    }, {
+      "name" : "Azerbaijan",
+      "dataValue" : "Azerbaijan"
+    }, {
+      "name" : "Bahamas",
+      "dataValue" : "Bahamas"
+    }, {
+      "name" : "Bahrain",
+      "dataValue" : "Bahrain"
+    }, {
+      "name" : "Bangladesh",
+      "dataValue" : "Bangladesh"
+    }, {
+      "name" : "Barbados",
+      "dataValue" : "Barbados"
+    }, {
+      "name" : "Belarus",
+      "dataValue" : "Belarus"
+    }, {
+      "name" : "Belgium",
+      "dataValue" : "Belgium"
+    }, {
+      "name" : "Belize",
+      "dataValue" : "Belize"
+    }, {
+      "name" : "Benin",
+      "dataValue" : "Benin"
+    }, {
+      "name" : "Bhutan",
+      "dataValue" : "Bhutan"
+    }, {
+      "name" : "Bolivia",
+      "dataValue" : "Bolivia"
+    }, {
+      "name" : "Bosnia and Herzegovina",
+      "dataValue" : "Bosnia and Herzegovina"
+    }, {
+      "name" : "Botswana",
+      "dataValue" : "Botswana"
+    }, {
+      "name" : "Brazil",
+      "dataValue" : "Brazil"
+    }, {
+      "name" : "Brunei",
+      "dataValue" : "Brunei"
+    }, {
+      "name" : "Bulgaria",
+      "dataValue" : "Bulgaria"
+    }, {
+      "name" : "Burkina Faso",
+      "dataValue" : "Burkina Faso"
+    }, {
+      "name" : "Burundi",
+      "dataValue" : "Burundi"
+    }, {
+      "name" : "Cabo Verde",
+      "dataValue" : "Cabo Verde"
+    }, {
+      "name" : "Cambodia",
+      "dataValue" : "Cambodia"
+    }, {
+      "name" : "Cameroon",
+      "dataValue" : "Cameroon"
+    }, {
+      "name" : "Canada",
+      "dataValue" : "Canada"
+    }, {
+      "name" : "Central African Republic",
+      "dataValue" : "Central African Republic"
+    }, {
+      "name" : "Chad",
+      "dataValue" : "Chad"
+    }, {
+      "name" : "Chile",
+      "dataValue" : "Chile"
+    }, {
+      "name" : "China",
+      "dataValue" : "China"
+    }, {
+      "name" : "Colombia",
+      "dataValue" : "Colombia"
+    }, {
+      "name" : "Comoros",
+      "dataValue" : "Comoros"
+    }, {
+      "name" : "Congo (Brazzaville)",
+      "dataValue" : "Congo (Brazzaville)"
+    }, {
+      "name" : "Congo (Kinshasa)",
+      "dataValue" : "Congo (Kinshasa)"
+    }, {
+      "name" : "Costa Rica",
+      "dataValue" : "Costa Rica"
+    }, {
+      "name" : "Croatia",
+      "dataValue" : "Croatia"
+    }, {
+      "name" : "Cuba",
+      "dataValue" : "Cuba"
+    }, {
+      "name" : "Cyprus",
+      "dataValue" : "Cyprus"
+    }, {
+      "name" : "Czechia",
+      "dataValue" : "Czechia"
+    }, {
+      "name" : "Denmark",
+      "dataValue" : "Denmark"
+    }, {
+      "name" : "Djibouti",
+      "dataValue" : "Djibouti"
+    }, {
+      "name" : "Dominica",
+      "dataValue" : "Dominica"
+    }, {
+      "name" : "Dominican Republic",
+      "dataValue" : "Dominican Republic"
+    }, {
+      "name" : "Ecuador",
+      "dataValue" : "Ecuador"
+    }, {
+      "name" : "Egypt",
+      "dataValue" : "Egypt"
+    }, {
+      "name" : "El Salvador",
+      "dataValue" : "El Salvador"
+    }, {
+      "name" : "Equatorial Guinea",
+      "dataValue" : "Equatorial Guinea"
+    }, {
+      "name" : "Eritrea",
+      "dataValue" : "Eritrea"
+    }, {
+      "name" : "Estonia",
+      "dataValue" : "Estonia"
+    }, {
+      "name" : "Eswatini",
+      "dataValue" : "Eswatini"
+    }, {
+      "name" : "Ethiopia",
+      "dataValue" : "Ethiopia"
+    }, {
+      "name" : "Fiji",
+      "dataValue" : "Fiji"
+    }, {
+      "name" : "Finland",
+      "dataValue" : "Finland"
+    }, {
+      "name" : "France",
+      "dataValue" : "France"
+    }, {
+      "name" : "Gabon",
+      "dataValue" : "Gabon"
+    }, {
+      "name" : "Gambia",
+      "dataValue" : "Gambia"
+    }, {
+      "name" : "Georgia",
+      "dataValue" : "Georgia"
+    }, {
+      "name" : "Germany",
+      "dataValue" : "Germany"
+    }, {
+      "name" : "Ghana",
+      "dataValue" : "Ghana"
+    }, {
+      "name" : "Greece",
+      "dataValue" : "Greece"
+    }, {
+      "name" : "Grenada",
+      "dataValue" : "Grenada"
+    }, {
+      "name" : "Guatemala",
+      "dataValue" : "Guatemala"
+    }, {
+      "name" : "Guinea",
+      "dataValue" : "Guinea"
+    }, {
+      "name" : "Guinea-Bissau",
+      "dataValue" : "Guinea-Bissau"
+    }, {
+      "name" : "Guyana",
+      "dataValue" : "Guyana"
+    }, {
+      "name" : "Haiti",
+      "dataValue" : "Haiti"
+    }, {
+      "name" : "Honduras",
+      "dataValue" : "Honduras"
+    }, {
+      "name" : "Hungary",
+      "dataValue" : "Hungary"
+    }, {
+      "name" : "Iceland",
+      "dataValue" : "Iceland"
+    }, {
+      "name" : "India",
+      "dataValue" : "India"
+    }, {
+      "name" : "Indonesia",
+      "dataValue" : "Indonesia"
+    }, {
+      "name" : "Iran",
+      "dataValue" : "Iran"
+    }, {
+      "name" : "Iraq",
+      "dataValue" : "Iraq"
+    }, {
+      "name" : "Ireland",
+      "dataValue" : "Ireland"
+    }, {
+      "name" : "Israel",
+      "dataValue" : "Israel"
+    }, {
+      "name" : "Italy",
+      "dataValue" : "Italy"
+    }, {
+      "name" : "Jamaica",
+      "dataValue" : "Jamaica"
+    }, {
+      "name" : "Japan",
+      "dataValue" : "Japan"
+    }, {
+      "name" : "Jordan",
+      "dataValue" : "Jordan"
+    }, {
+      "name" : "Kazakhstan",
+      "dataValue" : "Kazakhstan"
+    }, {
+      "name" : "Kenya",
+      "dataValue" : "Kenya"
+    }, {
+      "name" : "Kiribati",
+      "dataValue" : "Kiribati"
+    }, {
+      "name" : "Kuwait",
+      "dataValue" : "Kuwait"
+    }, {
+      "name" : "Kyrgyzstan",
+      "dataValue" : "Kyrgyzstan"
+    }, {
+      "name" : "Laos",
+      "dataValue" : "Laos"
+    }, {
+      "name" : "Latvia",
+      "dataValue" : "Latvia"
+    }, {
+      "name" : "Lebanon",
+      "dataValue" : "Lebanon"
+    }, {
+      "name" : "Lesotho",
+      "dataValue" : "Lesotho"
+    }, {
+      "name" : "Liberia",
+      "dataValue" : "Liberia"
+    }, {
+      "name" : "Libya",
+      "dataValue" : "Libya"
+    }, {
+      "name" : "Liechtenstein",
+      "dataValue" : "Liechtenstein"
+    }, {
+      "name" : "Lithuania",
+      "dataValue" : "Lithuania"
+    }, {
+      "name" : "Luxembourg",
+      "dataValue" : "Luxembourg"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "globalSettings" : {
     "_id" : "wm-globalSettings-wm.Variable-1776853089362",
     "name" : "globalSettings",
@@ -75,5 +384,133 @@
     "type" : "string",
     "isList" : false,
     "twoWayBinding" : false
+  },
+  "timezoneOptions" : {
+    "_id" : "wm-timezoneOptions-wm.Variable-1777280914407",
+    "name" : "timezoneOptions",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "value" : -11,
+      "label" : "GMT-11 Samoa"
+    }, {
+      "value" : -10,
+      "label" : "GMT-10 Hawaii"
+    }, {
+      "value" : -9,
+      "label" : "GMT-9 Alaska"
+    }, {
+      "value" : -8,
+      "label" : "GMT-8 Pacific US"
+    }, {
+      "value" : -7,
+      "label" : "GMT-7 Mountain US"
+    }, {
+      "value" : -6,
+      "label" : "GMT-6 Central US"
+    }, {
+      "value" : -5,
+      "label" : "GMT-5 Eastern US"
+    }, {
+      "value" : -4,
+      "label" : "GMT-4 Atlantic"
+    }, {
+      "value" : -3.5,
+      "label" : "GMT-3:30 Newfoundland"
+    }, {
+      "value" : -3,
+      "label" : "GMT-3 Brazil"
+    }, {
+      "value" : 0,
+      "label" : "GMT+0 London"
+    }, {
+      "value" : 1,
+      "label" : "GMT+1 Paris"
+    }, {
+      "value" : 2,
+      "label" : "GMT+2 Athens"
+    }, {
+      "value" : 3,
+      "label" : "GMT+3 Moscow"
+    }, {
+      "value" : 5.5,
+      "label" : "GMT+5:30 India"
+    }, {
+      "value" : 8,
+      "label" : "GMT+8 Beijing"
+    }, {
+      "value" : 9,
+      "label" : "GMT+9 Tokyo"
+    }, {
+      "value" : 10,
+      "label" : "GMT+10 Sydney"
+    }, {
+      "value" : 12,
+      "label" : "GMT+12 Auckland"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "wsGetTenants" : {
+    "_id" : "wm-wsGetTenants-wm.ServiceVariable-1777278991273",
+    "name" : "wsGetTenants",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "getTenants.Response.RootResponseROOTEntryItem",
+    "service" : "getTenants",
+    "operation" : "invoke",
+    "operationId" : "getTenants_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onSuccess" : "wsGetTenantsonSuccess(variable, data)",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getTenants"
+  },
+  "wsUpdateTenants" : {
+    "_id" : "wm-wsUpdateTenants-wm.ServiceVariable-1777282889881",
+    "name" : "wsUpdateTenants",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "RequestBody.timezone",
+      "value" : "bind:Widgets.selTimeZone.datavalue"
+    }, {
+      "target" : "RequestBody.address",
+      "value" : "bind:Widgets.txtBillingAddress.datavalue"
+    }, {
+      "target" : "RequestBody.city",
+      "value" : "bind:Widgets.txtCity.datavalue"
+    }, {
+      "target" : "RequestBody.companyName",
+      "value" : "bind:Widgets.txtCompanyName.datavalue"
+    }, {
+      "target" : "RequestBody.state",
+      "value" : "bind:Widgets.txtStateRegion.datavalue"
+    } ],
+    "type" : "UpdateTenants.RootResponse",
+    "service" : "UpdateTenants",
+    "operation" : "invoke",
+    "operationId" : "UpdateTenants_invoke",
+    "operationType" : "put",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "UpdateTenants"
   }
 }

@@ -1,9 +1,10 @@
 <wm-page name="page" pagetitle="Mgrcoinfo">
+<wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
 <wm-content name="content">
 <wm-page-content columnwidth="12" name="pagecontent">
 <!-- Page Title Section -->
 <wm-container name="titleSection" class="app-container-default" direction="column" gap="4" alignment="top-center" width="fill" height="hug" padding="16px 0px">
-<wm-label name="lblCompanyName" caption="Sample Company" class="label-label-20-700" variant="label-20-700"></wm-label>
+<wm-label name="lblCompanyName" caption="bind:Variables.wsGetTenants.dataSet[$i].companyName" class="label-label-20-700" variant="label-20-700"></wm-label>
 <wm-label name="lblPageTitle" caption="Info &amp; Settings" class="label-label-20-700" variant="label-20-700"></wm-label></wm-container>
 <!-- Top Save Button -->
 <!-- Tabs -->
@@ -13,7 +14,9 @@
 <!-- Outer centered column -->
 <wm-container name="infoOuterCol" class="app-container-default" direction="column" gap="16" alignment="top-center" width="fill" height="hug" padding="16px 0px">
 <!-- ===== COMPANY INFORMATION SECTION ===== -->
-<wm-container name="saveTopWrapper" class="app-container-default" direction="row" gap="4" alignment="top-center" width="fill" height="hug" padding="8px 0px"><wm-button caption="Save" class="btn-outlined-primary" name="button5" variant="outlined-primary"></wm-button></wm-container><wm-container name="companyInfoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
+<wm-container name="saveTopWrapper" class="app-container-default" direction="row" gap="4" alignment="top-center" width="fill" height="hug" padding="8px 0px">
+<wm-button caption="Save" class="btn-outlined-primary" name="button5" variant="outlined-primary" on-click="Variables.wsUpdateTenants.invoke();Variables.wsGetTenants.invoke()"></wm-button></wm-container>
+<wm-container name="companyInfoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
 <!-- Section Header -->
 <wm-label name="lblCompanyInfoTitle" caption="Company Information" class="label-label-20-700" variant="label-20-700"></wm-label>
 <!-- Account / Employees / Expires Row -->
@@ -24,21 +27,21 @@
 <!-- Company Name Row -->
 <wm-container name="companyNameRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblCompanyNameField" caption="Company" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtCompanyName" datavalue="bind:Variables.companyInfo.dataSet.dataValue.companyName" width="80%"></wm-text></wm-container>
+<wm-text name="txtCompanyName" datavalue="bind:Variables.wsGetTenants.dataSet[$i].companyName" width="80%"></wm-text></wm-container>
 <!-- Billing Address Info Note -->
 <wm-label name="lblBillingNote" caption="Your billing address is required for determining sales tax."></wm-label>
 <!-- Billing Address Row -->
 <wm-container name="billingAddressRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblBillingAddress" caption="Billing Address" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtBillingAddress" datavalue="bind:Variables.companyInfo.dataSet.dataValue.billingAddress" width="80%"></wm-text></wm-container>
+<wm-text name="txtBillingAddress" datavalue="bind:Variables.wsGetTenants.dataSet[$i].address" width="80%"></wm-text></wm-container>
 <!-- City Row -->
 <wm-container name="cityRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblCity" caption="City" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtCity" datavalue="bind:Variables.companyInfo.dataSet.dataValue.city" width="80%"></wm-text></wm-container>
+<wm-text name="txtCity" datavalue="bind:Variables.wsGetTenants.dataSet[$i].city" width="80%"></wm-text></wm-container>
 <!-- State/Region Row -->
 <wm-container name="stateRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblStateRegion" caption="State/Region" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtStateRegion" datavalue="bind:Variables.companyInfo.dataSet.dataValue.stateRegion" width="80%"></wm-text></wm-container>
+<wm-text name="txtStateRegion" datavalue="bind:Variables.wsGetTenants.dataSet[$i].state" width="80%"></wm-text></wm-container>
 <!-- Postal Code Row -->
 <wm-container name="postalCodeRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblPostalCode" caption="Postal Code" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
@@ -46,7 +49,7 @@
 <!-- Country Row -->
 <wm-container name="countryRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblCountry" caption="Select Your Country" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-select name="selCountry" dataset="United States, Canada, United Kingdom, Australia" datavalue="bind:Variables.companyInfo.dataSet.dataValue.country" width="60%"></wm-select>
+<wm-select name="selCountry" dataset="bind:Variables.countryList.dataSet" datavalue="bind:Variables.countryList.dataSet[0].name" width="60%" datafield="name" displayfield="name"></wm-select>
 <wm-button class="btn-outlined-primary" caption="Button" type="button" margin="unset" name="button4" variant="outlined-primary"></wm-button></wm-container>
 <!-- Phone Row -->
 <wm-container name="phoneRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
@@ -116,7 +119,7 @@
 <!-- Time Zone Row -->
 <wm-container name="timeZoneRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblTimeZone" caption="TIME Zone:" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-select name="selTimeZone" dataset="GMT-8 Pacific US, GMT-7 Mountain US, GMT-6 Central US, GMT-5 Eastern US" datavalue="bind:Variables.globalSettings.dataSet.dataValue.timeZone" width="200px"></wm-select>
+<wm-select name="selTimeZone" dataset="bind:Variables.timezoneOptions.dataSet" datafield="value" displayfield="label" width="200px"></wm-select>
 <wm-label name="lblDaylightSavings" caption="Daylight Savings:"></wm-label>
 <wm-radioset name="radioDaylightSavings" dataset="Yes, No" datavalue="Yes" layout="inline"></wm-radioset></wm-container>
 <!-- Display Time Row -->
@@ -154,7 +157,7 @@
 <!-- Start Day Row -->
 <wm-container name="startDayRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
 <wm-label name="lblStartDay" caption="START DAY for Weekly Schedules:"></wm-label>
-<wm-label name="lblStartDayValue" caption="bind:Variables.globalSettings.dataSet.dataValue.startDay" class="label-label-14-700" variant="label-14-700"></wm-label>
+<wm-label name="lblStartDayValue" caption="-" class="label-label-14-700" variant="label-14-700"></wm-label>
 <wm-anchor name="anchorChangeStartDay" caption="Change" iconclass="wi wi-mode-edit" class="text-primary"></wm-anchor></wm-container>
 <!-- Label Employee Row -->
 <wm-container name="labelEmployeeRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
@@ -179,7 +182,8 @@
 <wm-checkboxset name="chkEnableManagerTeams" dataset="Enable Manager Teams" layout="stacked"></wm-checkboxset>
 <wm-checkboxset name="chkAllowAllMgrsTeamViews" dataset="Allow All Managers to use Manager Team Views" layout="stacked"></wm-checkboxset>
 <wm-checkboxset name="chkAllowAllEmpViewTeams" dataset="Allow All Employees to View Teams" layout="stacked"></wm-checkboxset></wm-container></wm-container>
-<!-- Global Settings Save Button --></wm-container><wm-container name="companyLogoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
+<!-- Global Settings Save Button --></wm-container>
+<wm-container name="companyLogoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
 <wm-label name="lblCompanyLogoTitle" caption="Company Logo" class="label-label-20-700" variant="label-20-700"></wm-label>
 <!-- Logo Content Row -->
 <wm-container name="logoContentRow" class="app-container-default" direction="row" gap="16" alignment="top-left" width="fill" height="hug" variant="default">
@@ -195,7 +199,9 @@
 <!-- Logo Save Button --></wm-container>
 <!-- ===== COMPANY LOGO SECTION ===== -->
 <!-- ===== INFORMATION NOTE SECTION ===== -->
-<wm-container name="saveBottomWrapper" class="app-container-default" direction="row" gap="4" alignment="top-center" width="fill" height="hug" padding="8px 0px"><wm-button name="btnLogoSave" caption="Save" class="btn-outlined-primary" variant="outlined-primary"></wm-button></wm-container><wm-container name="informationNoteSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="70%" height="hug" padding="16px">
+<wm-container name="saveBottomWrapper" class="app-container-default" direction="row" gap="4" alignment="top-center" width="fill" height="hug" padding="8px 0px">
+<wm-button name="btnLogoSave" caption="Save" class="btn-outlined-primary" variant="outlined-primary"></wm-button></wm-container>
+<wm-container name="informationNoteSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="70%" height="hug" padding="16px">
 <wm-container name="infoNoteHeader" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
 <wm-label name="lblInformationTitle" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
 <wm-container name="infoNoteHelp" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
