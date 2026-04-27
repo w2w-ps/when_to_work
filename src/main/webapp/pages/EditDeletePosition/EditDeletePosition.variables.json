@@ -1,4 +1,15 @@
 {
+  "selectedPositionIds" : {
+    "_id" : "wm-selectedPositionIds-wm.Variable-1777263952171",
+    "name" : "selectedPositionIds",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
   "sortedPositionsList" : {
     "_id" : "wm-sortedPositionsList-wm.Variable-1776939788855",
     "name" : "sortedPositionsList",
@@ -25,6 +36,10 @@
     }, {
       "target" : "Authorization",
       "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDE4MTA2LCJleHAiOjE3NzcwMTk5MDZ9.Zf2QltNa19G4mfzE1HcyaOo7rDLgHliSXoVIbxwiw3n_0O947P0k6357DD5Pv_UIAG5GYWelOJAdfIZwapTRs-JbPzDmeMXn587ewICaqBPgqbSzh9oNVffs0osBCl6BYqvIdu-qBu0bG0kdIylUYxV9zhDR06o7XywRVCBmpCe1u7k58DcqfGWcXOPb4JUUczcgye0j9KT8nJNsSR6_lTk5fh3bK-hFtywdTsHCXTi3sXwr1aRsZkw9GjB_NEwYBOK9LY3pqQhgItZqL2DkYZ0MKN3v2piHwL6KY4w9XYlxdpNI-embVdyqokOp7AzTBVX0dVZPbDJdjWTB8N3v_w" ],
+      "type" : "string"
+    }, {
+      "target" : "positionId",
+      "value" : "bind:positionIds",
       "type" : "string"
     } ],
     "type" : "deletePosition.RootResponse",

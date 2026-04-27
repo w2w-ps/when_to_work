@@ -13,8 +13,8 @@
                             name="editDeleteParentcontainer" class="app-container-default" variant="default">
                             <wm-container direction="column" alignment="top-left" gap="12" width="fill" height="hug"
                                 name="currentPositionsSectionContainer"
-                                class="positions-section-container app-container-default" padding="16px"
-                                variant="default">
+                                class="positions-section-container container-info-lavender-box" padding="16px"
+                                variant="info-lavender-box">
                                 <wm-container direction="row" alignment="center" gap="auto" width="fill" height="hug"
                                     name="positionsHeaderRow" class="app-container-default" variant="default">
                                     <wm-label name="currentPositionsTitle" caption="Current Positions"
@@ -50,8 +50,84 @@
                             </wm-container>
                         </wm-container>
                     </wm-tabpane>
-                    <wm-tabpane title="Delete" name="tabpane2"></wm-tabpane>
+                    <wm-tabpane title="Delete" name="tabpane2">
+                        <wm-container name="deletePositionSection" class="app-container-default" direction="column"
+                            gap="0" alignment="top-left" width="fill" height="hug" padding="16px" borderradius="12px"
+                            background="#eef0f8">
+                            <!-- Row 1: Header with title and top Delete Selected button -->
+                            <wm-container name="deleteHeaderRow" class="app-container-default" direction="row"
+                                gap="auto" alignment="center" width="fill" height="hug" padding="0px 0px 12px 0px">
+                                <wm-label name="currentPositionsTitleLabel" caption="Current Positions"
+                                    class="h4 label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
+                                <wm-button name="deleteSelectedBtnTop" caption="Delete Selected"
+                                    class="btn-filled-bg-danger-sm" iconclass="wi wi-trash" iconposition="left"
+                                    variant="filled-bg-danger-sm" on-click="deleteSelectedBtnTopClick($event, widget)">
+                                </wm-button>
+                            </wm-container>
+                            <!-- Row 2: Column headers row: Delete (icon+label) | Position -->
+                            <wm-container name="deleteColumnHeadersRow"
+                                class="app-container-default delete-column-header-row" direction="row" gap="0"
+                                alignment="middle-left" width="fill" height="hug" padding="6px 0px 6px 0px">
+                                <wm-container name="deleteColHeader" class="app-container-default" direction="row"
+                                    gap="4" alignment="middle-left" width="120px" height="hug">
+                                    <wm-icon name="deleteColIcon" iconclass="wi wi-trash" class="delete-col-icon">
+                                    </wm-icon>
+                                    <wm-label name="deleteColLabel" caption="Delete"
+                                        class="label-delete-col-header label-13-700-brown" variant="label-13-700-brown">
+                                    </wm-label>
+                                </wm-container>
+                                <wm-label name="positionColLabel" caption="Position"
+                                    class="label-delete-col-header label-13-700-brown" variant="label-13-700-brown">
+                                </wm-label>
+                            </wm-container>
+                            <!-- Row 3: List of positions with checkbox and name -->
+                            <wm-list name="deletePositionsList" class="list-card" direction="column" gap="0"
+                                alignment="top-left" width="fill" height="hug"
+                                dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions"
+                                listclass="list-group" itemclass="delete-position-list-item" navigation="None">
+                                <wm-listtemplate name="deletePositionsListTemplate" direction="row" gap="0"
+                                    alignment="middle-left" width="fill" height="hug">
+                                    <wm-container name="deleteListRowContainer"
+                                        class="app-container-default delete-list-row" direction="row" gap="0"
+                                        alignment="middle-left" width="fill" height="hug" padding="8px 0px 8px 0px">
+                                        <wm-composite name="composite1" width="50%">
+                                            <wm-checkbox caption="bind:item.description" class="col-md-push-3 col-md-9"
+                                                name="checkbox1" variant="standard" checkedvalue="true"
+                                                uncheckedvalue="false" datavalue="false"
+                                                on-change="checkbox1Change($event, widget, item, currentItemWidgets, newVal, oldVal)">
+                                            </wm-checkbox>
+                                        </wm-composite>
+                                    </wm-container>
+                                </wm-listtemplate>
+                            </wm-list>
+                            <!-- Row 4: Footer centered Delete Selected button -->
+                            <wm-container name="deleteFooterRow" class="app-container-default" direction="row"
+                                gap="auto" alignment="center" width="fill" height="hug" padding="16px 0px 0px 0px">
+                                <wm-button name="deleteSelectedBtnBottom" caption="Delete Selected"
+                                    class="btn-filled-bg-danger-sm" variant="filled-bg-danger-sm"></wm-button>
+                            </wm-container>
+                        </wm-container>
+                    </wm-tabpane>
                 </wm-tabs>
+            </wm-container>
+            <wm-container name="container33" class="app-container-default container-info-lavender-box"
+                variant="info-lavender-box" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                padding="12px 16px 12px 16px">
+                <wm-label name="infoSectionTitle" caption="Information" class="app-label label-16-700"
+                    variant="label-16-700"></wm-label>
+                <wm-container name="infoLine1Container" class="app-container-default" direction="row" gap="4"
+                    alignment="middle-left" width="fill" height="hug">
+                    <wm-label name="infoLine1Text" caption="- Please review the help page before deleting a position"
+                        class="app-label label-14-400" variant="label-14-400"></wm-label>
+                    <wm-anchor name="infoMoreLink" caption="More" iconclass="wi wi-arrow-right" iconposition="right"
+                        class="anchor-standard-sm"></wm-anchor>
+                </wm-container>
+                <wm-label name="infoLine2Text"
+                    caption="- Check off the positions to delete and click the &quot;Delete Selectedlet'&quot; button."
+                    class="app-label label-14-400" variant="label-14-400"></wm-label>
+                <wm-label name="infoWarningText"
+                    caption="** If you are trying to delete shifts for a certain week please use the Clear button on any Schedule View instead of deleting the position here."
+                    class="app-label label-bold" variant="label-bold"></wm-label>
             </wm-container>
         </wm-page-content>
         <wm-footer content="footer" name="footer"></wm-footer>

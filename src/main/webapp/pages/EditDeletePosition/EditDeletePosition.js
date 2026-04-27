@@ -11,6 +11,7 @@ Page.onReady = function () {
      * should already be populated. We read it directly and fall back to a fresh invoke
      * only if it is genuinely empty (e.g. first load race condition or API error).
      */
+    Page.deletedPosition = [];
     const appVar = App.Variables.svGetAllPositionsByCompanyId;
     const existing = appVar.dataSet && appVar.dataSet.positions;
 
@@ -93,4 +94,26 @@ Page.positionsListRender = function ($data) {
             dragSrcIndex = null;
         });
     });
+};
+Page.deleteSelectedBtnTopClick = function ($event, widget) {
+    if (Page.deletedPosition.length > 0) {
+        Page.positionIds = "";
+        Page.deletedPosition.forEach(function (position) {
+            Page.positionIds = (Page.positionIds ? Page.positionIds + "," : "") + position.positionId;
+        });
+        Page.Variables.svDeletePosition.dataBinding.positionId = Page.positionIds;
+        Page.Variables.svDeletePosition.invoke();
+    }
+};
+
+Page.checkbox1Change = function ($event, widget, item, currentItemWidgets, newVal, oldVal) {
+    if (newVal) {
+        Page.deletedPosition.push(item);
+    } else {
+        let index = Page.deletedPosition.findIndex(position => position.positionId === item.positionId);
+
+        if (index !== -1) {
+            Page.deletedPosition.splice(index, 1);
+        }
+    }
 };
