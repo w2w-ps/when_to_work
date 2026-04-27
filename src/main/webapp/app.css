@@ -358,7 +358,6 @@ wm-input[name="txtFind"].app-input-wrapper {
     width: 14px !important;
     height: 14px !important;
     top: 4px !important;
-
     border-width: 1px !important;
 }
 
@@ -590,12 +589,25 @@ button.close:hover {
     --wm-btn-state-layer-color: transparent !important;
 }
 
-.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title{
-  display: none;
+.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title {
+    display: none;
 }
-.modal-confirm-dialog .modal-body{
+
+.modal-confirm-dialog .modal-body {
     margin: 10px 8px 14px 8px !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* responsive code starts */
 /* mobile */
