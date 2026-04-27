@@ -741,6 +741,28 @@
     "isList" : true,
     "twoWayBinding" : false
   },
+  "wsGetEmployeeDetails" : {
+    "_id" : "wm-wsGetEmployeeDetails-wm.ServiceVariable-1777285904422",
+    "name" : "wsGetEmployeeDetails",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "getEmployeeDetails.Response.RootResponseROOTEntryItem",
+    "service" : "getEmployeeDetails",
+    "operation" : "invoke",
+    "operationId" : "getEmployeeDetails_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getEmployeeDetails"
+  },
   "wsGetTenants" : {
     "_id" : "wm-wsGetTenants-wm.ServiceVariable-1777278991273",
     "name" : "wsGetTenants",

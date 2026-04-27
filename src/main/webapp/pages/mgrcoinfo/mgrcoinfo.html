@@ -36,10 +36,10 @@
                             <wm-container name="accountInfoRow" class="app-container-default" direction="row" gap="auto"
                                 alignment="center" width="fill" height="hug">
                                 <wm-label name="lblAccountId"
-                                    caption="bind:&quot;Account: &quot; + Variables.companyInfo.dataSet.dataValue.accountId"
+                                    caption="bind:&quot;Account: &quot; + Variables.loggedInUser.dataSet.id"
                                     class="label-label-14-400" variant="label-14-400"></wm-label>
                                 <wm-label name="lblEmployeeCount"
-                                    caption="bind:&quot;Employees: &quot; + Variables.companyInfo.dataSet.dataValue.employeeCount"
+                                    caption="bind:&quot;Employees: &quot; + Variables.wsGetEmployeeDetails.dataSet.length"
                                     class="label-label-14-700" variant="label-14-700"></wm-label>
                                 <wm-label name="lblExpiresDate"
                                     caption="bind:&quot;Expires: &quot; + Variables.companyInfo.dataSet.dataValue.expiresDate"
