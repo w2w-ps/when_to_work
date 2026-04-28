@@ -46,10 +46,6 @@
       "target" : "grouping",
       "value" : "bind:App.Variables.appSelectedGrouping.dataSet.grouping",
       "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NjcxNDQxLCJleHAiOjE3NzY2NzMyNDF9.MSc22GXGjaJq6hXhUpzOUxkktiYn0Dsl75Cwgw-UF8jnNKdeed1Jq_mFatFtnUsPIoJjGqKNGesH0K9lNawW69p_h1TiFxVEpzV6I8ZC9_WJ5vHU7u1WjyzNAoWDTiC-XNAvCn9kvf4AYDBAZ2xXm_LCfrRXfgZqREF7nVYVyMirHFUu3wA_KU7u0MXYOdzm9pRvg0G1z-W0FvED0kECH3xkTu271IxPna9oJGHGLQZpeUxhpcBUIGqs_r4hSoZ7fayMOr7ZTzxNH24pyQ_bKFlWgRfxNrMgttYtqM4Z39__qJVS33dRIXEV4sjjrU5HPYgZ4eZXE71dXj-LZQgIUQ",
-      "type" : "string"
     } ],
     "type" : "categoryShiftTimings.RootResponse",
     "service" : "categoryShiftTimings",
@@ -58,7 +54,7 @@
     "operationType" : "get",
     "serviceType" : "RestService",
     "dataSet" : [ ],
-    "isList" : true,
+    "isList" : false,
     "maxResults" : 20,
     "onSuccess" : "svcalendarCategoryViewonSuccess(variable, data)",
     "startUpdate" : false,
@@ -88,10 +84,6 @@
     }, {
       "target" : "grouping",
       "value" : "position_shift_timings",
-      "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2MzM5NjY1LCJleHAiOjE3NzYzNDE0NjV9.jm1Hpi_vvKq2h_xyb3jtmHaUcYgZvEoPZeGfDTZSzeHU5gXl_wnyi_Dfut41bpEXRjV1I3K8ajhG5CuDbiZnFUa4uSECc1lYjXIwnkJnz33rIzSnfgJgQylKMHF6_t16Jpf6hvRsDjDX8xhrY6bswFzuUanHiiBy7nPw0-CTgKYohZ4zWBfxYAXBd5RdH8J8mxSPm2rBQp-MsGap7t-pGE6NTQq9EKPJwvC1FT1Kre_hraJ4AccqozXJGMXw-Rv-aBlfJGAtuBvUQVV7ZTBVQE7uqvBGZcAFU_3gNcU4Ig9Ri93NcPqvBkeGiHvEazT9V0szqwd2nmXoWYQ0v3jQ0g",
       "type" : "string"
     } ],
     "type" : "calendarPositionView.RootResponse",

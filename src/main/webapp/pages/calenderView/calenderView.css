@@ -1,30 +1,30 @@
 .cal-day-slot-item {
     width: 14.2857% !important;
-    border: 1px solid black !important;
     min-height: stretch;
 }
 
-.cal-cell-current-month {
-    border-top: 3px #E70101 solid !important;
-    justify-content: flex-start !important;
+.cal-cell-current-month>.app-container:first-of-type {
+    border-bottom: 3px #E70101 solid !important;
+    border-radius: 0;
 }
 
-.cal-cell-other-month {
-    border-top: 3px solid black !important;
-    background-color: #E9E9E9 !important;
+
+.cal-cell-other-month .app-container {
+    border-bottom: 3px solid black !important;
+  
 }
 
 .app-livelist.cal-emp-list {
     min-height: auto !important;
 }
 
-.time-group-divider {
-    border-top: 1px solid #D0D0D0;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
 
 app-partial-monthlyview,
 app-partial-scheduletopnav {
     width: 100% !important;
+}
+
+.list-bordered {
+    border: 1px solid black !important;
+    border-radius: 0;
 }
