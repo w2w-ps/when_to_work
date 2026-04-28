@@ -32,12 +32,20 @@ Partial.onReady = function () {
 
         Partial.Variables.selectedMonthDate.dataSet = { dataValue: dateStr };
 
-        const parentScope = Partial.App.activePage;
+        const parentScope = App.activePage;
         if (parentScope && parentScope.Variables && parentScope.Variables.activeMonthDate) {
             parentScope.Variables.activeMonthDate.dataSet = { dataValue: dateStr };
         }
         if (parentScope && typeof parentScope.syncCalendarToMonth === 'function') {
             parentScope.syncCalendarToMonth(year, month);
+        }
+        // Broadcast to all other registered partial instances on the same page
+        if (parentScope && parentScope.__monthlyViewInstances) {
+            parentScope.__monthlyViewInstances.forEach(function (instance) {
+                if (typeof instance.syncToMonth === 'function') {
+                    instance.syncToMonth(year, month);
+                }
+            });
         }
     }
 
@@ -92,7 +100,9 @@ Partial.onReady = function () {
      * the calendar navigates to a different month (cells are re-rendered by FullCalendar).
      */
     function attachCalendarHoverListener() {
-        const calEl = Partial.Widgets.calendarPopup.$element;
+        var calWidget = Partial.Widgets.calendarPopup;
+        if (!calWidget || !calWidget.$element) { return; } // React build guard
+        const calEl = calWidget.$element;
         if (!calEl || !calEl.length) {
             return;
         }
@@ -234,4 +244,24 @@ Partial.onReady = function () {
 
     renderMonthNav();
     updateCalendarNavLabel();
+
+    // Register this partial instance with the page for cross-partial sync
+    var parentScope = App.activePage;
+    if (parentScope) {
+        if (!parentScope.__monthlyViewInstances) {
+            parentScope.__monthlyViewInstances = [];
+        }
+        // Store a reference to this instance's sync function
+        var instanceId = parentScope.__monthlyViewInstances.length;
+        parentScope.__monthlyViewInstances.push({
+            syncToMonth: function (year, month) {
+                // Only update if this instance is not the one that triggered the change
+                if (currentIndex !== month || currentYear !== year) {
+                    currentIndex = month;
+                    currentYear = year;
+                    renderMonthNav();
+                }
+            }
+        });
+    }
 };
