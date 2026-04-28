@@ -59,6 +59,7 @@ Page.onAddEmployeeClick = function ($event, widget) {
         payRate: Page.Widgets.num_payRate.datavalue || 0,
         comments: Page.Widgets.ta_comments.datavalue || "",
         googleCalExport: Page.Widgets.sel_canEditShifts.datavalue === "Yes",
+        positionIds: Page.Widgets.chk_positions.datavalue,
         empTypeId: empTypeId,
         employeePhoto: "",
         nextAlertDate: ""

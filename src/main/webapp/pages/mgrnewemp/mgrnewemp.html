@@ -1,166 +1,337 @@
 <wm-page name="page" pagetitle="Mgrnewemp">
-<wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
-<wm-content name="content">
-<wm-page-content columnwidth="12" name="pagecontent">
-<wm-container direction="column" alignment="top-left" gap="4" width="800px" name="container97" class="app-container-default margin-auto" variant="default" wrap="false" clipcontent="false">
-<wm-container name="title_row" class="app-container-default" direction="row" gap="0" alignment="middle-center" width="fill" height="hug" padding="12px 0">
-<wm-label name="lbl_page_title" caption="Add New Employee" class="label-20-700" variant="label-20-700"></wm-label></wm-container>
-<wm-container name="section_name" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-container name="name_header_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_name_header" caption="Name" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-icon name="icon_name" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-container name="name_fields_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_first" caption="First" width="15%"></wm-label>
-<wm-text name="txt_firstName" width="30%"></wm-text>
-<wm-label name="lbl_last" caption="Last" width="10%"></wm-label>
-<wm-text name="txt_lastName" width="30%"></wm-text></wm-container></wm-container>
-<wm-container name="section_positions" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-container name="positions_header_row" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-container name="positions_title_grp" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
-<wm-label name="lbl_positions_header" caption="Positions" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-icon name="icon_positions" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-button name="btn_addPosition" caption="+ Add New Position" class="btn-default" variant="filled-bg-primary-sm"></wm-button></wm-container>
-<wm-container name="positions_controls_row" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-container name="positions_selall_grp" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
-<wm-checkboxset name="chk_selectclear" dataset="Select All, Clear All" height="auto" datavalue="Select All"></wm-checkboxset></wm-container>
-<wm-container name="positions_filter_grp" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
-<wm-label name="lbl_group_filter" caption="Group Filter:"></wm-label>
-<wm-select name="sel_groupFilter" dataset="Show All, Group A, Group B" datavalue="Show All" width="120px"></wm-select></wm-container></wm-container>
-<wm-container name="positions_grid_row" class="app-container-default" direction="row" gap="8" alignment="top-left" width="fill" height="hug">
-<wm-checkboxset name="chk_positions" dataset="bind:Variables.SVGetPositions.dataSet.positions" datafield="positionId" displayfield="description" width="100%" height="auto"></wm-checkboxset></wm-container></wm-container>
-<wm-container name="action_row_top" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="8px 0">
-<wm-label name="lbl_optional_note" caption="The entries below are optional" class="label-16-400-Arial-Italic" variant="label-16-400-Arial-Italic"></wm-label>
-<wm-container name="action_row_right" class="app-container-default" direction="row" gap="12" alignment="middle-right" width="hug" height="hug">
-<wm-button name="btn_addEmployee_top" caption="Add Employee" class="btn-default" variant="filled-bg-primary-sm" on-click="onAddEmployeeClick($event, widget)"></wm-button>
-<wm-checkboxset name="chk_emailSignIn" dataset="Email sign in instructions now" height="auto"></wm-checkboxset></wm-container></wm-container>
-<wm-container name="section_contact" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-label name="lbl_contact_header" caption="Contact" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-container name="contact_email_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_email_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_email" caption="Email"></wm-label>
-<wm-icon name="icon_email" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_email" type="email" width="75%"></wm-text></wm-container>
-<wm-container name="contact_phone_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_phone_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_phone" caption="Phone"></wm-label>
-<wm-icon name="icon_phone" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_phone" type="tel" width="75%"></wm-text></wm-container>
-<wm-container name="contact_phone2_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_phone2_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_phone2" caption="2nd Phone"></wm-label>
-<wm-icon name="icon_phone2" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_phone2" type="tel" width="75%"></wm-text></wm-container>
-<wm-container name="contact_cell_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_cell_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_cell" caption="Cell"></wm-label>
-<wm-icon name="icon_cell" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_cell" type="tel" width="75%"></wm-text></wm-container>
-<wm-container name="contact_cell_note_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" padding="0 0 0 25%">
-<wm-label name="lbl_cell_note" caption="(for reference only - entering cell here does NOT enable any automated text notifications which are set up in the notifications section)" class="label-12-400" variant="label-12-400"></wm-label></wm-container>
-<wm-container name="contact_address_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_address_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_address" caption="Address"></wm-label>
-<wm-icon name="icon_address" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_address" width="75%"></wm-text></wm-container>
-<wm-container name="contact_address2_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_address2_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_address2" caption="Address 2"></wm-label>
-<wm-icon name="icon_address2" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_address2" width="75%"></wm-text></wm-container>
-<wm-container name="contact_csz_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-container name="contact_csz_lbl_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="25%" height="hug">
-<wm-label name="lbl_citystatezip" caption="City, State, Zip"></wm-label>
-<wm-icon name="icon_csz" iconclass="wi wi-person"></wm-icon></wm-container>
-<wm-text name="txt_city" placeholder="City" width="40%"></wm-text>
-<wm-text name="txt_state" placeholder="ST" width="10%"></wm-text>
-<wm-text name="txt_zip" placeholder="Zip" width="20%"></wm-text></wm-container>
-<wm-container name="contact_empnum_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_employeeNumber" caption="Employee #" width="25%"></wm-label>
-<wm-text name="txt_employeeNumber" width="35%"></wm-text></wm-container></wm-container>
-<wm-container name="section_autofill" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-label name="lbl_autofill_header" caption="AutoFill Options" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-container name="autofill_maximums_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_maximums" caption="Maximums" width="15%"></wm-label>
-<wm-container name="autofill_max_inner" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-container name="autofill_perweek_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_perweek" caption="per week" width="80px"></wm-label>
-<wm-number name="num_maxHrsPerWeek" datavalue="40" width="60px"></wm-number>
-<wm-label name="lbl_hrs_week" caption="hrs" width="30px"></wm-label>
-<wm-number name="num_maxDaysPerWeek" datavalue="7" width="60px"></wm-number>
-<wm-label name="lbl_days_week" caption="days" width="40px"></wm-label></wm-container>
-<wm-container name="autofill_perday_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_perday" caption="per day" width="80px"></wm-label>
-<wm-number name="num_maxHrsPerDay" datavalue="14" width="60px"></wm-number>
-<wm-label name="lbl_hrs_day" caption="hrs" width="30px"></wm-label>
-<wm-number name="num_maxShiftsPerDay" datavalue="1" width="60px"></wm-number>
-<wm-label name="lbl_shifts_day" caption="shifts" width="40px"></wm-label></wm-container></wm-container></wm-container>
-<wm-container name="autofill_seniority_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_by_seniority" caption="By Seniority" width="15%"></wm-label>
-<wm-date name="date_hireDate" width="140px"></wm-date>
-<wm-label name="lbl_hire_date_lbl" caption="Hire Date"></wm-label></wm-container>
-<wm-container name="autofill_priority_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_by_priority" caption="By Priority Group" width="15%"></wm-label>
-<wm-select name="sel_priorityGroup" dataset="First, Second, Third, Fourth" datavalue="First" width="120px"></wm-select></wm-container></wm-container>
-<wm-container name="section_customfields" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-label name="lbl_customfields_header" caption="Custom Fields &amp; Status Icon" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-container name="customfield1_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_customfield1" caption="Custom Field 1" width="25%"></wm-label>
-<wm-text name="txt_customField1" width="75%"></wm-text></wm-container>
-<wm-container name="customfield2_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_customfield2" caption="Custom Field 2" width="25%"></wm-label>
-<wm-text name="txt_customField2" width="75%"></wm-text></wm-container>
-<wm-container name="status_row" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-container name="status_icons_grp" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
-<wm-label name="lbl_status_label" caption="Status"></wm-label>
-<wm-button name="btn_status_none" caption="None" class="btn-default" variant="outlined-primary-sm"></wm-button>
-<wm-icon name="icon_status_purple" iconclass="wi wi-diamond" color="#9c27b0"></wm-icon>
-<wm-icon name="icon_status_blue" iconclass="wi wi-diamond" color="#2196f3"></wm-icon>
-<wm-icon name="icon_status_orange" iconclass="wi wi-diamond" color="#ff9800"></wm-icon>
-<wm-icon name="icon_status_red" iconclass="wi wi-diamond" color="#f44336"></wm-icon>
-<wm-icon name="icon_status_green" iconclass="wi wi-diamond" color="#4caf50"></wm-icon>
-<wm-icon name="icon_status_wrench" iconclass="wi wi-wrench"></wm-icon></wm-container>
-<wm-anchor name="anchor_status_more" caption="+ More"></wm-anchor></wm-container></wm-container>
-<wm-container name="section_payrate" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-container name="payrate_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_payrate_header" caption="Pay Rate" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-label name="lbl_payrate_super" caption="2" class="label-12-400" variant="label-12-400"></wm-label>
-<wm-number name="num_payRate" width="70px"></wm-number>
-<wm-label name="lbl_payrate_note" caption="per hour default (can be set later per position)" class="label-12-400" variant="label-12-400"></wm-label></wm-container></wm-container>
-<wm-container name="section_comments" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-container name="comments_header_row" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lbl_comments_header" caption="Comments" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-label name="lbl_comments_note" caption="Your Settings currently DO NOT ALLOW Employee to see this comment" class="label-12-400" variant="label-12-400"></wm-label></wm-container>
-<wm-textarea name="ta_comments" width="100%" height="120px"></wm-textarea></wm-container>
-<wm-container name="section_options" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-label name="lbl_options_header" caption="Options" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-container name="options_selfschedule_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lbl_selfschedule" caption="This employee can add / edit their own shifts"></wm-label>
-<wm-select name="sel_canEditShifts" dataset="No (only Managers can change shift), Yes" datavalue="No (only Managers can change shift)" width="250px"></wm-select></wm-container>
-<wm-container name="options_screenreader_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-checkboxset name="chk_screenReader" dataset="This employee uses a screen reader and prefers a more limited, high contrast display" height="auto"></wm-checkboxset></wm-container></wm-container>
-<wm-container name="action_row_bottom" class="app-container-default" direction="row" gap="0" alignment="middle-center" width="fill" height="hug" padding="12px 0">
-<wm-button name="btn_addEmployee_bottom" caption="Add Employee" class="btn-default" variant="filled-bg-primary-sm" on-click="onAddEmployeeClick($event, widget)"></wm-button></wm-container>
-<wm-container name="section_info" class="app-container-default grey-standard container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
-<wm-container name="info_header_row" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lbl_info_header" caption="Information" class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
-<wm-container name="info_help_grp" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="hug" height="hug">
-<wm-label name="lbl_help_link" caption="Help on this topic"></wm-label>
-<wm-anchor name="anchor_info_more" caption="More" iconclass="wi wi-info-outline" iconposition="left"></wm-anchor></wm-container></wm-container>
-<wm-container name="info_viewable_row" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-container name="info_viewable_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
-<wm-icon name="icon_viewable" iconclass="wi wi-person"></wm-icon>
-<wm-label name="lbl_viewable" caption="Viewable by employee" class="label-12-400" variant="label-12-400"></wm-label></wm-container>
-<wm-container name="info_editable_grp" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
-<wm-icon name="icon_editable" iconclass="wi wi-person"></wm-icon>
-<wm-label name="lbl_editable" caption="Editable by employee" class="label-12-400" variant="label-12-400"></wm-label></wm-container></wm-container>
-<wm-label name="lbl_footnote1" caption="¹ You can set the two custom fields labels on your SETTINGS: Company Info page." class="label-12-400" variant="label-12-400"></wm-label>
-<wm-label name="lbl_footnote2" caption="² Optional default pay rate can be set here. Pay rates per position can be set later." class="label-12-400" variant="label-12-400"></wm-label>
-<wm-container name="info_status_legend_row" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-icon name="icon_legend_wrench" iconclass="wi wi-wrench"></wm-icon>
-<wm-label name="lbl_legend_status" caption="Status"></wm-label>
-<wm-icon name="icon_legend_fulltime" iconclass="wi wi-diamond" color="#9c27b0"></wm-icon>
-<wm-label name="lbl_legend_fulltime" caption="Full Time" class="label-12-400" variant="label-12-400"></wm-label>
-<wm-icon name="icon_legend_parttime" iconclass="wi wi-diamond" color="#2196f3"></wm-icon>
-<wm-label name="lbl_legend_parttime" caption="Part Time" class="label-12-400" variant="label-12-400"></wm-label>
-<wm-icon name="icon_legend_perdiem" iconclass="wi wi-diamond" color="#ff5722"></wm-icon>
-<wm-label name="lbl_legend_perdiem" caption="Per Diem" class="label-12-400" variant="label-12-400"></wm-label></wm-container></wm-container></wm-container></wm-page-content></wm-content></wm-page>
+    <wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="column" alignment="top-left" gap="4" width="800px" name="container97"
+                class="app-container-default margin-auto" variant="default" wrap="false" clipcontent="false">
+                <wm-container name="title_row" class="app-container-default" direction="row" gap="0"
+                    alignment="middle-center" width="fill" height="hug" padding="12px 0">
+                    <wm-label name="lbl_page_title" caption="Add New Employee" class="label-20-700"
+                        variant="label-20-700"></wm-label>
+                </wm-container>
+                <wm-container name="section_name" class="app-container-default grey-standard container-grey-standard"
+                    variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                    padding="12px 16px">
+                    <wm-container name="name_header_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_name_header" caption="Name" class="label-16-700-Arial"
+                            variant="label-16-700-Arial"></wm-label>
+                        <wm-icon name="icon_name" iconclass="wi wi-person"></wm-icon>
+                    </wm-container>
+                    <wm-container name="name_fields_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_first" caption="First" width="15%"></wm-label>
+                        <wm-text name="txt_firstName" width="30%"></wm-text>
+                        <wm-label name="lbl_last" caption="Last" width="10%"></wm-label>
+                        <wm-text name="txt_lastName" width="30%"></wm-text>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="section_positions"
+                    class="app-container-default grey-standard container-grey-standard" variant="grey-standard"
+                    direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
+                    <wm-container name="positions_header_row" class="app-container-default" direction="row" gap="auto"
+                        alignment="center" width="fill" height="hug">
+                        <wm-container name="positions_title_grp" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-left" width="hug" height="hug">
+                            <wm-label name="lbl_positions_header" caption="Positions" class="label-16-700-Arial"
+                                variant="label-16-700-Arial"></wm-label>
+                            <wm-icon name="icon_positions" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-button name="btn_addPosition" caption="+ Add New Position" class="btn-default"
+                            variant="filled-bg-primary-sm"></wm-button>
+                    </wm-container>
+                    <wm-container name="positions_controls_row" class="app-container-default" direction="row" gap="auto"
+                        alignment="center" width="fill" height="hug">
+                        <wm-container name="positions_selall_grp" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-left" width="hug" height="hug">
+                            <wm-checkboxset name="chk_selectclear" dataset="Select All, Clear All" height="auto"
+                                datavalue="Select All"></wm-checkboxset>
+                        </wm-container>
+                        <wm-container name="positions_filter_grp" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-right" width="hug" height="hug">
+                            <wm-label name="lbl_group_filter" caption="Group Filter:"></wm-label>
+                            <wm-select name="sel_groupFilter" dataset="Show All, Group A, Group B" datavalue="Show All"
+                                width="120px"></wm-select>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="positions_grid_row" class="app-container-default" direction="row" gap="8"
+                        alignment="top-left" width="fill" height="hug">
+                        <wm-checkboxset name="chk_positions" dataset="bind:Variables.SVGetPositions.dataSet.positions"
+                            datafield="positionId" displayfield="description" width="100%" height="auto"
+                            itemsperrow="xs-1 sm-1 md-2 lg-2"></wm-checkboxset>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="action_row_top" class="app-container-default" direction="row" gap="auto"
+                    alignment="center" width="fill" height="hug" padding="8px 0">
+                    <wm-label name="lbl_optional_note" caption="The entries below are optional"
+                        class="label-16-400-Arial-Italic" variant="label-16-400-Arial-Italic"></wm-label>
+                    <wm-container name="action_row_right" class="app-container-default" direction="row" gap="12"
+                        alignment="middle-right" width="hug" height="hug">
+                        <wm-button name="btn_addEmployee_top" caption="Add Employee" class="btn-default"
+                            variant="filled-bg-primary-sm" on-click="onAddEmployeeClick($event, widget)"></wm-button>
+                        <wm-checkboxset name="chk_emailSignIn" dataset="Email sign in instructions now" height="auto">
+                        </wm-checkboxset>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="section_contact" class="app-container-default grey-standard container-grey-standard"
+                    variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                    padding="12px 16px">
+                    <wm-label name="lbl_contact_header" caption="Contact" class="label-16-700-Arial"
+                        variant="label-16-700-Arial"></wm-label>
+                    <wm-container name="contact_email_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_email_lbl_grp" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_email" caption="Email"></wm-label>
+                            <wm-icon name="icon_email" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_email" type="email" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_phone_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_phone_lbl_grp" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_phone" caption="Phone"></wm-label>
+                            <wm-icon name="icon_phone" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_phone" type="tel" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_phone2_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_phone2_lbl_grp" class="app-container-default" direction="row"
+                            gap="4" alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_phone2" caption="2nd Phone"></wm-label>
+                            <wm-icon name="icon_phone2" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_phone2" type="tel" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_cell_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_cell_lbl_grp" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_cell" caption="Cell"></wm-label>
+                            <wm-icon name="icon_cell" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_cell" type="tel" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_cell_note_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug" padding="0 0 0 25%">
+                        <wm-label name="lbl_cell_note"
+                            caption="(for reference only - entering cell here does NOT enable any automated text notifications which are set up in the notifications section)"
+                            class="label-12-400" variant="label-12-400"></wm-label>
+                    </wm-container>
+                    <wm-container name="contact_address_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_address_lbl_grp" class="app-container-default" direction="row"
+                            gap="4" alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_address" caption="Address"></wm-label>
+                            <wm-icon name="icon_address" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_address" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_address2_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_address2_lbl_grp" class="app-container-default" direction="row"
+                            gap="4" alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_address2" caption="Address 2"></wm-label>
+                            <wm-icon name="icon_address2" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_address2" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_csz_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="contact_csz_lbl_grp" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-left" width="25%" height="hug">
+                            <wm-label name="lbl_citystatezip" caption="City, State, Zip"></wm-label>
+                            <wm-icon name="icon_csz" iconclass="wi wi-person"></wm-icon>
+                        </wm-container>
+                        <wm-text name="txt_city" placeholder="City" width="40%"></wm-text>
+                        <wm-text name="txt_state" placeholder="ST" width="10%"></wm-text>
+                        <wm-text name="txt_zip" placeholder="Zip" width="20%"></wm-text>
+                    </wm-container>
+                    <wm-container name="contact_empnum_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_employeeNumber" caption="Employee #" width="25%"></wm-label>
+                        <wm-text name="txt_employeeNumber" width="35%"></wm-text>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="section_autofill"
+                    class="app-container-default grey-standard container-grey-standard" variant="grey-standard"
+                    direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
+                    <wm-label name="lbl_autofill_header" caption="AutoFill Options" class="label-16-700-Arial"
+                        variant="label-16-700-Arial"></wm-label>
+                    <wm-container name="autofill_maximums_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_maximums" caption="Maximums" width="15%"></wm-label>
+                        <wm-container name="autofill_max_inner" class="app-container-default" direction="column" gap="4"
+                            alignment="top-left" width="fill" height="hug">
+                            <wm-container name="autofill_perweek_row" class="app-container-default" direction="row"
+                                gap="8" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_perweek" caption="per week" width="80px"></wm-label>
+                                <wm-number name="num_maxHrsPerWeek" datavalue="40" width="60px"></wm-number>
+                                <wm-label name="lbl_hrs_week" caption="hrs" width="30px"></wm-label>
+                                <wm-number name="num_maxDaysPerWeek" datavalue="7" width="60px"></wm-number>
+                                <wm-label name="lbl_days_week" caption="days" width="40px"></wm-label>
+                            </wm-container>
+                            <wm-container name="autofill_perday_row" class="app-container-default" direction="row"
+                                gap="8" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lbl_perday" caption="per day" width="80px"></wm-label>
+                                <wm-number name="num_maxHrsPerDay" datavalue="14" width="60px"></wm-number>
+                                <wm-label name="lbl_hrs_day" caption="hrs" width="30px"></wm-label>
+                                <wm-number name="num_maxShiftsPerDay" datavalue="1" width="60px"></wm-number>
+                                <wm-label name="lbl_shifts_day" caption="shifts" width="40px"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="autofill_seniority_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_by_seniority" caption="By Seniority" width="15%"></wm-label>
+                        <wm-date name="date_hireDate" width="140px"></wm-date>
+                        <wm-label name="lbl_hire_date_lbl" caption="Hire Date"></wm-label>
+                    </wm-container>
+                    <wm-container name="autofill_priority_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_by_priority" caption="By Priority Group" width="15%"></wm-label>
+                        <wm-select name="sel_priorityGroup" dataset="First, Second, Third, Fourth" datavalue="First"
+                            width="120px"></wm-select>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="section_customfields"
+                    class="app-container-default grey-standard container-grey-standard" variant="grey-standard"
+                    direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
+                    <wm-label name="lbl_customfields_header" caption="Custom Fields &amp; Status Icon"
+                        class="label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
+                    <wm-container name="customfield1_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_customfield1" caption="Custom Field 1" width="25%"></wm-label>
+                        <wm-text name="txt_customField1" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="customfield2_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_customfield2" caption="Custom Field 2" width="25%"></wm-label>
+                        <wm-text name="txt_customField2" width="75%"></wm-text>
+                    </wm-container>
+                    <wm-container name="status_row" class="app-container-default" direction="row" gap="auto"
+                        alignment="center" width="fill" height="hug">
+                        <wm-container name="status_icons_grp" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-left" width="hug" height="hug">
+                            <wm-label name="lbl_status_label" caption="Status"></wm-label>
+                            <wm-button name="btn_status_none" caption="None" class="btn-default"
+                                variant="outlined-primary-sm"></wm-button>
+                            <wm-icon name="icon_status_purple" iconclass="wi wi-diamond" color="#9c27b0"></wm-icon>
+                            <wm-icon name="icon_status_blue" iconclass="wi wi-diamond" color="#2196f3"></wm-icon>
+                            <wm-icon name="icon_status_orange" iconclass="wi wi-diamond" color="#ff9800"></wm-icon>
+                            <wm-icon name="icon_status_red" iconclass="wi wi-diamond" color="#f44336"></wm-icon>
+                            <wm-icon name="icon_status_green" iconclass="wi wi-diamond" color="#4caf50"></wm-icon>
+                            <wm-icon name="icon_status_wrench" iconclass="wi wi-wrench"></wm-icon>
+                        </wm-container>
+                        <wm-anchor name="anchor_status_more" caption="+ More"></wm-anchor>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="section_payrate" class="app-container-default grey-standard container-grey-standard"
+                    variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                    padding="12px 16px">
+                    <wm-container name="payrate_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_payrate_header" caption="Pay Rate" class="label-16-700-Arial"
+                            variant="label-16-700-Arial"></wm-label>
+                        <wm-label name="lbl_payrate_super" caption="2" class="label-12-400" variant="label-12-400">
+                        </wm-label>
+                        <wm-number name="num_payRate" width="70px"></wm-number>
+                        <wm-label name="lbl_payrate_note" caption="per hour default (can be set later per position)"
+                            class="label-12-400" variant="label-12-400"></wm-label>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="section_comments"
+                    class="app-container-default grey-standard container-grey-standard" variant="grey-standard"
+                    direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px">
+                    <wm-container name="comments_header_row" class="app-container-default" direction="row" gap="auto"
+                        alignment="center" width="fill" height="hug">
+                        <wm-label name="lbl_comments_header" caption="Comments" class="label-16-700-Arial"
+                            variant="label-16-700-Arial"></wm-label>
+                        <wm-label name="lbl_comments_note"
+                            caption="Your Settings currently DO NOT ALLOW Employee to see this comment"
+                            class="label-12-400" variant="label-12-400"></wm-label>
+                    </wm-container>
+                    <wm-textarea name="ta_comments" width="100%" height="120px"></wm-textarea>
+                </wm-container>
+                <wm-container name="section_options" class="app-container-default grey-standard container-grey-standard"
+                    variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                    padding="12px 16px">
+                    <wm-label name="lbl_options_header" caption="Options" class="label-16-700-Arial"
+                        variant="label-16-700-Arial"></wm-label>
+                    <wm-container name="options_selfschedule_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="lbl_selfschedule" caption="This employee can add / edit their own shifts">
+                        </wm-label>
+                        <wm-select name="sel_canEditShifts"
+                            dataset="No (only Managers can change shifts), Edit Description Only, Change Editable Fields, Can Edit And Add Shifts"
+                            datavalue="No (only Managers can change shifts)" width="250px"></wm-select>
+                    </wm-container>
+                    <wm-container name="options_screenreader_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-checkbox name="chk_screenReader" type="checkbox"
+                            caption="This employee uses a screen reader and prefers a more limited, high contrast display"
+                            height="auto">
+                        </wm-checkbox>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="action_row_bottom" class="app-container-default" direction="row" gap="0"
+                    alignment="middle-center" width="fill" height="hug" padding="12px 0">
+                    <wm-button name="btn_addEmployee_bottom" caption="Add Employee" class="btn-default"
+                        variant="filled-bg-primary-sm" on-click="onAddEmployeeClick($event, widget)"></wm-button>
+                </wm-container>
+                <wm-container name="section_info" class="app-container-default grey-standard container-grey-standard"
+                    variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                    padding="12px 16px">
+                    <wm-container name="info_header_row" class="app-container-default" direction="row" gap="auto"
+                        alignment="center" width="fill" height="hug">
+                        <wm-label name="lbl_info_header" caption="Information" class="label-16-700-Arial"
+                            variant="label-16-700-Arial"></wm-label>
+                        <wm-container name="info_help_grp" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-right" width="hug" height="hug">
+                            <wm-label name="lbl_help_link" caption="Help on this topic"></wm-label>
+                            <wm-anchor name="anchor_info_more" caption="More" iconclass="wi wi-info-outline"
+                                iconposition="left"></wm-anchor>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="info_viewable_row" class="app-container-default" direction="row" gap="16"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-container name="info_viewable_grp" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-left" width="hug" height="hug">
+                            <wm-icon name="icon_viewable" iconclass="wi wi-person"></wm-icon>
+                            <wm-label name="lbl_viewable" caption="Viewable by employee" class="label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                        <wm-container name="info_editable_grp" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-left" width="hug" height="hug">
+                            <wm-icon name="icon_editable" iconclass="wi wi-person"></wm-icon>
+                            <wm-label name="lbl_editable" caption="Editable by employee" class="label-12-400"
+                                variant="label-12-400"></wm-label>
+                        </wm-container>
+                    </wm-container>
+                    <wm-label name="lbl_footnote1"
+                        caption="¹ You can set the two custom fields labels on your SETTINGS: Company Info page."
+                        class="label-12-400" variant="label-12-400"></wm-label>
+                    <wm-label name="lbl_footnote2"
+                        caption="² Optional default pay rate can be set here. Pay rates per position can be set later."
+                        class="label-12-400" variant="label-12-400"></wm-label>
+                    <wm-container name="info_status_legend_row" class="app-container-default" direction="row" gap="8"
+                        alignment="middle-left" width="fill" height="hug">
+                        <wm-icon name="icon_legend_wrench" iconclass="wi wi-wrench"></wm-icon>
+                        <wm-label name="lbl_legend_status" caption="Status"></wm-label>
+                        <wm-icon name="icon_legend_fulltime" iconclass="wi wi-diamond" color="#9c27b0"></wm-icon>
+                        <wm-label name="lbl_legend_fulltime" caption="Full Time" class="label-12-400"
+                            variant="label-12-400"></wm-label>
+                        <wm-icon name="icon_legend_parttime" iconclass="wi wi-diamond" color="#2196f3"></wm-icon>
+                        <wm-label name="lbl_legend_parttime" caption="Part Time" class="label-12-400"
+                            variant="label-12-400"></wm-label>
+                        <wm-icon name="icon_legend_perdiem" iconclass="wi wi-diamond" color="#ff5722"></wm-icon>
+                        <wm-label name="lbl_legend_perdiem" caption="Per Diem" class="label-12-400"
+                            variant="label-12-400"></wm-label>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+</wm-page>
