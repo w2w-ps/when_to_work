@@ -1243,6 +1243,100 @@
             }
           }
         }
+      },
+      "standard-10-700" : {
+        "mapping" : {
+          "color" : {
+            "@" : {
+              "value" : "{color.black.@.value}"
+            }
+          },
+          "font-size" : {
+            "value" : "10px"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "font-weight" : {
+            "value" : "bold"
+          },
+          "line-height" : {
+            "value" : "{body.medium.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "text-transform" : {
+            "value" : "none"
+          },
+          "text" : {
+            "decoration" : {
+              "@" : {
+                "value" : "none"
+              }
+            }
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          },
+          "icon" : {
+            "size" : {
+              "value" : "{icon.size.sm.value}"
+            }
+          },
+          "image" : {
+            "size" : {
+              "value" : "{icon.size.@.value}"
+            },
+            "radius" : {
+              "value" : "{radius.circle.value}"
+            }
+          },
+          "states" : {
+            "hover" : {
+              "color" : {
+                "@" : {
+                  "value" : "{color.blue.@.value}"
+                }
+              },
+              "text" : {
+                "decoration" : {
+                  "@" : {
+                    "value" : "none"
+                  }
+                }
+              }
+            },
+            "focus" : {
+              "color" : {
+                "@" : {
+                  "value" : "~\"color-mix(in srgb, {color.primary.@.value}, {color.black.@.value} {opacity.focus.value})\""
+                }
+              },
+              "text" : {
+                "decoration" : {
+                  "@" : {
+                    "value" : "none"
+                  }
+                }
+              }
+            },
+            "active" : {
+              "color" : {
+                "@" : {
+                  "value" : "~\"color-mix(in srgb, {color.primary.@.value}, {color.black.@.value} {opacity.active.value})\""
+                }
+              },
+              "text" : {
+                "decoration" : {
+                  "@" : {
+                    "value" : "none"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "meta" : {
@@ -1284,6 +1378,9 @@
           "source" : "user"
         },
         "standard-13-700" : {
+          "source" : "user"
+        },
+        "standard-10-700" : {
           "source" : "user"
         }
       }
