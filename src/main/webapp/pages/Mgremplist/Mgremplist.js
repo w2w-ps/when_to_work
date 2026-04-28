@@ -17,33 +17,44 @@ Page.onReady = function () {
 };
 
 /* Handler for View button in employee table */
-Page.viewRowClick = function ($event, widget) {
-    // Access the current row data via the table's selecteditem
-    // e.g. var employee = Page.Widgets.employeeTable.selecteditem;
+Page.employeeTable_ViewAction = function (row) {
+    const empid = row.employeeId;
+    App.redirectTo('mgrempinfopop?empid=' + empid);
+    // App.Actions.goToPage_mgrempinfopop.invoke({
+    //     data: {
+    //         'empid': row.employeeId
+    //     }
+    // })
 };
 
 /* Handler for Edit button in employee table */
-Page.editRowClick = function ($event, widget) {
-    Page.Actions.goToPage_Mgrempedit.invoke();
+Page.employeeTable_EditAction = function (row) {
+    const empid = row.employeeId;
+    App.redirectTo('Mgrempedit?empid=' + empid);
+    // App.Actions.goToPage_Mgrempedit.invoke({
+    //     data: {
+    //         'id': row.employeeId
+    //     }
+    // })
 };
 
 /* Handler for search1 on-submit — filters employeeTable rows by search term across all fields except employeePhoto */
 Page.search1Change = function ($event, widget, newVal, oldVal) {
-    var fullDataSet = Page.Variables.wsGetEmployeeDetails.dataSet;
-    var term = (newVal || '').toString().trim().toLowerCase();
-    var excludedFields = ['employeePhoto'];
+    const fullDataSet = Page.Variables.wsGetEmployeeDetails.dataSet;
+    const term = (newVal || '').toString().trim().toLowerCase();
+    const excludedFields = ['employeePhoto'];
 
     if (!term) {
         Page.Widgets.employeeTable.dataset = fullDataSet;
         return;
     }
 
-    var filtered = _.filter(fullDataSet, function (row) {
+    const filtered = _.filter(fullDataSet, function (row) {
         return _.some(_.keys(row), function (key) {
             if (excludedFields.indexOf(key) !== -1) {
                 return false;
             }
-            var val = row[key];
+            const val = row[key];
             if (val === null || val === undefined) {
                 return false;
             }
@@ -59,4 +70,15 @@ Page.search1Change = function ($event, widget, newVal, oldVal) {
     });
 
     Page.Widgets.employeeTable.dataset = filtered;
+};
+
+/* onSuccess handler for wsGetEmployeeDetails — extracts all employeeId values and stores them in localStorage */
+Page.wsGetEmployeeDetailsonSuccess = function (variable, data) {
+    const empIds = _.map(data, function (emp) {
+        return String(emp.employeeId);
+    });
+    localStorage.setItem('empIdList', JSON.stringify(empIds));
+};
+Page.btnAddNewEmployeeClick = function ($event, widget) {
+    App.redirectTo('mgrnewemp');
 };

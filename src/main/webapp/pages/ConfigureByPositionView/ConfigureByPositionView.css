@@ -1,1 +1,9 @@
+.small-checkbox .caption {
+    padding-left: 32px !important;
+}
 
+.small-checkbox .caption:after {
+    top: 4px !important;
+    left: 12px !important;
+    width: 7px !important;
+}

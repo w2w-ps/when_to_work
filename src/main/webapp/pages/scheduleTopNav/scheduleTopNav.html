@@ -17,15 +17,15 @@
             <wm-container name="toolbarRightGroup" class="app-container-default" direction="row" gap="8"
                 alignment="middle-right" width="hug" height="hug"></wm-container>
             <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container58"
-                class="app-container-default" variant="default" padding="unset unset unset 16px">
+                class="app-container-default resp-padding-left" variant="default">
                 <wm-select name="selViewType"
-                    dataset="Calendar View,By Position View,By Employee View,Chart View,Sortable List View,Multi-Shift Edit View,Graphical View,Availability View,Statistics View,Grid View,Recently Deleted Shifts,Template Editor"
+                    dataset="Calendar View,By Position View,Chart View,Sortable List View,Multi-Shift Edit View,Graphical View,Availability View,Statistics View,Grid View,Recently Deleted Shifts,Template Editor"
                     placeholder="By Employee View" variant="compact-input" datafield="All Fields"
                     class="form-compact-input" on-change="selViewTypeChange($event, widget, newVal, oldVal)">
                 </wm-select>
             </wm-container>
-            <wm-container direction="row" alignment="top-right" gap="10" width="fill" class="app-container-default"
-                variant="default" name="container59" padding="unset 16px unset unset">
+            <wm-container direction="row" alignment="top-right" gap="10" width="fill"
+                class="app-container-default  resp-padding-right" variant="default" name="container59">
                 <wm-select name="selStatus"
                     dataset="No Status, Full Time, Part Time, Per Diem, Orange Diamond, Green Diamond"
                     placeholder="All Status" variant="compact-input" datafield="All Fields" class="form-compact-input"

@@ -4,7 +4,6 @@
 }
 
 .schedule-bar-btn {
-    flex: 1;
     color: #ffffff;
     border-color: #fff;
     border-style: solid;
@@ -13,4 +12,36 @@
     font-size: 12px;
     font-weight: 700;
     min-height: 30px;
+}
+
+.btn-emp-shift1 {
+    width: 18.75%;
+}
+
+.btn-emp-shift2 {
+    width: 13%;
+}
+
+.btn-emp-shift3 {
+    width: 26.5%;
+}
+
+.btn-emp-shift4 {
+    width: 10%;
+}
+
+.btn-emp-shift5 {
+    width: 19%;
+}
+
+.btn-emp-shift6 {
+    width: 13%;
+}
+
+.resp-padding-left {
+    padding-left: 1.5%;
+}
+
+.resp-padding-right {
+    padding-right: 1.7%;
 }

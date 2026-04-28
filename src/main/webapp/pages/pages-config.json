@@ -1,4 +1,8 @@
 [ {
+  "name" : "AddOrEditPosition",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -8,6 +12,10 @@
   "params" : [ ]
 }, {
   "name" : "ConfigureByPositionView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "EditDeletePosition",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -41,7 +49,10 @@
 }, {
   "name" : "Mgrempedit",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
 }, {
   "name" : "Mgremplist",
   "type" : "PAGE",
@@ -106,6 +117,21 @@
   "params" : [ ]
 }, {
   "name" : "mgradminsettings",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrcoinfo",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrempinfopop",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "empid",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "mgrnewemp",
   "type" : "PAGE",
   "params" : [ ]
 }, {

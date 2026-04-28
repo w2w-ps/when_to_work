@@ -73,6 +73,17 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "goToPage_AddOrEditPosition" : {
+    "_id" : "wm-goToPage_AddOrEditPosition-wm.NavigationAction-1776924880474",
+    "name" : "goToPage_AddOrEditPosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AddOrEditPosition",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_calenderView" : {
     "_id" : "wm-goToPage_calenderView-wm.NavigationAction-1776325282809",
     "name" : "goToPage_calenderView",
@@ -103,6 +114,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "ConfigureByPositionView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_EditDeletePosition" : {
+    "_id" : "wm-goToPage_EditDeletePosition-wm.NavigationAction-1776930909060",
+    "name" : "goToPage_EditDeletePosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "EditDeletePosition",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -261,6 +283,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgrcoinfo" : {
+    "_id" : "wm-goToPage_mgrcoinfo-wm.NavigationAction-1776852766610",
+    "name" : "goToPage_mgrcoinfo",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrcoinfo",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Mgrempedit" : {
     "_id" : "wm-goToPage_Mgrempedit-wm.NavigationAction-1774420490307",
     "name" : "goToPage_Mgrempedit",
@@ -280,6 +313,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Mgremplist",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_mgrnewemp" : {
+    "_id" : "wm-goToPage_mgrnewemp-wm.NavigationAction-1777007744075",
+    "name" : "goToPage_mgrnewemp",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrnewemp",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -388,7 +432,7 @@
     },
     "type" : "string",
     "saveInPhonegap" : false,
-    "onSuccess" : "loginActionOnSuccess(variable, data)",
+    "onSuccess" : "loginActionOnSuccess(variable, data);Variables.svGetAllCategoriesByCompanyId.invoke();Variables.svGetAllPositionsByCompanyId.invoke();Variables.svGetCategoryGroup.invoke();Variables.svGetPositionGroup.invoke()",
     "onError" : "loginActionOnError(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
@@ -482,7 +526,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -508,7 +552,8 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "onSuccess" : "svGetAllPositionsByCompanyIdonSuccess(variable, data, options)",
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -538,7 +583,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -568,7 +613,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
