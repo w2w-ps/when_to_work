@@ -119,24 +119,27 @@
                                             <wm-listtemplate name="posListDayTpl" direction="column" gap="10"
                                                 alignment="top-left" width="fill" height="hug">
                                                 <wm-container direction="row" alignment="middle-center" gap="4"
-                                                    width="fill" height="hug" name="container13"
+                                                    width="fill" height="18" name="container13"
                                                     class="container-purple-bg" variant="purple-bg"
-                                                    show="bind:item.showHeader">
+                                                    show="bind:item.showHeader" clipcontent="false" overflow="none">
                                                     <wm-label caption="bind:item.positionName" name="lblPosName"
-                                                        class=" label-label-14-700" variant="label-14-700"></wm-label>
+                                                        class="label-label-13-700-darkviolet"
+                                                        variant="label-13-700-darkviolet"></wm-label>
                                                 </wm-container>
                                                 <wm-list name="timeGroupList" dataset="bind:item.timeGroups"
                                                     listclass="list-group" direction="column" gap="0"
                                                     alignment="top-left" width="fill" height="hug" clipcontent="false"
                                                     overflow="none" class="cal-emp-list">
                                                     <wm-listtemplate name="timeGroupListTpl" direction="column" gap="0"
-                                                        alignment="top-left" width="fill" height="hug">
+                                                        alignment="top-left" width="fill" height="hug"
+                                                        padding="unset 1px">
                                                         <wm-container name="timeGroupDivider" direction="row" gap="0"
                                                             alignment="top-left" width="fill" height="hug"
                                                             class="time-group-divider" show="bind:$index &gt; 0">
                                                         </wm-container>
                                                         <wm-label caption="bind:item.timeRange" name="lblEmpTimeRange"
-                                                            class="label-label-12-400" variant="label-12-400"
+                                                            class="label-label-13-400-black"
+                                                            variant="label-13-400-black"
                                                             show="bind:item.timeRange != ''"></wm-label>
                                                         <wm-list name="empListDay" dataset="bind:item.employees"
                                                             class="cal-emp-list" listclass="list-group"
@@ -146,23 +149,23 @@
                                                                 gap="0" alignment="top-left" width="fill" height="hug">
                                                                 <wm-container direction="row" gap="4"
                                                                     alignment="middle-left" width="fill" height="hug"
-                                                                    name="empRowContainer"
-                                                                    class="app-container-default">
+                                                                    name="empRowContainer" class="app-container-default"
+                                                                    padding="unset 5px">
                                                                     <wm-icon name="iconEmpDay" iconclass="fa fa-diamond"
                                                                         variant="purple" class="orange"></wm-icon>
                                                                     <wm-anchor caption="bind:item.employeeName"
-                                                                        name="anchorEmpDay" variant="standard-sm"
-                                                                        class="anchor-standard-sm"></wm-anchor>
+                                                                        name="anchorEmpDay" variant="standard-13-700"
+                                                                        class="anchor-standard-13-700"></wm-anchor>
                                                                     <wm-label caption="bind:item.categoryName"
                                                                         name="lblCategoryName"
-                                                                        class="label-label-12-400"
-                                                                        variant="label-12-400"
+                                                                        class="label-label-13-400-black"
+                                                                        variant="label-13-400-black"
                                                                         show="bind:item.categoryName != ''"></wm-label>
                                                                 </wm-container>
                                                                 <wm-label padding="unset"
                                                                     caption="bind:item.description"
-                                                                    class="p text-primary" type="p" name="description"
-                                                                    variant="text:primary"
+                                                                    class="label-label-13-400-black" type="p"
+                                                                    name="description" variant="label-13-400-black"
                                                                     show="bind:App.Variables.appSelectedGrouping.dataSet.showDescription">
                                                                 </wm-label>
                                                             </wm-listtemplate>

@@ -1,3 +1,7 @@
+.nav-tabs {
+    background-color: var(--wm-color-grey-bg-color);
+}
+
 .cal-day-slot-item {
     width: 14.2857% !important;
     min-height: stretch;
