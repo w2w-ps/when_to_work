@@ -573,10 +573,6 @@
       "target" : "status",
       "value" : "all",
       "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzU0NTExLCJleHAiOjE3NzY3NTYzMTF9.A-UPbcFnLROcPO_Tsq8LycPRDtlt1lnm9koMOD2FEfWd6afX13YieVYTboJoVBvRzgD3NpgHHgEeddu2fH3GLWwtf8cc-FzPr0KELpkYcuz_uHk_W0HnY4ohOTFSlR9iNXvubXcmiA7YkSqwQGfJkOZhghPQEFuoHEc38dQfg-3NKFqKAlgMQKuAxWRM8GJbNAQ7BpSeJoxQKRu7ieUNckcNd_aDBnN12bGtTTUGcoby4PWy2YFNRWZfJRkTQZy7EKeVh4cHP0_I-m4osfRwJd0TkNE99FfyR1qoHcVDA2sLzMSf0kdf6al1NTEca4kzrrA5UO_QORCFKxFYj-FuXQ" ],
-      "type" : "string"
     } ],
     "type" : "getCategoryGroups.RootResponse",
     "service" : "getCategoryGroups",
@@ -606,10 +602,6 @@
     }, {
       "target" : "status",
       "value" : "all",
-      "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzYyOTc3LCJleHAiOjE3NzY3NjQ3Nzd9.p9eZRAAKG_e4NtKA7IWEt4sUTINpDbo9cXGIdzDM9MW8jvw7pSDkMsgaF6aJ-w44B4btkKcLZOhcS2H0OCFRO3YL2MlgTKvV63eZmeiCEDhQfXEtPlB8qp2X04Ysfj8-qACeOYo7wznlAPW7VHHzqAQrNkuRy0zh9VwmahXrzdg6wWyo1BYT-uh0BibjBN6Th8CTVKqGdX4MsXzG5GvW0N2KHPiXfpjQzouGIbesL_FBKi69647GYSrsikaLDT4vsMchkZoIkTf0-2BdTOv2vHiulNInicfkFcokuLDRVKyLUKHgZvMh34Psy0YX3AKmxWjfYfvri0etNvOsqUgqyQ" ],
       "type" : "string"
     } ],
     "type" : "getPositionGroup.RootResponse",

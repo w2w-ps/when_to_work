@@ -1,4 +1,18 @@
 {
+  "activeMonthDate" : {
+    "_id" : "wm-activeMonthDate-wm.Variable-1777286423656",
+    "name" : "activeMonthDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "goToPage_mgrschedulecfgmonth" : {
     "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776749028247",
     "name" : "goToPage_mgrschedulecfgmonth",
@@ -21,16 +35,16 @@
       "value" : "1",
       "type" : "string"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
       "target" : "endDate",
-      "value" : "2026-04-30",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
       "value" : "bind:App.Variables.appSelectedGrouping.dataSet.grouping",
-      "type" : "string"
-    }, {
-      "target" : "startDate",
-      "value" : "2026-04-01",
       "type" : "string"
     } ],
     "type" : "categoryShiftTimings.RootResponse",
@@ -60,20 +74,16 @@
       "value" : "1",
       "type" : "string"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
       "target" : "endDate",
-      "value" : "bind:Widgets.Weekview1.enddate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
       "value" : "position_shift_timings",
-      "type" : "string"
-    }, {
-      "target" : "startDate",
-      "value" : "bind:Widgets.Weekview1.startdate",
-      "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2MzM5NjY1LCJleHAiOjE3NzYzNDE0NjV9.jm1Hpi_vvKq2h_xyb3jtmHaUcYgZvEoPZeGfDTZSzeHU5gXl_wnyi_Dfut41bpEXRjV1I3K8ajhG5CuDbiZnFUa4uSECc1lYjXIwnkJnz33rIzSnfgJgQylKMHF6_t16Jpf6hvRsDjDX8xhrY6bswFzuUanHiiBy7nPw0-CTgKYohZ4zWBfxYAXBd5RdH8J8mxSPm2rBQp-MsGap7t-pGE6NTQq9EKPJwvC1FT1Kre_hraJ4AccqozXJGMXw-Rv-aBlfJGAtuBvUQVV7ZTBVQE7uqvBGZcAFU_3gNcU4Ig9Ri93NcPqvBkeGiHvEazT9V0szqwd2nmXoWYQ0v3jQ0g",
       "type" : "string"
     } ],
     "type" : "calendarPositionView.RootResponse",
@@ -87,7 +97,6 @@
     },
     "isList" : false,
     "maxResults" : 20,
-    "onBeforeUpdate" : "",
     "onSuccess" : "svcalendarPositionViewonSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
@@ -107,11 +116,11 @@
       "type" : "string"
     }, {
       "target" : "startDate",
-      "value" : "bind:Widgets.Weekview1.startdate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
       "type" : "string"
     }, {
       "target" : "endDate",
-      "value" : "bind:Widgets.Weekview1.enddate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
@@ -147,16 +156,16 @@
       "value" : "1",
       "type" : "java.lang.String"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "java.lang.String"
+    }, {
       "target" : "endDate",
-      "value" : "2026-04-30",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "java.lang.String"
     }, {
       "target" : "grouping",
       "value" : "cat_shift_timings",
-      "type" : "java.lang.String"
-    }, {
-      "target" : "startDate",
-      "value" : "2026-04-01",
       "type" : "java.lang.String"
     } ],
     "type" : "calendarShortCategoryView.RootResponse",
@@ -177,5 +186,21 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "calendarShortCategoryView"
+  },
+  "vmCalendarDateRange" : {
+    "_id" : "wm-vmCalendarDateRange-wm.Variable-1777351645858",
+    "name" : "vmCalendarDateRange",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "startDate" : "",
+        "endDate" : ""
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
   }
 }
