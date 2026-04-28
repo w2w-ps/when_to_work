@@ -2,7 +2,7 @@
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent" class="p-0">
-            <wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container1"
+            <wm-container direction="column" alignment="top-left" gap="0" width="fill" name="container1"
                 class="app-container-default" variant="default" height="fill" clipcontent="false" overflow="none"
                 wrap="false">
                 <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container34"
@@ -10,8 +10,9 @@
                 <wm-container direction="column" alignment="top-left" width="fill" name="container31_1"
                     variant="default" wrap="false" clipcontent="false" overflow="none">
                     <wm-container direction="row" alignment="middle-center" width="fill" name="container32"
-                        class="container-grey-no-radius-small-container" variant="grey-no-radius-small-container"
-                        content="monthlyView" padding="20px 10px"></wm-container>
+                        class="week-nav-hover-container p-0 bg-grey" variant="grey-no-radius-small-container"
+                        content="monthlyView" padding="20px 10px" height="36px" clipcontent="false" overflow="none">
+                    </wm-container>
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container32_1"
                         class="container-grey-no-radius-small-container" variant="grey-no-radius-small-container"
                         height="hug" clipcontent="false" overflow="none">
@@ -181,10 +182,10 @@
                     </wm-container>
                 </wm-container>
                 <wm-container direction="row" alignment="middle-center" gap="0" width="fill" height="hug"
-                    name="container32_3" class="container-grey-no-radius-small-container"
+                    name="container32_3" class="week-nav-hover-container p-0 bg-grey"
                     variant="grey-no-radius-small-container" content="monthlyView" padding="20px 10px"></wm-container>
                 <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container35"
-                    class="app-container-default" variant="default" padding="unset 12px">
+                    class="app-container-default" variant="default" padding="24px">
                     <wm-container direction="column" alignment="top-left" gap="10" width="fill" name="container19"
                         class="container-grey-standard" variant="grey-standard" wrap="false">
                         <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container30"
@@ -193,35 +194,35 @@
                                 name="label15" variant="label-20-700"></wm-label>
                             <wm-container direction="row" alignment="middle-center" gap="0" width="hug"
                                 name="container31" variant="default" class="app-container-default">
-                                <wm-anchor margin="unset 0.5em" name="anchor4" variant="standard"
-                                    caption="Help on this topic " iconclass="wi wi-arrow-right-circle"
-                                    iconposition="right"></wm-anchor>
-                                <wm-anchor margin="unset 0.5em" name="anchor5" variant="standard" caption="More">
-                                </wm-anchor>
+                                <wm-anchor margin="unset 0.5em" variant="standard" caption="Help on this topic"
+                                    class="more" name="anchor5_1"></wm-anchor>
                             </wm-container>
                         </wm-container>
                         <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container29"
                             class="app-container-default" variant="default" clipcontent="false" overflow="none">
                             <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
                                 variant="text:primary"></wm-label>
-                            <wm-label padding="unset" caption=" Week is Published" class="label-label-14-400" type="p"
-                                name="label19" variant="label-14-400"></wm-label>
+                            <wm-label padding="unset" caption=" Week is Published"
+                                class="label-label-14-400 red-underlined" type="p" name="label19"
+                                variant="label-14-400"></wm-label>
                         </wm-container>
                         <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container27"
                             class="app-container-default" variant="default" clipcontent="false" overflow="none">
                             <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
                                 variant="text:primary"></wm-label>
-                            <wm-label padding="unset" caption="Week is Unpublished" class="label-label-14-400" type="p"
-                                variant="label-14-400" name="label20"></wm-label>
+                            <wm-label padding="unset" caption="Week is Unpublished"
+                                class="label-label-14-400 black-boxed" type="p" variant="label-14-400" name="label20">
+                            </wm-label>
                         </wm-container>
                         <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container28"
                             class="app-container-default" variant="default" clipcontent="false" overflow="none">
                             <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
                                 variant="text:primary"></wm-label>
-                            <wm-label padding="unset" caption="Week is Partially Published" class="label-label-14-400"
-                                type="p" variant="label-14-400" name="label21"></wm-label>
+                            <wm-label padding="unset" caption="Week is Partially Published"
+                                class="label-label-14-400 violet-box" type="p" variant="label-14-400" name="label21">
+                            </wm-label>
                         </wm-container>
-                        <wm-container class="container-grey-container-white-border mb-0" direction="row" gap="4"
+                        <wm-container class="container-grey-container-white-border mt-0" direction="row" gap="4"
                             alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border"
                             name="container71">
                             <wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14"

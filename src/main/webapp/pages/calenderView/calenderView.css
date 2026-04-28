@@ -1,4 +1,5 @@
-.nav-tabs {
+.nav-tabs,
+.bg-grey {
     background-color: var(--wm-color-grey-bg-color);
 }
 
