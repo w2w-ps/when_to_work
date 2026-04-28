@@ -39,6 +39,14 @@ Partial.onReady = function () {
         if (parentScope && typeof parentScope.syncCalendarToMonth === 'function') {
             parentScope.syncCalendarToMonth(year, month);
         }
+        // Broadcast to all other registered partial instances on the same page
+        if (parentScope && parentScope.__monthlyViewInstances) {
+            parentScope.__monthlyViewInstances.forEach(function (instance) {
+                if (typeof instance.syncToMonth === 'function') {
+                    instance.syncToMonth(year, month);
+                }
+            });
+        }
     }
 
     function renderMonthNav() {
@@ -234,4 +242,24 @@ Partial.onReady = function () {
 
     renderMonthNav();
     updateCalendarNavLabel();
+
+    // Register this partial instance with the page for cross-partial sync
+    var parentScope = Partial.App.activePage;
+    if (parentScope) {
+        if (!parentScope.__monthlyViewInstances) {
+            parentScope.__monthlyViewInstances = [];
+        }
+        // Store a reference to this instance's sync function
+        var instanceId = parentScope.__monthlyViewInstances.length;
+        parentScope.__monthlyViewInstances.push({
+            syncToMonth: function (year, month) {
+                // Only update if this instance is not the one that triggered the change
+                if (currentIndex !== month || currentYear !== year) {
+                    currentIndex = month;
+                    currentYear = year;
+                    renderMonthNav();
+                }
+            }
+        });
+    }
 };

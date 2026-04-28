@@ -131,6 +131,10 @@
     "type" : "string"
   } ]
 }, {
+  "name" : "mgrnewemp",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "mgrschedulecfgmonth",
   "type" : "PAGE",
   "params" : [ ]

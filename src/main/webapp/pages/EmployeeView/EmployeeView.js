@@ -864,7 +864,7 @@ Page._executePendingDrop = function () {
       employeeId: payload.targetEmployeeId,
       companyId: 1,
       date: payload.targetShiftDate,
-      description: sourceShift.notes || '',
+      description: sourceShift.description || '',
       startTime: sourceShift.startAt || '',
       endTime: sourceShift.endAt || '',
       position: payload.resolvedPositionId,
@@ -911,7 +911,7 @@ Page.btnConfirmShiftYesClick = function ($event, widget) {
         shift: {
           employeeId: payload.targetEmployeeId,
           date: payload.targetShiftDate,
-          description: payload.sourceShift.notes || '',
+          description: payload.sourceShift.description || '',
           startTime: payload.sourceShift.startAt || '',
           endTime: payload.sourceShift.endAt || '',
           position: payload.resolvedPositionId || 1,
@@ -980,7 +980,7 @@ Page.svchkHasConflictsOnSuccess = function (variable, data) {
 
     Page.Variables.conflictMessageVar.setData({ message: conflictMsg });
     Page.hasConflicts = true;
-    Page.Widgets.container98.show = faslse;
+    Page.Widgets.container98.show = false;
     Page.Widgets.conflictMsgcontainer.show = true;
   } else {
     Page.Widgets.confirmShiftChangeDialog.close();
