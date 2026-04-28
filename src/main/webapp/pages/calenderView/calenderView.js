@@ -157,7 +157,7 @@ Page.syncCalendarToMonth = function (year, month) {
 
 // --- Slot Builder: Position / Category / Cat views (nested shiftGroups.shiftGroups) ---
 Page.buildCalendarDaySlots = function (data) {
-    const moment = App.importModule('moment');
+    const moment = window.moment || require('moment');
     const hideGroupsNoShifts = App.Variables.appSelectedGrouping.dataSet.hideGroupsNoShifts === true;
 
     let datesArr = [];
@@ -308,7 +308,7 @@ Page.buildCalendarDaySlots = function (data) {
 
 // --- Slot Builder: Shift Timing view (flat shiftGroups, no nesting) ---
 Page.buildCalendarDaySlotsShiftTiming = function (data) {
-    const moment = App.importModule('moment');
+    const moment = window.moment || require('moment');
     const hideGroupsNoShifts = App.Variables.appSelectedGrouping.dataSet.hideGroupsNoShifts === true;
 
     let datesArr = [];
