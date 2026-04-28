@@ -1,7 +1,7 @@
 <wm-page name="page" pagetitle="Calender View">
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent">
+        <wm-page-content columnwidth="12" name="pagecontent" class="p-0">
             <wm-container direction="column" alignment="top-left" gap="20" width="fill" name="container1"
                 class="app-container-default" variant="default" height="fill" clipcontent="false" overflow="none"
                 wrap="false">
@@ -29,13 +29,14 @@
                     </wm-container>
                 </wm-container>
                 <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container14"
-                    class="app-container-default" variant="default">
-                    <wm-anchor margin="unset 0.5em" name="anchor2" variant="standard"
-                        caption="Change Layout &amp; Start Date" on-click="anchor2Click($event, widget)"></wm-anchor>
+                    class="app-container-default" variant="default" padding="unset 12px">
+                    <wm-anchor margin="unset 0.5em" name="anchor2" variant="standard-sm"
+                        caption="Change Layout &amp; Start Date" on-click="anchor2Click($event, widget)"
+                        iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm"></wm-anchor>
                 </wm-container>
                 <wm-container direction="column" alignment="top-left" gap="0" width="fill" name="container32_2"
                     class="app-container-default" variant="default" clipcontent="false" overflow="none" wrap="false"
-                    height="hug">
+                    height="hug" padding="unset 12px">
                     <wm-container direction="column" alignment="top-left" gap="10" width="fill" height="hug"
                         name="monthView" class="app-container-default" variant="default" clipcontent="false"
                         overflow="none" wrap="false">
@@ -92,72 +93,86 @@
                             direction="row" gap="0" alignment="top-left" width="fill" height="hug" wrap="true"
                             itemclass="bind:item.hasDate 
   ? (item.positions &amp;&amp; item.positions.length &gt; 0 
-      ? 'cal-day-slot-item cal-cell-current-month justify-content-start list-bordered' 
-      : 'cal-day-slot-item cal-cell-current-month cal-cell-empty justify-content-start list-bordered') 
-  : 'cal-day-slot-item cal-cell-other-month justify-content-start list-bordered'" variant="standard">
+      ? 'cal-day-slot-item cal-cell-current-month justify-content-start' 
+      : 'cal-day-slot-item cal-cell-current-month cal-cell-empty justify-content-start') 
+  : 'cal-day-slot-item cal-cell-other-month justify-content-start'" variant="standard">
                             <wm-listtemplate name="daySlotTemplate" direction="column" gap="0" alignment="middle-center"
                                 width="fill" height="hug">
-                                <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
-                                    name="container16"
-                                    class="container-grey-no-radius-small-container  dayNum-container"
-                                    variant="grey-no-radius-small-container" height="23px" clipcontent="false"
-                                    overflow="none">
-                                    <wm-label caption="bind:item.dayNum" name="lblDayNum"
-                                        class="label-label-16-700-Arial" show="bind:item.hasDate"
-                                        variant="label-16-700-Arial"></wm-label>
-                                </wm-container>
-                                <wm-list name="posListDay" dataset="bind:item.positions" listclass="list-group"
-                                    direction="column" gap="0" alignment="top-left" width="fill" height="hug"
-                                    show="bind:item.hasDate" variant="standard">
-                                    <wm-listtemplate name="posListDayTpl" direction="column" gap="10"
-                                        alignment="top-left" width="fill" height="hug">
-                                        <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
-                                            height="hug" name="container13" class="container-purple-bg"
-                                            variant="purple-bg" show="bind:item.showHeader">
-                                            <wm-label caption="bind:item.positionName" name="lblPosName"
-                                                class=" label-label-14-700" variant="label-14-700"></wm-label>
+                                <wm-container direction="column" alignment="top-left" gap="0" width="fill"
+                                    name="container31_2" class="app-container-default border-container"
+                                    variant="default" wrap="false">
+                                    <wm-container direction="column" alignment="top-left" gap="0" width="fill"
+                                        name="container30_1" class="app-container-default w-100" variant="default"
+                                        wrap="false">
+                                        <wm-container direction="row" alignment="middle-center" gap="4" width="100%"
+                                            name="container16" variant="grey-no-radius-small-container" height="23px"
+                                            clipcontent="false" overflow="none">
+                                            <wm-label caption="bind:item.dayNum" name="lblDayNum"
+                                                class="label-label-16-700" show="bind:item.hasDate"
+                                                variant="label-16-700"
+                                                conditionalclass="bind:item.hasDate ? &quot;daynum-label&quot; : &quot;&quot;">
+                                            </wm-label>
                                         </wm-container>
-                                        <wm-list name="timeGroupList" dataset="bind:item.timeGroups"
-                                            listclass="list-group" direction="column" gap="0" alignment="top-left"
-                                            width="fill" height="hug" clipcontent="false" overflow="none"
-                                            class="cal-emp-list">
-                                            <wm-listtemplate name="timeGroupListTpl" direction="column" gap="0"
+                                        <wm-list name="posListDay" dataset="bind:item.positions" listclass="list-group"
+                                            direction="column" gap="0" alignment="top-left" width="fill" height="hug"
+                                            show="bind:item.hasDate" variant="standard">
+                                            <wm-listtemplate name="posListDayTpl" direction="column" gap="10"
                                                 alignment="top-left" width="fill" height="hug">
-                                                <wm-container name="timeGroupDivider" direction="row" gap="0"
-                                                    alignment="top-left" width="fill" height="hug"
-                                                    class="time-group-divider" show="bind:$index &gt; 0"></wm-container>
-                                                <wm-label caption="bind:item.timeRange" name="lblEmpTimeRange"
-                                                    class="label-label-12-400" variant="label-12-400"
-                                                    show="bind:item.timeRange != ''"></wm-label>
-                                                <wm-list name="empListDay" dataset="bind:item.employees"
-                                                    class="cal-emp-list" listclass="list-group" direction="column"
-                                                    gap="0" alignment="top-left" width="fill" height="hug">
-                                                    <wm-listtemplate name="empListDayTpl" direction="column" gap="0"
+                                                <wm-container direction="row" alignment="middle-center" gap="4"
+                                                    width="fill" height="hug" name="container13"
+                                                    class="container-purple-bg" variant="purple-bg"
+                                                    show="bind:item.showHeader">
+                                                    <wm-label caption="bind:item.positionName" name="lblPosName"
+                                                        class=" label-label-14-700" variant="label-14-700"></wm-label>
+                                                </wm-container>
+                                                <wm-list name="timeGroupList" dataset="bind:item.timeGroups"
+                                                    listclass="list-group" direction="column" gap="0"
+                                                    alignment="top-left" width="fill" height="hug" clipcontent="false"
+                                                    overflow="none" class="cal-emp-list">
+                                                    <wm-listtemplate name="timeGroupListTpl" direction="column" gap="0"
                                                         alignment="top-left" width="fill" height="hug">
-                                                        <wm-container direction="row" gap="4" alignment="middle-left"
-                                                            width="fill" height="hug" name="empRowContainer"
-                                                            class="app-container-default">
-                                                            <wm-icon name="iconEmpDay" iconclass="fa fa-diamond"
-                                                                variant="purple" class="orange"></wm-icon>
-                                                            <wm-anchor caption="bind:item.employeeName"
-                                                                name="anchorEmpDay" variant="standard-sm"
-                                                                class="anchor-standard-sm"></wm-anchor>
-                                                            <wm-label caption="bind:item.categoryName"
-                                                                name="lblCategoryName" class="label-label-12-400"
-                                                                variant="label-12-400"
-                                                                show="bind:item.categoryName != ''"></wm-label>
+                                                        <wm-container name="timeGroupDivider" direction="row" gap="0"
+                                                            alignment="top-left" width="fill" height="hug"
+                                                            class="time-group-divider" show="bind:$index &gt; 0">
                                                         </wm-container>
-                                                        <wm-label padding="unset" caption="bind:item.description"
-                                                            class="p text-primary" type="p" name="description"
-                                                            variant="text:primary"
-                                                            show="bind:App.Variables.appSelectedGrouping.dataSet.showDescription">
-                                                        </wm-label>
+                                                        <wm-label caption="bind:item.timeRange" name="lblEmpTimeRange"
+                                                            class="label-label-12-400" variant="label-12-400"
+                                                            show="bind:item.timeRange != ''"></wm-label>
+                                                        <wm-list name="empListDay" dataset="bind:item.employees"
+                                                            class="cal-emp-list" listclass="list-group"
+                                                            direction="column" gap="0" alignment="top-left" width="fill"
+                                                            height="hug">
+                                                            <wm-listtemplate name="empListDayTpl" direction="column"
+                                                                gap="0" alignment="top-left" width="fill" height="hug">
+                                                                <wm-container direction="row" gap="4"
+                                                                    alignment="middle-left" width="fill" height="hug"
+                                                                    name="empRowContainer"
+                                                                    class="app-container-default">
+                                                                    <wm-icon name="iconEmpDay" iconclass="fa fa-diamond"
+                                                                        variant="purple" class="orange"></wm-icon>
+                                                                    <wm-anchor caption="bind:item.employeeName"
+                                                                        name="anchorEmpDay" variant="standard-sm"
+                                                                        class="anchor-standard-sm"></wm-anchor>
+                                                                    <wm-label caption="bind:item.categoryName"
+                                                                        name="lblCategoryName"
+                                                                        class="label-label-12-400"
+                                                                        variant="label-12-400"
+                                                                        show="bind:item.categoryName != ''"></wm-label>
+                                                                </wm-container>
+                                                                <wm-label padding="unset"
+                                                                    caption="bind:item.description"
+                                                                    class="p text-primary" type="p" name="description"
+                                                                    variant="text:primary"
+                                                                    show="bind:App.Variables.appSelectedGrouping.dataSet.showDescription">
+                                                                </wm-label>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
                                                     </wm-listtemplate>
                                                 </wm-list>
                                             </wm-listtemplate>
                                         </wm-list>
-                                    </wm-listtemplate>
-                                </wm-list>
+                                    </wm-container>
+                                </wm-container>
                             </wm-listtemplate>
                         </wm-list>
                     </wm-container>
@@ -165,80 +180,62 @@
                 <wm-container direction="row" alignment="middle-center" gap="0" width="fill" height="hug"
                     name="container32_3" class="container-grey-no-radius-small-container"
                     variant="grey-no-radius-small-container" content="monthlyView" padding="20px 10px"></wm-container>
-                <wm-container direction="column" alignment="top-left" gap="10" width="fill" name="container19"
-                    class="container-grey-standard" variant="grey-standard" wrap="false">
-                    <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container30"
-                        class="app-container-default" variant="default">
-                        <wm-label padding="unset" caption="Information" class="label-label-20-700" type="p"
-                            name="label15" variant="label-20-700"></wm-label>
-                        <wm-container direction="row" alignment="middle-center" gap="0" width="hug" name="container31"
-                            variant="default">
-                            <wm-anchor margin="unset 0.5em" name="anchor4" variant="standard"
-                                caption="Help on this topic " iconclass="wi wi-arrow-right-circle" iconposition="right">
-                            </wm-anchor>
-                            <wm-anchor margin="unset 0.5em" name="anchor5" variant="standard" caption="More">
-                            </wm-anchor>
+                <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container35"
+                    class="app-container-default" variant="default" padding="unset 12px">
+                    <wm-container direction="column" alignment="top-left" gap="10" width="fill" name="container19"
+                        class="container-grey-standard" variant="grey-standard" wrap="false">
+                        <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container30"
+                            class="app-container-default" variant="default">
+                            <wm-label padding="unset" caption="Information" class="label-label-20-700" type="p"
+                                name="label15" variant="label-20-700"></wm-label>
+                            <wm-container direction="row" alignment="middle-center" gap="0" width="hug"
+                                name="container31" variant="default" class="app-container-default">
+                                <wm-anchor margin="unset 0.5em" name="anchor4" variant="standard"
+                                    caption="Help on this topic " iconclass="wi wi-arrow-right-circle"
+                                    iconposition="right"></wm-anchor>
+                                <wm-anchor margin="unset 0.5em" name="anchor5" variant="standard" caption="More">
+                                </wm-anchor>
+                            </wm-container>
                         </wm-container>
-                    </wm-container>
-                    <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container29"
-                        class="app-container-default" variant="default" clipcontent="false" overflow="none">
-                        <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
-                            variant="text:primary"></wm-label>
-                        <wm-label padding="unset" caption=" Week is Published" class="label-label-14-400" type="p"
-                            name="label19" variant="label-14-400"></wm-label>
-                    </wm-container>
-                    <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container27"
-                        class="app-container-default" variant="default" clipcontent="false" overflow="none">
-                        <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
-                            variant="text:primary"></wm-label>
-                        <wm-label padding="unset" caption="Week is Unpublished" class="label-label-14-400" type="p"
-                            variant="label-14-400" name="label20"></wm-label>
-                    </wm-container>
-                    <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container28"
-                        class="app-container-default" variant="default" clipcontent="false" overflow="none">
-                        <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
-                            variant="text:primary"></wm-label>
-                        <wm-label padding="unset" caption="Week is Partially Published" class="label-label-14-400"
-                            type="p" variant="label-14-400" name="label21"></wm-label>
-                    </wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container25"
-                        class="container-white-container-no-border-radius" variant="white-container-no-border-radius"
-                        height="hug" clipcontent="false" overflow="none" padding="1px unset"></wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container20"
-                        class="app-container-default" variant="default">
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container21"
+                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container29"
                             class="app-container-default" variant="default" clipcontent="false" overflow="none">
-                            <wm-anchor margin="unset 0.5em" name="anchor3" variant="standard"
-                                iconclass="wi wi-build fa-rotate-90 fa-lg" caption=""></wm-anchor>
-                            <wm-label padding="unset" caption="Status" class="label-label-14-700" type="p"
-                                name="label15_1" variant="label-14-700"></wm-label>
+                            <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
+                                variant="text:primary"></wm-label>
+                            <wm-label padding="unset" caption=" Week is Published" class="label-label-14-400" type="p"
+                                name="label19" variant="label-14-400"></wm-label>
                         </wm-container>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug"
-                            class="app-container-default" variant="default" clipcontent="false" overflow="none"
-                            name="container22">
-                            <wm-icon class="purple" variant="purple" iconclass="fa fa-diamond" name="icon3"></wm-icon>
-                            <wm-label padding="unset" caption="Full Time" class="label-label-14-400" type="p"
-                                variant="label-14-400" name="label16"></wm-label>
+                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container27"
+                            class="app-container-default" variant="default" clipcontent="false" overflow="none">
+                            <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
+                                variant="text:primary"></wm-label>
+                            <wm-label padding="unset" caption="Week is Unpublished" class="label-label-14-400" type="p"
+                                variant="label-14-400" name="label20"></wm-label>
                         </wm-container>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug"
-                            class="app-container-default" variant="default" clipcontent="false" overflow="none"
-                            name="container23">
-                            <wm-icon class="icon-icon-14-user-edit" variant="icon-14-user-edit"
-                                iconclass="fa fa-diamond" name="icon4"></wm-icon>
-                            <wm-label padding="unset" caption="Part Time" class="label-label-14-400" type="p"
-                                variant="label-14-400" name="label17"></wm-label>
+                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug" name="container28"
+                            class="app-container-default" variant="default" clipcontent="false" overflow="none">
+                            <wm-label padding="unset" caption="-" class="p text-primary" type="p" name="label22"
+                                variant="text:primary"></wm-label>
+                            <wm-label padding="unset" caption="Week is Partially Published" class="label-label-14-400"
+                                type="p" variant="label-14-400" name="label21"></wm-label>
                         </wm-container>
-                        <wm-container direction="row" alignment="middle-center" gap="4" width="hug"
-                            class="app-container-default" variant="default" clipcontent="false" overflow="none"
-                            name="container24">
-                            <wm-icon class="orange" variant="purple" iconclass="fa fa-diamond" name="icon5"></wm-icon>
-                            <wm-label padding="unset" caption="Per Diem" class="label-label-14-400" type="p"
-                                variant="label-14-400" name="label18"></wm-label>
+                        <wm-container class="container-grey-container-white-border mb-0" direction="row" gap="4"
+                            alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border"
+                            name="container71">
+                            <wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14"
+                                name="icon9"></wm-icon>
+                            <wm-label caption="Status" class="label-label-14-700 ps-2" variant="label-14-700"
+                                name="label47"></wm-label>
+                            <wm-icon iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3 fa-xs"
+                                variant="default:xs" name="icon10"></wm-icon>
+                            <wm-label caption="Full Time" variant="default" name="label48"></wm-label>
+                            <wm-icon iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3 fa-xs"
+                                variant="default:xs" name="icon11"></wm-icon>
+                            <wm-label caption="Part Time" variant="default" name="label49"></wm-label>
+                            <wm-icon iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3 fa-xs"
+                                variant="default:xs" name="icon12"></wm-icon>
+                            <wm-label caption="Per Diem" variant="default" name="label50"></wm-label>
                         </wm-container>
                     </wm-container>
-                    <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container26"
-                        class="container-white-container-no-border-radius" variant="white-container-no-border-radius"
-                        height="hug" clipcontent="false" overflow="none" padding="1px unset"></wm-container>
                 </wm-container>
             </wm-container>
         </wm-page-content>
