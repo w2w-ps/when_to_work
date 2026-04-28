@@ -32,7 +32,7 @@ Partial.onReady = function () {
 
         Partial.Variables.selectedMonthDate.dataSet = { dataValue: dateStr };
 
-        const parentScope = Partial.App.activePage;
+        const parentScope = App.activePage;
         if (parentScope && parentScope.Variables && parentScope.Variables.activeMonthDate) {
             parentScope.Variables.activeMonthDate.dataSet = { dataValue: dateStr };
         }
@@ -100,7 +100,9 @@ Partial.onReady = function () {
      * the calendar navigates to a different month (cells are re-rendered by FullCalendar).
      */
     function attachCalendarHoverListener() {
-        const calEl = Partial.Widgets.calendarPopup.$element;
+        var calWidget = Partial.Widgets.calendarPopup;
+        if (!calWidget || !calWidget.$element) { return; } // React build guard
+        const calEl = calWidget.$element;
         if (!calEl || !calEl.length) {
             return;
         }
@@ -244,7 +246,7 @@ Partial.onReady = function () {
     updateCalendarNavLabel();
 
     // Register this partial instance with the page for cross-partial sync
-    var parentScope = Partial.App.activePage;
+    var parentScope = App.activePage;
     if (parentScope) {
         if (!parentScope.__monthlyViewInstances) {
             parentScope.__monthlyViewInstances = [];
