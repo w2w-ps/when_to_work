@@ -32,7 +32,7 @@ Partial.onReady = function () {
 
         Partial.Variables.selectedMonthDate.dataSet = { dataValue: dateStr };
 
-        const parentScope = Partial.App.activePage;
+        const parentScope = App.activePage;
         if (parentScope && parentScope.Variables && parentScope.Variables.activeMonthDate) {
             parentScope.Variables.activeMonthDate.dataSet = { dataValue: dateStr };
         }
@@ -64,7 +64,14 @@ Partial.onReady = function () {
             Partial.Widgets[widgetName].caption = MONTHS[idx];
         });
 
-        Partial.Widgets.lblCurrentMonth.$element.find('.app-label').addClass('text-danger');
+        var lblEl = Partial.Widgets.lblCurrentMonth.$element;
+        if (lblEl) {
+            var nativeEl = lblEl.nativeElement || lblEl[0] || lblEl;
+            var appLabel = nativeEl && nativeEl.querySelector ? nativeEl.querySelector('.app-label') : null;
+            if (appLabel) {
+                appLabel.classList.add('text-danger');
+            }
+        }
 
         notifyPageOfMonthChange(currentYear, currentIndex);
     }
@@ -100,32 +107,39 @@ Partial.onReady = function () {
      * the calendar navigates to a different month (cells are re-rendered by FullCalendar).
      */
     function attachCalendarHoverListener() {
-        const calEl = Partial.Widgets.calendarPopup.$element;
-        if (!calEl || !calEl.length) {
+        var calWidget = Partial.Widgets.calendarPopup;
+        if (!calWidget || !calWidget.$element) { return; } // React build guard
+        var calElRaw = Partial.Widgets.calendarPopup.$element;
+        var calEl = calElRaw ? (calElRaw.nativeElement || calElRaw[0] || calElRaw) : null;
+        if (!calEl || !calEl.querySelector) {
             return;
         }
 
         // Remove any previously attached delegated listener to avoid duplicates
-        calEl.off('mouseover.dateHover');
-        calEl.off('mouseleave.dateHover');
+        calEl.removeEventListener('mouseover', calEl.__dateHoverListener);
+        calEl.removeEventListener('mouseleave', calEl.__dateLeaveListener);
 
-        // Delegate mouseover to any FullCalendar day cell (td[data-date]) or
-        // the inner day-number anchor/span that carries the date string
-        calEl.on('mouseover.dateHover', 'td[data-date]', function (e) {
-            const dateStr = $(this).attr('data-date'); // format: YYYY-MM-DD
-            if (dateStr) {
-                // Parse parts directly to avoid timezone offset issues with new Date(string)
-                const parts = dateStr.split('-');
-                const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-                var label = formatHoveredDate(d);
-                Partial.Variables.hoveredDateLabel.dataSet = { dataValue: label };
+        // Delegate mouseover to any FullCalendar day cell (td[data-date])
+        calEl.__dateHoverListener = function (e) {
+            var cell = e.target.closest('td[data-date]');
+            if (cell) {
+                var dateStr = cell.getAttribute('data-date'); // format: YYYY-MM-DD
+                if (dateStr) {
+                    var parts = dateStr.split('-');
+                    var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+                    var label = formatHoveredDate(d);
+                    Partial.Variables.hoveredDateLabel.dataSet = { dataValue: label };
+                }
             }
-        });
+        };
 
         // Reset label when mouse leaves the entire calendar widget area
-        calEl.on('mouseleave.dateHover', function () {
+        calEl.__dateLeaveListener = function () {
             Partial.Variables.hoveredDateLabel.dataSet = { dataValue: DEFAULT_SELECT_LABEL };
-        });
+        };
+
+        calEl.addEventListener('mouseover', calEl.__dateHoverListener);
+        calEl.addEventListener('mouseleave', calEl.__dateLeaveListener);
     }
 
     Partial.iconPrevMonthTap = function ($event, widget) {
@@ -244,7 +258,7 @@ Partial.onReady = function () {
     updateCalendarNavLabel();
 
     // Register this partial instance with the page for cross-partial sync
-    var parentScope = Partial.App.activePage;
+    var parentScope = App.activePage;
     if (parentScope) {
         if (!parentScope.__monthlyViewInstances) {
             parentScope.__monthlyViewInstances = [];
