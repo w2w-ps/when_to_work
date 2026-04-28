@@ -1,4 +1,5 @@
 <wm-page name="page" pagetitle="Mgremplist">
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent" class="px-0">
             <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="0"
@@ -19,7 +20,7 @@
                             alignment="middle-left" width="fill" height="hug" padding="6px unset unset unset">
                             <wm-button name="btnAddNewEmployee" caption="Add New Employee"
                                 class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
-                                width="27.5%"></wm-button>
+                                width="27.5%" on-click="btnAddNewEmployeeClick($event, widget)"></wm-button>
                             <wm-button name="btnAddEditPositions" caption="Add/Edit Positions"
                                 class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
                                 width="24.5%"></wm-button>
@@ -69,8 +70,9 @@
                         </wm-container>
                         <wm-container name="filterRow" class="app-container-default" direction="row" gap="4"
                             alignment="middle-right" width="fill" height="hug">
-                            <wm-text name="txtFind" placeholder="Find" trailingiconclass="wi wi-clear"
-                                class="form-control" variant="standard" width="150px"></wm-text>
+                            <wm-search name="search1" placeholder="Find" width="150px" datafield="All Fields"
+                                on-change="search1Change($event, widget, newVal, oldVal)" type="autocomplete"
+                                variant="standard"></wm-search>
                             <wm-select name="selStatus" dataset="All Status, Active, Inactive" placeholder="All Status"
                                 variant="standard" width="150px"></wm-select>
                             <wm-select name="selPositions" dataset="All Positions" placeholder="All Positions"
@@ -80,35 +82,36 @@
                         <!-- EMPLOYEE TABLE -->
                         <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container17"
                             class="app-container-default" variant="default" padding="6px unset">
-                            <wm-label name="lblTotalEmployees" caption="Total Employees: 73" variant="label-12-700"
-                                class="label-label-12-700"></wm-label>
+                            <wm-label name="lblTotalEmployees"
+                                caption="bind:&quot;Total Employees: &quot;+Variables.wsGetEmployeeDetails.dataSet.length"
+                                variant="label-12-700" class="label-label-12-700"></wm-label>
                         </wm-container>
-                        <wm-table name="employeeTable" dataset="bind:Variables.employeeListModel.dataSet"
+                        <wm-table name="employeeTable" dataset="bind:Variables.wsGetEmployeeDetails.dataSet"
                             navigation="None" enablesort="true" showheader="true" spacing="condensed" multiselect="true"
-                            rowactionsposition="first" radioselect="false"
-                            class="data-table-striped-even-large-header striped-even"
+                            radioselect="false" class="data-table-striped-even-large-header striped-even"
                             variant="striped-even-large-header" height="250px">
                             <wm-table-column binding="View" caption="View" widget-type="button" width="45px"
                                 textalignment="center" edit-widget-type="text" searchable="false" show="true"
                                 type="string" showineditmode="true" readonly="false">
-                                <wm-button caption="" show="true" class="btn-transparent-icon-btn"
-                                    iconurl=" ./resources/images/imagelists/icon__fa-search.png" on-click=""
-                                    conditionalclass="" conditionalstyle="" iconclass=""></wm-button>
+                                <wm-button name="btnViewRow" caption="" show="true" class="btn-transparent-icon-btn"
+                                    iconurl="./resources/images/imagelists/icon__fa-search.png"
+                                    on-click="employeeTable_ViewAction(row)" conditionalclass="" conditionalstyle=""
+                                    iconclass=""></wm-button>
                             </wm-table-column>
                             <wm-table-column binding="Edit" caption="Edit" widget-type="button" width="35px"
                                 textalignment="center" edit-widget-type="text" searchable="false" show="true"
                                 type="string" showineditmode="true" readonly="false">
-                                <wm-button caption="" show="true" class="btn-transparent-icon-btn"
-                                    iconurl=" ./resources/images/imagelists/icon__fa-pencil.png"
-                                    on-click="Actions.goToPage_Mgrempedit.invoke()" conditionalclass=""
-                                    conditionalstyle="" iconclass=""></wm-button>
+                                <wm-button name="btnEditRow" caption="" show="true" class="btn-transparent-icon-btn"
+                                    iconurl="./resources/images/imagelists/icon__fa-pencil.png"
+                                    on-click="employeeTable_EditAction(row)" conditionalclass="" conditionalstyle=""
+                                    iconclass=""></wm-button>
                             </wm-table-column>
                             <wm-table-column binding="status" caption="" widget-type="icon" width="35px"
                                 edit-widget-type="text" show="true" type="string" sortable="false" showineditmode="true"
                                 readonly="false">
-                                <wm-icon caption="bind:row.getProperty('undefined')" iconclass="fa fa-diamond"
-                                    iconposition="left" class="purple" conditionalclass="" conditionalstyle="">
-                                </wm-icon>
+                                <wm-icon name="iconStatus" caption="bind:row.getProperty('status')"
+                                    iconclass="fa fa-diamond" iconposition="left" class="purple" conditionalclass=""
+                                    conditionalstyle=""></wm-icon>
                             </wm-table-column>
                             <wm-table-column binding="firstName" caption="First" width="80px" edit-widget-type="text"
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
@@ -116,9 +119,9 @@
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="email" caption="Email*" width="200px" edit-widget-type="text"
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="empId" caption="ID #" width="60px" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="lastSignIn" caption="Last Sign In" width="52%"
+                            <wm-table-column binding="employeeId" caption="ID #" edit-widget-type="number" show="true"
+                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="lastLogon" caption="Last Sign In" width="52%"
                                 edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false"></wm-table-column>
                         </wm-table>
@@ -262,4 +265,5 @@
             </wm-container>
         </wm-page-content>
     </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>

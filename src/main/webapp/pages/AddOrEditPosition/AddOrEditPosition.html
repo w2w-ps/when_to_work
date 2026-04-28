@@ -1,0 +1,30 @@
+<wm-page name="page" pagetitle="Add Or Edit Position"><wm-left-panel columnwidth="2" content="leftnav" name="leftpanel" navtype="rail" navheight="full"></wm-left-panel>
+<wm-content name="content"><wm-header content="header" name="header" height="auto"></wm-header>
+<wm-page-content columnwidth="12" name="pagecontent">
+<wm-container name="addOrEditParentcontainer" direction="row" gap="16" alignment="top-left" width="fill" height="hug" class="app-container-default" padding="16px">
+<wm-container name="leftColumn" direction="column" gap="16" alignment="top-left" width="300px" height="hug" class="app-container-default">
+<wm-container name="newPositionPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-new-position">
+<wm-container name="newPositionHeader" direction="row" gap="auto" alignment="center" width="fill" height="hug" class="app-container-default">
+<wm-label name="newPositionTitle" caption="New Position" class="app-label h4 panel-section-title"></wm-label>
+<wm-button name="addPositionBtn" caption="Add" class="btn-outlined btn-default btn-add-position" type="button" on-click="Variables.svCreatePosition.invoke()"></wm-button></wm-container>
+<wm-text name="newPositionInput"></wm-text>
+<wm-label name="newPositionHelperText1" caption="After adding, set which employees can work each position on the EMPLOYEES &gt; Positions Grid" class="app-label panel-helper-text"></wm-label></wm-container>
+<wm-container name="recentlyDeletedPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-recently-deleted">
+<wm-label name="recentlyDeletedTitle" caption="Recently Deleted" class="app-label h4 panel-section-title"></wm-label>
+<wm-label name="recentlyDeletedSubtitle" caption="Click Position to restore it." class="app-label panel-subtitle-text"></wm-label>
+<wm-label name="recentlyDeletedMessage" caption="No recently deleted Positions" class="app-label panel-italic-message"></wm-label></wm-container>
+<wm-container name="informationPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-information">
+<wm-label name="informationTitle" caption="Information" class="app-label h4 panel-section-title"></wm-label>
+<wm-label name="infoText1" caption="- Sort order of positions is alphabetical. You can edit positions to have a leading space or hyphen to list them first" class="app-label panel-info-text"></wm-label>
+<wm-label name="infoText2a" caption="- Position not adding? Likely the position was added to the bottom of your list due to a custom sort order of your positions. On the Edit/Delete page you can drag the new position from the bottom of the list to a preferred location." class="app-label panel-info-text"></wm-label>
+<wm-label name="infoText3" caption="- Only the main manager on the account can delete positions." class="app-label panel-info-text"></wm-label></wm-container></wm-container>
+<wm-container name="rightColumn" direction="column" gap="8" alignment="top-left" width="300px" height="hug" class="app-container-default">
+<wm-container name="positionsPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-positions">
+<wm-container name="positionsHeader" direction="row" gap="auto" alignment="center" width="fill" height="hug" class="app-container-default">
+<wm-label name="positionsTitle" caption="Positions" class="app-label h4 panel-section-title"></wm-label>
+<wm-button name="editDeleteBtn" caption="Edit / Delete" class="btn-outlined btn-default btn-edit-delete" type="button" on-click="Actions.goToPage_EditDeletePosition.invoke()"></wm-button></wm-container>
+<wm-container name="positionsListContainer" direction="column" gap="4" alignment="top-left" width="fill" height="hug" class="panel-positions-list">
+<wm-list name="positionsList" class="list-card" dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions" direction="column" gap="0" alignment="top-left" width="fill" height="hug" listclass="list-group" navigation="None">
+<wm-listtemplate name="positionsListTemplate" direction="row" gap="0" alignment="middle-left" width="fill" height="hug">
+<wm-label name="positionItemLabel" caption="bind:item.description" class="app-label panel-position-item"></wm-label></wm-listtemplate></wm-list></wm-container></wm-container></wm-container></wm-container></wm-page-content>
+<wm-footer content="footer" name="footer"></wm-footer></wm-content></wm-page>

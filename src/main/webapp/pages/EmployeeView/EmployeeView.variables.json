@@ -156,58 +156,6 @@
     "saveInPhonegap" : false,
     "controller" : "svDeleteShiftById"
   },
-  "svGetAllCategoriesByCompanyId" : {
-    "_id" : "wm-svGetAllCategoriesByCompanyId-wm.ServiceVariable-1775799151063",
-    "name" : "svGetAllCategoriesByCompanyId",
-    "owner" : "Page",
-    "category" : "wm.ServiceVariable",
-    "dataBinding" : [ {
-      "target" : "companyId",
-      "value" : "1",
-      "type" : "string"
-    } ],
-    "type" : "categoryList.RootResponse",
-    "service" : "categoryList",
-    "operation" : "invoke",
-    "operationId" : "categoryList_invoke",
-    "operationType" : "get",
-    "serviceType" : "RestService",
-    "dataSet" : [ ],
-    "isList" : false,
-    "maxResults" : 20,
-    "startUpdate" : true,
-    "autoUpdate" : false,
-    "inFlightBehavior" : "executeLast",
-    "transformationRequired" : false,
-    "saveInPhonegap" : false,
-    "controller" : "categoryList"
-  },
-  "svGetAllPositionsByCompanyId" : {
-    "_id" : "wm-svGetAllPositionsByCompanyId-wm.ServiceVariable-1775799248481",
-    "name" : "svGetAllPositionsByCompanyId",
-    "owner" : "Page",
-    "category" : "wm.ServiceVariable",
-    "dataBinding" : [ {
-      "target" : "companyId",
-      "value" : "1",
-      "type" : "string"
-    } ],
-    "type" : "positionList.RootResponse",
-    "service" : "positionList",
-    "operation" : "invoke",
-    "operationId" : "positionList_invoke",
-    "operationType" : "get",
-    "serviceType" : "RestService",
-    "dataSet" : [ ],
-    "isList" : false,
-    "maxResults" : 20,
-    "startUpdate" : true,
-    "autoUpdate" : false,
-    "inFlightBehavior" : "executeLast",
-    "transformationRequired" : false,
-    "saveInPhonegap" : false,
-    "controller" : "positionList"
-  },
   "svGetShiftById" : {
     "_id" : "wm-svGetShiftById-wm.ServiceVariable-1775039103601",
     "name" : "svGetShiftById",

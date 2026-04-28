@@ -1,1 +1,3 @@
-
+.app-radioset.list-group.inline {
+    flex-wrap: nowrap !important;
+}

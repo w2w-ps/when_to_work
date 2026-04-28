@@ -94,7 +94,7 @@
         } ]
       }, {
         "caption" : "Calendar View",
-        "hyperlink" : "",
+        "hyperlink" : "#/calenderView",
         "children" : [ {
           "caption" : "Daily",
           "hyperlink" : ""
@@ -162,7 +162,7 @@
       "hyperlink" : "",
       "children" : [ {
         "caption" : "Employees List - Add/Edit/Delete",
-        "hyperlink" : ""
+        "hyperlink" : "#/Mgremplist"
       }, {
         "caption" : "Positions Grid",
         "hyperlink" : ""

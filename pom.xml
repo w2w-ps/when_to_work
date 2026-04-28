@@ -36,19 +36,31 @@
             </goals>
             <configuration>
               <sources>
+                <source>services/AddEmployee/src</source>
+                <source>services/GetEmployeeById/src</source>
+                <source>services/GetPositions/src</source>
                 <source>services/GetResolvedPreferences/src</source>
                 <source>services/GetWeekPreferences/src</source>
                 <source>services/LoginService/src</source>
+                <source>services/PatchEmployeeById/src</source>
                 <source>services/PostDayPref/src</source>
                 <source>services/PostWeekPref/src</source>
                 <source>services/UpdateAdditionalManagers/src</source>
                 <source>services/addManager/src</source>
                 <source>services/calendarPositionView/src</source>
+                <source>services/calendarShiftTimingView/src</source>
+                <source>services/calendarShortCategoryView/src</source>
                 <source>services/categoryList/src</source>
+                <source>services/categoryShiftTimings/src</source>
+                <source>services/createPosition/src</source>
                 <source>services/createShift/src</source>
                 <source>services/dayPreferenceList/src</source>
                 <source>services/deleteAdditonalManager/src</source>
+                <source>services/deletePosition/src</source>
                 <source>services/getAdditionalManagers/src</source>
+                <source>services/getCategoryGroups/src</source>
+                <source>services/getEmployeeDetails/src</source>
+                <source>services/getPositionGroup/src</source>
                 <source>services/getPositionViewScheduling/src</source>
                 <source>services/getPreferenceRange/src</source>
                 <source>services/getShiftDetails/src</source>
@@ -59,6 +71,7 @@
                 <source>services/securityService/src</source>
                 <source>services/svDeleteShiftById/src</source>
                 <source>services/updateEmployeePwd/src</source>
+                <source>services/updatePosition/src</source>
                 <source>services/updatePreferences/src</source>
                 <source>services/updateShift/src</source>
                 <source>services/when2work/src</source>

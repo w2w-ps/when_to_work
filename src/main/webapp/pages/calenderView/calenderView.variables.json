@@ -1,4 +1,69 @@
 {
+  "activeMonthDate" : {
+    "_id" : "wm-activeMonthDate-wm.Variable-1777286423656",
+    "name" : "activeMonthDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "goToPage_mgrschedulecfgmonth" : {
+    "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776749028247",
+    "name" : "goToPage_mgrschedulecfgmonth",
+    "owner" : "Page",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ {
+      "target" : "pageName",
+      "value" : "mgrschedulecfgmonth",
+      "type" : "string"
+    } ],
+    "operation" : "gotoPage"
+  },
+  "svcalendarCategoryView" : {
+    "_id" : "wm-svcalendarCategoryView-wm.ServiceVariable-1776672486984",
+    "name" : "svcalendarCategoryView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
+      "type" : "string"
+    }, {
+      "target" : "grouping",
+      "value" : "bind:App.Variables.appSelectedGrouping.dataSet.grouping",
+      "type" : "string"
+    } ],
+    "type" : "categoryShiftTimings.RootResponse",
+    "service" : "categoryShiftTimings",
+    "operation" : "invoke",
+    "operationId" : "categoryShiftTimings_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svcalendarCategoryViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "categoryShiftTimings"
+  },
   "svcalendarPositionView" : {
     "_id" : "wm-svcalendarPositionView-wm.ServiceVariable-1776339721979",
     "name" : "svcalendarPositionView",
@@ -9,16 +74,16 @@
       "value" : "1",
       "type" : "string"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
       "target" : "endDate",
-      "value" : "bind:Widgets.Weekview1.enddate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
       "value" : "position_shift_timings",
-      "type" : "string"
-    }, {
-      "target" : "startDate",
-      "value" : "bind:Widgets.Weekview1.startdate",
       "type" : "string"
     } ],
     "type" : "calendarPositionView.RootResponse",
@@ -27,15 +92,115 @@
     "operationId" : "calendarPositionView_invoke",
     "operationType" : "get",
     "serviceType" : "RestService",
-    "dataSet" : [ ],
+    "dataSet" : {
+      "dataValue" : { }
+    },
     "isList" : false,
     "maxResults" : 20,
     "onSuccess" : "svcalendarPositionViewonSuccess(variable, data)",
     "startUpdate" : false,
-    "autoUpdate" : true,
+    "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "calendarPositionView"
+  },
+  "svCalendarShiftTimingView" : {
+    "_id" : "wm-svCalendarShiftTimingView-wm.ServiceVariable-1776684454622",
+    "name" : "svCalendarShiftTimingView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
+      "type" : "string"
+    }, {
+      "target" : "grouping",
+      "value" : "shift_timings",
+      "type" : "string"
+    } ],
+    "type" : "calendarShiftTimingView.RootResponse",
+    "service" : "calendarShiftTimingView",
+    "operation" : "invoke",
+    "operationId" : "calendarShiftTimingView_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : {
+      "dataValue" : { }
+    },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svCalendarShiftTimingViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "calendarShiftTimingView"
+  },
+  "svCalendarShortCategoryView" : {
+    "_id" : "wm-svCalendarShortCategoryView-wm.ServiceVariable-1776681757747",
+    "name" : "svCalendarShortCategoryView",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "grouping",
+      "value" : "cat_shift_timings",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "calendarShortCategoryView.RootResponse",
+    "service" : "calendarShortCategoryView",
+    "operation" : "invoke",
+    "operationId" : "calendarShortCategoryView_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : {
+      "dataValue" : { }
+    },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svCalendarShortCategoryViewonSuccess(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "calendarShortCategoryView"
+  },
+  "vmCalendarDateRange" : {
+    "_id" : "wm-vmCalendarDateRange-wm.Variable-1777351645858",
+    "name" : "vmCalendarDateRange",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "startDate" : "",
+        "endDate" : ""
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
   }
 }

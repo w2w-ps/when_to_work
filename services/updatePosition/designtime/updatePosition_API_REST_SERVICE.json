@@ -1,0 +1,148 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "62eacd46-8916-43b6-b5e7-5105c827af4f",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "updatePosition"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/updatePosition/positions/{positionId}" : {
+      "put" : {
+        "tags" : [ "updatePosition" ],
+        "operationId" : "updatePosition_invoke",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "companyId",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "positionId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/updatePosition/positions",
+      "x-WM-TAG" : "updatePosition",
+      "x-WM-RELATIVE_PATH" : "/{positionId}",
+      "x-WM-COMPLETE_PATH" : "${rest.updatePosition.scheme}://${rest.updatePosition.host}${rest.updatePosition.basepath}/positions/{positionId}"
+    }
+  },
+  "definitions" : {
+    "Response.div" : {
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePosition.Response.div",
+      "x-WM-TAGS" : [ "updatePosition" ]
+    },
+    "RootRequest" : {
+      "required" : [ "description" ],
+      "properties" : {
+        "description" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePosition.RootRequest",
+      "x-WM-TAGS" : [ "updatePosition" ]
+    },
+    "Response.body" : {
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePosition.Response.body",
+      "x-WM-TAGS" : [ "updatePosition" ]
+    },
+    "RootResponse" : {
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePosition.RootResponse",
+      "x-WM-TAGS" : [ "updatePosition" ]
+    },
+    "Response.parsererror" : {
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "updatePosition.Response.parsererror",
+      "x-WM-TAGS" : [ "updatePosition" ]
+    }
+  }
+}
