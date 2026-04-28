@@ -1,0 +1,83 @@
+.panel-new-position {
+  background-color: #f0f0f5;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #d0d0dd;
+}
+
+.panel-recently-deleted {
+  background-color: #f0f0f5;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #d0d0dd;
+}
+
+.panel-information {
+  background-color: #f0f0f5;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #d0d0dd;
+}
+
+.panel-positions {
+  background-color: #e8eaf0;
+  border-radius: 6px;
+  padding: 16px;
+  border: 1px solid #c8cad6;
+}
+
+.panel-section-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #1a1a2e;
+}
+
+.panel-subtitle-text {
+  font-size: 13px;
+  color: #333333;
+}
+
+.panel-italic-message {
+  font-style: italic;
+  font-size: 13px;
+  color: #444444;
+}
+
+.panel-helper-text {
+  font-size: 12px;
+  color: #444444;
+  line-height: 1.5;
+}
+
+.panel-helper-bold {
+  font-size: 12px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.panel-info-text {
+  font-size: 13px;
+  color: #333333;
+  line-height: 1.6;
+  display: block;
+}
+
+.panel-position-item {
+  font-size: 13px;
+  color: #222222;
+  padding: 2px 0;
+}
+
+.panel-positions-list {
+  padding: 4px 0;
+}
+
+.btn-add-position {
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+.btn-edit-delete {
+  border-radius: 16px;
+  font-size: 13px;
+}

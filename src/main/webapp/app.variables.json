@@ -73,6 +73,17 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "goToPage_AddOrEditPosition" : {
+    "_id" : "wm-goToPage_AddOrEditPosition-wm.NavigationAction-1776924880474",
+    "name" : "goToPage_AddOrEditPosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AddOrEditPosition",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_calenderView" : {
     "_id" : "wm-goToPage_calenderView-wm.NavigationAction-1776325282809",
     "name" : "goToPage_calenderView",
@@ -103,6 +114,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "ConfigureByPositionView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_EditDeletePosition" : {
+    "_id" : "wm-goToPage_EditDeletePosition-wm.NavigationAction-1776930909060",
+    "name" : "goToPage_EditDeletePosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "EditDeletePosition",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -519,6 +541,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
+    "onSuccess" : "svGetAllPositionsByCompanyIdonSuccess(variable, data, options)",
     "startUpdate" : true,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",

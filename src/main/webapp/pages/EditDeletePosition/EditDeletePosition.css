@@ -1,0 +1,56 @@
+.positions-section-container {
+  background-color: #e8eaf0;
+  border-radius: 8px;
+}
+
+.position-list-item {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+}
+
+.drag-handle-icon {
+  font-size: 18px;
+  color: #666666;
+  cursor: grab;
+}
+
+.drag-handle {
+  cursor: grab;
+}
+
+.delete-column-header-row {
+  border-bottom: 2px solid #c0c4d6;
+  margin-bottom: 4px;
+}
+
+.delete-col-header-label {
+  color: #c0392b;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.delete-col-icon {
+  color: #c0392b;
+  font-size: 14px;
+}
+
+.delete-list-row {
+  border-bottom: 1px solid #d8dce8;
+  background: transparent;
+}
+
+.delete-position-list-item {
+  padding: 0px;
+}
+
+.label-delete-col-header {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.label-delete-position-name {
+  font-size: 14px;
+}

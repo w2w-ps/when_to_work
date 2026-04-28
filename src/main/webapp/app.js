@@ -71,3 +71,8 @@ App.redirectTo = function (pageName) {
         'width=900,height=600,left=100,top=100'
     );
 };
+App.svGetAllPositionsByCompanyIdonSuccess = function (variable, data) {
+   if(App.activePageName === 'EditDeletePosition') {
+       App.activePage.Variables.sortedPositionsList.dataSet  = data.positions.slice();
+   }
+};
