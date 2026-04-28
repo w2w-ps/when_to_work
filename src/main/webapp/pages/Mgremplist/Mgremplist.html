@@ -1,4 +1,5 @@
 <wm-page name="page" pagetitle="Mgremplist">
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent" class="px-0">
             <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="0"
@@ -19,7 +20,7 @@
                             alignment="middle-left" width="fill" height="hug" padding="6px unset unset unset">
                             <wm-button name="btnAddNewEmployee" caption="Add New Employee"
                                 class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
-                                width="27.5%"></wm-button>
+                                width="27.5%" on-click="btnAddNewEmployeeClick($event, widget)"></wm-button>
                             <wm-button name="btnAddEditPositions" caption="Add/Edit Positions"
                                 class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
                                 width="24.5%"></wm-button>
@@ -118,63 +119,11 @@
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="email" caption="Email*" width="200px" edit-widget-type="text"
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="employeeId" caption="ID #" edit-widget-type="number" show="true"
+                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="lastLogon" caption="Last Sign In" width="52%"
                                 edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false"></wm-table-column>
-                            <wm-table-column binding="cell" caption="Cell" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="comments" caption="Comments" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="companyId" caption="Company Id" edit-widget-type="number"
-                                show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="customField1" caption="Custom Field1" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="customField2" caption="Custom Field2" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="employeeId" caption="ID #" edit-widget-type="number" show="true"
-                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="employeePhoto" caption="Employee Photo" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="googleCalExport" caption="Google Cal Export"
-                                edit-widget-type="checkbox" show="true" type="boolean" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="hireDate" caption="Hire Date" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="logonCount" caption="Logon Count" edit-widget-type="number"
-                                show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxDailyHours" caption="Max Daily Hours" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxDailyShifts" caption="Max Daily Shifts"
-                                edit-widget-type="number" show="true" type="integer" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxScheduledHours" caption="Max Scheduled Hours"
-                                edit-widget-type="text" show="true" type="string" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxWeeklyDays" caption="Max Weekly Days" edit-widget-type="number"
-                                show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="nextAlertDate" caption="Next Alert Date" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="payRate" caption="Pay Rate" edit-widget-type="number" show="true"
-                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="phone" caption="Phone" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="phone2" caption="Phone2" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="priorityGroup" caption="Priority Group" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.address" caption="Address Address" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.address2" caption="Address Address2"
-                                edit-widget-type="text" show="true" type="string" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.city" caption="Address City" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.state" caption="Address State" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.zip" caption="Address Zip" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="empType.name" caption="Emptype Name" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
                         </wm-table>
                     </wm-tabpane>
                     <wm-tabpane name="tabPositions" title="Positions">
@@ -316,4 +265,5 @@
             </wm-container>
         </wm-page-content>
     </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>

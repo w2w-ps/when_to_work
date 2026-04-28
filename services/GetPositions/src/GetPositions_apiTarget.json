@@ -1,0 +1,87 @@
+{
+  "basePath" : "${rest.GetPositions.basepath}",
+  "paths" : {
+    "/positions" : {
+      "x-WM-BASE_PATH" : "/positions",
+      "x-WM-TAG" : "GetPositions",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "GetPositions_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "GetPositions" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.GetPositions.scheme}://${rest.GetPositions.host}${rest.GetPositions.basepath}/positions"
+    }
+  },
+  "host" : "${rest.GetPositions.host}",
+  "schemes" : [ "${rest.GetPositions.scheme}" ],
+  "definitions" : {
+    "Response.positionsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetPositions.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "GetPositions" ],
+      "required" : [ "description", "positionId" ],
+      "properties" : {
+        "positionId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetPositions.RootResponse",
+      "x-WM-TAGS" : [ "GetPositions" ],
+      "required" : [ "positions" ],
+      "properties" : {
+        "positions" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "c49f3fef-f47d-41ce-9b6a-5418c5628c8e",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "GetPositions"
+  } ]
+}

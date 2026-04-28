@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-package com.wavemaker.when_to_work.PatchEmployeeById.model;
+package com.wavemaker.when_to_work.AddEmployee.model;
 
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wavemaker.when_to_work.PatchEmployeeById.model.RequestAddress;
+import com.wavemaker.when_to_work.AddEmployee.model.RequestAddress;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -31,14 +31,8 @@ public class RootRequest {
   @JsonProperty("lastName")
   private String lastName = null;
 
-  @JsonProperty("positionIds")
-  private List<Integer> positionIds = new ArrayList<>();
-
   @JsonProperty("hireDate")
   private String hireDate = null;
-
-  @JsonProperty("accessibilityMode")
-  private Boolean accessibilityMode = null;
 
   @JsonProperty("address")
   private RequestAddress address = null;
@@ -61,11 +55,11 @@ public class RootRequest {
   @JsonProperty("payRate")
   private Double payRate = null;
 
-  @JsonProperty("phone2")
-  private String phone2 = null;
-
   @JsonProperty("priorityGroup")
   private String priorityGroup = null;
+
+  @JsonProperty("phones")
+  private List<String> phones = new ArrayList<>();
 
   @JsonProperty("nextAlertDate")
   private String nextAlertDate = null;
@@ -87,9 +81,6 @@ public class RootRequest {
 
   @JsonProperty("maxWeeklyDays")
   private Integer maxWeeklyDays = null;
-
-  @JsonProperty("phone")
-  private String phone = null;
 
   @JsonProperty("maxDailyShifts")
   private Integer maxDailyShifts = null;
@@ -131,28 +122,6 @@ public class RootRequest {
     this.lastName = lastName;
   }
 
-  public RootRequest positionIds(List<Integer> positionIds) {
-    this.positionIds = positionIds;
-    return this;
-  }
-
-  public RootRequest addPositionIdsItem(Integer positionIdsItem) {
-    this.positionIds.add(positionIdsItem);
-    return this;
-  }
-
-   /**
-   * Get positionIds
-   * @return positionIds
-  **/
-  public List<Integer> getPositionIds() {
-    return positionIds;
-  }
-
-  public void setPositionIds(List<Integer> positionIds) {
-    this.positionIds = positionIds;
-  }
-
   public RootRequest hireDate(String hireDate) {
     this.hireDate = hireDate;
     return this;
@@ -168,23 +137,6 @@ public class RootRequest {
 
   public void setHireDate(String hireDate) {
     this.hireDate = hireDate;
-  }
-
-  public RootRequest accessibilityMode(Boolean accessibilityMode) {
-    this.accessibilityMode = accessibilityMode;
-    return this;
-  }
-
-   /**
-   * Get accessibilityMode
-   * @return accessibilityMode
-  **/
-  public Boolean isAccessibilityMode() {
-    return accessibilityMode;
-  }
-
-  public void setAccessibilityMode(Boolean accessibilityMode) {
-    this.accessibilityMode = accessibilityMode;
   }
 
   public RootRequest address(RequestAddress address) {
@@ -306,23 +258,6 @@ public class RootRequest {
     this.payRate = payRate;
   }
 
-  public RootRequest phone2(String phone2) {
-    this.phone2 = phone2;
-    return this;
-  }
-
-   /**
-   * Get phone2
-   * @return phone2
-  **/
-  public String getPhone2() {
-    return phone2;
-  }
-
-  public void setPhone2(String phone2) {
-    this.phone2 = phone2;
-  }
-
   public RootRequest priorityGroup(String priorityGroup) {
     this.priorityGroup = priorityGroup;
     return this;
@@ -338,6 +273,28 @@ public class RootRequest {
 
   public void setPriorityGroup(String priorityGroup) {
     this.priorityGroup = priorityGroup;
+  }
+
+  public RootRequest phones(List<String> phones) {
+    this.phones = phones;
+    return this;
+  }
+
+  public RootRequest addPhonesItem(String phonesItem) {
+    this.phones.add(phonesItem);
+    return this;
+  }
+
+   /**
+   * Get phones
+   * @return phones
+  **/
+  public List<String> getPhones() {
+    return phones;
+  }
+
+  public void setPhones(List<String> phones) {
+    this.phones = phones;
   }
 
   public RootRequest nextAlertDate(String nextAlertDate) {
@@ -459,23 +416,6 @@ public class RootRequest {
     this.maxWeeklyDays = maxWeeklyDays;
   }
 
-  public RootRequest phone(String phone) {
-    this.phone = phone;
-    return this;
-  }
-
-   /**
-   * Get phone
-   * @return phone
-  **/
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
   public RootRequest maxDailyShifts(Integer maxDailyShifts) {
     this.maxDailyShifts = maxDailyShifts;
     return this;
@@ -522,9 +462,7 @@ public class RootRequest {
     RootRequest RootRequest = (RootRequest) o;
     return Objects.equals(this.maxScheduledHours, RootRequest.maxScheduledHours) &&
         Objects.equals(this.lastName, RootRequest.lastName) &&
-        Objects.equals(this.positionIds, RootRequest.positionIds) &&
         Objects.equals(this.hireDate, RootRequest.hireDate) &&
-        Objects.equals(this.accessibilityMode, RootRequest.accessibilityMode) &&
         Objects.equals(this.address, RootRequest.address) &&
         Objects.equals(this.comments, RootRequest.comments) &&
         Objects.equals(this.maxDailyHours, RootRequest.maxDailyHours) &&
@@ -532,8 +470,8 @@ public class RootRequest {
         Objects.equals(this.employeePhoto, RootRequest.employeePhoto) &&
         Objects.equals(this.customField2, RootRequest.customField2) &&
         Objects.equals(this.payRate, RootRequest.payRate) &&
-        Objects.equals(this.phone2, RootRequest.phone2) &&
         Objects.equals(this.priorityGroup, RootRequest.priorityGroup) &&
+        Objects.equals(this.phones, RootRequest.phones) &&
         Objects.equals(this.nextAlertDate, RootRequest.nextAlertDate) &&
         Objects.equals(this.cell, RootRequest.cell) &&
         Objects.equals(this.employeeNumber, RootRequest.employeeNumber) &&
@@ -541,14 +479,13 @@ public class RootRequest {
         Objects.equals(this.empTypeId, RootRequest.empTypeId) &&
         Objects.equals(this.googleCalExport, RootRequest.googleCalExport) &&
         Objects.equals(this.maxWeeklyDays, RootRequest.maxWeeklyDays) &&
-        Objects.equals(this.phone, RootRequest.phone) &&
         Objects.equals(this.maxDailyShifts, RootRequest.maxDailyShifts) &&
         Objects.equals(this.email, RootRequest.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxScheduledHours, lastName, positionIds, hireDate, accessibilityMode, address, comments, maxDailyHours, customField1, employeePhoto, customField2, payRate, phone2, priorityGroup, nextAlertDate, cell, employeeNumber, firstName, empTypeId, googleCalExport, maxWeeklyDays, phone, maxDailyShifts, email);
+    return Objects.hash(maxScheduledHours, lastName, hireDate, address, comments, maxDailyHours, customField1, employeePhoto, customField2, payRate, priorityGroup, phones, nextAlertDate, cell, employeeNumber, firstName, empTypeId, googleCalExport, maxWeeklyDays, maxDailyShifts, email);
   }
 
 
@@ -559,9 +496,7 @@ public class RootRequest {
     
     sb.append("    maxScheduledHours: ").append(toIndentedString(maxScheduledHours)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    positionIds: ").append(toIndentedString(positionIds)).append("\n");
     sb.append("    hireDate: ").append(toIndentedString(hireDate)).append("\n");
-    sb.append("    accessibilityMode: ").append(toIndentedString(accessibilityMode)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    maxDailyHours: ").append(toIndentedString(maxDailyHours)).append("\n");
@@ -569,8 +504,8 @@ public class RootRequest {
     sb.append("    employeePhoto: ").append(toIndentedString(employeePhoto)).append("\n");
     sb.append("    customField2: ").append(toIndentedString(customField2)).append("\n");
     sb.append("    payRate: ").append(toIndentedString(payRate)).append("\n");
-    sb.append("    phone2: ").append(toIndentedString(phone2)).append("\n");
     sb.append("    priorityGroup: ").append(toIndentedString(priorityGroup)).append("\n");
+    sb.append("    phones: ").append(toIndentedString(phones)).append("\n");
     sb.append("    nextAlertDate: ").append(toIndentedString(nextAlertDate)).append("\n");
     sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    employeeNumber: ").append(toIndentedString(employeeNumber)).append("\n");
@@ -578,7 +513,6 @@ public class RootRequest {
     sb.append("    empTypeId: ").append(toIndentedString(empTypeId)).append("\n");
     sb.append("    googleCalExport: ").append(toIndentedString(googleCalExport)).append("\n");
     sb.append("    maxWeeklyDays: ").append(toIndentedString(maxWeeklyDays)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    maxDailyShifts: ").append(toIndentedString(maxDailyShifts)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");

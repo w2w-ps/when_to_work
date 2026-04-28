@@ -79,3 +79,6 @@ Page.wsGetEmployeeDetailsonSuccess = function (variable, data) {
     });
     localStorage.setItem('empIdList', JSON.stringify(empIds));
 };
+Page.btnAddNewEmployeeClick = function ($event, widget) {
+    App.redirectTo('mgrnewemp');
+};
