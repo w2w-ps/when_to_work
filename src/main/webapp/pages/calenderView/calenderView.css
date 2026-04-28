@@ -11,7 +11,7 @@
 
 .cal-cell-other-month .app-container {
     border-bottom: 3px solid black !important;
-  
+
 }
 
 .app-livelist.cal-emp-list {
@@ -24,7 +24,15 @@ app-partial-scheduletopnav {
     width: 100% !important;
 }
 
+
 .list-bordered {
     border: 1px solid black !important;
     border-radius: 0;
+}
+
+
+.time-group-divider {
+    border-top: 1px solid #D0D0D0;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
