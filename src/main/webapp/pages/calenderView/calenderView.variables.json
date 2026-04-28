@@ -35,16 +35,20 @@
       "value" : "1",
       "type" : "string"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
       "target" : "endDate",
-      "value" : "2026-04-30",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
       "value" : "bind:App.Variables.appSelectedGrouping.dataSet.grouping",
       "type" : "string"
     }, {
-      "target" : "startDate",
-      "value" : "2026-04-01",
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NjcxNDQxLCJleHAiOjE3NzY2NzMyNDF9.MSc22GXGjaJq6hXhUpzOUxkktiYn0Dsl75Cwgw-UF8jnNKdeed1Jq_mFatFtnUsPIoJjGqKNGesH0K9lNawW69p_h1TiFxVEpzV6I8ZC9_WJ5vHU7u1WjyzNAoWDTiC-XNAvCn9kvf4AYDBAZ2xXm_LCfrRXfgZqREF7nVYVyMirHFUu3wA_KU7u0MXYOdzm9pRvg0G1z-W0FvED0kECH3xkTu271IxPna9oJGHGLQZpeUxhpcBUIGqs_r4hSoZ7fayMOr7ZTzxNH24pyQ_bKFlWgRfxNrMgttYtqM4Z39__qJVS33dRIXEV4sjjrU5HPYgZ4eZXE71dXj-LZQgIUQ",
       "type" : "string"
     } ],
     "type" : "categoryShiftTimings.RootResponse",
@@ -54,7 +58,7 @@
     "operationType" : "get",
     "serviceType" : "RestService",
     "dataSet" : [ ],
-    "isList" : false,
+    "isList" : true,
     "maxResults" : 20,
     "onSuccess" : "svcalendarCategoryViewonSuccess(variable, data)",
     "startUpdate" : false,
@@ -74,16 +78,16 @@
       "value" : "1",
       "type" : "string"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "string"
+    }, {
       "target" : "endDate",
-      "value" : "2026-04-30",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
       "value" : "position_shift_timings",
-      "type" : "string"
-    }, {
-      "target" : "startDate",
-      "value" : "2026-04-01",
       "type" : "string"
     }, {
       "target" : "Authorization",
@@ -120,11 +124,11 @@
       "type" : "string"
     }, {
       "target" : "startDate",
-      "value" : "2026-04-01",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
       "type" : "string"
     }, {
       "target" : "endDate",
-      "value" : "2026-04-30",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "string"
     }, {
       "target" : "grouping",
@@ -160,16 +164,16 @@
       "value" : "1",
       "type" : "java.lang.String"
     }, {
+      "target" : "startDate",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
+      "type" : "java.lang.String"
+    }, {
       "target" : "endDate",
-      "value" : "2026-04-30",
+      "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
       "type" : "java.lang.String"
     }, {
       "target" : "grouping",
       "value" : "cat_shift_timings",
-      "type" : "java.lang.String"
-    }, {
-      "target" : "startDate",
-      "value" : "2026-04-01",
       "type" : "java.lang.String"
     } ],
     "type" : "calendarShortCategoryView.RootResponse",
@@ -190,5 +194,21 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "calendarShortCategoryView"
+  },
+  "vmCalendarDateRange" : {
+    "_id" : "wm-vmCalendarDateRange-wm.Variable-1777351645858",
+    "name" : "vmCalendarDateRange",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "startDate" : "",
+        "endDate" : ""
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
   }
 }

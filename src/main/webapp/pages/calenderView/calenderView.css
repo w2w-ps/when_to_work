@@ -24,6 +24,7 @@
     margin-bottom: 4px;
 }
 
-app-partial-monthlyview {
+app-partial-monthlyview,
+app-partial-scheduletopnav {
     width: 100% !important;
 }
