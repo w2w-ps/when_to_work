@@ -108,9 +108,10 @@
                   <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container86_1"
                     class="app-container-default" variant="default" padding="15px unset unset unset">
                     <wm-icon name="icon6" class="purple" variant="purple" iconclass="fa fa-diamond"></wm-icon>
-                    <wm-label name="lblEmployeeName"
-                      caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First Last') ? (item.firstName + ' ' + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ?  (item.lastName + ', ' + item.firstName) :(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First L.') ? (item.firstName + ', ' + item.lastName.charAt(0)+&quot;.&quot;) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'F.Last') ? (item.firstName.charAt(0)+&quot;. &quot; + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, F.') ? (item.lastName+&quot;, &quot; +item.firstName+ &quot;.&quot;) : (item.firstName + &quot; &quot; + item.lastName)"
-                      class="label-label-bold" variant="label-bold"></wm-label>
+                    <wm-anchor margin="unset 0.5em" name="anchor12"
+                      class="anchor-standard-xs-bold anchor-standard-10-700" variant="standard-10-700"
+                      caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First Last') ? (item.firstName + ' ' + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ?  (item.lastName + ', ' + item.firstName) :(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First L.') ? (item.firstName + ', ' + item.lastName.charAt(0)+&quot;.&quot;) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'F.Last') ? (item.firstName.charAt(0)+&quot;. &quot; + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, F.') ? (item.lastName+&quot;, &quot; +item.firstName+ &quot;.&quot;) : (item.firstName + &quot; &quot; + item.lastName)">
+                    </wm-anchor>
                   </wm-container>
                   <wm-container direction="column" alignment="start" gap="auto" width="hug" name="container87"
                     class="app-container-default" variant="default" wrap="false" padding="unset 10px" height="hug"
