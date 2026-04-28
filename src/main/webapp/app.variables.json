@@ -316,6 +316,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgrnewemp" : {
+    "_id" : "wm-goToPage_mgrnewemp-wm.NavigationAction-1777007744075",
+    "name" : "goToPage_mgrnewemp",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrnewemp",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_mgrschedulecfgmonth" : {
     "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776665125736",
     "name" : "goToPage_mgrschedulecfgmonth",

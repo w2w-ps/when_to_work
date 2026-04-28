@@ -2,10 +2,10 @@
   "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/employees/1",
   "method" : "PATCH",
   "headers" : {
-    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg" ]
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MzQyNTI2LCJleHAiOjE3NzczNDQzMjZ9.ZaEuMxaLvItOAH_H-iwa2JCyQ1H9BNMB7dy0V0gJwN94ZcuN_u_isf-_p4-1umooVoRX33YyXJddSu6iRcras0IjzLR-l_U_bhOJ22HSMT2is6n5kO9KLqtQVSoFsjYS6sNi5Xwibw87ozwMv84JEIFQ3DNPehYHIVrgi1f7V5zytOlaYv94Lkp39wUNoN63zusoFEJPbOAWZXXX9PB0rtGqYS2RYaAD2m9z_5qqRmMekirneJZhT8qTgX-G37C3j0J3OGIM-4U1zscDfQ-E2LhBmLppJnFFhTtgFHgDwelwXx0kNQN4tSdWtOzsL47FW-LL7VVub3O8R3X7SuVVIw" ]
   },
   "redirectEnabled" : true,
-  "requestBody" : "{\n  \"firstName\": \"Alex\",\n  \"lastName\": \"Morgan-Revised\",\n  \"email\": \"santoshpatel121@gmail.com\"\n  \n}",
+  "requestBody" : "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"employeeNumber\": \"EMP-001\",\n  \"phone\": \"555-0101\",\n  \"phone2\": \"555-0102\",\n  \"cell\": \"555-0103\",\n  \"hireDate\": \"2023-10-27T09:00:00\",\n  \"maxScheduledHours\": 40,\n  \"maxDailyHours\": 8,\n  \"payRate\": 25.5,\n  \"empTypeId\": 1,\n  \"address\": {\n    \"address\": \"123 Main St\",\n    \"address2\": \"Suite 100\",\n    \"city\": \"Springfield\",\n    \"state\": \"IL\",\n    \"zip\": \"62704\"\n  },\n  \"maxWeeklyDays\": 5,\n  \"maxDailyShifts\": 1,\n  \"comments\": \"Highly reliable team player.\",\n  \"priorityGroup\": \"A\",\n  \"googleCalExport\": true,\n  \"nextAlertDate\": \"2023-12-31\",\n  \"customField1\": \"Custom Value 1\",\n  \"customField2\": \"Custom Value 2\",\n  \"employeePhoto\": \"data:image/png;base64,iVBOR...\",\n  \"positionIds\": [1, 2, 5],\n  \"accessibilityMode\": false\n}",
   "queryParams" : { },
   "authDetails" : null,
   "contentType" : "application/json",
@@ -14,7 +14,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Tue, 21 Apr 2026 03:45:54 GMT" ],
+      "Date" : [ "Tue, 28 Apr 2026 02:15:54 GMT" ],
       "Connection" : [ "keep-alive" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "X-XSS-Protection" : [ "0" ],

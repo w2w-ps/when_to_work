@@ -1,11 +1,11 @@
 {
-  "basePath" : "${rest.PatchEmployeeById.basepath}",
+  "basePath" : "${rest.AddEmployee.basepath}",
   "paths" : {
-    "/employees/1" : {
-      "patch" : {
+    "/employees" : {
+      "post" : {
         "x-WM-METHOD_NAME" : "invoke",
         "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
-        "operationId" : "PatchEmployeeById_invoke",
+        "operationId" : "AddEmployee_invoke",
         "responses" : {
           "200" : {
             "schema" : {
@@ -38,21 +38,21 @@
           "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
           "required" : false
         } ],
-        "tags" : [ "PatchEmployeeById" ],
+        "tags" : [ "AddEmployee" ],
         "consumes" : [ "application/json" ]
       },
-      "x-WM-BASE_PATH" : "/employees/1",
-      "x-WM-TAG" : "PatchEmployeeById",
+      "x-WM-BASE_PATH" : "/employees",
+      "x-WM-TAG" : "AddEmployee",
       "x-WM-RELATIVE_PATH" : "",
-      "x-WM-COMPLETE_PATH" : "${rest.PatchEmployeeById.scheme}://${rest.PatchEmployeeById.host}${rest.PatchEmployeeById.basepath}/employees/1"
+      "x-WM-COMPLETE_PATH" : "${rest.AddEmployee.scheme}://${rest.AddEmployee.host}${rest.AddEmployee.basepath}/employees"
     }
   },
-  "host" : "${rest.PatchEmployeeById.host}",
-  "schemes" : [ "${rest.PatchEmployeeById.scheme}" ],
+  "host" : "${rest.AddEmployee.host}",
+  "schemes" : [ "${rest.AddEmployee.scheme}" ],
   "definitions" : {
     "Request.address" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Request.address",
-      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Request.address",
+      "x-WM-TAGS" : [ "AddEmployee" ],
       "required" : [ "address", "address2", "city", "state", "zip" ],
       "properties" : {
         "zip" : {
@@ -73,8 +73,8 @@
       }
     },
     "Response.div" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.div",
-      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Response.div",
+      "x-WM-TAGS" : [ "AddEmployee" ],
       "required" : [ "__text", "style" ],
       "properties" : {
         "__text" : {
@@ -86,9 +86,9 @@
       }
     },
     "RootRequest" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.RootRequest",
-      "x-WM-TAGS" : [ "PatchEmployeeById" ],
-      "required" : [ "accessibilityMode", "address", "cell", "comments", "customField1", "customField2", "email", "empTypeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastName", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phone", "phone2", "positionIds", "priorityGroup" ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.RootRequest",
+      "x-WM-TAGS" : [ "AddEmployee" ],
+      "required" : [ "address", "cell", "comments", "customField1", "customField2", "email", "empTypeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastName", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phones", "priorityGroup" ],
       "properties" : {
         "maxScheduledHours" : {
           "format" : "int32",
@@ -97,19 +97,8 @@
         "lastName" : {
           "type" : "string"
         },
-        "positionIds" : {
-          "x-WM-IS_LIST" : true,
-          "type" : "array",
-          "items" : {
-            "format" : "int32",
-            "type" : "integer"
-          }
-        },
         "hireDate" : {
           "type" : "string"
-        },
-        "accessibilityMode" : {
-          "type" : "boolean"
         },
         "address" : {
           "$ref" : "#/definitions/Request.address"
@@ -134,11 +123,15 @@
           "format" : "double",
           "type" : "number"
         },
-        "phone2" : {
-          "type" : "string"
-        },
         "priorityGroup" : {
           "type" : "string"
+        },
+        "phones" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         },
         "nextAlertDate" : {
           "type" : "string"
@@ -163,9 +156,6 @@
           "format" : "int32",
           "type" : "integer"
         },
-        "phone" : {
-          "type" : "string"
-        },
         "maxDailyShifts" : {
           "format" : "int32",
           "type" : "integer"
@@ -176,8 +166,8 @@
       }
     },
     "Response.body" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.body",
-      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Response.body",
+      "x-WM-TAGS" : [ "AddEmployee" ],
       "required" : [ "parsererror" ],
       "properties" : {
         "parsererror" : {
@@ -186,8 +176,8 @@
       }
     },
     "RootResponse" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.RootResponse",
-      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.RootResponse",
+      "x-WM-TAGS" : [ "AddEmployee" ],
       "required" : [ "body" ],
       "properties" : {
         "body" : {
@@ -196,8 +186,8 @@
       }
     },
     "Response.parsererror" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.parsererror",
-      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Response.parsererror",
+      "x-WM-TAGS" : [ "AddEmployee" ],
       "required" : [ "div", "h3", "style" ],
       "properties" : {
         "div" : {
@@ -220,13 +210,13 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "92f392f1-3916-4201-af96-7eb6160238b6",
+    "x-WM-API_ID" : "e5a69515-e037-4662-8484-5a6a4a9e4bd2",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
   },
   "tags" : [ {
-    "name" : "PatchEmployeeById"
+    "name" : "AddEmployee"
   } ]
 }
