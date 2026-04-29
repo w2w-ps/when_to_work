@@ -86,16 +86,19 @@ function buildCombinedPositionsDataset() {
 
     combined.push({
         displayLabel: "Add/Edit Positions",
+        id: "addoredit",
         isHeader: false
     });
 
     combined.push({
         displayLabel: "-------------------",
+        id: "",
         isHeader: false
     });
 
     combined.push({
         displayLabel: "Select Group / Positions",
+        id: "selectgrouporposition",
         isHeader: false
     });
 
@@ -116,6 +119,7 @@ function buildCombinedPositionsDataset() {
 
     combined.push({
         displayLabel: "-------------------",
+        id: "",
         isHeader: false
     });
 
@@ -132,7 +136,7 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    if (newVal && newVal.displayLabel === 'Add/Edit Positions') {
+    if (newVal && newVal.id === 'addoredit') {
         Partial.App.Actions.goToPage_AddOrEditPosition.invoke();
     }
     Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
