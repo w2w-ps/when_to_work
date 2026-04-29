@@ -16,12 +16,10 @@ Page.onReady = function () {
      */
 
     // Page.selectedDay = "Mon Apr 6 2026";
-    debugger
 
-    Page.Widgets.WorkPreference2.weekpreferencedata = App.Variables.selectedpreference.dataSet;
 };
 Page.button3Click = function ($event, widget) {
-    debugger
+
     let repeatCount = Page.Widgets.select2.datavalue == "Repeat 1Week(This Week Only)"
         ? 1
         : parseInt(Page.Widgets.select2.datavalue);
@@ -40,4 +38,7 @@ Page.button3Click = function ($event, widget) {
     Page.Variables.PostDayPref.invoke({
         "inputFields": { RequestBody: data }
     });
+};
+Page.WorkPreference2Load = function ($event, $data) {
+    Page.Widgets.WorkPreference2.weekpreferencedata = JSON.parse(localStorage.getItem('selectedpreference') || '{}');
 };
