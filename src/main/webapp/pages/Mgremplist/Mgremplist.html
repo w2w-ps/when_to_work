@@ -73,10 +73,13 @@
                             <wm-search name="search1" placeholder="Find" width="150px" datafield="All Fields"
                                 on-change="search1Change($event, widget, newVal, oldVal)" type="autocomplete"
                                 variant="standard" showclear="true"></wm-search>
-                            <wm-select name="selStatus" dataset="All Status, Active, Inactive" placeholder="All Status"
-                                variant="standard" width="150px"></wm-select>
-                            <wm-select name="selPositions" dataset="All Positions" placeholder="All Positions"
-                                width="150px"></wm-select>
+                            <wm-menu name="selStatus" dataset="bind:Variables.statusOptionsVar.dataSet"
+                                caption="All Status" itemlabel="label" itemicon="iconclass" menuposition="down,left"
+                                width="150px" on-select="selStatusChange($event, widget, $item)"></wm-menu>
+                            <wm-select name="selPositions" dataset="bind:Variables.positionsDropdownData.dataSet"
+                                placeholder="All Positions" width="150px" datafield="value" displayfield="label"
+                                variant="standard" on-change="selPositionsChange($event, widget, newVal, oldVal)">
+                            </wm-select>
                         </wm-container>
                         <!-- FILTER ROW -->
                         <!-- EMPLOYEE TABLE -->
@@ -235,15 +238,21 @@
                                 variant="icon-14"></wm-icon>
                             <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700 ps-2"
                                 variant="label-14-700"></wm-label>
-                            <wm-icon name="iconFullTime" iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3">
+                            <wm-icon name="iconFullTime" iconclass="wi wi-diamond" iconsize="sm" class="purple ps-3">
                             </wm-icon>
                             <wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label>
-                            <wm-icon name="iconPartTime" iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3">
+                            <wm-icon name="iconPartTime" iconclass="wi wi-diamond" iconsize="sm" class="blue ps-3">
                             </wm-icon>
                             <wm-label name="lblPartTime" caption="Part Time" variant="default"></wm-label>
-                            <wm-icon name="iconPerDiem" iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3">
+                            <wm-icon name="iconPerDiem" iconclass="wi wi-diamond" iconsize="sm" class="orange ps-3">
                             </wm-icon>
                             <wm-label name="lblPerDiem" caption="Per Diem" variant="default"></wm-label>
+                            <wm-icon name="iconOrangeDiamond" iconclass="wi wi-diamond" iconsize="sm"
+                                class="orange ps-3"></wm-icon>
+                            <wm-label name="lblOrangeDiamond" caption="Orange Diamond" variant="default"></wm-label>
+                            <wm-icon name="iconGreenDiamond" iconclass="wi wi-diamond" iconsize="sm" class="green ps-3">
+                            </wm-icon>
+                            <wm-label name="lblGreenDiamond" caption="Green Diamond" variant="default"></wm-label>
                         </wm-container>
                         <!-- Instructional text -->
                         <wm-label name="lblInstruction1"
