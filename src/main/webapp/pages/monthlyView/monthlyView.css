@@ -1,9 +1,13 @@
 .month-label {
-    width: 82px;
+    width: 130px;
+    height: 36px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calendar-dropdown-popup {
-
     position: absolute;
     top: 100%;
     left: 260px;
