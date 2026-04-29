@@ -1,8 +1,3 @@
-.positions-section-container {
-  background-color: #e8eaf0;
-  border-radius: 8px;
-}
-
 .position-list-item {
   background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -18,7 +13,10 @@
 }
 
 .drag-handle {
-  cursor: grab;
+  cursor: grab !important;
+  font-size: 18px;
+  color: #666666;
+  user-select: none;
 }
 
 .delete-column-header-row {
@@ -32,11 +30,6 @@
   font-size: 13px;
 }
 
-.delete-col-icon {
-  color: #c0392b;
-  font-size: 14px;
-}
-
 .delete-list-row {
   border-bottom: 1px solid #d8dce8;
   background: transparent;
@@ -46,11 +39,23 @@
   padding: 0px;
 }
 
-.label-delete-col-header {
-  font-size: 13px;
-  font-weight: 600;
+.app-list-reorder-handle {
+  display: none !important;
 }
 
-.label-delete-position-name {
-  font-size: 14px;
+.wm-list-item-drag-handle {
+  display: none !important;
+}
+
+.positions-reorder-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.drag-handle-active {
+  cursor: grabbing;
+}
+
+.app-list-item {
+  cursor: default !important;
 }

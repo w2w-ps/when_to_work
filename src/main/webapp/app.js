@@ -73,10 +73,16 @@ App.redirectTo = function (pageName) {
 };
 
 App.redirectToNewtab = function (pageName) {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
     const currentUrl = window.location.href;
     let popupUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + "/" + pageName;
     window.open(
-        popupUrl, "_blank");
+  popupUrl,
+  "_blank",
+  `width=${screenWidth},height=${screenHeight}`
+);
 };
 
 App.svGetAllPositionsByCompanyIdonSuccess = function (variable, data) {
