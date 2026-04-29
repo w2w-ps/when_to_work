@@ -1,31 +1,79 @@
 <wm-page name="page" pagetitle="Emppreferencesday">
-<wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
-<wm-content name="content">
-<wm-page-content columnwidth="12" name="pagecontent">
-<wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container12" class="app-container-default popout-container-wrapper" variant="default" wrap="false">
-<wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container11_1" class="app-container-default" variant="default" wrap="false">
-<wm-label padding="unset" caption="Special Hourly Preferences for" class="pt-4 label-label-18-700" type="p" name="label1" variant="label-18-700"></wm-label>
-<wm-label padding="unset" caption="bind:Variables.selectedpreference.dataSet.selectedDay + &quot;, &quot; +
-((Variables.selectedpreference.dataSet.selectedDate | toDate:'MMM dd, yyyy') || &quot;&quot;)" class="label-label-18-700" type="p" variant="label-18-700" name="label6"></wm-label>
-<wm-label padding="unset" caption="(These preferences override your Repeating Weekly Preferences)" class="pt-2 label-label-12-700 pb-2" type="p" variant="label-12-700" name="label7"></wm-label></wm-container>
-<wm-container direction="row" alignment="middle-center" gap="4" name="container11" class="app-container-default" variant="default" clipcontent="false" overflow="none" width="100%">
-<wm-container direction="column" alignment="top-center" gap="20" name="container7" variant="default" wrap="false" clipcontent="false" overflow="none" width="100%">
-<wm-container direction="column" alignment="top-left" gap="4" name="container1" class="container-grey-standard" variant="grey-standard" wrap="false" clipcontent="false" overflow="none" width="100%">
-<wm-prefab prefabname="WorkPreference" name="WorkPreference2" singleday="true" readonly="false" showweekdropdown="false" weekpreferencedata="bind:Variables.selectedpreference.dataSet" choosedate="bind:Variables.selectedpreference.dataSet.startDate" width="100%" headercaption="bind:&quot;Time &gt;&quot; " usagecontext="emppreferencesday"></wm-prefab>
-<wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container3" class="app-container-default" variant="default" clipcontent="false">
-<wm-composite name="composite2" width="50%">
-<wm-container class="col-md-9 app-container-default" name="container5" variant="default" width="fill" clipcontent="false">
-<wm-select name="select2" variant="standard" width="100%" dataset="Repeat 1Week(This Week Only),2,3,4,5,6,7,8,9,10,11,12,13,14,15,16" datafield="All Fields" datavalue="Repeat 1Week(This Week Only)"></wm-select></wm-container></wm-composite></wm-container></wm-container>
-<wm-container direction="row" alignment="top-left" width="fill" name="container4" class="app-container-default" variant="default">
-<wm-container direction="row" alignment="top-left" gap="4" width="hug" name="container9" variant="default">
-<wm-button class="btn-outlined-primary-sm" caption="COPY Preferances" type="button" margin="unset" name="button1" variant="outlined-primary-sm"></wm-button>
-<wm-button class="btn-outlined-primary-sm" caption="PASTE Preferences" type="button" margin="unset" variant="outlined-primary-sm" name="button2"></wm-button></wm-container>
-<wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container10" class="app-container-default" variant="default">
-<wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset" variant="outlined-primary" name="button3" on-click="button3Click($event, widget)"></wm-button></wm-container></wm-container>
-<wm-container direction="column" alignment="middle-left" gap="15" width="fill" name="container6" class="container-grey-standard" variant="grey-standard" wrap="false">
-<wm-label padding="unset" caption="Information" class="label-label-20-700" type="p" name="label2" variant="label-20-700"></wm-label>
-<wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container8" variant="default">
-<wm-label padding="unset" caption="- If you have" class="p" type="p" name="label3" variant="default"></wm-label>
-<wm-label padding="unset" caption="specific dates or times that you wish to be unavailable," class="label-label-14-700" type="p" variant="label-14-700" name="label4"></wm-label>
-<wm-label padding="unset" caption="send a Time Off Request to your manager." class="p" type="p" variant="default" name="label5"></wm-label></wm-container></wm-container></wm-container></wm-container></wm-container></wm-page-content></wm-content>
-<wm-footer content="footer" name="footer"></wm-footer></wm-page>
+    <wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container12"
+                class="app-container-default popout-container-wrapper" variant="default" wrap="false">
+                <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container11_1"
+                    class="app-container-default" variant="default" wrap="false">
+                    <wm-label padding="unset" caption="Special Hourly Preferences for" class="pt-4 label-label-18-700"
+                        type="p" name="label1" variant="label-18-700"></wm-label>
+                    <wm-label padding="unset" caption="bind:Variables.selectedpreference.dataSet.selectedDay + &quot;, &quot; +
+((Variables.selectedpreference.dataSet.selectedDate | toDate:'MMM dd, yyyy') || &quot;&quot;)"
+                        class="label-label-18-700" type="p" variant="label-18-700" name="label6"></wm-label>
+                    <wm-label padding="unset" caption="(These preferences override your Repeating Weekly Preferences)"
+                        class="pt-2 label-label-12-700 pb-2" type="p" variant="label-12-700" name="label7"></wm-label>
+                </wm-container>
+                <wm-container direction="row" alignment="middle-center" gap="4" name="container11"
+                    class="app-container-default" variant="default" clipcontent="false" overflow="none" width="100%">
+                    <wm-container direction="column" alignment="top-center" gap="20" name="container7" variant="default"
+                        wrap="false" clipcontent="false" overflow="none" width="100%">
+                        <wm-container direction="column" alignment="top-left" gap="4" name="container1"
+                            class="container-grey-standard" variant="grey-standard" wrap="false" clipcontent="false"
+                            overflow="none" width="100%">
+                            <wm-prefab prefabname="WorkPreference" name="WorkPreference2" singleday="true"
+                                readonly="false" showweekdropdown="false"
+                                weekpreferencedata="bind:Variables.selectedpreference.dataSet"
+                                choosedate="bind:Variables.selectedpreference.dataSet.startDate" width="100%"
+                                headercaption="bind:&quot;Time &gt;&quot; " usagecontext="emppreferencesday"
+                                on-load="WorkPreference2Load($event, $data)"></wm-prefab>
+                            <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
+                                name="container3" class="app-container-default" variant="default" clipcontent="false">
+                                <wm-composite name="composite2" width="50%">
+                                    <wm-container class="col-md-9 app-container-default" name="container5"
+                                        variant="default" width="fill" clipcontent="false">
+                                        <wm-select name="select2" variant="standard" width="100%"
+                                            dataset="Repeat 1Week(This Week Only),2,3,4,5,6,7,8,9,10,11,12,13,14,15,16"
+                                            datafield="All Fields" datavalue="Repeat 1Week(This Week Only)"></wm-select>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-container>
+                        </wm-container>
+                        <wm-container direction="row" alignment="top-left" width="fill" name="container4"
+                            class="app-container-default" variant="default">
+                            <wm-container direction="row" alignment="top-left" gap="4" width="hug" name="container9"
+                                variant="default">
+                                <wm-button class="btn-outlined-primary-sm" caption="COPY Preferances" type="button"
+                                    margin="unset" name="button1" variant="outlined-primary-sm"></wm-button>
+                                <wm-button class="btn-outlined-primary-sm" caption="PASTE Preferences" type="button"
+                                    margin="unset" variant="outlined-primary-sm" name="button2"></wm-button>
+                            </wm-container>
+                            <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
+                                name="container10" class="app-container-default" variant="default">
+                                <wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset"
+                                    variant="outlined-primary" name="button3" on-click="button3Click($event, widget)">
+                                </wm-button>
+                            </wm-container>
+                        </wm-container>
+                        <wm-container direction="column" alignment="middle-left" gap="15" width="fill" name="container6"
+                            class="container-grey-standard" variant="grey-standard" wrap="false">
+                            <wm-label padding="unset" caption="Information" class="label-label-20-700" type="p"
+                                name="label2" variant="label-20-700"></wm-label>
+                            <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="container8"
+                                variant="default">
+                                <wm-label padding="unset" caption="- If you have" class="p" type="p" name="label3"
+                                    variant="default"></wm-label>
+                                <wm-label padding="unset"
+                                    caption="specific dates or times that you wish to be unavailable,"
+                                    class="label-label-14-700" type="p" variant="label-14-700" name="label4"></wm-label>
+                                <wm-label padding="unset" caption="send a Time Off Request to your manager." class="p"
+                                    type="p" variant="default" name="label5"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer"></wm-footer>
+</wm-page>
