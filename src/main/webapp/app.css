@@ -29,6 +29,7 @@
     --wm-color-violetcontainer: #F9F1FF;
     --wm-color-violetcontainerborder: #b765dd;
     --wm-color-form-caption: #555;
+    --wm-daynum-bg-color: #f0f1f7;
 }
 
 .open-sans-700 {
@@ -597,6 +598,14 @@ button.close:hover {
     margin: 10px 8px 14px 8px !important;
 }
 
+.cal-day-slots-listgroup .cal-day-slot-item::before {
+    content: "";
+    background-color: var(--wm-color-light-grey);
+    height: 10px;
+    width: 1px;
+    /* position: absolute; */
+    /* left: 0; */
+}
 
 
 

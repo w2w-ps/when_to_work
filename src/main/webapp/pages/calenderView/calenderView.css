@@ -1,21 +1,76 @@
+.nav-tabs,
+.bg-grey {
+    background-color: var(--wm-color-grey-bg-color);
+}
+
 .cal-day-slot-item {
     width: 14.2857% !important;
     min-height: stretch;
 }
 
-.cal-cell-current-month>.app-container:first-of-type {
+.cal-cell-current-month .daynum-label {
     border-bottom: 3px #E70101 solid !important;
     border-radius: 0;
 }
 
 
-.cal-cell-other-month .app-container {
-    border-bottom: 3px solid black !important;
+.cal-cell-other-month .app-container.border-container {
+    border-bottom: 1px solid black !important;
 
+}
+
+.cal-cell-other-month:last-child .app-container.border-container::before {
+    content: "";
+    left: 0;
+    height: 0.5px;
+    width: 100%;
+    top: 23px;
+    position: absolute;
+    background-color: var(--wm-color-black);
+}
+
+.cal-cell-other-month:last-child .app-container.border-container {
+    border-bottom: none !important;
 }
 
 .app-livelist.cal-emp-list {
     min-height: auto !important;
+    box-shadow: none;
+}
+
+.time-group-divider {
+    border-top: 2px solid var(--wm-color-tableborder);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.cal-emp-list ul li,
+.list-group-autolayout li,
+div[name="posListDay"] {
+    background-color: var(--wm-color-white);
+    box-shadow: none !important;
+}
+
+.list-group-autolayout li p {
+    padding-left: 3px;
+}
+
+.red-underlined {
+    border-bottom: 4px var(--wm-color-tablecolumnborder) solid !important;
+}
+
+.black-boxed {
+    background: var(--wm-color-tablecolumnbg);
+    border: 1px solid var(--wm-color-border-color);
+    padding: 2px 5px;
+    border-bottom: 2px solid var(--wm-color-black) !important;
+}
+
+.violet-box {
+    background: var(--wm-color-violetcontainer);
+    border: 1px var(--wm-color-border-color) solid;
+    padding: 2px 5px;
+    border-bottom: 4px solid var(--wm-color-violetcontainerborder) !important;
 }
 
 
@@ -30,9 +85,39 @@ app-partial-scheduletopnav {
     border-radius: 0;
 }
 
+.cal-day-slot-item {
+    /* border-left: 1px solid var(--wm-color-light-grey); */
+    border-bottom: 1px solid var(--wm-color-black);
+    padding-top: 1px;
+}
 
-.time-group-divider {
-    border-top: 1px solid #D0D0D0;
-    margin-top: 4px;
-    margin-bottom: 4px;
+.cal-day-slot-item::after {
+    content: "";
+    height: calc(100% - 24px);
+    width: 1px;
+    position: absolute;
+    left: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
+}
+
+ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+    content: "";
+    height: calc(100% - 24px);
+    width: 0.5px;
+    position: absolute;
+    right: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
+}
+
+ul li.cal-day-slot-item:nth-child(7n) .border-container {
+    flex-grow: 1;
+}
+
+.daynum-label {
+    width: 100%;
+    text-align: center;
+    background: var(--wm-daynum-bg-color);
+    padding-top: 2px;
 }
