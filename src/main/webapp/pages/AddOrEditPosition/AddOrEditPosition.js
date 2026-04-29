@@ -14,6 +14,7 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
+    App.Variables.svGetAllPositionsByCompanyId.invoke();
 };
 Page.addPositionBtnClick = function ($event, widget) {
     if (!Page.Widgets.newPositionInput.datavalue) {

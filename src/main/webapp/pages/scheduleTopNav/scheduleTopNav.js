@@ -5,6 +5,13 @@
 
 /* perform any action on widgets/variables within this block */
 Partial.onReady = function () {
+
+    App.Variables.svGetAllCategoriesByCompanyId.invoke();
+    App.Variables.svGetAllPositionsByCompanyId.invoke();
+    App.Variables.svGetCategoryGroup.invoke();
+    App.Variables.svGetPositionGroup.invoke();
+
+
     buildCombinedCategoriesDataset();
     buildCombinedPositionsDataset();
 
@@ -137,7 +144,8 @@ function buildCombinedPositionsDataset() {
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
     if (newVal && newVal.id === 'addoredit') {
-        Partial.App.Actions.goToPage_AddOrEditPosition.invoke();
+        App.redirectToNewtab("AddOrEditPosition");
+        return;
     }
     Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
     if (newVal.id) {
@@ -171,7 +179,6 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
-    debugger;
     if (newVal == 'Calendar View') {
         Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
