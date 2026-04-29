@@ -30,9 +30,11 @@
                                         class="text-muted text-primary" variant="text:primary"></wm-label>
                                 </wm-container>
                                 <wm-list name="positionsList" dataset="bind:Variables.sortedPositionsList.dataSet"
-                                    class="list-card" direction="column" gap="8" alignment="top-left" width="fill"
-                                    height="hug" listclass="list-group" itemclass="position-list-item"
-                                    on-render="positionsListRender($data)" variant="standard">
+                                    class="list-card positions-reorder-list" direction="column" gap="8"
+                                    alignment="top-left" width="fill" height="hug" listclass="list-group"
+                                    itemclass="position-list-item" on-render="positionsListRender($data)"
+                                    variant="standard" enablereorder="true"
+                                    on-reorder="positionsListReorder($event, $data, $changedItem)">
                                     <wm-listtemplate name="positionsListTemplate" direction="row" alignment="center"
                                         gap="auto" width="fill" height="hug">
                                         <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
@@ -42,7 +44,7 @@
                                                 class="label-label-16-400" variant="label-16-400" width="10%"
                                                 on-click="Widgets.editPositionDialog.open()"></wm-label>
                                             <wm-icon name="dragHandleIcon" class="fa-xs drag-handle"
-                                                variant="default:xs" iconclass="wi wi-menu"></wm-icon>
+                                                variant="default:xs" iconclass="wi wi-menu" show="true"></wm-icon>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -125,7 +127,8 @@
                             <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
                                 name="container33_1" class="app-container-default" variant="default">
                                 <wm-button name="deleteSelectedBtnBottom" caption="Delete Selected"
-                                    variant="filled-bg-danger-sm"></wm-button>
+                                    variant="filled-bg-danger-sm" on-click="deleteSelectedBtnTopClick($event, widget)">
+                                </wm-button>
                             </wm-container>
                             <wm-container class="container-grey-standard" variant="grey-standard" direction="column"
                                 gap="8" alignment="top-left" width="fill" height="hug" padding="16px"
@@ -155,12 +158,21 @@
         </wm-page-content>
     </wm-content>
     <wm-footer content="footer" name="footer1"></wm-footer>
-    <wm-dialog name="editPositionDialog" title="Edit this position" closable="true" modal="true">
-        <wm-container name="editPositionDialogBody" direction="column" alignment="top-left" gap="16" width="fill"
+    <wm-dialog name="editPositionDialog" title="" closable="true" modal="true" showheader="false"
+        class="modal-confirm-dialog" variant="confirm-dialog">
+        <wm-container name="editPositionDialogBody" direction="column" alignment="middle-center" gap="16" width="fill"
             height="hug" class="app-container-default" padding="16px 24px">
-            <wm-label name="editPositionWarningLabel"
-                caption="This edited position name will display for all existing Bookkeeper shifts in all schedules including PAST schedules."
-                class="text-center" whitespace="normal"></wm-label>
+            <wm-label padding="unset" caption="Edit this position" class="p label-label-16-400" type="p" name="label17"
+                variant="label-16-400"></wm-label>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container20_1"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-label padding="unset" caption="This edited position name will display" class="p label-label-14-400"
+                    type="p" name="label18" variant="label-14-400"></wm-label>
+                <wm-label padding="unset" caption="for all existing Bookkeeper shifts" class="p label-label-14-400"
+                    type="p" variant="label-14-400" name="label19"></wm-label>
+                <wm-label padding="unset" caption="in all schedules including PAST schedules."
+                    class="p label-label-14-400" type="p" variant="label-14-400" name="label20"></wm-label>
+            </wm-container>
             <wm-text name="editPositionNameInput" datavalue="bind:Widgets.positionsList.selecteditem.description"
                 width="100%"></wm-text>
             <wm-container name="editPositionActionsContainer" direction="row" alignment="middle-center" gap="24"
@@ -169,6 +181,30 @@
                     on-click="Widgets.editPositionDialog.close();Variables.svUpdatePosition.invoke()"></wm-button>
                 <wm-button name="editPositionCancelBtn" caption="Cancel" class="btn-danger-btn" variant="danger-btn"
                     on-click="Widgets.editPositionDialog.close()"></wm-button>
+            </wm-container>
+        </wm-container>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="" name="dialog2" class="modal-confirm-dialog"
+        variant="confirm-dialog" showheader="false">
+        <wm-container direction="column" alignment="middle-center" width="fill" gap="16" wrap="false" name="container21"
+            padding="16px 24px" height="hug" clipcontent="false" overflow="none">
+            <wm-label padding="unset 0.5em" caption="Confirm" name="label23_1" class="label-label-16-400"
+                variant="label-16-400"></wm-label>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container22_1"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-label padding="unset"
+                    caption="Are you sure you want to DELETE the selected position(s)? This will affect"
+                    class="p label-label-14-400 text-center" type="p" name="label24_1" variant="label-14-400">
+                </wm-label>
+                <wm-label padding="unset" caption="your display of all schedules past and future"
+                    class="p label-label-14-400" type="p" name="label26" variant="label-14-400"></wm-label>
+            </wm-container>
+            <wm-container direction="row" alignment="middle-center" gap="16" width="fill" name="container23_1"
+                class="app-container-default" variant="default" clipcontent="false" overflow="none">
+                <wm-button caption="Yes" type="button" margin="unset" name="button7" variant="success-btn"
+                    on-click="Widgets.dialog2.close();button7Click($event, widget)" class="btn-success-btn"></wm-button>
+                <wm-button caption="No" type="button" margin="unset" variant="danger-btn" name="button8"
+                    on-click="Widgets.dialog2.close()" class="btn-danger-btn"></wm-button>
             </wm-container>
         </wm-container>
     </wm-dialog>

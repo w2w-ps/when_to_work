@@ -432,7 +432,7 @@
     },
     "type" : "string",
     "saveInPhonegap" : false,
-    "onSuccess" : "loginActionOnSuccess(variable, data);Variables.svGetAllCategoriesByCompanyId.invoke();Variables.svGetAllPositionsByCompanyId.invoke();Variables.svGetCategoryGroup.invoke();Variables.svGetPositionGroup.invoke()",
+    "onSuccess" : "loginActionOnSuccess(variable, data)",
     "onError" : "loginActionOnError(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
