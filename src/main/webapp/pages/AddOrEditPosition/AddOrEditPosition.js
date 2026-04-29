@@ -14,4 +14,13 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
-}; 
+};
+Page.addPositionBtnClick = function ($event, widget) {
+    if (!Page.Widgets.newPositionInput.datavalue) {
+        Page.alertMsg = 'Please enter a description of the position.';
+        Page.Widgets.dialog1.open();
+        return;
+    } else {
+        Page.Variables.svCreatePosition.invoke();
+    }
+};

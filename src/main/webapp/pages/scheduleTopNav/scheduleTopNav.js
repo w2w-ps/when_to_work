@@ -132,6 +132,9 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
+    if (newVal && newVal.displayLabel === 'Add/Edit Positions') {
+        Partial.App.Actions.goToPage_AddOrEditPosition.invoke();
+    }
     Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
     if (newVal.id) {
         filterShifts();
