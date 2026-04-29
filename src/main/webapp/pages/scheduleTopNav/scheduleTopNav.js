@@ -164,14 +164,12 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
+    debugger;
     if (newVal == 'Calendar View') {
-        Partial.App.Actions.goToPage_calenderView.invoke()
-        App.redirectToNewtab("calenderView");
+        Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
-        Partial.App.Actions.goToPage_Position_view.invoke()
-        App.redirectToNewtab("Position_view");
+        Partial.App.Actions.goToPage_Position_view.invoke();
     } else if (newVal == 'By Employee View') {
-        Partial.App.Actions.goToPage_EmployeeView.invoke()
-        App.redirectToNewtab("EmployeeView");
+        Partial.App.Actions.goToPage_EmployeeView.invoke();
     }
 };
