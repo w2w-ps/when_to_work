@@ -42,8 +42,8 @@ Page.button3Click = function ($event, widget) {
     });
 };
 Page.WorkPreference2Load = function ($event, $data) {
-    Page.Widgets.WorkPreference2.weekpreferencedata = JSON.parse(localStorage.getItem('selectedpreference') || '{}');
-    App.Variables.selectedpreference.dataSet = JSON.parse(localStorage.getItem('selectedpreference') || '{}');
+    Page.Widgets.WorkPreference2.weekpreferencedata = getLocalStorageJSON('selectedpreference');
+    App.Variables.selectedpreference.dataSet = getLocalStorageJSON('selectedpreference');
 };
 
 Page.PostDayPrefonSuccess = function (variable, data) {
@@ -52,3 +52,14 @@ Page.PostDayPrefonSuccess = function (variable, data) {
     }
     window.close();
 };
+
+
+function getLocalStorageJSON(key, defaultValue = {}) {
+    try {
+        const value = localStorage.getItem(key);
+        return value ? JSON.parse(value) : defaultValue;
+    } catch (e) {
+        console.warn(`Invalid JSON in localStorage for key: ${key}`);
+        return defaultValue;
+    }
+}
