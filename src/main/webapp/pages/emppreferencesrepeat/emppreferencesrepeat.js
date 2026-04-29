@@ -38,7 +38,7 @@ Page.button4Click = function ($event, widget) {
 
 
     const combinedPrefs = getCombinedWeekPrefs(
-        Page.Widgets.WorkPreference1.weekpreferencedata
+        [Page.Widgets.WorkPreference1.weekpreferencedata]
     );
 
     let data = {
