@@ -2,120 +2,33 @@
     width: 82px;
 }
 
-.center-nav-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible !important;
-}
-
 .calendar-dropdown-popup {
+
     position: absolute;
     top: 100%;
     left: 260px;
     transform: translateX(-50%);
     z-index: 1000;
-    background: #ffffff;
-    border: 1px solid #d0d7e3;
-    border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-    overflow: visible;
-    padding: 0 !important;
-    min-width: 320px;
 }
 
-.month-nav-bar {
-    overflow: visible !important;
+.app-calendar>div:first-child {
+    gap: 15px;
 }
 
-.calendar-close-btn {
-    color: #444;
-    font-size: 1.1em;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 4px 6px;
-    line-height: 1;
-    text-decoration: none;
+
+/* Hidden by default */
+.left-months-container,
+.right-months-container {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
 }
 
-.calendar-year-nav-btn {
-    color: #1a3a6b;
-    font-size: 1em;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 2px 6px;
-    line-height: 1;
-    text-decoration: none;
-}
-
-.calendar-month-year-label {
-    font-weight: bold;
-    font-size: 1em;
-    color: #1a3a6b;
-    text-align: center;
-}
-
-.calendar-select-btn {
-    background-color: #1a3a6b !important;
-    color: #ffffff !important;
-    font-weight: 600;
-    font-size: 14px;
-    height: 44px;
-    width: 100%;
-    border: none;
-    margin: 0;
-}
-
-.calendar-dropdown-popup .fc-day-other {
-    background-color: #e8e8e8 !important;
-}
-
-.calendar-dropdown-popup .fc-day-today .fc-daygrid-day-number {
-    font-weight: 900 !important;
-    color: #1a3a6b !important;
-}
-
-.calendar-dropdown-popup .fc-day-today {
-    background-color: transparent !important;
-}
-
-.calendar-dropdown-popup .fc .fc-toolbar {
-    display: none !important;
-}
-
-.calendar-dropdown-popup .fc-daygrid-day-number {
-    color: #333;
-    font-size: 13px;
-    padding: 4px 6px;
-}
-
-.calendar-dropdown-popup .fc-col-header-cell-cushion {
-    color: #555;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.calendar-dropdown-popup .fc-daygrid-body table tbody tr:last-child:not(:has(.fc-daygrid-day:not(.fc-day-other))) {
-    display: none;
-}
-
-.calendar-dropdown-popup .fc-daygrid-body table tbody tr {
-    height: 30px;
-    max-height: 30px;
-}
-
-.calendar-dropdown-popup .fc-daygrid-day {
-    height: 30px;
-    max-height: 30px;
-}
-
-.calendar-dropdown-popup .fc-daygrid-day-frame {
-    height: 30px !important;
-    min-height: 30px !important;
-    max-height: 30px !important;
-    overflow: hidden;
+/* Visible on hover of the nav bar */
+.month-nav-bar:hover .left-months-container,
+.month-nav-bar:hover .right-months-container {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }

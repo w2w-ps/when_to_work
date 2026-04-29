@@ -138,7 +138,7 @@ Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
     }
 };
 
-filterShifts = function () {
+function filterShifts() {
     let varName = "";
     if (Partial.App.activePageName === 'Position_view') {
         varName = 'svGetPositionViewScheduling';
@@ -164,11 +164,12 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
+    debugger;
     if (newVal == 'Calendar View') {
-        Partial.App.Actions.goToPage_calenderView.invoke()
+        Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
-        Partial.App.Actions.goToPage_Position_view.invoke()
+        Partial.App.Actions.goToPage_Position_view.invoke();
     } else if (newVal == 'By Employee View') {
-        Partial.App.Actions.goToPage_EmployeeView.invoke()
+        Partial.App.Actions.goToPage_EmployeeView.invoke();
     }
 };
