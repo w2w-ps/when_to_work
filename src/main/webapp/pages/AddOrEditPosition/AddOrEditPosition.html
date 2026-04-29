@@ -1,30 +1,93 @@
-<wm-page name="page" pagetitle="Add Or Edit Position"><wm-left-panel columnwidth="2" content="leftnav" name="leftpanel" navtype="rail" navheight="full"></wm-left-panel>
-<wm-content name="content"><wm-header content="header" name="header" height="auto"></wm-header>
-<wm-page-content columnwidth="12" name="pagecontent">
-<wm-container name="addOrEditParentcontainer" direction="row" gap="16" alignment="top-left" width="fill" height="hug" class="app-container-default" padding="16px">
-<wm-container name="leftColumn" direction="column" gap="16" alignment="top-left" width="300px" height="hug" class="app-container-default">
-<wm-container name="newPositionPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-new-position">
-<wm-container name="newPositionHeader" direction="row" gap="auto" alignment="center" width="fill" height="hug" class="app-container-default">
-<wm-label name="newPositionTitle" caption="New Position" class="app-label h4 panel-section-title"></wm-label>
-<wm-button name="addPositionBtn" caption="Add" class="btn-outlined btn-default btn-add-position" type="button" on-click="Variables.svCreatePosition.invoke()"></wm-button></wm-container>
-<wm-text name="newPositionInput"></wm-text>
-<wm-label name="newPositionHelperText1" caption="After adding, set which employees can work each position on the EMPLOYEES &gt; Positions Grid" class="app-label panel-helper-text"></wm-label></wm-container>
-<wm-container name="recentlyDeletedPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-recently-deleted">
-<wm-label name="recentlyDeletedTitle" caption="Recently Deleted" class="app-label h4 panel-section-title"></wm-label>
-<wm-label name="recentlyDeletedSubtitle" caption="Click Position to restore it." class="app-label panel-subtitle-text"></wm-label>
-<wm-label name="recentlyDeletedMessage" caption="No recently deleted Positions" class="app-label panel-italic-message"></wm-label></wm-container>
-<wm-container name="informationPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-information">
-<wm-label name="informationTitle" caption="Information" class="app-label h4 panel-section-title"></wm-label>
-<wm-label name="infoText1" caption="- Sort order of positions is alphabetical. You can edit positions to have a leading space or hyphen to list them first" class="app-label panel-info-text"></wm-label>
-<wm-label name="infoText2a" caption="- Position not adding? Likely the position was added to the bottom of your list due to a custom sort order of your positions. On the Edit/Delete page you can drag the new position from the bottom of the list to a preferred location." class="app-label panel-info-text"></wm-label>
-<wm-label name="infoText3" caption="- Only the main manager on the account can delete positions." class="app-label panel-info-text"></wm-label></wm-container></wm-container>
-<wm-container name="rightColumn" direction="column" gap="8" alignment="top-left" width="300px" height="hug" class="app-container-default">
-<wm-container name="positionsPanel" direction="column" gap="8" alignment="top-left" width="fill" height="hug" class="panel-positions">
-<wm-container name="positionsHeader" direction="row" gap="auto" alignment="center" width="fill" height="hug" class="app-container-default">
-<wm-label name="positionsTitle" caption="Positions" class="app-label h4 panel-section-title"></wm-label>
-<wm-button name="editDeleteBtn" caption="Edit / Delete" class="btn-outlined btn-default btn-edit-delete" type="button" on-click="Actions.goToPage_EditDeletePosition.invoke()"></wm-button></wm-container>
-<wm-container name="positionsListContainer" direction="column" gap="4" alignment="top-left" width="fill" height="hug" class="panel-positions-list">
-<wm-list name="positionsList" class="list-card" dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions" direction="column" gap="0" alignment="top-left" width="fill" height="hug" listclass="list-group" navigation="None">
-<wm-listtemplate name="positionsListTemplate" direction="row" gap="0" alignment="middle-left" width="fill" height="hug">
-<wm-label name="positionItemLabel" caption="bind:item.description" class="app-label panel-position-item"></wm-label></wm-listtemplate></wm-list></wm-container></wm-container></wm-container></wm-container></wm-page-content>
-<wm-footer content="footer" name="footer"></wm-footer></wm-content></wm-page>
+<wm-page name="page" pagetitle="Add Or Edit Position">
+    <wm-top-nav content="dialogViewTopNav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container11"
+                class="app-container-default" variant="default">
+                <wm-label padding="unset" caption="Add / Edit Positions" class="label-label-18-700" type="p"
+                    name="label12" variant="label-18-700"></wm-label>
+            </wm-container>
+            <wm-container name="addOrEditParentcontainer" direction="row" gap="16" alignment="top-left" width="fill"
+                height="hug" class="app-container-default" padding="16px">
+                <wm-container name="leftColumn" direction="column" gap="16" alignment="top-left" width="300px"
+                    height="hug" class="app-container-default">
+                    <wm-container name="newPositionPanel" direction="column" gap="8" alignment="top-left" width="fill"
+                        height="hug" class="container-grey-standard" variant="grey-standard">
+                        <wm-container name="newPositionHeader" direction="row" gap="auto" alignment="center"
+                            width="fill" height="hug" class="app-container-default">
+                            <wm-label name="newPositionTitle" caption="New Position" variant="label-20-700"
+                                class="label-label-20-700"></wm-label>
+                            <wm-button name="addPositionBtn" caption="Add" class="btn-outlined-primary-sm" type="button"
+                                on-click="addPositionBtnClick($event, widget)" variant="outlined-primary-sm">
+                            </wm-button>
+                        </wm-container>
+                        <wm-text name="newPositionInput" placeholder=""></wm-text>
+                        <wm-label name="newPositionHelperText1"
+                            caption="bind:&quot;After adding, set which employees can work each position on the &lt;b&gt;EMPLOYEES &gt; Positions Grid&lt;/b&gt;&quot;"
+                            class="label-label-12-400" variant="label-12-400"></wm-label>
+                    </wm-container>
+                    <wm-container name="recentlyDeletedPanel" direction="column" gap="8" alignment="top-left"
+                        width="fill" height="hug" class="container-grey-standard" variant="grey-standard">
+                        <wm-label name="recentlyDeletedTitle" caption="Recently Deleted" class="label-label-20-700"
+                            variant="label-20-700"></wm-label>
+                        <wm-label name="recentlyDeletedSubtitle" caption="Click Position to restore it."
+                            class="label-label-12-400" variant="label-12-400"></wm-label>
+                        <wm-label name="recentlyDeletedMessage" caption="No recently deleted Positions"
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                    </wm-container>
+                    <wm-container name="informationPanel" direction="column" gap="8" alignment="top-left" width="fill"
+                        height="hug" class="container-grey-standard" variant="grey-standard">
+                        <wm-label name="informationTitle" caption="Information" class="label-label-20-700"
+                            variant="label-20-700"></wm-label>
+                        <wm-label name="infoText1"
+                            caption="- Sort order of positions is alphabetical. You can edit positions to have a leading space or hyphen to list them first"
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                        <wm-label name="infoText2a"
+                            caption="- Position not adding? Likely the position was added to the bottom of your list due to a custom sort order of your positions. On the Edit/Delete page you can drag the new position from the bottom of the list to a preferred location."
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                        <wm-label name="infoText3"
+                            caption="- Only the main manager on the account can delete positions."
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="rightColumn" direction="column" gap="8" alignment="top-left" width="300px"
+                    height="hug" class="app-container-default">
+                    <wm-container name="positionsPanel" direction="column" gap="8" alignment="top-left" width="fill"
+                        height="hug" class="container-grey-standard" variant="grey-standard">
+                        <wm-container name="positionsHeader" direction="row" gap="auto" alignment="center" width="fill"
+                            height="hug" class="app-container-default">
+                            <wm-label name="positionsTitle" caption="Positions" class="label-label-20-700"
+                                variant="label-20-700"></wm-label>
+                            <wm-button name="editDeleteBtn" caption="Edit / Delete"
+                                class="btn-outlined btn-default btn-edit-delete" type="button"
+                                on-click="Actions.goToPage_EditDeletePosition.invoke()"></wm-button>
+                        </wm-container>
+                        <wm-container name="positionsListContainer" direction="column" gap="4" alignment="top-left"
+                            width="fill" height="hug" padding="unset 4px">
+                            <wm-list name="positionsList" class="list-card"
+                                dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions"
+                                direction="column" gap="0" alignment="top-left" width="fill" height="hug"
+                                listclass="list-group" navigation="None">
+                                <wm-listtemplate name="positionsListTemplate" direction="row" gap="0"
+                                    alignment="middle-left" width="fill" height="hug" padding="unset 2px">
+                                    <wm-label name="positionItemLabel" caption="bind:item.description"
+                                        class="label-label-14-400" variant="label-14-400"></wm-label>
+                                </wm-listtemplate>
+                            </wm-list>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="" name="dialog1" class="modal-confirm-dialog"
+        variant="confirm-dialog" showheader="false">
+        <wm-container direction="column" alignment="middle-center" width="fill" wrap="false" name="container12"
+            height="fill" clipcontent="false" overflow="none" class="pb-2">
+            <wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label16" class="pt-4 pb-4"></wm-label>
+            <wm-button class="mt-4 btn-alert-outlined-primary" caption="OK" type="button" margin="unset" name="button4"
+                variant="alert-outlined-primary" on-click="Widgets.dialog1.close()"></wm-button>
+        </wm-container>
+    </wm-dialog>
+</wm-page>
