@@ -467,7 +467,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-family: 'Open Sans';
 }
 
-.app-calendar {
+.app-calendar:not(.main-celender) {
     position: absolute;
     width: 100% !important;
     z-index: 9999;
@@ -475,23 +475,23 @@ wm-input[name="txtFind"].app-input-wrapper {
     box-shadow: none;
 }
 
-.app-calendar .fc-toolbar-chunk:has(.fc-toolbar-title) {
+.app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-toolbar-title) {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.app-calendar .fc-toolbar-chunk:has(.fc-next-button) {
+.app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-next-button) {
     width: 100%;
     display: flex;
     justify-content: space-between !important;
 }
 
-.app-calendar .fc-next-button {
+.app-calendar:not(.main-celender) .fc-next-button {
     margin: 0 !important;
 }
 
-.app-calendar .fc-daygrid-day {
+.app-calendar:not(.main-celender) .fc-daygrid-day {
     height: 55px !important;
     border-right: 1px solid var(--wm-color-white) !important;
     border-left: 1px solid var(--wm-color-white) !important;
@@ -499,7 +499,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     width: 14.28%;
 }
 
-.app-calendar tr[role="row"]:has(td) {
+.app-calendar:not(.main-celender) tr[role="row"]:has(td) {
     display: flex;
     width: 100%;
     gap: 2px;
@@ -519,7 +519,7 @@ td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day a {
     visibility: hidden;
 }
 
-.app-calendar .fc-toolbar-title {
+.app-calendar:not(.main-celender) .fc-toolbar-title {
     color: var(--wm-color-primary) !important;
 }
 
