@@ -4,7 +4,7 @@
         <wm-container name="leftMonthsContainer" class="app-container-default left-months-container" direction="row"
             gap="4" alignment="middle-left" width="40%" height="hug" clipcontent="false" overflow="none">
             <wm-label name="lblFebruary" caption="February"
-                class="month-label label-highlighted-white-14-400  text-center" on-tap="monthLabelTap($event, widget)">
+                class="month-label label-highlighted-white-14-400 text-center" on-tap="monthLabelTap($event, widget)">
             </wm-label>
             <wm-label name="lblMarch" caption="March" class="month-label label-highlighted-white-14-400  text-center"
                 on-tap="monthLabelTap($event, widget)"></wm-label>
@@ -23,9 +23,9 @@
                 <wm-container direction="row" alignment="bottom-center" gap="4" width="fill" name="container10"
                     class="app-container-default" variant="default" on-tap="centerNavContainerTap($event, widget)">
                     <wm-label name="lblCurrentMonth" caption="Month Year" fontweight="bold"
-                        class="current-month-label text-primary" variant="text:primary"></wm-label>
-                    <wm-icon name="iconCalendar" iconclass="fa fa-calendar fa-lg" iconsize="1.1em" class="fa-xs"
-                        variant="default:xs"></wm-icon>
+                        class="current-month-label label-label-16-700" variant="label-16-700"></wm-label>
+                    <wm-picture resizemode="cover" name="picture1" class="img-rounded" variant="default:rounded"
+                        picturesource="resources/images/imagelists/icon__fa-calendar.png" width="20px"></wm-picture>
                 </wm-container>
                 <wm-anchor name="iconNextMonth" iconclass="" caption="" class="nav-chevron-btn"
                     on-tap="iconNextMonthTap($event, widget)"
