@@ -57,3 +57,9 @@ Page.button4Click = function ($event, widget) {
 
 
 };
+Page.alertdialog1Ok = function ($event, widget) {
+    if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
+    }
+    window.close();
+};
