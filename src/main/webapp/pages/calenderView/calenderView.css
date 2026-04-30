@@ -14,7 +14,7 @@
 }
 
 
-.cal-cell-other-month .app-container.border-container {
+.cal-cell-other-month .app-container.border-container-top {
     border-bottom: 1px solid var(--wm-color-black) !important;
 
 }
@@ -29,7 +29,7 @@
     background-color: var(--wm-color-black);
 }
 
-.cal-cell-other-month:last-child .app-container.border-container {
+.cal-cell-other-month:last-child .app-container.border-container-top {
     border-bottom: none !important;
 }
 
