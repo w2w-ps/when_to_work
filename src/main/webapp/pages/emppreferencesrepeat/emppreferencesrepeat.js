@@ -14,6 +14,8 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
+    Page.Variables.SvGetWeekPreferences.setInput("startDate", getTodayDate());
+    Page.Variables.SvGetWeekPreferences.invoke();
 };
 
 function getCombinedWeekPrefs(weekData) {
@@ -22,7 +24,12 @@ function getCombinedWeekPrefs(weekData) {
 
 function getTodayDate() {
     const today = new Date();
-    return today.toISOString().split('T')[0];
+
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    return `${yyyy}-${mm}-${dd}`;
 }
 
 
@@ -31,7 +38,7 @@ Page.button4Click = function ($event, widget) {
 
 
     const combinedPrefs = getCombinedWeekPrefs(
-        Page.Widgets.WorkPreference1.weekpreferencedata
+        [Page.Widgets.WorkPreference1.weekpreferencedata]
     );
 
     let data = {
@@ -49,4 +56,10 @@ Page.button4Click = function ($event, widget) {
 
 
 
+};
+Page.alertdialog1Ok = function ($event, widget) {
+    if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
+    }
+    window.close();
 };
