@@ -5,11 +5,21 @@
 
 /* perform any action on widgets/variables within this block */
 Partial.onReady = function () {
-
     App.Variables.svGetAllCategoriesByCompanyId.invoke();
     App.Variables.svGetAllPositionsByCompanyId.invoke();
     App.Variables.svGetCategoryGroup.invoke();
     App.Variables.svGetPositionGroup.invoke();
+
+    const activePage = Partial.App.activePageName;
+    if (activePage === 'EmployeeView') {
+        Partial.Widgets.selViewType.datavalue = 'By Employee View';
+    } else if (activePage === 'Position_view') {
+        Partial.Widgets.selViewType.datavalue = 'By Position View';
+    } else if (activePage === 'calenderView') {
+        Partial.Widgets.selViewType.datavalue = 'Calendar View';
+    } else {
+        Partial.Widgets.selViewType.datavalue = 'By Employee View';
+    }
 
 
     buildCombinedCategoriesDataset();
