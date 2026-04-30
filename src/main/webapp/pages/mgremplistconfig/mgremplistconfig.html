@@ -1,109 +1,72 @@
 <wm-page name="page" pagetitle="Mgremplistconfig">
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent">
-            <wm-container direction="row" alignment="top-center" gap="4" width="fill" name="container10"
-                class="app-container-default" variant="default">
-                <wm-label padding="unset" caption="bind:&quot;Configure Employee List&quot;" class="label-label-20-700"
-                    type="p" name="label8" variant="label-20-700"></wm-label>
+            <wm-container direction="row" alignment="top-center" gap="4" width="fill" name="container10" class="app-container-default" variant="default">
+                <wm-label padding="unset" caption="bind:&quot;Configure Employee List&quot;" class="label-label-20-700" type="p" name="label8" variant="label-20-700"></wm-label>
             </wm-container>
-            <wm-container name="emplistconfig_outer" class="app-container-baseview" direction="column" gap="16"
-                alignment="top-center" width="fill" height="hug" padding="16px">
+            <wm-container name="emplistconfig_outer" class="app-container-baseview" direction="column" gap="16" alignment="top-center" width="fill" height="hug" padding="16px">
                 <!-- Include Columns Section -->
-                <wm-container name="include_columns_section" class="app-container-baseview container-grey-standard"
-                    direction="column" gap="12" alignment="top-left" width="100%" height="hug" padding="16px"
-                    variant="grey-standard">
-                    <wm-label name="include_columns_heading" caption="Include Columns" class="h4 label-14-700"
-                        variant="label-14-700"></wm-label>
+                <wm-container name="include_columns_section" class="app-container-baseview container-grey-standard" direction="column" gap="12" alignment="top-left" width="100%" height="hug" padding="16px" variant="grey-standard">
+                    <wm-label name="include_columns_heading" caption="Include Columns" class="h4 label-14-700" variant="label-14-700"></wm-label>
                     <!-- 2-column checkbox grid -->
-                    <wm-container name="checkbox_grid" class="app-container-baseview" direction="row" gap="8"
-                        alignment="top-left" width="fill" height="hug">
+                    <wm-container name="checkbox_grid" class="app-container-baseview" direction="row" gap="8" alignment="top-left" width="fill" height="hug">
                         <!-- Left Column -->
-                        <wm-container name="checkbox_col_left" class="app-container-baseview" direction="column" gap="6"
-                            alignment="top-left" width="50%" height="hug">
-                            <wm-checkboxset name="chk_last_sign_in" dataset="Last Sign In" datavalue="Last Sign In"
-                                height="auto" variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_sign_in_count" dataset="Sign In Count" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
+                        <wm-container name="checkbox_col_left" class="app-container-baseview" direction="column" gap="6" alignment="top-left" width="50%" height="hug">
+                            <wm-checkboxset name="chk_last_sign_in" dataset="Last Sign In" datavalue="Last Sign In" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_sign_in_count" dataset="Sign In Count" height="auto" variant="blue-check-14"></wm-checkboxset>
                             <wm-checkboxset name="chk_address" dataset="Address" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
-                            <wm-checkboxset name="chk_address2" dataset="Address 2" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_address2" dataset="Address 2" height="auto" variant="blue-check-14"></wm-checkboxset>
                             <wm-checkboxset name="chk_city" dataset="City" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
                             <wm-checkboxset name="chk_state" dataset="State" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
                             <wm-checkboxset name="chk_zip" dataset="Zip" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
-                            <wm-checkboxset name="chk_email" dataset="Email" datavalue="Email" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_employee_num" dataset="Employee #" datavalue="Employee #"
-                                height="auto" variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_default_pay_rate" dataset="Default Pay Rate" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_email" dataset="Email" datavalue="Email" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_employee_num" dataset="Employee #" datavalue="Employee #" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_default_pay_rate" dataset="Default Pay Rate" height="auto" variant="blue-check-14"></wm-checkboxset>
                             <wm-checkboxset name="chk_phone" dataset="Phone" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
                             <wm-checkboxset name="chk_phone2" dataset="Phone2" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
                         </wm-container>
                         <!-- Right Column -->
-                        <wm-container name="checkbox_col_right" class="app-container-baseview" direction="column"
-                            gap="6" alignment="top-left" width="50%" height="hug">
+                        <wm-container name="checkbox_col_right" class="app-container-baseview" direction="column" gap="6" alignment="top-left" width="50%" height="hug">
                             <wm-checkboxset name="chk_cell" dataset="Cell" height="auto" variant="blue-check-14">
                             </wm-checkboxset>
-                            <wm-checkboxset name="chk_hire_date" dataset="Hire Date" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_comments" dataset="Comments" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_priority_group" dataset="Priority Group" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_max_week_hours" dataset="Max Week Hours/Days" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_max_day_hours" dataset="Max Day Hours/Shifts" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_google_cal" dataset="Google Cal Export" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_next_alert" dataset="Next Alert Date" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_custom_field1" dataset="Custom Field 1*" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_custom_field2" dataset="Custom Field 2*" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_status_icons" dataset="Status Icons**" datavalue="Status Icons**"
-                                height="auto" variant="blue-check-14"></wm-checkboxset>
-                            <wm-checkboxset name="chk_employee_photo" dataset="Employee Photo" height="auto"
-                                variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_hire_date" dataset="Hire Date" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_comments" dataset="Comments" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_priority_group" dataset="Priority Group" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_max_week_hours" dataset="Max Week Hours/Days" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_max_day_hours" dataset="Max Day Hours/Shifts" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_google_cal" dataset="Google Cal Export" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_next_alert" dataset="Next Alert Date" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_custom_field1" dataset="Custom Field 1*" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_custom_field2" dataset="Custom Field 2*" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_status_icons" dataset="Status Icons**" datavalue="Status Icons**" height="auto" variant="blue-check-14"></wm-checkboxset>
+                            <wm-checkboxset name="chk_employee_photo" dataset="Employee Photo" height="auto" variant="blue-check-14"></wm-checkboxset>
                         </wm-container>
                     </wm-container>
                 </wm-container>
                 <!-- Save Button -->
-                <wm-container name="save_btn_row" class="app-container-baseview" direction="row" gap="0"
-                    alignment="middle-center" width="fill" height="hug">
-                    <wm-button name="btn_save" caption="Save" variant="outlined-primary" class="btn-outlined-primary">
+                <wm-container name="save_btn_row" class="app-container-baseview" direction="row" gap="0" alignment="middle-center" width="fill" height="hug">
+                    <wm-button name="btn_save" caption="Save" variant="outlined-primary" class="btn-outlined-primary" on-click="btn_saveClick($event, widget)">
                     </wm-button>
                 </wm-container>
                 <!-- Information Section -->
-                <wm-container name="information_section" class="app-container-baseview container-grey-standard"
-                    direction="column" gap="8" alignment="top-left" width="100%" height="hug" padding="16px"
-                    variant="grey-standard">
+                <wm-container name="information_section" class="app-container-baseview container-grey-standard" direction="column" gap="8" alignment="top-left" width="100%" height="hug" padding="16px" variant="grey-standard">
                     <!-- Header row: Information title + Help link -->
-                    <wm-container name="info_header_row" class="app-container-baseview" direction="row" gap="auto"
-                        alignment="center" width="fill" height="hug">
-                        <wm-label name="info_heading" caption="Information" class="h4 label-14-700"
-                            variant="label-14-700"></wm-label>
-                        <wm-anchor name="help_link" caption="Help on this topic" iconclass="" iconposition="left"
-                            class="more" hyperlink="#"></wm-anchor>
+                    <wm-container name="info_header_row" class="app-container-baseview" direction="row" gap="auto" alignment="center" width="fill" height="hug">
+                        <wm-label name="info_heading" caption="Information" class="h4 label-14-700" variant="label-14-700"></wm-label>
+                        <wm-anchor name="help_link" caption="Help on this topic" iconclass="" iconposition="left" class="more" hyperlink="#"></wm-anchor>
                     </wm-container>
                     <!-- Info body text line 1 -->
-                    <wm-label name="info_text1"
-                        caption="** Checking Status Icons here controls their display on all your views."
-                        class="label-normal" variant="label-normal"></wm-label>
+                    <wm-label name="info_text1" caption="** Checking Status Icons here controls their display on all your views." class="label-normal" variant="label-normal"></wm-label>
                     <!-- Info body text line 2 (with inline bold) -->
-                    <wm-container name="info_text2_row" class="app-container-baseview" direction="row" gap="0"
-                        alignment="middle-left" width="fill" height="hug">
-                        <wm-label name="info_text2_pre" caption="* You can set the two custom fields labels on your "
-                            class="label-normal" variant="label-normal"></wm-label>
-                        <wm-label name="info_text2_bold" caption="SETTINGS: Company Info"
-                            class="label-bold label-label-14-700" variant="label-14-700"></wm-label>
+                    <wm-container name="info_text2_row" class="app-container-baseview" direction="row" gap="0" alignment="middle-left" width="fill" height="hug">
+                        <wm-label name="info_text2_pre" caption="* You can set the two custom fields labels on your " class="label-normal" variant="label-normal"></wm-label>
+                        <wm-label name="info_text2_bold" caption="SETTINGS: Company Info" class="label-bold label-label-14-700" variant="label-14-700"></wm-label>
                         <wm-label name="info_text2_post" caption=" page." class="label-normal" variant="label-normal">
                         </wm-label>
                     </wm-container>

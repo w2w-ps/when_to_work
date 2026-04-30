@@ -29,9 +29,95 @@ Page.buildPositionsDropdown = function (positionGroups) {
     Page.Variables.positionsDropdownData.dataSet = items;
 };
 
+/* Reads column visibility config from localStorage and applies show/hide to configurable table columns.
+   Dumps ALL available column keys on startup.
+   Tries binding, then name, then iterates all columns matching by field/binding/name property.
+   View, Edit, firstName, lastName columns are always visible and are NOT touched here. */
+Page.applyColumnConfig = function () {
+    var stored = localStorage.getItem('mgrEmpListConfig');
+    var config = stored ? JSON.parse(stored) : {
+        lastLogon: true,
+        email: true,
+        employeeId: true,
+        empTypeIcon: true
+    };
+
+    var columns = [
+        { binding: 'empType.name',    configKey: 'empTypeIcon'    },
+        { binding: 'email',           configKey: 'email'          },
+        { binding: 'employeeId',      configKey: 'employeeId'     },
+        { binding: 'lastLogon',       configKey: 'lastLogon'      },
+        { binding: 'phone',           configKey: 'phone'          },
+        { binding: 'phone2',          configKey: 'phone2'         },
+        { binding: 'cell',            configKey: 'cell'           },
+        { binding: 'hireDate',        configKey: 'hireDate'       },
+        { binding: 'comments',        configKey: 'comments'       },
+        { binding: 'address.address', configKey: 'address'        },
+        { binding: 'address.address2',configKey: 'address2'       },
+        { binding: 'address.city',    configKey: 'city'           },
+        { binding: 'address.state',   configKey: 'state'          },
+        { binding: 'address.zip',     configKey: 'zip'            },
+        { binding: 'payRate',         configKey: 'defaultPayRate' },
+        { binding: 'priorityGroup',   configKey: 'priorityGroup'  },
+        { binding: 'maxWeeklyDays',   configKey: 'maxWeekHours'   },
+        { binding: 'maxDailyHours',   configKey: 'maxDayHours'    },
+        { binding: 'googleCalExport', configKey: 'googleCal'      },
+        { binding: 'nextAlertDate',   configKey: 'nextAlert'      },
+        { binding: 'customField1',    configKey: 'customField1'   },
+        { binding: 'customField2',    configKey: 'customField2'   },
+        { binding: 'logonCount',      configKey: 'signinCount'    }
+    ];
+
+    var applyNow = function () {
+        var table = Page.Widgets.employeeTable;
+        if (!table || !table.columns) {
+            return;
+        }
+
+        // Dump all available keys once
+        var allKeys = Object.keys(table.columns);
+
+        columns.forEach(function (col) {
+            var showVal = !!config[col.configKey];
+
+            // Try 1: by binding
+            var tableCol = table.columns[col.binding];
+
+            // Try 2: by name
+            if (!tableCol) {
+                tableCol = table.columns[col.name];
+            }
+
+            // Try 3: iterate all columns and match by field/binding property
+            if (!tableCol) {
+                allKeys.forEach(function (key) {
+                    if (!tableCol) {
+                        var c = table.columns[key];
+                        if (c && (c.field === col.binding || c.binding === col.binding || c.name === col.name)) {
+                            tableCol = c;
+                        }
+                    }
+                });
+            }
+
+            if (tableCol) {
+                tableCol.show = showVal;
+            }
+        });
+    };
+
+    applyNow();
+    setTimeout(applyNow, 500);
+    setTimeout(applyNow, 1500);
+};
+
+/* Fires after table renders data rows — NO longer calls applyColumnConfig here to prevent reset loop */
+Page.employeeTableDatarender = function (widget, data) {
+    // intentionally left empty — applyColumnConfig is called from onReady and onSuccess only
+};
+
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    debugger
     const positionGroupsData = App.Variables.svGetPositionGroup.dataSet;
 
     if (positionGroupsData && positionGroupsData.positionGroups && positionGroupsData.positionGroups.length) {
@@ -47,6 +133,8 @@ Page.onReady = function () {
             }
         );
     }
+
+    Page.applyColumnConfig();
 };
 
 /* Handler for View button in employee table */
@@ -101,6 +189,7 @@ Page.wsGetEmployeeDetailsonSuccess = function (variable, data) {
         return String(emp.employeeId);
     });
     localStorage.setItem('empIdList', JSON.stringify(empIds));
+    Page.applyColumnConfig();
 };
 
 Page.btnAddNewEmployeeClick = function ($event, widget) {
