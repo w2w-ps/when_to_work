@@ -1,0 +1,171 @@
+{
+  "basePath" : "${rest.UpdateTenants.basepath}",
+  "paths" : {
+    "/tenants" : {
+      "x-WM-BASE_PATH" : "/tenants",
+      "x-WM-TAG" : "UpdateTenants",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.UpdateTenants.scheme}://${rest.UpdateTenants.host}${rest.UpdateTenants.basepath}/tenants",
+      "put" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "UpdateTenants_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "UpdateTenants" ],
+        "consumes" : [ "application/json" ]
+      }
+    }
+  },
+  "host" : "${rest.UpdateTenants.host}",
+  "schemes" : [ "${rest.UpdateTenants.scheme}" ],
+  "definitions" : {
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateTenants.RootRequest",
+      "x-WM-TAGS" : [ "UpdateTenants" ],
+      "required" : [ "address", "city", "companyId", "companyName", "departmentName", "dropDead", "priceTable", "state", "status", "timestamp", "timezone", "tos", "trialStart", "weekStartDay" ],
+      "properties" : {
+        "departmentName" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "dropDead" : {
+          "type" : "string"
+        },
+        "priceTable" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "timezone" : {
+          "type" : "string"
+        },
+        "companyName" : {
+          "type" : "string"
+        },
+        "trialStart" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "weekStartDay" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "tos" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "timestamp" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "UpdateTenants.RootResponse",
+      "x-WM-TAGS" : [ "UpdateTenants" ],
+      "required" : [ "address", "city", "companyId", "companyName", "departmentName", "dropDead", "priceTable", "state", "status", "timestamp", "timezone", "tos", "trialStart", "weekStartDay" ],
+      "properties" : {
+        "departmentName" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "dropDead" : {
+          "type" : "string"
+        },
+        "priceTable" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "timezone" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "companyName" : {
+          "type" : "string"
+        },
+        "trialStart" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "weekStartDay" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "tos" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "timestamp" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "2ef4135a-82ad-41a6-bb94-1ea676614e09",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "UpdateTenants"
+  } ]
+}

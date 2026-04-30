@@ -1,0 +1,128 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "a77058d0-f68d-40ad-baab-774d064ec2ac",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "getTenants"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/tenants" : {
+      "get" : {
+        "tags" : [ "getTenants" ],
+        "operationId" : "getTenants_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              },
+              "x-WM-IS_LIST" : true
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/tenants",
+      "x-WM-TAG" : "getTenants",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.getTenants.scheme}://${rest.getTenants.host}${rest.getTenants.basepath}/tenants"
+    }
+  },
+  "definitions" : {
+    "Response.RootResponseROOTEntryItem" : {
+      "required" : [ "address", "city", "companyId", "companyName", "departmentName", "dropDead", "priceTable", "state", "status", "timestamp", "timezone", "tos", "trialStart", "weekStartDay" ],
+      "properties" : {
+        "departmentName" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "dropDead" : {
+          "type" : "string"
+        },
+        "priceTable" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "timezone" : {
+          "type" : "string"
+        },
+        "companyName" : {
+          "type" : "string"
+        },
+        "trialStart" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "weekStartDay" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "tos" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "timestamp" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "getTenants.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "getTenants" ]
+    },
+    "RootResponse" : {
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "getTenants.RootResponse",
+      "x-WM-TAGS" : [ "getTenants" ]
+    }
+  }
+}

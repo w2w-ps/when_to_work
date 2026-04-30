@@ -46,6 +46,7 @@
                 <source>services/PostDayPref/src</source>
                 <source>services/PostWeekPref/src</source>
                 <source>services/UpdateAdditionalManagers/src</source>
+                <source>services/UpdateTenants/src</source>
                 <source>services/addManager/src</source>
                 <source>services/calendarPositionView/src</source>
                 <source>services/calendarShiftTimingView/src</source>
@@ -64,6 +65,7 @@
                 <source>services/getPositionViewScheduling/src</source>
                 <source>services/getPreferenceRange/src</source>
                 <source>services/getShiftDetails/src</source>
+                <source>services/getTenants/src</source>
                 <source>services/mgrUpdateEmpPwd/src</source>
                 <source>services/positionList/src</source>
                 <source>services/precheck/src</source>
