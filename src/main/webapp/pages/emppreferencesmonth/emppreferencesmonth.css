@@ -1,21 +1,11 @@
-.btn-dislike-working {
-    background-color: var(--wm-color-dislike) !important;
-    border-color: var(--wm-color-dislike) !important;
-}
-
 .pref-prefer-working {
     background-color: var(--wm-color-prefer) !important;
-    border-color: var(--wm-color-prefer) !important;
+    color: var(--wm-color-on-tertiary) !important;
 }
 
 .pref-dislike-working {
     background-color: var(--wm-color-dislike) !important;
-    border-color: var(--wm-color-dislike) !important;
-}
-
-.pref-cannot-work {
-    background-color: var(--wm-color-cannotwork) !important;
-    border-color: var(--wm-color-cannotwork) !important;
+    color: var(--wm-color-on-tertiary);
 }
 
 .main-celender .fc-header-toolbar.fc-toolbar {
@@ -40,4 +30,23 @@
 
 app-partial-monthlyview {
     width: 100%;
+}
+
+.app-calendar.main-celender {
+    z-index: 9;
+    height: 355px;
+}
+
+div[name="leftMonthsContainer"],
+div[name="rightMonthsContainer"] {
+    width: 35% !important;
+}
+
+div[name="centerNavWrapper"] {
+    width: 25% !important;
+}
+
+.dark-red-bg {
+    background-color: var(--wm-color-cannotwork) !important;
+    color: var(--wm-color-white) !important;
 }

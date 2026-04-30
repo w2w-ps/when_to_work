@@ -1,278 +1,876 @@
 <wm-page name="page" pagetitle="Employee View">
-<wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
-<wm-content name="content">
-<wm-page-content name="pagecontent" class="p-0" columnwidth="12">
-<wm-container name="scheduleHeaderSection" class="app-container-default w-100" direction="column" gap="0" alignment="top-left" width="fill" height="hug" content="scheduleTopNav"></wm-container>
-<wm-container name="pageContainer" class="app-container-default" direction="column" gap="7" alignment="top-left" width="fill" height="hug" clipcontent="false" conditionalclass="bind:App.Variables.employeeViewConfig.dataSet.fontSize ? 'font-size-' + App.Variables.employeeViewConfig.dataSet.fontSize.toLowerCase() : ''">
-<!-- Week Navigation Header -->
-<wm-container name="weekNavigationContainer" class="app-container-default week-nav-hover-container p-0 bg-grey" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-prefab prefabname="Weekview" name="Weekview1" startdayofweek="tuesday" width="100%"></wm-prefab></wm-container>
-<!-- Day Column Headers -->
-<wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79" class="app-container-default" variant="default">
-<wm-anchor margin="unset 0.5em" name="anchor9" variant="standard-sm" caption="Change Layout" iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm" on-click="anchor9Click($event, widget)"></wm-anchor>
-<wm-button class="btn-outlined-primary-sm" caption="UNDO Drag / Drop" type="button" margin="unset" name="button22" variant="outlined-primary-sm"></wm-button></wm-container>
-<wm-container name="dayHeadersContainer" class="app-container-default custom-border-bottom justify-content-between header-cont sticky-day-header" direction="row" gap="auto" alignment="start" width="fill" height="hug">
-<wm-container name="employeeHeaderCell" class="app-container-default" direction="column" gap="4" alignment="top-left" width="18%" height="hug" clipcontent="false" padding="unset unset unset 16px"></wm-container>
-<wm-container name="mondayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" overflow="No scrolling">
-<wm-label name="lblMondayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[0]" class="p-0 label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[1]" class="p-0 label-label-normal" variant="label-normal" name="label73"></wm-label></wm-container>
-<wm-container name="tuesdayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-<wm-label name="lblTuesdayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate.split(&quot; &quot;)[0]" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.tuesdayDate.split(&quot; &quot;)[1]" class="label-label-normal" variant="label-normal" name="label74"></wm-label></wm-container>
-<wm-container name="wednesdayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-<wm-label name="lblWednesdayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate.split(&quot; &quot;)[0]" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.wednesdayDate.split(&quot; &quot;)[1]" class="label-label-normal" variant="label-normal" name="label75"></wm-label></wm-container>
-<wm-container name="thursdayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-<wm-label name="lblThursdayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate.split(&quot; &quot;)[0]" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.thursdayDate.split(&quot; &quot;)[1]" class="label-label-normal" variant="label-normal" name="label76"></wm-label></wm-container>
-<wm-container name="fridayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-<wm-label name="lblFridayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate.split(&quot; &quot;)[0]" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.fridayDate.split(&quot; &quot;)[1]" class="label-label-normal" variant="label-normal" name="label77"></wm-label></wm-container>
-<wm-container name="saturdayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false">
-<wm-label name="lblSaturdayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate.split(&quot; &quot;)[0]" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.saturdayDate.split(&quot; &quot;)[1]" class="label-label-normal" variant="label-normal" name="label78"></wm-label></wm-container>
-<wm-container name="sundayHeaderCell" class="app-container-default" direction="row" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" padding="unset 16px unset unset">
-<wm-label name="lblSundayDate" caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate.split(&quot; &quot;)[0]" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.sundayDate.split(&quot; &quot;)[1]" class="label-label-normal" variant="label-normal" name="label79"></wm-label></wm-container></wm-container>
-<!-- Employee Schedule List -->
-<wm-list name="employeeScheduleList" dataset="bind:Variables.svScheduleList.dataSet" itemsperrow="xs-1 sm-1 md-1 lg-1" itemclass="custom-border-bottom pr-0  list-hover p-0" listclass="list-group" class="list-card pl-2">
-<wm-listtemplate layout="inline" name="listtemplate1">
-<wm-container name="employeeRowContainer" class="app-container-default justify-content-between" direction="row" gap="auto" alignment="start" width="fill" clipcontent="false" height="fill" show="bind:Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts ? (item.shiftCount &gt; 0 ? true : false) : true">
-<!-- Employee Name Cell -->
-<wm-container name="employeeNameCell" class="app-container-default custom-border-right  weekday-container" direction="row" gap="4" alignment="top-left" width="18%" height="fill" clipcontent="false" padding="unset 10px" show="bind:App.Variables.employeeViewConfig.dataSet.showNamesOnLeft">
-<wm-container direction="column" alignment="top-left" gap="0" width="fill" name="container85" class="app-container-default" variant="default" wrap="false">
-<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container86_1" class="app-container-default" variant="default" padding="15px unset unset unset">
-<wm-icon name="icon6" class="purple" variant="purple" iconclass="fa fa-diamond"></wm-icon>
-<wm-anchor margin="unset 0.5em" name="anchor12" class="anchor-standard-xs-bold anchor-standard-10-700" variant="standard-10-700" caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First Last') ? (item.firstName + ' ' + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ?  (item.lastName + ', ' + item.firstName) :(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First L.') ? (item.firstName + ', ' + item.lastName.charAt(0)+&quot;.&quot;) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'F.Last') ? (item.firstName.charAt(0)+&quot;. &quot; + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, F.') ? (item.lastName+&quot;, &quot; +item.firstName+ &quot;.&quot;) : (item.firstName + &quot; &quot; + item.lastName)"></wm-anchor></wm-container>
-<wm-container direction="column" alignment="start" gap="auto" width="hug" name="container87" class="app-container-default" variant="default" wrap="false" padding="unset 10px" height="hug" clipcontent="false" overflow="No scrolling" show="true">
-<wm-list listclass="list-group" itemclass="p-0" template="true" template-name="Blank List" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list simple-list" statehandler="URL" name="scheduleListList2" dataset="bind:item.phones" navigation="None" variant="standard" show="bind:Variables.employeeViewConfig.dataSet.showPhoneNumber">
-<wm-listtemplate layout="inline" name="listtemplate10">
-<wm-container direction="row" alignment="top-left" gap="4" width="hug" name="List" class="container app-container-default" variant="default" height="hug" clipcontent="false" overflow="No scrolling">
-<wm-label padding="unset" caption="bind:item" class="label-label-bold" type="p" variant="label-bold" name="label70"></wm-label></wm-container></wm-listtemplate></wm-list>
-<wm-label padding="unset" caption="bind:item.shiftCount &gt; 0 ? (item.shiftCount+ (item.shiftCount === 1 ? &quot; shift - &quot;: &quot;  shifts - &quot;) +item.totalHours.toFixed(2) + &quot; hours&quot;) : &quot;Not Scheduled&quot;" class="label-label-bold" type="p" variant="label-bold" name="label67_1" show="bind:App.Variables.employeeViewConfig.dataSet.showTotalHours"></wm-label></wm-container></wm-container></wm-container>
-<!-- Monday Shift Cell -->
-<wm-container name="mondayShiftCell" class="app-container-default custom-border-right shift-cell-grab cursor-pointer-underline weekday-container" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="mondayShiftCellClick($event, widget, item, currentItemWidgets)" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="mondayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" padding="10px" height="fill">
-<wm-list name="mondayShiftList" dataset="bind:item.weeklyShifts[0].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group " show="bind:item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length &gt; 0" itemclass="pb-0 pt-0" nodatamessage="bind:(item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length === 0 &amp;&amp; Variables.employeeViewConfig.dataSet.showOffOnDays) ? &quot;OFF&quot; : &quot;&quot;">
-<wm-listtemplate layout="inline" name="mondayShiftListTemplate" alignment="top-center">
-<wm-container name="mondayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="mondayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="mondayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblMondayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="text-center label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblMondayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblMondayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
-<!-- Tuesday Shift Cell -->
-<wm-container name="tuesdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="tuesdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="tuesdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="tuesdayShiftList" dataset="bind:item.weeklyShifts[1].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group" show="bind:item.weeklyShifts[1].shifts &amp;&amp; item.weeklyShifts[1].shifts.length &gt; 0" itemclass="pb-0 pt-0">
-<wm-listtemplate layout="inline" name="tuesdayShiftListTemplate">
-<wm-container name="tuesdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="tuesdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="tuesdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblTuesdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblTuesdayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblTuesdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
-<!-- Wednesday Shift Cell -->
-<wm-container name="wednesdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="wednesdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="wednesdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="wednesdayShiftList" dataset="bind:item.weeklyShifts[2].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group" show="bind:item.weeklyShifts[2].shifts &amp;&amp; item.weeklyShifts[2].shifts.length &gt; 0" itemclass="pb-0 pt-0">
-<wm-listtemplate layout="inline" name="wednesdayShiftListTemplate">
-<wm-container name="wednesdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="wednesdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="wednesdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblWednesdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblWednesdayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblWednesdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
-<!-- Thursday Shift Cell -->
-<wm-container name="thursdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="thursdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="thursdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="thursdayShiftList" dataset="bind:item.weeklyShifts[3].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group" show="bind:item.weeklyShifts[3].shifts &amp;&amp; item.weeklyShifts[3].shifts.length &gt; 0" itemclass="pb-0 pt-0">
-<wm-listtemplate layout="inline" name="thursdayShiftListTemplate">
-<wm-container name="thursdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="thursdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="thursdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblThursdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblThursdayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblThursdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
-<!-- Friday Shift Cell -->
-<wm-container name="fridayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="fridayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="fridayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="fridayShiftList" dataset="bind:item.weeklyShifts[4].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group" show="bind:item.weeklyShifts[4].shifts &amp;&amp; item.weeklyShifts[4].shifts.length &gt; 0" itemclass="pb-0 pt-0">
-<wm-listtemplate layout="inline" name="fridayShiftListTemplate">
-<wm-container name="fridayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="fridayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="fridayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblFridayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblFridayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblFridayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
-<!-- Saturday Shift Cell -->
-<wm-container name="saturdayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="saturdayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="saturdayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="saturdayShiftList" dataset="bind:item.weeklyShifts[5].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group " show="bind:item.weeklyShifts[5].shifts &amp;&amp; item.weeklyShifts[5].shifts.length &gt; 0" itemclass="pb-0 pt-0">
-<wm-listtemplate layout="inline" name="saturdayShiftListTemplate">
-<wm-container name="saturdayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="saturdayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="saturdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblSaturdayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblSaturdayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblSaturdayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container>
-<!-- Sunday Shift Cell -->
-<wm-container name="sundayShiftCell" class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline" direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false" on-click="sundayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)" on-drop="sundayShiftCellDrop($event, widget, item, currentItemWidgets)" on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)" height="fill">
-<wm-list name="sundayShiftList" dataset="bind:item.weeklyShifts[6].shifts" show-empty-message="false" scroll="false" class="list-card mh-list" listclass="list-group" show="bind:item.weeklyShifts[6].shifts &amp;&amp; item.weeklyShifts[6].shifts.length &gt; 0" itemclass="pb-0 pt-0">
-<wm-listtemplate layout="inline" name="sundayShiftListTemplate">
-<wm-container name="sundayShiftItem" direction="column" width="100%" height="auto" gap="none" alignment="middle-center" class="shift-item-card" on-click="sundayShiftItemClick($event, widget, item, currentItemWidgets)" draggable="true" on-dragstart="sundayShiftItemDragStart($event, widget, item, currentItemWidgets)">
-<wm-label name="lblSundayItemTime" caption="bind:item.startTime + ' - ' + item.endTime" class="label-label-bold" variant="label-bold"></wm-label>
-<wm-label name="lblSundayItemShift" caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"></wm-label>
-<wm-label name="lblSundayItemNotes" caption="bind:item.description" class="label-label-normal" variant="label-normal" show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"></wm-label></wm-container></wm-listtemplate></wm-list></wm-container></wm-container></wm-listtemplate></wm-list>
-<wm-container name="employeeActionBar" class="app-container-default employee-action-bar" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="6px 12px" variant="default">
-<wm-container name="actionBarLeft" class="app-container-default" direction="row" gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
-<wm-anchor name="anchorAddUploadEmployees" caption="Add/Upload New Employees" iconclass="fa fa-plus" iconposition="left" class="anchor-standard-xs" variant="standard-xs"></wm-anchor></wm-container>
-<wm-container name="actionBarRight" class="app-container-default" direction="row" gap="16" alignment="middle-right" width="hug" height="hug" variant="default">
-<wm-anchor margin="unset 0.5em" name="anchor10" class="anchor-standard-sm-danger" variant="standard-sm-danger" caption="2 Recently Deleted Shifts"></wm-anchor>
-<wm-anchor name="anchorScheduleHistory" caption="Schedule History" iconclass="fa fa-undo" iconposition="left" class="anchor-standard-sm" variant="standard-sm"></wm-anchor></wm-container></wm-container>
-<wm-container name="scheduleNotesSection" class="app-container-default schedule-notes-section" direction="column" gap="5" alignment="top-left" width="fill" height="hug" padding="unset 20px" variant="default">
-<!-- Schedule Notes Header -->
-<wm-container name="scheduleNotesHeader" class="container-grey-standard" direction="row" gap="100" alignment="top-left" width="fill" height="hug" padding="8px 12px" variant="grey-standard">
-<wm-label name="lblScheduleNotes" caption="Schedule Notes" class="label-label-20-700" variant="label-20-700"></wm-label>
-<wm-anchor name="anchorAddEdit" caption="Add/Edit" iconclass="fa fa-pencil" iconposition="left" class="schedule-notes-add-edit anchor-standard-sm" variant="standard-sm"></wm-anchor></wm-container>
-<!-- Information Card -->
-<wm-container name="scheduleNotesInfoCard" class="container-grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px" variant="grey-standard">
-<!-- Info Card Title Row -->
-<wm-container name="infoCardTitleRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug" variant="default">
-<wm-label name="lblInformation" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
-<wm-container name="infoHelpGroup" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="hug" height="hug" variant="default">
-<wm-anchor margin="unset 0.5em" variant="standard" caption="Help on this topic" class="more" name="anchor11"></wm-anchor></wm-container></wm-container>
-<!-- Description Text -->
-<wm-label name="lblScheduleNoteDesc" caption="- Note that this schedule view has special filtering. When you choose a position or group from the dropdown you will see all the Employees who are set to work that position along with ALL their shifts (even shifts not included in the positions filter). This is to allow you to see all employees' shifts when using drag/drop." class="label-label-14-400" variant="label-14-400"></wm-label>
-<!-- Icon Legend Row -->
-<wm-container name="iconLegendRow" class="app-container-default" direction="row" gap="20%" alignment="middle-left" width="fill" height="hug" variant="default" padding="10px unset">
-<wm-container name="legendEmployeeViewed" class="app-container-default" direction="row" gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
-<wm-picture resizemode="contain" class="img-rounded" variant="default:rounded" width="27px" height="13px" picturesource="./resources/images/imagelists/schviewed.gif" name="picture13"></wm-picture>
-<wm-label name="lblEmployeeViewedSchedule" caption="Employee viewed schedule" class="label-label-14-400" variant="label-14-400"></wm-label></wm-container>
-<wm-container name="legendScheduleEmailed" class="app-container-default" direction="row" gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
-<wm-picture resizemode="contain" class="img-rounded" variant="default:rounded" width="27px" height="13px" picturesource="./resources/images/imagelists/schemailed.gif" name="picture14"></wm-picture>
-<wm-label name="lblScheduleEmailed" caption="Schedule emailed" class="label-label-14-400" variant="label-14-400"></wm-label></wm-container>
-<wm-container name="legendConfirmedEmail" class="app-container-default" direction="row" gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
-<wm-picture resizemode="contain" class="img-rounded" variant="default:rounded" width="27px" height="13px" picturesource="./resources/images/imagelists/schconfirmed.gif" name="picture15"></wm-picture>
-<wm-label name="lblEmployeeConfirmedEmail" caption="Employee confirmed email receipt" class="label-label-14-400" variant="label-14-400"></wm-label></wm-container></wm-container>
-<!-- Separator 1 -->
-<!-- Status Legend Row -->
-<wm-container class="container-grey-container-white-border mb-0" direction="row" gap="4" alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border" name="container86">
-<wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14" name="icon1"></wm-icon>
-<wm-label caption="Status" class="label-label-14-700 ps-2" variant="label-14-700" name="label65"></wm-label>
-<wm-icon iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3 fa-xs" name="icon2" variant="default:xs"></wm-icon>
-<wm-label caption="Full Time" variant="default" name="label66"></wm-label>
-<wm-icon iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3 fa-xs" name="icon3" variant="default:xs"></wm-icon>
-<wm-label caption="Part Time" variant="default" name="label67"></wm-label>
-<wm-icon iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3 fa-xs" name="icon4" variant="default:xs"></wm-icon>
-<wm-label caption="Per Diem" variant="default" name="label68"></wm-label></wm-container>
-<!-- Separator 2 -->
-<!-- Refresh Checkbox Row -->
-<wm-container name="refreshCheckboxRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" variant="default">
-<wm-checkbox name="chkRefreshPage" type="checkbox" datavalue="true" checkedvalue="true" uncheckedvalue="false" caption="Refresh page after each change  (Uncheck if you have a slow connection or do not want to wait for the page to refresh after every change)" variant="blue-check-14" class="checkbox-blue-check-14"></wm-checkbox></wm-container></wm-container></wm-container>
-<wm-container class="app-container-default custom-border-bottom justify-content-between header-cont" direction="row" gap="auto" alignment="start" width="fill" height="hug" name="container88" variant="default" show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-left" width="18%" height="hug" clipcontent="false" padding="unset unset unset 16px" name="container89" variant="default"></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" name="container90" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate" class="label-label-normal" variant="label-normal" name="label66_1"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" name="container91" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate" class="label-label-normal" variant="label-normal" name="label67_2"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" name="container92" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate" class="label-label-normal" variant="label-normal" name="label68_1"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" name="container93" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate" class="label-label-normal" variant="label-normal" name="label69"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" name="container94" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate" class="label-label-normal" variant="label-normal" name="label70_1"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" name="container95" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate" class="label-label-normal" variant="label-normal" name="label71"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="column" gap="4" alignment="top-center" width="11.7%" height="hug" clipcontent="false" padding="unset 16px unset unset" name="container96" variant="default">
-<wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate" class="label-label-normal" variant="label-normal" name="label72"></wm-label></wm-container></wm-container>
-<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container87_1" class="app-container-default footerweek-nav-hover-container p-0 bg-grey" variant="default" show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
-<wm-prefab prefabname="Weekview" name="Weekview2" width="100%" startdayofweek="tuesday"></wm-prefab></wm-container>
-<wm-container name="footerInfoSection" class="app-container-default footerInfoSection" direction="row" gap="auto" alignment="center" width="fill" height="hug" padding="60px unset unset unset">
-<wm-anchor margin="unset 0.5em" name="anchor11_1" class="anchor-standard-13-700 lblContactW2W " variant="standard-13-700" caption="Questions, comments or suggestions? Contact W2W"></wm-anchor>
-<wm-button name="btnHelpFab" iconclass="fa fa-question" class="btn-filled-primary-circle" variant="filled-primary-circle"></wm-button></wm-container></wm-container>
-<!-- Shift Management Dialog -->
-<wm-dialog name="shiftDialog" title="bind:&quot;Quick Shift &quot;+(isAdd ? &quot;Add&quot; : &quot;Edit&quot;)" modal="false" closable="true" on-opened="shiftDialogOpened($event, widget)" class="modal-add-shift" variant="add-shift" headinglevel="h5">
-<wm-container name="dialogHeaderContainer" class="app-container-default" direction="row" gap="auto" alignment="start" width="fill" height="hug" clipcontent="false" overflow="No scrolling">
-<wm-label name="lblEmployeeDateInfo" caption="bind:Variables.selectedEmployeeDateVar.dataSet" class="app-label h6"></wm-label>
-<wm-anchor margin="unset 0.5em" name="anchor1" variant="standard-sm-Arial" iconclass="bind:isAdd ? &quot;fa fa-plus&quot; : &quot;fa fa-history&quot;" caption="bind:isAdd ? &quot; Add Time Off&quot; : &quot;Shift History&quot;" class="anchor-standard-sm-Arial"></wm-anchor></wm-container>
-<wm-form name="shiftForm">
-<wm-container name="formFieldsContainer" class="app-container-default bg-grey pl-8" direction="column" gap="6" alignment="top-left" width="fill" height="hug" variant="default" clipcontent="false">
-<wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container48_1" class="app-container-default" variant="default" padding="10px unset">
-<wm-icon name="icon5" class="fa-xs purple" variant="default:xs" iconclass="fa fa-diamond"></wm-icon>
-<wm-label padding="unset" caption="bind:((selectedEmployee &amp;&amp; selectedEmployee.firstName ? selectedEmployee.firstName + '  ' + selectedEmployee.lastName : '') + ' - ' +(selectedEmployee &amp;&amp; selectedEmployee.employeeName &amp;&amp; formattedShiftDate ? ' - ' : '') + (formattedShiftDate ? formattedShiftDate : ''))" class="label-label-bold-16 label-label-16-700-Arial" type="p" name="label47" variant="label-16-700-Arial"></wm-label></wm-container>
-<wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container42" class="app-container-default " variant="default" clipcontent="false" height="32px">
-<wm-label padding="unset" caption="Position" class="label-label-normal text-right" type="p" name="label42" variant="label-normal" required="false" width="155px"></wm-label>
-<wm-form-field name="positionField" show="true" placeholder="Select a position" required="true" type="text" key="position" widget="select" dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions" datafield="positionId" displayfield="description" class="form-compact-input w-100 py-0" variant="compact-input"></wm-form-field></wm-container>
-<wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container43" class="app-container-default" variant="default" height="32px" clipcontent="false">
-<wm-label padding="unset" caption="Start" class="text-right label-label-normal" type="p" variant="label-normal" required="false" width="120px" name="label43"></wm-label>
-<wm-form-field name="startTimeField" show="true" placeholder="" required="true" regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="startTime" validationmessage="Enter valid start time" widget="text" inputtype="text" class="form-compact-input time-height grey-caption" variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.startTime"></wm-form-field></wm-container>
-<wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container44" class="app-container-default" variant="default" height="32px" clipcontent="false">
-<wm-container direction="row" alignment="middle-left" gap="0" width="80%" name="container45" class="app-container-default" variant="default" clipcontent="false" overflow="none">
-<wm-label padding="unset" caption="End" class="text-right label-label-normal" type="p" variant="label-normal" required="false" width="120px" name="label44"></wm-label>
-<wm-form-field name="endTimeField" show="true" placeholder="" required="true" regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="endTime" validationmessage="Enter valid end time" widget="text" inputtype="text" class="form-compact-input time-height grey-caption" variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.endTime"></wm-form-field></wm-container>
-<wm-form-field name="colorField" show="true" placeholder="Color" required="true" type="text" key="color" widget="select" dataset="black,brown,blue,fuchsia,gray,green,navy,orange,purple,red,turquoise,lavender,lime,salmon,gold,aqua,maroon" class="py-0 form-compact-input" variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.color" width="100px"></wm-form-field></wm-container>
-<wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container46" class="app-container-default" variant="default" height="32px" clipcontent="false">
-<wm-label padding="unset" caption="Paid Hours" class="text-right label-label-normal" type="p" variant="label-normal" required="false" width="120px" name="label45"></wm-label>
-<wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container47_1" class="app-container-default" variant="default">
-<wm-form-field name="paidHoursField" show="true" placeholder="" required="true" type="text" key="paidHours" widget="number" inputtype="number" class="py-0 form-compact-input grey-caption" variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.duration" width="104px"></wm-form-field>
-<wm-container name="paidHoursContainer" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" variant="default">
-<wm-label name="lblOr" caption="or" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkAutoCalculate" type="checkbox" caption="Auto Calculate" datavalue="true" variant="blue-check-8pt" class="py-0 checkbox-compact checkbox-blue-check-8pt" checkedvalue="true" uncheckedvalue="false"></wm-checkbox></wm-container></wm-container></wm-container>
-<wm-container direction="row" alignment="top-left" gap="0" width="fill" name="container47" class="app-container-default" variant="default" wrap="false">
-<wm-container direction="column" alignment="top-left" gap="4" width="120px" name="container48" class="app-container-default" variant="default" clipcontent="false" wrap="false">
-<wm-label padding="unset" caption="Description" class="text-right label-label-normal desc-top" type="p" variant="label-normal" required="false" width="120px" name="label46"></wm-label>
-<wm-button class="btn-delete-btn btn-filled-bg-danger-sm" caption="DELETE shift" type="button" margin="unset" name="button17_1" variant="filled-bg-danger-sm" show="bind:!isAdd" on-click="Widgets.dialog4.open()"></wm-button></wm-container>
-<wm-container direction="column" alignment="top-left" gap="6" width="fill" name="container46_1" class="app-container-default" variant="default" wrap="false">
-<wm-form-field widget="text" show="true" type="custom" name="form_field9" key="description" class="form-compact-input w-100 mh-auto pt-0 pb-1 grey-caption" variant="compact-input" defaultvalue="bind:Variables.svGetShiftById.dataSet.description" placeholder=""></wm-form-field>
-<wm-form-field name="categoryField" show="bind:App.Variables.employeeViewConfig.dataSet.showCategory" placeholder="Optional Category - None" required="false" type="text" key="category" widget="select" dataset="bind:Variables.svGetAllCategoriesByCompanyId.dataSet.categories" class="py-0 form-compact-input w-100 min-height-32" variant="compact-input" height="32px" datafield="id" displayfield="description"></wm-form-field></wm-container></wm-container>
-<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container52" class="app-container-default" variant="default" clipcontent="false"></wm-container>
-<wm-container direction="row" alignment="middle-left" width="fill" class="app-container-default pl24" variant="default" clipcontent="false" name="container50" show="bind:!isAdd" height="40">
-<wm-label padding="unset" caption="Create" class="label-label-normal" type="p" name="label48" variant="label-normal"></wm-label>
-<wm-form-field name="form_field13" show="true" placeholder="0" type="custom" key="form_field13" widget="text" inputtype="text" class="create-copies-text" variant="standard" defaultvalue="0"></wm-form-field>
-<wm-label padding="unset" caption="copies of shift" class="label-label-normal" type="p" name="label49" variant="label-normal"></wm-label></wm-container></wm-container>
-<wm-container name="weekdaysContainer" class="app-container-default" direction="column" gap="0" alignment="top-left" width="fill" height="hug" variant="default" show="bind:isAdd">
-<wm-container name="weekdayCheckboxesContainer" class="app-container-default bg-grey divider-top" direction="row" gap="42" alignment="middle-center" width="fill" height="46px" variant="default" clipcontent="false">
-<wm-container name="mondayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblMon" caption="Mon" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkMon" type="checkbox" datavalue="false" variant="blue-check-14" class="checkbox-compact p-0 checkbox-blue-check-14" width="40px"></wm-checkbox></wm-container>
-<wm-container name="tuesdayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblTue" caption="Tue" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkTue" type="checkbox" datavalue="false" variant="blue-check-14" width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox></wm-container>
-<wm-container name="wednesdayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblWed" caption="Wed" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkWed" type="checkbox" datavalue="false" variant="blue-check-14" width="40px" class="checkbox-compact  checkbox-blue-check-14"></wm-checkbox></wm-container>
-<wm-container name="thursdayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblThu" caption="Thu" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkThu" type="checkbox" datavalue="false" variant="blue-check-14" width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox></wm-container>
-<wm-container name="fridayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblFri" caption="Fri" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkFri" type="checkbox" datavalue="false" variant="blue-check-14" width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox></wm-container>
-<wm-container name="saturdayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblSat" caption="Sat" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkSat" type="checkbox" datavalue="false" variant="blue-check-14" width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox></wm-container>
-<wm-container name="sundayContainer" class="app-container-default" direction="column" gap="0" alignment="top-center" width="hug" height="hug" variant="default">
-<wm-label name="lblSun" caption="Sun" class="label-label-normal" variant="label-normal"></wm-label>
-<wm-checkbox name="chkSun" type="checkbox" datavalue="false" variant="blue-check-14" width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox></wm-container></wm-container>
-<wm-container name="weekdayActionsContainer" class="app-container-default bg-grey" direction="row" gap="8" alignment="middle-left" width="fill" height="12px" variant="default" clipcontent="false">
-<wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container51" class="app-container-default" variant="default">
-<wm-anchor margin="unset 0.5em" variant="standard-sm-Arial" iconclass="fa fa-check-square-o" caption="Select All" class="anchor-standard-sm-Arial" name="anchor3" on-click="anchor3Click($event, widget)"></wm-anchor>
-<wm-anchor margin="unset 0.5em" variant="standard-sm-Arial" iconclass="fa fa-square-o" caption="Clear All" class="anchor-standard-sm-Arial" name="anchor4" on-click="anchor4Click($event, widget)"></wm-anchor></wm-container></wm-container></wm-container>
-<wm-container name="dialogActionsContainer" class="app-container-default actions-white" direction="row" gap="auto" alignment="center" width="fill" height="fill" variant="default" show="true" padding="5px unset" clipcontent="false">
-<wm-button class="btn-actions-btn btn-outlined-primary" caption="Cancel" type="button" margin="unset" name="Cancel" variant="outlined-primary" on-click="Widgets.shiftDialog.close()"></wm-button>
-<wm-anchor margin="unset 0.5em" name="anchor2" variant="standard-sm-Arial" iconclass="bind:isAdd ? &quot;fa fa-list-alt&quot; : &quot;fa fa-users&quot;" caption="bind:isAdd ? &quot;Assign to existing open shift&quot; : &quot;Available Employees&quot;" class="anchor-standard-sm-Arial"></wm-anchor>
-<wm-button class="btn-actions-btn btn-outlined-primary" caption="bind:isAdd ? &quot;Add Shift&quot; : &quot;Save&quot;" type="button" margin="unset" name="button16" variant="outlined-primary" on-click="button16Click($event, widget)"></wm-button></wm-container></wm-form></wm-dialog></wm-page-content></wm-content>
-<wm-dialog name="confirmShiftChangeDialog" title="Confirm" modal="true" closable="false" showheader="true" class="modal-confirm-dialog" variant="confirm-dialog">
-<wm-container name="confirmDialog1Body" class="app-container-default p-0" direction="column" gap="16" alignment="middle-center" width="fill" height="hug" padding="16px 24px">
-<wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container100" class="app-container-default" variant="default">
-<wm-label padding="unset" caption="Confirm" class=" label-label-16-400 py-font" type="p" name="label81" variant="label-16-400"></wm-label></wm-container>
-<wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container98" class="app-container-default" variant="default" wrap="false">
-<wm-label name="lblConfirmShiftMsg" caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)" class="text-center label-label-14-400 pb-4 py-font" width="fill" variant="label-14-400"></wm-label></wm-container>
-<wm-container direction="column" alignment="middle-center" gap="12" width="fill" name="conflictMsgcontainer" class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false" overflow="none" show="false">
-<wm-label padding="unset" caption="WARNING: There is a conflict with the shift you are trying to change:" class="app-label confirm-dialog-warning text-center" type="p" name="label82" variant="text:primary"></wm-label>
-<wm-label padding="unset" caption="bind:Variables.conflictMessageVar.dataSet.message" class="p label-label-14-700" type="p" name="label83" variant="label-14-700"></wm-label>
-<wm-label padding="unset" caption="Would you like to change the shift anyway?" class="p label-label-14-400" type="p" name="label84" variant="label-14-400"></wm-label></wm-container>
-<wm-container name="confirmDialog1Actions" class="app-container-default" direction="row" gap="24" alignment="middle-center" width="fill" height="hug">
-<wm-button name="btnConfirmShiftYes" caption="Yes" class="btn-success-btn" variant="success-btn" on-click="btnConfirmShiftYesClick($event, widget)"></wm-button>
-<wm-button name="btnConfirmShiftNo" caption="No" class="btn-danger-btn" variant="danger-btn" on-click="btnConfirmShiftNoClick($event, widget)"></wm-button></wm-container></wm-container></wm-dialog>
-<wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="wi wi-file-text" name="alertdialog1" class="modal-confirm-dialog" variant="confirm-dialog">
-<wm-container direction="column" alignment="middle-center" width="fill" gap="4" wrap="false" name="container97" class="pb-2">
-<wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label80" class="pt-4 pb-4"></wm-label>
-<wm-button class="mt-4 btn-alert-outlined-primary" caption="OK" type="button" margin="unset" name="button17" variant="alert-outlined-primary" on-click="Widgets.alertdialog1.close()"></wm-button></wm-container>
-<wm-dialogactions name="dialogactions1" show="false">
-<wm-button class="btn-primary btn-filled" caption="Close" on-click="closeDialog()" name="button16_1"></wm-button></wm-dialogactions></wm-dialog>
-<wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="" name="dialog4" class="modal-confirm-dialog" variant="confirm-dialog">
-<wm-container class="app-container-default p-0" direction="column" gap="16" alignment="middle-center" width="fill" height="hug" padding="16px 24px" name="container93_1" variant="default">
-<wm-container direction="row" alignment="middle-center" gap="4" width="fill" class="app-container-default" variant="default" name="container94_1">
-<wm-label padding="unset" caption="Confirm" class="label-label-16-400 py-font" type="p" variant="label-16-400" name="label82_1"></wm-label></wm-container>
-<wm-container direction="column" alignment="middle-center" gap="4" width="fill" class="app-container-default" variant="default" wrap="false" name="container95_1">
-<wm-label caption="Are you sure you want to delete this shift?" class="text-center label-label-14-400 pb-4 py-font" width="fill" variant="label-14-400" name="label83_1"></wm-label></wm-container>
-<wm-container direction="column" alignment="middle-center" gap="12" width="fill" class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false" overflow="none" show="false" name="container96_1">
-<wm-label padding="unset" caption="WARNING: There is a conflict with the shift you are trying to change:" class="confirm-dialog-warning text-center text-primary" type="p" variant="text:primary" name="label84_1"></wm-label>
-<wm-label padding="unset" caption="bind:Variables.conflictMessageVar.dataSet.message" class="p label-label-14-700" type="p" variant="label-14-700" name="label85"></wm-label>
-<wm-label padding="unset" caption="Would you like to change the shift anyway?" class="p label-label-14-400" type="p" variant="label-14-400" name="label86"></wm-label></wm-container>
-<wm-container class="app-container-default" direction="row" gap="24" alignment="middle-center" width="fill" height="hug" name="container97_1" variant="default">
-<wm-button caption="Yes" class="btn-success-btn" variant="success-btn" on-click="Widgets.dialog4.close();button11Click($event, widget)" name="button11"></wm-button>
-<wm-button caption="No" class="btn-danger-btn" variant="danger-btn" on-click="Widgets.dialog4.close()" name="button12"></wm-button></wm-container></wm-container></wm-dialog></wm-page>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content name="pagecontent" class="p-0" columnwidth="12">
+            <wm-container name="scheduleHeaderSection" class="app-container-default w-100" direction="column" gap="0"
+                alignment="top-left" width="fill" height="hug" content="scheduleTopNav"></wm-container>
+            <wm-container name="pageContainer" class="app-container-default" direction="column" gap="7"
+                alignment="top-left" width="fill" height="hug" clipcontent="false"
+                conditionalclass="bind:App.Variables.employeeViewConfig.dataSet.fontSize ? 'font-size-' + App.Variables.employeeViewConfig.dataSet.fontSize.toLowerCase() : ''">
+                <!-- Week Navigation Header -->
+                <wm-container name="weekNavigationContainer"
+                    class="app-container-default week-nav-hover-container p-0 bg-grey" direction="row" gap="auto"
+                    alignment="center" width="fill" height="hug">
+                    <wm-prefab prefabname="Weekview" name="Weekview1" startdayofweek="tuesday" width="100%"></wm-prefab>
+                </wm-container>
+                <!-- Day Column Headers -->
+                <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79"
+                    class="app-container-default" variant="default">
+                    <wm-anchor margin="unset 0.5em" name="anchor9" variant="standard-sm" caption="Change Layout"
+                        iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm"
+                        on-click="anchor9Click($event, widget)"></wm-anchor>
+                    <wm-button class="btn-outlined-primary-sm" caption="UNDO Drag / Drop" type="button" margin="unset"
+                        name="button22" variant="outlined-primary-sm"></wm-button>
+                </wm-container>
+                <wm-container name="dayHeadersContainer"
+                    class="app-container-default custom-border-bottom justify-content-between header-cont sticky-day-header"
+                    direction="row" gap="auto" alignment="start" width="fill" height="hug">
+                    <wm-container name="employeeHeaderCell" class="app-container-default" direction="column" gap="4"
+                        alignment="top-left" width="18%" height="hug" clipcontent="false"
+                        padding="unset unset unset 16px"></wm-container>
+                    <wm-container name="mondayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false" overflow="No scrolling">
+                        <wm-label name="lblMondayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[0]"
+                            class="p-0 label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[1]"
+                            class="p-0 label-label-normal" variant="label-normal" name="label73"></wm-label>
+                    </wm-container>
+                    <wm-container name="tuesdayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false">
+                        <wm-label name="lblTuesdayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.tuesdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label74"></wm-label>
+                    </wm-container>
+                    <wm-container name="wednesdayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false">
+                        <wm-label name="lblWednesdayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.wednesdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label75"></wm-label>
+                    </wm-container>
+                    <wm-container name="thursdayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false">
+                        <wm-label name="lblThursdayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.thursdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label76"></wm-label>
+                    </wm-container>
+                    <wm-container name="fridayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false">
+                        <wm-label name="lblFridayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.fridayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label77"></wm-label>
+                    </wm-container>
+                    <wm-container name="saturdayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false">
+                        <wm-label name="lblSaturdayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.saturdayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label78"></wm-label>
+                    </wm-container>
+                    <wm-container name="sundayHeaderCell" class="app-container-default" direction="row" gap="4"
+                        alignment="top-center" width="11.7%" height="hug" clipcontent="false"
+                        padding="unset 16px unset unset">
+                        <wm-label name="lblSundayDate"
+                            caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate.split(&quot; &quot;)[0]"
+                            class="label-label-bold" variant="label-bold"></wm-label>
+                        <wm-label
+                            caption="bind:&quot; - &quot;+Widgets.Weekview1.selectedweekdataset.sundayDate.split(&quot; &quot;)[1]"
+                            class="label-label-normal" variant="label-normal" name="label79"></wm-label>
+                    </wm-container>
+                </wm-container>
+                <!-- Employee Schedule List -->
+                <wm-list name="employeeScheduleList" dataset="bind:Variables.svScheduleList.dataSet"
+                    itemsperrow="xs-1 sm-1 md-1 lg-1" itemclass="custom-border-bottom pr-0  list-hover p-0"
+                    listclass="list-group" class="list-card pl-2">
+                    <wm-listtemplate layout="inline" name="listtemplate1">
+                        <wm-container name="employeeRowContainer" class="app-container-default justify-content-between"
+                            direction="row" gap="auto" alignment="start" width="fill" clipcontent="false" height="fill"
+                            show="bind:Variables.employeeViewConfig.dataSet.hideEmployeesNoShifts ? (item.shiftCount &gt; 0 ? true : false) : true">
+                            <!-- Employee Name Cell -->
+                            <wm-container name="employeeNameCell"
+                                class="app-container-default custom-border-right  weekday-container" direction="row"
+                                gap="4" alignment="top-left" width="18%" height="fill" clipcontent="false"
+                                padding="unset 10px"
+                                show="bind:App.Variables.employeeViewConfig.dataSet.showNamesOnLeft">
+                                <wm-container direction="column" alignment="top-left" gap="0" width="fill"
+                                    name="container85" class="app-container-default" variant="default" wrap="false">
+                                    <wm-container direction="row" alignment="middle-left" gap="4" width="fill"
+                                        name="container86_1" class="app-container-default" variant="default"
+                                        padding="15px unset unset unset">
+                                        <wm-icon name="icon6" class="purple" variant="purple" iconclass="fa fa-diamond">
+                                        </wm-icon>
+                                        <wm-anchor margin="unset 0.5em" name="anchor12"
+                                            class="anchor-standard-xs-bold anchor-bold-8pt" variant="bold-8pt"
+                                            caption="bind:(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First Last') ? (item.firstName + ' ' + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, First') ?  (item.lastName + ', ' + item.firstName) :(App.Variables.employeeViewConfig.dataSet.nameFormat === 'First L.') ? (item.firstName + ', ' + item.lastName.charAt(0)+&quot;.&quot;) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'F.Last') ? (item.firstName.charAt(0)+&quot;. &quot; + item.lastName) : (App.Variables.employeeViewConfig.dataSet.nameFormat === 'Last, F.') ? (item.lastName+&quot;, &quot; +item.firstName+ &quot;.&quot;) : (item.firstName + &quot; &quot; + item.lastName)">
+                                        </wm-anchor>
+                                    </wm-container>
+                                    <wm-container direction="column" alignment="start" gap="auto" width="hug"
+                                        name="container87" class="app-container-default" variant="default" wrap="false"
+                                        padding="unset 10px" height="hug" clipcontent="false" overflow="No scrolling"
+                                        show="true">
+                                        <wm-list listclass="list-group" itemclass="p-0" template="true"
+                                            template-name="Blank List" itemsperrow="xs-1 sm-1 md-1 lg-1"
+                                            class="media-list simple-list" statehandler="URL" name="scheduleListList2"
+                                            dataset="bind:item.phones" navigation="None" variant="standard"
+                                            show="bind:Variables.employeeViewConfig.dataSet.showPhoneNumber">
+                                            <wm-listtemplate layout="inline" name="listtemplate10">
+                                                <wm-container direction="row" alignment="top-left" gap="4" width="hug"
+                                                    name="List" class="container app-container-default"
+                                                    variant="default" height="hug" clipcontent="false"
+                                                    overflow="No scrolling">
+                                                    <wm-label padding="unset" caption="bind:item"
+                                                        class="label-label-bold" type="p" variant="label-bold"
+                                                        name="label70"></wm-label>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                        <wm-label padding="unset"
+                                            caption="bind:item.shiftCount &gt; 0 ? (item.shiftCount+ (item.shiftCount === 1 ? &quot; shift - &quot;: &quot;  shifts - &quot;) +item.totalHours.toFixed(2) + &quot; hours&quot;) : &quot;Not Scheduled&quot;"
+                                            class="label-label-bold" type="p" variant="label-bold" name="label67_1"
+                                            show="bind:App.Variables.employeeViewConfig.dataSet.showTotalHours">
+                                        </wm-label>
+                                    </wm-container>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Monday Shift Cell -->
+                            <wm-container name="mondayShiftCell"
+                                class="app-container-default custom-border-right shift-cell-grab cursor-pointer-underline weekday-container"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="mondayShiftCellClick($event, widget, item, currentItemWidgets)"
+                                on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="mondayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                padding="10px" height="fill">
+                                <wm-list name="mondayShiftList" dataset="bind:item.weeklyShifts[0].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group "
+                                    show="bind:item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0"
+                                    nodatamessage="bind:(item.weeklyShifts[0].shifts &amp;&amp; item.weeklyShifts[0].shifts.length === 0 &amp;&amp; Variables.employeeViewConfig.dataSet.showOffOnDays) ? &quot;OFF&quot; : &quot;&quot;">
+                                    <wm-listtemplate layout="inline" name="mondayShiftListTemplate"
+                                        alignment="top-center">
+                                        <wm-container name="mondayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="mondayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="mondayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblMondayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="text-center label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblMondayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblMondayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                            <!-- Tuesday Shift Cell -->
+                            <wm-container name="tuesdayShiftCell"
+                                class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="tuesdayShiftCellClick($event, widget, item, currentItemWidgets)"
+                                padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="tuesdayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                height="fill">
+                                <wm-list name="tuesdayShiftList" dataset="bind:item.weeklyShifts[1].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group"
+                                    show="bind:item.weeklyShifts[1].shifts &amp;&amp; item.weeklyShifts[1].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0">
+                                    <wm-listtemplate layout="inline" name="tuesdayShiftListTemplate">
+                                        <wm-container name="tuesdayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="tuesdayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="tuesdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblTuesdayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblTuesdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblTuesdayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                            <!-- Wednesday Shift Cell -->
+                            <wm-container name="wednesdayShiftCell"
+                                class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="wednesdayShiftCellClick($event, widget, item, currentItemWidgets)"
+                                padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="wednesdayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                height="fill">
+                                <wm-list name="wednesdayShiftList" dataset="bind:item.weeklyShifts[2].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group"
+                                    show="bind:item.weeklyShifts[2].shifts &amp;&amp; item.weeklyShifts[2].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0">
+                                    <wm-listtemplate layout="inline" name="wednesdayShiftListTemplate">
+                                        <wm-container name="wednesdayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="wednesdayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="wednesdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblWednesdayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblWednesdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblWednesdayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                            <!-- Thursday Shift Cell -->
+                            <wm-container name="thursdayShiftCell"
+                                class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="thursdayShiftCellClick($event, widget, item, currentItemWidgets)"
+                                padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="thursdayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                height="fill">
+                                <wm-list name="thursdayShiftList" dataset="bind:item.weeklyShifts[3].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group"
+                                    show="bind:item.weeklyShifts[3].shifts &amp;&amp; item.weeklyShifts[3].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0">
+                                    <wm-listtemplate layout="inline" name="thursdayShiftListTemplate">
+                                        <wm-container name="thursdayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="thursdayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="thursdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblThursdayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblThursdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblThursdayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                            <!-- Friday Shift Cell -->
+                            <wm-container name="fridayShiftCell"
+                                class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="fridayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px"
+                                on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="fridayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                height="fill">
+                                <wm-list name="fridayShiftList" dataset="bind:item.weeklyShifts[4].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group"
+                                    show="bind:item.weeklyShifts[4].shifts &amp;&amp; item.weeklyShifts[4].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0">
+                                    <wm-listtemplate layout="inline" name="fridayShiftListTemplate">
+                                        <wm-container name="fridayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="fridayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="fridayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblFridayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblFridayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblFridayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                            <!-- Saturday Shift Cell -->
+                            <wm-container name="saturdayShiftCell"
+                                class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="saturdayShiftCellClick($event, widget, item, currentItemWidgets)"
+                                padding="10px" on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="saturdayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                height="fill">
+                                <wm-list name="saturdayShiftList" dataset="bind:item.weeklyShifts[5].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group "
+                                    show="bind:item.weeklyShifts[5].shifts &amp;&amp; item.weeklyShifts[5].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0">
+                                    <wm-listtemplate layout="inline" name="saturdayShiftListTemplate">
+                                        <wm-container name="saturdayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="saturdayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="saturdayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblSaturdayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblSaturdayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblSaturdayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                            <!-- Sunday Shift Cell -->
+                            <wm-container name="sundayShiftCell"
+                                class="weekday-container app-container-default custom-border-right shift-cell-grab cursor-pointer-underline"
+                                direction="column" alignment="top-center" width="11.7%" gap="none" clipcontent="false"
+                                on-click="sundayShiftCellClick($event, widget, item, currentItemWidgets)" padding="10px"
+                                on-dragover="shiftCellDragOver($event, widget, item, currentItemWidgets)"
+                                on-drop="sundayShiftCellDrop($event, widget, item, currentItemWidgets)"
+                                on-dragleave="shiftCellDragLeave($event, widget, item, currentItemWidgets)"
+                                height="fill">
+                                <wm-list name="sundayShiftList" dataset="bind:item.weeklyShifts[6].shifts"
+                                    show-empty-message="false" scroll="false" class="list-card mh-list"
+                                    listclass="list-group"
+                                    show="bind:item.weeklyShifts[6].shifts &amp;&amp; item.weeklyShifts[6].shifts.length &gt; 0"
+                                    itemclass="pb-0 pt-0">
+                                    <wm-listtemplate layout="inline" name="sundayShiftListTemplate">
+                                        <wm-container name="sundayShiftItem" direction="column" width="100%"
+                                            height="auto" gap="none" alignment="middle-center" class="shift-item-card"
+                                            on-click="sundayShiftItemClick($event, widget, item, currentItemWidgets)"
+                                            draggable="true"
+                                            on-dragstart="sundayShiftItemDragStart($event, widget, item, currentItemWidgets)">
+                                            <wm-label name="lblSundayItemTime"
+                                                caption="bind:item.startTime + ' - ' + item.endTime"
+                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                            <wm-label name="lblSundayItemShift"
+                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
+                                            </wm-label>
+                                            <wm-label name="lblSundayItemNotes" caption="bind:item.description"
+                                                class="label-label-normal" variant="label-normal"
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
+                                            </wm-label>
+                                        </wm-container>
+                                    </wm-listtemplate>
+                                </wm-list>
+                            </wm-container>
+                        </wm-container>
+                    </wm-listtemplate>
+                </wm-list>
+                <wm-container name="employeeActionBar" class="app-container-default employee-action-bar" direction="row"
+                    gap="auto" alignment="center" width="fill" height="hug" padding="6px 12px" variant="default">
+                    <wm-container name="actionBarLeft" class="app-container-default" direction="row" gap="6"
+                        alignment="middle-left" width="hug" height="hug" variant="default">
+                        <wm-anchor name="anchorAddUploadEmployees" caption="Add/Upload New Employees"
+                            iconclass="fa fa-plus" iconposition="left" class="anchor-standard-xs" variant="standard-xs">
+                        </wm-anchor>
+                    </wm-container>
+                    <wm-container name="actionBarRight" class="app-container-default" direction="row" gap="16"
+                        alignment="middle-right" width="hug" height="hug" variant="default">
+                        <wm-anchor margin="unset 0.5em" name="anchor10" class="anchor-standard-sm-danger"
+                            variant="standard-sm-danger" caption="2 Recently Deleted Shifts"></wm-anchor>
+                        <wm-anchor name="anchorScheduleHistory" caption="Schedule History" iconclass="fa fa-undo"
+                            iconposition="left" class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
+                    </wm-container>
+                </wm-container>
+                <wm-container name="scheduleNotesSection" class="app-container-default schedule-notes-section"
+                    direction="column" gap="5" alignment="top-left" width="fill" height="hug" padding="unset 20px"
+                    variant="default">
+                    <!-- Schedule Notes Header -->
+                    <wm-container name="scheduleNotesHeader" class="container-grey-standard" direction="row" gap="100"
+                        alignment="top-left" width="fill" height="hug" padding="8px 12px" variant="grey-standard">
+                        <wm-label name="lblScheduleNotes" caption="Schedule Notes" class="label-label-20-700"
+                            variant="label-20-700"></wm-label>
+                        <wm-anchor name="anchorAddEdit" caption="Add/Edit" iconclass="fa fa-pencil" iconposition="left"
+                            class="schedule-notes-add-edit anchor-standard-sm" variant="standard-sm"></wm-anchor>
+                    </wm-container>
+                    <!-- Information Card -->
+                    <wm-container name="scheduleNotesInfoCard" class="container-grey-standard" direction="column"
+                        gap="8" alignment="top-left" width="fill" height="hug" padding="12px 16px"
+                        variant="grey-standard">
+                        <!-- Info Card Title Row -->
+                        <wm-container name="infoCardTitleRow" class="app-container-default" direction="row" gap="auto"
+                            alignment="center" width="fill" height="hug" variant="default">
+                            <wm-label name="lblInformation" caption="Information" class="label-label-20-700"
+                                variant="label-20-700"></wm-label>
+                            <wm-container name="infoHelpGroup" class="app-container-default" direction="row" gap="4"
+                                alignment="middle-right" width="hug" height="hug" variant="default">
+                                <wm-anchor margin="unset 0.5em" variant="standard" caption="Help on this topic"
+                                    class="more" name="anchor11"></wm-anchor>
+                            </wm-container>
+                        </wm-container>
+                        <!-- Description Text -->
+                        <wm-label name="lblScheduleNoteDesc"
+                            caption="- Note that this schedule view has special filtering. When you choose a position or group from the dropdown you will see all the Employees who are set to work that position along with ALL their shifts (even shifts not included in the positions filter). This is to allow you to see all employees' shifts when using drag/drop."
+                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                        <!-- Icon Legend Row -->
+                        <wm-container name="iconLegendRow" class="app-container-default justify-content-between"
+                            direction="row" gap="20%" alignment="middle-left" width="75%" height="hug" variant="default"
+                            padding="10px unset" clipcontent="false" overflow="none">
+                            <wm-container name="legendEmployeeViewed" class="app-container-default" direction="row"
+                                gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
+                                <wm-picture resizemode="contain" class="img-rounded" variant="default:rounded"
+                                    width="27px" height="13px"
+                                    picturesource="./resources/images/imagelists/schviewed.gif" name="picture13">
+                                </wm-picture>
+                                <wm-label name="lblEmployeeViewedSchedule" caption="Employee viewed schedule"
+                                    class="label-label-14-400" variant="label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="legendScheduleEmailed" class="app-container-default" direction="row"
+                                gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
+                                <wm-picture resizemode="contain" class="img-rounded" variant="default:rounded"
+                                    width="27px" height="13px"
+                                    picturesource="./resources/images/imagelists/schemailed.gif" name="picture14">
+                                </wm-picture>
+                                <wm-label name="lblScheduleEmailed" caption="Schedule emailed"
+                                    class="label-label-14-400" variant="label-14-400"></wm-label>
+                            </wm-container>
+                            <wm-container name="legendConfirmedEmail" class="app-container-default" direction="row"
+                                gap="6" alignment="middle-left" width="hug" height="hug" variant="default">
+                                <wm-picture resizemode="contain" class="img-rounded" variant="default:rounded"
+                                    width="27px" height="13px"
+                                    picturesource="./resources/images/imagelists/schconfirmed.gif" name="picture15">
+                                </wm-picture>
+                                <wm-label name="lblEmployeeConfirmedEmail" caption="Employee confirmed email receipt"
+                                    class="label-label-14-400" variant="label-14-400"></wm-label>
+                            </wm-container>
+                        </wm-container>
+                        <!-- Separator 1 -->
+                        <!-- Status Legend Row -->
+                        <wm-container class="container-grey-container-white-border mb-0" direction="row" gap="4"
+                            alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border"
+                            name="container86">
+                            <wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14"
+                                name="icon1"></wm-icon>
+                            <wm-label caption="Status" class="label-label-14-700 ps-2" variant="label-14-700"
+                                name="label65"></wm-label>
+                            <wm-icon iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3 fa-xs" name="icon2"
+                                variant="default:xs"></wm-icon>
+                            <wm-label caption="Full Time" variant="default" name="label66"></wm-label>
+                            <wm-icon iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3 fa-xs" name="icon3"
+                                variant="default:xs"></wm-icon>
+                            <wm-label caption="Part Time" variant="default" name="label67"></wm-label>
+                            <wm-icon iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3 fa-xs" name="icon4"
+                                variant="default:xs"></wm-icon>
+                            <wm-label caption="Per Diem" variant="default" name="label68"></wm-label>
+                        </wm-container>
+                        <!-- Separator 2 -->
+                        <!-- Refresh Checkbox Row -->
+                        <wm-container name="refreshCheckboxRow" class="app-container-default" direction="row" gap="8"
+                            alignment="middle-left" width="fill" height="hug" variant="default">
+                            <wm-checkbox name="chkRefreshPage" type="checkbox" datavalue="true" checkedvalue="true"
+                                uncheckedvalue="false"
+                                caption="Refresh page after each change  (Uncheck if you have a slow connection or do not want to wait for the page to refresh after every change)"
+                                variant="blue-check-14" class="checkbox-blue-check-14"></wm-checkbox>
+                        </wm-container>
+                    </wm-container>
+                </wm-container>
+                <wm-container class="app-container-default custom-border-bottom justify-content-between header-cont"
+                    direction="row" gap="auto" alignment="start" width="fill" height="hug" name="container88"
+                    variant="default" show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-left"
+                        width="18%" height="hug" clipcontent="false" padding="unset unset unset 16px" name="container89"
+                        variant="default"></wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container90" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.mondayDate"
+                            class="label-label-normal" variant="label-normal" name="label66_1"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container91" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.tuesdayDate"
+                            class="label-label-normal" variant="label-normal" name="label67_2"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container92" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.wednesdayDate"
+                            class="label-label-normal" variant="label-normal" name="label68_1"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container93" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.thursdayDate"
+                            class="label-label-normal" variant="label-normal" name="label69"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container94" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.fridayDate"
+                            class="label-label-normal" variant="label-normal" name="label70_1"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" name="container95" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.saturdayDate"
+                            class="label-label-normal" variant="label-normal" name="label71"></wm-label>
+                    </wm-container>
+                    <wm-container class="app-container-default" direction="column" gap="4" alignment="top-center"
+                        width="11.7%" height="hug" clipcontent="false" padding="unset 16px unset unset"
+                        name="container96" variant="default">
+                        <wm-label caption="bind:Widgets.Weekview1.selectedweekdataset.sundayDate"
+                            class="label-label-normal" variant="label-normal" name="label72"></wm-label>
+                    </wm-container>
+                </wm-container>
+                <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container87_1"
+                    class="app-container-default footerweek-nav-hover-container p-0 bg-grey" variant="default"
+                    show="bind:!Variables.employeeViewConfig.dataSet.showDateHeaderOnce">
+                    <wm-prefab prefabname="Weekview" name="Weekview2" width="100%" startdayofweek="tuesday"></wm-prefab>
+                </wm-container>
+                <wm-container name="footerInfoSection" class="app-container-default footerInfoSection" direction="row"
+                    gap="auto" alignment="center" width="fill" height="hug" padding="60px unset unset unset">
+                    <wm-anchor margin="unset 0.5em" name="anchor11_1" class="anchor-standard-13-700 lblContactW2W "
+                        variant="standard-13-700" caption="Questions, comments or suggestions? Contact W2W"></wm-anchor>
+                    <wm-button name="btnHelpFab" iconclass="fa fa-question" class="btn-filled-primary-circle"
+                        variant="filled-primary-circle"></wm-button>
+                </wm-container>
+            </wm-container>
+            <!-- Shift Management Dialog -->
+            <wm-dialog name="shiftDialog"
+                title="bind:&quot;Quick Shift &quot;+(isAdd ? &quot;Add&quot; : &quot;Edit&quot;)" modal="false"
+                closable="true" on-opened="shiftDialogOpened($event, widget)" class="modal-add-shift"
+                variant="add-shift" headinglevel="h5">
+                <wm-container name="dialogHeaderContainer" class="app-container-default" direction="row" gap="auto"
+                    alignment="start" width="fill" height="hug" clipcontent="false" overflow="No scrolling">
+                    <wm-label name="lblEmployeeDateInfo" caption="bind:Variables.selectedEmployeeDateVar.dataSet"
+                        class="app-label h6"></wm-label>
+                    <wm-anchor margin="unset 0.5em" name="anchor1" variant="standard-sm-Arial"
+                        iconclass="bind:isAdd ? &quot;fa fa-plus&quot; : &quot;fa fa-history&quot;"
+                        caption="bind:isAdd ? &quot; Add Time Off&quot; : &quot;Shift History&quot;"
+                        class="anchor-standard-sm-Arial"></wm-anchor>
+                </wm-container>
+                <wm-form name="shiftForm">
+                    <wm-container name="formFieldsContainer" class="app-container-default bg-grey pl-8"
+                        direction="column" gap="6" alignment="top-left" width="fill" height="hug" variant="default"
+                        clipcontent="false">
+                        <wm-container direction="row" alignment="middle-center" gap="4" width="fill"
+                            name="container48_1" class="app-container-default" variant="default" padding="10px unset">
+                            <wm-icon name="icon5" class="fa-xs purple" variant="default:xs" iconclass="fa fa-diamond">
+                            </wm-icon>
+                            <wm-label padding="unset"
+                                caption="bind:((selectedEmployee &amp;&amp; selectedEmployee.firstName ? selectedEmployee.firstName + '  ' + selectedEmployee.lastName : '') + ' - ' +(selectedEmployee &amp;&amp; selectedEmployee.employeeName &amp;&amp; formattedShiftDate ? ' - ' : '') + (formattedShiftDate ? formattedShiftDate : ''))"
+                                class="label-label-bold-16 label-label-16-700-Arial" type="p" name="label47"
+                                variant="label-16-700-Arial"></wm-label>
+                        </wm-container>
+                        <wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container42"
+                            class="app-container-default " variant="default" clipcontent="false" height="32px">
+                            <wm-label padding="unset" caption="Position" class="label-label-normal text-right" type="p"
+                                name="label42" variant="label-normal" required="false" width="155px"></wm-label>
+                            <wm-form-field name="positionField" show="true" placeholder="Select a position"
+                                required="true" type="text" key="position" widget="select"
+                                dataset="bind:Variables.svGetAllPositionsByCompanyId.dataSet.positions"
+                                datafield="positionId" displayfield="description" class="form-compact-input w-100 py-0"
+                                variant="compact-input"></wm-form-field>
+                        </wm-container>
+                        <wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container43"
+                            class="app-container-default" variant="default" height="32px" clipcontent="false">
+                            <wm-label padding="unset" caption="Start" class="text-right label-label-normal" type="p"
+                                variant="label-normal" required="false" width="120px" name="label43"></wm-label>
+                            <wm-form-field name="startTimeField" show="true" placeholder="" required="true"
+                                regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="startTime"
+                                validationmessage="Enter valid start time" widget="text" inputtype="text"
+                                class="form-compact-input time-height grey-caption" variant="compact-input"
+                                defaultvalue="bind:Variables.svGetShiftById.dataSet.startTime"></wm-form-field>
+                        </wm-container>
+                        <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container44"
+                            class="app-container-default" variant="default" height="32px" clipcontent="false">
+                            <wm-container direction="row" alignment="middle-left" gap="0" width="80%" name="container45"
+                                class="app-container-default" variant="default" clipcontent="false" overflow="none">
+                                <wm-label padding="unset" caption="End" class="text-right label-label-normal" type="p"
+                                    variant="label-normal" required="false" width="120px" name="label44"></wm-label>
+                                <wm-form-field name="endTimeField" show="true" placeholder="" required="true"
+                                    regexp="^(0[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$" type="text" key="endTime"
+                                    validationmessage="Enter valid end time" widget="text" inputtype="text"
+                                    class="form-compact-input time-height grey-caption" variant="compact-input"
+                                    defaultvalue="bind:Variables.svGetShiftById.dataSet.endTime"></wm-form-field>
+                            </wm-container>
+                            <wm-form-field name="colorField" show="true" placeholder="Color" required="true" type="text"
+                                key="color" widget="select"
+                                dataset="black,brown,blue,fuchsia,gray,green,navy,orange,purple,red,turquoise,lavender,lime,salmon,gold,aqua,maroon"
+                                class="py-0 form-compact-input" variant="compact-input"
+                                defaultvalue="bind:Variables.svGetShiftById.dataSet.color" width="100px">
+                            </wm-form-field>
+                        </wm-container>
+                        <wm-container direction="row" alignment="middle-left" gap="0" width="fill" name="container46"
+                            class="app-container-default" variant="default" height="32px" clipcontent="false">
+                            <wm-label padding="unset" caption="Paid Hours" class="text-right label-label-normal"
+                                type="p" variant="label-normal" required="false" width="120px" name="label45">
+                            </wm-label>
+                            <wm-container direction="row" alignment="middle-left" gap="0" width="fill"
+                                name="container47_1" class="app-container-default" variant="default">
+                                <wm-form-field name="paidHoursField" show="true" placeholder="" required="true"
+                                    type="text" key="paidHours" widget="number" inputtype="number"
+                                    class="py-0 form-compact-input grey-caption" variant="compact-input"
+                                    defaultvalue="bind:Variables.svGetShiftById.dataSet.duration" width="104px">
+                                </wm-form-field>
+                                <wm-container name="paidHoursContainer" class="app-container-default" direction="row"
+                                    gap="8" alignment="middle-left" width="fill" height="hug" variant="default">
+                                    <wm-label name="lblOr" caption="or" class="label-label-normal"
+                                        variant="label-normal"></wm-label>
+                                    <wm-checkbox name="chkAutoCalculate" type="checkbox" caption="Auto Calculate"
+                                        datavalue="true" variant="blue-check-8pt"
+                                        class="py-0 checkbox-compact checkbox-blue-check-8pt" checkedvalue="true"
+                                        uncheckedvalue="false"></wm-checkbox>
+                                </wm-container>
+                            </wm-container>
+                        </wm-container>
+                        <wm-container direction="row" alignment="top-left" gap="0" width="fill" name="container47"
+                            class="app-container-default" variant="default" wrap="false">
+                            <wm-container direction="column" alignment="top-left" gap="4" width="120px"
+                                name="container48" class="app-container-default" variant="default" clipcontent="false"
+                                wrap="false">
+                                <wm-label padding="unset" caption="Description"
+                                    class="text-right label-label-normal desc-top" type="p" variant="label-normal"
+                                    required="false" width="120px" name="label46"></wm-label>
+                                <wm-button class="btn-delete-btn btn-filled-bg-danger-sm" caption="DELETE shift"
+                                    type="button" margin="unset" name="button17_1" variant="filled-bg-danger-sm"
+                                    show="bind:!isAdd" on-click="Widgets.dialog4.open()"></wm-button>
+                            </wm-container>
+                            <wm-container direction="column" alignment="top-left" gap="6" width="fill"
+                                name="container46_1" class="app-container-default" variant="default" wrap="false">
+                                <wm-form-field widget="text" show="true" type="custom" name="form_field9"
+                                    key="description" class="form-compact-input w-100 mh-auto pt-0 pb-1 grey-caption"
+                                    variant="compact-input"
+                                    defaultvalue="bind:Variables.svGetShiftById.dataSet.description" placeholder="">
+                                </wm-form-field>
+                                <wm-form-field name="categoryField"
+                                    show="bind:App.Variables.employeeViewConfig.dataSet.showCategory"
+                                    placeholder="Optional Category - None" required="false" type="text" key="category"
+                                    widget="select"
+                                    dataset="bind:Variables.svGetAllCategoriesByCompanyId.dataSet.categories"
+                                    class="py-0 form-compact-input w-100 min-height-32" variant="compact-input"
+                                    height="32px" datafield="id" displayfield="description"></wm-form-field>
+                            </wm-container>
+                        </wm-container>
+                        <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container52"
+                            class="app-container-default" variant="default" clipcontent="false"></wm-container>
+                        <wm-container direction="row" alignment="middle-left" width="fill"
+                            class="app-container-default pl24" variant="default" clipcontent="false" name="container50"
+                            show="bind:!isAdd" height="40">
+                            <wm-label padding="unset" caption="Create" class="label-label-normal" type="p"
+                                name="label48" variant="label-normal"></wm-label>
+                            <wm-form-field name="form_field13" show="true" placeholder="0" type="custom"
+                                key="form_field13" widget="text" inputtype="text" class="create-copies-text"
+                                variant="standard" defaultvalue="0"></wm-form-field>
+                            <wm-label padding="unset" caption="copies of shift" class="label-label-normal" type="p"
+                                name="label49" variant="label-normal"></wm-label>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="weekdaysContainer" class="app-container-default" direction="column" gap="0"
+                        alignment="top-left" width="fill" height="hug" variant="default" show="bind:isAdd">
+                        <wm-container name="weekdayCheckboxesContainer"
+                            class="app-container-default bg-grey divider-top" direction="row" gap="42"
+                            alignment="middle-center" width="fill" height="46px" variant="default" clipcontent="false">
+                            <wm-container name="mondayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblMon" caption="Mon" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkMon" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    class="checkbox-compact p-0 checkbox-blue-check-14" width="40px"></wm-checkbox>
+                            </wm-container>
+                            <wm-container name="tuesdayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblTue" caption="Tue" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkTue" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox>
+                            </wm-container>
+                            <wm-container name="wednesdayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblWed" caption="Wed" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkWed" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    width="40px" class="checkbox-compact  checkbox-blue-check-14"></wm-checkbox>
+                            </wm-container>
+                            <wm-container name="thursdayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblThu" caption="Thu" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkThu" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox>
+                            </wm-container>
+                            <wm-container name="fridayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblFri" caption="Fri" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkFri" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox>
+                            </wm-container>
+                            <wm-container name="saturdayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblSat" caption="Sat" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkSat" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox>
+                            </wm-container>
+                            <wm-container name="sundayContainer" class="app-container-default" direction="column"
+                                gap="0" alignment="top-center" width="hug" height="hug" variant="default">
+                                <wm-label name="lblSun" caption="Sun" class="label-label-normal" variant="label-normal">
+                                </wm-label>
+                                <wm-checkbox name="chkSun" type="checkbox" datavalue="false" variant="blue-check-14"
+                                    width="40px" class="checkbox-compact checkbox-blue-check-14"></wm-checkbox>
+                            </wm-container>
+                        </wm-container>
+                        <wm-container name="weekdayActionsContainer" class="app-container-default bg-grey"
+                            direction="row" gap="8" alignment="middle-left" width="fill" height="12px" variant="default"
+                            clipcontent="false">
+                            <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container51"
+                                class="app-container-default" variant="default">
+                                <wm-anchor margin="unset 0.5em" variant="standard-sm-Arial"
+                                    iconclass="fa fa-check-square-o" caption="Select All"
+                                    class="anchor-standard-sm-Arial" name="anchor3"
+                                    on-click="anchor3Click($event, widget)"></wm-anchor>
+                                <wm-anchor margin="unset 0.5em" variant="standard-sm-Arial" iconclass="fa fa-square-o"
+                                    caption="Clear All" class="anchor-standard-sm-Arial" name="anchor4"
+                                    on-click="anchor4Click($event, widget)"></wm-anchor>
+                            </wm-container>
+                        </wm-container>
+                    </wm-container>
+                    <wm-container name="dialogActionsContainer" class="app-container-default actions-white"
+                        direction="row" gap="auto" alignment="center" width="fill" height="fill" variant="default"
+                        show="true" padding="5px unset" clipcontent="false">
+                        <wm-button class="btn-actions-btn btn-outlined-primary" caption="Cancel" type="button"
+                            margin="unset" name="Cancel" variant="outlined-primary"
+                            on-click="Widgets.shiftDialog.close()"></wm-button>
+                        <wm-anchor margin="unset 0.5em" name="anchor2" variant="standard-sm-Arial"
+                            iconclass="bind:isAdd ? &quot;fa fa-list-alt&quot; : &quot;fa fa-users&quot;"
+                            caption="bind:isAdd ? &quot;Assign to existing open shift&quot; : &quot;Available Employees&quot;"
+                            class="anchor-standard-sm-Arial"></wm-anchor>
+                        <wm-button class="btn-actions-btn btn-outlined-primary"
+                            caption="bind:isAdd ? &quot;Add Shift&quot; : &quot;Save&quot;" type="button" margin="unset"
+                            name="button16" variant="outlined-primary" on-click="button16Click($event, widget)">
+                        </wm-button>
+                    </wm-container>
+                </wm-form>
+            </wm-dialog>
+        </wm-page-content>
+    </wm-content>
+    <wm-dialog name="confirmShiftChangeDialog" title="Confirm" modal="true" closable="false" showheader="true"
+        class="modal-confirm-dialog" variant="confirm-dialog">
+        <wm-container name="confirmDialog1Body" class="app-container-default p-0" direction="column" gap="16"
+            alignment="middle-center" width="fill" height="hug" padding="16px 24px">
+            <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container100"
+                class="app-container-default" variant="default">
+                <wm-label padding="unset" caption="Confirm" class=" label-label-16-400 py-font" type="p" name="label81"
+                    variant="label-16-400"></wm-label>
+            </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill" name="container98"
+                class="app-container-default" variant="default" wrap="false">
+                <wm-label name="lblConfirmShiftMsg"
+                    caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)"
+                    class="text-center label-label-14-400 pb-4 py-font" width="fill" variant="label-14-400"></wm-label>
+            </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="12" width="fill" name="conflictMsgcontainer"
+                class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false"
+                overflow="none" show="false">
+                <wm-label padding="unset"
+                    caption="WARNING: There is a conflict with the shift you are trying to change:"
+                    class="app-label confirm-dialog-warning text-center" type="p" name="label82" variant="text:primary">
+                </wm-label>
+                <wm-label padding="unset" caption="bind:Variables.conflictMessageVar.dataSet.message"
+                    class="p label-label-14-700" type="p" name="label83" variant="label-14-700"></wm-label>
+                <wm-label padding="unset" caption="Would you like to change the shift anyway?"
+                    class="p label-label-14-400" type="p" name="label84" variant="label-14-400"></wm-label>
+            </wm-container>
+            <wm-container name="confirmDialog1Actions" class="app-container-default" direction="row" gap="24"
+                alignment="middle-center" width="fill" height="hug">
+                <wm-button name="btnConfirmShiftYes" caption="Yes" class="btn-success-btn" variant="success-btn"
+                    on-click="btnConfirmShiftYesClick($event, widget)"></wm-button>
+                <wm-button name="btnConfirmShiftNo" caption="No" class="btn-danger-btn" variant="danger-btn"
+                    on-click="btnConfirmShiftNoClick($event, widget)"></wm-button>
+            </wm-container>
+        </wm-container>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="wi wi-file-text" name="alertdialog1"
+        class="modal-confirm-dialog" variant="confirm-dialog">
+        <wm-container direction="column" alignment="middle-center" width="fill" gap="4" wrap="false" name="container97"
+            class="pb-2">
+            <wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label80" class="pt-4 pb-4"></wm-label>
+            <wm-button class="mt-4 btn-alert-outlined-primary" caption="OK" type="button" margin="unset" name="button17"
+                variant="alert-outlined-primary" on-click="Widgets.alertdialog1.close()"></wm-button>
+        </wm-container>
+        <wm-dialogactions name="dialogactions1" show="false">
+            <wm-button class="btn-primary btn-filled" caption="Close" on-click="closeDialog()" name="button16_1">
+            </wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="" name="dialog4" class="modal-confirm-dialog"
+        variant="confirm-dialog">
+        <wm-container class="app-container-default p-0" direction="column" gap="16" alignment="middle-center"
+            width="fill" height="hug" padding="16px 24px" name="container93_1" variant="default">
+            <wm-container direction="row" alignment="middle-center" gap="4" width="fill" class="app-container-default"
+                variant="default" name="container94_1">
+                <wm-label padding="unset" caption="Confirm" class="label-label-16-400 py-font" type="p"
+                    variant="label-16-400" name="label82_1"></wm-label>
+            </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="4" width="fill"
+                class="app-container-default" variant="default" wrap="false" name="container95_1">
+                <wm-label caption="Are you sure you want to delete this shift?"
+                    class="text-center label-label-14-400 pb-4 py-font" width="fill" variant="label-14-400"
+                    name="label83_1"></wm-label>
+            </wm-container>
+            <wm-container direction="column" alignment="middle-center" gap="12" width="fill"
+                class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false"
+                overflow="none" show="false" name="container96_1">
+                <wm-label padding="unset"
+                    caption="WARNING: There is a conflict with the shift you are trying to change:"
+                    class="confirm-dialog-warning text-center text-primary" type="p" variant="text:primary"
+                    name="label84_1"></wm-label>
+                <wm-label padding="unset" caption="bind:Variables.conflictMessageVar.dataSet.message"
+                    class="p label-label-14-700" type="p" variant="label-14-700" name="label85"></wm-label>
+                <wm-label padding="unset" caption="Would you like to change the shift anyway?"
+                    class="p label-label-14-400" type="p" variant="label-14-400" name="label86"></wm-label>
+            </wm-container>
+            <wm-container class="app-container-default" direction="row" gap="24" alignment="middle-center" width="fill"
+                height="hug" name="container97_1" variant="default">
+                <wm-button caption="Yes" class="btn-success-btn" variant="success-btn"
+                    on-click="Widgets.dialog4.close();button11Click($event, widget)" name="button11"></wm-button>
+                <wm-button caption="No" class="btn-danger-btn" variant="danger-btn" on-click="Widgets.dialog4.close()"
+                    name="button12"></wm-button>
+            </wm-container>
+        </wm-container>
+    </wm-dialog>
+</wm-page>

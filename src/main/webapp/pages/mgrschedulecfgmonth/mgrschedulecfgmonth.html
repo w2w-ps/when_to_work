@@ -1,14 +1,15 @@
 <wm-page name="page" pagetitle="Mgrschedulecfgmonth">
     <wm-content name="content">
-        <wm-page-content columnwidth="12" name="pagecontent">
+        <wm-page-content columnwidth="12" name="pagecontent" class="p-0">
             <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container52"
-                class="container-primary-filled" variant="primary-filled">
+                class="container-primary-filled" variant="primary-filled" height="30px" clipcontent="false"
+                overflow="none">
                 <wm-anchor margin="unset 0.5em" name="anchor1" class="anchor-white-anchor-yellow-on-hover"
-                    variant="white-anchor-yellow-on-hover" iconclass="mi mi-close"></wm-anchor>
+                    variant="white-anchor-yellow-on-hover" iconclass="mi mi-close" caption="Close"></wm-anchor>
             </wm-container>
             <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container26"
                 class="app-container-default" variant="default">
-                <wm-container direction="column" alignment="top-left" gap="8" width="hug" name="container25"
+                <wm-container direction="column" alignment="top-left" gap="6" width="hug" name="container25"
                     variant="default" wrap="false" class="app-container-default">
                     <wm-container name="pageTitleRow" direction="column" gap="4" alignment="top-center" width="fill"
                         height="hug" class="app-container-default" variant="default">
@@ -16,10 +17,10 @@
                             class="label-label-20-700" width="hug" height="hug" variant="label-20-700"></wm-label>
                     </wm-container>
                     <wm-container name="noteBannerRow" direction="column" gap="4" alignment="top-left" width="fill"
-                        height="hug" class="alert alert-warning container-warning-standard" variant="warning-standard"
-                        padding="8px">
-                        <wm-label name="lblNoteHeading" caption="Note" class="label-label-18-700" width="hug"
-                            height="hug" variant="label-18-700"></wm-label>
+                        height="hug" class="alert alert-warning container-warning-standard-no-radius"
+                        variant="warning-standard-no-radius" padding="8px">
+                        <wm-label name="lblNoteHeading" caption="Note" class="label-label-20-700" width="hug"
+                            height="hug" variant="label-20-700"></wm-label>
                         <wm-label name="lblNoteBody"
                             caption="These settings will also control what your employees see when they view Everyone's Monthly Schedule."
                             width="fill" height="hug" class="label-label-14-400" variant="label-14-400"></wm-label>
@@ -29,12 +30,14 @@
                         <wm-container name="screenViewTitleRow" direction="row" gap="auto" alignment="middle-left"
                             width="fill" height="hug" class="app-container-default" variant="default">
                             <wm-container name="screenViewTitleCol" direction="column" gap="4" alignment="middle-left"
-                                width="75%" height="hug" class="app-container-default" variant="default">
-                                <wm-label name="lblScreenViewTitle" caption="Screen View" class="h4 label-label-20-700"
+                                width="50%" height="hug" class="app-container-default" variant="default"
+                                clipcontent="false" overflow="none" padding="unset unset 12px unset">
+                                <wm-label name="lblScreenViewTitle" caption="Screen View" class=" label-label-20-700"
                                     width="hug" height="hug" variant="label-20-700"></wm-label>
                             </wm-container>
                             <wm-container name="screenViewStartOnCol" direction="row" gap="4" alignment="middle-right"
-                                width="25%" height="hug" class="app-container-default" variant="default">
+                                width="50%" height="hug" class="app-container-default" variant="default"
+                                clipcontent="false" overflow="none">
                                 <wm-label name="lblStartOn" caption="Start On" width="hug" height="hug"
                                     class="label-label-14-400" variant="label-14-400"></wm-label>
                                 <wm-select name="selStartOn"
@@ -45,33 +48,34 @@
                         </wm-container>
                         <wm-container name="screenViewGroupByRow" direction="row" gap="4" alignment="middle-left"
                             width="fill" height="hug" class="app-container-default" wrap="false" variant="default">
-                            <wm-label name="lblScreenGroupBy" caption="Group by" class="label-label-14-700" width="hug"
-                                height="hug" fontweight="bold" variant="label-14-700"></wm-label>
+                            <wm-label name="lblScreenGroupBy" caption="Group by" class="label-label-14-700 pe-4"
+                                width="hug" height="hug" fontweight="bold" variant="label-14-700"></wm-label>
                             <wm-radioset name="rsScreenGroupBy" dataset="Position, Category, Cat, None"
                                 datavalue="Position" layout="inline" width="hug" height="hug"
-                                on-change="rsScreenGroupByChange($event, widget, newVal, oldVal)" variant="standard">
-                            </wm-radioset>
+                                on-change="rsScreenGroupByChange($event, widget, newVal, oldVal)"
+                                variant="blue-standard" class="radiobutton-blue-standard"></wm-radioset>
                         </wm-container>
                         <wm-container name="screenViewCb1Row" direction="column" alignment="top-left" width="fill"
                             height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbScreenShowDesc" caption="Show description" datavalue="true"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14 p-0" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14 p-0 small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
                         <wm-container name="screenViewCb2Row" direction="column" gap="4" alignment="top-left"
                             width="fill" height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbScreenHideGroups" caption="Hide groups with no shifts" datavalue="true"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14  small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
                         <wm-container name="screenViewCb3Row" direction="column" gap="4" alignment="top-left"
                             width="fill" height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbScreenShowCatPos" caption="Show category/position" datavalue="false"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14  small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
-                        <wm-container name="screenViewNameFontRow" direction="row" gap="auto" alignment="middle-left"
-                            width="fill" height="hug" class="app-container-default" variant="default">
+                        <wm-container name="screenViewNameFontRow" direction="row" gap="auto" alignment="center"
+                            width="70%" height="hug" class="app-container-default mr-0" variant="default"
+                            clipcontent="false" overflow="none" padding="4px unset 8px unset">
                             <wm-container name="screenViewNameCol" direction="row" gap="4" alignment="middle-left"
                                 width="50%" height="hug" class="app-container-default" variant="default">
                                 <wm-label name="lblScreenName" caption="Name" class="label-label-14-400" width="hug"
@@ -92,44 +96,46 @@
                     <wm-container name="printoutPanel" direction="column" alignment="top-left" width="fill" height="hug"
                         class="well container-grey-standard" variant="grey-standard">
                         <wm-container name="printoutTitleRow" direction="column" gap="4" alignment="middle-left"
-                            width="fill" height="hug" class="app-container-default" variant="default">
+                            width="fill" height="hug" class="app-container-default" variant="default"
+                            padding="unset unset 12px unset">
                             <wm-label name="lblPrintoutTitle" caption="Printout" class="label-label-20-700" width="hug"
                                 height="hug" variant="label-20-700"></wm-label>
                         </wm-container>
                         <wm-container name="printoutGroupByRow" direction="row" gap="8" alignment="middle-left"
                             width="fill" height="hug" class="app-container-default" variant="default">
-                            <wm-label name="lblPrintGroupBy" caption="Group by" class="label-label-14-400" width="hug"
-                                height="hug" fontweight="bold" variant="label-14-400"></wm-label>
+                            <wm-label name="lblPrintGroupBy" caption="Group by" class="label-label-14-400 pe-4"
+                                width="hug" height="hug" fontweight="bold" variant="label-14-400"></wm-label>
                             <wm-radioset name="rsPrintGroupBy" dataset="Position, Category, Cat, None"
-                                datavalue="Position" layout="inline" width="hug" height="hug" variant="standard">
-                            </wm-radioset>
+                                datavalue="Position" layout="inline" width="hug" height="hug" variant="blue-standard"
+                                class="radiobutton-blue-standard"></wm-radioset>
                         </wm-container>
                         <wm-container name="printoutCb1Row" direction="column" gap="4" alignment="top-left" width="fill"
                             height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbPrintShowDesc" caption="Show description" datavalue="true"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14  small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
                         <wm-container name="printoutCb2Row" direction="column" gap="4" alignment="top-left" width="fill"
                             height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbPrintHideGroups" caption="Hide groups with no shifts" datavalue="true"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14  small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
                         <wm-container name="printoutCb3Row" direction="column" gap="4" alignment="top-left" width="fill"
                             height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbPrintShowCatPos" caption="Show category/position" datavalue="true"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14  small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
                         <wm-container name="printoutCb4Row" direction="column" gap="4" alignment="top-left" width="fill"
                             height="hug" class="app-container-default" variant="default">
                             <wm-checkbox name="cbPrintHideUnassigned" caption="Hide unassigned shifts" datavalue="false"
                                 checkedvalue="true" uncheckedvalue="false" width="hug" height="hug"
-                                class="checkbox-blue-check-14" variant="blue-check-14"></wm-checkbox>
+                                class="checkbox-blue-check-14  small-checkbox" variant="blue-check-14"></wm-checkbox>
                         </wm-container>
                         <wm-container name="printoutNameFontRow" direction="row" gap="auto" alignment="middle-left"
-                            width="fill" height="hug" class="app-container-default" variant="default">
+                            width="70%" height="hug" class="app-container-default mr-0" variant="default"
+                            clipcontent="false" overflow="none" padding="4px unset 8px unset">
                             <wm-container name="printoutNameCol" direction="row" gap="4" alignment="middle-left"
                                 width="50%" height="hug" class="app-container-default" variant="default">
                                 <wm-label name="lblPrintName" caption="Name" class="label-label-14-400" width="hug"
