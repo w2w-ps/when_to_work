@@ -72,11 +72,14 @@
                             alignment="middle-right" width="fill" height="hug">
                             <wm-search name="search1" placeholder="Find" width="150px" datafield="All Fields"
                                 on-change="search1Change($event, widget, newVal, oldVal)" type="autocomplete"
-                                variant="standard"></wm-search>
-                            <wm-select name="selStatus" dataset="All Status, Active, Inactive" placeholder="All Status"
-                                variant="standard" width="150px"></wm-select>
-                            <wm-select name="selPositions" dataset="All Positions" placeholder="All Positions"
-                                width="150px"></wm-select>
+                                variant="standard" showclear="true"></wm-search>
+                            <wm-menu name="selStatus" dataset="bind:Variables.statusOptionsVar.dataSet"
+                                caption="All Status" itemlabel="label" itemicon="iconclass" menuposition="down,left"
+                                width="150px" on-select="selStatusChange($event, widget, $item)"></wm-menu>
+                            <wm-select name="selPositions" dataset="bind:Variables.positionsDropdownData.dataSet"
+                                placeholder="All Positions" width="150px" datafield="value" displayfield="label"
+                                variant="standard" on-change="selPositionsChange($event, widget, newVal, oldVal)">
+                            </wm-select>
                         </wm-container>
                         <!-- FILTER ROW -->
                         <!-- EMPLOYEE TABLE -->
@@ -106,12 +109,12 @@
                                     on-click="employeeTable_EditAction(row)" conditionalclass="" conditionalstyle=""
                                     iconclass=""></wm-button>
                             </wm-table-column>
-                            <wm-table-column binding="status" caption="" widget-type="icon" width="35px"
-                                edit-widget-type="text" show="true" type="string" sortable="false" showineditmode="true"
+                            <wm-table-column binding="empType.name" caption="" widget-type="icon"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false">
-                                <wm-icon name="iconStatus" caption="bind:row.getProperty('status')"
-                                    iconclass="fa fa-diamond" iconposition="left" class="purple" conditionalclass=""
-                                    conditionalstyle=""></wm-icon>
+                                <wm-icon iconclass="fa fa-diamond" iconposition="left"
+                                    conditionalclass="bind:{'purple':row.getProperty('empType.name') === 'Full Time', 'blue':row.getProperty('empType.name') === 'Part Time', 'orange':row.getProperty('empType.name') === 'Per Diem'}"
+                                    iconsize="sm" conditionalstyle="" class="ps"></wm-icon>
                             </wm-table-column>
                             <wm-table-column binding="firstName" caption="First" width="80px" edit-widget-type="text"
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
@@ -235,15 +238,21 @@
                                 variant="icon-14"></wm-icon>
                             <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700 ps-2"
                                 variant="label-14-700"></wm-label>
-                            <wm-icon name="iconFullTime" iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3">
+                            <wm-icon name="iconFullTime" iconclass="wi wi-diamond" iconsize="sm" class="purple ps-3">
                             </wm-icon>
                             <wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label>
-                            <wm-icon name="iconPartTime" iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3">
+                            <wm-icon name="iconPartTime" iconclass="wi wi-diamond" iconsize="sm" class="blue ps-3">
                             </wm-icon>
                             <wm-label name="lblPartTime" caption="Part Time" variant="default"></wm-label>
-                            <wm-icon name="iconPerDiem" iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3">
+                            <wm-icon name="iconPerDiem" iconclass="wi wi-diamond" iconsize="sm" class="orange ps-3">
                             </wm-icon>
                             <wm-label name="lblPerDiem" caption="Per Diem" variant="default"></wm-label>
+                            <wm-icon name="iconOrangeDiamond" iconclass="wi wi-diamond" iconsize="sm"
+                                class="orange ps-3"></wm-icon>
+                            <wm-label name="lblOrangeDiamond" caption="Orange Diamond" variant="default"></wm-label>
+                            <wm-icon name="iconGreenDiamond" iconclass="wi wi-diamond" iconsize="sm" class="green ps-3">
+                            </wm-icon>
+                            <wm-label name="lblGreenDiamond" caption="Green Diamond" variant="default"></wm-label>
                         </wm-container>
                         <!-- Instructional text -->
                         <wm-label name="lblInstruction1"
