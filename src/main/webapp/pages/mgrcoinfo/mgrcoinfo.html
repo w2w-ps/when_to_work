@@ -1,212 +1,456 @@
 <wm-page name="page" pagetitle="Mgrcoinfo">
-<wm-content name="content">
-<wm-page-content columnwidth="12" name="pagecontent">
-<!-- Page Title Section -->
-<wm-container name="titleSection" class="app-container-default" direction="column" gap="4" alignment="top-center" width="fill" height="hug" padding="16px 0px">
-<wm-label name="lblCompanyName" caption="Sample Company" class="label-label-20-700" variant="label-20-700"></wm-label>
-<wm-label name="lblPageTitle" caption="Info &amp; Settings" class="label-label-20-700" variant="label-20-700"></wm-label></wm-container>
-<!-- Top Save Button -->
-<!-- Tabs -->
-<wm-tabs type="static" statehandler="URL" name="infoSettingsTabs" variant="standard" autotabactivation="true">
-<!-- ===================== INFO TAB ===================== -->
-<wm-tabpane title="Info" name="infoTabpane">
-<!-- Outer centered column -->
-<wm-container name="infoOuterCol" class="app-container-default" direction="column" gap="16" alignment="top-center" width="fill" height="hug" padding="16px 0px">
-<!-- ===== COMPANY INFORMATION SECTION ===== -->
-<wm-container name="saveTopWrapper" class="app-container-default" direction="row" gap="4" alignment="top-center" width="fill" height="hug" padding="8px 0px"><wm-button caption="Save" class="btn-outlined-primary" name="button5" variant="outlined-primary"></wm-button></wm-container><wm-container name="companyInfoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
-<!-- Section Header -->
-<wm-label name="lblCompanyInfoTitle" caption="Company Information" class="label-label-20-700" variant="label-20-700"></wm-label>
-<!-- Account / Employees / Expires Row -->
-<wm-container name="accountInfoRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lblAccountId" caption="bind:&quot;Account: &quot; + Variables.companyInfo.dataSet.dataValue.accountId" class="label-label-14-400" variant="label-14-400"></wm-label>
-<wm-label name="lblEmployeeCount" caption="bind:&quot;Employees: &quot; + Variables.companyInfo.dataSet.dataValue.employeeCount" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-label name="lblExpiresDate" caption="bind:&quot;Expires: &quot; + Variables.companyInfo.dataSet.dataValue.expiresDate" class="label-label-14-400" variant="label-14-400"></wm-label></wm-container>
-<!-- Company Name Row -->
-<wm-container name="companyNameRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblCompanyNameField" caption="Company" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtCompanyName" datavalue="bind:Variables.companyInfo.dataSet.dataValue.companyName" width="80%"></wm-text></wm-container>
-<!-- Billing Address Info Note -->
-<wm-label name="lblBillingNote" caption="Your billing address is required for determining sales tax."></wm-label>
-<!-- Billing Address Row -->
-<wm-container name="billingAddressRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblBillingAddress" caption="Billing Address" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtBillingAddress" datavalue="bind:Variables.companyInfo.dataSet.dataValue.billingAddress" width="80%"></wm-text></wm-container>
-<!-- City Row -->
-<wm-container name="cityRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblCity" caption="City" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtCity" datavalue="bind:Variables.companyInfo.dataSet.dataValue.city" width="80%"></wm-text></wm-container>
-<!-- State/Region Row -->
-<wm-container name="stateRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblStateRegion" caption="State/Region" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtStateRegion" datavalue="bind:Variables.companyInfo.dataSet.dataValue.stateRegion" width="80%"></wm-text></wm-container>
-<!-- Postal Code Row -->
-<wm-container name="postalCodeRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblPostalCode" caption="Postal Code" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtPostalCode" datavalue="bind:Variables.companyInfo.dataSet.dataValue.postalCode" width="80%"></wm-text></wm-container>
-<!-- Country Row -->
-<wm-container name="countryRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblCountry" caption="Select Your Country" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-select name="selCountry" dataset="United States, Canada, United Kingdom, Australia" datavalue="bind:Variables.companyInfo.dataSet.dataValue.country" width="60%"></wm-select>
-<wm-button class="btn-outlined-primary" caption="Button" type="button" margin="unset" name="button4" variant="outlined-primary"></wm-button></wm-container>
-<!-- Phone Row -->
-<wm-container name="phoneRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblPhone" caption="Phone" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtPhone" datavalue="bind:Variables.companyInfo.dataSet.dataValue.phone" width="80%"></wm-text></wm-container>
-<!-- Sales Tax Note Block -->
-<wm-container name="salesTaxNoteBlock" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug" padding="8px">
-<wm-label name="lblSalesTaxNote1" caption="Note: Sales tax may be applied to your next renewal if you are in a taxable state, unless we receive and verify a valid exemption certificate prior to the renewal date."></wm-label>
-<wm-label name="lblSalesTaxNote2" caption="To claim exemption, please email your exemption certificate and account number to SalesTaxW2W@tcpsoftware.com." class="label-label-12-700" variant="label-12-700"></wm-label>
-<wm-label name="lblSalesTaxNote3" caption="If sales tax is applied because we have not received and verified your exemption documentation prior to renewal, we will refund the tax amount upon verification."></wm-label>
-<wm-label name="lblSalesTaxNote4" caption="Sales tax charges are based upon the billing address of the customer regardless of location of use of our product."></wm-label></wm-container>
-<!-- Terms Row -->
-<wm-container name="termsRow" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="lblTermsHeader" caption="This account &amp; all users are governed under:"></wm-label>
-<wm-radioset name="radioTerms" dataset="W2W Terms of Service, W2W Institutional TOS (for governmental entities in the United States)" datavalue="W2W Terms of Service" layout="stacked"></wm-radioset></wm-container>
-<!-- Save Button --></wm-container>
-<!-- ===== MY INFORMATION SECTION ===== -->
-<wm-container name="myInfoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
-<!-- Header Row -->
-<wm-container name="myInfoHeaderRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lblMyInfoTitle" caption="My Information" class="label-label-20-700" variant="label-20-700"></wm-label>
-<wm-label name="lblMyInfoNote" caption="- To change the Main Manager do not update the name here*"></wm-label></wm-container>
-<!-- First Name Row -->
-<wm-container name="firstNameRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblFirstName" caption="First Name*" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtFirstName" datavalue="bind:Variables.myInfo.dataSet.dataValue.firstName" width="80%"></wm-text></wm-container>
-<!-- Last Name Row -->
-<wm-container name="lastNameRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblLastName" caption="Last Name*" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-text name="txtLastName" datavalue="bind:Variables.myInfo.dataSet.dataValue.lastName" width="80%"></wm-text></wm-container>
-<!-- Emails/Texts Row -->
-<wm-container name="emailsTextsRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblEmailsTexts" caption="Emails/Texts" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-anchor name="anchorMyNotifications" caption="My Notifications" iconclass="wi wi-mode-edit" class="text-primary"></wm-anchor></wm-container>
-<!-- Username/Password Row -->
-<wm-container name="usernamePassRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblUsernamePass" caption="Username/Password" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label>
-<wm-anchor name="anchorChangePass" caption="Change" iconclass="wi wi-mode-edit" class="text-primary"></wm-anchor></wm-container>
-<!-- Single Sign On Row -->
-<wm-container name="ssoRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblSSO" caption="Single Sign On" class="label-label-14-400" variant="label-14-400" width="160px"></wm-label></wm-container>
-<!-- Employee Status Icons Row -->
-<wm-container name="employeeStatusIconsRow" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-container name="employeeStatusIconsLeft" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
-<wm-label name="lblEmpStatusIcons" caption="Employee Status Icons" class="label-label-14-400" variant="label-14-400"></wm-label>
-<wm-radioset name="radioEmpStatusIcons" dataset="Show, Hide" datavalue="Show" layout="inline"></wm-radioset>
-<wm-label name="lblOnAllDisplays" caption="(on all displays)"></wm-label></wm-container>
-<wm-container name="employeeStatusIconsHelp" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
-<wm-label name="lblEmpStatusHelp" caption="Help on this topic"></wm-label>
-<wm-anchor name="anchorEmpStatusMore" caption="More" class="text-primary"></wm-anchor></wm-container></wm-container>
-<!-- Google Calendar Row -->
-<wm-container name="googleCalendarRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblGoogleCalLabel" caption="Calendar" class="label-label-14-700" variant="label-14-700" width="80px"></wm-label>
-<wm-label name="lblGoogleCalDesc" caption="Google Calendar: Export schedules that are automatically updated and can be shared with third parties and used for backup."></wm-label></wm-container></wm-container>
-<!-- ===== GLOBAL ACCOUNT SETTINGS SECTION ===== -->
-<wm-container name="globalSettingsSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
-<wm-label name="lblGlobalSettingsTitle" caption="Global Account Settings" class="label-label-20-700" variant="label-20-700"></wm-label>
-<!-- Min Time Between Shifts -->
-<wm-container name="minTimeRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblMinTime" caption="MINIMUM TIME Between Shifts:" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-text name="txtMinTime" datavalue="bind:Variables.globalSettings.dataSet.dataValue.minTimeBetweenShifts" width="60px"></wm-text>
-<wm-label name="lblHours" caption="hours"></wm-label></wm-container>
-<!-- Notifications -->
-<wm-container name="notificationsRow" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-label name="lblNotifications" caption="NOTIFICATIONS:" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-radioset name="radioNotifications" dataset="Send to all employees when Publish and Unpublish, Send to all when Unpublish but only those assigned when Publish, Do NOT send employee notifications when Publish or Unpublish" layout="stacked"></wm-radioset></wm-container>
-<!-- Time Zone Row -->
-<wm-container name="timeZoneRow" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblTimeZone" caption="TIME Zone:" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-select name="selTimeZone" dataset="GMT-8 Pacific US, GMT-7 Mountain US, GMT-6 Central US, GMT-5 Eastern US" datavalue="bind:Variables.globalSettings.dataSet.dataValue.timeZone" width="200px"></wm-select>
-<wm-label name="lblDaylightSavings" caption="Daylight Savings:"></wm-label>
-<wm-radioset name="radioDaylightSavings" dataset="Yes, No" datavalue="Yes" layout="inline"></wm-radioset></wm-container>
-<!-- Display Time Row -->
-<wm-container name="displayTimeRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblDisplayTime" caption="Display Time:" class="label-label-14-400" variant="label-14-400"></wm-label>
-<wm-radioset name="radioDisplayTime" dataset="12 Hour (am/pm), 24 Hour" datavalue="12 Hour (am/pm)" layout="inline"></wm-radioset></wm-container>
-<!-- Custom Employee Field Labels -->
-<wm-container name="customLabelsSection" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug">
-<wm-container name="customLabelsHeader" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lblCustomLabels" caption="CUSTOM Employee Fields Labels (optional)" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-container name="customLabelsHelp" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
-<wm-label name="lblCustomLabelsHelp" caption="Help on this topic"></wm-label>
-<wm-anchor name="anchorCustomLabelsMore" caption="More" class="text-primary"></wm-anchor></wm-container></wm-container>
-<wm-container name="customLabel1Row" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblLabel1" caption="Label 1:" class="label-label-14-400" variant="label-14-400" width="80px"></wm-label>
-<wm-text name="txtCustomLabel1" datavalue="bind:Variables.globalSettings.dataSet.dataValue.customLabel1" width="200px"></wm-text></wm-container>
-<wm-container name="customLabel2Row" class="app-container-default" direction="row" gap="16" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblLabel2" caption="Label 2:" class="label-label-14-400" variant="label-14-400" width="80px"></wm-label>
-<wm-text name="txtCustomLabel2" datavalue="bind:Variables.globalSettings.dataSet.dataValue.customLabel2" width="200px"></wm-text></wm-container></wm-container>
-<!-- Employee Status Icon Labels -->
-<wm-container name="empStatusLabelsSection" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug">
-<wm-container name="empStatusLabelsHeader" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lblEmpStatusLabels" caption="Employee Status Icon Labels (optional)" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-container name="empStatusLabelsHelp" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
-<wm-label name="lblEmpStatusLabelsHelp" caption="Help on this topic"></wm-label>
-<wm-anchor name="anchorEmpStatusLabelsMore" caption="More" class="text-primary"></wm-anchor></wm-container></wm-container>
-<wm-container name="empStatusLabelsRow" class="app-container-default" direction="row" gap="12" alignment="middle-left" width="fill" height="hug">
-<wm-anchor name="anchorStatusEdit" caption="Status" iconclass="wi wi-mode-edit" class="text-primary"></wm-anchor>
-<wm-label name="lblFullTime" caption="Full Time"></wm-label>
-<wm-label name="lblPartTime" caption="Part Time"></wm-label>
-<wm-label name="lblPerDiem" caption="Per Diem"></wm-label></wm-container></wm-container>
-<!-- MAIN MANAGER ONLY SETTINGS (warning box) -->
-<wm-container name="mainManagerOnlyBox" class="container-grey-standard" variant="grey-standard" direction="column" gap="10" alignment="top-left" width="fill" height="hug" padding="10px">
-<wm-label name="lblMainMgrOnly" caption="MAIN MANAGER ONLY SETTINGS" class="label-label-14-700" variant="label-14-700"></wm-label>
-<!-- Start Day Row -->
-<wm-container name="startDayRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblStartDay" caption="START DAY for Weekly Schedules:"></wm-label>
-<wm-label name="lblStartDayValue" caption="bind:Variables.globalSettings.dataSet.dataValue.startDay" class="label-label-14-700" variant="label-14-700"></wm-label>
-<wm-anchor name="anchorChangeStartDay" caption="Change" iconclass="wi wi-mode-edit" class="text-primary"></wm-anchor></wm-container>
-<!-- Label Employee Row -->
-<wm-container name="labelEmployeeRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblLabelEmployee" caption="Label &quot;Employee&quot;:"></wm-label>
-<wm-select name="selEmployeeLabel" dataset="Employee, Staff, Worker, Associate" datavalue="bind:Variables.globalSettings.dataSet.dataValue.employeeLabel" width="150px"></wm-select></wm-container>
-<!-- Prevent Employees Row - FIXED: radioset replaced with checkboxset -->
-<wm-container name="preventEmpRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblPreventEmp" caption="Prevent Employees from Adding/Editing their own:"></wm-label>
-<wm-checkboxset name="chkPreventAddress" dataset="Address" layout="inline"></wm-checkboxset>
-<wm-checkboxset name="chkPreventPhones" dataset="Phones" layout="inline"></wm-checkboxset></wm-container>
-<!-- Session Security Features -->
-<wm-container name="sessionSecuritySection" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-container name="sessionSecurityHeader" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-<wm-label name="lblSessionSecurity" caption="Session Security Features"></wm-label>
-<wm-label name="lblSessionSecurityReview" caption="Review options before updating"></wm-label>
-<wm-anchor name="anchorSessionSecurityMore" caption="More" class="text-primary"></wm-anchor></wm-container>
-<wm-radioset name="radioSessionSecurity" dataset="Level 2, Level 1 (not recommended)" datavalue="bind:Variables.sessionSecurityLevel.dataSet.dataValue" layout="stacked" on-change="radioSessionSecurityChange($event, widget, newVal, oldVal)"></wm-radioset>
-<wm-label name="lblSessionNote1" caption="bind:Variables.sessionSecurityLevel.dataSet.dataValue === 'Level 2' ? 'User sessions are stored in secure cookies. User sessions do not have an expiration date/time.' : 'User session security is minimal and does not require cookies.'"></wm-label>
-<wm-label name="lblSessionNote2" caption="Your current user session does not have an expiration date/time."></wm-label></wm-container>
-<!-- Manager Teams Section - FIXED: radiosets replaced with checkboxsets -->
-<wm-container name="managerTeamsSection" class="app-container-default" direction="column" gap="4" alignment="top-left" width="fill" height="hug">
-<wm-checkboxset name="chkEnableManagerTeams" dataset="Enable Manager Teams" layout="stacked"></wm-checkboxset>
-<wm-checkboxset name="chkAllowAllMgrsTeamViews" dataset="Allow All Managers to use Manager Team Views" layout="stacked"></wm-checkboxset>
-<wm-checkboxset name="chkAllowAllEmpViewTeams" dataset="Allow All Employees to View Teams" layout="stacked"></wm-checkboxset></wm-container></wm-container>
-<!-- Global Settings Save Button --></wm-container><wm-container name="companyLogoSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
-<wm-label name="lblCompanyLogoTitle" caption="Company Logo" class="label-label-20-700" variant="label-20-700"></wm-label>
-<!-- Logo Content Row -->
-<wm-container name="logoContentRow" class="app-container-default" direction="row" gap="16" alignment="top-left" width="fill" height="hug" variant="default">
-<!-- Left: Upload section - FIXED: radioset replaced with checkboxset -->
-<wm-container name="logoUploadCol" class="app-container-default" direction="column" gap="8" alignment="top-left" width="40%" height="hug" variant="default">
-<wm-anchor name="anchorUploadLogo" caption="Upload My Logo" iconclass="wi wi-file-upload" class="text-primary" variant="standard"></wm-anchor>
-<wm-checkboxset name="chkShowLogo" dataset="Show logo on printouts" datavalue="Show logo on printouts" layout="stacked" variant="standard"></wm-checkboxset></wm-container>
-<!-- Right: Current logo display -->
-<wm-container name="logoDisplayCol" class="container-white-container-no-border-radius" variant="white-container-no-border-radius" direction="column" gap="8" alignment="top-center" width="fill" height="hug" padding="16px">
-<wm-label name="lblCurrentLogo" caption="Current logo appearing on reports" class="text-primary" variant="text:primary"></wm-label>
-<wm-picture name="picCompanyLogo" picturesource="resources/images/logos/w2w_logo_circle.png" alttext="Company Logo" width="120px" height="120px" class="img-rounded" variant="default:rounded"></wm-picture>
-<wm-anchor name="anchorRemoveLogo" caption="Remove my uploaded logo" class="text-primary" variant="standard"></wm-anchor></wm-container></wm-container>
-<!-- Logo Save Button --></wm-container>
-<!-- ===== COMPANY LOGO SECTION ===== -->
-<!-- ===== INFORMATION NOTE SECTION ===== -->
-<wm-container name="saveBottomWrapper" class="app-container-default" direction="row" gap="4" alignment="top-center" width="fill" height="hug" padding="8px 0px"><wm-button name="btnLogoSave" caption="Save" class="btn-outlined-primary" variant="outlined-primary"></wm-button></wm-container><wm-container name="informationNoteSection" class="container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="70%" height="hug" padding="16px">
-<wm-container name="infoNoteHeader" class="app-container-default" direction="row" gap="auto" alignment="center" width="fill" height="hug">
-<wm-label name="lblInformationTitle" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
-<wm-container name="infoNoteHelp" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
-<wm-label name="lblInfoHelp" caption="Help on this topic"></wm-label>
-<wm-anchor name="anchorInfoMore" caption="More" class="text-primary"></wm-anchor></wm-container></wm-container>
-<wm-label name="lblInfoNote" caption="* To designate someone else as the main manager DO NOT do that here. Please go to Settings>Add/Edit Managers and click the link to &quot;Change the Main Manager&quot;"></wm-label></wm-container></wm-container></wm-tabpane>
-<!-- Other empty tabpanes -->
-<wm-tabpane title="My Notices" name="myNoticesTabpane"></wm-tabpane>
-<wm-tabpane title="Permissions" name="permissionsTabpane"></wm-tabpane>
-<wm-tabpane title="Managers" name="managersTabpane"></wm-tabpane>
-<wm-tabpane title="Payments" name="paymentsTabpane"></wm-tabpane>
-<wm-tabpane title="Linked Accts" name="linkedAcctsTabpane"></wm-tabpane>
-<wm-tabpane title="Refer" name="referTabpane"></wm-tabpane></wm-tabs></wm-page-content></wm-content>
-<wm-footer content="footer" name="footer"></wm-footer></wm-page>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="pagecontent">
+            <!-- Page Title Section -->
+            <wm-container name="titleSection" class="app-container-default" direction="column" gap="4"
+                alignment="top-center" width="fill" height="hug" padding="16px 0px">
+                <wm-label name="lblCompanyName" caption="bind:Variables.wsGetTenants.dataSet[$i].companyName"
+                    class="label-label-20-700" variant="label-20-700"></wm-label>
+                <wm-label name="lblPageTitle" caption="Info &amp; Settings" class="label-label-20-700"
+                    variant="label-20-700"></wm-label>
+            </wm-container>
+            <!-- Top Save Button -->
+            <!-- Tabs -->
+            <wm-tabs type="static" statehandler="URL" name="infoSettingsTabs" variant="standard"
+                autotabactivation="true">
+                <!-- ===================== INFO TAB ===================== -->
+                <wm-tabpane title="Info" name="infoTabpane">
+                    <!-- Outer centered column -->
+                    <wm-container name="infoOuterCol" class="app-container-default" direction="column" gap="16"
+                        alignment="top-center" width="fill" height="hug" padding="16px 0px">
+                        <!-- ===== COMPANY INFORMATION SECTION ===== -->
+                        <wm-container name="saveTopWrapper" class="app-container-default" direction="row" gap="4"
+                            alignment="top-center" width="fill" height="hug" padding="8px 0px">
+                            <wm-button caption="Save" class="btn-outlined-primary" name="button5"
+                                variant="outlined-primary"
+                                on-click="Variables.wsUpdateTenants.invoke();Variables.wsGetTenants.invoke()">
+                            </wm-button>
+                        </wm-container>
+                        <wm-container name="companyInfoSection" class="container-grey-standard" variant="grey-standard"
+                            direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
+                            <!-- Section Header -->
+                            <wm-label name="lblCompanyInfoTitle" caption="Company Information"
+                                class="label-label-20-700" variant="label-20-700"></wm-label>
+                            <!-- Account / Employees / Expires Row -->
+                            <wm-container name="accountInfoRow" class="app-container-default" direction="row" gap="auto"
+                                alignment="center" width="fill" height="hug">
+                                <wm-label name="lblAccountId"
+                                    caption="bind:&quot;Account: &quot; + Variables.loggedInUser.dataSet.id"
+                                    class="label-label-14-400" variant="label-14-400"></wm-label>
+                                <wm-label name="lblEmployeeCount"
+                                    caption="bind:&quot;Employees: &quot; + Variables.wsGetEmployeeDetails.dataSet.length"
+                                    class="label-label-14-700" variant="label-14-700"></wm-label>
+                                <wm-label name="lblExpiresDate"
+                                    caption="bind:&quot;Expires: &quot; + Variables.companyInfo.dataSet.dataValue.expiresDate"
+                                    class="label-label-14-400" variant="label-14-400"></wm-label>
+                            </wm-container>
+                            <!-- Company Name Row -->
+                            <wm-container name="companyNameRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblCompanyNameField" caption="Company" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtCompanyName"
+                                    datavalue="bind:Variables.wsGetTenants.dataSet[$i].companyName" width="80%">
+                                </wm-text>
+                            </wm-container>
+                            <!-- Billing Address Info Note -->
+                            <wm-label name="lblBillingNote"
+                                caption="Your billing address is required for determining sales tax."></wm-label>
+                            <!-- Billing Address Row -->
+                            <wm-container name="billingAddressRow" class="app-container-default" direction="row"
+                                gap="16" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblBillingAddress" caption="Billing Address" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtBillingAddress"
+                                    datavalue="bind:Variables.wsGetTenants.dataSet[$i].address" width="80%"></wm-text>
+                            </wm-container>
+                            <!-- City Row -->
+                            <wm-container name="cityRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblCity" caption="City" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtCity" datavalue="bind:Variables.wsGetTenants.dataSet[$i].city"
+                                    width="80%"></wm-text>
+                            </wm-container>
+                            <!-- State/Region Row -->
+                            <wm-container name="stateRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblStateRegion" caption="State/Region" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtStateRegion" datavalue="bind:Variables.wsGetTenants.dataSet[$i].state"
+                                    width="80%"></wm-text>
+                            </wm-container>
+                            <!-- Postal Code Row -->
+                            <wm-container name="postalCodeRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblPostalCode" caption="Postal Code" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtPostalCode"
+                                    datavalue="bind:Variables.companyInfo.dataSet.dataValue.postalCode" width="80%">
+                                </wm-text>
+                            </wm-container>
+                            <!-- Country Row -->
+                            <wm-container name="countryRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblCountry" caption="Select Your Country" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-select name="selCountry" dataset="bind:Variables.countryList.dataSet"
+                                    datavalue="bind:Variables.countryList.dataSet[185].name" width="60%"
+                                    datafield="name" displayfield="name"></wm-select>
+                                <wm-button class="btn-outlined-primary" caption="Button" type="button" margin="unset"
+                                    name="button4" variant="outlined-primary"></wm-button>
+                            </wm-container>
+                            <!-- Phone Row -->
+                            <wm-container name="phoneRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblPhone" caption="Phone" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtPhone" datavalue="bind:Variables.companyInfo.dataSet.dataValue.phone"
+                                    width="80%"></wm-text>
+                            </wm-container>
+                            <!-- Sales Tax Note Block -->
+                            <wm-container name="salesTaxNoteBlock" class="app-container-default" direction="column"
+                                gap="4" alignment="top-left" width="fill" height="hug" padding="8px">
+                                <wm-label name="lblSalesTaxNote1"
+                                    caption="Note: Sales tax may be applied to your next renewal if you are in a taxable state, unless we receive and verify a valid exemption certificate prior to the renewal date.">
+                                </wm-label>
+                                <wm-label name="lblSalesTaxNote2"
+                                    caption="To claim exemption, please email your exemption certificate and account number to SalesTaxW2W@tcpsoftware.com."
+                                    class="label-label-12-700" variant="label-12-700"></wm-label>
+                                <wm-label name="lblSalesTaxNote3"
+                                    caption="If sales tax is applied because we have not received and verified your exemption documentation prior to renewal, we will refund the tax amount upon verification.">
+                                </wm-label>
+                                <wm-label name="lblSalesTaxNote4"
+                                    caption="Sales tax charges are based upon the billing address of the customer regardless of location of use of our product.">
+                                </wm-label>
+                            </wm-container>
+                            <!-- Terms Row -->
+                            <wm-container name="termsRow" class="app-container-default" direction="column" gap="4"
+                                alignment="top-left" width="fill" height="hug">
+                                <wm-label name="lblTermsHeader"
+                                    caption="This account &amp; all users are governed under:"></wm-label>
+                                <wm-radioset name="radioTerms"
+                                    dataset="W2W Terms of Service, W2W Institutional TOS (for governmental entities in the United States)"
+                                    datavalue="W2W Terms of Service" layout="stacked"></wm-radioset>
+                            </wm-container>
+                            <!-- Save Button -->
+                        </wm-container>
+                        <!-- ===== MY INFORMATION SECTION ===== -->
+                        <wm-container name="myInfoSection" class="container-grey-standard" variant="grey-standard"
+                            direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
+                            <!-- Header Row -->
+                            <wm-container name="myInfoHeaderRow" class="app-container-default" direction="row"
+                                gap="auto" alignment="center" width="fill" height="hug">
+                                <wm-label name="lblMyInfoTitle" caption="My Information" class="label-label-20-700"
+                                    variant="label-20-700"></wm-label>
+                                <wm-label name="lblMyInfoNote"
+                                    caption="- To change the Main Manager do not update the name here*"></wm-label>
+                            </wm-container>
+                            <!-- First Name Row -->
+                            <wm-container name="firstNameRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblFirstName" caption="First Name*" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtFirstName"
+                                    datavalue="bind:Variables.myInfo.dataSet.dataValue.firstName" width="80%"></wm-text>
+                            </wm-container>
+                            <!-- Last Name Row -->
+                            <wm-container name="lastNameRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblLastName" caption="Last Name*" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-text name="txtLastName" datavalue="bind:Variables.myInfo.dataSet.dataValue.lastName"
+                                    width="80%"></wm-text>
+                            </wm-container>
+                            <!-- Emails/Texts Row -->
+                            <wm-container name="emailsTextsRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblEmailsTexts" caption="Emails/Texts" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-anchor name="anchorMyNotifications" caption="My Notifications"
+                                    iconclass="wi wi-mode-edit" class="text-primary"></wm-anchor>
+                            </wm-container>
+                            <!-- Username/Password Row -->
+                            <wm-container name="usernamePassRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblUsernamePass" caption="Username/Password" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                                <wm-anchor name="anchorChangePass" caption="Change" iconclass="wi wi-mode-edit"
+                                    class="text-primary"></wm-anchor>
+                            </wm-container>
+                            <!-- Single Sign On Row -->
+                            <wm-container name="ssoRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblSSO" caption="Single Sign On" class="label-label-14-400"
+                                    variant="label-14-400" width="160px"></wm-label>
+                            </wm-container>
+                            <!-- Employee Status Icons Row -->
+                            <wm-container name="employeeStatusIconsRow" class="app-container-default" direction="row"
+                                gap="auto" alignment="center" width="fill" height="hug">
+                                <wm-container name="employeeStatusIconsLeft" class="app-container-default"
+                                    direction="row" gap="8" alignment="middle-left" width="hug" height="hug">
+                                    <wm-label name="lblEmpStatusIcons" caption="Employee Status Icons"
+                                        class="label-label-14-400" variant="label-14-400"></wm-label>
+                                    <wm-radioset name="radioEmpStatusIcons" dataset="Show, Hide" datavalue="Show"
+                                        layout="inline"></wm-radioset>
+                                    <wm-label name="lblOnAllDisplays" caption="(on all displays)"></wm-label>
+                                </wm-container>
+                                <wm-container name="employeeStatusIconsHelp" class="app-container-default"
+                                    direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
+                                    <wm-label name="lblEmpStatusHelp" caption="Help on this topic"></wm-label>
+                                    <wm-anchor name="anchorEmpStatusMore" caption="More" class="text-primary">
+                                    </wm-anchor>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Google Calendar Row -->
+                            <wm-container name="googleCalendarRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblGoogleCalLabel" caption="Calendar" class="label-label-14-700"
+                                    variant="label-14-700" width="80px"></wm-label>
+                                <wm-label name="lblGoogleCalDesc"
+                                    caption="Google Calendar: Export schedules that are automatically updated and can be shared with third parties and used for backup.">
+                                </wm-label>
+                            </wm-container>
+                        </wm-container>
+                        <!-- ===== GLOBAL ACCOUNT SETTINGS SECTION ===== -->
+                        <wm-container name="globalSettingsSection" class="container-grey-standard"
+                            variant="grey-standard" direction="column" gap="12" alignment="top-left" width="70%"
+                            height="hug" padding="16px">
+                            <wm-label name="lblGlobalSettingsTitle" caption="Global Account Settings"
+                                class="label-label-20-700" variant="label-20-700"></wm-label>
+                            <!-- Min Time Between Shifts -->
+                            <wm-container name="minTimeRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblMinTime" caption="MINIMUM TIME Between Shifts:"
+                                    class="label-label-14-700" variant="label-14-700"></wm-label>
+                                <wm-text name="txtMinTime"
+                                    datavalue="bind:Variables.globalSettings.dataSet.dataValue.minTimeBetweenShifts"
+                                    width="60px"></wm-text>
+                                <wm-label name="lblHours" caption="hours"></wm-label>
+                            </wm-container>
+                            <!-- Notifications -->
+                            <wm-container name="notificationsRow" class="app-container-default" direction="column"
+                                gap="4" alignment="top-left" width="fill" height="hug">
+                                <wm-label name="lblNotifications" caption="NOTIFICATIONS:" class="label-label-14-700"
+                                    variant="label-14-700"></wm-label>
+                                <wm-radioset name="radioNotifications"
+                                    dataset="Send to all employees when Publish and Unpublish, Send to all when Unpublish but only those assigned when Publish, Do NOT send employee notifications when Publish or Unpublish"
+                                    layout="stacked"></wm-radioset>
+                            </wm-container>
+                            <!-- Time Zone Row -->
+                            <wm-container name="timeZoneRow" class="app-container-default" direction="row" gap="16"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblTimeZone" caption="TIME Zone:" class="label-label-14-700"
+                                    variant="label-14-700"></wm-label>
+                                <wm-select name="selTimeZone" dataset="bind:Variables.timezoneOptions.dataSet"
+                                    datafield="value" displayfield="label" width="200px"></wm-select>
+                                <wm-label name="lblDaylightSavings" caption="Daylight Savings:"></wm-label>
+                                <wm-radioset name="radioDaylightSavings" dataset="Yes, No" datavalue="Yes"
+                                    layout="inline"></wm-radioset>
+                            </wm-container>
+                            <!-- Display Time Row -->
+                            <wm-container name="displayTimeRow" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblDisplayTime" caption="Display Time:" class="label-label-14-400"
+                                    variant="label-14-400"></wm-label>
+                                <wm-radioset name="radioDisplayTime" dataset="12 Hour (am/pm), 24 Hour"
+                                    datavalue="12 Hour (am/pm)" layout="inline"></wm-radioset>
+                            </wm-container>
+                            <!-- Custom Employee Field Labels -->
+                            <wm-container name="customLabelsSection" class="app-container-default" direction="column"
+                                gap="8" alignment="top-left" width="fill" height="hug">
+                                <wm-container name="customLabelsHeader" class="app-container-default" direction="row"
+                                    gap="auto" alignment="center" width="fill" height="hug">
+                                    <wm-label name="lblCustomLabels" caption="CUSTOM Employee Fields Labels (optional)"
+                                        class="label-label-14-700" variant="label-14-700"></wm-label>
+                                    <wm-container name="customLabelsHelp" class="app-container-default" direction="row"
+                                        gap="4" alignment="middle-right" width="hug" height="hug">
+                                        <wm-label name="lblCustomLabelsHelp" caption="Help on this topic"></wm-label>
+                                        <wm-anchor name="anchorCustomLabelsMore" caption="More" class="text-primary">
+                                        </wm-anchor>
+                                    </wm-container>
+                                </wm-container>
+                                <wm-container name="customLabel1Row" class="app-container-default" direction="row"
+                                    gap="16" alignment="middle-left" width="fill" height="hug">
+                                    <wm-label name="lblLabel1" caption="Label 1:" class="label-label-14-400"
+                                        variant="label-14-400" width="80px"></wm-label>
+                                    <wm-text name="txtCustomLabel1"
+                                        datavalue="bind:Variables.globalSettings.dataSet.dataValue.customLabel1"
+                                        width="200px"></wm-text>
+                                </wm-container>
+                                <wm-container name="customLabel2Row" class="app-container-default" direction="row"
+                                    gap="16" alignment="middle-left" width="fill" height="hug">
+                                    <wm-label name="lblLabel2" caption="Label 2:" class="label-label-14-400"
+                                        variant="label-14-400" width="80px"></wm-label>
+                                    <wm-text name="txtCustomLabel2"
+                                        datavalue="bind:Variables.globalSettings.dataSet.dataValue.customLabel2"
+                                        width="200px"></wm-text>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Employee Status Icon Labels -->
+                            <wm-container name="empStatusLabelsSection" class="app-container-default" direction="column"
+                                gap="8" alignment="top-left" width="fill" height="hug">
+                                <wm-container name="empStatusLabelsHeader" class="app-container-default" direction="row"
+                                    gap="auto" alignment="center" width="fill" height="hug">
+                                    <wm-label name="lblEmpStatusLabels" caption="Employee Status Icon Labels (optional)"
+                                        class="label-label-14-700" variant="label-14-700"></wm-label>
+                                    <wm-container name="empStatusLabelsHelp" class="app-container-default"
+                                        direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
+                                        <wm-label name="lblEmpStatusLabelsHelp" caption="Help on this topic"></wm-label>
+                                        <wm-anchor name="anchorEmpStatusLabelsMore" caption="More" class="text-primary">
+                                        </wm-anchor>
+                                    </wm-container>
+                                </wm-container>
+                                <wm-container name="empStatusLabelsRow" class="app-container-default" direction="row"
+                                    gap="12" alignment="middle-left" width="fill" height="hug">
+                                    <wm-anchor name="anchorStatusEdit" caption="Status" iconclass="wi wi-mode-edit"
+                                        class="text-primary"></wm-anchor>
+                                    <wm-label name="lblFullTime" caption="Full Time"></wm-label>
+                                    <wm-label name="lblPartTime" caption="Part Time"></wm-label>
+                                    <wm-label name="lblPerDiem" caption="Per Diem"></wm-label>
+                                </wm-container>
+                            </wm-container>
+                            <!-- MAIN MANAGER ONLY SETTINGS (warning box) -->
+                            <wm-container name="mainManagerOnlyBox" class="container-grey-standard"
+                                variant="grey-standard" direction="column" gap="10" alignment="top-left" width="fill"
+                                height="hug" padding="10px">
+                                <wm-label name="lblMainMgrOnly" caption="MAIN MANAGER ONLY SETTINGS"
+                                    class="label-label-14-700" variant="label-14-700"></wm-label>
+                                <!-- Start Day Row -->
+                                <wm-container name="startDayRow" class="app-container-default" direction="row" gap="8"
+                                    alignment="middle-left" width="fill" height="hug">
+                                    <wm-label name="lblStartDay" caption="START DAY for Weekly Schedules:"></wm-label>
+                                    <wm-label name="lblStartDayValue" caption="-" class="label-label-14-700"
+                                        variant="label-14-700"></wm-label>
+                                    <wm-anchor name="anchorChangeStartDay" caption="Change" iconclass="wi wi-mode-edit"
+                                        class="text-primary"></wm-anchor>
+                                </wm-container>
+                                <!-- Label Employee Row -->
+                                <wm-container name="labelEmployeeRow" class="app-container-default" direction="row"
+                                    gap="8" alignment="middle-left" width="fill" height="hug">
+                                    <wm-label name="lblLabelEmployee" caption="Label &quot;Employee&quot;:"></wm-label>
+                                    <wm-select name="selEmployeeLabel" dataset="Employee, Staff, Worker, Associate"
+                                        datavalue="bind:Variables.globalSettings.dataSet.dataValue.employeeLabel"
+                                        width="150px"></wm-select>
+                                </wm-container>
+                                <!-- Prevent Employees Row - FIXED: radioset replaced with checkboxset -->
+                                <wm-container name="preventEmpRow" class="app-container-default" direction="row" gap="8"
+                                    alignment="middle-left" width="fill" height="hug">
+                                    <wm-label name="lblPreventEmp"
+                                        caption="Prevent Employees from Adding/Editing their own:"></wm-label>
+                                    <wm-checkboxset name="chkPreventAddress" dataset="Address" layout="inline">
+                                    </wm-checkboxset>
+                                    <wm-checkboxset name="chkPreventPhones" dataset="Phones" layout="inline">
+                                    </wm-checkboxset>
+                                </wm-container>
+                                <!-- Session Security Features -->
+                                <wm-container name="sessionSecuritySection" class="app-container-default"
+                                    direction="column" gap="4" alignment="top-left" width="fill" height="hug">
+                                    <wm-container name="sessionSecurityHeader" class="app-container-default"
+                                        direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+                                        <wm-label name="lblSessionSecurity" caption="Session Security Features">
+                                        </wm-label>
+                                        <wm-label name="lblSessionSecurityReview"
+                                            caption="Review options before updating"></wm-label>
+                                        <wm-anchor name="anchorSessionSecurityMore" caption="More" class="text-primary">
+                                        </wm-anchor>
+                                    </wm-container>
+                                    <wm-radioset name="radioSessionSecurity"
+                                        dataset="Level 2, Level 1 (not recommended)"
+                                        datavalue="bind:Variables.sessionSecurityLevel.dataSet.dataValue"
+                                        layout="stacked"
+                                        on-change="radioSessionSecurityChange($event, widget, newVal, oldVal)">
+                                    </wm-radioset>
+                                    <wm-label name="lblSessionNote1"
+                                        caption="bind:Variables.sessionSecurityLevel.dataSet.dataValue === 'Level 2' ? 'User sessions are stored in secure cookies. User sessions do not have an expiration date/time.' : 'User session security is minimal and does not require cookies.'">
+                                    </wm-label>
+                                    <wm-label name="lblSessionNote2"
+                                        caption="Your current user session does not have an expiration date/time.">
+                                    </wm-label>
+                                </wm-container>
+                                <!-- Manager Teams Section - FIXED: radiosets replaced with checkboxsets -->
+                                <wm-container name="managerTeamsSection" class="app-container-default"
+                                    direction="column" gap="4" alignment="top-left" width="fill" height="hug">
+                                    <wm-checkboxset name="chkEnableManagerTeams" dataset="Enable Manager Teams"
+                                        layout="stacked"></wm-checkboxset>
+                                    <wm-checkboxset name="chkAllowAllMgrsTeamViews"
+                                        dataset="Allow All Managers to use Manager Team Views" layout="stacked">
+                                    </wm-checkboxset>
+                                    <wm-checkboxset name="chkAllowAllEmpViewTeams"
+                                        dataset="Allow All Employees to View Teams" layout="stacked"></wm-checkboxset>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Global Settings Save Button -->
+                        </wm-container>
+                        <wm-container name="companyLogoSection" class="container-grey-standard" variant="grey-standard"
+                            direction="column" gap="12" alignment="top-left" width="70%" height="hug" padding="16px">
+                            <wm-label name="lblCompanyLogoTitle" caption="Company Logo" class="label-label-20-700"
+                                variant="label-20-700"></wm-label>
+                            <!-- Logo Content Row -->
+                            <wm-container name="logoContentRow" class="app-container-default" direction="row" gap="16"
+                                alignment="top-left" width="fill" height="hug" variant="default">
+                                <!-- Left: Upload section - FIXED: radioset replaced with checkboxset -->
+                                <wm-container name="logoUploadCol" class="app-container-default" direction="column"
+                                    gap="8" alignment="top-left" width="40%" height="hug" variant="default">
+                                    <wm-anchor name="anchorUploadLogo" caption="Upload My Logo"
+                                        iconclass="wi wi-file-upload" class="text-primary" variant="standard">
+                                    </wm-anchor>
+                                    <wm-checkboxset name="chkShowLogo" dataset="Show logo on printouts"
+                                        datavalue="Show logo on printouts" layout="stacked" variant="standard">
+                                    </wm-checkboxset>
+                                </wm-container>
+                                <!-- Right: Current logo display -->
+                                <wm-container name="logoDisplayCol" class="container-white-container-no-border-radius"
+                                    variant="white-container-no-border-radius" direction="column" gap="8"
+                                    alignment="top-center" width="fill" height="hug" padding="16px">
+                                    <wm-label name="lblCurrentLogo" caption="Current logo appearing on reports"
+                                        class="text-primary" variant="text:primary"></wm-label>
+                                    <wm-picture name="picCompanyLogo"
+                                        picturesource="resources/images/logos/w2w_logo_circle.png"
+                                        alttext="Company Logo" width="120px" height="120px" class="img-rounded"
+                                        variant="default:rounded"></wm-picture>
+                                    <wm-anchor name="anchorRemoveLogo" caption="Remove my uploaded logo"
+                                        class="text-primary" variant="standard"></wm-anchor>
+                                </wm-container>
+                            </wm-container>
+                            <!-- Logo Save Button -->
+                        </wm-container>
+                        <!-- ===== COMPANY LOGO SECTION ===== -->
+                        <!-- ===== INFORMATION NOTE SECTION ===== -->
+                        <wm-container name="saveBottomWrapper" class="app-container-default" direction="row" gap="4"
+                            alignment="top-center" width="fill" height="hug" padding="8px 0px">
+                            <wm-button name="btnLogoSave" caption="Save" class="btn-outlined-primary"
+                                variant="outlined-primary"></wm-button>
+                        </wm-container>
+                        <wm-container name="informationNoteSection" class="container-grey-standard"
+                            variant="grey-standard" direction="column" gap="8" alignment="top-left" width="70%"
+                            height="hug" padding="16px">
+                            <wm-container name="infoNoteHeader" class="app-container-default" direction="row" gap="auto"
+                                alignment="center" width="fill" height="hug">
+                                <wm-label name="lblInformationTitle" caption="Information" class="label-label-20-700"
+                                    variant="label-20-700"></wm-label>
+                                <wm-container name="infoNoteHelp" class="app-container-default" direction="row" gap="4"
+                                    alignment="middle-right" width="hug" height="hug">
+                                    <wm-label name="lblInfoHelp" caption="Help on this topic"></wm-label>
+                                    <wm-anchor name="anchorInfoMore" caption="More" class="text-primary"></wm-anchor>
+                                </wm-container>
+                            </wm-container>
+                            <wm-label name="lblInfoNote"
+                                caption="* To designate someone else as the main manager DO NOT do that here. Please go to Settings&gt;Add/Edit Managers and click the link to &quot;Change the Main Manager&quot;">
+                            </wm-label>
+                        </wm-container>
+                    </wm-container>
+                </wm-tabpane>
+                <!-- Other empty tabpanes -->
+                <wm-tabpane title="My Notices" name="myNoticesTabpane"></wm-tabpane>
+                <wm-tabpane title="Permissions" name="permissionsTabpane"></wm-tabpane>
+                <wm-tabpane title="Managers" name="managersTabpane"></wm-tabpane>
+                <wm-tabpane title="Payments" name="paymentsTabpane"></wm-tabpane>
+                <wm-tabpane title="Linked Accts" name="linkedAcctsTabpane"></wm-tabpane>
+                <wm-tabpane title="Refer" name="referTabpane"></wm-tabpane>
+            </wm-tabs>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer"></wm-footer>
+</wm-page>
