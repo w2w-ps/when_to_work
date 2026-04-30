@@ -16,12 +16,10 @@ Page.onReady = function () {
      */
 
     // Page.selectedDay = "Mon Apr 6 2026";
-    debugger
 
-    Page.Widgets.WorkPreference2.weekpreferencedata = App.Variables.selectedpreference.dataSet;
 };
 Page.button3Click = function ($event, widget) {
-    debugger
+
     let repeatCount = Page.Widgets.select2.datavalue == "Repeat 1Week(This Week Only)"
         ? 1
         : parseInt(Page.Widgets.select2.datavalue);
@@ -29,8 +27,10 @@ Page.button3Click = function ($event, widget) {
     let data = {
         companyId: 1,
         employeeId: 1,
-        date: Page.Widgets.WorkPreference2.weekpreferencedata[0].startDate,
-        prefs: Page.Widgets.WorkPreference2.weekpreferencedata[0].prefs,
+        date: Page.Widgets.WorkPreference2.weekpreferencedata?.[0]?.startDate
+            || App.Variables.selectedpreference.dataSet?.startDate,
+        prefs: Page.Widgets.WorkPreference2.weekpreferencedata?.[0]?.prefs
+            || App.Variables.selectedpreference.dataSet?.prefs,
         repeatCount: repeatCount,
         compression: 0,
         editedBy: 1,
@@ -41,3 +41,25 @@ Page.button3Click = function ($event, widget) {
         "inputFields": { RequestBody: data }
     });
 };
+Page.WorkPreference2Load = function ($event, $data) {
+    Page.Widgets.WorkPreference2.weekpreferencedata = getLocalStorageJSON('selectedpreference');
+    App.Variables.selectedpreference.dataSet = getLocalStorageJSON('selectedpreference');
+};
+
+Page.PostDayPrefonSuccess = function (variable, data) {
+    if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
+    }
+    window.close();
+};
+
+
+function getLocalStorageJSON(key, defaultValue = {}) {
+    try {
+        const value = localStorage.getItem(key);
+        return value ? JSON.parse(value) : defaultValue;
+    } catch (e) {
+        console.warn(`Invalid JSON in localStorage for key: ${key}`);
+        return defaultValue;
+    }
+}

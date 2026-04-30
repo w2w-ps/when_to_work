@@ -29,6 +29,7 @@
     --wm-color-violetcontainer: #F9F1FF;
     --wm-color-violetcontainerborder: #b765dd;
     --wm-color-form-caption: #555;
+    --wm-daynum-bg-color: #f0f1f7;
 }
 
 .open-sans-700 {
@@ -358,7 +359,6 @@ wm-input[name="txtFind"].app-input-wrapper {
     width: 14px !important;
     height: 14px !important;
     top: 4px !important;
-
     border-width: 1px !important;
 }
 
@@ -467,7 +467,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-family: 'Open Sans';
 }
 
-.app-calendar {
+.app-calendar:not(.main-celender) {
     position: absolute;
     width: 100% !important;
     z-index: 9999;
@@ -475,23 +475,23 @@ wm-input[name="txtFind"].app-input-wrapper {
     box-shadow: none;
 }
 
-.app-calendar .fc-toolbar-chunk:has(.fc-toolbar-title) {
+.app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-toolbar-title) {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.app-calendar .fc-toolbar-chunk:has(.fc-next-button) {
+.app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-next-button) {
     width: 100%;
     display: flex;
     justify-content: space-between !important;
 }
 
-.app-calendar .fc-next-button {
+.app-calendar:not(.main-celender) .fc-next-button {
     margin: 0 !important;
 }
 
-.app-calendar .fc-daygrid-day {
+.app-calendar:not(.main-celender) .fc-daygrid-day {
     height: 55px !important;
     border-right: 1px solid var(--wm-color-white) !important;
     border-left: 1px solid var(--wm-color-white) !important;
@@ -499,7 +499,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     width: 14.28%;
 }
 
-.app-calendar tr[role="row"]:has(td) {
+.app-calendar:not(.main-celender) tr[role="row"]:has(td) {
     display: flex;
     width: 100%;
     gap: 2px;
@@ -519,7 +519,7 @@ td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day a {
     visibility: hidden;
 }
 
-.app-calendar .fc-toolbar-title {
+.app-calendar:not(.main-celender) .fc-toolbar-title {
     color: var(--wm-color-primary) !important;
 }
 
@@ -590,12 +590,33 @@ button.close:hover {
     --wm-btn-state-layer-color: transparent !important;
 }
 
-.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title{
-  display: none;
+.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title {
+    display: none;
 }
-.modal-confirm-dialog .modal-body{
+
+.modal-confirm-dialog .modal-body {
     margin: 10px 8px 14px 8px !important;
 }
+
+.cal-day-slots-listgroup .cal-day-slot-item::before {
+    content: "";
+    background-color: var(--wm-color-light-grey);
+    height: 10px;
+    width: 1px;
+    /* position: absolute; */
+    /* left: 0; */
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* responsive code starts */
 /* mobile */

@@ -1,4 +1,8 @@
 [ {
+  "name" : "AddOrEditPosition",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -8,6 +12,10 @@
   "params" : [ ]
 }, {
   "name" : "ConfigureByPositionView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "EditDeletePosition",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -122,6 +130,10 @@
     "name" : "empid",
     "type" : "string"
   } ]
+}, {
+  "name" : "mgrnewemp",
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "mgrschedulecfgmonth",
   "type" : "PAGE",

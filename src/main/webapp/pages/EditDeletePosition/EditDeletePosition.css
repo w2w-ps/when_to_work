@@ -1,0 +1,61 @@
+.position-list-item {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+}
+
+.drag-handle-icon {
+  font-size: 18px;
+  color: #666666;
+  cursor: grab;
+}
+
+.drag-handle {
+  cursor: grab !important;
+  font-size: 18px;
+  color: #666666;
+  user-select: none;
+}
+
+.delete-column-header-row {
+  border-bottom: 2px solid #c0c4d6;
+  margin-bottom: 4px;
+}
+
+.delete-col-header-label {
+  color: #c0392b;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.delete-list-row {
+  border-bottom: 1px solid #d8dce8;
+  background: transparent;
+}
+
+.delete-position-list-item {
+  padding: 0px;
+}
+
+.app-list-reorder-handle {
+  display: none !important;
+}
+
+.wm-list-item-drag-handle {
+  display: none !important;
+}
+
+.positions-reorder-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.drag-handle-active {
+  cursor: grabbing;
+}
+
+.app-list-item {
+  cursor: default !important;
+}

@@ -144,6 +144,63 @@
     "twoWayBinding" : false,
     "saveInPhonegap" : false
   },
+  "positionsDropdownData" : {
+    "_id" : "wm-positionsDropdownData-wm.Variable-1777497715314",
+    "name" : "positionsDropdownData",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "All Positions",
+      "value" : "all"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "statusOptionsVar" : {
+    "_id" : "wm-statusOptionsVar-wm.Variable-1777498009212",
+    "name" : "statusOptionsVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "All Status",
+      "value" : "all",
+      "iconclass" : ""
+    }, {
+      "label" : "No Status",
+      "value" : "none",
+      "iconclass" : "wi wi-diamond"
+    }, {
+      "label" : "Full Time",
+      "value" : "Full Time",
+      "iconclass" : "wi wi-diamond purple"
+    }, {
+      "label" : "Part Time",
+      "value" : "Part Time",
+      "iconclass" : "wi wi-diamond blue"
+    }, {
+      "label" : "Per Diem",
+      "value" : "Per Diem",
+      "iconclass" : "wi wi-diamond orange"
+    }, {
+      "label" : "Orange Diamond",
+      "value" : "Orange Diamond",
+      "iconclass" : "wi wi-diamond orange"
+    }, {
+      "label" : "Green Diamond",
+      "value" : "Green Diamond",
+      "iconclass" : "wi wi-diamond green"
+    }, {
+      "label" : "Edit Legend",
+      "value" : "edit_legend",
+      "iconclass" : "fa fa-wrench"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
   "wsGetEmployeeDetails" : {
     "_id" : "wm-wsGetEmployeeDetails-wm.ServiceVariable-1776672186733",
     "name" : "wsGetEmployeeDetails",

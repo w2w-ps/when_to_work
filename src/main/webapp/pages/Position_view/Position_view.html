@@ -15,7 +15,7 @@
                 </wm-container>
                 <!-- Day Column Headers -->
                 <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79"
-                    class="app-container-default" variant="default" padding="unset 16px">
+                    class="app-container-default" variant="default" padding="unset 20px 10px 20px">
                     <wm-anchor margin="unset 0.5em" name="changeLayoutAnchor" variant="standard-sm-hover-grey"
                         caption="Change Layout" iconclass="wm-sl-r sl-layout-two-columns"
                         on-click="changeLayoutAnchorClick($event, widget)" class="anchor-standard-sm-hover-grey">
@@ -27,7 +27,7 @@
                     variant="no-padding-only-border" padding="1px">
                     <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container69"
                         class="app-container-default" variant="default" height="hug" clipcontent="false" overflow="none"
-                        show="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate">
+                        show="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate" padding="2px 1px 3px 2px">
                         <wm-label padding="unset"
                             caption="bind:&quot;Week of &quot; + Widgets.Weekview1.selectedweekdataset.mondayDate.split(&quot; &quot;)[0]"
                             class="label-label-13-700-blue" type="p" name="label47_1" variant="label-13-700-blue"
@@ -51,7 +51,8 @@
                             <!-- Date Group Header Row -->
                             <wm-container name="dateGroupHeaderRow" direction="row" alignment="start" gap="auto"
                                 width="fill" height="hug" class="date-group-header-row"
-                                show="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate">
+                                show="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate"
+                                padding="unset 1px 2px 2px">
                                 <wm-label name="lblDateGroupTitle"
                                     caption="bind:item.weekday + ' ' + formatDateDisplay(item.date)"
                                     class="label-label-13-700-black" width="fill" height="hug"
@@ -69,9 +70,9 @@
                                 </wm-container>
                             </wm-container>
                             <!-- Positions Middle List -->
-                            <wm-list name="positionsMiddleList" class="list-card" direction="column" gap="0"
+                            <wm-list name="positionsMiddleList" class="list-card mh-list" direction="column" gap="0"
                                 alignment="top-left" width="fill" height="hug" dataset="bind:item.positions"
-                                listclass="list-group">
+                                listclass="list-group" nodatamessage="No Shifts">
                                 <wm-listtemplate name="positionsMiddleListTemplate" direction="column" gap="0"
                                     alignment="top-left" width="fill" height="hug">
                                     <!-- Position Sub-Group Header Row -->
@@ -88,7 +89,8 @@
                                         <wm-container name="positionGroupSummary" direction="row"
                                             alignment="middle-right" gap="8" width="hug" height="hug"
                                             class="app-container-default"
-                                            show="bind:Variables.positionViewConfig.dataSet.screenShowPositionTotals">
+                                            show="bind:Variables.positionViewConfig.dataSet.screenShowPositionTotals"
+                                            padding="unset 1px unset unset">
                                             <wm-label name="lblPositionShiftCount"
                                                 caption="bind:item.shiftCount + ' shifts'"
                                                 class="label-label-13-400-black" width="hug" height="hug"
@@ -111,25 +113,44 @@
                                                 class="employee-color-dot"
                                                 conditionalstyle="bind:{'background-color': item.color}"></wm-container>
                                             <!-- Employee Name -->
-                                            <wm-label name="lblEmployeeName"
-                                                caption="bind:item.firstName + ' ' + item.lastName" width="25%"
-                                                height="hug" class="label-label-13-700-black ps-6 ms-6"
-                                                variant="label-13-700-black"></wm-label>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="fill"
+                                                name="container55" class="app-container-default" variant="default">
+                                            </wm-container>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="28%"
+                                                name="container52" class="app-container-default" variant="default"
+                                                clipcontent="false" padding="2px unset 2px 20px" overflow="none">
+                                                <wm-label name="lblEmployeeName"
+                                                    caption="bind:item.firstName + ' ' + item.lastName" width="fill"
+                                                    height="hug" class="label-label-13-700-black ps-6 ms-6"
+                                                    variant="label-13-700-black"></wm-label>
+                                            </wm-container>
                                             <!-- Shift Time Range -->
-                                            <wm-label name="lblShiftTimeRange"
-                                                caption="bind:item.startTime + ' - ' + item.endTime" width="25%"
-                                                height="hug" class="label-label-13-700-black"
-                                                variant="label-13-700-black"></wm-label>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="22%"
+                                                name="container53" class="app-container-default" variant="default"
+                                                clipcontent="false" padding="2px unset" overflow="none">
+                                                <wm-label name="lblShiftTimeRange"
+                                                    caption="bind:item.startTime + ' - ' + item.endTime" width="fill"
+                                                    height="hug" class="label-label-13-700-black"
+                                                    variant="label-13-700-black"></wm-label>
+                                            </wm-container>
                                             <!-- Shift Duration -->
-                                            <wm-label name="lblShiftDuration"
-                                                caption="bind:(item.duration).toFixed(1) + ' hours'" width="15%"
-                                                height="hug" class="label-label-13-400-black"
-                                                variant="label-13-400-black"></wm-label>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="10%"
+                                                name="container54" class="app-container-default" variant="default"
+                                                clipcontent="false" padding="2px unset" overflow="none">
+                                                <wm-label name="lblShiftDuration"
+                                                    caption="bind:(item.duration).toFixed(1) + ' hours'" width="fill"
+                                                    height="hug" class="label-label-13-400-black"
+                                                    variant="label-13-400-black"></wm-label>
+                                            </wm-container>
                                             <!-- Employment Type -->
-                                            <wm-label name="lblEmploymentType" caption="bind:item.description"
-                                                width="35%" height="hug" class="label-label-13-400-black"
-                                                show="bind:Variables.positionViewConfig.dataSet.screenShowDescription"
-                                                variant="label-13-400-black"></wm-label>
+                                            <wm-container direction="row" alignment="top-left" gap="4" width="40%"
+                                                name="container55" class="app-container-default" variant="default"
+                                                clipcontent="false" padding="2px unset" overflow="none">
+                                                <wm-label name="lblEmploymentType" caption="bind:item.description"
+                                                    width="fill" height="hug" class="label-label-13-400-black"
+                                                    show="bind:Variables.positionViewConfig.dataSet.screenShowDescription"
+                                                    variant="label-13-400-black"></wm-label>
+                                            </wm-container>
                                         </wm-listtemplate>
                                     </wm-list>
                                 </wm-listtemplate>
@@ -182,7 +203,7 @@
                         <!-- Icon Legend Row -->
                         <!-- Separator 1 -->
                         <!-- Status Legend Row -->
-                        <wm-container class="container-grey-container-white-border" direction="row" gap="4"
+                        <wm-container class="container-grey-container-white-border mb-0" direction="row" gap="4"
                             alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border"
                             name="container119">
                             <wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14"
@@ -334,8 +355,6 @@
                                     height="32px" datafield="id" displayfield="name"></wm-form-field>
                             </wm-container>
                         </wm-container>
-                        <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container52"
-                            class="app-container-default" variant="default" clipcontent="false"></wm-container>
                         <wm-container direction="row" alignment="middle-left" width="fill" class="app-container-default"
                             variant="default" clipcontent="false" name="container50" show="bind:!isAdd"
                             padding="unset 120px" height="40">

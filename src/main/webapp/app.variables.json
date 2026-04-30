@@ -73,6 +73,17 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "goToPage_AddOrEditPosition" : {
+    "_id" : "wm-goToPage_AddOrEditPosition-wm.NavigationAction-1776924880474",
+    "name" : "goToPage_AddOrEditPosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AddOrEditPosition",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_calenderView" : {
     "_id" : "wm-goToPage_calenderView-wm.NavigationAction-1776325282809",
     "name" : "goToPage_calenderView",
@@ -103,6 +114,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "ConfigureByPositionView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_EditDeletePosition" : {
+    "_id" : "wm-goToPage_EditDeletePosition-wm.NavigationAction-1776930909060",
+    "name" : "goToPage_EditDeletePosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "EditDeletePosition",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -291,6 +313,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Mgremplist",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_mgrnewemp" : {
+    "_id" : "wm-goToPage_mgrnewemp-wm.NavigationAction-1777007744075",
+    "name" : "goToPage_mgrnewemp",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrnewemp",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -493,7 +526,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -519,7 +552,8 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "onSuccess" : "svGetAllPositionsByCompanyIdonSuccess(variable, data, options)",
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -539,10 +573,6 @@
       "target" : "status",
       "value" : "all",
       "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzU0NTExLCJleHAiOjE3NzY3NTYzMTF9.A-UPbcFnLROcPO_Tsq8LycPRDtlt1lnm9koMOD2FEfWd6afX13YieVYTboJoVBvRzgD3NpgHHgEeddu2fH3GLWwtf8cc-FzPr0KELpkYcuz_uHk_W0HnY4ohOTFSlR9iNXvubXcmiA7YkSqwQGfJkOZhghPQEFuoHEc38dQfg-3NKFqKAlgMQKuAxWRM8GJbNAQ7BpSeJoxQKRu7ieUNckcNd_aDBnN12bGtTTUGcoby4PWy2YFNRWZfJRkTQZy7EKeVh4cHP0_I-m4osfRwJd0TkNE99FfyR1qoHcVDA2sLzMSf0kdf6al1NTEca4kzrrA5UO_QORCFKxFYj-FuXQ" ],
-      "type" : "string"
     } ],
     "type" : "getCategoryGroups.RootResponse",
     "service" : "getCategoryGroups",
@@ -553,7 +583,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -573,10 +603,6 @@
       "target" : "status",
       "value" : "all",
       "type" : "string"
-    }, {
-      "target" : "Authorization",
-      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzYyOTc3LCJleHAiOjE3NzY3NjQ3Nzd9.p9eZRAAKG_e4NtKA7IWEt4sUTINpDbo9cXGIdzDM9MW8jvw7pSDkMsgaF6aJ-w44B4btkKcLZOhcS2H0OCFRO3YL2MlgTKvV63eZmeiCEDhQfXEtPlB8qp2X04Ysfj8-qACeOYo7wznlAPW7VHHzqAQrNkuRy0zh9VwmahXrzdg6wWyo1BYT-uh0BibjBN6Th8CTVKqGdX4MsXzG5GvW0N2KHPiXfpjQzouGIbesL_FBKi69647GYSrsikaLDT4vsMchkZoIkTf0-2BdTOv2vHiulNInicfkFcokuLDRVKyLUKHgZvMh34Psy0YX3AKmxWjfYfvri0etNvOsqUgqyQ" ],
-      "type" : "string"
     } ],
     "type" : "getPositionGroup.RootResponse",
     "service" : "getPositionGroup",
@@ -587,7 +613,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "startUpdate" : true,
+    "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,

@@ -5,6 +5,13 @@
 
 /* perform any action on widgets/variables within this block */
 Partial.onReady = function () {
+
+    App.Variables.svGetAllCategoriesByCompanyId.invoke();
+    App.Variables.svGetAllPositionsByCompanyId.invoke();
+    App.Variables.svGetCategoryGroup.invoke();
+    App.Variables.svGetPositionGroup.invoke();
+
+
     buildCombinedCategoriesDataset();
     buildCombinedPositionsDataset();
 
@@ -86,16 +93,19 @@ function buildCombinedPositionsDataset() {
 
     combined.push({
         displayLabel: "Add/Edit Positions",
+        id: "addoredit",
         isHeader: false
     });
 
     combined.push({
         displayLabel: "-------------------",
+        id: "",
         isHeader: false
     });
 
     combined.push({
         displayLabel: "Select Group / Positions",
+        id: "selectgrouporposition",
         isHeader: false
     });
 
@@ -116,6 +126,7 @@ function buildCombinedPositionsDataset() {
 
     combined.push({
         displayLabel: "-------------------",
+        id: "",
         isHeader: false
     });
 
@@ -132,13 +143,17 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
+    if (newVal && newVal.id === 'addoredit') {
+        App.redirectToNewtab("AddOrEditPosition");
+        return;
+    }
     Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
     if (newVal.id) {
         filterShifts();
     }
 };
 
-filterShifts = function () {
+function filterShifts() {
     let varName = "";
     if (Partial.App.activePageName === 'Position_view') {
         varName = 'svGetPositionViewScheduling';
@@ -165,10 +180,10 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
     if (newVal == 'Calendar View') {
-        Partial.App.Actions.goToPage_calenderView.invoke()
+        Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
-        Partial.App.Actions.goToPage_Position_view.invoke()
+        Partial.App.Actions.goToPage_Position_view.invoke();
     } else if (newVal == 'By Employee View') {
-        Partial.App.Actions.goToPage_EmployeeView.invoke()
+        Partial.App.Actions.goToPage_EmployeeView.invoke();
     }
 };

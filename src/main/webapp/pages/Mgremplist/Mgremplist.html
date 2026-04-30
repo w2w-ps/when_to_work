@@ -20,7 +20,7 @@
                             alignment="middle-left" width="fill" height="hug" padding="6px unset unset unset">
                             <wm-button name="btnAddNewEmployee" caption="Add New Employee"
                                 class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
-                                width="27.5%"></wm-button>
+                                width="27.5%" on-click="btnAddNewEmployeeClick($event, widget)"></wm-button>
                             <wm-button name="btnAddEditPositions" caption="Add/Edit Positions"
                                 class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
                                 width="24.5%"></wm-button>
@@ -72,11 +72,14 @@
                             alignment="middle-right" width="fill" height="hug">
                             <wm-search name="search1" placeholder="Find" width="150px" datafield="All Fields"
                                 on-change="search1Change($event, widget, newVal, oldVal)" type="autocomplete"
-                                variant="standard"></wm-search>
-                            <wm-select name="selStatus" dataset="All Status, Active, Inactive" placeholder="All Status"
-                                variant="standard" width="150px"></wm-select>
-                            <wm-select name="selPositions" dataset="All Positions" placeholder="All Positions"
-                                width="150px"></wm-select>
+                                variant="standard" showclear="true"></wm-search>
+                            <wm-menu name="selStatus" dataset="bind:Variables.statusOptionsVar.dataSet"
+                                caption="All Status" itemlabel="label" itemicon="iconclass" menuposition="down,left"
+                                width="150px" on-select="selStatusChange($event, widget, $item)"></wm-menu>
+                            <wm-select name="selPositions" dataset="bind:Variables.positionsDropdownData.dataSet"
+                                placeholder="All Positions" width="150px" datafield="value" displayfield="label"
+                                variant="standard" on-change="selPositionsChange($event, widget, newVal, oldVal)">
+                            </wm-select>
                         </wm-container>
                         <!-- FILTER ROW -->
                         <!-- EMPLOYEE TABLE -->
@@ -106,12 +109,12 @@
                                     on-click="employeeTable_EditAction(row)" conditionalclass="" conditionalstyle=""
                                     iconclass=""></wm-button>
                             </wm-table-column>
-                            <wm-table-column binding="status" caption="" widget-type="icon" width="35px"
-                                edit-widget-type="text" show="true" type="string" sortable="false" showineditmode="true"
+                            <wm-table-column binding="empType.name" caption="" widget-type="icon"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false">
-                                <wm-icon name="iconStatus" caption="bind:row.getProperty('status')"
-                                    iconclass="fa fa-diamond" iconposition="left" class="purple" conditionalclass=""
-                                    conditionalstyle=""></wm-icon>
+                                <wm-icon iconclass="fa fa-diamond" iconposition="left"
+                                    conditionalclass="bind:{'purple':row.getProperty('empType.name') === 'Full Time', 'blue':row.getProperty('empType.name') === 'Part Time', 'orange':row.getProperty('empType.name') === 'Per Diem'}"
+                                    iconsize="sm" conditionalstyle="" class="ps"></wm-icon>
                             </wm-table-column>
                             <wm-table-column binding="firstName" caption="First" width="80px" edit-widget-type="text"
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
@@ -119,63 +122,11 @@
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="email" caption="Email*" width="200px" edit-widget-type="text"
                                 show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="employeeId" caption="ID #" edit-widget-type="number" show="true"
+                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="lastLogon" caption="Last Sign In" width="52%"
                                 edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false"></wm-table-column>
-                            <wm-table-column binding="cell" caption="Cell" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="comments" caption="Comments" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="companyId" caption="Company Id" edit-widget-type="number"
-                                show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="customField1" caption="Custom Field1" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="customField2" caption="Custom Field2" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="employeeId" caption="ID #" edit-widget-type="number" show="true"
-                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="employeePhoto" caption="Employee Photo" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="googleCalExport" caption="Google Cal Export"
-                                edit-widget-type="checkbox" show="true" type="boolean" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="hireDate" caption="Hire Date" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="logonCount" caption="Logon Count" edit-widget-type="number"
-                                show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxDailyHours" caption="Max Daily Hours" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxDailyShifts" caption="Max Daily Shifts"
-                                edit-widget-type="number" show="true" type="integer" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxScheduledHours" caption="Max Scheduled Hours"
-                                edit-widget-type="text" show="true" type="string" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="maxWeeklyDays" caption="Max Weekly Days" edit-widget-type="number"
-                                show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="nextAlertDate" caption="Next Alert Date" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="payRate" caption="Pay Rate" edit-widget-type="number" show="true"
-                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="phone" caption="Phone" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="phone2" caption="Phone2" edit-widget-type="text" show="true"
-                                type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="priorityGroup" caption="Priority Group" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.address" caption="Address Address" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.address2" caption="Address Address2"
-                                edit-widget-type="text" show="true" type="string" showineditmode="true"
-                                readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.city" caption="Address City" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.state" caption="Address State" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="address.zip" caption="Address Zip" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="empType.name" caption="Emptype Name" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
                         </wm-table>
                     </wm-tabpane>
                     <wm-tabpane name="tabPositions" title="Positions">
@@ -287,15 +238,21 @@
                                 variant="icon-14"></wm-icon>
                             <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700 ps-2"
                                 variant="label-14-700"></wm-label>
-                            <wm-icon name="iconFullTime" iconclass="fa fa-diamond" iconsize="sm" class="purple ps-3">
+                            <wm-icon name="iconFullTime" iconclass="wi wi-diamond" iconsize="sm" class="purple ps-3">
                             </wm-icon>
                             <wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label>
-                            <wm-icon name="iconPartTime" iconclass="fa fa-diamond" iconsize="sm" class="blue ps-3">
+                            <wm-icon name="iconPartTime" iconclass="wi wi-diamond" iconsize="sm" class="blue ps-3">
                             </wm-icon>
                             <wm-label name="lblPartTime" caption="Part Time" variant="default"></wm-label>
-                            <wm-icon name="iconPerDiem" iconclass="fa fa-diamond" iconsize="sm" class="orange ps-3">
+                            <wm-icon name="iconPerDiem" iconclass="wi wi-diamond" iconsize="sm" class="orange ps-3">
                             </wm-icon>
                             <wm-label name="lblPerDiem" caption="Per Diem" variant="default"></wm-label>
+                            <wm-icon name="iconOrangeDiamond" iconclass="wi wi-diamond" iconsize="sm"
+                                class="orange ps-3"></wm-icon>
+                            <wm-label name="lblOrangeDiamond" caption="Orange Diamond" variant="default"></wm-label>
+                            <wm-icon name="iconGreenDiamond" iconclass="wi wi-diamond" iconsize="sm" class="green ps-3">
+                            </wm-icon>
+                            <wm-label name="lblGreenDiamond" caption="Green Diamond" variant="default"></wm-label>
                         </wm-container>
                         <!-- Instructional text -->
                         <wm-label name="lblInstruction1"
@@ -317,4 +274,5 @@
             </wm-container>
         </wm-page-content>
     </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>

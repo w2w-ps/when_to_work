@@ -71,3 +71,22 @@ App.redirectTo = function (pageName) {
         'width=900,height=600,left=100,top=100'
     );
 };
+
+App.redirectToNewtab = function (pageName) {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    const currentUrl = window.location.href;
+    let popupUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + "/" + pageName;
+    window.open(
+  popupUrl,
+  "_blank",
+  `width=${screenWidth},height=${screenHeight}`
+);
+};
+
+App.svGetAllPositionsByCompanyIdonSuccess = function (variable, data) {
+   if(App.activePageName === 'EditDeletePosition') {
+       App.activePage.Variables.sortedPositionsList.dataSet  = data.positions.slice();
+   }
+};

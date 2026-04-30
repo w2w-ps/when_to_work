@@ -1,0 +1,100 @@
+{
+  "selectedPositionIds" : {
+    "_id" : "wm-selectedPositionIds-wm.Variable-1777263952171",
+    "name" : "selectedPositionIds",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "sortedPositionsList" : {
+    "_id" : "wm-sortedPositionsList-wm.Variable-1776939788855",
+    "name" : "sortedPositionsList",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "positionId" : 0,
+      "description" : ""
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "svDeletePosition" : {
+    "_id" : "wm-svDeletePosition-wm.ServiceVariable-1777018193336",
+    "name" : "svDeletePosition",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDE4MTA2LCJleHAiOjE3NzcwMTk5MDZ9.Zf2QltNa19G4mfzE1HcyaOo7rDLgHliSXoVIbxwiw3n_0O947P0k6357DD5Pv_UIAG5GYWelOJAdfIZwapTRs-JbPzDmeMXn587ewICaqBPgqbSzh9oNVffs0osBCl6BYqvIdu-qBu0bG0kdIylUYxV9zhDR06o7XywRVCBmpCe1u7k58DcqfGWcXOPb4JUUczcgye0j9KT8nJNsSR6_lTk5fh3bK-hFtywdTsHCXTi3sXwr1aRsZkw9GjB_NEwYBOK9LY3pqQhgItZqL2DkYZ0MKN3v2piHwL6KY4w9XYlxdpNI-embVdyqokOp7AzTBVX0dVZPbDJdjWTB8N3v_w" ],
+      "type" : "string"
+    }, {
+      "target" : "positionId",
+      "value" : "bind:positionIds",
+      "type" : "string"
+    } ],
+    "type" : "deletePosition.RootResponse",
+    "service" : "deletePosition",
+    "operation" : "invoke",
+    "operationId" : "deletePosition_invoke",
+    "operationType" : "delete",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Variables.svGetAllPositionsByCompanyId.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "deletePosition"
+  },
+  "svUpdatePosition" : {
+    "_id" : "wm-svUpdatePosition-wm.ServiceVariable-1777011952631",
+    "name" : "svUpdatePosition",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDExMjQ4LCJleHAiOjE3NzcwMTMwNDh9.FkRRp91Dsqhiu_zxcRvSVpGUr-47m5mZOdXDMDXVbKcPo7C_iOcpmsI6jvaMKMx4X6iBNvkAWY9_bA6EE3cxqMAgWFi3l4zvAeTrKXGM2g5ULCa3ARdsIwr9reemCAwpVftVLzL-g-K0YtXSzh0oS2SIhbcMdBTkIz3QT1vhVfvqm3q4nUeakril0l5BAJeKOSyJZV4DpVX9fGRzu54fAbmS6f18VByNbjSFQURFuUtjqFlffFgm1AOP42pTJoOvvnWy4zFkSs57fvYSu2PuNqaHUWcAqxWPQ72h0l7oCFqhZD-wWhF7SytLFOp4mwrW4uTfd-UL33QLI2z0LY3JVQ" ],
+      "type" : "string"
+    }, {
+      "target" : "positionId",
+      "value" : "bind:Widgets.positionsList.selecteditem.positionId",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody.description",
+      "value" : "bind:Widgets.editPositionNameInput.datavalue"
+    } ],
+    "type" : "updatePosition.RootResponse",
+    "service" : "updatePosition",
+    "operation" : "invoke",
+    "operationId" : "updatePosition_invoke",
+    "operationType" : "put",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Variables.svGetAllPositionsByCompanyId.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "updatePosition"
+  }
+}

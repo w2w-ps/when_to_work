@@ -149,4 +149,15 @@ Partial.leftTopLinksSelect = function ($event, widget, $item) {
 
         App.Actions.logoutAction.invoke();
     }
+    if ($item && ($item.label === 'By Employee (Drag/Drop)')) {
+        App.Actions.goToPage_EmployeeView.invoke();
+    }
+
+    if ($item && ($item.label === 'Calendar View')) {
+        App.Actions.goToPage_calenderView.invoke();
+    }
+    if ($item && ($item.label === 'By Position View')) {
+        App.Actions.goToPage_Position_view.invoke();
+    }
+
 };
