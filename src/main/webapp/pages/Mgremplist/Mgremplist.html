@@ -2,69 +2,179 @@
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent" class="px-0">
-            <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="0" alignment="top-left" width="fill" height="hug">
+            <wm-container name="pageWrapper" class="app-container-default" direction="column" gap="0"
+                alignment="top-left" width="fill" height="hug">
                 <!-- PAGE TITLE -->
-                <wm-container name="titleSection" class="app-container-default" direction="column" gap="4" alignment="top-center" width="fill" height="hug" padding="unset unset 16px unset">
-                    <wm-label name="lblCompanyName" caption="Sample Company" class="label-label-20-700" variant="label-20-700"></wm-label>
-                    <wm-label name="lblPageTitle" caption="Employee List" class="label-label-20-700" variant="label-20-700"></wm-label>
+                <wm-container name="titleSection" class="app-container-default" direction="column" gap="4"
+                    alignment="top-center" width="fill" height="hug" padding="unset unset 16px unset">
+                    <wm-label name="lblCompanyName" caption="Sample Company" class="label-label-20-700"
+                        variant="label-20-700"></wm-label>
+                    <wm-label name="lblPageTitle" caption="Employee List" class="label-label-20-700"
+                        variant="label-20-700"></wm-label>
                 </wm-container>
                 <!-- TABS -->
                 <wm-tabs name="employeeTabs" defaultpaneindex="0">
                     <wm-tabpane name="tabEmployees" title="Employees" class="px-4">
                         <!-- ACTION TOOLBAR -->
-                        <wm-container name="actionToolbar" class="app-container-default" direction="row" gap="0" alignment="middle-left" width="fill" height="hug" padding="6px unset unset unset">
-                            <wm-button name="btnAddNewEmployee" caption="Add New Employee" class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700" width="27.5%" on-click="btnAddNewEmployeeClick($event, widget)"></wm-button>
-                            <wm-button name="btnAddEditPositions" caption="Add/Edit Positions" class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700" width="24.5%"></wm-button>
-                            <wm-button name="btnEmailSignIn" caption="Email Sign In Instructions" class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700" width="33.5%"></wm-button>
-                            <wm-button name="btnPrint" caption="Print" class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700" width="7.5%"></wm-button>
-                            <wm-button name="btnExport" caption="Export" class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700" width="10.5%"></wm-button>
-                            <wm-button name="btnUpload" caption="Upload" class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700" width="12%"></wm-button>
+                        <wm-container name="actionToolbar" class="app-container-default" direction="row" gap="0"
+                            alignment="middle-left" width="fill" height="hug" padding="6px unset unset unset">
+                            <wm-button name="btnAddNewEmployee" caption="Add New Employee"
+                                class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
+                                width="27.5%" on-click="btnAddNewEmployeeClick($event, widget)"></wm-button>
+                            <wm-button name="btnAddEditPositions" caption="Add/Edit Positions"
+                                class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
+                                width="24.5%"></wm-button>
+                            <wm-button name="btnEmailSignIn" caption="Email Sign In Instructions"
+                                class="btn-filled-primary-variant-12-700" variant="filled-primary-variant-12-700"
+                                width="33.5%"></wm-button>
+                            <wm-button name="btnPrint" caption="Print" class="btn-filled-primary-variant-12-700"
+                                variant="filled-primary-variant-12-700" width="7.5%"></wm-button>
+                            <wm-button name="btnExport" caption="Export" class="btn-filled-primary-variant-12-700"
+                                variant="filled-primary-variant-12-700" width="10.5%"></wm-button>
+                            <wm-button name="btnUpload" caption="Upload" class="btn-filled-primary-variant-12-700"
+                                variant="filled-primary-variant-12-700" width="12%"></wm-button>
                         </wm-container>
                         <!-- SECONDARY TOOLBAR -->
-                        <wm-container name="secondaryToolbar" direction="row" gap="16" alignment="middle-left" width="fill" height="hug" variant="default" class="app-container-default" padding="6px unset">
-                            <wm-container name="selectColumnsGroup" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
-                                <wm-anchor margin="unset 0.5em" variant="standard-sm-hover-grey" caption="Select Columns" iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm-hover-grey" name="anchor8" on-click="Actions.goToPage_mgremplistconfig.invoke()"></wm-anchor>
+                        <wm-container name="secondaryToolbar" direction="row" gap="16" alignment="middle-left"
+                            width="fill" height="hug" variant="default" class="app-container-default"
+                            padding="6px unset">
+                            <wm-container name="selectColumnsGroup" class="app-container-default" direction="row"
+                                gap="4" alignment="middle-left" width="hug" height="hug">
+                                <wm-anchor margin="unset 0.5em" variant="standard-sm-hover-grey"
+                                    caption="Select Columns" iconclass="wm-sl-r sl-layout-two-columns"
+                                    class="anchor-standard-sm-hover-grey" name="anchor8"
+                                    on-click="Actions.goToPage_mgremplistconfig.invoke()"></wm-anchor>
                             </wm-container>
-                            <wm-container direction="row" alignment="middle-left" gap="4" width="hug" name="containerAnchorsItems" class="container-grey-no-radius-small-container" variant="grey-no-radius-small-container" clipcontent="false" padding="3px 15px">
-                                <wm-label name="lblSelected" caption="Selected:" class="label-label-12-700" variant="label-12-700"></wm-label>
-                                <wm-anchor margin="unset 0.5em" name="anchorSendReminder" variant="standard-sm" caption="Send Reminder" iconclass="fa fa-list-alt" class="anchor-standard-sm">
+                            <wm-container direction="row" alignment="middle-left" gap="4" width="hug"
+                                name="containerAnchorsItems" class="container-grey-no-radius-small-container"
+                                variant="grey-no-radius-small-container" clipcontent="false" padding="3px 15px">
+                                <wm-label name="lblSelected" caption="Selected:" class="label-label-12-700"
+                                    variant="label-12-700"></wm-label>
+                                <wm-anchor margin="unset 0.5em" name="anchorSendReminder" variant="standard-sm"
+                                    caption="Send Reminder" iconclass="fa fa-list-alt" class="anchor-standard-sm">
                                 </wm-anchor>
-                                <wm-anchor margin="unset 0.5em" name="anchorMessage" variant="standard-sm" caption="Message" iconclass="wi wi-envelope" class="anchor-standard-sm"></wm-anchor>
-                                <wm-anchor margin="unset 0.5em" name="anchorSendSignIn" variant="standard-sm" caption="Send Sign In" iconclass="fa fa-list-alt" class="anchor-standard-sm">
+                                <wm-anchor margin="unset 0.5em" name="anchorMessage" variant="standard-sm"
+                                    caption="Message" iconclass="wi wi-envelope" class="anchor-standard-sm"></wm-anchor>
+                                <wm-anchor margin="unset 0.5em" name="anchorSendSignIn" variant="standard-sm"
+                                    caption="Send Sign In" iconclass="fa fa-list-alt" class="anchor-standard-sm">
                                 </wm-anchor>
-                                <wm-anchor margin="unset 0.5em" name="anchorCopyClipboard" variant="standard-sm" caption="Copy to Clipboard" iconclass="wi wi-content-copy" class="anchor-standard-sm"></wm-anchor>
-                                <wm-anchor margin="unset 0.5em" name="anchorBulkEdit" variant="standard-sm" caption="Bulk Edit" iconclass="wi wi-mode-edit" class="anchor-standard-sm">
+                                <wm-anchor margin="unset 0.5em" name="anchorCopyClipboard" variant="standard-sm"
+                                    caption="Copy to Clipboard" iconclass="wi wi-content-copy"
+                                    class="anchor-standard-sm"></wm-anchor>
+                                <wm-anchor margin="unset 0.5em" name="anchorBulkEdit" variant="standard-sm"
+                                    caption="Bulk Edit" iconclass="wi wi-mode-edit" class="anchor-standard-sm">
                                 </wm-anchor>
-                                <wm-anchor margin="unset 0.5em" name="anchorBulkDelete" variant="standard-sm" caption="Bulk Delete" iconclass="fa fa-list-alt" class="anchor-standard-sm">
+                                <wm-anchor margin="unset 0.5em" name="anchorBulkDelete" variant="standard-sm"
+                                    caption="Bulk Delete" iconclass="fa fa-list-alt" class="anchor-standard-sm">
                                 </wm-anchor>
                             </wm-container>
                         </wm-container>
-                        <wm-container name="filterRow" class="app-container-default" direction="row" gap="4" alignment="middle-right" width="fill" height="hug">
-                            <wm-search name="search1" placeholder="Find" width="150px" datafield="All Fields" on-change="search1Change($event, widget, newVal, oldVal)" type="autocomplete" variant="standard" showclear="true"></wm-search>
-                            <wm-menu name="selStatus" dataset="bind:Variables.statusOptionsVar.dataSet" caption="All Status" itemlabel="label" itemicon="iconclass" menuposition="down,left" width="150px" on-select="selStatusChange($event, widget, $item)"></wm-menu>
-                            <wm-select name="selPositions" dataset="bind:Variables.positionsDropdownData.dataSet" placeholder="All Positions" width="150px" datafield="value" displayfield="label" variant="standard" on-change="selPositionsChange($event, widget, newVal, oldVal)">
+                        <wm-container name="filterRow" class="app-container-default" direction="row" gap="4"
+                            alignment="middle-right" width="fill" height="hug">
+                            <wm-search name="search1" placeholder="Find" width="150px" datafield="All Fields"
+                                on-change="search1Change($event, widget, newVal, oldVal)" type="autocomplete"
+                                variant="standard" showclear="true"></wm-search>
+                            <wm-menu name="selStatus" dataset="bind:Variables.statusOptionsVar.dataSet"
+                                caption="All Status" itemlabel="label" itemicon="iconclass" menuposition="down,left"
+                                width="150px" on-select="selStatusChange($event, widget, $item)"></wm-menu>
+                            <wm-select name="selPositions" dataset="bind:Variables.positionsDropdownData.dataSet"
+                                placeholder="All Positions" width="150px" datafield="value" displayfield="label"
+                                variant="standard" on-change="selPositionsChange($event, widget, newVal, oldVal)">
                             </wm-select>
                         </wm-container>
                         <!-- FILTER ROW -->
                         <!-- EMPLOYEE TABLE -->
-                        <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container17" class="app-container-default" variant="default" padding="6px unset">
-                            <wm-label name="lblTotalEmployees" caption="bind:&quot;Total Employees: &quot;+Variables.wsGetEmployeeDetails.dataSet.length" variant="label-12-700" class="label-label-12-700"></wm-label>
+                        <wm-container direction="row" alignment="middle-right" gap="4" width="fill" name="container17"
+                            class="app-container-default" variant="default" padding="6px unset">
+                            <wm-label name="lblTotalEmployees"
+                                caption="bind:&quot;Total Employees: &quot;+Variables.wsGetEmployeeDetails.dataSet.length"
+                                variant="label-12-700" class="label-label-12-700"></wm-label>
                         </wm-container>
-                        <wm-table name="employeeTable" dataset="bind:Variables.wsGetEmployeeDetails.dataSet" navigation="None" enablesort="true" showheader="true" spacing="condensed" multiselect="true" radioselect="false" class="data-table-striped-even-large-header striped-even" variant="striped-even-large-header" height="250px" on-datarender="employeeTableDatarender(widget, data)">
-                            <wm-table-column name="col_view" binding="View" caption="View" widget-type="button" width="45px" textalignment="center" edit-widget-type="text" searchable="false" show="true" type="string" showineditmode="true" readonly="false">
-                                <wm-button name="btnViewRow" caption="" show="true" class="btn-transparent-icon-btn" iconurl="./resources/images/imagelists/icon__fa-search.png" on-click="employeeTable_ViewAction($event, widget)" conditionalclass="" conditionalstyle="" iconclass=""></wm-button>
+                        <wm-table name="employeeTable" dataset="bind:Variables.wsGetEmployeeDetails.dataSet"
+                            navigation="None" enablesort="true" showheader="true" spacing="condensed" multiselect="true"
+                            radioselect="false" class="data-table-striped-even-large-header striped-even"
+                            variant="striped-even-large-header" height="250px"
+                            on-datarender="employeeTableDatarender(widget, data)"
+                            on-rowselect="employeeTableRowselect($event, widget, row)"
+                            on-rowdeselect="employeeTableRowdeselect($event, widget, row)">
+                            <wm-table-column name="col_select" width="40px" widget-type="checkbox" show="true">
                             </wm-table-column>
-                            <wm-table-column name="col_edit" binding="Edit" caption="Edit" widget-type="button" width="35px" textalignment="center" edit-widget-type="text" searchable="false" show="true" type="string" showineditmode="true" readonly="false">
-                                <wm-button name="btnEditRow" caption="" show="true" class="btn-transparent-icon-btn" iconurl="./resources/images/imagelists/icon__fa-pencil.png" on-click="employeeTable_EditAction($event, widget)" conditionalclass="" conditionalstyle="" iconclass=""></wm-button>
+                            <wm-table-column name="col_view" binding="View" caption="View" widget-type="button"
+                                width="45px" textalignment="center" edit-widget-type="text" searchable="false"
+                                show="true" type="string" showineditmode="true" readonly="false">
+                                <wm-button name="btnViewRow" caption="" show="true" class="btn-transparent-icon-btn"
+                                    iconurl="./resources/images/imagelists/icon__fa-search.png"
+                                    on-click="employeeTable_ViewAction($event, widget)" conditionalclass=""
+                                    conditionalstyle="" iconclass=""></wm-button>
                             </wm-table-column>
-                            <wm-table-column name="col_empType" binding="empType.name" caption="" widget-type="icon" edit-widget-type="text" show="true" type="string" showineditmode="true" readonly="false">
-                                <wm-icon iconclass="fa fa-diamond" iconposition="left" conditionalclass="bind:{'purple':row.getProperty('empType.name') === 'Full Time', 'blue':row.getProperty('empType.name') === 'Part Time', 'orange':row.getProperty('empType.name') === 'Per Diem'}" iconsize="sm" conditionalstyle="" class="ps"></wm-icon>
+                            <wm-table-column name="col_edit" binding="Edit" caption="Edit" widget-type="button"
+                                width="35px" textalignment="center" edit-widget-type="text" searchable="false"
+                                show="true" type="string" showineditmode="true" readonly="false">
+                                <wm-button name="btnEditRow" caption="" show="true" class="btn-transparent-icon-btn"
+                                    iconurl="./resources/images/imagelists/icon__fa-pencil.png"
+                                    on-click="employeeTable_EditAction($event, widget)" conditionalclass=""
+                                    conditionalstyle="" iconclass=""></wm-button>
                             </wm-table-column>
-                            <wm-table-column name="col_firstName" binding="firstName" caption="First" width="80px" edit-widget-type="text" show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column name="col_lastName" binding="lastName" caption="Last" width="130px" edit-widget-type="text" show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column name="col_email" binding="email" caption="Email*" width="200px" edit-widget-type="text" show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column name="col_empId" binding="employeeId" caption="ID #" edit-widget-type="number" show="true" type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column name="col_lastLogon" binding="lastLogon" caption="Last Sign In" width="52%" edit-widget-type="text" show="true" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_phone" binding="phone" caption="Phone" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_phone2" binding="phone2" caption="Phone 2" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_cell" binding="cell" caption="Cell" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_hireDate" binding="hireDate" caption="Hire Date" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_comments" binding="comments" caption="Comments" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_address" binding="address.address" caption="Address" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_address2" binding="address.address2" caption="Address 2" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_city" binding="address.city" caption="City" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_state" binding="address.state" caption="State" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_zip" binding="address.zip" caption="Zip" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_payRate" binding="payRate" caption="Pay Rate" show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_priorityGroup" binding="priorityGroup" caption="Priority Group" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_maxWeeklyDays" binding="maxWeeklyDays" caption="Max Week Days" show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_maxDailyHours" binding="maxDailyHours" caption="Max Daily Hours" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_googleCalExport" binding="googleCalExport" caption="Google Cal" show="false" type="boolean" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_nextAlertDate" binding="nextAlertDate" caption="Next Alert" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_customField1" binding="customField1" caption="Custom 1" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_customField2" binding="customField2" caption="Custom 2" show="false" type="string" showineditmode="true" readonly="false"></wm-table-column><wm-table-column name="col_logonCount" binding="logonCount" caption="Sign In Count" show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_empType" binding="empType.name" caption="" widget-type="icon"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false">
+                                <wm-icon iconclass="fa fa-diamond" iconposition="left"
+                                    conditionalclass="bind:{'purple':row.getProperty('empType.name') === 'Full Time', 'blue':row.getProperty('empType.name') === 'Part Time', 'orange':row.getProperty('empType.name') === 'Per Diem'}"
+                                    iconsize="sm" conditionalstyle="" class="ps"></wm-icon>
+                            </wm-table-column>
+                            <wm-table-column name="col_firstName" binding="firstName" caption="First" width="80px"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_lastName" binding="lastName" caption="Last" width="130px"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_email" binding="email" caption="Email*" width="200px"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_empId" binding="employeeId" caption="ID #"
+                                edit-widget-type="number" show="true" type="integer" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_lastLogon" binding="lastLogon" caption="Last Sign In" width="52%"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_phone" binding="phone" caption="Phone" show="false" type="string"
+                                showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_phone2" binding="phone2" caption="Phone 2" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_cell" binding="cell" caption="Cell" show="false" type="string"
+                                showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_hireDate" binding="hireDate" caption="Hire Date" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_comments" binding="comments" caption="Comments" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_address" binding="address.address" caption="Address" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_address2" binding="address.address2" caption="Address 2"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_city" binding="address.city" caption="City" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_state" binding="address.state" caption="State" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_zip" binding="address.zip" caption="Zip" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_payRate" binding="payRate" caption="Pay Rate" show="false"
+                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_priorityGroup" binding="priorityGroup" caption="Priority Group"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_maxWeeklyDays" binding="maxWeeklyDays" caption="Max Week Days"
+                                show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_maxDailyHours" binding="maxDailyHours" caption="Max Daily Hours"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_googleCalExport" binding="googleCalExport" caption="Google Cal"
+                                show="false" type="boolean" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_nextAlertDate" binding="nextAlertDate" caption="Next Alert"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_customField1" binding="customField1" caption="Custom 1"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_customField2" binding="customField2" caption="Custom 2"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_logonCount" binding="logonCount" caption="Sign In Count"
+                                show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column>
                         </wm-table>
                     </wm-tabpane>
                     <wm-tabpane name="tabPositions" title="Positions">
@@ -76,14 +186,16 @@
                         </wm-label>
                     </wm-tabpane>
                     <wm-tabpane name="tabNotifications" title="Notifications">
-                        <wm-label name="lblNotificationsContent" caption="Notifications content coming soon." class="app-label"></wm-label>
+                        <wm-label name="lblNotificationsContent" caption="Notifications content coming soon."
+                            class="app-label"></wm-label>
                     </wm-tabpane>
                     <wm-tabpane name="tabPayRates" title="Pay Rates">
                         <wm-label name="lblPayRatesContent" caption="Pay Rates content coming soon." class="app-label">
                         </wm-label>
                     </wm-tabpane>
                     <wm-tabpane name="tabAlertDates" title="Alert Dates">
-                        <wm-label name="lblAlertDatesContent" caption="Alert Dates content coming soon." class="app-label"></wm-label>
+                        <wm-label name="lblAlertDatesContent" caption="Alert Dates content coming soon."
+                            class="app-label"></wm-label>
                     </wm-tabpane>
                     <wm-tabpane name="tabDeleted" title="Deleted">
                         <wm-label name="lblDeletedContent" caption="Deleted content coming soon." class="app-label">
@@ -91,51 +203,89 @@
                     </wm-tabpane>
                 </wm-tabs>
                 <!-- INFORMATION PANEL -->
-                <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container18" class="app-container-default px-6" variant="default" padding="12px unset">
-                    <wm-container name="infoPanel" class="container-grey-container container-grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" variant="grey-standard" padding="10px 20px 20px 20px">
+                <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container18"
+                    class="app-container-default px-6" variant="default" padding="12px unset">
+                    <wm-container name="infoPanel" class="container-grey-container container-grey-standard"
+                        direction="column" gap="8" alignment="top-left" width="fill" height="hug"
+                        variant="grey-standard" padding="10px 20px 20px 20px">
                         <!-- Legend rows -->
-                        <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container14" class="app-container-default" variant="default" padding="unset unset 4px unset">
-                            <wm-label name="lblInfoTitle" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
-                            <wm-anchor margin="unset 0.5em" name="anchor1" variant="standard" caption="Help on this topic" class="more"></wm-anchor>
+                        <wm-container direction="row" alignment="center" gap="auto" width="fill" name="container14"
+                            class="app-container-default" variant="default" padding="unset unset 4px unset">
+                            <wm-label name="lblInfoTitle" caption="Information" class="label-label-20-700"
+                                variant="label-20-700"></wm-label>
+                            <wm-anchor margin="unset 0.5em" name="anchor1" variant="standard"
+                                caption="Help on this topic" class="more"></wm-anchor>
                         </wm-container>
-                        <wm-container direction="column" alignment="top-left" gap="3" width="fill" name="container24" class="app-container-default" variant="default" wrap="false">
-                            <wm-container name="legendRow1" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px" name="container19" class="container-yellow-bg" variant="yellow-bg" clipcontent="false" height="25px" padding="3px">
-                                    <wm-label name="lblNoneBadge" caption="None:" class="label-label-14-400" variant="label-14-400"></wm-label>
+                        <wm-container direction="column" alignment="top-left" gap="3" width="fill" name="container24"
+                            class="app-container-default" variant="default" wrap="false">
+                            <wm-container name="legendRow1" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px"
+                                    name="container19" class="container-yellow-bg" variant="yellow-bg"
+                                    clipcontent="false" height="25px" padding="3px">
+                                    <wm-label name="lblNoneBadge" caption="None:" class="label-label-14-400"
+                                        variant="label-14-400"></wm-label>
                                 </wm-container>
-                                <wm-label name="lblNoneDesc" caption="No notifications selected for this email." variant="label-14-400" class="label-label-14-400"></wm-label>
+                                <wm-label name="lblNoneDesc" caption="No notifications selected for this email."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
                             </wm-container>
-                            <wm-container name="legendRow2" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px" class="container-dark-red-bg" variant="dark-red-bg" clipcontent="false" height="25px" padding="3px" name="container20">
-                                    <wm-label name="lblInvalidBadge" caption="Invalid" class="label-label-14-700" variant="label-14-700"></wm-label>
+                            <wm-container name="legendRow2" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px"
+                                    class="container-dark-red-bg" variant="dark-red-bg" clipcontent="false"
+                                    height="25px" padding="3px" name="container20">
+                                    <wm-label name="lblInvalidBadge" caption="Invalid" class="label-label-14-700"
+                                        variant="label-14-700"></wm-label>
                                 </wm-container>
-                                <wm-label name="lblInvalidDesc" caption="The system adds &quot;Invalid&quot; when notifications to this email were returned as undeliverable so now notifications are no longer being sent to that address." variant="label-14-400" class="label-label-14-400"></wm-label>
+                                <wm-label name="lblInvalidDesc"
+                                    caption="The system adds &quot;Invalid&quot; when notifications to this email were returned as undeliverable so now notifications are no longer being sent to that address."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
                             </wm-container>
-                            <wm-container name="legendRow3" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" wrap="false">
-                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px" class="container-orange-bg" variant="orange-bg" clipcontent="false" height="25px" padding="3px" name="container21">
+                            <wm-container name="legendRow3" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug" wrap="false">
+                                <wm-container direction="row" alignment="middle-left" gap="4" width="54px"
+                                    class="container-orange-bg" variant="orange-bg" clipcontent="false" height="25px"
+                                    padding="3px" name="container21">
                                     <wm-label caption="" variant="label-14-700" name="label28"></wm-label>
                                 </wm-container>
-                                <wm-label name="lblUnsavedDesc" caption="Changes not saved." class="label-label-14-400" variant="label-14-400"></wm-label>
+                                <wm-label name="lblUnsavedDesc" caption="Changes not saved." class="label-label-14-400"
+                                    variant="label-14-400"></wm-label>
                             </wm-container>
-                            <wm-container name="legendRow4" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-                                <wm-container direction="row" alignment="middle-center" gap="4" width="54px" variant="orange-bg" clipcontent="false" height="25px" padding="3px" name="container22">
+                            <wm-container name="legendRow4" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-center" gap="4" width="54px"
+                                    variant="orange-bg" clipcontent="false" height="25px" padding="3px"
+                                    name="container22">
                                     <wm-label caption="" variant="label-14-700" name="label29"></wm-label>
-                                    <wm-picture resizemode="cover" name="picture1" class="img-rounded left-3" variant="default:rounded" picturesource="resources/images/imagelists/icon__googleexp.png"></wm-picture>
+                                    <wm-picture resizemode="cover" name="picture1" class="img-rounded left-3"
+                                        variant="default:rounded"
+                                        picturesource="resources/images/imagelists/icon__googleexp.png"></wm-picture>
                                 </wm-container>
-                                <wm-label name="lblGoogleDesc" caption="Exporting to Google Calendar." variant="label-14-400" class="label-label-14-400"></wm-label>
+                                <wm-label name="lblGoogleDesc" caption="Exporting to Google Calendar."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
                             </wm-container>
-                            <wm-container name="legendRow5" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
-                                <wm-container direction="row" alignment="middle-center" gap="4" width="54px" variant="orange-bg" clipcontent="false" height="25px" padding="3px" name="container23">
+                            <wm-container name="legendRow5" class="app-container-default" direction="row" gap="8"
+                                alignment="middle-left" width="fill" height="hug">
+                                <wm-container direction="row" alignment="middle-center" gap="4" width="54px"
+                                    variant="orange-bg" clipcontent="false" height="25px" padding="3px"
+                                    name="container23">
                                     <wm-label caption="" variant="label-14-700" name="label28_1"></wm-label>
-                                    <wm-picture resizemode="cover" class="img-rounded left-3" variant="default:rounded" picturesource="resources/images/imagelists/icon__googlebroken.png" name="picture2"></wm-picture>
+                                    <wm-picture resizemode="cover" class="img-rounded left-3" variant="default:rounded"
+                                        picturesource="resources/images/imagelists/icon__googlebroken.png"
+                                        name="picture2"></wm-picture>
                                 </wm-container>
-                                <wm-label name="lblCalendarDesc" caption="Google Calendar Export NOT updating." variant="label-14-400" class="label-label-14-400"></wm-label>
+                                <wm-label name="lblCalendarDesc" caption="Google Calendar Export NOT updating."
+                                    variant="label-14-400" class="label-label-14-400"></wm-label>
                             </wm-container>
                         </wm-container>
                         <!-- Status Legend -->
-                        <wm-container name="statusLegendRow" class="container-grey-container-white-border" direction="row" gap="4" alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border">
-                            <wm-icon name="iconStatusKey" iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14"></wm-icon>
-                            <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700 ps-2" variant="label-14-700"></wm-label>
+                        <wm-container name="statusLegendRow" class="container-grey-container-white-border"
+                            direction="row" gap="4" alignment="middle-left" width="fill" height="hug"
+                            variant="grey-container-white-border">
+                            <wm-icon name="iconStatusKey" iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14"
+                                variant="icon-14"></wm-icon>
+                            <wm-label name="lblStatusLabel" caption="Status" class="label-label-14-700 ps-2"
+                                variant="label-14-700"></wm-label>
                             <wm-icon name="iconFullTime" iconclass="wi wi-diamond" iconsize="sm" class="purple ps-3">
                             </wm-icon>
                             <wm-label name="lblFullTime" caption="Full Time" variant="default"></wm-label>
@@ -145,21 +295,29 @@
                             <wm-icon name="iconPerDiem" iconclass="wi wi-diamond" iconsize="sm" class="orange ps-3">
                             </wm-icon>
                             <wm-label name="lblPerDiem" caption="Per Diem" variant="default"></wm-label>
-                            <wm-icon name="iconOrangeDiamond" iconclass="wi wi-diamond" iconsize="sm" class="orange ps-3"></wm-icon>
+                            <wm-icon name="iconOrangeDiamond" iconclass="wi wi-diamond" iconsize="sm"
+                                class="orange ps-3"></wm-icon>
                             <wm-label name="lblOrangeDiamond" caption="Orange Diamond" variant="default"></wm-label>
                             <wm-icon name="iconGreenDiamond" iconclass="wi wi-diamond" iconsize="sm" class="green ps-3">
                             </wm-icon>
                             <wm-label name="lblGreenDiamond" caption="Green Diamond" variant="default"></wm-label>
                         </wm-container>
                         <!-- Instructional text -->
-                        <wm-label name="lblInstruction1" caption="- To delete Employee click the pencil icon next to their name and then click &quot;Delete&quot; (Employees cannot be bulk deleted.)" variant="label-14-400" class="label-label-14-400"></wm-label>
-                        <wm-label name="lblInstruction2" caption="- To give an Employee manager-level access please go to Settings>Add/Edit Managers page. Employee will then have two logins, one to access as manager and one as employee." variant="label-14-400" class="label-label-14-400"></wm-label>
-                        <wm-label name="lblInstruction3" caption="- Trouble with grid displaying?" variant="label-14-400" class="label-label-14-400"></wm-label>
+                        <wm-label name="lblInstruction1"
+                            caption="- To delete Employee click the pencil icon next to their name and then click &quot;Delete&quot; (Employees cannot be bulk deleted.)"
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
+                        <wm-label name="lblInstruction2"
+                            caption="- To give an Employee manager-level access please go to Settings&gt;Add/Edit Managers page. Employee will then have two logins, one to access as manager and one as employee."
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
+                        <wm-label name="lblInstruction3" caption="- Trouble with grid displaying?"
+                            variant="label-14-400" class="label-label-14-400"></wm-label>
                     </wm-container>
                 </wm-container>
                 <!-- FLOATING HELP BUTTON -->
-                <wm-container direction="row" alignment="top-right" gap="4" width="fill" name="container16" class="app-container-default" variant="default">
-                    <wm-button name="btnHelp" caption="" class="btn-filled-primary-circle" iconclass="fa fa-question" variant="filled-primary-circle"></wm-button>
+                <wm-container direction="row" alignment="top-right" gap="4" width="fill" name="container16"
+                    class="app-container-default" variant="default">
+                    <wm-button name="btnHelp" caption="" class="btn-filled-primary-circle" iconclass="fa fa-question"
+                        variant="filled-primary-circle"></wm-button>
                 </wm-container>
             </wm-container>
         </wm-page-content>

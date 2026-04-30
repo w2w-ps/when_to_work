@@ -43,29 +43,29 @@ Page.applyColumnConfig = function () {
     };
 
     var columns = [
-        { binding: 'empType.name',    configKey: 'empTypeIcon'    },
-        { binding: 'email',           configKey: 'email'          },
-        { binding: 'employeeId',      configKey: 'employeeId'     },
-        { binding: 'lastLogon',       configKey: 'lastLogon'      },
-        { binding: 'phone',           configKey: 'phone'          },
-        { binding: 'phone2',          configKey: 'phone2'         },
-        { binding: 'cell',            configKey: 'cell'           },
-        { binding: 'hireDate',        configKey: 'hireDate'       },
-        { binding: 'comments',        configKey: 'comments'       },
-        { binding: 'address.address', configKey: 'address'        },
-        { binding: 'address.address2',configKey: 'address2'       },
-        { binding: 'address.city',    configKey: 'city'           },
-        { binding: 'address.state',   configKey: 'state'          },
-        { binding: 'address.zip',     configKey: 'zip'            },
-        { binding: 'payRate',         configKey: 'defaultPayRate' },
-        { binding: 'priorityGroup',   configKey: 'priorityGroup'  },
-        { binding: 'maxWeeklyDays',   configKey: 'maxWeekHours'   },
-        { binding: 'maxDailyHours',   configKey: 'maxDayHours'    },
-        { binding: 'googleCalExport', configKey: 'googleCal'      },
-        { binding: 'nextAlertDate',   configKey: 'nextAlert'      },
-        { binding: 'customField1',    configKey: 'customField1'   },
-        { binding: 'customField2',    configKey: 'customField2'   },
-        { binding: 'logonCount',      configKey: 'signinCount'    }
+        { binding: 'empType.name', configKey: 'empTypeIcon' },
+        { binding: 'email', configKey: 'email' },
+        { binding: 'employeeId', configKey: 'employeeId' },
+        { binding: 'lastLogon', configKey: 'lastLogon' },
+        { binding: 'phone', configKey: 'phone' },
+        { binding: 'phone2', configKey: 'phone2' },
+        { binding: 'cell', configKey: 'cell' },
+        { binding: 'hireDate', configKey: 'hireDate' },
+        { binding: 'comments', configKey: 'comments' },
+        { binding: 'address.address', configKey: 'address' },
+        { binding: 'address.address2', configKey: 'address2' },
+        { binding: 'address.city', configKey: 'city' },
+        { binding: 'address.state', configKey: 'state' },
+        { binding: 'address.zip', configKey: 'zip' },
+        { binding: 'payRate', configKey: 'defaultPayRate' },
+        { binding: 'priorityGroup', configKey: 'priorityGroup' },
+        { binding: 'maxWeeklyDays', configKey: 'maxWeekHours' },
+        { binding: 'maxDailyHours', configKey: 'maxDayHours' },
+        { binding: 'googleCalExport', configKey: 'googleCal' },
+        { binding: 'nextAlertDate', configKey: 'nextAlert' },
+        { binding: 'customField1', configKey: 'customField1' },
+        { binding: 'customField2', configKey: 'customField2' },
+        { binding: 'logonCount', configKey: 'signinCount' }
     ];
 
     var applyNow = function () {
@@ -249,4 +249,18 @@ Page.selPositionsChange = function ($event, widget, newVal, oldVal) {
     });
 
     Page.Widgets.employeeTable.dataset = filtered;
+};
+Page.employeeTableRowselect = function ($event, widget, row) {
+    const selected = Page.Widgets.employeeTable.selectedItems || [];
+
+    Page.Widgets.lblSelected.caption = "Selected: " + selected.length;
+};
+Page.employeeTableRowdeselect = function ($event, widget, row) {
+    const selected = Page.Widgets.employeeTable.selectedItems || [];
+
+    if (selected.length) {
+        Page.Widgets.lblSelected.caption = "Selected: " + selected.length;
+    } else {
+        Page.Widgets.lblSelected.caption = "Selected:";
+    }
 };
