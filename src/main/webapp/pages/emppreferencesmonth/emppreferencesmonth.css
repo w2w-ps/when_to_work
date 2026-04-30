@@ -53,7 +53,7 @@ div[name="centerNavWrapper"] {
 .main-celender .fc .fc-col-header th {
     background: var(--wm-color-tablecolumnbg);
     height: 44px;
-    padding: 10px;
+    padding: 8px 10px;
 }
 
 .main-celender .fc .fc-day-disabled {
@@ -63,7 +63,8 @@ div[name="centerNavWrapper"] {
 
 .main-celender .fc-daygrid-day {
     border: none;
-    height: 50px;
+    height: 40px;
+    max-height: 40px;
 }
 
 .main-celender,
@@ -86,4 +87,27 @@ div[name="centerNavWrapper"] {
 .main-celender .fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
     height: 50px !important;
     min-height: 50px !important;
+    max-height: 50px !important;
+}
+
+.main-celender .fc-daygrid-body {
+    height: auto !important;
+}
+
+.main-celender .fc-scrollgrid-sync-table {
+    height: auto !important;
+}
+
+.main-celender .fc-daygrid-day-events {
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.main-celender .fc-daygrid-day-top {
+    padding: 2px 4px;
+}
+
+.main-celender .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+    height: 300px !important;
+    overflow: auto;
 }
