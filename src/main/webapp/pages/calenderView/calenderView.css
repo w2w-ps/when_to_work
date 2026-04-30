@@ -9,13 +9,13 @@
 }
 
 .cal-cell-current-month .daynum-label {
-    border-bottom: 3px #E70101 solid !important;
+    border-bottom: 3px var(--wm-color-tablecolumnborder) solid !important;
     border-radius: 0;
 }
 
 
 .cal-cell-other-month .app-container.border-container {
-    border-bottom: 1px solid black !important;
+    border-bottom: 1px solid var(--wm-color-black) !important;
 
 }
 
@@ -120,4 +120,23 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
     text-align: center;
     background: var(--wm-daynum-bg-color);
     padding-top: 2px;
+}
+
+.nav-tabs li:nth-child(8):not(.active) a {
+    background-color: var(--wm-color-weekly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) a {
+    text-transform: uppercase;
+}
+
+.nav-tabs li:nth-child(9):not(.active) a {
+    background-color: var(--wm-color-monthly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+    text-transform: uppercase;
 }

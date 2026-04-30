@@ -607,6 +607,9 @@ button.close:hover {
     /* left: 0; */
 }
 
+.app-footer {
+    border: none;
+}
 
 
 
