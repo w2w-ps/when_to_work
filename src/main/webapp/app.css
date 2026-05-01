@@ -611,6 +611,13 @@ button.close:hover {
     border: none;
 }
 
+.italic {
+    font-style: italic;
+}
+.modal-confirm-dialog.p-0 .modal-body{
+    padding: 0 !important;
+    margin: 0 0 7px 0 !important;
+}
 
 
 
