@@ -120,6 +120,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "32px"
           }
         }
       },
@@ -245,6 +248,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -893,6 +899,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -1031,6 +1040,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -1161,6 +1173,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
