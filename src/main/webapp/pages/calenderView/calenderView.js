@@ -1,3 +1,4 @@
+let calendarChannel;
 /*
  * Use App.getDependency for Dependency Injection
  * eg: var DialogService = App.getDependency('DialogService');
@@ -5,16 +6,54 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    // Guard: only invoke API if the user session is authenticated
+
+    // -------------------------------
+    // ✅ BroadcastChannel Setup
+    // -------------------------------
+    if ('BroadcastChannel' in window) {
+        calendarChannel = new BroadcastChannel('calendar_channel');
+
+        calendarChannel.onmessage = function (event) {
+            const msg = event.data || {};
+            console.log('RECEIVED:', msg);
+
+            // ✅ CONFIG UPDATE FROM CHILD WINDOW
+            if (msg.type === 'GROUPING_UPDATED') {
+
+                console.log('Applying new grouping config');
+
+                // update app variable
+                App.Variables.appSelectedGrouping.setData(msg.data);
+
+                // 🔥 IMPORTANT: re-render exactly like initial load
+                Page.applyStartDay();
+                Page.calendarDaySlots = [];
+                // setTimeout(() => {
+                //     console.log("Runs after 1 second");
+                //     Page.invokeCalendarVariable();
+                // }, 1000);
+                Page.invokeCalendarVariable();
+
+            }
+
+
+        };
+    }
+
+    // -------------------------------
+    // ORIGINAL LOGIC (UNCHANGED)
+    // -------------------------------
     if (!App.Variables.loggedInUser.dataSet.authenticated) {
         return;
     }
+
     Page.applyStartDay();
     Page.calendarDaySlots = [];
     Page.invokeCalendarVariable();
 };
 
 Page.invokeCalendarVariable = function () {
+
     // Always sync startDate/endDate from activeMonthDate before invoking
     var monthDateStr = (Page.Variables.activeMonthDate &&
         Page.Variables.activeMonthDate.dataSet &&
@@ -450,4 +489,9 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
 
 Page.anchor2Click = function ($event, widget) {
     App.redirectTo('mgrschedulecfgmonth');
+};
+Page.onDestroy = function () {
+    if (calendarChannel) {
+        calendarChannel.close();
+    }
 };

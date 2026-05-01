@@ -10,5 +10,15 @@
     "onReleaseVersion" : "11.15",
     "migrationVersion" : 1115.05,
     "migrationMessages" : [ ]
+  }, {
+    "onReleaseVersion" : "11.15",
+    "migrationVersion" : 1115.06,
+    "migrationMessages" : [ {
+      "msg" : "Run summary — wizard JSON: paths {}, processed {}, changed on disk {}, transform score {}; styles: scanned {}, wizard-related candidates {}, changed on disk {}, pattern replacement score {}.",
+      "args" : [ "0", "0", "0", "0", "88", "1", "0", "0" ]
+    }, {
+      "msg" : "No token or CSS pattern mutations were written this run; project may already match WaveMaker {} wizard migration output. See migration-report.json for per-file wizard/style rows.",
+      "args" : [ "11.15.2" ]
+    } ]
   } ]
 }
