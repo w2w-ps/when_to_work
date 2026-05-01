@@ -42,7 +42,8 @@
                                 gap="4" alignment="middle-left" width="hug" height="hug">
                                 <wm-anchor margin="unset 0.5em" variant="standard-sm-hover-grey"
                                     caption="Select Columns" iconclass="wm-sl-r sl-layout-two-columns"
-                                    class="anchor-standard-sm-hover-grey" name="anchor8"></wm-anchor>
+                                    class="anchor-standard-sm-hover-grey" name="anchor8"
+                                    on-click="Actions.goToPage_mgremplistconfig.invoke()"></wm-anchor>
                             </wm-container>
                             <wm-container direction="row" alignment="middle-left" gap="4" width="hug"
                                 name="containerAnchorsItems" class="container-grey-no-radius-small-container"
@@ -92,41 +93,88 @@
                         <wm-table name="employeeTable" dataset="bind:Variables.wsGetEmployeeDetails.dataSet"
                             navigation="None" enablesort="true" showheader="true" spacing="condensed" multiselect="true"
                             radioselect="false" class="data-table-striped-even-large-header striped-even"
-                            variant="striped-even-large-header" height="250px">
-                            <wm-table-column binding="View" caption="View" widget-type="button" width="45px"
-                                textalignment="center" edit-widget-type="text" searchable="false" show="true"
-                                type="string" showineditmode="true" readonly="false">
+                            variant="striped-even-large-header" height="250px"
+                            on-datarender="employeeTableDatarender(widget, data)"
+                            on-rowselect="employeeTableRowselect($event, widget, row)"
+                            on-rowdeselect="employeeTableRowdeselect($event, widget, row)">
+                            <wm-table-column name="col_select" width="40px" widget-type="checkbox" show="true">
+                            </wm-table-column>
+                            <wm-table-column name="col_view" binding="View" caption="View" widget-type="button"
+                                width="45px" textalignment="center" edit-widget-type="text" searchable="false"
+                                show="true" type="string" showineditmode="true" readonly="false">
                                 <wm-button name="btnViewRow" caption="" show="true" class="btn-transparent-icon-btn"
                                     iconurl="./resources/images/imagelists/icon__fa-search.png"
-                                    on-click="employeeTable_ViewAction(row)" conditionalclass="" conditionalstyle=""
-                                    iconclass=""></wm-button>
+                                    on-click="employeeTable_ViewAction($event, widget)" conditionalclass=""
+                                    conditionalstyle="" iconclass=""></wm-button>
                             </wm-table-column>
-                            <wm-table-column binding="Edit" caption="Edit" widget-type="button" width="35px"
-                                textalignment="center" edit-widget-type="text" searchable="false" show="true"
-                                type="string" showineditmode="true" readonly="false">
+                            <wm-table-column name="col_edit" binding="Edit" caption="Edit" widget-type="button"
+                                width="35px" textalignment="center" edit-widget-type="text" searchable="false"
+                                show="true" type="string" showineditmode="true" readonly="false">
                                 <wm-button name="btnEditRow" caption="" show="true" class="btn-transparent-icon-btn"
                                     iconurl="./resources/images/imagelists/icon__fa-pencil.png"
-                                    on-click="employeeTable_EditAction(row)" conditionalclass="" conditionalstyle=""
-                                    iconclass=""></wm-button>
+                                    on-click="employeeTable_EditAction($event, widget)" conditionalclass=""
+                                    conditionalstyle="" iconclass=""></wm-button>
                             </wm-table-column>
-                            <wm-table-column binding="empType.name" caption="" widget-type="icon"
+                            <wm-table-column name="col_empType" binding="empType.name" caption="" widget-type="icon"
                                 edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false">
                                 <wm-icon iconclass="fa fa-diamond" iconposition="left"
                                     conditionalclass="bind:{'purple':row.getProperty('empType.name') === 'Full Time', 'blue':row.getProperty('empType.name') === 'Part Time', 'orange':row.getProperty('empType.name') === 'Per Diem'}"
                                     iconsize="sm" conditionalstyle="" class="ps"></wm-icon>
                             </wm-table-column>
-                            <wm-table-column binding="firstName" caption="First" width="80px" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="lastName" caption="Last" width="130px" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="email" caption="Email*" width="200px" edit-widget-type="text"
-                                show="true" type="string" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="employeeId" caption="ID #" edit-widget-type="number" show="true"
-                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="lastLogon" caption="Last Sign In" width="52%"
+                            <wm-table-column name="col_firstName" binding="firstName" caption="First" width="80px"
                                 edit-widget-type="text" show="true" type="string" showineditmode="true"
                                 readonly="false"></wm-table-column>
+                            <wm-table-column name="col_lastName" binding="lastName" caption="Last" width="130px"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_email" binding="email" caption="Email*" width="200px"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_empId" binding="employeeId" caption="ID #"
+                                edit-widget-type="number" show="true" type="integer" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_lastLogon" binding="lastLogon" caption="Last Sign In" width="52%"
+                                edit-widget-type="text" show="true" type="string" showineditmode="true"
+                                readonly="false"></wm-table-column>
+                            <wm-table-column name="col_phone" binding="phone" caption="Phone" show="false" type="string"
+                                showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_phone2" binding="phone2" caption="Phone 2" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_cell" binding="cell" caption="Cell" show="false" type="string"
+                                showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_hireDate" binding="hireDate" caption="Hire Date" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_comments" binding="comments" caption="Comments" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_address" binding="address.address" caption="Address" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_address2" binding="address.address2" caption="Address 2"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_city" binding="address.city" caption="City" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_state" binding="address.state" caption="State" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_zip" binding="address.zip" caption="Zip" show="false"
+                                type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_payRate" binding="payRate" caption="Pay Rate" show="false"
+                                type="integer" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_priorityGroup" binding="priorityGroup" caption="Priority Group"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_maxWeeklyDays" binding="maxWeeklyDays" caption="Max Week Days"
+                                show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_maxDailyHours" binding="maxDailyHours" caption="Max Daily Hours"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_googleCalExport" binding="googleCalExport" caption="Google Cal"
+                                show="false" type="boolean" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_nextAlertDate" binding="nextAlertDate" caption="Next Alert"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_customField1" binding="customField1" caption="Custom 1"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_customField2" binding="customField2" caption="Custom 2"
+                                show="false" type="string" showineditmode="true" readonly="false"></wm-table-column>
+                            <wm-table-column name="col_logonCount" binding="logonCount" caption="Sign In Count"
+                                show="false" type="integer" showineditmode="true" readonly="false"></wm-table-column>
                         </wm-table>
                     </wm-tabpane>
                     <wm-tabpane name="tabPositions" title="Positions">

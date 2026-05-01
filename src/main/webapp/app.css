@@ -505,7 +505,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     gap: 2px;
 }
 
-.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+.app-calendar:not(.main-celender) .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
     height: 411px !important;
 }
 
@@ -611,6 +611,13 @@ button.close:hover {
     border: none;
 }
 
+.italic {
+    font-style: italic;
+}
+.modal-confirm-dialog.p-0 .modal-body{
+    padding: 0 !important;
+    margin: 0 0 7px 0 !important;
+}
 
 
 

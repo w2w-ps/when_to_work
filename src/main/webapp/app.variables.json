@@ -316,6 +316,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgremplistconfig" : {
+    "_id" : "wm-goToPage_mgremplistconfig-wm.NavigationAction-1777531311290",
+    "name" : "goToPage_mgremplistconfig",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgremplistconfig",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_mgrnewemp" : {
     "_id" : "wm-goToPage_mgrnewemp-wm.NavigationAction-1777007744075",
     "name" : "goToPage_mgrnewemp",

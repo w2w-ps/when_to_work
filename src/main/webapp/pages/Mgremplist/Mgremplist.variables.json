@@ -1,4 +1,22 @@
 {
+  "columnVisibility" : {
+    "_id" : "wm-columnVisibility-wm.Variable-1777541805336",
+    "name" : "columnVisibility",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : {
+        "empTypeIcon" : true,
+        "email" : true,
+        "employeeId" : true,
+        "lastLogon" : true
+      }
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "employeeListModel" : {
     "_id" : "wm-employeeListModel-wm.Variable-1774416203994",
     "name" : "employeeListModel",
