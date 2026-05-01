@@ -2116,7 +2116,7 @@
             "value" : "{space.0.value} {space.6.value}"
           },
           "min-width" : {
-            "value" : "82px"
+            "value" : "auto"
           },
           "height" : {
             "value" : "40px"
