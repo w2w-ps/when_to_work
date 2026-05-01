@@ -181,3 +181,6 @@ Page.button7Click = function ($event, widget) {
     Page.Variables.svDeletePosition.invoke();
 
 };
+Page.editPositionOkBtnClick = function ($event, widget) {
+    Page.Variables.svUpdatePosition.invoke();
+};
