@@ -1,3 +1,18 @@
 .app-radioset.list-group.inline {
     flex-wrap: nowrap !important;
+    gap: 16px;
+}
+
+.small-checkbox .caption {
+    padding-left: 32px !important;
+}
+
+.small-checkbox .caption:after {
+    top: 4px !important;
+    left: 12px !important;
+    width: 7px !important;
+}
+
+.mr-0 {
+    margin-left: auto;
 }
