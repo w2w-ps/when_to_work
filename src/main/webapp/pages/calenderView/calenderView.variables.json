@@ -44,7 +44,7 @@
       "type" : "string"
     }, {
       "target" : "grouping",
-      "value" : "bind:App.Variables.appSelectedGrouping.dataSet.grouping",
+      "value" : "category_shift_timings",
       "type" : "string"
     } ],
     "type" : "categoryShiftTimings.RootResponse",
