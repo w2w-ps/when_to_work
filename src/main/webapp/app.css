@@ -505,7 +505,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     gap: 2px;
 }
 
-.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+.app-calendar:not(.main-celender) .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
     height: 411px !important;
 }
 

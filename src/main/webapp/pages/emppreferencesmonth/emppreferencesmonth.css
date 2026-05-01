@@ -34,7 +34,6 @@ app-partial-monthlyview {
 
 .app-calendar.main-celender {
     z-index: 9;
-    height: 355px;
 }
 
 div[name="leftMonthsContainer"],
@@ -49,4 +48,66 @@ div[name="centerNavWrapper"] {
 .dark-red-bg {
     background-color: var(--wm-color-cannotwork) !important;
     color: var(--wm-color-white) !important;
+}
+
+.main-celender .fc .fc-col-header th {
+    background: var(--wm-color-tablecolumnbg);
+    height: 44px;
+    padding: 8px 10px;
+}
+
+.main-celender .fc .fc-day-disabled {
+    background: var(--wm-color-tablecolumnbg);
+    border: 1px solid var(--wm-color-light-grey);
+}
+
+.main-celender .fc-daygrid-day {
+    border: none;
+    height: 40px;
+    max-height: 40px;
+}
+
+.main-celender,
+.main-celender a {
+    font-family: "Tahoma" !important;
+    border-radius: 0;
+}
+
+.main-celender .fc .fc-daygrid-day-top {
+    justify-content: flex-end;
+}
+
+.main-celender .fc .fc-col-header-cell-cushion,
+.main-celender a {
+    font-weight: 400 !important;
+    color: var(--wm-color-black) !important;
+    font-size: 14px !important;
+}
+
+.main-celender .fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+}
+
+.main-celender .fc-daygrid-body {
+    height: auto !important;
+}
+
+.main-celender .fc-scrollgrid-sync-table {
+    height: auto !important;
+}
+
+.main-celender .fc-daygrid-day-events {
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.main-celender .fc-daygrid-day-top {
+    padding: 2px 4px;
+}
+
+.main-celender .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+    height: 300px !important;
+    overflow: auto;
 }
