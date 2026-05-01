@@ -122,18 +122,18 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
     padding-top: 2px;
 }
 
-.nav-tabs li:nth-child(8):not(.active) a {
+.nav-tabs li:nth-child(8):not(.active) .tab-heading {
     background-color: var(--wm-color-weekly) !important;
     border: 1px solid var(--wm-color-violet) !important;
     border-bottom: none !important;
     color: var(--wm-color-black) !important;
 }
 
-.nav-tabs li:nth-child(8) a {
+.nav-tabs li:nth-child(8) .tab-heading {
     text-transform: uppercase;
 }
 
-.nav-tabs li:nth-child(9):not(.active) a {
+.nav-tabs li:nth-child(9):not(.active) .tab-heading {
     background-color: var(--wm-color-monthly) !important;
     border: 1px solid var(--wm-color-violet) !important;
     border-bottom: none !important;
