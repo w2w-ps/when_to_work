@@ -4,7 +4,7 @@
         <wm-page-content name="pagecontent" class="p-0" columnwidth="12">
             <wm-container name="scheduleHeaderSection" class="app-container-default w-100" direction="column" gap="0"
                 alignment="top-left" width="fill" height="hug" content="scheduleTopNav"></wm-container>
-            <wm-container name="pageContainer" class="app-container-default" direction="column" gap="7"
+            <wm-container name="pageContainer" class="app-container-default" direction="column" gap="5"
                 alignment="top-left" width="fill" height="hug" clipcontent="false"
                 conditionalclass="bind:App.Variables.employeeViewConfig.dataSet.fontSize ? 'font-size-' + App.Variables.employeeViewConfig.dataSet.fontSize.toLowerCase() : ''">
                 <!-- Week Navigation Header -->
@@ -16,11 +16,11 @@
                 <!-- Day Column Headers -->
                 <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79"
                     class="app-container-default" variant="default">
-                    <wm-anchor margin="unset 0.5em" name="anchor9" variant="standard-sm" caption="Change Layout"
+                    <wm-anchor margin="unset 15px" name="anchor9" variant="standard-sm" caption="Change Layout"
                         iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm"
                         on-click="anchor9Click($event, widget)"></wm-anchor>
-                    <wm-button class="btn-outlined-primary-sm" caption="UNDO Drag / Drop" type="button" margin="unset"
-                        name="button22" variant="outlined-primary-sm"></wm-button>
+                    <wm-button class="btn-outlined-primary-sm-no-gradient-bg" caption="UNDO Drag / Drop" type="button"
+                        margin="unset 5px" name="button22" variant="outlined-primary-sm-no-gradient-bg"></wm-button>
                 </wm-container>
                 <wm-container name="dayHeadersContainer"
                     class="app-container-default custom-border-bottom justify-content-between header-cont sticky-day-header"

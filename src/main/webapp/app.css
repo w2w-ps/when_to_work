@@ -628,6 +628,11 @@ button.close:hover {
     width: 16.66%;
 }
 
+.wm-sl-r.sl-layout-two-columns:before {
+    content: "\f0db";
+    font-family: fontAwesome;
+    font-size: 12px;
+}
 
 
 
