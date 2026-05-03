@@ -1,6 +1,12 @@
 <wm-partial name="footer" type="footer">
     <wm-container direction="row" alignment="middle-right" gap="4" width="fill" height="auto" name="footerlayout"
-        variant="default">
-        <wm-label caption="Copyright 2026 [company name]" textalign="right" name="copyright"></wm-label>
+        variant="default" class="border-none">
+        <wm-container class="app-container-default footerInfoSection" direction="row" gap="auto" alignment="center"
+            width="fill" height="hug" padding="60px unset unset unset" name="container2" variant="default">
+            <wm-anchor margin="unset 0.5em" class="anchor-standard-13-700 lblContactW2W" variant="standard-13-700"
+                caption="Questions, comments or suggestions? Contact W2W" name="anchor1"></wm-anchor>
+            <wm-button iconclass="fa fa-question" class="btn-filled-primary-circle" variant="filled-primary-circle"
+                name="button1"></wm-button>
+        </wm-container>
     </wm-container>
 </wm-partial>

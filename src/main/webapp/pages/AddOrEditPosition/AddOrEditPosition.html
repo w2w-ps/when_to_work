@@ -17,11 +17,12 @@
                             width="fill" height="hug" class="app-container-default">
                             <wm-label name="newPositionTitle" caption="New Position" variant="label-20-700"
                                 class="label-label-20-700"></wm-label>
-                            <wm-button name="addPositionBtn" caption="Add" class="btn-outlined-primary-sm" type="button"
-                                on-click="addPositionBtnClick($event, widget)" variant="outlined-primary-sm">
-                            </wm-button>
+                            <wm-button name="addPositionBtn" caption="Add" class="btn-outlined-bg-white" type="button"
+                                on-click="addPositionBtnClick($event, widget)" variant="outlined-bg-white"></wm-button>
                         </wm-container>
-                        <wm-text name="newPositionInput" placeholder=""></wm-text>
+                        <wm-text name="newPositionInput" placeholder=""
+                            class="form-control app-textbox form-popout-control w-100" variant="popout-control">
+                        </wm-text>
                         <wm-label name="newPositionHelperText1"
                             caption="bind:&quot;After adding, set which employees can work each position on the &lt;b&gt;EMPLOYEES &gt; Positions Grid&lt;/b&gt;&quot;"
                             class="label-label-12-400" variant="label-12-400"></wm-label>
@@ -33,7 +34,7 @@
                         <wm-label name="recentlyDeletedSubtitle" caption="Click Position to restore it."
                             class="label-label-12-400" variant="label-12-400"></wm-label>
                         <wm-label name="recentlyDeletedMessage" caption="No recently deleted Positions"
-                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                            class="label-label-14-400 italic" variant="label-14-400"></wm-label>
                     </wm-container>
                     <wm-container name="informationPanel" direction="column" gap="8" alignment="top-left" width="fill"
                         height="hug" class="container-grey-standard" variant="grey-standard">
@@ -43,24 +44,25 @@
                             caption="- Sort order of positions is alphabetical. You can edit positions to have a leading space or hyphen to list them first"
                             class="label-label-14-400" variant="label-14-400"></wm-label>
                         <wm-label name="infoText2a"
-                            caption="- Position not adding? Likely the position was added to the bottom of your list due to a custom sort order of your positions. On the Edit/Delete page you can drag the new position from the bottom of the list to a preferred location."
-                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                            caption="- &lt;i&gt; Position not adding? &lt;/i&gt; Likely the position was added to the bottom of your list due to a custom sort order of your positions. On the Edit/Delete page you can drag the new position from the bottom of the list to a preferred location."
+                            class="label-label-14-400 pt-2" variant="label-14-400"></wm-label>
                         <wm-label name="infoText3"
                             caption="- Only the main manager on the account can delete positions."
-                            class="label-label-14-400" variant="label-14-400"></wm-label>
+                            class="label-label-14-400 pt-2" variant="label-14-400"></wm-label>
                     </wm-container>
                 </wm-container>
                 <wm-container name="rightColumn" direction="column" gap="8" alignment="top-left" width="300px"
                     height="hug" class="app-container-default">
                     <wm-container name="positionsPanel" direction="column" gap="8" alignment="top-left" width="fill"
-                        height="hug" class="container-grey-standard" variant="grey-standard">
+                        height="hug" class="container-grey-standard pb-5" variant="grey-standard">
                         <wm-container name="positionsHeader" direction="row" gap="auto" alignment="center" width="fill"
                             height="hug" class="app-container-default">
                             <wm-label name="positionsTitle" caption="Positions" class="label-label-20-700"
                                 variant="label-20-700"></wm-label>
                             <wm-button name="editDeleteBtn" caption="Edit / Delete"
-                                class="btn-outlined btn-default btn-edit-delete" type="button"
-                                on-click="Actions.goToPage_EditDeletePosition.invoke()"></wm-button>
+                                class="btn-edit-delete btn-outlined-bg-white" type="button"
+                                on-click="Actions.goToPage_EditDeletePosition.invoke()" variant="outlined-bg-white">
+                            </wm-button>
                         </wm-container>
                         <wm-container name="positionsListContainer" direction="column" gap="4" alignment="top-left"
                             width="fill" height="hug" padding="unset 4px">
@@ -80,9 +82,8 @@
             </wm-container>
         </wm-page-content>
     </wm-content>
-    <wm-footer content="footer" name="footer1"></wm-footer>
-    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="" name="dialog1" class="modal-confirm-dialog"
-        variant="confirm-dialog" showheader="false">
+    <wm-dialog dialogtype="design-dialog" modal="true" title="" iconclass="" name="dialog1"
+        class="modal-confirm-dialog p-0 " variant="confirm-dialog" showheader="false">
         <wm-container direction="column" alignment="middle-center" width="fill" wrap="false" name="container12"
             height="fill" clipcontent="false" overflow="none" class="pb-2">
             <wm-label padding="unset 0.5em" caption="bind:alertMsg" name="label16" class="pt-4 pb-4"></wm-label>

@@ -2,7 +2,7 @@
     <wm-container name="weekNavigationContainer" class="app-container-default week-nav-hover-container p-0 bg-grey"
         direction="row" gap="auto" alignment="center" width="fill" height="hug">
         <wm-container name="previousWeeksContainer" class="app-container-default nav-buttons-hidden" direction="row"
-            gap="0" alignment="middle-left" width="fill" height="hug" clipcontent="false">
+            gap="0" alignment="middle-left" width="36%" height="hug" clipcontent="false" overflow="none">
             <wm-button name="btnPrevious6Week" caption="-6" class="btn-transparent btn-sm btn-button-small"
                 on-click="navigateToWeekOffset(-6)" variant="button-small"></wm-button>
             <wm-button name="btnPrevious5Week" caption="-5" class="btn-transparent btn-sm btn-button-small"
@@ -17,8 +17,9 @@
                 on-click="navigateToWeekOffset(-1)" variant="button-small"></wm-button>
         </wm-container>
         <!-- Existing Single Previous Button -->
-        <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container40"
-            class="app-container-default align-items-baseline" variant="default" padding="unset unset 2px unset">
+        <wm-container direction="row" alignment="middle-left" gap="4" width="28%" name="container40"
+            class="app-container-default align-items-baseline justify-content-center" variant="default"
+            padding="unset unset 2px unset" clipcontent="false" overflow="none">
             <wm-button name="btnPreviousWeek" caption="" iconclass="" class="btn-transparent p-0"
                 on-click="previousWeek()" variant="transparent"
                 iconurl="resources/images/imagelists/icon___fa-caret-left.png" iconwidth="24px"></wm-button>
@@ -44,7 +45,7 @@
         <!-- Existing Single Next Button -->
         <!-- Next Week Buttons Container -->
         <wm-container name="nextWeeksContainer" class="app-container-default nav-buttons-hidden" direction="row" gap="0"
-            alignment="middle-right" width="hug" height="hug">
+            alignment="middle-right" width="36%" height="hug" clipcontent="false" overflow="none">
             <wm-button name="btnNext1Week" caption="+1" class="btn-transparent btn-sm btn-button-small"
                 on-click="navigateToWeekOffset(1)" variant="button-small"></wm-button>
             <wm-button name="btnNext2Week" caption="+2" class="btn-transparent btn-sm btn-button-small"

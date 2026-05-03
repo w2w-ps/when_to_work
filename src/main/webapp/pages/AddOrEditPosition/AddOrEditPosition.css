@@ -1,1 +1,3 @@
-
+.app-input-wrapper:has(.w-100) {
+    width: 100%;
+}
