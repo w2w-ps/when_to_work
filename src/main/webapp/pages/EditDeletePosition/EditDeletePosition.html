@@ -178,7 +178,7 @@
             <wm-container name="editPositionActionsContainer" direction="row" alignment="middle-center" gap="24"
                 width="fill" height="hug" class="app-container-default">
                 <wm-button name="editPositionOkBtn" caption="OK" class="btn-success-btn" variant="success-btn"
-                    on-click="Widgets.editPositionDialog.close();Variables.svUpdatePosition.invoke()"></wm-button>
+                    on-click="Widgets.editPositionDialog.close();editPositionOkBtnClick($event, widget)"></wm-button>
                 <wm-button name="editPositionCancelBtn" caption="Cancel" class="btn-danger-btn" variant="danger-btn"
                     on-click="Widgets.editPositionDialog.close()"></wm-button>
             </wm-container>

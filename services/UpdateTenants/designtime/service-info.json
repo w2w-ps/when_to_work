@@ -1,0 +1,6 @@
+{
+  "id" : "UpdateTenants",
+  "type" : "RestService",
+  "title" : "UpdateTenants",
+  "mockEnabled" : false
+}

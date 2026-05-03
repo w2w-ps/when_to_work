@@ -131,6 +131,10 @@
     "type" : "string"
   } ]
 }, {
+  "name" : "mgremplistconfig",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "mgrnewemp",
   "type" : "PAGE",
   "params" : [ ]

@@ -593,20 +593,18 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     Page.Widgets.shiftDialog.open();
 
     // Use a short timeout to allow dialog widgets to initialise before setting values
-    setTimeout(function () {
-        if (Page.Widgets.positionField) {
-            Page.Widgets.positionField.datavalue = resolvedPositionId;
-        }
-        if (Page.Widgets.categoryField) {
-            Page.Widgets.categoryField.datavalue = resolvedCategoryId;
-        }
-        if (Page.Widgets.paidHoursField) {
-            Page.Widgets.paidHoursField.datavalue = data.duration;
-        }
-        if (Page.Widgets.chkAutoCalculate) {
-            Page.Widgets.chkAutoCalculate.datavalue = false;
-        }
-    }, 100);
+    if (Page.Widgets.positionField) {
+        Page.Widgets.positionField.datavalue = resolvedPositionId;
+    }
+    if (Page.Widgets.categoryField) {
+        Page.Widgets.categoryField.datavalue = resolvedCategoryId;
+    }
+    if (Page.Widgets.paidHoursField) {
+        Page.Widgets.paidHoursField.datavalue = data.duration;
+    }
+    if (Page.Widgets.chkAutoCalculate) {
+        Page.Widgets.chkAutoCalculate.datavalue = false;
+    }
 };
 
 /**
@@ -895,7 +893,6 @@ Page._executePendingDrop = function () {
  * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
  */
 Page.btnConfirmShiftYesClick = function ($event, widget) {
-    debugger;
     let payload = Page._pendingDropPayload;
     if (!payload) {
         console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
@@ -1336,6 +1333,5 @@ Page.anchor9Click = function ($event, widget) {
     App.redirectTo("ConfigureByEmployeeView");
 };
 Page.button11Click = function ($event, widget) {
-    debugger;
     Page.Variables.svDeleteShiftById.invoke();
 };

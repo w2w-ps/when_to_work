@@ -2,8 +2,8 @@
     <wm-container name="scheduleHeaderSection" class="app-container-default" direction="column" gap="0"
         alignment="top-left" width="fill" height="hug">
         <!-- Row 1: Title Block -->
-        <wm-container name="titleRow" class="app-container-default" direction="column" gap="10" alignment="top-center"
-            width="fill" height="hug" padding="15px unset">
+        <wm-container name="titleRow" class="app-container-default pb-1" direction="column" gap="10"
+            alignment="top-center" width="fill" height="hug" padding="15px unset">
             <wm-label name="lblCompanyName" caption="Sample Company" class="label-label-bold-20"
                 variant="label-bold-20"></wm-label>
             <wm-label name="lblScheduleTitle" caption="Published Schedule" class="label-label-bold-20"
@@ -19,25 +19,28 @@
             <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container58"
                 class="app-container-default resp-padding-left" variant="default">
                 <wm-select name="selViewType"
-                    dataset="Calendar View,By Position View,Chart View,Sortable List View,Multi-Shift Edit View,Graphical View,Availability View,Statistics View,Grid View,Recently Deleted Shifts,Template Editor"
-                    placeholder="By Employee View" variant="compact-input" datafield="All Fields"
-                    class="form-compact-input" on-change="selViewTypeChange($event, widget, newVal, oldVal)">
-                </wm-select>
+                    dataset="By Employee View,Calendar View,By Position View,Chart View,Sortable List View,Multi-Shift Edit View,Graphical View,Availability View,Statistics View,Grid View,Recently Deleted Shifts,Template Editor"
+                    placeholder="" variant="black-border-select" datafield="All Fields"
+                    class="form-compact-input form-black-border-select"
+                    on-change="selViewTypeChange($event, widget, newVal, oldVal)" width="178px"></wm-select>
             </wm-container>
             <wm-container direction="row" alignment="top-right" gap="10" width="fill"
                 class="app-container-default  resp-padding-right" variant="default" name="container59">
                 <wm-select name="selStatus"
                     dataset="No Status, Full Time, Part Time, Per Diem, Orange Diamond, Green Diamond"
-                    placeholder="All Status" variant="compact-input" datafield="All Fields" class="form-compact-input"
-                    on-change="selStatusChange($event, widget, newVal, oldVal)"></wm-select>
-                <wm-select name="selCategories" placeholder="All Categories" variant="compact-input"
-                    datafield="All Fields" class="form-compact-input"
+                    placeholder="All Status" variant="black-border-select" datafield="All Fields"
+                    class="form-compact-input form-black-border-select"
+                    on-change="selStatusChange($event, widget, newVal, oldVal)" width="152px"></wm-select>
+                <wm-select name="selCategories" placeholder="All Categories" variant="black-border-select"
+                    datafield="All Fields" class="form-compact-input form-black-border-select"
                     on-change="selCategoriesChange($event, widget, newVal, oldVal)"
-                    dataset="bind:Variables.mvCombinedCategories.dataSet" displayfield="displayLabel"></wm-select>
-                <wm-select name="selPositions" placeholder="All Positions" variant="compact-input"
-                    datafield="All Fields" class="form-compact-input"
+                    dataset="bind:Variables.mvCombinedCategories.dataSet" displayfield="displayLabel" width="193px">
+                </wm-select>
+                <wm-select name="selPositions" placeholder="All Positions" variant="black-border-select"
+                    datafield="All Fields" class="form-compact-input form-black-border-select"
                     on-change="selPositionsChange($event, widget, newVal, oldVal)"
-                    dataset="bind:Variables.mvCombinedPositions.dataSet" displayfield="displayLabel"></wm-select>
+                    dataset="bind:Variables.mvCombinedPositions.dataSet" displayfield="displayLabel" width="182px">
+                </wm-select>
             </wm-container>
         </wm-container>
         <!-- Row 3: Action Button Bar -->

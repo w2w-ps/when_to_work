@@ -120,6 +120,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "32px"
           }
         }
       },
@@ -245,6 +248,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -370,6 +376,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -500,6 +509,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -635,6 +647,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -884,6 +899,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -1022,6 +1040,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -1152,6 +1173,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -2092,7 +2116,7 @@
             "value" : "{space.0.value} {space.6.value}"
           },
           "min-width" : {
-            "value" : "82px"
+            "value" : "auto"
           },
           "height" : {
             "value" : "40px"
@@ -2300,6 +2324,9 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
           }
         }
       },
@@ -2430,6 +2457,142 @@
                 "value" : "not-allowed"
               }
             }
+          },
+          "min-height" : {
+            "value" : "28px"
+          }
+        }
+      },
+      "outlined-bg-white" : {
+        "mapping" : {
+          "background" : {
+            "value" : "-webkit-gradient( linear, left top, left bottom, color-stop(0.01, white), color-stop(1, #f4f4f4) )"
+          },
+          "color" : {
+            "value" : "#3b3b3b"
+          },
+          "font-size" : {
+            "value" : "14px"
+          },
+          "font-family" : {
+            "value" : "{body.large.font-family.value}"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.700.value}"
+          },
+          "line-height" : {
+            "value" : "{label.large.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{label.large.letter-spacing.value}"
+          },
+          "text-transform" : {
+            "value" : "none"
+          },
+          "border" : {
+            "color" : {
+              "value" : "#bababa"
+            }
+          },
+          "cursor" : {
+            "value" : "pointer"
+          },
+          "radius" : {
+            "value" : "{radius.pill.value}"
+          },
+          "padding" : {
+            "value" : "0 15px"
+          },
+          "min-width" : {
+            "value" : "auto"
+          },
+          "min-height" : {
+            "value" : "28px"
+          },
+          "gap" : {
+            "value" : "{space.2.value}"
+          },
+          "shadow" : {
+            "@" : {
+              "value" : "0 1px 1px rgba(0,0,0,0.1)"
+            }
+          },
+          "icon-size" : {
+            "value" : "{icon.size.xs.value}"
+          },
+          "state" : {
+            "layer" : {
+              "color" : {
+                "value" : "{color.on-surface.@.value}"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              },
+              "background" : {
+                "value" : "-webkit-gradient( linear, left top, left bottom, color-stop(0.01, #f7f6f6), color-stop(1, #ededed) )"
+              },
+              "icon-size" : {
+                "value" : "{icon.size.xs.value}"
+              },
+              "shadow" : {
+                "@" : {
+                  "value" : "0 1px 1px rgba(0,0,0,0.1)"
+                }
+              }
+            },
+            "focus" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.focus.value}"
+                  }
+                }
+              }
+            },
+            "active" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.active.value}"
+                  }
+                }
+              }
+            },
+            "disabled" : {
+              "color" : {
+                "value" : "{color.on-surface.@.value}"
+              },
+              "background" : {
+                "value" : "{color.surface.container.highest.@.value}"
+              },
+              "border" : {
+                "color" : {
+                  "value" : "{color.surface.container.highest.@.value}"
+                }
+              },
+              "opacity" : {
+                "value" : "0.38"
+              },
+              "shadow" : {
+                "@" : {
+                  "value" : "none"
+                }
+              },
+              "cursor" : {
+                "value" : "not-allowed"
+              }
+            }
+          },
+          "height" : {
+            "value" : "28px"
           }
         }
       }
@@ -2496,6 +2659,9 @@
         "config-save-btn" : {
           "source" : "aira",
           "description" : "Save button for configure section"
+        },
+        "outlined-bg-white" : {
+          "source" : "user"
         }
       }
     }
