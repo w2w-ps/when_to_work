@@ -13,10 +13,8 @@
     border-radius: 0;
 }
 
-
 .cal-cell-other-month .app-container.border-container-top {
     border-bottom: 1px solid var(--wm-color-black) !important;
-
 }
 
 .cal-cell-other-month:last-child .app-container.border-container::before {
@@ -73,12 +71,10 @@ div[name="posListDay"] {
     border-bottom: 4px solid var(--wm-color-violetcontainerborder) !important;
 }
 
-
 app-partial-monthlyview,
 app-partial-scheduletopnav {
     width: 100% !important;
 }
-
 
 .list-bordered {
     border: 1px solid black !important;
@@ -139,4 +135,9 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
     border-bottom: none !important;
     color: var(--wm-color-black) !important;
     text-transform: uppercase;
+}
+
+.unassigned-anchor {
+    font-weight: normal !important;
+    background-color: yellow !important;
 }

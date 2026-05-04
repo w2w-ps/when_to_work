@@ -51,15 +51,15 @@ Page.onReady = function () {
 };
 
 Page.invokeCalendarVariable = function (year, month) {
-    var startDate, endDate;
+    let startDate, endDate;
     // ----------------------------------
     // CASE 1: Called with year/month
     // ----------------------------------
     if (year !== undefined && month !== undefined) {
-        var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+        const pad = function (n) { return n < 10 ? '0' + n : '' + n; };
 
         startDate = year + '-' + pad(month + 1) + '-01';
-        var lastDay = new Date(year, month + 1, 0).getDate();
+        const lastDay = new Date(year, month + 1, 0).getDate();
         endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
     }
 
@@ -67,13 +67,13 @@ Page.invokeCalendarVariable = function (year, month) {
     // CASE 2: Use activeMonthDate
     // ----------------------------------
     else {
-        var monthDateStr = (Page.Variables.activeMonthDate &&
+        const monthDateStr = (Page.Variables.activeMonthDate &&
             Page.Variables.activeMonthDate.dataSet &&
             Page.Variables.activeMonthDate.dataSet.dataValue) || '';
 
         if (!monthDateStr) return;
 
-        var range = Page.getMonthDateRange(monthDateStr);
+        const range = Page.getMonthDateRange(monthDateStr);
         startDate = range.startDate;
         endDate = range.endDate;
     }
@@ -102,7 +102,7 @@ Page.invokeCalendarVariable = function (year, month) {
     // ----------------------------------
     // INVOKE BASED ON GROUPING
     // ----------------------------------
-    var selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
+    const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
 
     if (selectedGrouping === 'position_shift_timings') {
         Page.Variables.svcalendarPositionView.invoke();
@@ -171,13 +171,13 @@ Page.applyStartDay = function () {
 // causing getMonth() to return the wrong month in non-UTC timezones.
 Page.getMonthDateRange = function (dateStr) {
     // Parse YYYY-MM-DD parts directly — avoids UTC/local timezone shift from new Date(string)
-    var parts = dateStr.split('-');
-    var year = parseInt(parts[0], 10);
-    var month = parseInt(parts[1], 10) - 1; // convert 1-based month string to 0-based JS month index
-    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
-    var startDate = year + '-' + pad(month + 1) + '-01';
-    var lastDay = new Date(year, month + 1, 0).getDate();
-    var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
+    const parts = dateStr.split('-');
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // convert 1-based month string to 0-based JS month index
+    const pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    const startDate = year + '-' + pad(month + 1) + '-01';
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    const endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
     return { startDate: startDate, endDate: endDate };
 };
 
@@ -218,11 +218,11 @@ Page.buildCalendarDaySlots = function (data) {
             let hasRealShifts = false;
 
             if (timeSlots.length === 0) {
-                // No inner time slots — show a single "(No Shifts)" time group
+                // No inner time slots — show a single "(Unassigned)" time group
                 timeGroups.push({
                     timeRange: '',
                     employees: [{
-                        employeeName: '(No Shifts)',
+                        employeeName: '(Unassigned)',
                         categoryName: '',
                         iconClass: '',
                         color: '',
@@ -238,7 +238,7 @@ Page.buildCalendarDaySlots = function (data) {
 
                     if (shifts.length === 0) {
                         employees.push({
-                            employeeName: '(No Shifts)',
+                            employeeName: '(Unassigned)',
                             categoryName: '',
                             iconClass: '',
                             color: '',
@@ -251,7 +251,7 @@ Page.buildCalendarDaySlots = function (data) {
                             const color = shift.color || '';
                             const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
                             employees.push({
-                                employeeName: empName || '(No Shifts)',
+                                employeeName: empName || '(Unassigned)',
                                 categoryName: (showCatPos && empName && shift.category) ? shift.category : '',
                                 iconClass: empName ? iconCls : '',
                                 color: color,
@@ -266,7 +266,7 @@ Page.buildCalendarDaySlots = function (data) {
                 });
             }
 
-            // If hideGroupsNoShifts is enabled, skip positions where all employees are "(No Shifts)"
+            // If hideGroupsNoShifts is enabled, skip positions where all employees are "(Unassigned)"
             if (hideGroupsNoShifts && !hasRealShifts) {
                 return;
             }
@@ -365,7 +365,7 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
 
             if (shifts.length === 0) {
                 employees.push({
-                    employeeName: '(No Shifts)',
+                    employeeName: '(Unassigned)',
                     categoryName: '',
                     iconClass: '',
                     color: '',
@@ -393,7 +393,7 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
 
                 if (employees.length === 0) {
                     employees.push({
-                        employeeName: '(No Shifts)',
+                        employeeName: '(Unassigned)',
                         categoryName: '',
                         iconClass: '',
                         color: '',
@@ -487,5 +487,4 @@ Page.onDestroy = function () {
 Page.tabs1Change = function ($event, widget, newPaneIndex, oldPaneIndex) {
     debugger
     Page.Widgets.container34.pageParams.selectedTab = widget.activeTab.title;
-
 };

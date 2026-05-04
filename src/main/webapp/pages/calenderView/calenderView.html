@@ -96,7 +96,7 @@
                             class="cal-day-slots-list list-card pl-2" listclass="cal-day-slots-listgroup "
                             direction="row" gap="0" alignment="top-left" width="fill" height="hug" wrap="true"
                             itemclass="bind:item.hasDate 
-  ? (item.positions &amp;&amp; item.positions.length &gt; 0 
+  ? (item.positions &amp;&amp; item.positions.length > 0 
       ? 'cal-day-slot-item cal-cell-current-month justify-content-start' 
       : 'cal-day-slot-item cal-cell-current-month cal-cell-empty justify-content-start') 
   : 'cal-day-slot-item cal-cell-other-month justify-content-start'" variant="standard">
@@ -139,7 +139,7 @@
                                                         padding="unset 1px">
                                                         <wm-container name="timeGroupDivider" direction="row" gap="0"
                                                             alignment="top-left" width="fill" height="hug"
-                                                            class="time-group-divider" show="bind:$index &gt; 0">
+                                                            class="time-group-divider" show="bind:$index > 0">
                                                         </wm-container>
                                                         <wm-label caption="bind:item.timeRange" name="lblEmpTimeRange"
                                                             class="label-label-13-400-black"
@@ -154,12 +154,16 @@
                                                                 <wm-container direction="row" gap="4"
                                                                     alignment="middle-left" width="fill" height="hug"
                                                                     name="empRowContainer" class="app-container-default"
-                                                                    padding="unset 5px">
+                                                                    padding="unset 5px"
+                                                                    conditionalclass="bind:item.isNoShifts ? 'unassigned-row' : ''">
                                                                     <wm-icon name="iconEmpDay" iconclass="fa fa-diamond"
-                                                                        variant="purple" class="orange"></wm-icon>
+                                                                        variant="purple" class="orange"
+                                                                        show="bind:!item.isNoShifts"></wm-icon>
                                                                     <wm-anchor caption="bind:item.employeeName"
                                                                         name="anchorEmpDay" variant="standard-13-700"
-                                                                        class="anchor-standard-13-700"></wm-anchor>
+                                                                        class="anchor-standard-13-700"
+                                                                        conditionalclass="bind:item.isNoShifts ? 'unassigned-anchor' : ''">
+                                                                    </wm-anchor>
                                                                     <wm-label caption="bind:item.categoryName"
                                                                         name="lblCategoryName"
                                                                         class="label-label-13-400-black"
