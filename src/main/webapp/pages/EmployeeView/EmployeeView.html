@@ -4,7 +4,7 @@
         <wm-page-content name="pagecontent" class="p-0" columnwidth="12">
             <wm-container name="scheduleHeaderSection" class="app-container-default w-100" direction="column" gap="0"
                 alignment="top-left" width="fill" height="hug" content="scheduleTopNav"></wm-container>
-            <wm-container name="pageContainer" class="app-container-default" direction="column" gap="7"
+            <wm-container name="pageContainer" class="app-container-default" direction="column" gap="5"
                 alignment="top-left" width="fill" height="hug" clipcontent="false"
                 conditionalclass="bind:App.Variables.employeeViewConfig.dataSet.fontSize ? 'font-size-' + App.Variables.employeeViewConfig.dataSet.fontSize.toLowerCase() : ''">
                 <!-- Week Navigation Header -->
@@ -16,11 +16,11 @@
                 <!-- Day Column Headers -->
                 <wm-container direction="row" alignment="start" gap="auto" width="fill" name="container79"
                     class="app-container-default" variant="default">
-                    <wm-anchor margin="unset 0.5em" name="anchor9" variant="standard-sm" caption="Change Layout"
+                    <wm-anchor margin="unset 15px" name="anchor9" variant="standard-sm" caption="Change Layout"
                         iconclass="wm-sl-r sl-layout-two-columns" class="anchor-standard-sm"
                         on-click="anchor9Click($event, widget)"></wm-anchor>
-                    <wm-button class="btn-outlined-primary-sm" caption="UNDO Drag / Drop" type="button" margin="unset"
-                        name="button22" variant="outlined-primary-sm"></wm-button>
+                    <wm-button class="btn-outlined-primary-sm-no-gradient-bg" caption="UNDO Drag / Drop" type="button"
+                        margin="unset 5px" name="button22" variant="outlined-primary-sm-no-gradient-bg"></wm-button>
                 </wm-container>
                 <wm-container name="dayHeadersContainer"
                     class="app-container-default custom-border-bottom justify-content-between header-cont sticky-day-header"
@@ -412,7 +412,7 @@
                             iconclass="fa fa-plus" iconposition="left" class="anchor-standard-xs" variant="standard-xs">
                         </wm-anchor>
                     </wm-container>
-                    <wm-container name="actionBarRight" class="app-container-default" direction="row" gap="16"
+                    <wm-container name="actionBarRight" class="app-container-default top-18" direction="row" gap="16"
                         alignment="middle-right" width="hug" height="hug" variant="default">
                         <wm-anchor margin="unset 0.5em" name="anchor10" class="anchor-standard-sm-danger"
                             variant="standard-sm-danger" caption="2 Recently Deleted Shifts"></wm-anchor>
@@ -425,11 +425,11 @@
                     variant="default">
                     <!-- Schedule Notes Header -->
                     <wm-container name="scheduleNotesHeader" class="container-grey-standard" direction="row" gap="100"
-                        alignment="top-left" width="fill" height="hug" padding="8px 12px" variant="grey-standard">
+                        alignment="middle-left" width="fill" height="hug" padding="8px 12px" variant="grey-standard">
                         <wm-label name="lblScheduleNotes" caption="Schedule Notes" class="label-label-20-700"
                             variant="label-20-700"></wm-label>
                         <wm-anchor name="anchorAddEdit" caption="Add/Edit" iconclass="fa fa-pencil" iconposition="left"
-                            class="schedule-notes-add-edit anchor-standard-sm" variant="standard-sm"></wm-anchor>
+                            class="anchor-standard-sm" variant="standard-sm"></wm-anchor>
                     </wm-container>
                     <!-- Information Card -->
                     <wm-container name="scheduleNotesInfoCard" class="container-grey-standard" direction="column"
@@ -442,8 +442,9 @@
                                 variant="label-20-700"></wm-label>
                             <wm-container name="infoHelpGroup" class="app-container-default" direction="row" gap="4"
                                 alignment="middle-right" width="hug" height="hug" variant="default">
-                                <wm-anchor margin="unset 0.5em" variant="standard" caption="Help on this topic"
-                                    class="more" name="anchor11"></wm-anchor>
+                                <wm-anchor margin="unset 0.5em" variant="standard-no-underlined"
+                                    caption="Help on this topic" class="more anchor-standard-no-underlined"
+                                    name="anchor11"></wm-anchor>
                             </wm-container>
                         </wm-container>
                         <!-- Description Text -->
@@ -487,7 +488,7 @@
                         <wm-container class="container-grey-container-white-border mb-0" direction="row" gap="4"
                             alignment="middle-left" width="fill" height="hug" variant="grey-container-white-border"
                             name="container86">
-                            <wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-14" variant="icon-14"
+                            <wm-icon iconclass="fa fa-wrench" iconsize="sm" class="icon-icon-8pt" variant="icon-8pt"
                                 name="icon1"></wm-icon>
                             <wm-label caption="Status" class="label-label-14-700 ps-2" variant="label-14-700"
                                 name="label65"></wm-label>
@@ -562,7 +563,7 @@
                 </wm-container>
                 <wm-container name="footerInfoSection" class="app-container-default footerInfoSection" direction="row"
                     gap="auto" alignment="center" width="fill" height="hug" padding="60px unset unset unset">
-                    <wm-anchor margin="unset 0.5em" name="anchor11_1" class="anchor-standard-13-700 lblContactW2W "
+                    <wm-anchor margin="unset 0.5em" name="anchor11_1" class="anchor-standard-13-700 lblContactW2W pb-3"
                         variant="standard-13-700" caption="Questions, comments or suggestions? Contact W2W"></wm-anchor>
                     <wm-button name="btnHelpFab" iconclass="fa fa-question" class="btn-filled-primary-circle"
                         variant="filled-primary-circle"></wm-button>
