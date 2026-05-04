@@ -20,3 +20,24 @@ ul li:first-child .date-group-header-row {
     padding-top: 0px;
     margin-top: 0px;
 }
+
+.nav-tabs li:nth-child(8):not(.active) .tab-heading {
+    background-color: var(--wm-color-weekly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) .tab-heading {
+    text-transform: uppercase;
+}
+
+.nav-tabs {
+    padding-top: 6px;
+}
+
+@media only screen and (min-width: 1199px) {
+    .nav-tabs {
+        padding-right: 140px;
+    }
+}
