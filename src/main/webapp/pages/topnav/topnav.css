@@ -1,7 +1,7 @@
 .nav.app-nav {
     padding: 2px 34px 0 5px;
     display: flex;
-    height: 40px;
+    height: 39px;
 }
 
 .anchor-caption {
@@ -23,7 +23,7 @@
 }
 
 .app-nav li {
-    top: 1px;
+    top: 3px;
 }
 
 .app-nav li .app-menu:hover a .anchor-caption {
@@ -52,7 +52,8 @@
 }
 
 .nav.app-nav .app-nav-item {
-    padding: 8px 12px;
+    padding: 6px 12px;
+    height: 35px;
 }
 
 .dropdown-menu li {

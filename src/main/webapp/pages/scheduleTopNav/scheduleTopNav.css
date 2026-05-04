@@ -45,3 +45,12 @@
 .resp-padding-right {
     padding-right: 1.7%;
 }
+
+
+.bg-white {
+    background-color: white;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    justify-content: start !important;
+}

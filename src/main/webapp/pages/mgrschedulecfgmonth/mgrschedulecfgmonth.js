@@ -26,48 +26,53 @@ Page.onReady = function () {
 
 Page.btnSaveClick = function ($event, widget) {
     debugger
-    const GROUPING_MAP = {
-        'Position': 'position_shift_timings',
-        'Category': 'category_shift_timings',
-        'Cat': 'cat_shift_timings',
-        'None': ''
-    };
+    setTimeout(() => {
+        const GROUPING_MAP = {
+            'Position': 'position_shift_timings',
+            'Category': 'category_shift_timings',
+            'Cat': 'cat_shift_timings',
+            'None': ''
+        };
 
-    const displayValue = Page.Widgets.rsScreenGroupBy.datavalue;
-    const apiGrouping = GROUPING_MAP.hasOwnProperty(displayValue)
-        ? GROUPING_MAP[displayValue]
-        : displayValue;
+        const displayValue = Page.Widgets.rsScreenGroupBy.datavalue;
+        const apiGrouping = GROUPING_MAP.hasOwnProperty(displayValue)
+            ? GROUPING_MAP[displayValue]
+            : displayValue;
 
-    // App.Variables.appSelectedGrouping.setData({
-    const newConfig = {
-        grouping: apiGrouping,
-        showDescription: Page.Widgets.cbScreenShowDesc.datavalue === true || Page.Widgets.cbScreenShowDesc.datavalue === 'true',
-        hideGroupsNoShifts: Page.Widgets.cbScreenHideGroups.datavalue === true || Page.Widgets.cbScreenHideGroups.datavalue === 'true',
-        showCatPos: Page.Widgets.cbScreenShowCatPos.datavalue === true || Page.Widgets.cbScreenShowCatPos.datavalue === 'true',
-        nameFormat: Page.Widgets.selScreenName.datavalue,
-        startOn: Page.Widgets.selStartOn.datavalue
-    };
 
-    // Page.Actions.goToPage_calenderView.invoke();
-    // Update app variable
-    App.Variables.appSelectedGrouping.setData(newConfig);
-    console.log('Sending:', newConfig);
+        console.log("Selected UI value:", Page.Widgets.rsScreenGroupBy.datavalue);
 
-    /* ---------- BroadcastChannel ---------- */
-    if ('BroadcastChannel' in window) {
-        const bc = new BroadcastChannel('calendar_channel');
+        // App.Variables.appSelectedGrouping.setData({
+        const newConfig = {
+            grouping: apiGrouping,
+            showDescription: Page.Widgets.cbScreenShowDesc.datavalue === true || Page.Widgets.cbScreenShowDesc.datavalue === 'true',
+            hideGroupsNoShifts: Page.Widgets.cbScreenHideGroups.datavalue === true || Page.Widgets.cbScreenHideGroups.datavalue === 'true',
+            showCatPos: Page.Widgets.cbScreenShowCatPos.datavalue === true || Page.Widgets.cbScreenShowCatPos.datavalue === 'true',
+            nameFormat: Page.Widgets.selScreenName.datavalue,
+            startOn: Page.Widgets.selStartOn.datavalue
+        };
 
-        bc.postMessage({
-            type: 'GROUPING_UPDATED',
-            data: newConfig
-        });
+        // Page.Actions.goToPage_calenderView.invoke();
+        // Update app variable
+        App.Variables.appSelectedGrouping.setData(newConfig);
+        console.log('Sending:', newConfig);
 
-        console.log("child page", newConfig)
-        bc.close();
-    }
+        /* ---------- BroadcastChannel ---------- */
+        if ('BroadcastChannel' in window) {
+            const bc = new BroadcastChannel('calendar_channel');
 
-    /* ---------- Close Popup ---------- */
-    setTimeout(function () {
-        window.close();
-    }, 300);
+            bc.postMessage({
+                type: 'GROUPING_UPDATED',
+                data: newConfig
+            });
+
+            console.log("child page", newConfig)
+            bc.close();
+        }
+
+        /* ---------- Close Popup ---------- */
+        setTimeout(function () {
+            window.close();
+        }, 300);
+    }, 0);
 };

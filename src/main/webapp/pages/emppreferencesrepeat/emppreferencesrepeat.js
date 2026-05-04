@@ -18,8 +18,21 @@ Page.onReady = function () {
     Page.Variables.SvGetWeekPreferences.invoke();
 };
 
-function getCombinedWeekPrefs(weekData) {
-    return weekData.map(day => day.prefs || "").join("");
+function getCombinedWeekPrefs(input) {
+    let weekData;
+
+    try {
+        weekData = typeof input === "string" ? JSON.parse(input) : input;
+    } catch (e) {
+        console.error("Invalid JSON:", e);
+        return "";
+    }
+
+    if (Array.isArray(weekData)) {
+        return weekData.map(day => day?.prefs || "").join("");
+    }
+
+    return weekData?.prefs || "";
 }
 
 function getTodayDate() {
