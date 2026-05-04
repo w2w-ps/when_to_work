@@ -495,3 +495,9 @@ Page.onDestroy = function () {
         calendarChannel.close();
     }
 };
+Page.tabs1Change = function ($event, widget, newPaneIndex, oldPaneIndex) {
+    debugger
+
+    Page.Widgets.container34.pageParams.selectedTab = widget.activeTab.title;
+
+};
