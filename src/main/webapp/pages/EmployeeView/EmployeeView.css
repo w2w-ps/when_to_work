@@ -281,13 +281,6 @@ textarea {
     color: var(--wm-color-on-surface, #1a1a2e);
 }
 
-.schedule-notes-add-edit {
-    font-size: 0.85rem;
-    /* color: var(--wm-color-primary, #5c5fa3); */
-    color: #1a1a2e;
-    text-decoration: none;
-}
-
 .schedule-notes-info-card {
     background-color: var(--wm-color-surface-variant, #eeeef5);
     border-radius: 0 0 6px 6px;
@@ -503,4 +496,13 @@ textarea {
     height: 15px;
     left: 12px;
     top: 12px;
+}
+
+.top-18 {
+    top: 18px;
+}
+
+.checkbox-blue-check-14 {
+    height: 32px;
+    left: -14px;
 }

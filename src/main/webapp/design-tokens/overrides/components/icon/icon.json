@@ -110,6 +110,28 @@
             "value" : "{space.1.value}"
           }
         }
+      },
+      "icon-8pt" : {
+        "mapping" : {
+          "color" : {
+            "value" : "{color.on-background.@.value}"
+          },
+          "font-size" : {
+            "value" : "8pt"
+          },
+          "min-width" : {
+            "value" : "14px"
+          },
+          "width" : {
+            "value" : "14px"
+          },
+          "height" : {
+            "value" : "14px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
       }
     },
     "meta" : {
@@ -127,6 +149,9 @@
           "source" : "user"
         },
         "icon-grey" : {
+          "source" : "user"
+        },
+        "icon-8pt" : {
           "source" : "user"
         }
       }
