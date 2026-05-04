@@ -272,7 +272,7 @@ wm-input[name="txtFind"].app-input-wrapper {
 }
 
 .container-grey-standard {
-    padding: 10px 20px;
+    padding: 10px 15px 12px 20px !important;
 }
 
 .more:after {
@@ -281,6 +281,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-size: 96%;
     font-variant: normal;
     font-style: normal;
+        word-spacing: 3px;
 }
 
 .container-grey-container-white-border {
@@ -469,10 +470,25 @@ wm-input[name="txtFind"].app-input-wrapper {
 
 .app-calendar:not(.main-celender) {
     position: absolute;
-    width: 100% !important;
+    width: 300px !important;
     z-index: 9999;
     border-radius: 0 !important;
     box-shadow: none;
+}
+
+.app-calendar:not(.main-celender) .fc-scrollgrid-sync-table,
+.app-calendar:not(.main-celender) .fc-daygrid-body-balanced
+    {
+    width: 300px;
+    height: auto;
+}
+
+.app-calendar .fc-header-toolbar .fc-toolbar-chunk:nth-child(3) {
+    display: none;
+}
+
+.app-calendar .fc-header-toolbar .fc-toolbar-chunk .fc-today-button {
+    display: none;
 }
 
 .app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-toolbar-title) {
@@ -628,6 +644,20 @@ button.close:hover {
     width: 16.66%;
 }
 
+.wm-sl-r.sl-layout-two-columns:before {
+    content: "\f0db";
+    font-family: fontAwesome;
+    font-size: 12px;
+}
+
+button.btn.app-button.btn-filled-primary-circle {
+    width: 48px;
+    height: 48px;
+    border: none;
+    position: fixed;
+    bottom: 10px;
+    right: 16px;
+}
 
 
 
