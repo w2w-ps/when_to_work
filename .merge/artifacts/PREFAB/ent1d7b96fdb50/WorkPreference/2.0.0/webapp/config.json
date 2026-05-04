@@ -1,0 +1,101 @@
+{
+  "displayName" : "WorkPreference",
+  "group" : "",
+  "iconUrl" : "/resources/images/imagelists/prefab-icon.png",
+  "resources" : {
+    "styles" : [ "/pages/Main/Main.css" ],
+    "scripts" : [ ]
+  },
+  "properties" : {
+    "choosedate" : {
+      "type" : "date",
+      "displayName" : "Choose Date",
+      "description" : "Date that is selected for the pref tab",
+      "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "weekpreferencedata" : {
+      "type" : "object",
+      "displayName" : "Week Preference Data",
+      "description" : "Week Preference Data",
+      "bindable" : "in-out-bound",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "restrictedit" : {
+      "type" : "boolean",
+      "displayName" : "Restrict Edit",
+      "description" : "If it is enabled user should not be able to select the slots",
+      "bindable" : "in-bound",
+      "value" : false,
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "headercaption" : {
+      "type" : "string",
+      "displayName" : "Headercaption",
+      "description" : "Header caption in grid-wrapper",
+      "bindable" : "in-bound",
+      "value" : "",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "selecteddate" : {
+      "type" : "string",
+      "displayName" : "selecteddate",
+      "description" : "User selected day to edit",
+      "bindable" : "out-bound",
+      "widget" : "string",
+      "show" : false,
+      "showAt" : "",
+      "disabled" : true
+    },
+    "showweekdropdown" : {
+      "type" : "boolean",
+      "displayName" : "Showweekdropdown",
+      "description" : "Show week dropdown",
+      "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "editedrows" : {
+      "type" : "object",
+      "displayName" : "Edited Rows",
+      "description" : "list of edited rows index",
+      "bindable" : "in-out-bound",
+      "isList" : true,
+      "value" : null,
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    },
+    "usagecontext" : {
+      "type" : "string",
+      "displayName" : "Usage Context",
+      "description" : "Usage Context",
+      "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    }
+  },
+  "events" : {
+    "onClick" : {
+      "description" : "callback action while selecting particular day",
+      "eventData" : "",
+      "displayName" : "Click"
+    }
+  }
+}

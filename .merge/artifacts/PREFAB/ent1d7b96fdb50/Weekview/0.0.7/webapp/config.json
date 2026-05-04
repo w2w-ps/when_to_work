@@ -1,0 +1,59 @@
+{
+  "displayName" : "Weekview",
+  "group" : "",
+  "iconUrl" : "/resources/images/imagelists/prefab-icon.png",
+  "resources" : {
+    "styles" : [ "/pages/Main/Main.css" ],
+    "scripts" : [ ]
+  },
+  "properties" : {
+    "startdate" : {
+      "type" : "string",
+      "displayName" : "Startdate",
+      "description" : "Start date of the week view data",
+      "bindable" : "out-bound",
+      "widget" : "string",
+      "show" : false,
+      "showAt" : "",
+      "disabled" : true
+    },
+    "enddate" : {
+      "type" : "string",
+      "displayName" : "Enddate",
+      "description" : "End date of the week view data",
+      "bindable" : "out-bound",
+      "widget" : "string",
+      "show" : false,
+      "showAt" : "",
+      "disabled" : true
+    },
+    "selectedweekdataset" : {
+      "type" : "object",
+      "displayName" : "Selectedweekdataset",
+      "description" : "selectedWeekDataSet",
+      "bindable" : "out-bound",
+      "widget" : "string",
+      "show" : false,
+      "showAt" : "",
+      "disabled" : true
+    },
+    "startdayofweek" : {
+      "type" : "string",
+      "displayName" : "Startdayofweek",
+      "description" : "start day of week",
+      "bindable" : "in-bound",
+      "value" : "Wednesday",
+      "widget" : "string",
+      "show" : true,
+      "showAt" : "",
+      "disabled" : false
+    }
+  },
+  "events" : {
+    "onDaterangechange" : {
+      "description" : "Callback action which will be triggered when date range change of the prefab.",
+      "eventData" : "",
+      "displayName" : "Daterangechange"
+    }
+  }
+}
