@@ -32,6 +32,7 @@ Page.onReady = function () {
                 //     console.log("Runs after 1 second");
                 //     Page.invokeCalendarVariable();
                 // }, 1000);
+                debugger
                 Page.invokeCalendarVariable();
 
             }
@@ -47,34 +48,104 @@ Page.onReady = function () {
         return;
     }
 
+
     Page.applyStartDay();
     Page.calendarDaySlots = [];
+    debugger
+
     Page.invokeCalendarVariable();
+
 };
 
-Page.invokeCalendarVariable = function () {
+// Page.invokeCalendarVariable = function () {
 
-    // Always sync startDate/endDate from activeMonthDate before invoking
-    var monthDateStr = (Page.Variables.activeMonthDate &&
-        Page.Variables.activeMonthDate.dataSet &&
-        Page.Variables.activeMonthDate.dataSet.dataValue) || '';
-    if (monthDateStr) {
-        var range = Page.getMonthDateRange(monthDateStr);
-        // Update the model variable — service variables pick up dates via dataBinding
-        Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = range.startDate;
-        Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = range.endDate;
-        // Also keep setInput calls for runtime safety (ensures inputs are set before invoke)
-        Page.Variables.svcalendarPositionView.setInput('startDate', range.startDate);
-        Page.Variables.svcalendarPositionView.setInput('endDate', range.endDate);
-        Page.Variables.svcalendarCategoryView.setInput('startDate', range.startDate);
-        Page.Variables.svcalendarCategoryView.setInput('endDate', range.endDate);
-        Page.Variables.svCalendarShortCategoryView.setInput('startDate', range.startDate);
-        Page.Variables.svCalendarShortCategoryView.setInput('endDate', range.endDate);
-        Page.Variables.svCalendarShiftTimingView.setInput('startDate', range.startDate);
-        Page.Variables.svCalendarShiftTimingView.setInput('endDate', range.endDate);
+//     // Always sync startDate/endDate from activeMonthDate before invoking
+//     var monthDateStr = (Page.Variables.activeMonthDate &&
+//         Page.Variables.activeMonthDate.dataSet &&
+//         Page.Variables.activeMonthDate.dataSet.dataValue) || '';
+//     if (monthDateStr) {
+//         var range = Page.getMonthDateRange(monthDateStr);
+//         // Update the model variable — service variables pick up dates via dataBinding
+//         Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = range.startDate;
+//         Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = range.endDate;
+//         // Also keep setInput calls for runtime safety (ensures inputs are set before invoke)
+//         Page.Variables.svcalendarPositionView.setInput('startDate', range.startDate);
+//         Page.Variables.svcalendarPositionView.setInput('endDate', range.endDate);
+//         Page.Variables.svcalendarCategoryView.setInput('startDate', range.startDate);
+//         Page.Variables.svcalendarCategoryView.setInput('endDate', range.endDate);
+//         Page.Variables.svCalendarShortCategoryView.setInput('startDate', range.startDate);
+//         Page.Variables.svCalendarShortCategoryView.setInput('endDate', range.endDate);
+//         Page.Variables.svCalendarShiftTimingView.setInput('startDate', range.startDate);
+//         Page.Variables.svCalendarShiftTimingView.setInput('endDate', range.endDate);
+//     }
+
+//     const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
+//     if (selectedGrouping === 'position_shift_timings') {
+//         Page.Variables.svcalendarPositionView.invoke();
+//     } else if (selectedGrouping === 'category_shift_timings') {
+//         Page.Variables.svcalendarCategoryView.invoke();
+//     } else if (selectedGrouping === 'cat_shift_timings') {
+//         Page.Variables.svCalendarShortCategoryView.invoke();
+//     } else {
+//         Page.Variables.svCalendarShiftTimingView.invoke();
+//     }
+// };
+Page.invokeCalendarVariable = function (year, month) {
+    debugger
+    var startDate, endDate;
+
+    // ----------------------------------
+    // CASE 1: Called with year/month
+    // ----------------------------------
+    if (year !== undefined && month !== undefined) {
+        var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+
+        startDate = year + '-' + pad(month + 1) + '-01';
+        var lastDay = new Date(year, month + 1, 0).getDate();
+        endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
     }
 
-    const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
+    // ----------------------------------
+    // CASE 2: Use activeMonthDate
+    // ----------------------------------
+    else {
+        var monthDateStr = (Page.Variables.activeMonthDate &&
+            Page.Variables.activeMonthDate.dataSet &&
+            Page.Variables.activeMonthDate.dataSet.dataValue) || '';
+
+        if (!monthDateStr) return;
+
+        var range = Page.getMonthDateRange(monthDateStr);
+        startDate = range.startDate;
+        endDate = range.endDate;
+    }
+
+    // ----------------------------------
+    // SET DATE RANGE
+    // ----------------------------------
+    Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = startDate;
+    Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = endDate;
+
+    // ----------------------------------
+    // SET INPUTS (explicit)
+    // ----------------------------------
+    Page.Variables.svcalendarPositionView.setInput('startDate', startDate);
+    Page.Variables.svcalendarPositionView.setInput('endDate', endDate);
+
+    Page.Variables.svcalendarCategoryView.setInput('startDate', startDate);
+    Page.Variables.svcalendarCategoryView.setInput('endDate', endDate);
+
+    Page.Variables.svCalendarShortCategoryView.setInput('startDate', startDate);
+    Page.Variables.svCalendarShortCategoryView.setInput('endDate', endDate);
+
+    Page.Variables.svCalendarShiftTimingView.setInput('startDate', startDate);
+    Page.Variables.svCalendarShiftTimingView.setInput('endDate', endDate);
+
+    // ----------------------------------
+    // INVOKE BASED ON GROUPING
+    // ----------------------------------
+    var selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
+
     if (selectedGrouping === 'position_shift_timings') {
         Page.Variables.svcalendarPositionView.invoke();
     } else if (selectedGrouping === 'category_shift_timings') {
@@ -154,45 +225,45 @@ Page.getMonthDateRange = function (dateStr) {
 
 // --- Called by monthlyView partial whenever the user selects a new month ---
 // Receives year and month where month is 0-based (JS convention: 0=Jan, 11=Dec).
-Page.syncCalendarToMonth = function (year, month) {
-    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
-    // month is 0-based — add 1 only for the date string representation
-    var startDate = year + '-' + pad(month + 1) + '-01';
-    var lastDay = new Date(year, month + 1, 0).getDate();
-    var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
+// Page.syncCalendarToMonth = function (year, month) {
+//     var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+//     // month is 0-based — add 1 only for the date string representation
+//     var startDate = year + '-' + pad(month + 1) + '-01';
+//     var lastDay = new Date(year, month + 1, 0).getDate();
+//     var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
 
-    // Update the model variable — single source of truth for date range bindings
-    Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = startDate;
-    Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = endDate;
+//     // Update the model variable — single source of truth for date range bindings
+//     Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = startDate;
+//     Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = endDate;
 
-    // Also keep setInput calls for runtime safety (ensures inputs are set before invoke)
-    Page.Variables.svcalendarPositionView.setInput('startDate', startDate);
-    Page.Variables.svcalendarPositionView.setInput('endDate', endDate);
+//     // Also keep setInput calls for runtime safety (ensures inputs are set before invoke)
+//     Page.Variables.svcalendarPositionView.setInput('startDate', startDate);
+//     Page.Variables.svcalendarPositionView.setInput('endDate', endDate);
 
-    Page.Variables.svcalendarCategoryView.setInput('startDate', startDate);
-    Page.Variables.svcalendarCategoryView.setInput('endDate', endDate);
+//     Page.Variables.svcalendarCategoryView.setInput('startDate', startDate);
+//     Page.Variables.svcalendarCategoryView.setInput('endDate', endDate);
 
-    Page.Variables.svCalendarShortCategoryView.setInput('startDate', startDate);
-    Page.Variables.svCalendarShortCategoryView.setInput('endDate', endDate);
+//     Page.Variables.svCalendarShortCategoryView.setInput('startDate', startDate);
+//     Page.Variables.svCalendarShortCategoryView.setInput('endDate', endDate);
 
-    Page.Variables.svCalendarShiftTimingView.setInput('startDate', startDate);
-    Page.Variables.svCalendarShiftTimingView.setInput('endDate', endDate);
+//     Page.Variables.svCalendarShiftTimingView.setInput('startDate', startDate);
+//     Page.Variables.svCalendarShiftTimingView.setInput('endDate', endDate);
 
-    // Invoke only the active grouping variable.
-    // NOTE: Do NOT call invokeCalendarVariable() here — that helper re-reads activeMonthDate
-    // and calls getMonthDateRange() which would redundantly override the inputs just set above.
-    // Instead invoke directly so the correct startDate/endDate set above are used.
-    const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
-    if (selectedGrouping === 'position_shift_timings') {
-        Page.Variables.svcalendarPositionView.invoke();
-    } else if (selectedGrouping === 'category_shift_timings') {
-        Page.Variables.svcalendarCategoryView.invoke();
-    } else if (selectedGrouping === 'cat_shift_timings') {
-        Page.Variables.svCalendarShortCategoryView.invoke();
-    } else {
-        Page.Variables.svCalendarShiftTimingView.invoke();
-    }
-};
+//     // Invoke only the active grouping variable.
+//     // NOTE: Do NOT call invokeCalendarVariable() here — that helper re-reads activeMonthDate
+//     // and calls getMonthDateRange() which would redundantly override the inputs just set above.
+//     // Instead invoke directly so the correct startDate/endDate set above are used.
+//     const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
+//     if (selectedGrouping === 'position_shift_timings') {
+//         Page.Variables.svcalendarPositionView.invoke();
+//     } else if (selectedGrouping === 'category_shift_timings') {
+//         Page.Variables.svcalendarCategoryView.invoke();
+//     } else if (selectedGrouping === 'cat_shift_timings') {
+//         Page.Variables.svCalendarShortCategoryView.invoke();
+//     } else {
+//         Page.Variables.svCalendarShiftTimingView.invoke();
+//     }
+// };
 
 // --- Slot Builder: Position / Category / Cat views (nested shiftGroups.shiftGroups) ---
 Page.buildCalendarDaySlots = function (data) {

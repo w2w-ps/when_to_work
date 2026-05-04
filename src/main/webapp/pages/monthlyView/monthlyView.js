@@ -36,8 +36,8 @@ Partial.onReady = function () {
         if (parentScope && parentScope.Variables && parentScope.Variables.activeMonthDate) {
             parentScope.Variables.activeMonthDate.dataSet = { dataValue: dateStr };
         }
-        if (parentScope && typeof parentScope.syncCalendarToMonth === 'function') {
-            parentScope.syncCalendarToMonth(year, month);
+        if (parentScope && typeof parentScope.invokeCalendarVariable === 'function') {
+            parentScope.invokeCalendarVariable(year, month);
         }
         // Broadcast to all other registered partial instances on the same page
         if (parentScope && parentScope.__monthlyViewInstances) {
