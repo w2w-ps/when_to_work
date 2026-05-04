@@ -74,4 +74,5 @@ Page.btnSaveClick = function ($event, widget) {
         setTimeout(function () {
             window.close();
         }, 300);
-    };
+    }, 0);
+};
