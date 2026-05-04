@@ -47,10 +47,10 @@ Page.WorkPreference2Load = function ($event, $data) {
 };
 
 Page.PostDayPrefonSuccess = function (variable, data) {
-    if (window.opener && !window.opener.closed) {
-        window.opener.location.reload();
-    }
-    window.close();
+    // if (window.opener && !window.opener.closed) {
+    //     window.opener.location.reload();
+    // }
+    // window.close();
 };
 
 
