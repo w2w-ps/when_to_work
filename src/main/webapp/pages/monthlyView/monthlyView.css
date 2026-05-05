@@ -1,38 +1,38 @@
 .month-label {
-    width: 130px;
-    height: 36px;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 130px;
+  height: 36px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calendar-dropdown-popup {
-    position: absolute;
-    top: 100%;
-    left: 260px;
-    transform: translateX(-50%);
-    z-index: 1000;
+  position: absolute;
+  top: 100%;
+  left: 260px;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .app-calendar>div:first-child {
-    gap: 15px;
+  gap: 15px;
 }
 
 
 /* Hidden by default */
 .left-months-container,
 .right-months-container {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
 }
 
 /* Visible on hover of the nav bar */
 .month-nav-bar:hover .left-months-container,
 .month-nav-bar:hover .right-months-container {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
