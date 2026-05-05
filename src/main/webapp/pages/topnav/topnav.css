@@ -99,3 +99,11 @@
 .wm-app .nav.app-nav .app-nav-item.active {
     --wm-nav-item-background: white;
 }
+
+.wm-app .dropdown .dropdown-menu .dropdown-submenu>.dropdown-menu {
+    display: none;
+    top: 0 !important;
+    left: 100% !important;
+    border: 1px solid var(--wm-color-border) !important;
+    padding-top: 0 !important;
+}
