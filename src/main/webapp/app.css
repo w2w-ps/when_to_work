@@ -15,6 +15,7 @@
     --wm-color-cannotwork: #de101c;
     --wm-coor-mid-grey: #666666;
     --wm-color-soft-black: rgba(0, 0, 0, 0.15);
+    --wm-color-black:#000000;
     --wm-bg-color-prefer: #90F68E;
     --wm-bg-color-dislike: #FFAEAE;
     --wm-bg-color-cannot-work: #FF0000;
@@ -22,6 +23,7 @@
     --wm-color-bordernew-color: #eeeeee;
     --wm-color-weekly: #9EE694;
     --wm-color-monthly: #FDFEA2;
+    --wm-color-yellow:#ffff64;
     --wm-color-violet: #8080FF;
     --wm-color-tableborder: #D0D0D0;
     --wm-color-tablecolumnbg: #E9E9E9;
@@ -56,7 +58,8 @@
     overflow-x: hidden;
 }
 
-.wm-app .app-tabs ul li {
+
+/*.wm-app .app-tabs ul li {
     top: 2px;
     border-radius: 8px;
 }
@@ -75,7 +78,7 @@
 .wm-app .tab-header.active a,
 .wm-app .tab-header.active a::before {
     background-color: var(--wm-color-white) !important;
-}
+} */
 
 .wm-app .app-tabs ul {
     justify-content: center !important;
