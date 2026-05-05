@@ -218,11 +218,11 @@ Page.buildCalendarDaySlots = function (data) {
             let hasRealShifts = false;
 
             if (timeSlots.length === 0) {
-                // No inner time slots — show a single "(Unassigned)" time group
+                // No time slots from API — show "(No Shifts)"
                 timeGroups.push({
                     timeRange: '',
                     employees: [{
-                        employeeName: '(Unassigned)',
+                        employeeName: '(No Shifts)',
                         categoryName: '',
                         iconClass: '',
                         color: '',
@@ -238,6 +238,7 @@ Page.buildCalendarDaySlots = function (data) {
                     const employees = [];
 
                     if (shifts.length === 0) {
+                        // Time slot exists but no employee assigned — show "(Unassigned)"
                         employees.push({
                             employeeName: '(Unassigned)',
                             categoryName: '',
@@ -369,8 +370,9 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
             const employees = [];
 
             if (shifts.length === 0) {
+                // No shifts/no time data from API — show "(No Shifts)"
                 employees.push({
-                    employeeName: '(Unassigned)',
+                    employeeName: '(No Shifts)',
                     categoryName: '',
                     iconClass: '',
                     color: '',
@@ -401,6 +403,7 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                 });
 
                 if (employees.length === 0) {
+                    // Shifts existed but no valid employee names — show "(Unassigned)"
                     employees.push({
                         employeeName: '(Unassigned)',
                         categoryName: '',
