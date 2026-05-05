@@ -15,6 +15,19 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "selectedTabVar" : {
+    "_id" : "wm-selectedTabVar-wm.Variable-1777901459450",
+    "name" : "selectedTabVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "weekly"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "svGetPositionViewScheduling" : {
     "_id" : "wm-svGetPositionViewScheduling-wm.ServiceVariable-1776246613205",
     "name" : "svGetPositionViewScheduling",

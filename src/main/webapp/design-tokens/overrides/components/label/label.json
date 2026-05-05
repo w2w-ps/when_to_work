@@ -1178,6 +1178,37 @@
             "value" : "none"
           }
         }
+      },
+      "label-16-700-darkviolet" : {
+        "mapping" : {
+          "color" : {
+            "value" : "rgb(0, 0, 128)"
+          },
+          "margin" : {
+            "value" : "{space.0.value}"
+          },
+          "padding" : {
+            "value" : "{space.0.value}"
+          },
+          "font-size" : {
+            "value" : "16px"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.700.value}"
+          },
+          "line-height" : {
+            "value" : "{font.line-height.120pct.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{body.medium.letter-spacing.value}"
+          },
+          "font-family" : {
+            "value" : "{body.medium.font-family.value}"
+          },
+          "background-color" : {
+            "value" : "none"
+          }
+        }
       }
     },
     "meta" : {
@@ -1301,6 +1332,9 @@
           "source" : "user"
         },
         "label-13-400-brown" : {
+          "source" : "user"
+        },
+        "label-16-700-darkviolet" : {
           "source" : "user"
         }
       }

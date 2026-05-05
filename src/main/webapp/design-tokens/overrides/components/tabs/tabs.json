@@ -43,7 +43,7 @@
             }
           },
           "height" : {
-            "value" : "21px"
+            "value" : "22px"
           },
           "padding" : {
             "value" : "0 10px 0 10px"
@@ -57,6 +57,9 @@
           },
           "color" : {
             "value" : "{color.black.@.value}"
+          },
+          "width" : {
+            "value" : "0 0 1.5px 0"
           }
         },
         "gap" : {
@@ -89,7 +92,7 @@
                 }
               },
               "height" : {
-                "value" : "24px"
+                "value" : "28px"
               }
             }
           }
