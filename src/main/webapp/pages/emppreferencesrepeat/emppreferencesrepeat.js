@@ -25,14 +25,30 @@ function getCombinedWeekPrefs(input) {
         weekData = typeof input === "string" ? JSON.parse(input) : input;
     } catch (e) {
         console.error("Invalid JSON:", e);
-        return "";
+        return "N".repeat(96);
     }
 
-    if (Array.isArray(weekData)) {
-        return weekData.map(day => day?.prefs || "").join("");
+    if (!Array.isArray(weekData)) {
+        return "N".repeat(96);
     }
 
-    return weekData?.prefs || "";
+    const result = weekData.map(day => {
+        let prefs = (day?.prefs || "").trim();
+
+        // Replace empty or spaces with 96 N's
+        if (!prefs) {
+            return "N".repeat(96);
+        }
+
+        // Optional: ensure length = 96
+        if (prefs.length !== 96) {
+            return prefs.padEnd(96, "N").slice(0, 96);
+        }
+
+        return prefs;
+    }).join("");
+
+    return result || "N".repeat(96);
 }
 
 function getTodayDate() {
@@ -51,7 +67,7 @@ Page.button4Click = function ($event, widget) {
 
 
     const combinedPrefs = getCombinedWeekPrefs(
-        [Page.Widgets.WorkPreference1.weekpreferencedata]
+        Page.Widgets.WorkPreference1.weekpreferencedata
     );
 
     let data = {
