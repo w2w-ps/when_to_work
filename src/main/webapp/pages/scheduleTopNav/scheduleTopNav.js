@@ -153,6 +153,7 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
+    widget.nativeElement.classList.toggle('after-selected', !!newVal);
     if (newVal && newVal.id === 'addoredit') {
         App.redirectToNewtab("AddOrEditPosition");
         return;
@@ -182,6 +183,7 @@ function filterShifts() {
 };
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
+    widget.nativeElement.classList.toggle('after-selected', !!newVal);
     Partial.selectedCategoryId = newVal.subCategoryIds ? newVal.subCategoryIds : newVal.id;
     if (newVal.id) {
         filterShifts();
@@ -189,6 +191,7 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
+    widget.nativeElement.classList.toggle('after-selected', !!newVal);
     if (newVal == 'Calendar View') {
         Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
@@ -196,4 +199,8 @@ Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
     } else if (newVal == 'By Employee View') {
         Partial.App.Actions.goToPage_EmployeeView.invoke();
     }
+};
+
+Partial.selStatusChange = function ($event, widget, newVal, oldVal) {
+    widget.nativeElement.classList.toggle('after-selected', !!newVal);
 };
