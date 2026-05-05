@@ -725,7 +725,7 @@
                     "value" : "2px"
                   },
                   "color" : {
-                    "value" : "{color.black.@.value}"
+                    "value" : "{color.outline.@.value}"
                   }
                 }
               },
