@@ -140,4 +140,6 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
 .unassigned-anchor {
     font-weight: normal !important;
     background-color: yellow !important;
+    color: black !important;
+
 }

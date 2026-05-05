@@ -226,6 +226,7 @@ Page.buildCalendarDaySlots = function (data) {
                         categoryName: '',
                         iconClass: '',
                         color: '',
+                        empTypeId: null,
                         description: '',
                         isNoShifts: true
                     }]
@@ -242,6 +243,7 @@ Page.buildCalendarDaySlots = function (data) {
                             categoryName: '',
                             iconClass: '',
                             color: '',
+                            empTypeId: null,
                             description: '',
                             isNoShifts: true
                         });
@@ -250,11 +252,14 @@ Page.buildCalendarDaySlots = function (data) {
                             const empName = Page.formatEmployeeName(shift.firstName, shift.lastName, shift.employeeName, nameFormat);
                             const color = shift.color || '';
                             const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
+                            // Normalize empTypeId to a number (API may return string or number)
+                            const empTypeId = (shift.empTypeId != null && shift.empTypeId !== '') ? Number(shift.empTypeId) : null;
                             employees.push({
                                 employeeName: empName || '(Unassigned)',
                                 categoryName: (showCatPos && empName && shift.category) ? shift.category : '',
                                 iconClass: empName ? iconCls : '',
                                 color: color,
+                                empTypeId: empTypeId,
                                 description: shift.description || '',
                                 isNoShifts: !empName
                             });
@@ -369,6 +374,7 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                     categoryName: '',
                     iconClass: '',
                     color: '',
+                    empTypeId: null,
                     description: '',
                     isNoShifts: true
                 });
@@ -379,12 +385,15 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                     const empName = Page.formatEmployeeName(shift.firstName, shift.lastName, shift.employeeName, nameFormat);
                     const color = shift.color || '';
                     const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
+                    // Normalize empTypeId to a number (API may return string or number)
+                    const empTypeId = (shift.empTypeId != null && shift.empTypeId !== '') ? Number(shift.empTypeId) : null;
                     if (empName) {
                         employees.push({
                             employeeName: empName,
                             categoryName: (showCatPos && shift.category) ? shift.category : '',
                             iconClass: iconCls,
                             color: color,
+                            empTypeId: empTypeId,
                             description: shift.description || '',
                             isNoShifts: false
                         });
@@ -397,6 +406,7 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                         categoryName: '',
                         iconClass: '',
                         color: '',
+                        empTypeId: null,
                         description: '',
                         isNoShifts: true
                     });
