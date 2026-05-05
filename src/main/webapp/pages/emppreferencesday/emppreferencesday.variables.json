@@ -4,12 +4,7 @@
     "name" : "PostDayPref",
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
-    "dataBinding" : [ {
-      "isList" : false,
-      "target" : "RequestBody",
-      "value" : "bind:Widgets.WorkPreference2.weekpreferencedata",
-      "type" : "PostDayPref.RootRequest"
-    } ],
+    "dataBinding" : [ ],
     "type" : "PostDayPref.RootResponse",
     "service" : "PostDayPref",
     "operation" : "invoke",
