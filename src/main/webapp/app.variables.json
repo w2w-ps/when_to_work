@@ -27,7 +27,15 @@
       "hideGroupsNoShifts" : true,
       "showCatPos" : false,
       "nameFormat" : "First Last",
-      "startOn" : "Sunday"
+      "startOn" : "Sunday",
+      "screenFontSize" : "Medium",
+      "printGrouping" : "position_shift_timings",
+      "printShowDescription" : true,
+      "printHideGroupsNoShifts" : true,
+      "printShowCatPos" : true,
+      "printHideUnassigned" : false,
+      "printNameFormat" : "First Last",
+      "printFontSize" : "Small"
     },
     "type" : "entry",
     "isList" : false,

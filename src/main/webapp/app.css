@@ -674,11 +674,12 @@ button.btn.app-button.btn-filled-primary-circle {
 }
 
 
-
-
-
-
-
+.cal-cell-empty {
+    background-color: var(--wm-color-light-semigrey) !important;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
 
 /* responsive code starts */
 /* mobile */
