@@ -33,10 +33,7 @@ Page.onReady = function () {
         // 🔥 IMPORTANT: re-render exactly like initial load
         Page.applyStartDay();
         Page.calendarDaySlots = [];
-        // setTimeout(() => {
-        //     console.log("Runs after 1 second");
-        //     Page.invokeCalendarVariable();
-        // }, 1000);
+
         debugger
         Page.invokeCalendarVariable();
       }
@@ -154,13 +151,6 @@ Page.svCalendarShiftTimingViewonSuccess = function (variable, data) {
 // PUBLIC FILTER API — called by scheduleTopNav partial
 // =============================================================================
 
-/**
- * Apply category and/or position filters to the already-fetched calendar data.
- * Called by the scheduleTopNav partial when the user changes a filter dropdown.
- *
- * @param {string|null} categoryIds  - Comma-separated category IDs, single ID string, or null for no filter
- * @param {string|null} positionIds  - Comma-separated position IDs, single ID string, or null for no filter
- */
 Page.applyCalendarFilter = function (categoryIds, positionIds) {
   Page.activeFilters.categoryIds = categoryIds || null;
   Page.activeFilters.positionIds = positionIds || null;
@@ -181,13 +171,7 @@ Page.applyCalendarFilter = function (categoryIds, positionIds) {
 // FILTER HELPERS
 // =============================================================================
 
-/**
- * Parse a comma-separated ID string into a Set of numeric IDs.
- * Returns null if the input is null/empty (meaning "no filter — show all").
- *
- * @param {string|null} idsStr  e.g. "3,7,12," or "5" or null
- * @returns {Set<number>|null}
- */
+
 Page._parseIdSet = function (idsStr) {
   if (!idsStr) { return null; }
   const parts = String(idsStr).split(',').map(function (s) { return s.trim(); }).filter(Boolean);
@@ -195,13 +179,7 @@ Page._parseIdSet = function (idsStr) {
   return new Set(parts.map(Number));
 };
 
-/**
- * Resolve a Set of category IDs to a Set of category name strings.
- * Uses App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories
- *
- * @param {Set<number>|null} idSet
- * @returns {Set<string>|null}
- */
+
 Page._resolveCategoryNames = function (idSet) {
   if (!idSet) { return null; }
   const cats = (App.Variables.svGetAllCategoriesByCompanyId &&
@@ -218,13 +196,7 @@ Page._resolveCategoryNames = function (idSet) {
   return names.size > 0 ? names : null;
 };
 
-/**
- * Resolve a Set of position IDs to a Set of position label strings.
- * Uses App.Variables.svGetAllPositionsByCompanyId.dataSet.positions
- *
- * @param {Set<number>|null} idSet
- * @returns {Set<string>|null}
- */
+
 Page._resolvePositionNames = function (idSet) {
   if (!idSet) { return null; }
   const positions = (App.Variables.svGetAllPositionsByCompanyId &&
@@ -267,10 +239,7 @@ Page.applyStartDay = function () {
   }
 };
 
-// --- Helper: derive startDate (YYYY-MM-01) and endDate (YYYY-MM-DD last day) from "YYYY-MM-01" string ---
-// FIX: Parse date parts manually to avoid UTC vs local-time timezone offset bugs.
-// Previously used new Date(dateStr) which parses ISO date-only strings as UTC midnight,
-// causing getMonth() to return the wrong month in non-UTC timezones.
+
 Page.getMonthDateRange = function (dateStr) {
   // Parse YYYY-MM-DD parts directly — avoids UTC/local timezone shift from new Date(string)
   const parts = dateStr.split('-');
@@ -430,9 +399,20 @@ Page.buildCalendarDaySlots = function (data, filters) {
   // Build month calendar grid
   // -------------------------------------------------------------------------
   let startDateStr;
-  if (anchorDateStr && moment(anchorDateStr, 'YYYY-MM-DD', true).isValid()) {
+
+  // PRIMARY: Use activeMonthDate variable as the authoritative current month source
+  const activeMonthVal = Page.Variables.activeMonthDate &&
+    Page.Variables.activeMonthDate.dataSet &&
+    Page.Variables.activeMonthDate.dataSet.dataValue;
+
+  if (activeMonthVal && moment(activeMonthVal, 'YYYY-MM-DD', true).isValid()) {
+    // Use the active month variable — most reliable source
+    startDateStr = activeMonthVal.substring(0, 7) + '-01';
+  } else if (anchorDateStr && moment(anchorDateStr, 'YYYY-MM-DD', true).isValid()) {
+    // FALLBACK 1: Use anchor date from API response
     startDateStr = anchorDateStr.substring(0, 10);
   } else {
+    // FALLBACK 2: Derive dominant month from dateMap keys
     const sortedKeys = Object.keys(dateMap).sort();
     if (sortedKeys.length === 0) { return []; }
     const monthCount = {};
@@ -603,9 +583,20 @@ Page.buildCalendarDaySlotsShiftTiming = function (data, filters) {
   // Build month calendar grid  (identical grid logic to buildCalendarDaySlots)
   // -------------------------------------------------------------------------
   let startDateStr;
-  if (anchorDateStr && moment(anchorDateStr, 'YYYY-MM-DD', true).isValid()) {
+
+  // PRIMARY: Use activeMonthDate variable as the authoritative current month source
+  const activeMonthVal = Page.Variables.activeMonthDate &&
+    Page.Variables.activeMonthDate.dataSet &&
+    Page.Variables.activeMonthDate.dataSet.dataValue;
+
+  if (activeMonthVal && moment(activeMonthVal, 'YYYY-MM-DD', true).isValid()) {
+    // Use the active month variable — most reliable source
+    startDateStr = activeMonthVal.substring(0, 7) + '-01';
+  } else if (anchorDateStr && moment(anchorDateStr, 'YYYY-MM-DD', true).isValid()) {
+    // FALLBACK 1: Use anchor date from API response
     startDateStr = anchorDateStr.substring(0, 10);
   } else {
+    // FALLBACK 2: Derive dominant month from dateMap keys
     const sortedKeys = Object.keys(dateMap).sort();
     if (sortedKeys.length === 0) { return []; }
     const monthCount = {};
