@@ -300,10 +300,10 @@
       } ]
     }, {
       "caption" : "SETTINGS",
-      "hyperlink" : "",
+      "hyperlink" : "#/mgradminsettings",
       "children" : [ {
         "caption" : "Company / My Info & Upload Logo",
-        "hyperlink" : "#/mgrcoinfo"
+        "hyperlink" : "#/mgradminsettings"
       }, {
         "caption" : "My Notifications Email/Text",
         "hyperlink" : ""
