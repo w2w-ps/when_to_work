@@ -312,7 +312,7 @@
         "hyperlink" : ""
       }, {
         "caption" : "Add/Edit MANAGERS",
-        "hyperlink" : "#/mgradminsettings"
+        "hyperlink" : "#/mgradminsettings?wm_state=('ws'~('tabs1'~'Managers'))"
       }, {
         "caption" : "Payments - Pricing - Billing",
         "hyperlink" : ""
