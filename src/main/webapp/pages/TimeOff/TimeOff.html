@@ -4,279 +4,167 @@
         <wm-page-content columnwidth="12" name="pagecontent" class="ps-0 pe-0 pt-0">
 
             <!-- Row 1: Read-Only Alert Banner -->
-            <wm-container name="alertBannerRow" class="app-container-default container-yellow-bg" variant="yellow-bg"
-                direction="row" gap="0" alignment="middle-center" width="fill" height="hug" padding="8px 16px">
-                <wm-label name="alertBannerText"
-                    caption="You are in READ ONLY mode. Any changes or updates will NOT be SAVED."
-                    class="label-alert-banner-text" variant="alert-banner-text"></wm-label>
+            <wm-container name="alertBannerRow" class="app-container-default container-yellow-bg" variant="yellow-bg" direction="row" gap="0" alignment="middle-center" width="fill" height="hug" padding="8px 16px">
+                <wm-label name="alertBannerText" caption="You are in READ ONLY mode. Any changes or updates will NOT be SAVED." class="label-alert-banner-text" variant="alert-banner-text"></wm-label>
             </wm-container>
 
             <!-- Row 2: Page Header (Logo + Company Info) -->
-            <wm-container name="pageHeaderRow" class="app-container-default" direction="row" gap="0"
-                alignment="middle-left" width="fill" height="hug" padding="16px 0px">
-                <wm-container name="logoCol" class="app-container-default" direction="column" gap="0"
-                    alignment="middle-center" width="25%" height="hug">
-                    <wm-picture name="companyLogo" picturesource="resources/images/logos/w2w_logo_circle_und.png"
-                        alttext="Company Logo" class="img-responsive" width="80px" height="80px"></wm-picture>
+            <wm-container name="pageHeaderRow" class="app-container-default" direction="row" gap="0" alignment="middle-left" width="fill" height="hug" padding="16px 0px">
+                <wm-container name="logoCol" class="app-container-default" direction="column" gap="0" alignment="middle-center" width="25%" height="hug">
+                    <wm-picture name="companyLogo" picturesource="resources/images/logos/w2w_logo_circle_und.png" alttext="Company Logo" class="img-responsive" width="80px" height="80px"></wm-picture>
                 </wm-container>
-                <wm-container name="companyInfoCol" class="app-container-default" direction="column" gap="4"
-                    alignment="top-center" width="75%" height="hug">
-                    <wm-label name="companyNameLabel" caption="Sample Company" class="label-label-18-700"
-                        variant="label-18-700"></wm-label>
-                    <wm-label name="userNameLabel" caption="John Asgard" class="label-label-14-700"
-                        variant="label-14-700"></wm-label>
+                <wm-container name="companyInfoCol" class="app-container-default" direction="column" gap="4" alignment="top-center" width="75%" height="hug">
+                    <wm-label name="companyNameLabel" caption="Sample Company" class="label-label-18-700" variant="label-18-700"></wm-label>
+                    <wm-label name="userNameLabel" caption="John Asgard" class="label-label-14-700" variant="label-14-700"></wm-label>
                     <wm-label name="pageTitle" caption="My Time Off" class="label-label-14-700" variant="label-14-700">
                     </wm-label>
                 </wm-container>
             </wm-container>
 
             <!-- Row 3: Tab Navigation -->
-            <wm-container name="tabNavRow" class="app-container-default" direction="column" gap="0" alignment="top-left"
-                width="fill" height="hug">
+            <wm-container name="tabNavRow" class="app-container-default" direction="column" gap="0" alignment="top-left" width="fill" height="hug">
                 <wm-tabs name="timeOffTabs" class="tabs-timeoff-tabs" variant="timeoff-tabs" type="static">
 
                     <!-- Tab 1: MY Time Off -->
                     <wm-tabpane name="myTimeOffPane" title="MY Time Off">
 
                         <!-- Row 4: Main Content (Form + Calendar) -->
-                        <wm-container name="mainContentRow" class="app-container-default container-grey-standard"
-                            variant="grey-standard" direction="row" gap="0" alignment="top-left" width="fill"
-                            height="hug" padding="16px">
+                        <wm-container name="mainContentRow" class="app-container-default container-grey-standard" variant="grey-standard" direction="row" gap="0" alignment="top-left" width="fill" height="hug" padding="16px">
 
                             <!-- Col 1 (55%): New Time Off Request Form -->
-                            <wm-container name="formCol" class="app-container-default" direction="column" gap="8"
-                                alignment="top-left" width="55%" height="hug" padding="16px 24px 16px 16px">
-                                <wm-label name="formTitle" caption="New Time Off Request"
-                                    class="label-label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
+                            <wm-container name="formCol" class="app-container-default" direction="column" gap="8" alignment="top-left" width="55%" height="hug" padding="16px 24px 16px 16px">
+                                <wm-label name="formTitle" caption="New Time Off Request" class="label-label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
 
                                 <!-- Date Input with yellow border -->
-                                <wm-text name="dateInput"
-                                    class="form-timeoff-date-input form-controls-timeoff-date-input"
-                                    variant="timeoff-date-input" placeholder="Click calendar date" width="180px">
+                                <wm-text name="dateInput" class="form-timeoff-date-input form-controls-timeoff-date-input" variant="timeoff-date-input" placeholder="Click calendar date" width="180px">
                                 </wm-text>
 
                                 <!-- Radio Group: Full Day / Partial or Repeating -->
-                                <wm-radioset name="timeOffTypeRadio" class="radiobutton-blue-standard"
-                                    variant="blue-standard" dataset="Full Day(s) Off,Partial or Repeating"
-                                    datavalue="Full Day(s) Off" layout="stacked"></wm-radioset>
+                                <wm-radioset name="timeOffTypeRadio" class="radiobutton-blue-standard" variant="blue-standard" dataset="Full Day(s) Off,Partial or Repeating" datavalue="Full Day(s) Off" layout="stacked"></wm-radioset>
 
                                 <!-- Days Count Row (shown when Full Day selected) -->
-                                <wm-container name="daysCountRow" class="app-container-default" direction="row" gap="8"
-                                    alignment="middle-left" width="fill" height="hug"
-                                    show="bind:Widgets.timeOffTypeRadio.datavalue == 'Full Day(s) Off'">
-                                    <wm-number name="daysCountInput"
-                                        class="form-popout-control form-controls-popout-control"
-                                        variant="popout-control" datavalue="1" width="60px"></wm-number>
+                                <wm-container name="daysCountRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug" show="bind:Widgets.timeOffTypeRadio.datavalue == 'Full Day(s) Off'">
+                                    <wm-number name="daysCountInput" class="form-popout-control form-controls-popout-control" variant="popout-control" datavalue="1" width="60px"></wm-number>
                                     <wm-label name="daysLabel" caption="day(s)" class="label-text-14" variant="text-14">
                                     </wm-label>
                                 </wm-container>
 
                                 <!-- Partial/Repeating Fields (shown when Partial or Repeating selected) -->
-                                <wm-container name="partialFieldsContainer" class="app-container-default"
-                                    show="bind:Widgets.timeOffTypeRadio.datavalue == 'Partial or Repeating'"
-                                    direction="column" gap="8" alignment="top-left" width="fill" height="hug">
+                                <wm-container name="partialFieldsContainer" class="app-container-default" show="bind:Widgets.timeOffTypeRadio.datavalue == 'Partial or Repeating'" direction="column" gap="8" alignment="top-left" width="fill" height="hug">
 
                                     <!-- Start Time Row -->
-                                    <wm-container name="startTimeRow" class="app-container-default" direction="row"
-                                        gap="8" alignment="middle-left" width="fill" height="hug">
-                                        <wm-label name="startTimeLabel" caption="Start Time" class="label-label-14-700"
-                                            variant="label-14-700" width="100px"></wm-label>
-                                        <wm-text name="startTimeInput"
-                                            class="form-popout-control form-controls-popout-control"
-                                            variant="popout-control" placeholder="" width="180px"></wm-text>
+                                    <wm-container name="startTimeRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+                                        <wm-label name="startTimeLabel" caption="Start Time" class="label-label-14-700" variant="label-14-700" width="100px"></wm-label>
+                                        <wm-text name="startTimeInput" class="form-popout-control form-controls-popout-control" variant="popout-control" placeholder="" width="180px"></wm-text>
                                     </wm-container>
 
                                     <!-- End Time Row -->
-                                    <wm-container name="endTimeRow" class="app-container-default" direction="row"
-                                        gap="8" alignment="middle-left" width="fill" height="hug">
-                                        <wm-label name="endTimeLabel" caption="End Time" class="label-label-14-700"
-                                            variant="label-14-700" width="100px"></wm-label>
-                                        <wm-text name="endTimeInput"
-                                            class="form-popout-control form-controls-popout-control"
-                                            variant="popout-control" placeholder="" width="180px"></wm-text>
+                                    <wm-container name="endTimeRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+                                        <wm-label name="endTimeLabel" caption="End Time" class="label-label-14-700" variant="label-14-700" width="100px"></wm-label>
+                                        <wm-text name="endTimeInput" class="form-popout-control form-controls-popout-control" variant="popout-control" placeholder="" width="180px"></wm-text>
                                     </wm-container>
 
                                     <!-- Repeat Row -->
-                                    <wm-container name="repeatRow" class="app-container-default" direction="row" gap="8"
-                                        alignment="middle-left" width="fill" height="hug">
-                                        <wm-label name="repeatLabel" caption="Repeat" class="label-label-14-700"
-                                            variant="label-14-700" width="100px"></wm-label>
-                                        <wm-select name="repeatSelect"
-                                            class="form-popout-control form-controls-popout-control"
-                                            variant="popout-control" dataset="0,1,2,3,4" datavalue="0" width="80px">
+                                    <wm-container name="repeatRow" class="app-container-default" direction="row" gap="8" alignment="middle-left" width="fill" height="hug">
+                                        <wm-label name="repeatLabel" caption="Repeat" class="label-label-14-700" variant="label-14-700" width="100px"></wm-label>
+                                        <wm-select name="repeatSelect" class="form-popout-control form-controls-popout-control" variant="popout-control" dataset="0,1,2,3,4" datavalue="0" width="80px">
                                         </wm-select>
-                                        <wm-label name="additionalWeeksLabel" caption="Additional Week(s)"
-                                            class="label-text-14" variant="text-14"></wm-label>
+                                        <wm-label name="additionalWeeksLabel" caption="Additional Week(s)" class="label-text-14" variant="text-14"></wm-label>
                                     </wm-container>
 
                                 </wm-container>
 
                                 <!-- Optional Comment -->
-                                <wm-label name="commentLabel" caption="Optional Comment"
-                                    class="label-text-14 text-center" variant="text-14"></wm-label>
+                                <wm-label name="commentLabel" caption="Optional Comment" class="label-text-14 text-center" variant="text-14"></wm-label>
                                 <wm-textarea name="commentTextarea" placeholder="" width="100%" height="50px">
                                 </wm-textarea>
 
                                 <!-- Request Time Off Button -->
-                                <wm-container name="requestBtnRow" class="app-container-default" direction="row" gap="0"
-                                    alignment="middle-center" width="fill" height="hug">
-                                    <wm-button name="btnRequestTimeOff" caption="Request Time Off"
-                                        class="btn-outlined-primary" variant="outlined-primary"
-                                        on-click="btnRequestTimeOffClick($event, widget)"></wm-button>
+                                <wm-container name="requestBtnRow" class="app-container-default" direction="row" gap="0" alignment="middle-center" width="fill" height="hug">
+                                    <wm-button name="btnRequestTimeOff" caption="Request Time Off" class="btn-outlined-primary" variant="outlined-primary" on-click="btnRequestTimeOffClick($event, widget)"></wm-button>
                                 </wm-container>
 
                                 <!-- Info Text -->
-                                <wm-label name="requestInfoText"
-                                    caption="Requests will be sent to your manager for consideration."
-                                    class="label-text-14 text-center" variant="text-14"></wm-label>
+                                <wm-label name="requestInfoText" caption="Requests will be sent to your manager for consideration." class="label-text-14 text-center" variant="text-14"></wm-label>
 
                             </wm-container>
 
                             <!-- Col 2 (45%): Calendar Section -->
-                            <wm-container name="calendarCol" class="app-container-default" direction="column" gap="8"
-                                alignment="top-left" width="45%" height="hug" padding="8px 16px 16px 8px">
+                            <wm-container name="calendarCol" class="app-container-default" direction="column" gap="8" alignment="top-left" width="45%" height="hug" padding="8px 16px 16px 8px">
 
                                 <!-- Legend Row (right-aligned) -->
-                                <wm-container name="calendarLegendRow" class="app-container-default" direction="row"
-                                    gap="8" alignment="middle-right" width="fill" height="hug">
+                                <wm-container name="calendarLegendRow" class="app-container-default" direction="row" gap="8" alignment="middle-right" width="fill" height="hug">
                                     <!-- Today legend -->
-                                    <wm-container name="legendToday" class="app-container-default" direction="row"
-                                        gap="4" alignment="middle-left" width="hug" height="hug">
-                                        <wm-label name="legendTodayNum" caption="1" class="label-label-12-700"
-                                            variant="label-12-700"></wm-label>
-                                        <wm-label name="legendTodayText" caption="Today" class="label-text-14"
-                                            variant="text-14"></wm-label>
+                                    <wm-container name="legendToday" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+                                        <wm-label name="legendTodayNum" caption="1" class="label-label-12-700" variant="label-12-700"></wm-label>
+                                        <wm-label name="legendTodayText" caption="Today" class="label-text-14" variant="text-14"></wm-label>
                                     </wm-container>
                                     <!-- Selected legend -->
-                                    <wm-container name="legendSelected" class="app-container-default" direction="row"
-                                        gap="4" alignment="middle-left" width="hug" height="hug">
-                                        <wm-container name="legendSelectedBox"
-                                            class="app-container-default container-primary-filled"
-                                            variant="primary-filled" direction="row" gap="0" alignment="middle-center"
-                                            width="14px" height="14px"></wm-container>
-                                        <wm-label name="legendSelectedText" caption="Selected" class="label-text-14"
-                                            variant="text-14"></wm-label>
+                                    <wm-container name="legendSelected" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+                                        <wm-container name="legendSelectedBox" class="app-container-default container-primary-filled" variant="primary-filled" direction="row" gap="0" alignment="middle-center" width="14px" height="14px"></wm-container>
+                                        <wm-label name="legendSelectedText" caption="Selected" class="label-text-14" variant="text-14"></wm-label>
                                     </wm-container>
                                     <!-- Manager Blocked legend -->
-                                    <wm-container name="legendBlocked" class="app-container-default" direction="row"
-                                        gap="4" alignment="middle-left" width="hug" height="hug">
-                                        <wm-container name="legendBlockedBox"
-                                            class="app-container-default container-dark-red-bg" variant="dark-red-bg"
-                                            direction="row" gap="0" alignment="middle-center" width="14px"
-                                            height="14px"></wm-container>
-                                        <wm-label name="legendBlockedText" caption="Manager Blocked"
-                                            class="label-text-14" variant="text-14"></wm-label>
+                                    <wm-container name="legendBlocked" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="hug" height="hug">
+                                        <wm-container name="legendBlockedBox" class="app-container-default container-dark-red-bg" variant="dark-red-bg" direction="row" gap="0" alignment="middle-center" width="14px" height="14px"></wm-container>
+                                        <wm-label name="legendBlockedText" caption="Manager Blocked" class="label-text-14" variant="text-14"></wm-label>
                                     </wm-container>
                                 </wm-container>
 
-                                <!-- Calendar Navigation Row: «  ‹  [Month Year]  ›  » -->
-                                <wm-container name="calendarNavRow" class="app-container-default" direction="row"
-                                    gap="4" alignment="middle-center" width="fill" height="hug" padding="4px 0px">
-                                    <wm-button name="btnPrevYear" iconclass="wi wi-first-page" caption=""
-                                        class="btn-transparent-icon-btn" variant="transparent-icon-btn"
-                                        on-click="btnPrevYearClick($event, widget)"></wm-button>
-                                    <wm-button name="btnPrevMonth" iconclass="wi wi-chevron-left" caption=""
-                                        class="btn-transparent-icon-btn" variant="transparent-icon-btn"
-                                        on-click="btnPrevMonthClick($event, widget)"></wm-button>
-                                    <wm-label name="calMonthYearLabel"
-                                        caption="bind:Variables.calMonthYear.dataSet.dataValue"
-                                        class="label-label-14-700 text-center" variant="label-14-700" width="60%">
+                                <!-- Calendar Navigation Row -->
+                                <wm-container name="calendarNavRow" class="app-container-default" direction="row" gap="4" alignment="middle-center" width="fill" height="hug" padding="4px 0px">
+                                    <wm-button name="btnPrevYear" iconclass="wi wi-first-page" caption="" class="btn-transparent-icon-btn" variant="transparent-icon-btn" on-click="btnPrevYearClick($event, widget)"></wm-button>
+                                    <wm-button name="btnPrevMonth" iconclass="wi wi-chevron-left" caption="" class="btn-transparent-icon-btn" variant="transparent-icon-btn" on-click="btnPrevMonthClick($event, widget)"></wm-button>
+                                    <wm-label name="calMonthYearLabel" caption="bind:Variables.calMonthYear.dataSet.dataValue" class="label-label-14-700 text-center" variant="label-14-700" width="60%">
                                     </wm-label>
-                                    <wm-button name="btnNextMonth" iconclass="wi wi-chevron-right" caption=""
-                                        class="btn-transparent-icon-btn" variant="transparent-icon-btn"
-                                        on-click="btnNextMonthClick($event, widget)"></wm-button>
-                                    <wm-button name="btnNextYear" iconclass="wi wi-last-page" caption=""
-                                        class="btn-transparent-icon-btn" variant="transparent-icon-btn"
-                                        on-click="btnNextYearClick($event, widget)"></wm-button>
+                                    <wm-button name="btnNextMonth" iconclass="wi wi-chevron-right" caption="" class="btn-transparent-icon-btn" variant="transparent-icon-btn" on-click="btnNextMonthClick($event, widget)"></wm-button>
+                                    <wm-button name="btnNextYear" iconclass="wi wi-last-page" caption="" class="btn-transparent-icon-btn" variant="transparent-icon-btn" on-click="btnNextYearClick($event, widget)"></wm-button>
                                 </wm-container>
 
                                 <!-- Inline Calendar Widget -->
-                                <wm-calendar name="timeOffCalendar" class="calendar-timeoff-calendar"
-                                    variant="timeoff-calendar" controls="none" width="100%" height="300px"
-                                    calendartype="basic" on-dateclick="timeOffCalendarDateclick($dateInfo)">
+                                <wm-calendar name="timeOffCalendar" class="calendar-timeoff-calendar" variant="timeoff-calendar" controls="none" width="100%" height="300px" calendartype="basic" on-dateclick="timeOffCalendarDateclick($dateInfo)">
                                 </wm-calendar>
 
-                                <!-- Status Bar: Select date / selected date display -->
-                                <wm-container name="calStatusBar"
-                                    class="app-container-default container-navy-status-bar" variant="navy-status-bar"
-                                    direction="row" gap="0" alignment="middle-center" width="fill" height="hug"
-                                    padding="10px">
-                                    <wm-label name="calStatusLabel"
-                                        caption="bind:Variables.calSelectedDateDisplay.dataSet.dataValue"
-                                        class="label-highlighted-white-14-400 text-center cal-status-label-white"
-                                        variant="highlighted-white-14-400" width="100%"></wm-label>
+                                <!-- Status Bar -->
+                                <wm-container name="calStatusBar" class="app-container-default container-navy-status-bar" variant="navy-status-bar" direction="row" gap="0" alignment="middle-center" width="fill" height="hug" padding="10px">
+                                    <wm-label name="calStatusLabel" caption="bind:Variables.calSelectedDateDisplay.dataSet.dataValue" class="label-highlighted-white-14-400 text-center cal-status-label-white" variant="highlighted-white-14-400" width="100%"></wm-label>
                                 </wm-container>
 
                             </wm-container>
 
                         </wm-container>
-                        <wm-container name="myTimeOffTableSection" class="app-container-default" direction="column"
-                            gap="8" alignment="top-left" width="fill" height="hug" padding="16px 0px 0px 0px">
-                            <wm-label name="myTimeOffTableTitle" caption="My Time Off" class="label-label-16-700-Arial"
-                                variant="label-16-700-Arial"></wm-label>
-                            <wm-table name="myTimeOffTable" dataset="bind:Variables.myTimeOffListVar.dataSet"
-                                navigation="None" enablesort="true" showheader="true" spacing="condensed"
-                                multiselect="false" radioselect="false"
-                                class="data-table-striped-even-large-header striped-even"
-                                variant="striped-even-large-header">
-                                <wm-table-column name="col_cancel" binding="canCancel" caption="Cancel* Request"
-                                    widget-type="button" width="90px" textalignment="center" show="true" type="boolean"
-                                    showineditmode="false" readonly="true">
-                                    <wm-button name="btnCancelRequest" caption=""
-                                        show="bind:row.getProperty('canCancel')" iconclass="wi wi-close"
-                                        class="btn-transparent-icon-btn" variant="transparent-icon-btn"></wm-button>
+                        <wm-container name="myTimeOffTableSection" class="app-container-default" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="16px 0px 0px 0px">
+                            <wm-label name="myTimeOffTableTitle" caption="My Time Off" class="label-label-16-700-Arial" variant="label-16-700-Arial"></wm-label>
+                            <wm-table name="myTimeOffTable" dataset="bind:Variables.svTimeOffRequests.dataSet.timeOffRequests" navigation="None" enablesort="true" showheader="true" spacing="condensed" multiselect="false" radioselect="false" class="data-table-striped-even-large-header striped-even" variant="striped-even-large-header">
+                                <wm-table-column name="col_cancel" binding="canCancel" caption="Cancel* Request" widget-type="button" width="90px" textalignment="center" show="true" type="boolean" showineditmode="false" readonly="true">
+                                    <wm-button name="btnCancelRequest" caption="" show="bind:row.canCancel &amp;&amp; row.status !== 'Cancelled' &amp;&amp; row.status !== 'Approved'" iconclass="wi wi-close" class="btn-transparent-icon-btn" variant="transparent-icon-btn" on-click="btnCancelRequestClick($event, widget)"></wm-button>
                                 </wm-table-column>
-                                <wm-table-column name="col_startDate" binding="startDate" caption="Start Date"
-                                    width="120px" edit-widget-type="text" show="true" type="string"
-                                    showineditmode="false" readonly="true"></wm-table-column>
-                                <wm-table-column name="col_endDateTime" binding="endDateTime" caption="End Date / Times"
-                                    width="200px" edit-widget-type="text" show="true" type="string"
-                                    showineditmode="false" readonly="true"></wm-table-column>
-                                <wm-table-column name="col_requested" binding="requested" caption="Requested"
-                                    width="160px" edit-widget-type="text" show="true" type="string"
-                                    showineditmode="false" readonly="true"></wm-table-column>
-                                <wm-table-column name="col_status" binding="status" caption="Status" width="100px"
-                                    edit-widget-type="text" show="true" type="string" showineditmode="false"
-                                    readonly="true"></wm-table-column>
-                                <wm-table-column name="col_comments" binding="comments" caption="Comments"
-                                    edit-widget-type="text" show="true" type="string" showineditmode="false"
-                                    readonly="true"></wm-table-column>
+                                <wm-table-column name="col_startDate" binding="startDate" caption="Start Date" width="120px" edit-widget-type="text" show="true" type="string" showineditmode="false" readonly="true"></wm-table-column>
+                                <wm-table-column name="col_endDateTime" binding="endDateTimes" caption="End Date / Times" width="200px" edit-widget-type="text" show="true" type="string" showineditmode="false" readonly="true"></wm-table-column>
+                                <wm-table-column name="col_requested" binding="requestedAt" caption="Requested" width="160px" edit-widget-type="text" show="true" type="string" showineditmode="false" readonly="true"></wm-table-column>
+                                <wm-table-column name="col_status" binding="status" caption="Status" width="100px" edit-widget-type="text" show="true" type="string" showineditmode="false" readonly="true"></wm-table-column>
+                                <wm-table-column name="col_comments" binding="comments" caption="Comments" edit-widget-type="text" show="true" type="string" showineditmode="false" readonly="true"></wm-table-column>
                             </wm-table>
                         </wm-container>
-                        <wm-container name="timeOffInfoPanel" class="app-container-default container-grey-standard"
-                            variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill"
-                            height="hug" padding="10px 20px 20px 20px">
-                            <wm-label name="lblTimeOffInfoTitle" caption="Information" class="label-label-20-700"
-                                variant="label-20-700"></wm-label>
-                            <wm-container name="timeOffInfoLine1" class="app-container-default" direction="row" gap="4"
-                                alignment="middle-left" width="fill" height="hug">
-                                <wm-label name="lblTimeOffInfoBullet1Pre" caption="* If" class="label-label-14-400"
-                                    variant="label-14-400"></wm-label>
+                        <wm-container name="timeOffInfoPanel" class="app-container-default container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="10px 20px 20px 20px">
+                            <wm-label name="lblTimeOffInfoTitle" caption="Information" class="label-label-20-700" variant="label-20-700"></wm-label>
+                            <wm-container name="timeOffInfoLine1" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblTimeOffInfoBullet1Pre" caption="* If" class="label-label-14-400" variant="label-14-400"></wm-label>
                                 <wm-icon name="iconCancelX" iconclass="wi wi-close" iconsize="sm"></wm-icon>
-                                <wm-label name="lblTimeOffInfoBullet1Post"
-                                    caption="appears in first column it means you may click to cancel the request before your manager reviews it."
-                                    class="label-label-14-400" variant="label-14-400"></wm-label>
+                                <wm-label name="lblTimeOffInfoBullet1Post" caption="appears in first column it means you may click to cancel the request before your manager reviews it." class="label-label-14-400" variant="label-14-400"></wm-label>
                             </wm-container>
-                            <wm-container name="timeOffInfoLine2" class="app-container-default" direction="row" gap="4"
-                                alignment="middle-left" width="fill" height="hug">
-                                <wm-label name="lblTimeOffInfoBullet2Pre"
-                                    caption="- If you have questions about your time off, please"
-                                    class="label-label-14-400" variant="label-14-400"></wm-label>
-                                <wm-anchor name="anchorContactManager" caption="contact your manager" hyperlink="#"
-                                    class="anchor-standard-sm-underlined" variant="standard-sm-underlined"></wm-anchor>
-                                <wm-label name="lblTimeOffInfoBullet2Post" caption="." class="label-label-14-400"
-                                    variant="label-14-400"></wm-label>
+                            <wm-container name="timeOffInfoLine2" class="app-container-default" direction="row" gap="4" alignment="middle-left" width="fill" height="hug">
+                                <wm-label name="lblTimeOffInfoBullet2Pre" caption="- If you have questions about your time off, please" class="label-label-14-400" variant="label-14-400"></wm-label>
+                                <wm-anchor name="anchorContactManager" caption="contact your manager" hyperlink="#" class="anchor-standard-sm-underlined" variant="standard-sm-underlined"></wm-anchor>
+                                <wm-label name="lblTimeOffInfoBullet2Post" caption="." class="label-label-14-400" variant="label-14-400"></wm-label>
                             </wm-container>
                         </wm-container>
                     </wm-tabpane>
 
                     <!-- Tab 2: EVERYONE'S Time Off -->
                     <wm-tabpane name="everyonesTimeOffPane" title="EVERYONE'S Time Off">
-                        <wm-container name="everyonesContent" class="app-container-default container-grey-standard"
-                            variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill"
-                            height="hug" padding="16px">
-                            <wm-label name="everyonesPlaceholder" caption="Everyone's Time Off view"
-                                class="label-text-14" variant="text-14"></wm-label>
+                        <wm-container name="everyonesContent" class="app-container-default container-grey-standard" variant="grey-standard" direction="column" gap="8" alignment="top-left" width="fill" height="hug" padding="16px">
+                            <wm-label name="everyonesPlaceholder" caption="Everyone's Time Off view" class="label-text-14" variant="text-14"></wm-label>
                         </wm-container>
                     </wm-tabpane>
 
@@ -285,4 +173,18 @@
 
         </wm-page-content>
     </wm-content>
+    <wm-dialog name="dlgCancelConfirm" title="Confirm" closable="true" showheader="true" modal="true" class="modal-confirm-dialog" variant="confirm-dialog">
+        <wm-container name="dlgCancelBody" class="app-container-default" direction="column" gap="12" alignment="middle-center" width="fill" height="hug" padding="8px 16px 16px 16px">
+            <wm-container name="dlgCancelTextRow" class="app-container-default" direction="row" gap="4" alignment="middle-center" width="fill" height="hug">
+                <wm-label name="lblCancelConfirmPre" caption="Are you sure you want to cancel the time off entry on" class="label-label-14-400" variant="label-14-400"></wm-label>
+                <wm-label name="lblCancelConfirmDate" caption="bind:Variables.selectedCancelDate.dataSet.dataValue" class="label-label-14-700" variant="label-14-700"></wm-label>
+                <wm-label name="lblCancelConfirmPost" caption="?" class="label-label-14-400" variant="label-14-400"></wm-label>
+            </wm-container>
+            <wm-label name="lblCancelUndone" caption="(This cannot be undone.)" class="label-label-14-400 text-center" variant="label-14-400"></wm-label>
+            <wm-container name="dlgCancelActionsRow" class="app-container-default" direction="row" gap="16" alignment="middle-center" width="fill" height="hug" padding="8px 0px 0px 0px">
+                <wm-button name="btnCancelConfirmYes" caption="Yes" class="btn-success-btn" variant="success-btn" on-click="btnCancelConfirmYesClick($event, widget)"></wm-button>
+                <wm-button name="btnCancelConfirmNo" caption="No" class="btn-danger-btn" variant="danger-btn" on-click="Widgets.dlgCancelConfirm.close()"></wm-button>
+            </wm-container>
+        </wm-container>
+    </wm-dialog>
 </wm-page>

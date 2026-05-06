@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/time-off/requests",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc4MDQ2ODQxLCJleHAiOjE3NzgwNDg2NDF9.hmY39jyty5nKxl8IAG1bAoP5tz7_BAKxXp4HDdJjGaaTl3G_5KE3XoY1cJtXcLfHkFiH1c3qiKhcHVCpeP0yoPBBeQn8dyYnAC72UbbRTFK_ZG160jVeEDqumpIXWkI3QgJJpEqNOhoayourQh_bCbZUUwOuah7wGNqkn40Ykj4HHDiLJLAcaHEbRjAD5FkynVWASkkS2mEjGkJlklXswaUPkPTk4I-JsmDQT2VAU6ph7O60jQtZD_h12JzsbOfW2nC9sAicBLMEnR4xdCjqYP35QT1G2iGr8kVoGW2xP4M-d0GFkVGzuOLTq3H9A7SN6KH2NfIlC-IAfq9WRD-hXg" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Wed, 06 May 2026 05:57:53 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"timeOffRequests\":[{\"requestId\":3,\"employeeId\":1,\"startDate\":\"2026-05-19\",\"endDate\":\"2026-05-19\",\"startTime\":null,\"endTime\":null,\"endDateTimes\":\"May 19, 2026\",\"requestedAt\":\"2026-05-06T11:03:34\",\"status\":\"PENDING\",\"comments\":\"asf\",\"repeatSummary\":null,\"canCancel\":true}]}",
+    "convertedResponse" : null
+  }
+}

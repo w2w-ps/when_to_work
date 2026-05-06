@@ -252,5 +252,89 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "requestTimeOff"
+  },
+  "selectedCancelDate" : {
+    "_id" : "wm-selectedCancelDate-wm.Variable-1778050380358",
+    "name" : "selectedCancelDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "selectedCancelId" : {
+    "_id" : "wm-selectedCancelId-wm.Variable-1778052006157",
+    "name" : "selectedCancelId",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "svCancelTimeOffRequest" : {
+    "_id" : "wm-svCancelTimeOffRequest-wm.ServiceVariable-1778052011167",
+    "name" : "svCancelTimeOffRequest",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg",
+      "type" : "string"
+    }, {
+      "target" : "id",
+      "value" : "",
+      "type" : "string"
+    } ],
+    "type" : "cancelTimeOffRequest.RootResponse",
+    "service" : "cancelTimeOffRequest",
+    "operation" : "invoke",
+    "operationId" : "cancelTimeOffRequest_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svCancelTimeOffRequestonSuccess(variable, data)",
+    "onError" : "svCancelTimeOffRequestonError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "controller" : "cancelTimeOffRequest"
+  },
+  "svTimeOffRequests" : {
+    "_id" : "wm-svTimeOffRequests-wm.ServiceVariable-1778047451092",
+    "name" : "svTimeOffRequests",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg",
+      "type" : "string"
+    } ],
+    "type" : "timeOffRequests.RootResponse",
+    "service" : "timeOffRequests",
+    "operation" : "invoke",
+    "operationId" : "timeOffRequests_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svTimeOffRequestsonSuccess(variable, data)",
+    "onError" : "svTimeOffRequestsonError(variable, data)",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "controller" : "timeOffRequests"
   }
 }

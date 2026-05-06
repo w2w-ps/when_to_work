@@ -1,0 +1,119 @@
+{
+  "basePath" : "${rest.cancelTimeOffRequest.basepath}",
+  "paths" : {
+    "/time-off/requests/{id}/cancel" : {
+      "x-WM-BASE_PATH" : "/time-off/requests/{id}/cancel",
+      "x-WM-TAG" : "cancelTimeOffRequest",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.cancelTimeOffRequest.scheme}://${rest.cancelTimeOffRequest.host}${rest.cancelTimeOffRequest.basepath}/time-off/requests/{id}/cancel",
+      "put" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "cancelTimeOffRequest_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "in" : "path",
+          "name" : "id",
+          "format" : "string",
+          "type" : "string",
+          "required" : true,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "cancelTimeOffRequest" ],
+        "consumes" : [ "application/json" ]
+      }
+    }
+  },
+  "host" : "${rest.cancelTimeOffRequest.host}",
+  "schemes" : [ "${rest.cancelTimeOffRequest.scheme}" ],
+  "definitions" : {
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "cancelTimeOffRequest.Response.div",
+      "x-WM-TAGS" : [ "cancelTimeOffRequest" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "cancelTimeOffRequest.Response.body",
+      "x-WM-TAGS" : [ "cancelTimeOffRequest" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "cancelTimeOffRequest.RootResponse",
+      "x-WM-TAGS" : [ "cancelTimeOffRequest" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "cancelTimeOffRequest.Response.parsererror",
+      "x-WM-TAGS" : [ "cancelTimeOffRequest" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "947bf5df-8254-4b43-ac09-02ea685e0bfe",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "cancelTimeOffRequest"
+  } ]
+}

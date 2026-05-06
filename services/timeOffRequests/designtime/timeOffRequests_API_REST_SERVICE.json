@@ -1,0 +1,118 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "bd6eb257-da20-43f4-983a-75008031ce59",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "timeOffRequests"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/timeOffRequests/time-off/requests" : {
+      "get" : {
+        "tags" : [ "timeOffRequests" ],
+        "operationId" : "timeOffRequests_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/timeOffRequests/time-off",
+      "x-WM-TAG" : "timeOffRequests",
+      "x-WM-RELATIVE_PATH" : "/requests",
+      "x-WM-COMPLETE_PATH" : "${rest.timeOffRequests.scheme}://${rest.timeOffRequests.host}${rest.timeOffRequests.basepath}/time-off/requests"
+    }
+  },
+  "definitions" : {
+    "Response.timeOffRequestsEntryItem" : {
+      "required" : [ "canCancel", "comments", "employeeId", "endDate", "endDateTimes", "endTime", "repeatSummary", "requestId", "requestedAt", "startDate", "startTime", "status" ],
+      "properties" : {
+        "comments" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        },
+        "endDateTimes" : {
+          "type" : "string"
+        },
+        "requestedAt" : {
+          "type" : "string"
+        },
+        "requestId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "repeatSummary" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "canCancel" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "timeOffRequests.Response.timeOffRequestsEntryItem",
+      "x-WM-TAGS" : [ "timeOffRequests" ]
+    },
+    "RootResponse" : {
+      "required" : [ "timeOffRequests" ],
+      "properties" : {
+        "timeOffRequests" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.timeOffRequestsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "timeOffRequests.RootResponse",
+      "x-WM-TAGS" : [ "timeOffRequests" ]
+    }
+  }
+}
