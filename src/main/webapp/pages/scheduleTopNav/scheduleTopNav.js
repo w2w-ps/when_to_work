@@ -5,10 +5,22 @@
 
 /* perform any action on widgets/variables within this block */
 Partial.onReady = function () {
-    App.Variables.svGetAllCategoriesByCompanyId.invoke();
-    App.Variables.svGetAllPositionsByCompanyId.invoke();
-    App.Variables.svGetCategoryGroup.invoke();
-    App.Variables.svGetPositionGroup.invoke();
+    if (!App.Variables.svGetAllCategoriesByCompanyId.dataSet ||
+        !App.Variables.svGetAllCategoriesByCompanyId.dataSet.length) {
+        App.Variables.svGetAllCategoriesByCompanyId.invoke();
+    }
+    if (!App.Variables.svGetAllPositionsByCompanyId.dataSet ||
+        !App.Variables.svGetAllPositionsByCompanyId.dataSet.length) {
+        App.Variables.svGetAllPositionsByCompanyId.invoke();
+    }
+    if (!App.Variables.svGetCategoryGroup.dataSet ||
+        !App.Variables.svGetCategoryGroup.dataSet.length) {
+        App.Variables.svGetCategoryGroup.invoke();
+    }
+    if (!App.Variables.svGetPositionGroup.dataSet ||
+        !App.Variables.svGetPositionGroup.dataSet.length) {
+        App.Variables.svGetPositionGroup.invoke();
+    }
 
     const activePage = Partial.App.activePageName;
     if (activePage === 'EmployeeView') {
@@ -42,10 +54,10 @@ Partial.onReady = function () {
 };
 
 function buildCombinedCategoriesDataset() {
-    let flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
-    let categoryGroups  = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
+    const flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
+    const categoryGroups  = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
 
-    let combined = [];
+    const combined = [];
 
     combined.push({ displayLabel: "Add/Edit Categories",        isHeader: false });
     combined.push({ displayLabel: "-------------------",        isHeader: false });
@@ -80,10 +92,10 @@ function buildCombinedCategoriesDataset() {
 }
 
 function buildCombinedPositionsDataset() {
-    let flatPositions  = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
-    let positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
+    const flatPositions  = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
+    const positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
 
-    let combined = [];
+    const combined = [];
 
     combined.push({ displayLabel: "Add/Edit Positions",        id: "addoredit",             isHeader: false });
     combined.push({ displayLabel: "-------------------",       id: "",                       isHeader: false });
@@ -118,7 +130,10 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    // Guard: only toggle CSS class if nativeElement is available
+    if (widget && widget.nativeElement) {
+        widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    }
 
     // Redirect to Add/Edit page
     if (newVal && newVal.id === 'addoredit') {
@@ -127,7 +142,6 @@ Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
     }
 
     // Silently ignore separator rows and non-selectable header rows (they have no id or empty id)
-    // These are items like "-------------------", "Select Group / Positions", "selectgrouporposition"
     if (newVal && (newVal.id === '' || newVal.id === 'selectgrouporposition')) {
         return;
     }
@@ -184,7 +198,10 @@ function filterShifts() {
 }
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    // Guard: only toggle CSS class if nativeElement is available
+    if (widget && widget.nativeElement) {
+        widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    }
 
     // Silently ignore separator rows and non-selectable header rows (no id or known non-filter ids)
     if (newVal && (newVal.id === '' || newVal.displayLabel === 'Add/Edit Categories' ||
@@ -206,7 +223,10 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    // Guard: only toggle CSS class if nativeElement is available
+    if (widget && widget.nativeElement) {
+        widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    }
     if (newVal == 'Calendar View') {
         Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
@@ -217,5 +237,8 @@ Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selStatusChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    // Guard: only toggle CSS class if nativeElement is available
+    if (widget && widget.nativeElement) {
+        widget.nativeElement.classList.toggle('after-selected', !!newVal);
+    }
 };
