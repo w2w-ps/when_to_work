@@ -10,6 +10,7 @@
 
 :root {
     --wm-color-light-grey: #C0C0C0;
+    --wm-color-light-semigrey:#E9E9E9;
     --wm-color-prefer: #9dee94;
     --wm-color-dislike: #f9b4b7;
     --wm-color-cannotwork: #de101c;
@@ -32,6 +33,7 @@
     --wm-color-violetcontainerborder: #b765dd;
     --wm-color-form-caption: #555;
     --wm-daynum-bg-color: #f0f1f7;
+    
 }
 
 .open-sans-700 {
@@ -672,11 +674,12 @@ button.btn.app-button.btn-filled-primary-circle {
 }
 
 
-
-
-
-
-
+.cal-cell-empty {
+    background-color: var(--wm-color-light-semigrey) !important;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
 
 /* responsive code starts */
 /* mobile */

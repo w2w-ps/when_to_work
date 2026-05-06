@@ -37,9 +37,17 @@ Partial.onReady = function () {
             parentScope.Variables.activeMonthDate.dataSet = { dataValue: dateStr };
         }
         if (parentScope && typeof parentScope.invokeCalendarVariable === 'function') {
-            parentScope.invokeCalendarVariable(year, month);
+            // Guard: debounce so that when both monthlyView instances initialize simultaneously,
+            // invokeCalendarVariable is only called once (the second call cancels and replaces the first timer).
+            if (parentScope.__calendarInvokeTimer) {
+                clearTimeout(parentScope.__calendarInvokeTimer);
+            }
+            parentScope.__calendarInvokeTimer = setTimeout(function () {
+                parentScope.__calendarInvokeTimer = null;
+                parentScope.invokeCalendarVariable(year, month);
+            }, 0);
         }
-        // Broadcast to all other registered partial instances on the same page
+
         if (parentScope && parentScope.__monthlyViewInstances) {
             parentScope.__monthlyViewInstances.forEach(function (instance) {
                 if (typeof instance.syncToMonth === 'function') {
