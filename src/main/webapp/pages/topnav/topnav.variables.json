@@ -71,7 +71,7 @@
       "children" : [ ]
     }, {
       "caption" : "SCHEDULES",
-      "hyperlink" : "#/EmpView",
+      "hyperlink" : "#/EmployeeView",
       "children" : [ {
         "caption" : "By Employee (Drag/Drop)",
         "hyperlink" : "",
@@ -303,7 +303,7 @@
       "hyperlink" : "",
       "children" : [ {
         "caption" : "Company / My Info & Upload Logo",
-        "hyperlink" : ""
+        "hyperlink" : "#/mgrcoinfo"
       }, {
         "caption" : "My Notifications Email/Text",
         "hyperlink" : ""
@@ -312,7 +312,7 @@
         "hyperlink" : ""
       }, {
         "caption" : "Add/Edit MANAGERS",
-        "hyperlink" : ""
+        "hyperlink" : "#/mgradminsettings"
       }, {
         "caption" : "Payments - Pricing - Billing",
         "hyperlink" : ""
