@@ -154,20 +154,12 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
   font-weight: normal !important;
 }
 
-.cal-cell-empty {
-  background-color: var(--wm-color-light-semigrey) !important;
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
-}
-
-.cal-cell-empty app-listtemplate {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  background: transparent;
-}
+/* .cal-cell-empty {
+    background-color: var(--wm-color-light-semigrey) !important;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+} */
 
 .cal-cell-empty [name="container31_2"] {
   height: 100%;
@@ -183,17 +175,6 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
   background-color: transparent !important;
 }
 
-.cal-day-slots-listgroup {
-  align-items: stretch;
-}
-
-.cal-cell-empty app-listtemplate>div {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
 .cal-cell-empty [name="container31_2"] {
   flex: 1 1 auto;
   display: flex;
@@ -202,6 +183,126 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
   background: transparent !important;
 }
 
+.cal-cell-empty [name="container30_1"] {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: transparent !important;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+  background-color: transparent !important;
+}
+
+.cal-emp-list ul li,
+.list-group-autolayout li,
+div[name="posListDay"] {
+  background-color: var(--wm-color-white);
+  box-shadow: none !important;
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+  content: "";
+  height: calc(100% - 24px);
+  width: 0.5px;
+  position: absolute;
+  right: 0;
+  top: 24px;
+  background-color: var(--wm-color-light-grey);
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container {
+  flex-grow: 1;
+}
+
+.nav-tabs li:nth-child(8):not(.active) .tab-heading {
+  background-color: var(--wm-color-weekly) !important;
+  border: 1px solid var(--wm-color-violet) !important;
+  border-bottom: none !important;
+  color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) .tab-heading {
+  text-transform: uppercase;
+}
+
+.nav-tabs li:nth-child(9):not(.active) .tab-heading {
+  background-color: var(--wm-color-monthly) !important;
+  border: 1px solid var(--wm-color-violet) !important;
+  border-bottom: none !important;
+  color: var(--wm-color-black) !important;
+  text-transform: uppercase;
+}
+
+.cal-cell-empty [name="container31_2"],
+.cal-cell-empty [name="container30_1"] {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: transparent !important;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+  background-color: transparent !important;
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+  content: "";
+  height: calc(100% - 24px);
+  width: 0.5px;
+  position: absolute;
+  right: 0;
+  top: 24px;
+  background-color: var(--wm-color-light-grey);
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container {
+  flex-grow: 1;
+}
+
+.cal-emp-list ul li,
+.list-group-autolayout li,
+div[name="posListDay"] {
+  background-color: var(--wm-color-white);
+  box-shadow: none !important;
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+  content: "";
+  height: calc(100% - 24px);
+  width: 0.5px;
+  position: absolute;
+  right: 0;
+  top: 24px;
+  background-color: var(--wm-color-light-grey);
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container {
+  flex-grow: 1;
+}
+
+.nav-tabs li:nth-child(8):not(.active) .tab-heading {
+  background-color: var(--wm-color-weekly) !important;
+  border: 1px solid var(--wm-color-violet) !important;
+  border-bottom: none !important;
+  color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) .tab-heading {
+  text-transform: uppercase;
+}
+
+.nav-tabs li:nth-child(9):not(.active) .tab-heading {
+  background-color: var(--wm-color-monthly) !important;
+  border: 1px solid var(--wm-color-violet) !important;
+  border-bottom: none !important;
+  color: var(--wm-color-black) !important;
+  text-transform: uppercase;
+}
+
+.cal-cell-empty [name="container31_2"],
 .cal-cell-empty [name="container30_1"] {
   flex: 1 1 auto;
   display: flex;
@@ -216,5 +317,5 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
 
 .cal-cell-empty .daynum-label {
   border-bottom: 3px solid var(--wm-color-black) !important;
-  border-top: 1px solid var(--wm-color-black) !important;
+  border-top: none !important;
 }
