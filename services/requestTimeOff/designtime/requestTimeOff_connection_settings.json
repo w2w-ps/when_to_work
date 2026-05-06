@@ -1,0 +1,33 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/time-off/requests",
+  "method" : "POST",
+  "headers" : {
+    "Content-Type" : [ "application/json" ],
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc4MDQzNDg0LCJleHAiOjE3NzgwNDUyODR9.bfNhhDtfd69QPDlORu2VmIWaxWHH7xuBUepR-GfYFx-seGo_RiPBS4-gVtTFkAAcGsc_1zwqUcJPNFeMHsDij6z9TNCsB4a2lTTTZwftIX_OpGX0EvYN57Ly-K-GzcdrmIuDhq2HBDJCcqPH-4XWPGEZGJ2BOt5UEbQAxwkLScnGCxxHLVeJDsOQ5Xa_CveHhUSkGuuHzyn4JK3iRS6GlVI04yFeTGfmWnE8B2CNDZUqJNtlHsqPsYzVgRa2Slr4jQkB0HYt5KK2x2-WGyIFw94cHJjxFwXe8IlCrE5uW-uTYGx73Uaxv4d3r_dW6CHMJsSlWImINgRJKC9nfm1RKQ" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "{\"employeeId\": 1, \"startDate\": \"2026-04-22\", \"endDate\": \"2026-04-23\", \"fullDay\": true, \"comments\": \"Optional comment\"}",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Wed, 06 May 2026 04:59:17 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"requestId\":2,\"employeeId\":1,\"startDate\":\"2026-04-22\",\"endDate\":\"2026-04-23\",\"startTime\":null,\"endTime\":null,\"endDateTimes\":\"Apr 22, 2026 to Apr 23, 2026\",\"requestedAt\":\"2026-05-06T10:29:17\",\"status\":\"PENDING\",\"comments\":\"Optional comment\",\"repeatSummary\":null,\"canCancel\":true}",
+    "convertedResponse" : null
+  }
+}

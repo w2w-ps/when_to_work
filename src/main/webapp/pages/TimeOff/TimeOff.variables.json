@@ -1,0 +1,256 @@
+{
+  "activeMonthDate" : {
+    "_id" : "wm-activeMonthDate-wm.Variable-1777978746080",
+    "name" : "activeMonthDate",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "calMonthYear" : {
+    "_id" : "wm-calMonthYear-wm.Variable-1777978202766",
+    "name" : "calMonthYear",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "May 2026"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "calSelectedDateDisplay" : {
+    "_id" : "wm-calSelectedDateDisplay-wm.Variable-1777978205140",
+    "name" : "calSelectedDateDisplay",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "May 2026"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
+  "myTimeOffListVar" : {
+    "_id" : "wm-myTimeOffListVar-wm.Variable-1777981080510",
+    "name" : "myTimeOffListVar",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "canCancel" : true,
+      "startDate" : "Nov 15, 2024",
+      "endDateTime" : "8am to 11:59pm\nRepeats for 2 Weeks",
+      "requested" : "09/27/24 07:17am",
+      "status" : "Pending",
+      "comments" : ""
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 5, 2023",
+      "endDateTime" : "Jun 5, 2023",
+      "requested" : "10/18/22 01:41pm",
+      "status" : "Pending",
+      "comments" : "Personal Day"
+    }, {
+      "canCancel" : false,
+      "startDate" : "May 22, 2023",
+      "endDateTime" : "May 22, 2023",
+      "requested" : "10/18/22 01:36pm",
+      "status" : "Approved",
+      "comments" : "Manager trainee program"
+    }, {
+      "canCancel" : false,
+      "startDate" : "Oct 9, 2022",
+      "endDateTime" : "Oct 9, 2022",
+      "requested" : "11/05/21 09:00am",
+      "status" : "Declined",
+      "comments" : "appointment"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Sep 22, 2022",
+      "endDateTime" : "Sep 25, 2022",
+      "requested" : "11/05/21 08:58am",
+      "status" : "Pending",
+      "comments" : "sister's wedding"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 21, 2021",
+      "endDateTime" : "Jun 25, 2021",
+      "requested" : "05/27/20 12:35pm",
+      "status" : "Pending",
+      "comments" : "Vacation Time"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 15, 2021",
+      "endDateTime" : "Jun 15, 2021",
+      "requested" : "05/04/21 01:54pm",
+      "status" : "Pending",
+      "comments" : ""
+    }, {
+      "canCancel" : false,
+      "startDate" : "Jun 7, 2021",
+      "endDateTime" : "2:30pm to 4:30pm",
+      "requested" : "05/26/20 10:57am",
+      "status" : "Approved",
+      "comments" : "School Field Trip"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 6, 2021",
+      "endDateTime" : "Jun 6, 2021",
+      "requested" : "05/27/20 12:34pm",
+      "status" : "Pending",
+      "comments" : "It's my birthday!"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 26, 2020",
+      "endDateTime" : "Jun 26, 2020",
+      "requested" : "05/31/20 01:48pm",
+      "status" : "Pending",
+      "comments" : ""
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 24, 2020",
+      "endDateTime" : "Jun 24, 2020",
+      "requested" : "05/31/20 01:48pm",
+      "status" : "Pending",
+      "comments" : ""
+    }, {
+      "canCancel" : false,
+      "startDate" : "May 20, 2020",
+      "endDateTime" : "May 21, 2020",
+      "requested" : "02/19/19 02:49pm",
+      "status" : "Declined",
+      "comments" : ""
+    }, {
+      "canCancel" : true,
+      "startDate" : "May 12, 2020",
+      "endDateTime" : "May 13, 2020",
+      "requested" : "03/17/19 02:12pm",
+      "status" : "Pending",
+      "comments" : ""
+    }, {
+      "canCancel" : false,
+      "startDate" : "Apr 17, 2020",
+      "endDateTime" : "Apr 17, 2020",
+      "requested" : "04/09/14 09:25am",
+      "status" : "Approved",
+      "comments" : ""
+    }, {
+      "canCancel" : false,
+      "startDate" : "Apr 13, 2020",
+      "endDateTime" : "Apr 13, 2020",
+      "requested" : "05/01/14 10:26am",
+      "status" : "Approved",
+      "comments" : "It's my birthday"
+    }, {
+      "canCancel" : false,
+      "startDate" : "Jul 23, 2019",
+      "endDateTime" : "Jul 23, 2019",
+      "requested" : "06/26/19 07:16am",
+      "status" : "Approved",
+      "comments" : "vacation"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jul 14, 2019",
+      "endDateTime" : "Jul 14, 2019",
+      "requested" : "07/07/19 11:17am",
+      "status" : "Pending",
+      "comments" : "vacation"
+    }, {
+      "canCancel" : false,
+      "startDate" : "Jun 26, 2019",
+      "endDateTime" : "Jun 26, 2019",
+      "requested" : "06/13/18 12:56pm",
+      "status" : "Approved",
+      "comments" : "Birthday"
+    }, {
+      "canCancel" : false,
+      "startDate" : "Jun 12, 2019",
+      "endDateTime" : "Jun 12, 2019",
+      "requested" : "01/09/19 12:11pm",
+      "status" : "Declined",
+      "comments" : "Vacation Day"
+    }, {
+      "canCancel" : false,
+      "startDate" : "Jun 11, 2019",
+      "endDateTime" : "Jun 11, 2019",
+      "requested" : "01/09/19 12:22pm",
+      "status" : "Declined",
+      "comments" : "Vacation Day"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 19, 2018",
+      "endDateTime" : "Jun 19, 2018",
+      "requested" : "06/13/18 01:10pm",
+      "status" : "Pending",
+      "comments" : "Kid's Field Trip"
+    }, {
+      "canCancel" : true,
+      "startDate" : "Jun 12, 2018",
+      "endDateTime" : "Jun 12, 2018",
+      "requested" : "06/13/18 01:09pm",
+      "status" : "Pending",
+      "comments" : "Kid's Field Trip"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "requestTimeOffVar" : {
+    "_id" : "wm-requestTimeOffVar-wm.ServiceVariable-1777983796151",
+    "name" : "requestTimeOffVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "RequestBody.fullDay",
+      "value" : "bind:Widgets.timeOffTypeRadio.datavalue == 'Full Day(s) Off'",
+      "type" : "boolean"
+    }, {
+      "target" : "RequestBody.employeeId",
+      "value" : "bind:App.Variables.loggedInUser.dataSet.id",
+      "type" : "integer"
+    }, {
+      "target" : "RequestBody.comments",
+      "value" : "bind:Widgets.commentTextarea.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg",
+      "type" : "string"
+    }, {
+      "target" : "Content-Type",
+      "value" : "application/json",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody",
+      "value" : "application/json",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody"
+    } ],
+    "type" : "requestTimeOff.RootResponse",
+    "service" : "requestTimeOff",
+    "operation" : "invoke",
+    "operationId" : "requestTimeOff_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : { },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "requestTimeOffVaronSuccess(variable, data)",
+    "onError" : "requestTimeOffVaronError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "requestTimeOff"
+  }
+}

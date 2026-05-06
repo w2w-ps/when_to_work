@@ -1,89 +1,107 @@
 {
-  "calendar" : {
-    "mapping" : {
-      "background" : {
-        "value" : "{color.white.@.value}"
-      },
-      "border" : {
-        "color" : {
-          "value" : "#aaaaaaff"
-        },
-        "width" : {
-          "value" : "0px 0px 1px 0px"
-        }
-      },
-      "button" : {
-        "active" : {
-          "background" : {
-            "value" : "{color.white.@.value}"
+  "calendar": {
+    "appearances": {
+      "timeoff-calendar": {
+        "mapping": {
+          "shadow": {
+            "value": "{elevation.shadow.none.value}"
           },
-          "color" : {
-            "value" : "#2c467c"
-          }
-        },
-        "background" : {
-          "value" : "{color.white.@.value}"
-        },
-        "border-color" : {
-          "value" : "{color.transparent.value}"
-        },
-        "color" : {
-          "value" : "#2c467c"
-        },
-        "font-family" : {
-          "value" : "Tahoma"
-        },
-        "font-size" : {
-          "value" : "16px"
-        }
-      },
-      "date" : {
-        "color" : {
-          "value" : "#2c467c"
-        },
-        "today" : {
-          "background" : {
-            "value" : "{color.white.@.value}"
+          "border": {
+            "color": {
+              "value": "#cccccc"
+            },
+            "style": {
+              "value": "solid"
+            },
+            "width": {
+              "value": "1px"
+            }
           },
-          "text" : {
-            "color" : {
-              "value" : "#2c467c"
+          "radius": {
+            "value": "{radius.xs.value}"
+          },
+          "background": {
+            "value": "{color.surface.@.value}"
+          },
+          "toolbar-title": {
+            "font-family": {
+              "value": "Arial"
+            },
+            "font-size": {
+              "value": "14px"
+            }
+          },
+          "button": {
+            "background": {
+              "value": "#2C467C"
+            },
+            "border-color": {
+              "value": "#2C467C"
+            },
+            "font-family": {
+              "value": "Arial"
+            },
+            "border-width": {
+              "value": "1px"
+            },
+            "border-style": {
+              "value": "solid"
+            },
+            "active": {
+              "background": {
+                "value": "#2C467C"
+              },
+              "border-color": {
+                "value": "#2C467C"
+              },
+              "border-width": {
+                "value": "1px"
+              },
+              "border-style": {
+                "value": "solid"
+              }
+            }
+          },
+          "date": {
+            "font-family": {
+              "value": "Arial"
+            },
+            "today": {
+              "background": {
+                "value": "#2C467C"
+              },
+              "text": {
+                "color": {
+                  "value": "{color.white.@.value}"
+                }
+              }
+            }
+          },
+          "toolbar": {
+            "vertical": {
+              "padding": {
+                "value": "{space.2.value}"
+              }
+            },
+            "horizontal": {
+              "padding": {
+                "value": "{space.4.value}"
+              }
+            }
+          },
+          "header": {
+            "font-family": {
+              "value": "Arial"
             }
           }
-        },
-        "padding" : {
-          "value" : "{space.1.value}"
-        },
-        "font-family" : {
-          "value" : "Tahoma"
-        },
-        "font-size" : {
-          "value" : "16px"
         }
-      },
-      "header" : {
-        "color" : {
-          "value" : "#98a6c4"
-        },
-        "font-size" : {
-          "value" : "14px"
-        },
-        "font-weight" : {
-          "value" : "{font.weight.700.value}"
-        }
-      },
-      "toolbar-title" : {
-        "font-size" : {
-          "value" : "20px"
-        },
-        "font-weight" : {
-          "value" : "{font.weight.400.value}"
-        },
-        "font-family" : {
-          "value" : "Tahoma"
-        },
-        "letter-spacing" : {
-          "value" : "0"
+      }
+    },
+    "meta": {
+      "appearances": {
+        "timeoff-calendar": {
+          "source": "aira",
+          "description": "Time Off calendar — today cell navy bg + white text, nav buttons navy"
         }
       }
     }

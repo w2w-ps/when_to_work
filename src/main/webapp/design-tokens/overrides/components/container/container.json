@@ -426,6 +426,30 @@
             }
           }
         }
+      },
+      "navy-status-bar" : {
+        "mapping" : {
+          "background" : {
+            "value" : "#1a2e4a"
+          },
+          "border" : {
+            "color" : {
+              "value" : "#1a2e4a"
+            },
+            "width" : {
+              "value" : "0"
+            },
+            "style" : {
+              "value" : "none"
+            },
+            "radius" : {
+              "value" : "0"
+            }
+          },
+          "shadow" : {
+            "value" : "none"
+          }
+        }
       }
     },
     "meta" : {
@@ -484,6 +508,10 @@
         },
         "no-padding-only-border" : {
           "source" : "user"
+        },
+        "navy-status-bar" : {
+          "source" : "aira",
+          "description" : "Dark navy status bar for calendar selected date display"
         }
       }
     }

@@ -1,0 +1,150 @@
+{
+  "basePath" : "${rest.requestTimeOff.basepath}",
+  "paths" : {
+    "/time-off/requests" : {
+      "post" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "requestTimeOff_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Content-Type",
+          "format" : "string",
+          "description" : "Content-Type",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "requestTimeOff" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/time-off/requests",
+      "x-WM-TAG" : "requestTimeOff",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.requestTimeOff.scheme}://${rest.requestTimeOff.host}${rest.requestTimeOff.basepath}/time-off/requests"
+    }
+  },
+  "host" : "${rest.requestTimeOff.host}",
+  "schemes" : [ "${rest.requestTimeOff.scheme}" ],
+  "definitions" : {
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "requestTimeOff.RootRequest",
+      "x-WM-TAGS" : [ "requestTimeOff" ],
+      "required" : [ "comments", "employeeId", "endDate", "fullDay", "startDate" ],
+      "properties" : {
+        "comments" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "fullDay" : {
+          "type" : "boolean"
+        },
+        "startDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "requestTimeOff.RootResponse",
+      "x-WM-TAGS" : [ "requestTimeOff" ],
+      "required" : [ "canCancel", "comments", "employeeId", "endDate", "endDateTimes", "endTime", "repeatSummary", "requestId", "requestedAt", "startDate", "startTime", "status" ],
+      "properties" : {
+        "comments" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        },
+        "endDateTimes" : {
+          "type" : "string"
+        },
+        "requestedAt" : {
+          "type" : "string"
+        },
+        "requestId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "repeatSummary" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "canCancel" : {
+          "type" : "boolean"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "7230b5c8-5c40-4d8d-badb-db12b492440c",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "requestTimeOff"
+  } ]
+}

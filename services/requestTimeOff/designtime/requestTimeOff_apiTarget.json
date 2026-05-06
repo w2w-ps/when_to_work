@@ -1,0 +1,150 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "7230b5c8-5c40-4d8d-badb-db12b492440c",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "requestTimeOff"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/time-off/requests" : {
+      "post" : {
+        "tags" : [ "requestTimeOff" ],
+        "operationId" : "requestTimeOff_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Content-Type",
+          "in" : "header",
+          "description" : "Content-Type",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/time-off/requests",
+      "x-WM-TAG" : "requestTimeOff",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.requestTimeOff.scheme}://${rest.requestTimeOff.host}${rest.requestTimeOff.basepath}/time-off/requests"
+    }
+  },
+  "definitions" : {
+    "RootRequest" : {
+      "required" : [ "comments", "employeeId", "endDate", "fullDay", "startDate" ],
+      "properties" : {
+        "comments" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "fullDay" : {
+          "type" : "boolean"
+        },
+        "startDate" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "requestTimeOff.RootRequest",
+      "x-WM-TAGS" : [ "requestTimeOff" ]
+    },
+    "RootResponse" : {
+      "required" : [ "canCancel", "comments", "employeeId", "endDate", "endDateTimes", "endTime", "repeatSummary", "requestId", "requestedAt", "startDate", "startTime", "status" ],
+      "properties" : {
+        "comments" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        },
+        "endDateTimes" : {
+          "type" : "string"
+        },
+        "requestedAt" : {
+          "type" : "string"
+        },
+        "requestId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "repeatSummary" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "canCancel" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "requestTimeOff.RootResponse",
+      "x-WM-TAGS" : [ "requestTimeOff" ]
+    }
+  }
+}

@@ -69,6 +69,7 @@
                 <source>services/mgrUpdateEmpPwd/src</source>
                 <source>services/positionList/src</source>
                 <source>services/precheck/src</source>
+                <source>services/requestTimeOff/src</source>
                 <source>services/scheduleList/src</source>
                 <source>services/securityService/src</source>
                 <source>services/svDeleteShiftById/src</source>
