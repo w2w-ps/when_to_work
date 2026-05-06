@@ -1,16 +1,18 @@
 <wm-page name="page" pagetitle="Mgradminsettings">
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content">
         <wm-page-content columnwidth="12" name="pagecontent">
             <wm-container name="titleSection" class="app-container-default" direction="column" gap="4"
                 alignment="top-center" width="fill" height="hug" padding="unset unset 16px unset">
                 <wm-label name="lblCompanyName" caption="Sample Company" class="label-label-20-700"
                     variant="label-20-700"></wm-label>
-                <wm-label name="lblPageTitle" caption="Info &amp; Settings" class="label-label-20-700"
-                    variant="label-20-700"></wm-label>
+                <wm-label name="lblPageTitle"
+                    caption="bind:Widgets.tabs1.activeTab.name === 'Managers' ? 'SETTINGS - Managers' : 'Info &amp; Settings'"
+                    class="label-label-20-700" variant="label-20-700" on-click="lblPageTitleClick($event, widget)">
+                </wm-label>
             </wm-container>
             <wm-tabs type="static" statehandler="URL" name="tabs1" variant="standard" autotabactivation="true">
-
-                <wm-tabpane title="Info" name="infoTabpane">
+                <wm-tabpane title="Info" name="info">
                     <!-- Outer centered column -->
                     <wm-container name="infoOuterCol" class="app-container-default" direction="column" gap="16"
                         alignment="top-center" width="fill" height="hug" padding="16px 0px">
@@ -58,8 +60,7 @@
                                 <wm-label name="lblBillingAddress" caption="Billing Address" class="label-label-14-400"
                                     variant="label-14-400" width="160px"></wm-label>
                                 <wm-text name="txtBillingAddress"
-                                    datavalue="bind:Variables.wsGetTenants.dataSet[$i].address" width="80%">
-                                </wm-text>
+                                    datavalue="bind:Variables.wsGetTenants.dataSet[$i].address" width="80%"></wm-text>
                             </wm-container>
                             <!-- City Row -->
                             <wm-container name="cityRow" class="app-container-default" direction="row" gap="16"
@@ -103,8 +104,7 @@
                                 <wm-label name="lblPhone" caption="Phone" class="label-label-14-400"
                                     variant="label-14-400" width="160px"></wm-label>
                                 <wm-text name="txtPhone" datavalue="bind:Variables.companyInfo.dataSet.dataValue.phone"
-                                    width="80%">
-                                </wm-text>
+                                    width="80%"></wm-text>
                             </wm-container>
                             <!-- Sales Tax Note Block -->
                             <wm-container name="salesTaxNoteBlock" class="app-container-default" direction="column"
@@ -150,8 +150,7 @@
                                 <wm-label name="lblFirstName" caption="First Name*" class="label-label-14-400"
                                     variant="label-14-400" width="160px"></wm-label>
                                 <wm-text name="txtFirstName"
-                                    datavalue="bind:Variables.myInfo.dataSet.dataValue.firstName" width="80%">
-                                </wm-text>
+                                    datavalue="bind:Variables.myInfo.dataSet.dataValue.firstName" width="80%"></wm-text>
                             </wm-container>
                             <!-- Last Name Row -->
                             <wm-container name="lastNameRow" class="app-container-default" direction="row" gap="16"
@@ -159,8 +158,7 @@
                                 <wm-label name="lblLastName" caption="Last Name*" class="label-label-14-400"
                                     variant="label-14-400" width="160px"></wm-label>
                                 <wm-text name="txtLastName" datavalue="bind:Variables.myInfo.dataSet.dataValue.lastName"
-                                    width="80%">
-                                </wm-text>
+                                    width="80%"></wm-text>
                             </wm-container>
                             <!-- Emails/Texts Row -->
                             <wm-container name="emailsTextsRow" class="app-container-default" direction="row" gap="16"
@@ -265,8 +263,7 @@
                                         class="label-label-14-700" variant="label-14-700"></wm-label>
                                     <wm-container name="customLabelsHelp" class="app-container-default" direction="row"
                                         gap="4" alignment="middle-right" width="hug" height="hug">
-                                        <wm-label name="lblCustomLabelsHelp" caption="Help on this topic">
-                                        </wm-label>
+                                        <wm-label name="lblCustomLabelsHelp" caption="Help on this topic"></wm-label>
                                         <wm-anchor name="anchorCustomLabelsMore" caption="More" class="text-primary">
                                         </wm-anchor>
                                     </wm-container>
@@ -297,8 +294,7 @@
                                         class="label-label-14-700" variant="label-14-700"></wm-label>
                                     <wm-container name="empStatusLabelsHelp" class="app-container-default"
                                         direction="row" gap="4" alignment="middle-right" width="hug" height="hug">
-                                        <wm-label name="lblEmpStatusLabelsHelp" caption="Help on this topic">
-                                        </wm-label>
+                                        <wm-label name="lblEmpStatusLabelsHelp" caption="Help on this topic"></wm-label>
                                         <wm-anchor name="anchorEmpStatusLabelsMore" caption="More" class="text-primary">
                                         </wm-anchor>
                                     </wm-container>
@@ -321,8 +317,7 @@
                                 <!-- Start Day Row -->
                                 <wm-container name="startDayRow" class="app-container-default" direction="row" gap="8"
                                     alignment="middle-left" width="fill" height="hug">
-                                    <wm-label name="lblStartDay" caption="START DAY for Weekly Schedules:">
-                                    </wm-label>
+                                    <wm-label name="lblStartDay" caption="START DAY for Weekly Schedules:"></wm-label>
                                     <wm-label name="lblStartDayValue" caption="-" class="label-label-14-700"
                                         variant="label-14-700"></wm-label>
                                     <wm-anchor name="anchorChangeStartDay" caption="Change" iconclass="wi wi-mode-edit"
@@ -331,8 +326,7 @@
                                 <!-- Label Employee Row -->
                                 <wm-container name="labelEmployeeRow" class="app-container-default" direction="row"
                                     gap="8" alignment="middle-left" width="fill" height="hug">
-                                    <wm-label name="lblLabelEmployee" caption="Label &quot;Employee&quot;:">
-                                    </wm-label>
+                                    <wm-label name="lblLabelEmployee" caption="Label &quot;Employee&quot;:"></wm-label>
                                     <wm-select name="selEmployeeLabel" dataset="Employee, Staff, Worker, Associate"
                                         datavalue="bind:Variables.globalSettings.dataSet.dataValue.employeeLabel"
                                         width="150px"></wm-select>
@@ -381,8 +375,7 @@
                                         dataset="Allow All Managers to use Manager Team Views" layout="stacked">
                                     </wm-checkboxset>
                                     <wm-checkboxset name="chkAllowAllEmpViewTeams"
-                                        dataset="Allow All Employees to View Teams" layout="stacked">
-                                    </wm-checkboxset>
+                                        dataset="Allow All Employees to View Teams" layout="stacked"></wm-checkboxset>
                                 </wm-container>
                             </wm-container>
                             <!-- Global Settings Save Button -->
@@ -437,8 +430,7 @@
                                 <wm-container name="infoNoteHelp" class="app-container-default" direction="row" gap="4"
                                     alignment="middle-right" width="hug" height="hug">
                                     <wm-label name="lblInfoHelp" caption="Help on this topic"></wm-label>
-                                    <wm-anchor name="anchorInfoMore" caption="More" class="text-primary">
-                                    </wm-anchor>
+                                    <wm-anchor name="anchorInfoMore" caption="More" class="text-primary"></wm-anchor>
                                 </wm-container>
                             </wm-container>
                             <wm-label name="lblInfoNote"
@@ -446,12 +438,10 @@
                             </wm-label>
                         </wm-container>
                     </wm-container>
-
-
                 </wm-tabpane>
                 <wm-tabpane title="My Notices" name="tabpane2"></wm-tabpane>
                 <wm-tabpane title="Permissions" name="tabpane3"></wm-tabpane>
-                <wm-tabpane title="Managers" name="tabpane1">
+                <wm-tabpane title="Managers" name="Managers">
                     <wm-container direction="column" alignment="middle-center" gap="10" width="fill" name="container16"
                         class="app-container-default" variant="default" wrap="false">
                         <wm-container direction="column" alignment="top-left" gap="4" width="60%" name="container32"
