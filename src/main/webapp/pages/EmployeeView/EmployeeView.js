@@ -11,6 +11,7 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
+    Page.today = new Date();
     Page.selectedEmployee = "";
     Page.selectedDay = "";
     Page.isAdd = true;
@@ -581,7 +582,7 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     let positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     let positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
     let positionMatch = positionsList.find(function (p) { return p.description === data.position; });
-    let resolvedPositionId = positionMatch ? positionMatch.positionId : null;
+    Page.resolvedPositionId = positionMatch ? positionMatch.positionId : null;
 
     // Resolve category name -> id
     let categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
@@ -669,6 +670,8 @@ Page.shiftDialogOpened = function ($event, widget) {
         Page.Widgets.chkSat.datavalue = false;
         Page.Widgets.chkSun.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
+
+        Page.Widgets.positionField.datavalue = Page.resolvedPositionId;
     }
 };
 
@@ -732,7 +735,7 @@ Page.button16Click = function ($event, widget) {
                 endTime: formatToStandardTime(endTime) || '',
                 position: positionId || '',
                 category: categoryId || '',
-                color: 'amer'
+                color: Page.Widgets.shiftForm.formWidgets.colorField_formWidget.datavalue
             }
         });
         Page.Variables.svCreateShift.invoke();
@@ -748,7 +751,7 @@ Page.button16Click = function ($event, widget) {
                 endTime: formatToStandardTime(endTime) || '',
                 position: positionId || '',
                 category: categoryId || '',
-                color: 'amer'
+                color: Page.Widgets.shiftForm.formWidgets.colorField_formWidget.datavalue
             }
         });
         Page.Variables.svUpdateShift.invoke();

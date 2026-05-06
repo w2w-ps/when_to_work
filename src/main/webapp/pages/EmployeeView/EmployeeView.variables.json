@@ -187,6 +187,28 @@
     "saveInPhonegap" : false,
     "controller" : "getShiftDetails"
   },
+  "svGetShiftColors" : {
+    "_id" : "wm-svGetShiftColors-wm.ServiceVariable-1778043409267",
+    "name" : "svGetShiftColors",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "getShiftColors.Response.RootResponseROOTEntryItem",
+    "service" : "getShiftColors",
+    "operation" : "invoke",
+    "operationId" : "getShiftColors_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getShiftColors"
+  },
   "svScheduleList" : {
     "_id" : "wm-svScheduleList-wm.ServiceVariable-1774866901855",
     "name" : "svScheduleList",

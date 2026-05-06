@@ -132,6 +132,94 @@
             "value" : "{space.1.value}"
           }
         }
+      },
+      "blue" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#10A8D8"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "min-width" : {
+            "value" : "12px"
+          },
+          "width" : {
+            "value" : "12px"
+          },
+          "height" : {
+            "value" : "12px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
+      },
+      "red" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#FB5007"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "min-width" : {
+            "value" : "12px"
+          },
+          "width" : {
+            "value" : "12px"
+          },
+          "height" : {
+            "value" : "12px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
+      },
+      "orange" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#F5AC3E"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "min-width" : {
+            "value" : "12px"
+          },
+          "width" : {
+            "value" : "12px"
+          },
+          "height" : {
+            "value" : "12px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
+      },
+      "green" : {
+        "mapping" : {
+          "color" : {
+            "value" : "#3AC037"
+          },
+          "font-size" : {
+            "value" : "12px"
+          },
+          "min-width" : {
+            "value" : "12px"
+          },
+          "width" : {
+            "value" : "12px"
+          },
+          "height" : {
+            "value" : "12px"
+          },
+          "gap" : {
+            "value" : "{space.1.value}"
+          }
+        }
       }
     },
     "meta" : {
@@ -152,6 +240,18 @@
           "source" : "user"
         },
         "icon-8pt" : {
+          "source" : "user"
+        },
+        "blue" : {
+          "source" : "user"
+        },
+        "red" : {
+          "source" : "user"
+        },
+        "orange" : {
+          "source" : "user"
+        },
+        "green" : {
           "source" : "user"
         }
       }

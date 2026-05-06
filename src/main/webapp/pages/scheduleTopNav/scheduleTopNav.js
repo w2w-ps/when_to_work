@@ -201,6 +201,7 @@ Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
     }
 };
 
-Partial.selStatusChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
+
+Partial.menu1Select = function ($event, widget, $item) {
+
 };

@@ -12,7 +12,7 @@
   <version>1.0</version>
   <packaging>war</packaging>
   <properties>
-    <wavemaker.app.runtime.ui.version>1.0.0-next.27559</wavemaker.app.runtime.ui.version>
+    <wavemaker.app.runtime.ui.version>1.0.0-next.27563</wavemaker.app.runtime.ui.version>
     <wavemaker.artifactType>wmapp</wavemaker.artifactType>
   </properties>
   <dependencies>
@@ -64,6 +64,7 @@
                 <source>services/getPositionGroup/src</source>
                 <source>services/getPositionViewScheduling/src</source>
                 <source>services/getPreferenceRange/src</source>
+                <source>services/getShiftColors/src</source>
                 <source>services/getShiftDetails/src</source>
                 <source>services/getTenants/src</source>
                 <source>services/mgrUpdateEmpPwd/src</source>

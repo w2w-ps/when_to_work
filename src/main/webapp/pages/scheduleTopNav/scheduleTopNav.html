@@ -25,11 +25,9 @@
             </wm-container>
             <wm-container direction="row" alignment="top-right" gap="10" width="fill"
                 class="app-container-default  resp-padding-right" variant="default" name="container59">
-                <wm-select name="selStatus"
-                    dataset="No Status, Full Time, Part Time, Per Diem, Orange Diamond, Green Diamond"
-                    placeholder="All Status" variant="black-border-select" datafield="All Fields"
-                    class="form-black-border-select" on-change="selStatusChange($event, widget, newVal, oldVal)"
-                    width="152px"></wm-select>
+                <wm-menu caption="Menu" autoclose="outsideClick" name="menu1"
+                    dataset="bind:Variables.svAllStatus.dataSet" itemlabel="label" itemicon="iconclass"
+                    on-select="menu1Select($event, widget, $item)"></wm-menu>
                 <wm-select name="selCategories" placeholder="All Categories" variant="black-border-select"
                     datafield="All Fields" class="form-black-border-select"
                     on-change="selCategoriesChange($event, widget, newVal, oldVal)"
