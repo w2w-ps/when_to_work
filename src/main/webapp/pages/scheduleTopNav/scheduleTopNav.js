@@ -21,7 +21,6 @@ Partial.onReady = function () {
         Partial.Widgets.selViewType.datavalue = 'By Employee View';
     }
 
-
     buildCombinedCategoriesDataset();
     buildCombinedPositionsDataset();
 
@@ -44,51 +43,36 @@ Partial.onReady = function () {
 
 function buildCombinedCategoriesDataset() {
     let flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
-    let categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
+    let categoryGroups  = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
 
     let combined = [];
 
-    combined.push({
-        displayLabel: "Add/Edit Categories",
-        isHeader: false
-    });
-
-    combined.push({
-        displayLabel: "-------------------",
-        isHeader: false
-    });
-
-    combined.push({
-        displayLabel: "Select Group / Categories",
-        isHeader: false
-    });
+    combined.push({ displayLabel: "Add/Edit Categories",        isHeader: false });
+    combined.push({ displayLabel: "-------------------",        isHeader: false });
+    combined.push({ displayLabel: "Select Group / Categories",  isHeader: false });
 
     // Add group names from svGetCategoryGroup (group name only, selectable)
     categoryGroups.forEach(function (group) {
         let subCategoryIds = "";
         group.categories.forEach(function (subCategory) {
-            subCategoryIds = subCategoryIds + subCategory.id + ","
+            subCategoryIds = subCategoryIds + subCategory.id + ",";
         });
-
         combined.push({
-            id: group.id,
-            displayLabel: group.name,
-            isHeader: false,
+            id:             group.id,
+            displayLabel:   group.name,
+            isHeader:       false,
             subCategoryIds: subCategoryIds
         });
     });
 
-    combined.push({
-        displayLabel: "-------------------",
-        isHeader: false
-    });
+    combined.push({ displayLabel: "-------------------", isHeader: false });
 
     // Add flat categories from svGetAllCategoriesByCompanyId
     flatCategories.forEach(function (cat) {
         combined.push({
-            id: cat.categoryId,
+            id:           cat.categoryId,
             displayLabel: cat.description + (cat.shortDesc ? ' (' + cat.shortDesc + ')' : ''),
-            isHeader: false
+            isHeader:     false
         });
     });
 
@@ -96,28 +80,14 @@ function buildCombinedCategoriesDataset() {
 }
 
 function buildCombinedPositionsDataset() {
-    let flatPositions = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
+    let flatPositions  = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
     let positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
 
     let combined = [];
 
-    combined.push({
-        displayLabel: "Add/Edit Positions",
-        id: "addoredit",
-        isHeader: false
-    });
-
-    combined.push({
-        displayLabel: "-------------------",
-        id: "",
-        isHeader: false
-    });
-
-    combined.push({
-        displayLabel: "Select Group / Positions",
-        id: "selectgrouporposition",
-        isHeader: false
-    });
+    combined.push({ displayLabel: "Add/Edit Positions",        id: "addoredit",             isHeader: false });
+    combined.push({ displayLabel: "-------------------",       id: "",                       isHeader: false });
+    combined.push({ displayLabel: "Select Group / Positions",  id: "selectgrouporposition",  isHeader: false });
 
     // Add group names from svGetPositionGroup (group name only, selectable)
     positionGroups.forEach(function (group) {
@@ -125,27 +95,22 @@ function buildCombinedPositionsDataset() {
         group.positions.forEach(function (subPosition) {
             subPositionIds = subPositionIds + subPosition.positionId + ",";
         });
-
         combined.push({
-            id: group.id,
-            displayLabel: group.name,
-            isHeader: false,
+            id:             group.id,
+            displayLabel:   group.name,
+            isHeader:       false,
             subPositionIds: subPositionIds
         });
     });
 
-    combined.push({
-        displayLabel: "-------------------",
-        id: "",
-        isHeader: false
-    });
+    combined.push({ displayLabel: "-------------------", id: "", isHeader: false });
 
     // Add flat positions from svGetAllPositionsByCompanyId
     flatPositions.forEach(function (pos) {
         combined.push({
-            id: pos.positionId,
+            id:           pos.positionId,
             displayLabel: pos.description,
-            isHeader: false
+            isHeader:     false
         });
     });
 
@@ -154,40 +119,90 @@ function buildCombinedPositionsDataset() {
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
     widget.nativeElement.classList.toggle('after-selected', !!newVal);
+
+    // Redirect to Add/Edit page
     if (newVal && newVal.id === 'addoredit') {
         App.redirectToNewtab("AddOrEditPosition");
         return;
     }
-    Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
-    if (newVal.id) {
-        filterShifts();
+
+    // Silently ignore separator rows and non-selectable header rows (they have no id or empty id)
+    // These are items like "-------------------", "Select Group / Positions", "selectgrouporposition"
+    if (newVal && (newVal.id === '' || newVal.id === 'selectgrouporposition')) {
+        return;
     }
+
+    // User cleared the selection (newVal is null/undefined) — reset filter and show all
+    if (!newVal) {
+        Partial.selectedPositionId = null;
+        filterShifts();
+        return;
+    }
+
+    // Valid position or group selected
+    Partial.selectedPositionId = newVal.subPositionIds ? newVal.subPositionIds : newVal.id;
+    filterShifts();
 };
 
 function filterShifts() {
+    const activePage = Partial.App.activePageName;
+    const currentPage = Partial.App.activePage;
+
+    // -------------------------------------------------------
+    // calenderView: use client-side filter via applyCalendarFilter
+    // -------------------------------------------------------
+    if (activePage === 'calenderView') {
+        if (typeof currentPage.applyCalendarFilter === 'function') {
+            currentPage.applyCalendarFilter(
+                Partial.selectedCategoryId || null,
+                Partial.selectedPositionId || null
+            );
+        }
+        return;
+    }
+
+    // -------------------------------------------------------
+    // Position_view / EmployeeView: existing server-side filter
+    // -------------------------------------------------------
     let varName = "";
-    if (Partial.App.activePageName === 'Position_view') {
+    if (activePage === 'Position_view') {
         varName = 'svGetPositionViewScheduling';
-    } else if (Partial.App.activePageName === 'EmployeeView') {
+    } else if (activePage === 'EmployeeView') {
         varName = 'svScheduleList';
     }
-    const currentPage = Partial.App.activePage;
-    const weekview = currentPage['Widgets']['Weekview1'];
+
+    if (!varName) { return; }
+
+    const weekview    = currentPage['Widgets']['Weekview1'];
     const scheduleVar = currentPage['Variables'][varName];
     scheduleVar.setInput('positionIds', Partial.selectedPositionId);
     scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
-    scheduleVar.setInput('companyId', 1);
-    scheduleVar.setInput('startDate', weekview.startdate);
-    scheduleVar.setInput('endDate', weekview.enddate);
+    scheduleVar.setInput('companyId',   1);
+    scheduleVar.setInput('startDate',   weekview.startdate);
+    scheduleVar.setInput('endDate',     weekview.enddate);
     scheduleVar.invoke();
-};
+}
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
     widget.nativeElement.classList.toggle('after-selected', !!newVal);
-    Partial.selectedCategoryId = newVal.subCategoryIds ? newVal.subCategoryIds : newVal.id;
-    if (newVal.id) {
-        filterShifts();
+
+    // Silently ignore separator rows and non-selectable header rows (no id or known non-filter ids)
+    if (newVal && (newVal.id === '' || newVal.displayLabel === 'Add/Edit Categories' ||
+        newVal.displayLabel === '-------------------' ||
+        newVal.displayLabel === 'Select Group / Categories')) {
+        return;
     }
+
+    // User cleared the selection — reset filter and show all
+    if (!newVal) {
+        Partial.selectedCategoryId = null;
+        filterShifts();
+        return;
+    }
+
+    // Valid category or group selected
+    Partial.selectedCategoryId = newVal.subCategoryIds ? newVal.subCategoryIds : newVal.id;
+    filterShifts();
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {

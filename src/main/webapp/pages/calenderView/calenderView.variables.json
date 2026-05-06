@@ -32,7 +32,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
-      "value" : "1",
+      "value" : "bind:Variables.loggedInUser.dataSet.userAttributes.tenantId",
       "type" : "string"
     }, {
       "target" : "startDate",
@@ -71,7 +71,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
-      "value" : "1",
+      "value" : "bind:Variables.loggedInUser.dataSet.userAttributes.tenantId",
       "type" : "string"
     }, {
       "target" : "startDate",
@@ -112,7 +112,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
-      "value" : "1",
+      "value" : "bind:Variables.loggedInUser.dataSet.userAttributes.tenantId",
       "type" : "string"
     }, {
       "target" : "startDate",
@@ -153,20 +153,20 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
-      "value" : "1",
-      "type" : "java.lang.String"
+      "value" : "bind:Variables.loggedInUser.dataSet.userAttributes.tenantId",
+      "type" : "string"
     }, {
       "target" : "startDate",
       "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.startDate",
-      "type" : "java.lang.String"
+      "type" : "string"
     }, {
       "target" : "endDate",
       "value" : "bind:Variables.vmCalendarDateRange.dataSet.dataValue.endDate",
-      "type" : "java.lang.String"
+      "type" : "string"
     }, {
       "target" : "grouping",
       "value" : "cat_shift_timings",
-      "type" : "java.lang.String"
+      "type" : "string"
     } ],
     "type" : "calendarShortCategoryView.RootResponse",
     "service" : "calendarShortCategoryView",

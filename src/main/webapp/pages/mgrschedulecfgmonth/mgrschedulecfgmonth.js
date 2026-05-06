@@ -25,8 +25,6 @@ Page.onReady = function () {
 };
 
 Page.btnSaveClick = function ($event, widget) {
-    debugger
-
     const GROUPING_MAP = {
         'Position': 'position_shift_timings',
         'Category': 'category_shift_timings',

@@ -120,8 +120,17 @@ public class CustomAuthenticationManager implements WMCustomAuthenticationManage
                 logger.warn("No token received in LoginService response for user '{}'.", username);
             }
 
-            logger.info("Authentication successful for user '{}' — role: '{}', displayName: '{}', userId: '{}'",
-                    username, resolvedRole, displayName, userId);
+            // Map companyId from the login API response as tenantId
+            Object companyIdObj = responseBody.get("companyId");
+            if (companyIdObj != null) {
+                customAttributes.put("tenantId", companyIdObj.toString());
+                logger.debug("tenantId (companyId) set to '{}' for user '{}'.", companyIdObj, username);
+            } else {
+                logger.warn("No companyId received in LoginService response for user '{}'.", username);
+            }
+
+            logger.info("Authentication successful for user '{}' — role: '{}', displayName: '{}', userId: '{}', tenantId: '{}'",
+                    username, resolvedRole, displayName, userId, companyIdObj);
 
             // Build and return the WMUser using the recommended WMUserBuilder
             return WMUserBuilder.create(username, roles)

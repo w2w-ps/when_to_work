@@ -6,6 +6,10 @@
 .cal-day-slot-item {
   width: 14.2857% !important;
   min-height: stretch;
+  border-bottom: 1px solid var(--wm-color-black);
+  padding-top: 1px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cal-cell-current-month .daynum-label {
@@ -82,9 +86,12 @@ app-partial-scheduletopnav {
 }
 
 .cal-day-slot-item {
-  /* border-left: 1px solid var(--wm-color-light-grey); */
+  width: 14.2857% !important;
+  min-height: stretch;
   border-bottom: 1px solid var(--wm-color-black);
   padding-top: 1px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cal-day-slot-item::after {
@@ -141,5 +148,73 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
   font-weight: normal !important;
   background-color: var(--wm-color-yellow) !important;
   color: var(--wm-color-black) !important;
+}
 
+.no-shifts-anchor {
+  font-weight: normal !important;
+}
+
+.cal-cell-empty {
+  background-color: var(--wm-color-light-grey) !important;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.cal-cell-empty app-listtemplate {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: transparent;
+}
+
+.cal-cell-empty [name="container31_2"] {
+  height: 100%;
+  background: transparent;
+}
+
+.cal-cell-empty [name="container30_1"] {
+  height: 100%;
+  background: transparent;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+  background-color: transparent !important;
+}
+
+.cal-day-slots-listgroup {
+  align-items: stretch;
+}
+
+.cal-cell-empty app-listtemplate>div {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.cal-cell-empty [name="container31_2"] {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: transparent !important;
+}
+
+.cal-cell-empty [name="container30_1"] {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: transparent !important;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+  background-color: transparent !important;
+}
+
+.cal-cell-empty .daynum-label {
+  border-bottom: 3px solid var(--wm-color-black) !important;
+  border-top: 1px solid var(--wm-color-black) !important;
 }
