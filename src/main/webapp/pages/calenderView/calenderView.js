@@ -32,49 +32,78 @@ Page.onReady = function () {
                 //     console.log("Runs after 1 second");
                 //     Page.invokeCalendarVariable();
                 // }, 1000);
+                debugger
                 Page.invokeCalendarVariable();
-
             }
-
-
         };
     }
 
     // -------------------------------
     // ORIGINAL LOGIC (UNCHANGED)
     // -------------------------------
+    debugger
     if (!App.Variables.loggedInUser.dataSet.authenticated) {
         return;
     }
-
     Page.applyStartDay();
     Page.calendarDaySlots = [];
     Page.invokeCalendarVariable();
 };
 
-Page.invokeCalendarVariable = function () {
+Page.invokeCalendarVariable = function (year, month) {
+    let startDate, endDate;
+    // ----------------------------------
+    // CASE 1: Called with year/month
+    // ----------------------------------
+    if (year !== undefined && month !== undefined) {
+        const pad = function (n) { return n < 10 ? '0' + n : '' + n; };
 
-    // Always sync startDate/endDate from activeMonthDate before invoking
-    var monthDateStr = (Page.Variables.activeMonthDate &&
-        Page.Variables.activeMonthDate.dataSet &&
-        Page.Variables.activeMonthDate.dataSet.dataValue) || '';
-    if (monthDateStr) {
-        var range = Page.getMonthDateRange(monthDateStr);
-        // Update the model variable — service variables pick up dates via dataBinding
-        Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = range.startDate;
-        Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = range.endDate;
-        // Also keep setInput calls for runtime safety (ensures inputs are set before invoke)
-        Page.Variables.svcalendarPositionView.setInput('startDate', range.startDate);
-        Page.Variables.svcalendarPositionView.setInput('endDate', range.endDate);
-        Page.Variables.svcalendarCategoryView.setInput('startDate', range.startDate);
-        Page.Variables.svcalendarCategoryView.setInput('endDate', range.endDate);
-        Page.Variables.svCalendarShortCategoryView.setInput('startDate', range.startDate);
-        Page.Variables.svCalendarShortCategoryView.setInput('endDate', range.endDate);
-        Page.Variables.svCalendarShiftTimingView.setInput('startDate', range.startDate);
-        Page.Variables.svCalendarShiftTimingView.setInput('endDate', range.endDate);
+        startDate = year + '-' + pad(month + 1) + '-01';
+        const lastDay = new Date(year, month + 1, 0).getDate();
+        endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
     }
 
+    // ----------------------------------
+    // CASE 2: Use activeMonthDate
+    // ----------------------------------
+    else {
+        const monthDateStr = (Page.Variables.activeMonthDate &&
+            Page.Variables.activeMonthDate.dataSet &&
+            Page.Variables.activeMonthDate.dataSet.dataValue) || '';
+
+        if (!monthDateStr) return;
+
+        const range = Page.getMonthDateRange(monthDateStr);
+        startDate = range.startDate;
+        endDate = range.endDate;
+    }
+
+    // ----------------------------------
+    // SET DATE RANGE
+    // ----------------------------------
+    Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = startDate;
+    Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = endDate;
+
+    // ----------------------------------
+    // SET INPUTS (explicit)
+    // ----------------------------------
+    Page.Variables.svcalendarPositionView.setInput('startDate', startDate);
+    Page.Variables.svcalendarPositionView.setInput('endDate', endDate);
+
+    Page.Variables.svcalendarCategoryView.setInput('startDate', startDate);
+    Page.Variables.svcalendarCategoryView.setInput('endDate', endDate);
+
+    Page.Variables.svCalendarShortCategoryView.setInput('startDate', startDate);
+    Page.Variables.svCalendarShortCategoryView.setInput('endDate', endDate);
+
+    Page.Variables.svCalendarShiftTimingView.setInput('startDate', startDate);
+    Page.Variables.svCalendarShiftTimingView.setInput('endDate', endDate);
+
+    // ----------------------------------
+    // INVOKE BASED ON GROUPING
+    // ----------------------------------
     const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
+
     if (selectedGrouping === 'position_shift_timings') {
         Page.Variables.svcalendarPositionView.invoke();
     } else if (selectedGrouping === 'category_shift_timings') {
@@ -142,57 +171,17 @@ Page.applyStartDay = function () {
 // causing getMonth() to return the wrong month in non-UTC timezones.
 Page.getMonthDateRange = function (dateStr) {
     // Parse YYYY-MM-DD parts directly — avoids UTC/local timezone shift from new Date(string)
-    var parts = dateStr.split('-');
-    var year = parseInt(parts[0], 10);
-    var month = parseInt(parts[1], 10) - 1; // convert 1-based month string to 0-based JS month index
-    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
-    var startDate = year + '-' + pad(month + 1) + '-01';
-    var lastDay = new Date(year, month + 1, 0).getDate();
-    var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
+    const parts = dateStr.split('-');
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // convert 1-based month string to 0-based JS month index
+    const pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    const startDate = year + '-' + pad(month + 1) + '-01';
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    const endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
     return { startDate: startDate, endDate: endDate };
 };
 
-// --- Called by monthlyView partial whenever the user selects a new month ---
-// Receives year and month where month is 0-based (JS convention: 0=Jan, 11=Dec).
-Page.syncCalendarToMonth = function (year, month) {
-    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
-    // month is 0-based — add 1 only for the date string representation
-    var startDate = year + '-' + pad(month + 1) + '-01';
-    var lastDay = new Date(year, month + 1, 0).getDate();
-    var endDate = year + '-' + pad(month + 1) + '-' + pad(lastDay);
-
-    // Update the model variable — single source of truth for date range bindings
-    Page.Variables.vmCalendarDateRange.dataSet.dataValue.startDate = startDate;
-    Page.Variables.vmCalendarDateRange.dataSet.dataValue.endDate = endDate;
-
-    // Also keep setInput calls for runtime safety (ensures inputs are set before invoke)
-    Page.Variables.svcalendarPositionView.setInput('startDate', startDate);
-    Page.Variables.svcalendarPositionView.setInput('endDate', endDate);
-
-    Page.Variables.svcalendarCategoryView.setInput('startDate', startDate);
-    Page.Variables.svcalendarCategoryView.setInput('endDate', endDate);
-
-    Page.Variables.svCalendarShortCategoryView.setInput('startDate', startDate);
-    Page.Variables.svCalendarShortCategoryView.setInput('endDate', endDate);
-
-    Page.Variables.svCalendarShiftTimingView.setInput('startDate', startDate);
-    Page.Variables.svCalendarShiftTimingView.setInput('endDate', endDate);
-
-    // Invoke only the active grouping variable.
-    // NOTE: Do NOT call invokeCalendarVariable() here — that helper re-reads activeMonthDate
-    // and calls getMonthDateRange() which would redundantly override the inputs just set above.
-    // Instead invoke directly so the correct startDate/endDate set above are used.
-    const selectedGrouping = App.Variables.appSelectedGrouping.dataSet.grouping;
-    if (selectedGrouping === 'position_shift_timings') {
-        Page.Variables.svcalendarPositionView.invoke();
-    } else if (selectedGrouping === 'category_shift_timings') {
-        Page.Variables.svcalendarCategoryView.invoke();
-    } else if (selectedGrouping === 'cat_shift_timings') {
-        Page.Variables.svCalendarShortCategoryView.invoke();
-    } else {
-        Page.Variables.svCalendarShiftTimingView.invoke();
-    }
-};
+//
 
 // --- Slot Builder: Position / Category / Cat views (nested shiftGroups.shiftGroups) ---
 Page.buildCalendarDaySlots = function (data) {
@@ -229,14 +218,15 @@ Page.buildCalendarDaySlots = function (data) {
             let hasRealShifts = false;
 
             if (timeSlots.length === 0) {
-                // No inner time slots — show a single "(No Shifts)" time group
+                // No inner time slots — show a single "(Unassigned)" time group
                 timeGroups.push({
                     timeRange: '',
                     employees: [{
-                        employeeName: '(No Shifts)',
+                        employeeName: '(Unassigned)',
                         categoryName: '',
                         iconClass: '',
                         color: '',
+                        empTypeId: null,
                         description: '',
                         isNoShifts: true
                     }]
@@ -249,10 +239,11 @@ Page.buildCalendarDaySlots = function (data) {
 
                     if (shifts.length === 0) {
                         employees.push({
-                            employeeName: '(No Shifts)',
+                            employeeName: '(Unassigned)',
                             categoryName: '',
                             iconClass: '',
                             color: '',
+                            empTypeId: null,
                             description: '',
                             isNoShifts: true
                         });
@@ -261,11 +252,14 @@ Page.buildCalendarDaySlots = function (data) {
                             const empName = Page.formatEmployeeName(shift.firstName, shift.lastName, shift.employeeName, nameFormat);
                             const color = shift.color || '';
                             const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
+                            // Normalize empTypeId to a number (API may return string or number)
+                            const empTypeId = (shift.empTypeId != null && shift.empTypeId !== '') ? Number(shift.empTypeId) : null;
                             employees.push({
-                                employeeName: empName || '(No Shifts)',
+                                employeeName: empName || '(Unassigned)',
                                 categoryName: (showCatPos && empName && shift.category) ? shift.category : '',
                                 iconClass: empName ? iconCls : '',
                                 color: color,
+                                empTypeId: empTypeId,
                                 description: shift.description || '',
                                 isNoShifts: !empName
                             });
@@ -277,7 +271,7 @@ Page.buildCalendarDaySlots = function (data) {
                 });
             }
 
-            // If hideGroupsNoShifts is enabled, skip positions where all employees are "(No Shifts)"
+            // If hideGroupsNoShifts is enabled, skip positions where all employees are "(Unassigned)"
             if (hideGroupsNoShifts && !hasRealShifts) {
                 return;
             }
@@ -376,10 +370,11 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
 
             if (shifts.length === 0) {
                 employees.push({
-                    employeeName: '(No Shifts)',
+                    employeeName: '(Unassigned)',
                     categoryName: '',
                     iconClass: '',
                     color: '',
+                    empTypeId: null,
                     description: '',
                     isNoShifts: true
                 });
@@ -390,12 +385,15 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
                     const empName = Page.formatEmployeeName(shift.firstName, shift.lastName, shift.employeeName, nameFormat);
                     const color = shift.color || '';
                     const iconCls = color ? 'wi wi-circle' : 'wi wi-diamond';
+                    // Normalize empTypeId to a number (API may return string or number)
+                    const empTypeId = (shift.empTypeId != null && shift.empTypeId !== '') ? Number(shift.empTypeId) : null;
                     if (empName) {
                         employees.push({
                             employeeName: empName,
                             categoryName: (showCatPos && shift.category) ? shift.category : '',
                             iconClass: iconCls,
                             color: color,
+                            empTypeId: empTypeId,
                             description: shift.description || '',
                             isNoShifts: false
                         });
@@ -404,10 +402,11 @@ Page.buildCalendarDaySlotsShiftTiming = function (data) {
 
                 if (employees.length === 0) {
                     employees.push({
-                        employeeName: '(No Shifts)',
+                        employeeName: '(Unassigned)',
                         categoryName: '',
                         iconClass: '',
                         color: '',
+                        empTypeId: null,
                         description: '',
                         isNoShifts: true
                     });
@@ -497,7 +496,5 @@ Page.onDestroy = function () {
 };
 Page.tabs1Change = function ($event, widget, newPaneIndex, oldPaneIndex) {
     debugger
-
     Page.Widgets.container34.pageParams.selectedTab = widget.activeTab.title;
-
 };

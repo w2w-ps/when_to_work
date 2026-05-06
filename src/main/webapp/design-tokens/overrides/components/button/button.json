@@ -2595,6 +2595,152 @@
             "value" : "28px"
           }
         }
+      },
+      "outlined-primary-sm-no-gradient-bg" : {
+        "mapping" : {
+          "background" : {
+            "value" : "#edededff"
+          },
+          "color" : {
+            "value" : "#3b3b3b"
+          },
+          "font-size" : {
+            "value" : "10px"
+          },
+          "font-family" : {
+            "value" : "Arial"
+          },
+          "font-weight" : {
+            "value" : "{font.weight.700.value}"
+          },
+          "line-height" : {
+            "value" : "{label.large.line-height.value}"
+          },
+          "letter-spacing" : {
+            "value" : "{label.large.letter-spacing.value}"
+          },
+          "text-transform" : {
+            "value" : "none"
+          },
+          "border" : {
+            "color" : {
+              "value" : "#dcdcdc"
+            }
+          },
+          "cursor" : {
+            "value" : "pointer"
+          },
+          "radius" : {
+            "value" : "{radius.pill.value}"
+          },
+          "padding" : {
+            "value" : "0 15px"
+          },
+          "min-width" : {
+            "value" : "auto"
+          },
+          "min-height" : {
+            "value" : "28px"
+          },
+          "gap" : {
+            "value" : "{space.2.value}"
+          },
+          "shadow" : {
+            "@" : {
+              "value" : "inset 0px 1px 0px 0px #ffffff"
+            }
+          },
+          "icon-size" : {
+            "value" : "{icon.size.xs.value}"
+          },
+          "state" : {
+            "layer" : {
+              "color" : {
+                "value" : "{color.on-surface.@.value}"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              },
+              "background" : {
+                "value" : "-webkit-gradient( linear, left top, left bottom, color-stop(0.01, #f7f6f6), color-stop(1, #ededed) )"
+              },
+              "icon-size" : {
+                "value" : "{icon.size.xs.value}"
+              },
+              "shadow" : {
+                "@" : {
+                  "value" : "0 1px 1px rgba(0,0,0,0.1)"
+                }
+              }
+            },
+            "focus" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              },
+              "shadow" : {
+                "@" : {
+                  "value" : "0 0 5px #589CDD"
+                }
+              },
+              "border" : {
+                "color" : {
+                  "value" : "#589CDD"
+                }
+              },
+              "background" : {
+                "value" : "-webkit-gradient( linear, left top, left bottom, color-stop(0.01, #f7f6f6), color-stop(1, #ededed) )"
+              }
+            },
+            "active" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
+              }
+            },
+            "disabled" : {
+              "color" : {
+                "value" : "{color.on-surface.@.value}"
+              },
+              "background" : {
+                "value" : "{color.surface.container.highest.@.value}"
+              },
+              "border" : {
+                "color" : {
+                  "value" : "{color.surface.container.highest.@.value}"
+                }
+              },
+              "opacity" : {
+                "value" : "0.38"
+              },
+              "shadow" : {
+                "@" : {
+                  "value" : "none"
+                }
+              },
+              "cursor" : {
+                "value" : "not-allowed"
+              }
+            }
+          },
+          "height" : {
+            "value" : "28px"
+          }
+        }
       }
     },
     "meta" : {
@@ -2661,6 +2807,9 @@
           "description" : "Save button for configure section"
         },
         "outlined-bg-white" : {
+          "source" : "user"
+        },
+        "outlined-primary-sm-no-gradient-bg" : {
           "source" : "user"
         }
       }

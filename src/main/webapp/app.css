@@ -15,6 +15,7 @@
     --wm-color-cannotwork: #de101c;
     --wm-coor-mid-grey: #666666;
     --wm-color-soft-black: rgba(0, 0, 0, 0.15);
+    --wm-color-black: #000000;
     --wm-bg-color-prefer: #90F68E;
     --wm-bg-color-dislike: #FFAEAE;
     --wm-bg-color-cannot-work: #FF0000;
@@ -22,6 +23,7 @@
     --wm-color-bordernew-color: #eeeeee;
     --wm-color-weekly: #9EE694;
     --wm-color-monthly: #FDFEA2;
+    --wm-color-yellow: #ffff64;
     --wm-color-violet: #8080FF;
     --wm-color-tableborder: #D0D0D0;
     --wm-color-tablecolumnbg: #E9E9E9;
@@ -56,25 +58,27 @@
     overflow-x: hidden;
 }
 
-.wm-app .app-tabs ul li {
-    top: 1px;
+
+.wm-app .app-tabs > ul li {
+    top: 2px;
+    border-radius: 8px;
 }
 
-.wm-app .app-tabs ul li:not(.active) {
+.wm-app .app-tabs > ul li:not(.active) {
     height: 21px !important;
-    top: 4px;
+    top: 7px;
 }
 
-.wm-app .app-tabs ul li:hover:not(.active) {
-    height: 24px !important;
-    top: 1px !important;
+.wm-app .app-tabs > ul li:hover:not(.active) {
+    height: 26px !important;
+    top: 2px !important;
 }
 
 .wm-app .tab-header.active,
 .wm-app .tab-header.active a,
 .wm-app .tab-header.active a::before {
     background-color: var(--wm-color-white) !important;
-}
+} 
 
 .wm-app .app-tabs ul {
     justify-content: center !important;
@@ -272,7 +276,7 @@ wm-input[name="txtFind"].app-input-wrapper {
 }
 
 .container-grey-standard {
-    padding: 10px 20px;
+    padding: 10px 15px 12px 20px !important;
 }
 
 .more:after {
@@ -281,6 +285,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-size: 96%;
     font-variant: normal;
     font-style: normal;
+    word-spacing: 3px;
 }
 
 .container-grey-container-white-border {
@@ -469,10 +474,24 @@ wm-input[name="txtFind"].app-input-wrapper {
 
 .app-calendar:not(.main-celender) {
     position: absolute;
-    width: 100% !important;
+    width: 300px !important;
     z-index: 9999;
     border-radius: 0 !important;
     box-shadow: none;
+}
+
+.app-calendar:not(.main-celender) .fc-scrollgrid-sync-table,
+.app-calendar:not(.main-celender) .fc-daygrid-body-balanced {
+    width: 300px;
+    height: auto;
+}
+
+.app-calendar .fc-header-toolbar .fc-toolbar-chunk:nth-child(3) {
+    display: none;
+}
+
+.app-calendar .fc-header-toolbar .fc-toolbar-chunk .fc-today-button {
+    display: none;
 }
 
 .app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-toolbar-title) {
@@ -628,6 +647,29 @@ button.close:hover {
     width: 16.66%;
 }
 
+.wm-sl-r.sl-layout-two-columns:before {
+    content: "\f0db";
+    font-family: fontAwesome;
+    font-size: 12px;
+}
+
+button.btn.app-button.btn-filled-primary-circle {
+    width: 48px;
+    height: 48px;
+    border: none;
+    position: fixed;
+    bottom: 10px;
+    right: 16px;
+}
+
+.wm-app .form-black-border-select.form-control:focus {
+    --wm-form-control-border-width: 1px !important;
+}
+
+.wm-app .after-selected  .form-black-border-select.form-control{
+    --wm-form-control-border-width: 2px !important;
+    --wm-form-control-border-color: var(--wm-color-black);
+}
 
 
 
