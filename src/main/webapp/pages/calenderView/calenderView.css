@@ -155,7 +155,7 @@ ul li.cal-day-slot-item:nth-child(7n) .border-container {
 }
 
 .cal-cell-empty {
-  background-color: var(--wm-color-light-grey) !important;
+  background-color: var(--wm-color-light-semigrey) !important;
   display: flex;
   flex-direction: column;
   align-self: stretch;
