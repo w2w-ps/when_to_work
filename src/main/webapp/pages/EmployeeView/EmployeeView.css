@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.week-nav-hover-container .btn-button-small {
+    width: 16.6%;
+}
+
 .nav-buttons-hidden {
     opacity: 0;
     transition: opacity 0.3s ease;
