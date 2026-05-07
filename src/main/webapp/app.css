@@ -10,7 +10,7 @@
 
 :root {
     --wm-color-light-grey: #C0C0C0;
-    --wm-color-light-semigrey:#E9E9E9;
+    --wm-color-light-semigrey: #E9E9E9;
     --wm-color-prefer: #9dee94;
     --wm-color-dislike: #f9b4b7;
     --wm-color-cannotwork: #de101c;
@@ -33,7 +33,7 @@
     --wm-color-violetcontainerborder: #b765dd;
     --wm-color-form-caption: #555;
     --wm-daynum-bg-color: #f0f1f7;
-    
+
 }
 
 .open-sans-700 {
@@ -61,17 +61,17 @@
 }
 
 
-.wm-app .app-tabs > ul li {
+.wm-app .app-tabs>ul li {
     top: 2px;
     border-radius: 8px;
 }
 
-.wm-app .app-tabs > ul li:not(.active) {
+.wm-app .app-tabs>ul li:not(.active) {
     height: 21px !important;
     top: 5px;
 }
 
-.wm-app .app-tabs > ul li:hover:not(.active) {
+.wm-app .app-tabs>ul li:hover:not(.active) {
     height: 26px !important;
     top: 1px !important;
 }
@@ -80,7 +80,7 @@
 .wm-app .tab-header.active a,
 .wm-app .tab-header.active a::before {
     background-color: var(--wm-color-white) !important;
-} 
+}
 
 .wm-app .app-tabs ul {
     justify-content: center !important;
@@ -668,7 +668,7 @@ button.btn.app-button.btn-filled-primary-circle {
     --wm-form-control-border-width: 1px !important;
 }
 
-.wm-app .after-selected  .form-black-border-select.form-control{
+.wm-app .after-selected .form-black-border-select.form-control {
     --wm-form-control-border-width: 2px !important;
     --wm-form-control-border-color: var(--wm-color-black);
 }
@@ -745,4 +745,4 @@ button.btn.app-button.btn-filled-primary-circle {
     }
 }
 
-/* responsive code ends */
+/* responsive code ends here */
