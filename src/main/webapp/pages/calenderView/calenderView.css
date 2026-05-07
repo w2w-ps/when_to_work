@@ -1,145 +1,326 @@
 .nav-tabs,
 .bg-grey {
-  background-color: var(--wm-color-grey-bg-color);
+    background-color: var(--wm-color-grey-bg-color);
 }
 
 .cal-day-slot-item {
-  width: 14.2857% !important;
-  min-height: stretch;
+    width: 14.2857% !important;
+    min-height: stretch;
+    border-bottom: 1px solid var(--wm-color-black);
+    padding-top: 1px;
+    display: flex;
+    flex-direction: column;
 }
 
 .cal-cell-current-month .daynum-label {
-  border-bottom: 3px var(--wm-color-tablecolumnborder) solid !important;
-  border-radius: 0;
+    border-bottom: 3px var(--wm-color-tablecolumnborder) solid !important;
+    border-radius: 0;
 }
 
 .cal-cell-other-month .app-container.border-container-top {
-  border-bottom: 1px solid var(--wm-color-black) !important;
+    border-bottom: 1px solid var(--wm-color-black) !important;
 }
 
 .cal-cell-other-month:last-child .app-container.border-container::before {
-  content: "";
-  left: 0;
-  height: 0.5px;
-  width: 100%;
-  top: 23px;
-  position: absolute;
-  background-color: var(--wm-color-black);
+    content: "";
+    left: 0;
+    height: 0.5px;
+    width: 100%;
+    top: 23px;
+    position: absolute;
+    background-color: var(--wm-color-black);
 }
 
 .cal-cell-other-month:last-child .app-container.border-container-top {
-  border-bottom: none !important;
+    border-bottom: none !important;
 }
 
 .app-livelist.cal-emp-list {
-  min-height: auto !important;
-  box-shadow: none;
+    min-height: auto !important;
+    box-shadow: none;
 }
 
 .time-group-divider {
-  border-top: 2px solid var(--wm-color-tableborder);
-  margin-top: 4px;
-  margin-bottom: 4px;
+    border-top: 2px solid var(--wm-color-tableborder);
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .cal-emp-list ul li,
 .list-group-autolayout li,
 div[name="posListDay"] {
-  background-color: var(--wm-color-white);
-  box-shadow: none !important;
+    background-color: var(--wm-color-white);
+    box-shadow: none !important;
 }
 
 .list-group-autolayout li p {
-  padding-left: 3px;
+    padding-left: 3px;
 }
 
 .red-underlined {
-  border-bottom: 4px var(--wm-color-tablecolumnborder) solid !important;
+    border-bottom: 4px var(--wm-color-tablecolumnborder) solid !important;
 }
 
 .black-boxed {
-  background: var(--wm-color-tablecolumnbg);
-  border: 1px solid var(--wm-color-border-color);
-  padding: 2px 5px;
-  border-bottom: 2px solid var(--wm-color-black) !important;
+    background: var(--wm-color-tablecolumnbg);
+    border: 1px solid var(--wm-color-border-color);
+    padding: 2px 5px;
+    border-bottom: 2px solid var(--wm-color-black) !important;
 }
 
 .violet-box {
-  background: var(--wm-color-violetcontainer);
-  border: 1px var(--wm-color-border-color) solid;
-  padding: 2px 5px;
-  border-bottom: 4px solid var(--wm-color-violetcontainerborder) !important;
+    background: var(--wm-color-violetcontainer);
+    border: 1px var(--wm-color-border-color) solid;
+    padding: 2px 5px;
+    border-bottom: 4px solid var(--wm-color-violetcontainerborder) !important;
 }
 
 app-partial-monthlyview,
 app-partial-scheduletopnav {
-  width: 100% !important;
+    width: 100% !important;
 }
 
 .list-bordered {
-  border: 1px solid black !important;
-  border-radius: 0;
+    border: 1px solid black !important;
+    border-radius: 0;
 }
 
 .cal-day-slot-item {
-  /* border-left: 1px solid var(--wm-color-light-grey); */
-  border-bottom: 1px solid var(--wm-color-black);
-  padding-top: 1px;
+    width: 14.2857% !important;
+    min-height: stretch;
+    border-bottom: 1px solid var(--wm-color-black);
+    padding-top: 1px;
+    display: flex;
+    flex-direction: column;
 }
 
 .cal-day-slot-item::after {
-  content: "";
-  height: calc(100% - 24px);
-  width: 1px;
-  position: absolute;
-  left: 0;
-  top: 24px;
-  background-color: var(--wm-color-light-grey);
+    content: "";
+    height: calc(100% - 24px);
+    width: 1px;
+    position: absolute;
+    left: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
 }
 
 ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
-  content: "";
-  height: calc(100% - 24px);
-  width: 0.5px;
-  position: absolute;
-  right: 0;
-  top: 24px;
-  background-color: var(--wm-color-light-grey);
+    content: "";
+    height: calc(100% - 24px);
+    width: 0.5px;
+    position: absolute;
+    right: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
 }
 
 ul li.cal-day-slot-item:nth-child(7n) .border-container {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .daynum-label {
-  width: 100%;
-  text-align: center;
-  background: var(--wm-daynum-bg-color);
-  padding-top: 2px;
+    width: 100%;
+    text-align: center;
+    background: var(--wm-daynum-bg-color);
+    padding-top: 2px;
 }
 
 .nav-tabs li:nth-child(8):not(.active) .tab-heading {
-  background-color: var(--wm-color-weekly) !important;
-  border: 1px solid var(--wm-color-violet) !important;
-  border-bottom: none !important;
-  color: var(--wm-color-black) !important;
+    background-color: var(--wm-color-weekly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
 }
 
 .nav-tabs li:nth-child(8) .tab-heading {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .nav-tabs li:nth-child(9):not(.active) .tab-heading {
-  background-color: var(--wm-color-monthly) !important;
-  border: 1px solid var(--wm-color-violet) !important;
-  border-bottom: none !important;
-  color: var(--wm-color-black) !important;
-  text-transform: uppercase;
+    background-color: var(--wm-color-monthly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+    text-transform: uppercase;
 }
 
 .unassigned-anchor {
-  font-weight: normal !important;
-  background-color: var(--wm-color-yellow) !important;
-  color: var(--wm-color-black) !important;
+    font-weight: normal !important;
+    background-color: var(--wm-color-yellow) !important;
+    color: var(--wm-color-black) !important;
+}
 
+.no-shifts-anchor {
+    font-weight: normal !important;
+}
+
+/* .cal-cell-empty {
+    background-color: var(--wm-color-light-semigrey) !important;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+} */
+
+.cal-cell-empty [name="container31_2"] {
+    height: 100%;
+    background: transparent;
+}
+
+.cal-cell-empty [name="container30_1"] {
+    height: 100%;
+    background: transparent;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+    background-color: transparent !important;
+}
+
+.cal-cell-empty [name="container31_2"] {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: transparent !important;
+}
+
+.cal-cell-empty [name="container30_1"] {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: transparent !important;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+    background-color: transparent !important;
+}
+
+.cal-emp-list ul li,
+.list-group-autolayout li,
+div[name="posListDay"] {
+    background-color: var(--wm-color-white);
+    box-shadow: none !important;
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+    content: "";
+    height: calc(100% - 24px);
+    width: 0.5px;
+    position: absolute;
+    right: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container {
+    flex-grow: 1;
+}
+
+.nav-tabs li:nth-child(8):not(.active) .tab-heading {
+    background-color: var(--wm-color-weekly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) .tab-heading {
+    text-transform: uppercase;
+}
+
+.nav-tabs li:nth-child(9):not(.active) .tab-heading {
+    background-color: var(--wm-color-monthly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+    text-transform: uppercase;
+}
+
+.cal-cell-empty [name="container31_2"],
+.cal-cell-empty [name="container30_1"] {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: transparent !important;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+    background-color: transparent !important;
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+    content: "";
+    height: calc(100% - 24px);
+    width: 0.5px;
+    position: absolute;
+    right: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container {
+    flex-grow: 1;
+}
+
+.cal-emp-list ul li,
+.list-group-autolayout li,
+div[name="posListDay"] {
+    background-color: var(--wm-color-white);
+    box-shadow: none !important;
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container::after {
+    content: "";
+    height: calc(100% - 24px);
+    width: 0.5px;
+    position: absolute;
+    right: 0;
+    top: 24px;
+    background-color: var(--wm-color-light-grey);
+}
+
+.ul li.cal-day-slot-item:nth-child(7n) .border-container {
+    flex-grow: 1;
+}
+
+.nav-tabs li:nth-child(8):not(.active) .tab-heading {
+    background-color: var(--wm-color-weekly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+}
+
+.nav-tabs li:nth-child(8) .tab-heading {
+    text-transform: uppercase;
+}
+
+.nav-tabs li:nth-child(9):not(.active) .tab-heading {
+    background-color: var(--wm-color-monthly) !important;
+    border: 1px solid var(--wm-color-violet) !important;
+    border-bottom: none !important;
+    color: var(--wm-color-black) !important;
+    text-transform: uppercase;
+}
+
+.cal-cell-empty [name="container31_2"],
+.cal-cell-empty [name="container30_1"] {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: transparent !important;
+}
+
+.cal-cell-empty div[name="posListDay"] {
+    background-color: transparent !important;
+}
+
+.cal-cell-empty .daynum-label {
+    border-bottom: 3px solid var(--wm-color-black) !important;
+    border-top: none !important;
+}
+
+.nav-tabs li:nth-child(8).active .tab-heading,
+.nav-tabs li:nth-child(9).active .tab-heading {
+    font-size: 94.5%;
 }

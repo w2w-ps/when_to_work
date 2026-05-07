@@ -1526,7 +1526,7 @@
           }
         }
       },
-      "bold-8pt-underline" : {
+      "standard-10pt-bold" : {
         "mapping" : {
           "color" : {
             "@" : {
@@ -1534,7 +1534,7 @@
             }
           },
           "font-size" : {
-            "value" : "8pt"
+            "value" : "10pt"
           },
           "font-family" : {
             "value" : "{body.medium.font-family.value}"
@@ -1543,7 +1543,7 @@
             "value" : "bold"
           },
           "line-height" : {
-            "value" : "10px"
+            "value" : "{body.medium.line-height.value}"
           },
           "letter-spacing" : {
             "value" : "{body.medium.letter-spacing.value}"
@@ -1578,13 +1578,13 @@
             "hover" : {
               "color" : {
                 "@" : {
-                  "value" : "{color.black.@.value}"
+                  "value" : "{color.blue.@.value}"
                 }
               },
               "text" : {
                 "decoration" : {
                   "@" : {
-                    "value" : "underline"
+                    "value" : "none"
                   }
                 }
               }
@@ -1671,7 +1671,7 @@
         "standard-no-underlined" : {
           "source" : "user"
         },
-        "bold-8pt-underline" : {
+        "standard-10pt-bold" : {
           "source" : "user"
         }
       }

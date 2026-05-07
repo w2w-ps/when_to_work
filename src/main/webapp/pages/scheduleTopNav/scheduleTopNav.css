@@ -54,6 +54,15 @@
     justify-content: start !important;
 }
 
+.form-black-border-select {
+    border-radius: 4px !important;
+}
+
+.Mui-focused .form-black-border-select {
+    border: 2px solid var(--wm-color-black);
+}
+
+
 .purple.fa-diamond {
     background-color: #A055CD;
 }
