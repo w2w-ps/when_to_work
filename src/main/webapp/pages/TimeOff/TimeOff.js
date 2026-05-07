@@ -98,6 +98,12 @@ Page.btnRequestTimeOffClick = function ($event, widget) {
     Page.Variables.requestTimeOffVar.setInput('RequestBody.startDate', startDate);
     Page.Variables.requestTimeOffVar.setInput('RequestBody.endDate', endDate);
     Page.Variables.requestTimeOffVar.invoke({});
+
+    if (!isFullDay) {
+        Page.Variables.requestTimeOffVar.setInput('RequestBody.startTime', Page.Widgets.startTimeInput.datavalue || null);
+        Page.Variables.requestTimeOffVar.setInput('RequestBody.endTime', Page.Widgets.endTimeInput.datavalue || null);
+        Page.Variables.requestTimeOffVar.setInput('RequestBody.repeatCount', parseInt(Page.Widgets.repeatSelect.datavalue) || 0);
+    }
 };
 
 Page.requestTimeOffVaronSuccess = function (variable, data) {
@@ -115,20 +121,25 @@ Page.requestTimeOffVaronError = function (variable, data) {
     App.notify('error', message);
 };
 
-Page.svTimeOffRequestsonSuccess = function (variable, data) {
-    // Force the table to fully re-render its rows by nudging the dataset.
-    // This ensures Angular change detection sees a new reference and
-    // re-evaluates all row-level show bindings (e.g. btnCancelRequest).
-    const current = Page.Variables.svTimeOffRequests.dataSet;
-    Page.Variables.svTimeOffRequests.dataSet = {};
-    Page.Variables.svTimeOffRequests.dataSet = current;
-};
+
 
 Page.svTimeOffRequestsonError = function (variable, data) {
     const message = (data && data.errorMessage)
         ? data.errorMessage
         : 'Failed to load time off requests.';
     App.notify('error', message);
+};
+
+Page.showCancelButton = function (row) {
+    debugger;
+    const requests = Page.Variables.svTimeOffRequests.dataSet.timeOffRequests;
+    if (!requests || !Array.isArray(requests)) {
+        return false;
+    }
+    const item = requests.find(function (item) {
+        return item.requestId === row.requestId;
+    });
+    return item ? (item.status !== 'CANCELLED' && item.status !== 'APPROVED') : false;
 };
 
 Page.btnCancelRequestClick = function ($event, widget) {
