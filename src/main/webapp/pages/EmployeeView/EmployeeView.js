@@ -54,134 +54,6 @@ Page.onReady = function () {
 };
 
 /**
- * Filters the employee schedule list based on category, status, and position selections.
- * All three filters work together - if multiple filters are applied, employees must match all criteria.
- * 
- * Filter rules:
- * - "All Categories", "All Positions", and "No Status" are treated as no filter
- * - Separator entries ("----------") are ignored
- * - Filtering is case-insensitive
- * - Returns all data if no valid filters are applied
- * 
- * ENHANCED: Now filters both employees AND individual shifts within each employee.
- * - Employees are included if they have at least one matching shift
- * - Within each employee, only shifts matching the filter criteria are shown
- * - Shifts that don't match category/position filters are removed from the employee's shifts array
- */
-Page.applyScheduleFilters = function () {
-    let sourceData = Page.unfilteredScheduleData;
-
-    if (!sourceData || sourceData.length === 0) {
-        Page.Widgets.employeeScheduleList.dataset = [];
-        return;
-    }
-
-    let categoryFilter = Page.currentCategoryFilter;
-    let statusFilter = Page.currentStatusFilter;
-    let positionFilter = Page.currentPositionFilter;
-
-    // Check if filters are effectively empty (no-filter conditions)
-    let isCategoryFilterActive = categoryFilter != "" && categoryFilter.description
-    categoryFilter.description !== 'All Categories' &&
-        categoryFilter.description !== '----------' &&
-        categoryFilter.description.trim() !== '';
-
-    let isStatusFilterActive = statusFilter &&
-        statusFilter !== 'All Status' &&
-        statusFilter !== 'No Status' &&
-        statusFilter !== '----------' &&
-        statusFilter.trim() !== '';
-
-    let isPositionFilterActive = positionFilter != "" && positionFilter.description &&
-        positionFilter.description !== 'All Positions' &&
-        positionFilter.description !== '----------' &&
-        positionFilter.description.trim() !== '';
-
-    // If no filters are active, show all data
-    if (!isCategoryFilterActive && !isStatusFilterActive && !isPositionFilterActive) {
-        Page.Widgets.employeeScheduleList.dataset = sourceData;
-        return;
-    }
-
-    // Apply filters with shift-level filtering
-    let filteredData = [];
-
-    sourceData.forEach(function (employee) {
-        // Deep clone the employee to avoid modifying the original unfiltered data
-        let employeeCopy = structuredClone(employee);
-        let hasMatchingShift = false;
-
-        // Filter shifts within each day of the week
-        if (employeeCopy.weeklyShifts && Array.isArray(employeeCopy.weeklyShifts)) {
-            employeeCopy.weeklyShifts.forEach(function (day) {
-                if (day.shifts && Array.isArray(day.shifts)) {
-                    // Filter the shifts array for this day
-                    let filteredShifts = day.shifts.filter(function (shift) {
-                        let matchesCategory = true;
-                        let matchesPosition = true;
-                        let matchesStatus = true;
-
-                        // Apply category filter to individual shift
-                        if (isCategoryFilterActive) {
-                            matchesCategory = shift.category &&
-                                shift.category.toLowerCase().includes(categoryFilter.toLowerCase()) > -1;
-                        }
-
-                        // Apply position filter to individual shift
-                        if (isPositionFilterActive) {
-                            matchesPosition = shift.position &&
-                                shift.position.toLowerCase().includes(positionFilter.toLowerCase()) > -1;
-                        }
-
-                        // Shift must match all active filters
-                        return matchesCategory && matchesPosition && matchesStatus;
-                    });
-
-                    // Update the day's shifts array with filtered shifts
-                    day.shifts = filteredShifts;
-
-                    // Track if this employee has at least one matching shift
-                    if (filteredShifts.length > 0) {
-                        hasMatchingShift = true;
-                    }
-                }
-            });
-        }
-
-        // Only include employees that have at least one matching shift
-        if (hasMatchingShift) {
-            filteredData.push(employeeCopy);
-        }
-    });
-
-    Page.Widgets.employeeScheduleList.dataset = filteredData;
-};
-
-/**
- * Event handler for category dropdown change
- */
-Page.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    Page.currentCategoryFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
- * Event handler for status dropdown change
- */
-Page.selStatusChange = function ($event, widget, newVal, oldVal) {
-    Page.currentStatusFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
- * Event handler for position dropdown change
- */
-Page.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    Page.currentPositionFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
  * Store unfiltered data when schedule list loads successfully.
  * This is called after svScheduleList.dataSet is populated.
  */
@@ -587,19 +459,12 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     // Resolve category name -> id
     let categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     let categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
-    let categoryMatch = categoriesList.find(function (c) { return c.description === data.category; });
-    let resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
+    let categoryMatch = categoriesList.find(function (c) { return c.shortDesc === data.category; });
+    Page.resolvedCategoryId = categoryMatch ? categoryMatch.categoryId : null;
 
     // Open the dialog so its widgets are available in the DOM
     Page.Widgets.shiftDialog.open();
 
-    // Use a short timeout to allow dialog widgets to initialise before setting values
-    if (Page.Widgets.positionField) {
-        Page.Widgets.positionField.datavalue = resolvedPositionId;
-    }
-    if (Page.Widgets.categoryField) {
-        Page.Widgets.categoryField.datavalue = resolvedCategoryId;
-    }
     if (Page.Widgets.paidHoursField) {
         Page.Widgets.paidHoursField.datavalue = data.duration;
     }
@@ -655,13 +520,6 @@ Page.shiftDialogOpened = function ($event, widget) {
 
         Page.Widgets.chkAutoCalculate.datavalue = false;
     } else {
-        // EDIT MODE
-        // startTime, endTime, color, description are pre-filled via declarative
-        // defaultvalue bindings to svGetShiftById.dataSet (set in HTML).
-        // positionField, categoryField, paidHours, chkAutoCalculate are set
-        // programmatically in svGetShiftByIdSuccess.
-
-        // Clear all weekday checkboxes - day selection is irrelevant in edit mode.
         Page.Widgets.chkMon.datavalue = false;
         Page.Widgets.chkTue.datavalue = false;
         Page.Widgets.chkWed.datavalue = false;
@@ -672,6 +530,7 @@ Page.shiftDialogOpened = function ($event, widget) {
         Page.Widgets.chkAutoCalculate.datavalue = false;
 
         Page.Widgets.positionField.datavalue = Page.resolvedPositionId;
+        Page.Widgets.categoryField.datavalue = Page.resolvedCategoryId;
     }
 };
 

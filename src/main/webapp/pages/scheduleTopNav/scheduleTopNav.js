@@ -49,7 +49,14 @@ function buildCombinedCategoriesDataset() {
     let combined = [];
 
     combined.push({
+        displayLabel: "All Categories",
+        id: "allcategories",
+        isHeader: false
+    });
+
+    combined.push({
         displayLabel: "Add/Edit Categories",
+        id: "addeditcategories",
         isHeader: false
     });
 
@@ -100,6 +107,12 @@ function buildCombinedPositionsDataset() {
     let positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
 
     let combined = [];
+
+    combined.push({
+        displayLabel: "All Positions",
+        id: "allpositions",
+        isHeader: false
+    });
 
     combined.push({
         displayLabel: "Add/Edit Positions",
@@ -153,7 +166,6 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
     if (newVal && newVal.id === 'addoredit') {
         App.redirectToNewtab("AddOrEditPosition");
         return;
@@ -174,8 +186,13 @@ function filterShifts() {
     const currentPage = Partial.App.activePage;
     const weekview = currentPage['Widgets']['Weekview1'];
     const scheduleVar = currentPage['Variables'][varName];
-    scheduleVar.setInput('positionIds', Partial.selectedPositionId);
-    scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
+    scheduleVar.dataBinding = {};
+    if (Partial.selectedPositionId != 'allpositions') {
+        scheduleVar.setInput('positionIds', Partial.selectedPositionId);
+    }
+    if (Partial.selectedCategoryId != 'allcategories') {
+        scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
+    }
     scheduleVar.setInput('companyId', 1);
     scheduleVar.setInput('startDate', weekview.startdate);
     scheduleVar.setInput('endDate', weekview.enddate);
@@ -183,7 +200,6 @@ function filterShifts() {
 };
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
     Partial.selectedCategoryId = newVal.subCategoryIds ? newVal.subCategoryIds : newVal.id;
     if (newVal.id) {
         filterShifts();
@@ -191,7 +207,6 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
-    widget.nativeElement.classList.toggle('after-selected', !!newVal);
     if (newVal == 'Calendar View') {
         Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {

@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "78f6ec92-0698-4a46-a2e3-412f1239f7b3",
+    "x-WM-API_ID" : "c0e0702b-aa10-4d2f-9eb0-827cd20db78c",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -52,15 +52,27 @@
   },
   "definitions" : {
     "Response.categoriesEntryItem" : {
-      "required" : [ "description", "id", "shortDesc" ],
+      "required" : [ "categoryId", "color", "description", "endTime", "positionId", "shortDesc", "startTime" ],
       "properties" : {
+        "positionId" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        },
         "description" : {
           "type" : "string"
         },
         "shortDesc" : {
           "type" : "string"
         },
-        "id" : {
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "categoryId" : {
           "type" : "integer",
           "format" : "int32"
         }
