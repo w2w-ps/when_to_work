@@ -10,6 +10,7 @@
 
 :root {
     --wm-color-light-grey: #C0C0C0;
+    --wm-color-light-semigrey:#E9E9E9;
     --wm-color-prefer: #9dee94;
     --wm-color-dislike: #f9b4b7;
     --wm-color-cannotwork: #de101c;
@@ -67,12 +68,12 @@
 
 .wm-app .app-tabs > ul li:not(.active) {
     height: 21px !important;
-    top: 7px;
+    top: 5px;
 }
 
 .wm-app .app-tabs > ul li:hover:not(.active) {
     height: 26px !important;
-    top: 2px !important;
+    top: 1px !important;
 }
 
 .wm-app .tab-header.active,
@@ -673,11 +674,12 @@ button.btn.app-button.btn-filled-primary-circle {
 }
 
 
-
-
-
-
-
+.cal-cell-empty {
+    background-color: var(--wm-color-light-semigrey) !important;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
 
 /* responsive code starts */
 /* mobile */

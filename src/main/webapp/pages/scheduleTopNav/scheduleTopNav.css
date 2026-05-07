@@ -53,3 +53,11 @@
     margin-left: 25px;
     justify-content: start !important;
 }
+
+.form-black-border-select {
+    border-radius: 4px !important;
+}
+
+.Mui-focused .form-black-border-select {
+    border: 2px solid var(--wm-color-black);
+}
