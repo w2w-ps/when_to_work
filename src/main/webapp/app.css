@@ -68,12 +68,12 @@
 
 .wm-app .app-tabs > ul li:not(.active) {
     height: 21px !important;
-    top: 7px;
+    top: 5px;
 }
 
 .wm-app .app-tabs > ul li:hover:not(.active) {
     height: 26px !important;
-    top: 2px !important;
+    top: 1px !important;
 }
 
 .wm-app .tab-header.active,
