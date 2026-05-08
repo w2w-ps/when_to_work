@@ -116,7 +116,7 @@
                                         padding="15px unset unset unset" clipcontent="false" overflow="none">
                                         <wm-container direction="row" alignment="top-left" gap="4" width="fill"
                                             name="container97_2" class="app-container-default" variant="default"
-                                            conditionalclass="bind:item.alertDate != null ? ((Widgets.Weekview1.enddate | toDate ) &gt;  (item.alertDate | toDate) ? &quot;container-dark-red-bg&quot; : &quot;&quot;) : &quot;&quot;">
+                                            conditionalclass="bind:item.alertDate != null ? ((Widgets.Weekview1.enddate  | toDate: 'yyyy-M-dd') &gt;  (item.alertDate | toDate: 'yyyy-M-dd') ? &quot;container-dark-red-bg&quot; : &quot;&quot;) : &quot;&quot;">
                                             <wm-icon name="icon6" variant="purple" iconclass="fa fa-diamond"
                                                 conditionalclass="bind:item.empTypeId === 1 ? &quot;purple&quot; : item.empTypeId === 2  ? &quot;blue&quot; :  item.empTypeId === 3  ? &quot;red&quot; :  item.empTypeId === 4  ? &quot;orange&quot; :  item.empTypeId === 5  ? &quot;green&quot; : &quot;&quot;">
                                             </wm-icon>
@@ -135,7 +135,8 @@
                                             template-name="Blank List" itemsperrow="xs-1 sm-1 md-1 lg-1"
                                             class="media-list simple-list" statehandler="URL" name="scheduleListList2"
                                             dataset="bind:item.phones" navigation="None" variant="standard"
-                                            show="bind:Variables.employeeViewConfig.dataSet.showPhoneNumber">
+                                            show="bind:Variables.employeeViewConfig.dataSet.showPhoneNumber"
+                                            nodatamessage="">
                                             <wm-listtemplate layout="inline" name="listtemplate10">
                                                 <wm-container direction="row" alignment="top-left" gap="4" width="hug"
                                                     name="List" class="container app-container-default"
