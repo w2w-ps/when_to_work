@@ -1,0 +1,6 @@
+{
+  "id" : "getShiftColors",
+  "type" : "RestService",
+  "title" : "getShiftColors",
+  "mockEnabled" : false
+}

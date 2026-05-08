@@ -55,13 +55,25 @@ Partial.onReady = function () {
 
 function buildCombinedCategoriesDataset() {
     const flatCategories = (App.Variables.svGetAllCategoriesByCompanyId.dataSet.categories) || [];
-    const categoryGroups  = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
+    const categoryGroups = (App.Variables.svGetCategoryGroup.dataSet.categoryGroups) || [];
 
     const combined = [];
 
-    combined.push({ displayLabel: "Add/Edit Categories",        isHeader: false });
-    combined.push({ displayLabel: "-------------------",        isHeader: false });
-    combined.push({ displayLabel: "Select Group / Categories",  isHeader: false });
+    combined.push({
+        displayLabel: "All Categories",
+        id: "allcategories",
+        isHeader: false
+    });
+
+    combined.push({
+        displayLabel: "Add/Edit Categories",
+        id: "addeditcategories",
+        isHeader: false
+    });
+
+    combined.push({ displayLabel: "Add/Edit Categories", isHeader: false });
+    combined.push({ displayLabel: "-------------------", isHeader: false });
+    combined.push({ displayLabel: "Select Group / Categories", isHeader: false });
 
     // Add group names from svGetCategoryGroup (group name only, selectable)
     categoryGroups.forEach(function (group) {
@@ -70,9 +82,9 @@ function buildCombinedCategoriesDataset() {
             subCategoryIds = subCategoryIds + subCategory.id + ",";
         });
         combined.push({
-            id:             group.id,
-            displayLabel:   group.name,
-            isHeader:       false,
+            id: group.id,
+            displayLabel: group.name,
+            isHeader: false,
             subCategoryIds: subCategoryIds
         });
     });
@@ -82,9 +94,9 @@ function buildCombinedCategoriesDataset() {
     // Add flat categories from svGetAllCategoriesByCompanyId
     flatCategories.forEach(function (cat) {
         combined.push({
-            id:           cat.categoryId,
+            id: cat.categoryId,
             displayLabel: cat.description + (cat.shortDesc ? ' (' + cat.shortDesc + ')' : ''),
-            isHeader:     false
+            isHeader: false
         });
     });
 
@@ -92,14 +104,20 @@ function buildCombinedCategoriesDataset() {
 }
 
 function buildCombinedPositionsDataset() {
-    const flatPositions  = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
+    const flatPositions = (App.Variables.svGetAllPositionsByCompanyId.dataSet.positions) || [];
     const positionGroups = (App.Variables.svGetPositionGroup.dataSet.positionGroups) || [];
 
     const combined = [];
 
-    combined.push({ displayLabel: "Add/Edit Positions",        id: "addoredit",             isHeader: false });
-    combined.push({ displayLabel: "-------------------",       id: "",                       isHeader: false });
-    combined.push({ displayLabel: "Select Group / Positions",  id: "selectgrouporposition",  isHeader: false });
+    combined.push({
+        displayLabel: "All Positions",
+        id: "allpositions",
+        isHeader: false
+    });
+
+    combined.push({ displayLabel: "Add/Edit Positions", id: "addoredit", isHeader: false });
+    combined.push({ displayLabel: "-------------------", id: "", isHeader: false });
+    combined.push({ displayLabel: "Select Group / Positions", id: "selectgrouporposition", isHeader: false });
 
     // Add group names from svGetPositionGroup (group name only, selectable)
     positionGroups.forEach(function (group) {
@@ -108,9 +126,9 @@ function buildCombinedPositionsDataset() {
             subPositionIds = subPositionIds + subPosition.positionId + ",";
         });
         combined.push({
-            id:             group.id,
-            displayLabel:   group.name,
-            isHeader:       false,
+            id: group.id,
+            displayLabel: group.name,
+            isHeader: false,
             subPositionIds: subPositionIds
         });
     });
@@ -120,9 +138,9 @@ function buildCombinedPositionsDataset() {
     // Add flat positions from svGetAllPositionsByCompanyId
     flatPositions.forEach(function (pos) {
         combined.push({
-            id:           pos.positionId,
+            id: pos.positionId,
             displayLabel: pos.description,
-            isHeader:     false
+            isHeader: false
         });
     });
 
@@ -130,10 +148,6 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    // Guard: only toggle CSS class if nativeElement is available
-    if (widget && widget.nativeElement) {
-        widget.nativeElement.classList.toggle('after-selected', !!newVal);
-    }
 
     // Redirect to Add/Edit page
     if (newVal && newVal.id === 'addoredit') {
@@ -187,22 +201,22 @@ function filterShifts() {
 
     if (!varName) { return; }
 
-    const weekview    = currentPage['Widgets']['Weekview1'];
+    const weekview = currentPage['Widgets']['Weekview1'];
     const scheduleVar = currentPage['Variables'][varName];
-    scheduleVar.setInput('positionIds', Partial.selectedPositionId);
-    scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
-    scheduleVar.setInput('companyId',   1);
-    scheduleVar.setInput('startDate',   weekview.startdate);
-    scheduleVar.setInput('endDate',     weekview.enddate);
+    scheduleVar.dataBinding = {};
+    if (Partial.selectedPositionId != 'allpositions') {
+        scheduleVar.setInput('positionIds', Partial.selectedPositionId);
+    }
+    if (Partial.selectedCategoryId != 'allcategories') {
+        scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
+    }
+    scheduleVar.setInput('companyId', 1);
+    scheduleVar.setInput('startDate', weekview.startdate);
+    scheduleVar.setInput('endDate', weekview.enddate);
     scheduleVar.invoke();
 }
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    // Guard: only toggle CSS class if nativeElement is available
-    if (widget && widget.nativeElement) {
-        widget.nativeElement.classList.toggle('after-selected', !!newVal);
-    }
-
     // Silently ignore separator rows and non-selectable header rows (no id or known non-filter ids)
     if (newVal && (newVal.id === '' || newVal.displayLabel === 'Add/Edit Categories' ||
         newVal.displayLabel === '-------------------' ||
@@ -223,10 +237,7 @@ Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
-    // Guard: only toggle CSS class if nativeElement is available
-    if (widget && widget.nativeElement) {
-        widget.nativeElement.classList.toggle('after-selected', !!newVal);
-    }
+
     if (newVal == 'Calendar View') {
         Partial.App.Actions.goToPage_calenderView.invoke();
     } else if (newVal == 'By Position View') {
@@ -237,8 +248,9 @@ Partial.selViewTypeChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.selStatusChange = function ($event, widget, newVal, oldVal) {
-    // Guard: only toggle CSS class if nativeElement is available
-    if (widget && widget.nativeElement) {
-        widget.nativeElement.classList.toggle('after-selected', !!newVal);
-    }
+
+};
+
+Partial.menu1Select = function ($event, widget, $item) {
+
 };
