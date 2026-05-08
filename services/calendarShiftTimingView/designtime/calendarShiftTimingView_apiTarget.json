@@ -1,0 +1,191 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "2d1beba3-e384-48a3-9de8-8e86ea2290d9",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "calendarShiftTimingView"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/scheduling/shifts/grouped" : {
+      "get" : {
+        "tags" : [ "calendarShiftTimingView" ],
+        "operationId" : "calendarShiftTimingView_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "companyId",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "endDate",
+          "in" : "query",
+          "description" : "endDate",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "grouping",
+          "in" : "query",
+          "description" : "grouping",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "startDate",
+          "in" : "query",
+          "description" : "startDate",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/scheduling/shifts/grouped",
+      "x-WM-TAG" : "calendarShiftTimingView",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.calendarShiftTimingView.scheme}://${rest.calendarShiftTimingView.host}${rest.calendarShiftTimingView.basepath}/scheduling/shifts/grouped"
+    }
+  },
+  "definitions" : {
+    "Response.shiftGroupsEntryItem" : {
+      "required" : [ "label", "shiftGroups", "shifts" ],
+      "properties" : {
+        "shiftGroups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "shifts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "label" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarShiftTimingView.Response.shiftGroupsEntryItem",
+      "x-WM-TAGS" : [ "calendarShiftTimingView" ]
+    },
+    "Response.datesEntryItem" : {
+      "required" : [ "date", "shiftGroups" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shiftGroups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftGroupsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarShiftTimingView.Response.datesEntryItem",
+      "x-WM-TAGS" : [ "calendarShiftTimingView" ]
+    },
+    "Response.shiftsEntryItem" : {
+      "required" : [ "category", "color", "description", "duration", "employeeId", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
+      "properties" : {
+        "duration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "shiftId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarShiftTimingView.Response.shiftsEntryItem",
+      "x-WM-TAGS" : [ "calendarShiftTimingView" ]
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarShiftTimingView.java.lang.Object",
+      "x-WM-TAGS" : [ "calendarShiftTimingView" ]
+    },
+    "RootResponse" : {
+      "required" : [ "dates" ],
+      "properties" : {
+        "dates" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.datesEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarShiftTimingView.RootResponse",
+      "x-WM-TAGS" : [ "calendarShiftTimingView" ]
+    }
+  }
+}

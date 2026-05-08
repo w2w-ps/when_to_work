@@ -1,0 +1,221 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "73365f72-78ba-4944-9193-42764c9f47c8",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "GetEmployeeById"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/GetEmployeeById/employees/{id}" : {
+      "get" : {
+        "tags" : [ "GetEmployeeById" ],
+        "operationId" : "GetEmployeeById_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/GetEmployeeById/employees",
+      "x-WM-TAG" : "GetEmployeeById",
+      "x-WM-RELATIVE_PATH" : "/{id}",
+      "x-WM-COMPLETE_PATH" : "${rest.GetEmployeeById.scheme}://${rest.GetEmployeeById.host}${rest.GetEmployeeById.basepath}/employees/{id}"
+    }
+  },
+  "definitions" : {
+    "Response.empType" : {
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetEmployeeById.Response.empType",
+      "x-WM-TAGS" : [ "GetEmployeeById" ]
+    },
+    "Response.address" : {
+      "required" : [ "address", "address2", "city", "state", "zip" ],
+      "properties" : {
+        "zip" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "address2" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetEmployeeById.Response.address",
+      "x-WM-TAGS" : [ "GetEmployeeById" ]
+    },
+    "Response.positionsEntryItem" : {
+      "required" : [ "description", "positionId" ],
+      "properties" : {
+        "positionId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetEmployeeById.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "GetEmployeeById" ]
+    },
+    "RootResponse" : {
+      "required" : [ "accessibilityMode", "address", "cell", "comments", "companyId", "customField1", "customField2", "email", "empType", "employeeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastLogon", "lastName", "logonCount", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phone", "phone2", "positions", "priorityGroup", "status" ],
+      "properties" : {
+        "lastName" : {
+          "type" : "string"
+        },
+        "logonCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "customField1" : {
+          "type" : "string"
+        },
+        "empType" : {
+          "$ref" : "#/definitions/Response.empType"
+        },
+        "customField2" : {
+          "type" : "string"
+        },
+        "phone2" : {
+          "type" : "string"
+        },
+        "cell" : {
+          "type" : "string"
+        },
+        "employeeNumber" : {
+          "type" : "string"
+        },
+        "maxWeeklyDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "lastLogon" : {
+          "type" : "string"
+        },
+        "maxScheduledHours" : {
+          "type" : "string"
+        },
+        "hireDate" : {
+          "type" : "string"
+        },
+        "accessibilityMode" : {
+          "type" : "boolean"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Response.address"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "employeePhoto" : {
+          "type" : "string"
+        },
+        "maxDailyHours" : {
+          "type" : "string"
+        },
+        "payRate" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "priorityGroup" : {
+          "type" : "string"
+        },
+        "nextAlertDate" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "positions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "googleCalExport" : {
+          "type" : "boolean"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "maxDailyShifts" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "status" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetEmployeeById.RootResponse",
+      "x-WM-TAGS" : [ "GetEmployeeById" ]
+    }
+  }
+}

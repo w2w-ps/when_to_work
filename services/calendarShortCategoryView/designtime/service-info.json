@@ -1,0 +1,6 @@
+{
+  "id" : "calendarShortCategoryView",
+  "type" : "RestService",
+  "title" : "calendarShortCategoryView",
+  "mockEnabled" : false
+}

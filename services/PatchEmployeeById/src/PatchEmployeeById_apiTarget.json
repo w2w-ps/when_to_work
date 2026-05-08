@@ -1,0 +1,232 @@
+{
+  "basePath" : "${rest.PatchEmployeeById.basepath}",
+  "paths" : {
+    "/employees/1" : {
+      "patch" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "operationId" : "PatchEmployeeById_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object",
+          "required" : false
+        } ],
+        "tags" : [ "PatchEmployeeById" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-BASE_PATH" : "/employees/1",
+      "x-WM-TAG" : "PatchEmployeeById",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.PatchEmployeeById.scheme}://${rest.PatchEmployeeById.host}${rest.PatchEmployeeById.basepath}/employees/1"
+    }
+  },
+  "host" : "${rest.PatchEmployeeById.host}",
+  "schemes" : [ "${rest.PatchEmployeeById.scheme}" ],
+  "definitions" : {
+    "Request.address" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Request.address",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "required" : [ "address", "address2", "city", "state", "zip" ],
+      "properties" : {
+        "zip" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "address2" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.div" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.div",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootRequest" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.RootRequest",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "required" : [ "accessibilityMode", "address", "cell", "comments", "customField1", "customField2", "email", "empTypeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastName", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phone", "phone2", "positionIds", "priorityGroup" ],
+      "properties" : {
+        "maxScheduledHours" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "positionIds" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        },
+        "hireDate" : {
+          "type" : "string"
+        },
+        "accessibilityMode" : {
+          "type" : "boolean"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Request.address"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "maxDailyHours" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "customField1" : {
+          "type" : "string"
+        },
+        "employeePhoto" : {
+          "type" : "string"
+        },
+        "customField2" : {
+          "type" : "string"
+        },
+        "payRate" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "phone2" : {
+          "type" : "string"
+        },
+        "priorityGroup" : {
+          "type" : "string"
+        },
+        "nextAlertDate" : {
+          "type" : "string"
+        },
+        "cell" : {
+          "type" : "string"
+        },
+        "employeeNumber" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "empTypeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "googleCalExport" : {
+          "type" : "boolean"
+        },
+        "maxWeeklyDays" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "maxDailyShifts" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.body" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.body",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.RootResponse",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      }
+    },
+    "Response.parsererror" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.parsererror",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ],
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "92f392f1-3916-4201-af96-7eb6160238b6",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "PatchEmployeeById"
+  } ]
+}

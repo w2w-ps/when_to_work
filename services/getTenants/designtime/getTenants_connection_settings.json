@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/tenants",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyLjUxIiwicm9sZSI6Ik1hbmFnZXIiLCJpYXQiOjE3NzcyNzg2MDAsImV4cCI6MTc3NzI4MDQwMH0.KwEdAzz8ELHMS69D5b6ksVMqeNWvXPJ4Nuvee4zA-djfZn-sg8EAGzyQMLuowd1JmtZzb1Fpjrwx3hkcP4WMk3vYXBKEpjCkp0BjN7xA4R5OYdbySehwHcKYKOYmkrZ95YbRBgXR5n_CwrlQYcUJNTwQwkLVREpkoupMmh0h28hfXLOjtfcX7CZgiIFf8nRbgTDFEskuagaQnptrIAjY5TjpQn2dy17RUxSIoI7VhMomz3cnrnntNJg_YWswX0y5uCy7E3qZsIMmrKI-v7LHzR7fo0ATToo5mWgdNkirIYg6eLgftDBDkWXZ8EZwXH27VTz3D-UOjk4lsc8zMztJNQ" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Mon, 27 Apr 2026 08:31:39 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "278" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "[{\"address\":null,\"city\":null,\"companyId\":2,\"companyName\":\"City General Hospital\",\"departmentName\":\"Hospital\",\"dropDead\":null,\"priceTable\":null,\"state\":null,\"status\":\"active\",\"timestamp\":\"2026-04-27T13:42:46.213853\",\"timezone\":null,\"tos\":null,\"trialStart\":null,\"weekStartDay\":1}]",
+    "convertedResponse" : null
+  }
+}

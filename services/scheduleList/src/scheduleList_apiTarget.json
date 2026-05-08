@@ -37,6 +37,13 @@
           "required" : false,
           "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "positionIds",
+          "description" : "positionIds",
+          "type" : "string",
+          "required" : false
+        }, {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
           "in" : "query",
@@ -46,6 +53,13 @@
           "type" : "string",
           "required" : false,
           "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "categoryIds",
+          "description" : "categoryIds",
+          "type" : "string",
+          "required" : false
         }, {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
@@ -76,48 +90,6 @@
   "host" : "${rest.scheduleList.host}",
   "schemes" : [ "${rest.scheduleList.scheme}" ],
   "definitions" : {
-    "Response.RootResponseROOTEntryItem" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.RootResponseROOTEntryItem",
-      "x-WM-TAGS" : [ "scheduleList" ],
-      "required" : [ "availablePositions", "employeeId", "firstName", "lastName", "phones", "shiftCount", "totalHours", "weeklyShifts" ],
-      "properties" : {
-        "firstName" : {
-          "type" : "string"
-        },
-        "lastName" : {
-          "type" : "string"
-        },
-        "weeklyShifts" : {
-          "$ref" : "#/definitions/Response.weeklyShifts"
-        },
-        "shiftCount" : {
-          "format" : "int32",
-          "type" : "integer"
-        },
-        "totalHours" : {
-          "format" : "int32",
-          "type" : "integer"
-        },
-        "availablePositions" : {
-          "x-WM-IS_LIST" : true,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Response.availablePositionsEntryItem"
-          }
-        },
-        "phones" : {
-          "x-WM-IS_LIST" : true,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "employeeId" : {
-          "format" : "int32",
-          "type" : "integer"
-        }
-      }
-    },
     "Response.1" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.1",
       "x-WM-TAGS" : [ "scheduleList" ],
@@ -186,20 +158,6 @@
         }
       }
     },
-    "Response.availablePositionsEntryItem" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.availablePositionsEntryItem",
-      "x-WM-TAGS" : [ "scheduleList" ],
-      "required" : [ "description", "positionId" ],
-      "properties" : {
-        "positionId" : {
-          "format" : "int32",
-          "type" : "integer"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
     "Response.0" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.0",
       "x-WM-TAGS" : [ "scheduleList" ],
@@ -214,6 +172,50 @@
           "items" : {
             "$ref" : "#/definitions/Response.shiftsEntryItem"
           }
+        }
+      }
+    },
+    "Response.RootResponseROOTEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "scheduleList.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "scheduleList" ],
+      "required" : [ "alertDate", "employeeId", "employmentType", "firstName", "lastName", "phones", "publishedStage", "shiftCount", "totalHours", "weeklyShifts" ],
+      "properties" : {
+        "publishedStage" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "weeklyShifts" : {
+          "$ref" : "#/definitions/Response.weeklyShifts"
+        },
+        "employmentType" : {
+          "type" : "string"
+        },
+        "shiftCount" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "totalHours" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "alertDate" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
         }
       }
     },
@@ -351,7 +353,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "1ea23a92-75de-4fe0-8768-e847b16d20d9",
+    "x-WM-API_ID" : "6dcfc32e-075f-46cf-b99e-754c40d67fc9",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",

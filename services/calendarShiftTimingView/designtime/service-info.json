@@ -1,0 +1,6 @@
+{
+  "id" : "calendarShiftTimingView",
+  "type" : "RestService",
+  "title" : "calendarShiftTimingView",
+  "mockEnabled" : false
+}

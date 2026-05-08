@@ -1,0 +1,35 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/position-groups",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzYyOTc3LCJleHAiOjE3NzY3NjQ3Nzd9.p9eZRAAKG_e4NtKA7IWEt4sUTINpDbo9cXGIdzDM9MW8jvw7pSDkMsgaF6aJ-w44B4btkKcLZOhcS2H0OCFRO3YL2MlgTKvV63eZmeiCEDhQfXEtPlB8qp2X04Ysfj8-qACeOYo7wznlAPW7VHHzqAQrNkuRy0zh9VwmahXrzdg6wWyo1BYT-uh0BibjBN6Th8CTVKqGdX4MsXzG5GvW0N2KHPiXfpjQzouGIbesL_FBKi69647GYSrsikaLDT4vsMchkZoIkTf0-2BdTOv2vHiulNInicfkFcokuLDRVKyLUKHgZvMh34Psy0YX3AKmxWjfYfvri0etNvOsqUgqyQ" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "companyId" : "1",
+    "status" : "all"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Tue, 21 Apr 2026 09:18:09 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"positionGroups\":[{\"id\":11,\"name\":\"Core Team\",\"positions\":[{\"positionId\":1,\"description\":\"Front Desk\"}]}]}",
+    "convertedResponse" : null
+  }
+}

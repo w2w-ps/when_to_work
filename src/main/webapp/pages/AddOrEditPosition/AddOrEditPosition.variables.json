@@ -1,0 +1,37 @@
+{
+  "svCreatePosition" : {
+    "_id" : "wm-svCreatePosition-wm.ServiceVariable-1776927915726",
+    "name" : "svCreatePosition",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2OTI3ODA5LCJleHAiOjE3NzY5Mjk2MDl9.YD_sz19Xw5i0WV5e9EMA3UfV3zBCGsMq45RQtzkokzm29hpSy7teTt2t5BqXEEN_woGuC1JPOezJL6JT2jobkUeSwu1NjRf8Y4YQaFhRxv_gzH6vUPfP8oKHKkIuXDwIvsrECJVs5S3t4IgfO_ydKgO4sweVdOYM4_DuCnFt0xBuq8nPU8lu-KPz9C1zBj1uHeC1yxD4-Se29SIde7QYXGnHY9DQrAQhcAiOmAF5jaB0W27DDDF8o7uukSv9lfBDgbYinJWHyz7m42IqvJ5BX1liB71SarW_t9_BkuTE_RkX2RjGbadMDUsg6QdYoYinPVyM753hyzlRUH6ZfK-nCQ",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody.companyId",
+      "value" : "1",
+      "type" : "integer"
+    }, {
+      "target" : "RequestBody.description",
+      "value" : "bind:Widgets.newPositionInput.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "createPosition.RootResponse",
+    "service" : "createPosition",
+    "operation" : "invoke",
+    "operationId" : "createPosition_invoke",
+    "operationType" : "post",
+    "serviceType" : "RestService",
+    "dataSet" : { },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Variables.svGetAllPositionsByCompanyId.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "createPosition"
+  }
+}

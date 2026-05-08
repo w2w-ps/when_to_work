@@ -1,0 +1,6 @@
+{
+  "id" : "getTenants",
+  "type" : "RestService",
+  "title" : "getTenants",
+  "mockEnabled" : false
+}

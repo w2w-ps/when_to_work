@@ -31,7 +31,8 @@
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container23"
                         class="app-container-default" variant="default">
                         <wm-prefab prefabname="Weekview" name="Weekview1" width="100%" startdayofweek="Monday"
-                            on-load="Weekview1Load($event, $data)"></wm-prefab>
+                            on-load="Weekview1Load($event, $data)"
+                            on-daterangechange="Weekview1Daterangechange($event, $data)"></wm-prefab>
                     </wm-container>
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container21"
                         class="app-container-default" variant="default">
@@ -63,16 +64,16 @@
                     <wm-container direction="row" alignment="middle-left" gap="4" width="fill" name="container10"
                         class="app-container-default" variant="default">
                         <wm-button class="btn-purple-bg-primary" caption="DATE SPECIFIC" type="button" margin="unset"
-                            name="button1" variant="purple-bg-primary"
-                            on-click="Actions.goToPage_emppreferencesmonth.invoke()"></wm-button>
+                            name="button1" variant="purple-bg-primary" on-click="button1Click($event, widget)">
+                        </wm-button>
                         <wm-label padding="unset" caption=" (or click date above)" class="label-label-14-700" type="p"
                             name="label4" variant="label-14-700"></wm-label>
                     </wm-container>
                     <wm-container direction="row" alignment="top-left" gap="4" width="fill" name="container11"
                         class="app-container-default" variant="default">
                         <wm-button class="btn-outlined-primary" caption="REAPITING WEEKLY" type="button" margin="unset"
-                            name="button2" variant="outlined-primary"
-                            on-click="Actions.goToPage_emppreferencesrepeat.invoke()"></wm-button>
+                            name="button2" variant="outlined-primary" on-click="button2Click($event, widget)">
+                        </wm-button>
                         <wm-button class="btn-outlined-primary" caption="FUTURE Weekly" type="button" margin="unset"
                             variant="outlined-primary" name="button3"></wm-button>
                     </wm-container>

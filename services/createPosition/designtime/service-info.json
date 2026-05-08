@@ -1,0 +1,6 @@
+{
+  "id" : "createPosition",
+  "type" : "RestService",
+  "title" : "createPosition",
+  "mockEnabled" : false
+}

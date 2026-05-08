@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/employees/{id}",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Tue, 21 Apr 2026 03:44:32 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"employeeId\":1,\"companyId\":1,\"status\":\"active\",\"lastLogon\":null,\"logonCount\":0,\"firstName\":\"Alex1\",\"lastName\":\"Morgan-Revised\",\"email\":\"santoshpatel121@gmail.com\",\"employeeNumber\":null,\"phone\":\"555-2420\",\"phone2\":\"555-3972\",\"cell\":null,\"hireDate\":\"2026-04-17T12:19:57.41086\",\"payRate\":46,\"empType\":{\"id\":2,\"name\":\"Part Time\"},\"address\":{\"address\":\"7423 Maple St\",\"address2\":null,\"city\":\"Chicago\",\"state\":\"IL\",\"zip\":\"28293\"},\"nextAlertDate\":null,\"customField1\":null,\"customField2\":null,\"employeePhoto\":null,\"positions\":[{\"positionId\":8,\"description\":\"Event Coordinator\"}],\"maxScheduledHours\":null,\"maxDailyHours\":null,\"maxWeeklyDays\":5,\"maxDailyShifts\":2,\"priorityGroup\":\"Group B\",\"comments\":null,\"googleCalExport\":false,\"accessibilityMode\":false}",
+    "convertedResponse" : null
+  }
+}

@@ -1,4 +1,17 @@
 {
+  "currentEmpIndex" : {
+    "_id" : "wm-currentEmpIndex-wm.Variable-1776830465057",
+    "name" : "currentEmpIndex",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "twoWayBinding" : false
+  },
   "employeeData" : {
     "_id" : "wm-employeeData-wm.Variable-1774420523551",
     "name" : "employeeData",
@@ -36,6 +49,36 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "getEmployeeVar" : {
+    "_id" : "wm-getEmployeeVar-wm.ServiceVariable-1776830068630",
+    "name" : "getEmployeeVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:pageParams.id",
+      "type" : "string"
+    }, {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg",
+      "type" : "string"
+    } ],
+    "type" : "GetEmployeeById.RootResponse",
+    "service" : "GetEmployeeById",
+    "operation" : "invoke",
+    "operationId" : "GetEmployeeById_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "getEmployeeVarOnSuccess(variable, data)",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "controller" : "GetEmployeeById"
+  },
   "groupOptions" : {
     "_id" : "wm-groupOptions-wm.Variable-1774420523553",
     "name" : "groupOptions",
@@ -51,6 +94,40 @@
     } ],
     "isList" : true,
     "twoWayBinding" : false
+  },
+  "patchEmployeeVar" : {
+    "_id" : "wm-patchEmployeeVar-wm.ServiceVariable-1776829733311",
+    "name" : "patchEmployeeVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Authorization",
+      "value" : "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzQyOTgyLCJleHAiOjE3NzY3NDQ3ODJ9.SGpq9qjd45lbVnQpY9egnmBdxy67Ax68Hci78uo3zOBsWNVSs70jcZi3JQiWIwXujyxEMDYHVpuyIdoz6MeWW7eFInlCyynjDtP9WVEdQgTrevbi5KD2Elr-qq8kxV26Vw3aU3yXSGWr9J9ezIAPtauM5pEskDRfNk9ZnJC1s6M5tXMUCG25PznRKRR0pEZDmA8E8WTzJhKnu8i0pRymK5cqG_6ywAYxI1ivAsVC857vXotlhTTkJlUHr0QA9INK8MG4xyXNVnSEXCCDk6pqC5TVO5nZOcAh8tHnHFGr8TWeySug8H0uBb9iiZumxBcOsArdJFc7py74V15a017Iqg",
+      "type" : "string"
+    }, {
+      "target" : "RequestBody",
+      "type" : "object"
+    }, {
+      "target" : "id",
+      "value" : "bind:pageParams.id",
+      "type" : "string"
+    } ],
+    "type" : "PatchEmployeeById.RootResponse",
+    "service" : "PatchEmployeeById",
+    "operation" : "invoke",
+    "operationId" : "PatchEmployeeById_invoke",
+    "operationType" : "patch",
+    "serviceType" : "RestService",
+    "dataSet" : { },
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "patchEmployeeVarOnSuccess(variable, data)",
+    "onError" : "patchEmployeeVarOnError(variable, data)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "controller" : "PatchEmployeeById"
   },
   "positionsData" : {
     "_id" : "wm-positionsData-wm.Variable-1774422446137",

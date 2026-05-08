@@ -1,0 +1,232 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "92f392f1-3916-4201-af96-7eb6160238b6",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "PatchEmployeeById"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/PatchEmployeeById/employees/1" : {
+      "patch" : {
+        "tags" : [ "PatchEmployeeById" ],
+        "operationId" : "PatchEmployeeById_invoke",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/PatchEmployeeById/employees",
+      "x-WM-TAG" : "PatchEmployeeById",
+      "x-WM-RELATIVE_PATH" : "/1",
+      "x-WM-COMPLETE_PATH" : "${rest.PatchEmployeeById.scheme}://${rest.PatchEmployeeById.host}${rest.PatchEmployeeById.basepath}/employees/1"
+    }
+  },
+  "definitions" : {
+    "Request.address" : {
+      "required" : [ "address", "address2", "city", "state", "zip" ],
+      "properties" : {
+        "zip" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "address2" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Request.address",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ]
+    },
+    "Response.div" : {
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.div",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ]
+    },
+    "RootRequest" : {
+      "required" : [ "accessibilityMode", "address", "cell", "comments", "customField1", "customField2", "email", "empTypeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastName", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phone", "phone2", "positionIds", "priorityGroup" ],
+      "properties" : {
+        "maxScheduledHours" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "positionIds" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "hireDate" : {
+          "type" : "string"
+        },
+        "accessibilityMode" : {
+          "type" : "boolean"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Request.address"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "maxDailyHours" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "customField1" : {
+          "type" : "string"
+        },
+        "employeePhoto" : {
+          "type" : "string"
+        },
+        "customField2" : {
+          "type" : "string"
+        },
+        "payRate" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "phone2" : {
+          "type" : "string"
+        },
+        "priorityGroup" : {
+          "type" : "string"
+        },
+        "nextAlertDate" : {
+          "type" : "string"
+        },
+        "cell" : {
+          "type" : "string"
+        },
+        "employeeNumber" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "empTypeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "googleCalExport" : {
+          "type" : "boolean"
+        },
+        "maxWeeklyDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "maxDailyShifts" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.RootRequest",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ]
+    },
+    "Response.body" : {
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.body",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ]
+    },
+    "RootResponse" : {
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.RootResponse",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ]
+    },
+    "Response.parsererror" : {
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "PatchEmployeeById.Response.parsererror",
+      "x-WM-TAGS" : [ "PatchEmployeeById" ]
+    }
+  }
+}

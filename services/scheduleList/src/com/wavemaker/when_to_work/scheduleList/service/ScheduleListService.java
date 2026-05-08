@@ -18,16 +18,18 @@ public interface ScheduleListService {
    * 
    * 
     * @param Authorization Authorization (optional)
+    * @param positionIds positionIds (optional)
     * @param companyId companyId (optional)
+    * @param categoryIds categoryIds (optional)
     * @param endDate endDate (optional)
     * @param startDate startDate (optional)
    * @return List&lt;ResponseRootResponseROOTEntryItem&gt;
    */
-  @RequestLine("GET /scheduling/shifts/employees?companyId={companyId}&endDate={endDate}&startDate={startDate}")
+  @RequestLine("GET /scheduling/shifts/employees?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
   @Headers({
     "Accept: application/json",
     "Authorization: {Authorization}"  })
-  List<ResponseRootResponseROOTEntryItem> invoke(@Param("Authorization") String Authorization, @Param("companyId") String companyId, @Param("endDate") String endDate, @Param("startDate") String startDate);
+  List<ResponseRootResponseROOTEntryItem> invoke(@Param("Authorization") String Authorization, @Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate);
 
 
     /**
@@ -42,13 +44,15 @@ public interface ScheduleListService {
      * @param queryParams Map of query parameters as name-value pairs
      *   <p>The following elements may be specified in the query map:</p>
      *   <ul>
+     *   <li>positionIds - positionIds (optional)</li>
      *   <li>companyId - companyId (optional)</li>
+     *   <li>categoryIds - categoryIds (optional)</li>
      *   <li>endDate - endDate (optional)</li>
      *   <li>startDate - startDate (optional)</li>
      *   </ul>
      * @return List&lt;ResponseRootResponseROOTEntryItem&gt;
      */
-    @RequestLine("GET /scheduling/shifts/employees?companyId={companyId}&endDate={endDate}&startDate={startDate}")
+    @RequestLine("GET /scheduling/shifts/employees?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
     @Headers({
     "Accept: application/json",
         "Authorization: {Authorization}"    })

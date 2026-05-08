@@ -1,0 +1,68 @@
+{
+  "mvCombinedCategories" : {
+    "_id" : "wm-mvCombinedCategories-wm.Variable-1776755832634",
+    "name" : "mvCombinedCategories",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "mvCombinedPositions" : {
+    "_id" : "wm-mvCombinedPositions-wm.Variable-1776764127885",
+    "name" : "mvCombinedPositions",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
+  },
+  "svAllStatus" : {
+    "_id" : "wm-svAllStatus-wm.Variable-1778057917897",
+    "name" : "svAllStatus",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "All Status",
+      "value" : "all",
+      "iconclass" : ""
+    }, {
+      "label" : "No Status",
+      "value" : "none",
+      "iconclass" : "fa fa-diamond"
+    }, {
+      "label" : "Full Time",
+      "value" : "Full Time",
+      "iconclass" : "fa fa-diamond purple"
+    }, {
+      "label" : "Part Time",
+      "value" : "Part Time",
+      "iconclass" : "fa fa-diamond blue"
+    }, {
+      "label" : "Per Diem",
+      "value" : "Per Diem",
+      "iconclass" : "fa fa-diamond red"
+    }, {
+      "label" : "Orange Diamond",
+      "value" : "Orange Diamond",
+      "iconclass" : "fa fa-diamond orange"
+    }, {
+      "label" : "Green Diamond",
+      "value" : "Green Diamond",
+      "iconclass" : "fa fa-diamond green"
+    }, {
+      "label" : "Edit Legend",
+      "value" : "edit_legend",
+      "iconclass" : "fa fa-wrench"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}

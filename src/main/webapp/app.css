@@ -1,26 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-@font-face {
+/* @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-stretch: normal;
-    src: url(https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf) format('truetype');
-}
+} */
 
 
 :root {
     --wm-color-light-grey: #C0C0C0;
+    --wm-color-light-semigrey:#E9E9E9;
     --wm-color-prefer: #9dee94;
     --wm-color-dislike: #f9b4b7;
     --wm-color-cannotwork: #de101c;
     --wm-coor-mid-grey: #666666;
     --wm-color-soft-black: rgba(0, 0, 0, 0.15);
+    --wm-color-black: #000000;
     --wm-bg-color-prefer: #90F68E;
     --wm-bg-color-dislike: #FFAEAE;
     --wm-bg-color-cannot-work: #FF0000;
     --wm-color-purple: #bfbfff;
-
+    --wm-color-bordernew-color: #eeeeee;
+    --wm-color-weekly: #9EE694;
+    --wm-color-monthly: #FDFEA2;
+    --wm-color-yellow: #ffff64;
+    --wm-color-violet: #8080FF;
+    --wm-color-tableborder: #D0D0D0;
+    --wm-color-tablecolumnbg: #E9E9E9;
+    --wm-color-tablecolumnborder: #E70101;
+    --wm-color-violetcontainer: #F9F1FF;
+    --wm-color-violetcontainerborder: #b765dd;
+    --wm-color-form-caption: #555;
+    --wm-daynum-bg-color: #f0f1f7;
+    
 }
 
 .open-sans-700 {
@@ -47,17 +60,19 @@
     overflow-x: hidden;
 }
 
-.wm-app .app-tabs ul li {
-    top: 1px;
+
+.wm-app .app-tabs > ul li {
+    top: 2px;
+    border-radius: 8px;
 }
 
-.wm-app .app-tabs ul li:not(.active) {
+.wm-app .app-tabs > ul li:not(.active) {
     height: 21px !important;
-    top: 4px;
+    top: 5px;
 }
 
-.wm-app .app-tabs ul li:hover:not(.active) {
-    height: 24px !important;
+.wm-app .app-tabs > ul li:hover:not(.active) {
+    height: 26px !important;
     top: 1px !important;
 }
 
@@ -65,7 +80,7 @@
 .wm-app .tab-header.active a,
 .wm-app .tab-header.active a::before {
     background-color: var(--wm-color-white) !important;
-}
+} 
 
 .wm-app .app-tabs ul {
     justify-content: center !important;
@@ -235,6 +250,7 @@ wm-input[name="txtFind"].app-input-wrapper {
 
 
 
+
 .wm-app .btn-trailing-icon {
     left: auto;
     right: 1px;
@@ -262,7 +278,7 @@ wm-input[name="txtFind"].app-input-wrapper {
 }
 
 .container-grey-standard {
-    padding: 10px 20px;
+    padding: 10px 15px 12px 20px !important;
 }
 
 .more:after {
@@ -271,6 +287,7 @@ wm-input[name="txtFind"].app-input-wrapper {
     font-size: 96%;
     font-variant: normal;
     font-style: normal;
+    word-spacing: 3px;
 }
 
 .container-grey-container-white-border {
@@ -349,7 +366,6 @@ wm-input[name="txtFind"].app-input-wrapper {
     width: 14px !important;
     height: 14px !important;
     top: 4px !important;
-
     border-width: 1px !important;
 }
 
@@ -449,13 +465,221 @@ wm-input[name="txtFind"].app-input-wrapper {
     background:
         color-mix(in srgb, var(--wm-modal-backdrop-background), transparent calc(100% - var(--wm-modal-backdrop-opacity)));
 }
-.modal-confirm-dialog .modal-content{
+
+.modal-confirm-dialog .modal-content {
     z-index: 999;
 }
-.py-font{
+
+.py-font {
     font-family: 'Open Sans';
 }
 
+.app-calendar:not(.main-celender) {
+    position: absolute;
+    width: 300px !important;
+    z-index: 9999;
+    border-radius: 0 !important;
+    box-shadow: none;
+}
+
+.app-calendar:not(.main-celender) .fc-scrollgrid-sync-table,
+.app-calendar:not(.main-celender) .fc-daygrid-body-balanced {
+    width: 300px;
+    height: auto;
+}
+
+.app-calendar .fc-header-toolbar .fc-toolbar-chunk:nth-child(3) {
+    display: none;
+}
+
+.app-calendar .fc-header-toolbar .fc-toolbar-chunk .fc-today-button {
+    display: none;
+}
+
+.app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-toolbar-title) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.app-calendar:not(.main-celender) .fc-toolbar-chunk:has(.fc-next-button) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.app-calendar:not(.main-celender) .fc-next-button {
+    margin: 0 !important;
+}
+
+.app-calendar:not(.main-celender) .fc-daygrid-day {
+    height: 55px !important;
+    border-right: 1px solid var(--wm-color-white) !important;
+    border-left: 1px solid var(--wm-color-white) !important;
+    display: flex;
+    width: 14.28%;
+}
+
+.app-calendar:not(.main-celender) tr[role="row"]:has(td) {
+    display: flex;
+    width: 100%;
+    gap: 2px;
+}
+
+.app-calendar:not(.main-celender) .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
+    height: 411px !important;
+}
+
+td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day,
+td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day {
+    background: var(--wm-color-light-grey);
+}
+
+td.fc-day.fc-day-past.fc-day-other.fc-daygrid-day a,
+td.fc-day.fc-day-future.fc-day-other.fc-daygrid-day a {
+    visibility: hidden;
+}
+
+.app-calendar:not(.main-celender) .fc-toolbar-title {
+    color: var(--wm-color-primary) !important;
+}
+
+.fc .fc-button:hover,
+.fc .fc-button:active,
+.fc .fc-button:focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--fc-button-text-color);
+    --wm-btn-state-layer-opacity: 0;
+}
+
+.fc-theme-standard th {
+    border: none !important;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin: 0;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
+    height: 55px !important;
+    min-height: 55px !important;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    display: none !important;
+}
+
+.fc table {
+    border-collapse: separate !important;
+}
+
+.fc-day-today a {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+app-partial-scheduletopnav {
+    width: 100%;
+}
+
+.no-padding-only-border {
+    border: 1px solid var(--wm-color-bordernew-color) !important;
+}
+
+.mh-list {
+    min-height: auto !important;
+}
+
+.footerInfoSection {
+    width: 100%;
+    padding: 16px 24px;
+    background-color: var(--wm-color-white);
+    position: relative !important;
+}
+
+.lblContactW2W {
+    text-align: center;
+    flex: 1;
+}
+
+button.close:hover {
+    --wm-btn-state-layer-opacity: 0 !important;
+    --wm-btn-state-layer-color: transparent !important;
+}
+
+.wm-app .modal-dialog.modal-confirm-dialog .modal-content .modal-header .modal-title {
+    display: none;
+}
+
+.modal-confirm-dialog .modal-body {
+    margin: 10px 8px 14px 8px !important;
+}
+
+.cal-day-slots-listgroup .cal-day-slot-item::before {
+    content: "";
+    background-color: var(--wm-color-light-grey);
+    height: 10px;
+    width: 1px;
+    /* position: absolute; */
+    /* left: 0; */
+}
+
+.app-footer {
+    border: none;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.modal-confirm-dialog.p-0 .modal-body {
+    padding: 0 !important;
+    margin: 0 0 7px 0 !important;
+}
+
+.nav-buttons-hidden {
+    transition: none !important;
+}
+
+.btn-button-small {
+    width: 16.66%;
+}
+
+.wm-sl-r.sl-layout-two-columns:before {
+    content: "\f0db";
+    font-family: fontAwesome;
+    font-size: 12px;
+}
+
+button.btn.app-button.btn-filled-primary-circle {
+    width: 48px;
+    height: 48px;
+    border: none;
+    position: fixed;
+    bottom: 10px;
+    right: 16px;
+}
+
+.wm-app .form-black-border-select.form-control:focus {
+    --wm-form-control-border-width: 1px !important;
+}
+
+.wm-app .after-selected  .form-black-border-select.form-control{
+    --wm-form-control-border-width: 2px !important;
+    --wm-form-control-border-color: var(--wm-color-black);
+}
+
+
+.cal-cell-empty {
+    background-color: var(--wm-color-light-semigrey) !important;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+}
 
 /* responsive code starts */
 /* mobile */

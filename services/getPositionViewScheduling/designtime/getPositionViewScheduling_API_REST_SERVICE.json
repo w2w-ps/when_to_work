@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "5a9ba6f7-886c-49ea-984c-3377c25168ee",
+    "x-WM-API_ID" : "ddce0c85-ecd7-4772-93f1-b21c6a0c0607",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -37,6 +37,13 @@
           "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
           "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
+          "name" : "positionIds",
+          "in" : "query",
+          "description" : "positionIds",
+          "required" : false,
+          "type" : "string",
+          "x-WM-EDITABLE" : false
+        }, {
           "name" : "companyId",
           "in" : "query",
           "description" : "companyId",
@@ -46,6 +53,13 @@
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
           "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "categoryIds",
+          "in" : "query",
+          "description" : "categoryIds",
+          "required" : false,
+          "type" : "string",
+          "x-WM-EDITABLE" : false
         }, {
           "name" : "endDate",
           "in" : "query",

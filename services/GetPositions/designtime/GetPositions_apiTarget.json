@@ -1,0 +1,87 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "c49f3fef-f47d-41ce-9b6a-5418c5628c8e",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "GetPositions"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/positions" : {
+      "get" : {
+        "tags" : [ "GetPositions" ],
+        "operationId" : "GetPositions_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/positions",
+      "x-WM-TAG" : "GetPositions",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.GetPositions.scheme}://${rest.GetPositions.host}${rest.GetPositions.basepath}/positions"
+    }
+  },
+  "definitions" : {
+    "Response.positionsEntryItem" : {
+      "required" : [ "description", "positionId" ],
+      "properties" : {
+        "positionId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetPositions.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "GetPositions" ]
+    },
+    "RootResponse" : {
+      "required" : [ "positions" ],
+      "properties" : {
+        "positions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "GetPositions.RootResponse",
+      "x-WM-TAGS" : [ "GetPositions" ]
+    }
+  }
+}

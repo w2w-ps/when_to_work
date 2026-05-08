@@ -11,6 +11,7 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
+    Page.today = new Date();
     Page.selectedEmployee = "";
     Page.selectedDay = "";
     Page.isAdd = true;
@@ -32,134 +33,24 @@ Page.onReady = function () {
             Page.Variables.svScheduleList.invoke();
         }
     });
-};
 
-/**
- * Filters the employee schedule list based on category, status, and position selections.
- * All three filters work together - if multiple filters are applied, employees must match all criteria.
- * 
- * Filter rules:
- * - "All Categories", "All Positions", and "No Status" are treated as no filter
- * - Separator entries ("----------") are ignored
- * - Filtering is case-insensitive
- * - Returns all data if no valid filters are applied
- * 
- * ENHANCED: Now filters both employees AND individual shifts within each employee.
- * - Employees are included if they have at least one matching shift
- * - Within each employee, only shifts matching the filter criteria are shown
- * - Shifts that don't match category/position filters are removed from the employee's shifts array
- */
-Page.applyScheduleFilters = function () {
-    let sourceData = Page.unfilteredScheduleData;
-
-    if (!sourceData || sourceData.length === 0) {
-        Page.Widgets.employeeScheduleList.dataset = [];
-        return;
-    }
-
-    let categoryFilter = Page.currentCategoryFilter;
-    let statusFilter = Page.currentStatusFilter;
-    let positionFilter = Page.currentPositionFilter;
-
-    // Check if filters are effectively empty (no-filter conditions)
-    let isCategoryFilterActive = categoryFilter != "" && categoryFilter.description
-    categoryFilter.description !== 'All Categories' &&
-        categoryFilter.description !== '----------' &&
-        categoryFilter.description.trim() !== '';
-
-    let isStatusFilterActive = statusFilter &&
-        statusFilter !== 'All Status' &&
-        statusFilter !== 'No Status' &&
-        statusFilter !== '----------' &&
-        statusFilter.trim() !== '';
-
-    let isPositionFilterActive = positionFilter != "" && positionFilter.description &&
-        positionFilter.description !== 'All Positions' &&
-        positionFilter.description !== '----------' &&
-        positionFilter.description.trim() !== '';
-
-    // If no filters are active, show all data
-    if (!isCategoryFilterActive && !isStatusFilterActive && !isPositionFilterActive) {
-        Page.Widgets.employeeScheduleList.dataset = sourceData;
-        return;
-    }
-
-    // Apply filters with shift-level filtering
-    let filteredData = [];
-
-    sourceData.forEach(function (employee) {
-        // Deep clone the employee to avoid modifying the original unfiltered data
-        let employeeCopy = structuredClone(employee);
-        let hasMatchingShift = false;
-
-        // Filter shifts within each day of the week
-        if (employeeCopy.weeklyShifts && Array.isArray(employeeCopy.weeklyShifts)) {
-            employeeCopy.weeklyShifts.forEach(function (day) {
-                if (day.shifts && Array.isArray(day.shifts)) {
-                    // Filter the shifts array for this day
-                    let filteredShifts = day.shifts.filter(function (shift) {
-                        let matchesCategory = true;
-                        let matchesPosition = true;
-                        let matchesStatus = true;
-
-                        // Apply category filter to individual shift
-                        if (isCategoryFilterActive) {
-                            matchesCategory = shift.category &&
-                                shift.category.toLowerCase().includes(categoryFilter.toLowerCase()) > -1;
-                        }
-
-                        // Apply position filter to individual shift
-                        if (isPositionFilterActive) {
-                            matchesPosition = shift.position &&
-                                shift.position.toLowerCase().includes(positionFilter.toLowerCase()) > -1;
-                        }
-
-                        // Shift must match all active filters
-                        return matchesCategory && matchesPosition && matchesStatus;
-                    });
-
-                    // Update the day's shifts array with filtered shifts
-                    day.shifts = filteredShifts;
-
-                    // Track if this employee has at least one matching shift
-                    if (filteredShifts.length > 0) {
-                        hasMatchingShift = true;
-                    }
+    // IntersectionObserver: add/remove 'is-sticky' class on dayHeadersContainer when it sticks
+    const headerEl = document.querySelector('[name="dayHeadersContainer"]');
+    if (headerEl && headerEl.parentNode) {
+        const sentinel = document.createElement('div');
+        sentinel.style.height = '1px';
+        headerEl.parentNode.insertBefore(sentinel, headerEl);
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) {
+                    headerEl.classList.add('is-sticky');
+                } else {
+                    headerEl.classList.remove('is-sticky');
                 }
             });
-        }
-
-        // Only include employees that have at least one matching shift
-        if (hasMatchingShift) {
-            filteredData.push(employeeCopy);
-        }
-    });
-
-    Page.Widgets.employeeScheduleList.dataset = filteredData;
-};
-
-/**
- * Event handler for category dropdown change
- */
-Page.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    Page.currentCategoryFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
- * Event handler for status dropdown change
- */
-Page.selStatusChange = function ($event, widget, newVal, oldVal) {
-    Page.currentStatusFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
- * Event handler for position dropdown change
- */
-Page.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    Page.currentPositionFilter = newVal;
-    Page.applyScheduleFilters();
+        }, { threshold: [0], root: null });
+        observer.observe(sentinel);
+    }
 };
 
 /**
@@ -563,32 +454,23 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     let positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     let positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
     let positionMatch = positionsList.find(function (p) { return p.description === data.position; });
-    let resolvedPositionId = positionMatch ? positionMatch.positionId : null;
+    Page.resolvedPositionId = positionMatch ? positionMatch.positionId : null;
 
     // Resolve category name -> id
     let categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     let categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
-    let categoryMatch = categoriesList.find(function (c) { return c.description === data.category; });
-    let resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
+    let categoryMatch = categoriesList.find(function (c) { return c.shortDesc === data.category; });
+    Page.resolvedCategoryId = categoryMatch ? categoryMatch.categoryId : null;
 
     // Open the dialog so its widgets are available in the DOM
     Page.Widgets.shiftDialog.open();
 
-    // Use a short timeout to allow dialog widgets to initialise before setting values
-    setTimeout(function () {
-        if (Page.Widgets.positionField) {
-            Page.Widgets.positionField.datavalue = resolvedPositionId;
-        }
-        if (Page.Widgets.categoryField) {
-            Page.Widgets.categoryField.datavalue = resolvedCategoryId;
-        }
-        if (Page.Widgets.paidHoursField) {
-            Page.Widgets.paidHoursField.datavalue = data.duration;
-        }
-        if (Page.Widgets.chkAutoCalculate) {
-            Page.Widgets.chkAutoCalculate.datavalue = false;
-        }
-    }, 100);
+    if (Page.Widgets.paidHoursField) {
+        Page.Widgets.paidHoursField.datavalue = data.duration;
+    }
+    if (Page.Widgets.chkAutoCalculate) {
+        Page.Widgets.chkAutoCalculate.datavalue = false;
+    }
 };
 
 /**
@@ -638,13 +520,6 @@ Page.shiftDialogOpened = function ($event, widget) {
 
         Page.Widgets.chkAutoCalculate.datavalue = false;
     } else {
-        // EDIT MODE
-        // startTime, endTime, color, description are pre-filled via declarative
-        // defaultvalue bindings to svGetShiftById.dataSet (set in HTML).
-        // positionField, categoryField, paidHours, chkAutoCalculate are set
-        // programmatically in svGetShiftByIdSuccess.
-
-        // Clear all weekday checkboxes - day selection is irrelevant in edit mode.
         Page.Widgets.chkMon.datavalue = false;
         Page.Widgets.chkTue.datavalue = false;
         Page.Widgets.chkWed.datavalue = false;
@@ -653,6 +528,9 @@ Page.shiftDialogOpened = function ($event, widget) {
         Page.Widgets.chkSat.datavalue = false;
         Page.Widgets.chkSun.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
+
+        Page.Widgets.positionField.datavalue = Page.resolvedPositionId;
+        Page.Widgets.categoryField.datavalue = Page.resolvedCategoryId;
     }
 };
 
@@ -716,7 +594,7 @@ Page.button16Click = function ($event, widget) {
                 endTime: formatToStandardTime(endTime) || '',
                 position: positionId || '',
                 category: categoryId || '',
-                color: 'amer'
+                color: Page.Widgets.shiftForm.formWidgets.colorField_formWidget.datavalue
             }
         });
         Page.Variables.svCreateShift.invoke();
@@ -732,7 +610,7 @@ Page.button16Click = function ($event, widget) {
                 endTime: formatToStandardTime(endTime) || '',
                 position: positionId || '',
                 category: categoryId || '',
-                color: 'amer'
+                color: Page.Widgets.shiftForm.formWidgets.colorField_formWidget.datavalue
             }
         });
         Page.Variables.svUpdateShift.invoke();
@@ -846,7 +724,7 @@ Page._executePendingDrop = function () {
             employeeId: payload.targetEmployeeId,
             companyId: 1,
             date: payload.targetShiftDate,
-            description: sourceShift.notes || '',
+            description: sourceShift.description || '',
             startTime: sourceShift.startAt || '',
             endTime: sourceShift.endAt || '',
             position: payload.resolvedPositionId,
@@ -877,7 +755,6 @@ Page._executePendingDrop = function () {
  * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
  */
 Page.btnConfirmShiftYesClick = function ($event, widget) {
-
     let payload = Page._pendingDropPayload;
     if (!payload) {
         console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
@@ -893,7 +770,7 @@ Page.btnConfirmShiftYesClick = function ($event, widget) {
                 shift: {
                     employeeId: payload.targetEmployeeId,
                     date: payload.targetShiftDate,
-                    description: payload.sourceShift.notes || '',
+                    description: payload.sourceShift.description || '',
                     startTime: payload.sourceShift.startAt || '',
                     endTime: payload.sourceShift.endAt || '',
                     position: payload.resolvedPositionId || 1,
@@ -962,7 +839,7 @@ Page.svchkHasConflictsOnSuccess = function (variable, data) {
 
         Page.Variables.conflictMessageVar.setData({ message: conflictMsg });
         Page.hasConflicts = true;
-        Page.Widgets.container98.show = faslse;
+        Page.Widgets.container98.show = false;
         Page.Widgets.conflictMsgcontainer.show = true;
     } else {
         Page.Widgets.confirmShiftChangeDialog.close();
@@ -1315,16 +1192,8 @@ function formatToStandardTime(input) {
  * it as a focused pop-up rather than a new full tab.
  */
 Page.anchor9Click = function ($event, widget) {
-
-    // let url =
-    //     window.location.href.split('react-pages')[0] +
-    //     'react-pages/ConfigureByEmployeeView';
-    // window.open(
-    //     url,
-    //     'ConfigureByEmployeeView',
-    //     'width=900,height=600,left=100,top=100'
-    // );
-
-    let url = window.location.href.split('#')[0] + '#/ConfigureByEmployeeView';
-    window.open(url, 'ConfigureByEmployeeView', 'width=900,height=600,left=100,top=100');
+    App.redirectTo("ConfigureByEmployeeView");
+};
+Page.button11Click = function ($event, widget) {
+    Page.Variables.svDeleteShiftById.invoke();
 };

@@ -1,0 +1,205 @@
+{
+  "basePath" : "${rest.categoryShiftTimings.basepath}",
+  "paths" : {
+    "/scheduling/shifts/grouped" : {
+      "x-WM-BASE_PATH" : "/scheduling/shifts/grouped",
+      "x-WM-TAG" : "categoryShiftTimings",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "categoryShiftTimings_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "endDate",
+          "format" : "string",
+          "description" : "endDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "grouping",
+          "format" : "string",
+          "description" : "grouping",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "startDate",
+          "format" : "string",
+          "description" : "startDate",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "categoryShiftTimings" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.categoryShiftTimings.scheme}://${rest.categoryShiftTimings.host}${rest.categoryShiftTimings.basepath}/scheduling/shifts/grouped"
+    }
+  },
+  "host" : "${rest.categoryShiftTimings.host}",
+  "schemes" : [ "${rest.categoryShiftTimings.scheme}" ],
+  "definitions" : {
+    "Response.shiftGroupsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryShiftTimings.Response.shiftGroupsEntryItem",
+      "x-WM-TAGS" : [ "categoryShiftTimings" ],
+      "required" : [ "label", "shiftGroups", "shifts" ],
+      "properties" : {
+        "shiftGroups" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftGroupsEntryItem"
+          }
+        },
+        "shifts" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          }
+        },
+        "label" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response.datesEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryShiftTimings.Response.datesEntryItem",
+      "x-WM-TAGS" : [ "categoryShiftTimings" ],
+      "required" : [ "date", "shiftGroups" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shiftGroups" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftGroupsEntryItem"
+          }
+        }
+      }
+    },
+    "Response.shiftsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryShiftTimings.Response.shiftsEntryItem",
+      "x-WM-TAGS" : [ "categoryShiftTimings" ],
+      "required" : [ "category", "color", "description", "duration", "employeeId", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
+      "properties" : {
+        "duration" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "shiftId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        }
+      }
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryShiftTimings.java.lang.Object",
+      "x-WM-TAGS" : [ "categoryShiftTimings" ]
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "categoryShiftTimings.RootResponse",
+      "x-WM-TAGS" : [ "categoryShiftTimings" ],
+      "required" : [ "dates" ],
+      "properties" : {
+        "dates" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.datesEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "3e14944f-f8d5-499a-b815-6cc23517aba3",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "categoryShiftTimings"
+  } ]
+}

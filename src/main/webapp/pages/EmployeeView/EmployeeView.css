@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.week-nav-hover-container .btn-button-small {
+    width: 16.6%;
+}
+
 .nav-buttons-hidden {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -14,11 +18,11 @@
 }
 
 .custom-border-bottom {
-    border-bottom: 1px solid #e5e5ec;
+    border-bottom: 1px solid var(--wm-color-light-grey);
 }
 
 .custom-border-right {
-    border-right: 1px solid #e5e5ec;
+    border-right: 1px solid var(--wm-color-light-grey);
 }
 
 .dialog-form-section {
@@ -93,7 +97,6 @@
 
 .bg-grey {
     background-color: #e3e6f0;
-    cursor: pointer;
 }
 
 .wm-app .btn:not(.btn-icon)+.btn:not(.btn-icon),
@@ -229,19 +232,19 @@ textarea {
 }
 
 .btn-delete-btn {
-    margin-top: 19px;
+    margin-top: 21px;
     margin-left: 16px;
 }
 
 .create-copies-text {
     height: 30px;
-    top: -8px;
+    top: 0px;
     width: 45px !important;
     font-size: 14px;
     line-height: 1.428571;
-    color: #555;
+    color: var(--wm-color-form-caption);
     padding: 9px;
-    left: -5px;
+    left: 0px;
 }
 
 .form-control {
@@ -252,7 +255,7 @@ textarea {
 .dialog-heading {
     font-size: 8pt;
     font-family: Arial;
-    letter-spacing: -0.25px;
+    letter-spacing: 0px;
     top: 5px;
     font-weight: 400;
 }
@@ -263,23 +266,6 @@ textarea {
 
 .fa-list-alt {
     font-size: 16px !important;
-}
-
-.schedule-action-bar {
-    background-color: var(--wm-color-primary);
-    border-bottom: 20px solid #E70101;
-}
-
-.schedule-bar-btn {
-    flex: 1;
-    color: #ffffff;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 1px 0px 1px 1px;
-    border-radius: 0;
-    font-size: 12px;
-    font-weight: 700;
-    min-height: 30px;
 }
 
 .schedule-notes-section {
@@ -297,13 +283,6 @@ textarea {
     font-weight: 700;
     font-size: 1rem;
     color: var(--wm-color-on-surface, #1a1a2e);
-}
-
-.schedule-notes-add-edit {
-    font-size: 0.85rem;
-    /* color: var(--wm-color-primary, #5c5fa3); */
-    color: #1a1a2e;
-    text-decoration: none;
 }
 
 .schedule-notes-info-card {
@@ -363,19 +342,6 @@ textarea {
     color: #e64a19;
 }
 
-.footerInfoSection {
-    width: 100%;
-    padding: 16px 24px;
-    background-color: #ffffff;
-    position: relative;
-}
-
-.lblContactW2W {
-    font-weight: 600;
-    text-align: center;
-    flex: 1;
-}
-
 .btnHelpFab {
     position: fixed;
     bottom: 24px;
@@ -391,32 +357,9 @@ textarea {
     z-index: 999;
 }
 
-.btn-emp-shift1 {
-    width: 18.75%;
-}
-
-.btn-emp-shift2 {
-    width: 13%;
-}
-
-.btn-emp-shift3 {
-    width: 26.5%;
-}
-
-.btn-emp-shift4 {
-    width: 10%;
-}
-
-.btn-emp-shift5 {
-    width: 19%;
-}
-
-.btn-emp-shift6 {
-    width: 13%;
-}
 
 .weekday-container {
-    min-height: 80px;
+    min-height: 47px;
 }
 
 .confirm-dialog-msg {
@@ -505,10 +448,77 @@ textarea {
 .time-height {
     height: 32px;
     padding: 0 !important;
-    top: -6px;
-    right: -8px;
+    top: 0px;
+    right: -1px;
 }
 
 .time-height .help-block.text-danger {
     visibility: hidden;
+}
+
+.form-compact-input .app-composite-widget {
+    min-height: 32px;
+}
+
+.sticky-day-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--wm-color-white);
+}
+
+.sticky-day-header.is-sticky {
+    border-top: 6px solid var(--wm-bg-color-cannot-work) !important;
+    border: 1px solid var(--wm-color-black);
+    padding: 3px 1px;
+}
+
+.grey-caption {
+    color: var(--wm-color-form-caption);
+}
+
+.time-height.grey-caption {
+    padding-left: 5px !important;
+}
+
+.pl24 {
+    padding-left: 22%;
+}
+
+.wm-app .app-form>.form-body>.form-elements [data-role="form-field"] {
+    padding: 0 5px !important;
+}
+
+.form-compact-input:focus,
+.create-copies-text:focus {
+    border: 1px solid #589CDD !important;
+    box-shadow: 0 0 5px #589CDD !important;
+}
+
+.app-checkbox.checkbox.checkbox-compact label input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    left: 12px;
+    top: 12px;
+}
+
+.top-18 {
+    top: 18px;
+}
+
+.checkbox-blue-check-14 {
+    height: 32px !important;
+    left: -14px;
+}
+
+.last-child-no-border ul li:last-child .custom-border-bottom1 {
+    border: none !important;
+}
+
+.container-warning-standard .last-child-no-border ul li .custom-border-bottom1 {
+    border-bottom: 1px solid var(--wm-color-light-grey);
+}
+
+.container-warning-standard .last-child-no-border ul li:first-child .label-label-bold {
+    padding-top: 6px;
 }

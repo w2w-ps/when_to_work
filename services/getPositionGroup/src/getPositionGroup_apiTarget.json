@@ -1,0 +1,128 @@
+{
+  "basePath" : "${rest.getPositionGroup.basepath}",
+  "paths" : {
+    "/position-groups" : {
+      "x-WM-BASE_PATH" : "/position-groups",
+      "x-WM-TAG" : "getPositionGroup",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getPositionGroup_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "companyId",
+          "format" : "string",
+          "description" : "companyId",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "status",
+          "format" : "string",
+          "description" : "status",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "tags" : [ "getPositionGroup" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getPositionGroup.scheme}://${rest.getPositionGroup.host}${rest.getPositionGroup.basepath}/position-groups"
+    }
+  },
+  "host" : "${rest.getPositionGroup.host}",
+  "schemes" : [ "${rest.getPositionGroup.scheme}" ],
+  "definitions" : {
+    "Response.positionGroupsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionGroup.Response.positionGroupsEntryItem",
+      "x-WM-TAGS" : [ "getPositionGroup" ],
+      "required" : [ "id", "name", "positions" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "positions" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionsEntryItem"
+          }
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "Response.positionsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionGroup.Response.positionsEntryItem",
+      "x-WM-TAGS" : [ "getPositionGroup" ],
+      "required" : [ "description", "positionId" ],
+      "properties" : {
+        "positionId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionGroup.RootResponse",
+      "x-WM-TAGS" : [ "getPositionGroup" ],
+      "required" : [ "positionGroups" ],
+      "properties" : {
+        "positionGroups" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.positionGroupsEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "b2ecdbaa-dc28-4bd9-a812-821ecae2b258",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getPositionGroup"
+  } ]
+}

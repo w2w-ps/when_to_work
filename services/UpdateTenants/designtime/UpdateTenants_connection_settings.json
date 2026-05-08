@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/tenants",
+  "method" : "PUT",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyLjUxIiwicm9sZSI6Ik1hbmFnZXIiLCJpYXQiOjE3NzcyODI2NjIsImV4cCI6MTc3NzI4NDQ2Mn0.aTDbSOtB7AhcuutlpT8kI64gV00yjZ7QBEC77G5kYIVoM5O0wjkRO99X8p-BAOMgJYKhDIHeXYCV3raO53To30wBdajNFpZr19cyUb2dn4RzpCbnpvm__GqnwWPfZg9HwLTqklVMKILtlwhRxXB5sjUjX0VcuVVVTegegsvHwmchtDO3TcbNaTCc0pGT2V0ikJiFMB3WNT6fKmbqCMemB-UPESwWYHsaNEmY152d-eIGWmQbYQOpG7cpXoANgzNzzlWWtCmonxfD38i_KEj5EFB0wT31qsZbVb2BsGj6ZfGve6Dup24MWovS82sYLpMYaMBsxxuNe07MbMc-sgFlsw" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "\n    {\n        \"address\": \"2051 Marengo Street\",\n        \"city\": \"Los Angeles\",\n        \"companyId\": 2,\n        \"companyName\": \"City General Hospital\",\n        \"departmentName\": \"Hospital\",\n        \"dropDead\": null,\n        \"priceTable\": null,\n        \"state\": \"CA\",\n        \"status\": \"active\",\n        \"timestamp\": \"2026-04-27T13:42:46.213853\",\n        \"timezone\": \"1.0\",\n        \"tos\": null,\n        \"trialStart\": null,\n        \"weekStartDay\": 1\n    }\n",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Mon, 27 Apr 2026 09:40:40 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "301" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"address\":\"2051 Marengo Street\",\"city\":\"Los Angeles\",\"companyId\":2,\"companyName\":\"City General Hospital\",\"departmentName\":\"Hospital\",\"dropDead\":null,\"priceTable\":null,\"state\":\"CA\",\"status\":\"active\",\"timestamp\":\"2026-04-27T13:42:46.213853\",\"timezone\":1,\"tos\":null,\"trialStart\":null,\"weekStartDay\":1}",
+    "convertedResponse" : null
+  }
+}

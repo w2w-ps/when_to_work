@@ -1,0 +1,205 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "30fc218c-c3bb-4799-b687-e04f89e5eed4",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "",
+  "tags" : [ {
+    "name" : "calendarPositionView"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/calendarPositionView/scheduling/shifts/grouped" : {
+      "get" : {
+        "tags" : [ "calendarPositionView" ],
+        "operationId" : "calendarPositionView_invoke",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "companyId",
+          "in" : "query",
+          "description" : "companyId",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "endDate",
+          "in" : "query",
+          "description" : "endDate",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "grouping",
+          "in" : "query",
+          "description" : "grouping",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "startDate",
+          "in" : "query",
+          "description" : "startDate",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/calendarPositionView/scheduling",
+      "x-WM-TAG" : "calendarPositionView",
+      "x-WM-RELATIVE_PATH" : "/shifts/grouped",
+      "x-WM-COMPLETE_PATH" : "${rest.calendarPositionView.scheme}://${rest.calendarPositionView.host}${rest.calendarPositionView.basepath}/scheduling/shifts/grouped"
+    }
+  },
+  "definitions" : {
+    "Response.shiftGroupsEntryItem" : {
+      "required" : [ "label", "shiftGroups", "shifts" ],
+      "properties" : {
+        "shiftGroups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftGroupsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "shifts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/java.lang.Object"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "label" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarPositionView.Response.shiftGroupsEntryItem",
+      "x-WM-TAGS" : [ "calendarPositionView" ]
+    },
+    "Response.datesEntryItem" : {
+      "required" : [ "date", "shiftGroups" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "shiftGroups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.shiftGroupsEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarPositionView.Response.datesEntryItem",
+      "x-WM-TAGS" : [ "calendarPositionView" ]
+    },
+    "Response.shiftsEntryItem" : {
+      "required" : [ "category", "color", "description", "duration", "employeeId", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
+      "properties" : {
+        "duration" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "shiftId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "employeeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startTime" : {
+          "type" : "string"
+        },
+        "endTime" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarPositionView.Response.shiftsEntryItem",
+      "x-WM-TAGS" : [ "calendarPositionView" ]
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarPositionView.java.lang.Object",
+      "x-WM-TAGS" : [ "calendarPositionView" ]
+    },
+    "RootResponse" : {
+      "required" : [ "dates" ],
+      "properties" : {
+        "dates" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.datesEntryItem"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "calendarPositionView.RootResponse",
+      "x-WM-TAGS" : [ "calendarPositionView" ]
+    }
+  }
+}

@@ -17,7 +17,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wavemaker.when_to_work.scheduleList.model.ResponseAvailablePositionsEntryItem;
 import com.wavemaker.when_to_work.scheduleList.model.ResponseWeeklyShifts;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +25,9 @@ import java.util.List;
  */
 
 public class ResponseRootResponseROOTEntryItem {
+  @JsonProperty("publishedStage")
+  private String publishedStage = null;
+
   @JsonProperty("firstName")
   private String firstName = null;
 
@@ -35,20 +37,40 @@ public class ResponseRootResponseROOTEntryItem {
   @JsonProperty("weeklyShifts")
   private ResponseWeeklyShifts weeklyShifts = null;
 
+  @JsonProperty("employmentType")
+  private String employmentType = null;
+
   @JsonProperty("shiftCount")
   private Integer shiftCount = null;
 
   @JsonProperty("totalHours")
   private Integer totalHours = null;
 
-  @JsonProperty("availablePositions")
-  private List<ResponseAvailablePositionsEntryItem> availablePositions = new ArrayList<>();
+  @JsonProperty("alertDate")
+  private String alertDate = null;
 
   @JsonProperty("phones")
   private List<String> phones = new ArrayList<>();
 
   @JsonProperty("employeeId")
   private Integer employeeId = null;
+
+  public ResponseRootResponseROOTEntryItem publishedStage(String publishedStage) {
+    this.publishedStage = publishedStage;
+    return this;
+  }
+
+   /**
+   * Get publishedStage
+   * @return publishedStage
+  **/
+  public String getPublishedStage() {
+    return publishedStage;
+  }
+
+  public void setPublishedStage(String publishedStage) {
+    this.publishedStage = publishedStage;
+  }
 
   public ResponseRootResponseROOTEntryItem firstName(String firstName) {
     this.firstName = firstName;
@@ -101,6 +123,23 @@ public class ResponseRootResponseROOTEntryItem {
     this.weeklyShifts = weeklyShifts;
   }
 
+  public ResponseRootResponseROOTEntryItem employmentType(String employmentType) {
+    this.employmentType = employmentType;
+    return this;
+  }
+
+   /**
+   * Get employmentType
+   * @return employmentType
+  **/
+  public String getEmploymentType() {
+    return employmentType;
+  }
+
+  public void setEmploymentType(String employmentType) {
+    this.employmentType = employmentType;
+  }
+
   public ResponseRootResponseROOTEntryItem shiftCount(Integer shiftCount) {
     this.shiftCount = shiftCount;
     return this;
@@ -135,26 +174,21 @@ public class ResponseRootResponseROOTEntryItem {
     this.totalHours = totalHours;
   }
 
-  public ResponseRootResponseROOTEntryItem availablePositions(List<ResponseAvailablePositionsEntryItem> availablePositions) {
-    this.availablePositions = availablePositions;
-    return this;
-  }
-
-  public ResponseRootResponseROOTEntryItem addAvailablePositionsItem(ResponseAvailablePositionsEntryItem availablePositionsItem) {
-    this.availablePositions.add(availablePositionsItem);
+  public ResponseRootResponseROOTEntryItem alertDate(String alertDate) {
+    this.alertDate = alertDate;
     return this;
   }
 
    /**
-   * Get availablePositions
-   * @return availablePositions
+   * Get alertDate
+   * @return alertDate
   **/
-  public List<ResponseAvailablePositionsEntryItem> getAvailablePositions() {
-    return availablePositions;
+  public String getAlertDate() {
+    return alertDate;
   }
 
-  public void setAvailablePositions(List<ResponseAvailablePositionsEntryItem> availablePositions) {
-    this.availablePositions = availablePositions;
+  public void setAlertDate(String alertDate) {
+    this.alertDate = alertDate;
   }
 
   public ResponseRootResponseROOTEntryItem phones(List<String> phones) {
@@ -206,19 +240,21 @@ public class ResponseRootResponseROOTEntryItem {
       return false;
     }
     ResponseRootResponseROOTEntryItem Response_RootResponseROOTEntryItem = (ResponseRootResponseROOTEntryItem) o;
-    return Objects.equals(this.firstName, Response_RootResponseROOTEntryItem.firstName) &&
+    return Objects.equals(this.publishedStage, Response_RootResponseROOTEntryItem.publishedStage) &&
+        Objects.equals(this.firstName, Response_RootResponseROOTEntryItem.firstName) &&
         Objects.equals(this.lastName, Response_RootResponseROOTEntryItem.lastName) &&
         Objects.equals(this.weeklyShifts, Response_RootResponseROOTEntryItem.weeklyShifts) &&
+        Objects.equals(this.employmentType, Response_RootResponseROOTEntryItem.employmentType) &&
         Objects.equals(this.shiftCount, Response_RootResponseROOTEntryItem.shiftCount) &&
         Objects.equals(this.totalHours, Response_RootResponseROOTEntryItem.totalHours) &&
-        Objects.equals(this.availablePositions, Response_RootResponseROOTEntryItem.availablePositions) &&
+        Objects.equals(this.alertDate, Response_RootResponseROOTEntryItem.alertDate) &&
         Objects.equals(this.phones, Response_RootResponseROOTEntryItem.phones) &&
         Objects.equals(this.employeeId, Response_RootResponseROOTEntryItem.employeeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, weeklyShifts, shiftCount, totalHours, availablePositions, phones, employeeId);
+    return Objects.hash(publishedStage, firstName, lastName, weeklyShifts, employmentType, shiftCount, totalHours, alertDate, phones, employeeId);
   }
 
 
@@ -227,12 +263,14 @@ public class ResponseRootResponseROOTEntryItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponseRootResponseROOTEntryItem {\n");
     
+    sb.append("    publishedStage: ").append(toIndentedString(publishedStage)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    weeklyShifts: ").append(toIndentedString(weeklyShifts)).append("\n");
+    sb.append("    employmentType: ").append(toIndentedString(employmentType)).append("\n");
     sb.append("    shiftCount: ").append(toIndentedString(shiftCount)).append("\n");
     sb.append("    totalHours: ").append(toIndentedString(totalHours)).append("\n");
-    sb.append("    availablePositions: ").append(toIndentedString(availablePositions)).append("\n");
+    sb.append("    alertDate: ").append(toIndentedString(alertDate)).append("\n");
     sb.append("    phones: ").append(toIndentedString(phones)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
     sb.append("}");

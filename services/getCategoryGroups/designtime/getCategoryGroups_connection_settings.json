@@ -1,0 +1,35 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/category-groups",
+  "method" : "GET",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc2NzU0NTExLCJleHAiOjE3NzY3NTYzMTF9.A-UPbcFnLROcPO_Tsq8LycPRDtlt1lnm9koMOD2FEfWd6afX13YieVYTboJoVBvRzgD3NpgHHgEeddu2fH3GLWwtf8cc-FzPr0KELpkYcuz_uHk_W0HnY4ohOTFSlR9iNXvubXcmiA7YkSqwQGfJkOZhghPQEFuoHEc38dQfg-3NKFqKAlgMQKuAxWRM8GJbNAQ7BpSeJoxQKRu7ieUNckcNd_aDBnN12bGtTTUGcoby4PWy2YFNRWZfJRkTQZy7EKeVh4cHP0_I-m4osfRwJd0TkNE99FfyR1qoHcVDA2sLzMSf0kdf6al1NTEca4kzrrA5UO_QORCFKxFYj-FuXQ" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "companyId" : "1",
+    "status" : "all"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Tue, 21 Apr 2026 06:55:52 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "{\"categoryGroups\":[{\"id\":11,\"name\":\"Standard Shifts\",\"categories\":[{\"id\":4,\"description\":\"Weekend Shift\",\"shortDesc\":\"WKND\"}]}]}",
+    "convertedResponse" : null
+  }
+}

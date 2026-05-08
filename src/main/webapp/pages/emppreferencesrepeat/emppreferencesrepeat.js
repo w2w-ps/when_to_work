@@ -14,20 +14,51 @@ Page.onReady = function () {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
-};
-Page.WorkPreference1Click = function ($event) {
-
-    App.Actions.goToPage_emppreferencesday.invoke();
-    App.Variables.selectedpreference.dataSet = $event;
+    Page.Variables.SvGetWeekPreferences.setInput("startDate", getTodayDate());
+    Page.Variables.SvGetWeekPreferences.invoke();
 };
 
-function getCombinedWeekPrefs(weekData) {
-    return weekData.map(day => day.prefs || "").join("");
+function getCombinedWeekPrefs(input) {
+    let weekData;
+
+    try {
+        weekData = typeof input === "string" ? JSON.parse(input) : input;
+    } catch (e) {
+        console.error("Invalid JSON:", e);
+        return "N".repeat(96);
+    }
+
+    if (!Array.isArray(weekData)) {
+        return "N".repeat(96);
+    }
+
+    const result = weekData.map(day => {
+        let prefs = (day?.prefs || "").trim();
+
+        // Replace empty or spaces with 96 N's
+        if (!prefs) {
+            return "N".repeat(96);
+        }
+
+        // Optional: ensure length = 96
+        if (prefs.length !== 96) {
+            return prefs.padEnd(96, "N").slice(0, 96);
+        }
+
+        return prefs;
+    }).join("");
+
+    return result || "N".repeat(96);
 }
 
 function getTodayDate() {
     const today = new Date();
-    return today.toISOString().split('T')[0];
+
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    return `${yyyy}-${mm}-${dd}`;
 }
 
 
@@ -54,4 +85,10 @@ Page.button4Click = function ($event, widget) {
 
 
 
+};
+Page.alertdialog1Ok = function ($event, widget) {
+    if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
+    }
+    window.close();
 };

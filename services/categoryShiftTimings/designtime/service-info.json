@@ -1,0 +1,6 @@
+{
+  "id" : "categoryShiftTimings",
+  "type" : "RestService",
+  "title" : "categoryShiftTimings",
+  "mockEnabled" : false
+}

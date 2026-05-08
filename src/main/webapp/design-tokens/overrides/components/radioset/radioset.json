@@ -122,11 +122,136 @@
             }
           }
         }
+      },
+      "blue-standard" : {
+        "mapping" : {
+          "gap" : {
+            "value" : "{space.1.value}"
+          },
+          "label" : {
+            "font-size" : {
+              "value" : "14px"
+            },
+            "font-family" : {
+              "value" : "{body.large.font-family.value}"
+            },
+            "font-weight" : {
+              "value" : "{body.large.font-weight.value}"
+            },
+            "line-height" : {
+              "value" : "16px"
+            },
+            "letter-spacing" : {
+              "value" : "{body.large.letter-spacing.value}"
+            },
+            "color" : {
+              "@" : {
+                "value" : "{color.on-surface.@.value}"
+              }
+            }
+          },
+          "size" : {
+            "value" : "15px"
+          },
+          "indicator" : {
+            "size" : {
+              "value" : "9px"
+            }
+          },
+          "border" : {
+            "width" : {
+              "value" : "1px"
+            },
+            "color" : {
+              "value" : "#bababa"
+            }
+          },
+          "state" : {
+            "layer" : {
+              "size" : {
+                "value" : "15px"
+              },
+              "color" : {
+                "value" : "{color.transparent.value}"
+              },
+              "opacity" : {
+                "value" : "0"
+              }
+            }
+          },
+          "set" : {
+            "item" : {
+              "column" : {
+                "gap" : {
+                  "value" : "{space.6.value}"
+                }
+              },
+              "row" : {
+                "gap" : {
+                  "value" : "{space.2.value}"
+                }
+              }
+            }
+          },
+          "states" : {
+            "checked" : {
+              "label" : {
+                "color" : {
+                  "@" : {
+                    "value" : "{color.on-surface.@.value}"
+                  }
+                }
+              },
+              "state" : {
+                "layer" : {
+                  "color" : {
+                    "value" : "{color.transparent.value}"
+                  }
+                }
+              },
+              "border" : {
+                "color" : {
+                  "value" : "#0078d4"
+                }
+              }
+            },
+            "hover" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.hover.value}"
+                  }
+                }
+              }
+            },
+            "focus" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.focus.value}"
+                  }
+                }
+              }
+            },
+            "active" : {
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "{opacity.active.value}"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "meta" : {
       "appearances" : {
         "small-radio" : {
+          "source" : "user"
+        },
+        "blue-standard" : {
           "source" : "user"
         }
       }

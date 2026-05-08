@@ -1,0 +1,6 @@
+{
+  "id" : "getPositionGroup",
+  "type" : "RestService",
+  "title" : "getPositionGroup",
+  "mockEnabled" : false
+}

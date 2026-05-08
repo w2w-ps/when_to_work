@@ -1,0 +1,32 @@
+{
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/positions/{positionId}",
+  "method" : "DELETE",
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc3MDE4MTA2LCJleHAiOjE3NzcwMTk5MDZ9.Zf2QltNa19G4mfzE1HcyaOo7rDLgHliSXoVIbxwiw3n_0O947P0k6357DD5Pv_UIAG5GYWelOJAdfIZwapTRs-JbPzDmeMXn587ewICaqBPgqbSzh9oNVffs0osBCl6BYqvIdu-qBu0bG0kdIylUYxV9zhDR06o7XywRVCBmpCe1u7k58DcqfGWcXOPb4JUUczcgye0j9KT8nJNsSR6_lTk5fh3bK-hFtywdTsHCXTi3sXwr1aRsZkw9GjB_NEwYBOK9LY3pqQhgItZqL2DkYZ0MKN3v2piHwL6KY4w9XYlxdpNI-embVdyqokOp7AzTBVX0dVZPbDJdjWTB8N3v_w" ]
+  },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : {
+    "companyId" : "1"
+  },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : [ ],
+  "urlBasePath" : "/api",
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Date" : [ "Fri, 24 Apr 2026 08:08:46 GMT" ],
+      "Connection" : [ "keep-alive" ],
+      "X-Content-Type-Options" : [ "nosniff" ],
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
+    },
+    "responseBody" : "",
+    "convertedResponse" : "{\"body\":{\"parsererror\":{\"h3\":[\"This page contains the following errors:\",\"Below is a rendering of the page up to the first error.\"],\"div\":{\"style\":\"font-family:monospace;font-size:12px\",\"__text\":\"error on line 1 at column 1: Document is empty\"},\"style\":\"display: block; white-space: pre; border: 2px solid #c77; padding: 0 1em 0 1em; margin: 1em; background-color: #fdd; color: black\"}}}"
+  }
+}

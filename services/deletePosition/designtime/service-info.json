@@ -1,0 +1,6 @@
+{
+  "id" : "deletePosition",
+  "type" : "RestService",
+  "title" : "deletePosition",
+  "mockEnabled" : false
+}

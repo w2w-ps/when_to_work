@@ -18,12 +18,27 @@ Page.onReady = function () {
 };
 
 Page.WorkPreference1Click = function ($event) {
-    App.Variables.selectedpreference.dataSet = $event;
-
+    localStorage.setItem('selectedpreference', JSON.stringify($event));
     setTimeout(() => {
-        App.Actions.goToPage_emppreferencesday.invoke();
+        App.redirectTo('emppreferencesday');
     }, 0);
 };
-Page.Weekview1Load = function ($event, $data) {
-    App.Variables.GetResolvedPreferences.invoke();
+
+Page.Weekview1Daterangechange = function ($event, $data) {
+
+    var sv = Page.Variables.GetResolvedPreferences;
+    sv.invoke({
+        "inputFields": {
+            "companyId": 1,
+            "employeeId": 1,
+            "startDate": $event.startdate,
+            "endDate": $event.enddate
+        }
+    });
+};
+Page.button1Click = function ($event, widget) {
+    App.redirectTo('emppreferencesmonth');
+};
+Page.button2Click = function ($event, widget) {
+    App.redirectTo('emppreferencesrepeat');
 };

@@ -15,6 +15,33 @@
     } ],
     "operation" : "toast"
   },
+  "appSelectedGrouping" : {
+    "_id" : "wm-appSelectedGrouping-wm.Variable-1776676538917",
+    "name" : "appSelectedGrouping",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "grouping" : "position_shift_timings",
+      "showDescription" : false,
+      "hideGroupsNoShifts" : true,
+      "showCatPos" : false,
+      "nameFormat" : "First Last",
+      "startOn" : "Sunday",
+      "screenFontSize" : "Medium",
+      "printGrouping" : "position_shift_timings",
+      "printShowDescription" : true,
+      "printHideGroupsNoShifts" : true,
+      "printShowCatPos" : true,
+      "printHideUnassigned" : false,
+      "printNameFormat" : "First Last",
+      "printFontSize" : "Small"
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "employeeViewConfig" : {
     "_id" : "wm-employeeViewConfig-wm.Variable-1775470939443",
     "name" : "employeeViewConfig",
@@ -54,6 +81,28 @@
     "isList" : false,
     "twoWayBinding" : false
   },
+  "goToPage_AddOrEditPosition" : {
+    "_id" : "wm-goToPage_AddOrEditPosition-wm.NavigationAction-1776924880474",
+    "name" : "goToPage_AddOrEditPosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AddOrEditPosition",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_calenderView" : {
+    "_id" : "wm-goToPage_calenderView-wm.NavigationAction-1776325282809",
+    "name" : "goToPage_calenderView",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "calenderView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_ConfigureByEmployeeView" : {
     "_id" : "wm-goToPage_ConfigureByEmployeeView-wm.NavigationAction-1775463179827",
     "name" : "goToPage_ConfigureByEmployeeView",
@@ -73,6 +122,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "ConfigureByPositionView",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_EditDeletePosition" : {
+    "_id" : "wm-goToPage_EditDeletePosition-wm.NavigationAction-1776930909060",
+    "name" : "goToPage_EditDeletePosition",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "EditDeletePosition",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -231,6 +291,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgrcoinfo" : {
+    "_id" : "wm-goToPage_mgrcoinfo-wm.NavigationAction-1776852766610",
+    "name" : "goToPage_mgrcoinfo",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrcoinfo",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Mgrempedit" : {
     "_id" : "wm-goToPage_Mgrempedit-wm.NavigationAction-1774420490307",
     "name" : "goToPage_Mgrempedit",
@@ -253,6 +324,39 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_mgremplistconfig" : {
+    "_id" : "wm-goToPage_mgremplistconfig-wm.NavigationAction-1777531311290",
+    "name" : "goToPage_mgremplistconfig",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgremplistconfig",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_mgrnewemp" : {
+    "_id" : "wm-goToPage_mgrnewemp-wm.NavigationAction-1777007744075",
+    "name" : "goToPage_mgrnewemp",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrnewemp",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_mgrschedulecfgmonth" : {
+    "_id" : "wm-goToPage_mgrschedulecfgmonth-wm.NavigationAction-1776665125736",
+    "name" : "goToPage_mgrschedulecfgmonth",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "mgrschedulecfgmonth",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_monthlyView" : {
     "_id" : "wm-goToPage_monthlyView-wm.NavigationAction-1776232179086",
     "name" : "goToPage_monthlyView",
@@ -272,6 +376,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Position_view",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_scheduleTopNav" : {
+    "_id" : "wm-goToPage_scheduleTopNav-wm.NavigationAction-1776756674281",
+    "name" : "goToPage_scheduleTopNav",
+    "owner" : "App",
+    "category" : "wm.NavigationAction",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "scheduleTopNav",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -410,5 +525,118 @@
     "isList" : true,
     "twoWayBinding" : false,
     "saveInPhonegap" : false
+  },
+  "svGetAllCategoriesByCompanyId" : {
+    "_id" : "wm-svGetAllCategoriesByCompanyId-wm.ServiceVariable-1775799151063",
+    "name" : "svGetAllCategoriesByCompanyId",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    } ],
+    "type" : "categoryList.RootResponse",
+    "service" : "categoryList",
+    "operation" : "invoke",
+    "operationId" : "categoryList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "categoryList"
+  },
+  "svGetAllPositionsByCompanyId" : {
+    "_id" : "wm-svGetAllPositionsByCompanyId-wm.ServiceVariable-1775799248481",
+    "name" : "svGetAllPositionsByCompanyId",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    } ],
+    "type" : "positionList.RootResponse",
+    "service" : "positionList",
+    "operation" : "invoke",
+    "operationId" : "positionList_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "svGetAllPositionsByCompanyIdonSuccess(variable, data, options)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "positionList"
+  },
+  "svGetCategoryGroup" : {
+    "_id" : "wm-svGetCategoryGroup-wm.ServiceVariable-1776754918822",
+    "name" : "svGetCategoryGroup",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "status",
+      "value" : "all",
+      "type" : "string"
+    } ],
+    "type" : "getCategoryGroups.RootResponse",
+    "service" : "getCategoryGroups",
+    "operation" : "invoke",
+    "operationId" : "getCategoryGroups_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getCategoryGroups"
+  },
+  "svGetPositionGroup" : {
+    "_id" : "wm-svGetPositionGroup-wm.ServiceVariable-1776763595689",
+    "name" : "svGetPositionGroup",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "companyId",
+      "value" : "1",
+      "type" : "string"
+    }, {
+      "target" : "status",
+      "value" : "all",
+      "type" : "string"
+    } ],
+    "type" : "getPositionGroup.RootResponse",
+    "service" : "getPositionGroup",
+    "operation" : "invoke",
+    "operationId" : "getPositionGroup_invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "getPositionGroup"
   }
 }

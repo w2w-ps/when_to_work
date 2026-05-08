@@ -1,0 +1,6 @@
+{
+  "id" : "GetEmployeeById",
+  "type" : "RestService",
+  "title" : "GetEmployeeById",
+  "mockEnabled" : false
+}

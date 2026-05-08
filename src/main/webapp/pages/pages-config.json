@@ -1,4 +1,8 @@
 [ {
+  "name" : "AddOrEditPosition",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -8,6 +12,10 @@
   "params" : [ ]
 }, {
   "name" : "ConfigureByPositionView",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "EditDeletePosition",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -41,7 +49,10 @@
 }, {
   "name" : "Mgrempedit",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "id",
+    "type" : "string"
+  } ]
 }, {
   "name" : "Mgremplist",
   "type" : "PAGE",
@@ -58,6 +69,13 @@
   "name" : "TestDrive",
   "type" : "PAGE",
   "params" : [ ]
+}, {
+  "name" : "calenderView",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "configureValue",
+    "type" : "string"
+  } ]
 }, {
   "name" : "dialogViewTopNav",
   "type" : "TOPNAV",
@@ -102,6 +120,29 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "mgrcoinfo",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrempinfopop",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "empid",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "mgremplistconfig",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrnewemp",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "mgrschedulecfgmonth",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "monthlyView",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -109,6 +150,13 @@
   "name" : "rightnav",
   "type" : "RIGHTNAV",
   "params" : [ ]
+}, {
+  "name" : "scheduleTopNav",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "selectedTab",
+    "type" : "string"
+  } ]
 }, {
   "name" : "topnav",
   "type" : "TOPNAV",

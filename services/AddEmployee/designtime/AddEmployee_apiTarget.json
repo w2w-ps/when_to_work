@@ -1,0 +1,222 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2.0",
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "e5a69515-e037-4662-8484-5a6a4a9e4bd2",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "host" : "when-to-work-backend.onwavemaker.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "AddEmployee"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/employees" : {
+      "post" : {
+        "tags" : [ "AddEmployee" ],
+        "operationId" : "AddEmployee_invoke",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "in" : "body",
+          "name" : "RequestBody",
+          "description" : "RequestBody",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/RootRequest"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.Object"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            }
+          }
+        },
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-BASE_PATH" : "/employees",
+      "x-WM-TAG" : "AddEmployee",
+      "x-WM-RELATIVE_PATH" : "",
+      "x-WM-COMPLETE_PATH" : "${rest.AddEmployee.scheme}://${rest.AddEmployee.host}${rest.AddEmployee.basepath}/employees"
+    }
+  },
+  "definitions" : {
+    "Request.address" : {
+      "required" : [ "address", "address2", "city", "state", "zip" ],
+      "properties" : {
+        "zip" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "address2" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Request.address",
+      "x-WM-TAGS" : [ "AddEmployee" ]
+    },
+    "Response.div" : {
+      "required" : [ "__text", "style" ],
+      "properties" : {
+        "__text" : {
+          "type" : "string"
+        },
+        "style" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Response.div",
+      "x-WM-TAGS" : [ "AddEmployee" ]
+    },
+    "RootRequest" : {
+      "required" : [ "address", "cell", "comments", "customField1", "customField2", "email", "empTypeId", "employeeNumber", "employeePhoto", "firstName", "googleCalExport", "hireDate", "lastName", "maxDailyHours", "maxDailyShifts", "maxScheduledHours", "maxWeeklyDays", "nextAlertDate", "payRate", "phones", "priorityGroup" ],
+      "properties" : {
+        "maxScheduledHours" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "hireDate" : {
+          "type" : "string"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Request.address"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "maxDailyHours" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "customField1" : {
+          "type" : "string"
+        },
+        "employeePhoto" : {
+          "type" : "string"
+        },
+        "customField2" : {
+          "type" : "string"
+        },
+        "payRate" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "priorityGroup" : {
+          "type" : "string"
+        },
+        "phones" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        },
+        "nextAlertDate" : {
+          "type" : "string"
+        },
+        "cell" : {
+          "type" : "string"
+        },
+        "employeeNumber" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "empTypeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "googleCalExport" : {
+          "type" : "boolean"
+        },
+        "maxWeeklyDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxDailyShifts" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.RootRequest",
+      "x-WM-TAGS" : [ "AddEmployee" ]
+    },
+    "Response.body" : {
+      "required" : [ "parsererror" ],
+      "properties" : {
+        "parsererror" : {
+          "$ref" : "#/definitions/Response.parsererror"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Response.body",
+      "x-WM-TAGS" : [ "AddEmployee" ]
+    },
+    "RootResponse" : {
+      "required" : [ "body" ],
+      "properties" : {
+        "body" : {
+          "$ref" : "#/definitions/Response.body"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.RootResponse",
+      "x-WM-TAGS" : [ "AddEmployee" ]
+    },
+    "Response.parsererror" : {
+      "required" : [ "div", "h3", "style" ],
+      "properties" : {
+        "div" : {
+          "$ref" : "#/definitions/Response.div"
+        },
+        "style" : {
+          "type" : "string"
+        },
+        "h3" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-IS_LIST" : true
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "AddEmployee.Response.parsererror",
+      "x-WM-TAGS" : [ "AddEmployee" ]
+    }
+  }
+}
