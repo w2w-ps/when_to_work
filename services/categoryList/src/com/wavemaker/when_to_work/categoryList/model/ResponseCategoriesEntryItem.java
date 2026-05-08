@@ -22,14 +22,60 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 
 public class ResponseCategoriesEntryItem {
+  @JsonProperty("positionId")
+  private String positionId = null;
+
+  @JsonProperty("color")
+  private String color = null;
+
   @JsonProperty("description")
   private String description = null;
 
   @JsonProperty("shortDesc")
   private String shortDesc = null;
 
-  @JsonProperty("id")
-  private Integer id = null;
+  @JsonProperty("startTime")
+  private String startTime = null;
+
+  @JsonProperty("endTime")
+  private String endTime = null;
+
+  @JsonProperty("categoryId")
+  private Integer categoryId = null;
+
+  public ResponseCategoriesEntryItem positionId(String positionId) {
+    this.positionId = positionId;
+    return this;
+  }
+
+   /**
+   * Get positionId
+   * @return positionId
+  **/
+  public String getPositionId() {
+    return positionId;
+  }
+
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
+
+  public ResponseCategoriesEntryItem color(String color) {
+    this.color = color;
+    return this;
+  }
+
+   /**
+   * Get color
+   * @return color
+  **/
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
 
   public ResponseCategoriesEntryItem description(String description) {
     this.description = description;
@@ -65,21 +111,55 @@ public class ResponseCategoriesEntryItem {
     this.shortDesc = shortDesc;
   }
 
-  public ResponseCategoriesEntryItem id(Integer id) {
-    this.id = id;
+  public ResponseCategoriesEntryItem startTime(String startTime) {
+    this.startTime = startTime;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get startTime
+   * @return startTime
   **/
-  public Integer getId() {
-    return id;
+  public String getStartTime() {
+    return startTime;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public ResponseCategoriesEntryItem endTime(String endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * Get endTime
+   * @return endTime
+  **/
+  public String getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public ResponseCategoriesEntryItem categoryId(Integer categoryId) {
+    this.categoryId = categoryId;
+    return this;
+  }
+
+   /**
+   * Get categoryId
+   * @return categoryId
+  **/
+  public Integer getCategoryId() {
+    return categoryId;
+  }
+
+  public void setCategoryId(Integer categoryId) {
+    this.categoryId = categoryId;
   }
 
 
@@ -92,14 +172,18 @@ public class ResponseCategoriesEntryItem {
       return false;
     }
     ResponseCategoriesEntryItem Response_categoriesEntryItem = (ResponseCategoriesEntryItem) o;
-    return Objects.equals(this.description, Response_categoriesEntryItem.description) &&
+    return Objects.equals(this.positionId, Response_categoriesEntryItem.positionId) &&
+        Objects.equals(this.color, Response_categoriesEntryItem.color) &&
+        Objects.equals(this.description, Response_categoriesEntryItem.description) &&
         Objects.equals(this.shortDesc, Response_categoriesEntryItem.shortDesc) &&
-        Objects.equals(this.id, Response_categoriesEntryItem.id);
+        Objects.equals(this.startTime, Response_categoriesEntryItem.startTime) &&
+        Objects.equals(this.endTime, Response_categoriesEntryItem.endTime) &&
+        Objects.equals(this.categoryId, Response_categoriesEntryItem.categoryId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, shortDesc, id);
+    return Objects.hash(positionId, color, description, shortDesc, startTime, endTime, categoryId);
   }
 
 
@@ -108,9 +192,13 @@ public class ResponseCategoriesEntryItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponseCategoriesEntryItem {\n");
     
+    sb.append("    positionId: ").append(toIndentedString(positionId)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    shortDesc: ").append(toIndentedString(shortDesc)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

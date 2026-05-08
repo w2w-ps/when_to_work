@@ -510,3 +510,15 @@ textarea {
     height: 32px !important;
     left: -14px;
 }
+
+.last-child-no-border ul li:last-child .custom-border-bottom1 {
+    border: none !important;
+}
+
+.container-warning-standard .last-child-no-border ul li .custom-border-bottom1 {
+    border-bottom: 1px solid var(--wm-color-light-grey);
+}
+
+.container-warning-standard .last-child-no-border ul li:first-child .label-label-bold {
+    padding-top: 6px;
+}
