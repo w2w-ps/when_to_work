@@ -51,8 +51,8 @@
                         direction="column" gap="4" alignment="top-left" width="40%" height="hug" clipcontent="false"
                         overflow="none">
                         <wm-radioset name="preferenceTypeRadio" dataset="Prefer, Dislike, No Preference, Cannot Work"
-                            datavalue="bind:Variables.worktimepreference.dataSet.preferenceType" layout="stacked"
-                            on-change="preferenceTypeRadioChange($event, newVal, oldVal, widget)"
+                            datavalue="bind:Variables.worktimepreference.dataSet.preferenceType || 'Prefer'"
+                            layout="stacked" on-change="preferenceTypeRadioChange($event, widget, newVal, oldVal)"
                             class="radiobutton-small-radio"></wm-radioset>
                     </wm-container>
                     <!-- Fields column: Day, Begin, End, Add button -->
@@ -64,8 +64,7 @@
                             height="hug" show="bind:showweekdropdown">
                             <wm-select name="weekDaySelect"
                                 dataset="Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
-                                variant="standard" datavalue="bind:Variables.worktimepreference.dataSet.weekDay">
-                            </wm-select>
+                                variant="standard" datavalue="Monday"></wm-select>
                         </wm-container>
                         <wm-container name="beginTimeRow"
                             class="container-white-container-no-border-radius justify-content-end" direction="row"
@@ -73,9 +72,8 @@
                             <wm-label name="beginLabel" caption="Begin:"></wm-label>
                             <wm-select name="beginHourSelect"
                                 dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
-                                datavalue="bind:Variables.worktimepreference.dataSet.beginHour"></wm-select>
-                            <wm-select name="beginMinuteSelect" dataset="00, 15, 30, 45"
-                                datavalue="bind:Variables.worktimepreference.dataSet.beginMinute"></wm-select>
+                                datavalue="12AM"></wm-select>
+                            <wm-select name="beginMinuteSelect" dataset="00, 15, 30, 45" datavalue="00"></wm-select>
                         </wm-container>
                         <wm-container name="endTimeRow"
                             class="container-white-container-no-border-radius justify-content-end" direction="row"
@@ -83,9 +81,8 @@
                             <wm-label name="endLabel" caption="End:"></wm-label>
                             <wm-select name="endHourSelect"
                                 dataset="12AM, 1AM, 2AM, 3AM, 4AM, 5AM, 6AM, 7AM, 8AM, 9AM, 10AM, 11AM, 12PM, 1PM, 2PM, 3PM, 4PM, 5PM, 6PM, 7PM, 8PM, 9PM, 10PM, 11PM"
-                                datavalue="bind:Variables.worktimepreference.dataSet.endHour"></wm-select>
-                            <wm-select name="endMinuteSelect" dataset="00, 15, 30, 45"
-                                datavalue="bind:Variables.worktimepreference.dataSet.endMinute"></wm-select>
+                                datavalue="12AM"></wm-select>
+                            <wm-select name="endMinuteSelect" dataset="00, 15, 30, 45" datavalue="00"></wm-select>
                         </wm-container>
                         <wm-container name="addBtnRow"
                             class="container-white-container-no-border-radius justify-content-center pb-2"

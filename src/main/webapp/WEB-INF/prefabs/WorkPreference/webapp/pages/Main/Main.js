@@ -739,8 +739,16 @@ Prefab.addPreferenceBtnClick = function () {
     const beginAbsolute =
         beginHourIdx * 4 + beginSlotIdx;
 
-    const endAbsolute =
+    let endAbsolute =
         endHourIdx * 4 + endSlotIdx;
+    /* =====================================
+HANDLE SAME START & END TIME
+Example: 3:00AM → 3:00AM means till midnight
+===================================== */
+
+    if (beginAbsolute === endAbsolute) {
+        endAbsolute = 96;
+    }
 
     if (beginAbsolute > endAbsolute) {
 
@@ -778,15 +786,7 @@ Prefab.addPreferenceBtnClick = function () {
 
     Prefab._triggerOnChange();
 
-    /* =====================================
-       RESET FORM
-    ===================================== */
-    Prefab.Widgets.preferenceTypeRadio.datavalue = "";
-    Prefab.Widgets.weekDayRow.datavalue = "";
-    Prefab.Widgets.beginHourSelect.datavalue = "";
-    Prefab.Widgets.beginMinuteSelect.datavalue = "";
-    Prefab.Widgets.endHourSelect.datavalue = "";
-    Prefab.Widgets.endMinuteSelect.datavalue = "";
+
 };
 
 
@@ -848,4 +848,13 @@ Prefab.highlightEditedDayLabels = function () {
             labelWidget.$element[0].style.color = "white";
         }
     });
+};
+Prefab.preferenceTypeRadioChange = function ($event, widget, newVal, oldVal) {
+    if (!newVal) return;
+
+    const prefChar = RADIO_LABEL_TO_PREF[newVal];
+
+    if (!prefChar) return;
+
+    Prefab._dragSelectedPreference = prefChar;
 };
