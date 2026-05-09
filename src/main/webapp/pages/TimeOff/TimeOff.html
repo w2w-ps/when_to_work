@@ -239,8 +239,7 @@
                                     type="string" showineditmode="false" readonly="true" widget-type="custom">
                                     <wm-container name="container_endDateTime" class="app-container-default"
                                         direction="column" gap="2" alignment="top-left" width="hug" height="hug">
-                                        <wm-label name="lbl_endDateTime"
-                                            caption="bind:row.startTime ? row.endDateTimes : (row.endDateTimes | toDate:'MMM dd, yyyy')">
+                                        <wm-label name="lbl_endDateTime" caption="bind:row.endDateTimes">
                                         </wm-label>
                                         <wm-label name="lbl_repeatSummary" caption="bind:row.repeatSummary"
                                             show="bind:!!row.repeatSummary"></wm-label>

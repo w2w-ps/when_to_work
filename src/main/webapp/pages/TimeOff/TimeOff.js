@@ -131,7 +131,6 @@ Page.svTimeOffRequestsonError = function (variable, data) {
 };
 
 Page.showCancelButton = function (row) {
-    debugger;
     const requests = Page.Variables.svTimeOffRequests.dataSet.timeOffRequests;
     if (!requests || !Array.isArray(requests)) {
         return false;
