@@ -1,0 +1,76 @@
+{
+  "basePath" : "${rest.getShiftColors.basepath}",
+  "paths" : {
+    "/scheduling/shift-colors" : {
+      "x-WM-BASE_PATH" : "/scheduling/shift-colors",
+      "x-WM-TAG" : "getShiftColors",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "getShiftColors_invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "x-WM-IS_LIST" : true,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+              }
+            },
+            "description" : "Success"
+          }
+        },
+        "tags" : [ "getShiftColors" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.getShiftColors.scheme}://${rest.getShiftColors.host}${rest.getShiftColors.basepath}/scheduling/shift-colors"
+    }
+  },
+  "host" : "${rest.getShiftColors.host}",
+  "schemes" : [ "${rest.getShiftColors.scheme}" ],
+  "definitions" : {
+    "Response.RootResponseROOTEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getShiftColors.Response.RootResponseROOTEntryItem",
+      "x-WM-TAGS" : [ "getShiftColors" ],
+      "required" : [ "color", "id" ],
+      "properties" : {
+        "color" : {
+          "type" : "string"
+        },
+        "id" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getShiftColors.RootResponse",
+      "x-WM-TAGS" : [ "getShiftColors" ],
+      "required" : [ "RootResponseROOT" ],
+      "properties" : {
+        "RootResponseROOT" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Response.RootResponseROOTEntryItem"
+          }
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : true,
+    "x-WM-USE_PROXY_FOR_MOBILE" : true,
+    "x-WM-API_ID" : "1bda1aa4-1c00-4430-af9d-cedc2335e5ba",
+    "x-WM-SERVICE_ID" : "onwavemaker",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
+  },
+  "tags" : [ {
+    "name" : "getShiftColors"
+  } ]
+}

@@ -53,3 +53,32 @@
     margin-left: 25px;
     justify-content: start !important;
 }
+
+.form-black-border-select {
+    border-radius: 4px !important;
+}
+
+.Mui-focused .form-black-border-select {
+    border: 2px solid var(--wm-color-black);
+}
+
+
+.purple.fa-diamond {
+    background-color: #A055CD;
+}
+
+.blue.fa-diamond {
+    background-color: #10A8D8;
+}
+
+.orange.fa-diamond {
+    background-color: #F5AC3E;
+}
+
+.red.fa-diamond {
+    background-color: #FB5007;
+}
+
+.green.fa-diamond {
+    background-color: #3AC037;
+}

@@ -1,12 +1,10 @@
 {
-  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/categories",
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/shift-colors",
   "method" : "GET",
   "headers" : { },
   "redirectEnabled" : true,
   "requestBody" : "",
-  "queryParams" : {
-    "companyId" : "1"
-  },
+  "queryParams" : { },
   "authDetails" : null,
   "contentType" : "application/json",
   "multiParamInfoList" : [ ],
@@ -14,9 +12,9 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Thu, 07 May 2026 05:04:40 GMT" ],
+      "Date" : [ "Mon, 04 May 2026 09:07:10 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Transfer-Encoding" : [ "chunked" ],
+      "Content-Length" : [ "438" ],
       "Connection" : [ "keep-alive" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "X-XSS-Protection" : [ "0" ],
@@ -26,7 +24,7 @@
       "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
       "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"categories\":[{\"categoryId\":1,\"description\":\"Morning Shift\",\"shortDesc\":\"MORN\",\"startTime\":\"08:00\",\"endTime\":\"17:00\",\"positionId\":null,\"color\":null}]}",
+    "responseBody" : "[{\"id\":0,\"color\":\"black\"}]",
     "convertedResponse" : null
   }
 }

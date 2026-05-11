@@ -71,7 +71,7 @@
       "children" : [ ]
     }, {
       "caption" : "SCHEDULES",
-      "hyperlink" : "#/EmpView",
+      "hyperlink" : "#/EmployeeView",
       "children" : [ {
         "caption" : "By Employee (Drag/Drop)",
         "hyperlink" : "",
@@ -300,10 +300,10 @@
       } ]
     }, {
       "caption" : "SETTINGS",
-      "hyperlink" : "",
+      "hyperlink" : "#/mgradminsettings",
       "children" : [ {
         "caption" : "Company / My Info & Upload Logo",
-        "hyperlink" : ""
+        "hyperlink" : "#/mgradminsettings"
       }, {
         "caption" : "My Notifications Email/Text",
         "hyperlink" : ""
@@ -312,7 +312,7 @@
         "hyperlink" : ""
       }, {
         "caption" : "Add/Edit MANAGERS",
-        "hyperlink" : ""
+        "hyperlink" : "#/mgradminsettings?wm_state=('ws'~('tabs1'~'Managers'))"
       }, {
         "caption" : "Payments - Pricing - Billing",
         "hyperlink" : ""
