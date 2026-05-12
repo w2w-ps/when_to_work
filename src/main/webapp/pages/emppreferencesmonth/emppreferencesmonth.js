@@ -1,8 +1,3 @@
-/*
- * Use App.getDependency for Dependency Injection
- * eg: var DialogService = App.getDependency('DialogService');
- */
-
 Page.prefClassMap = {
     'P': 'pref-prefer-working',
     'D': 'pref-dislike-working',
@@ -19,10 +14,7 @@ Page.syncCalendarToMonth = function (year, month) {
     const cal = Page.Widgets.calPreferences;
     if (!cal) { return; }
 
-    // Build ISO date strings for the target month boundaries.
-    // Use UTC-safe string construction to avoid timezone-related day shifts.
     const mm = String(month + 1).padStart(2, '0');
-    //var mmNext = String(month + 2).padStart(2, '00');
     let nextYear = year;
     let nextMonth = month + 1;
     if (nextMonth > 11) {
@@ -32,63 +24,92 @@ Page.syncCalendarToMonth = function (year, month) {
     const startStr = year + '-' + mm + '-01';
     const endStr = nextYear + '-' + String(nextMonth + 1).padStart(2, '00') + '-01';
 
-    // Suppress the viewrender handler while we programmatically change the view
-    // so it cannot trigger a recursive re-render that blanks the calendar.
     Page._suppressViewrender = true;
 
     cal.applyCalendarOptions('option', 'validRange', { start: startStr, end: endStr });
     cal.applyCalendarOptions('option', 'fixedWeekCount', false);
     cal.applyCalendarOptions('option', 'dayHeaderFormat', { weekday: 'long' });
-
-    // gotoDate is a direct method on the WaveMaker calendar widget.
-    // It navigates the FullCalendar view to the first day of the target month.
     cal.gotoDate(new Date(year, month, 1));
 
-    // Re-enable viewrender after the current call stack clears.
     setTimeout(function () {
         Page._suppressViewrender = false;
         Page.renderPreferencesOnCalendar();
         Page.renderSpecificDatesOnCalendar();
+        Page.renderDayPrefsHighlights();
+        Page.fetchPreferenceRange(year, month);
     }, 200);
 };
 
-/* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    Page.selectedPreference = null;
+    Page.selectedPreference = 'P';
     Page.prefClassMap = {
         'P': 'pref-prefer-working',
         'D': 'pref-dislike-working',
         'C': 'pref-cannot-work'
     };
 
-    // Drag state
     Page.isDragging = false;
     Page.draggedDates = [];
-
-    // Suppress flag — prevents viewrender from re-applying options
-    // while syncCalendarToMonth is programmatically driving navigation.
     Page._suppressViewrender = false;
-
-    // Plain JS array replacing mvPreferenceDates Model Variable
+    Page._lastDayPrefsData = [];
     Page.preferenceDates = [];
 
-    // Initialize calendar to the current month.
-    // The monthlyView partial also starts on the current month and will call
-    // syncCalendarToMonth again from its own onReady once the partial is loaded.
     const now = new Date();
     Page.syncCalendarToMonth(now.getFullYear(), now.getMonth());
 
-    // Attach drag listeners after calendar DOM is ready
     setTimeout(function () {
         Page.attachCalendarDragListeners();
         Page.renderSpecificDatesOnCalendar();
     }, 600);
 };
 
-/**
- * Reads stDateSpecific dataSet (dates in DD-MM-YYYY format) and applies
- * the pref-specific-date CSS class to matching FullCalendar day cells.
- */
+Page.fetchPreferenceRange = function (year, month) {
+    debugger;
+    const mm = String(month + 1).padStart(2, '0');
+    const startDate = year + '-' + mm + '-01';
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    const endDate = year + '-' + mm + '-' + String(lastDay).padStart(2, '0');
+
+    Page.Variables.svGetPreferenceRange.invoke({
+        inputFields: {
+            startDate: startDate,
+            endDate: endDate,
+            companyId: '1',
+            employeeId: '1'
+        }
+    });
+};
+
+Page.svGetPreferenceRangeonSuccess = function (variable, data, options) {
+    debugger;
+    Page._lastDayPrefsData = Array.isArray(data) ? data : [];
+    // Delay to ensure calendar DOM cells are fully painted before applying highlights
+    setTimeout(function () {
+        Page.renderDayPrefsHighlights();
+    }, 300);
+};
+
+Page.renderDayPrefsHighlights = function () {
+    debugger;
+    const calWidget = Page.Widgets.calPreferences;
+    if (!calWidget) { return; }
+    const calEl = calWidget.nativeElement;
+    if (!calEl) { return; }
+
+    calEl.querySelectorAll('[data-date]').forEach(function (cell) {
+        cell.classList.remove('pref-day-prefs-highlight');
+    });
+
+    const data = Page._lastDayPrefsData || [];
+    data.forEach(function (entry) {
+        if (!entry || !entry.date || !entry.isDayPrefs) { return; }
+        const cell = calEl.querySelector('[data-date="' + entry.date + '"]');
+        if (cell) {
+            cell.classList.add('pref-day-prefs-highlight');
+        }
+    });
+};
+
 Page.renderSpecificDatesOnCalendar = function () {
     const calWidget = Page.Widgets.calPreferences;
     if (!calWidget) { return; }
@@ -96,7 +117,6 @@ Page.renderSpecificDatesOnCalendar = function () {
     if (!calEl) { return; }
 
     const specificDates = Page.Variables.stDateSpecific.dataSet || [];
-
     const prefData = Page.preferenceDates || [];
     const claimedDates = {};
     prefData.forEach(function (p) {
@@ -114,9 +134,7 @@ Page.renderSpecificDatesOnCalendar = function () {
         const parts = entry.date.split('-');
         if (parts.length !== 3) { return; }
         const isoDate = parts[2] + '-' + parts[1] + '-' + parts[0];
-
         if (claimedDates[isoDate]) { return; }
-
         const cell = calEl.querySelector('[data-date="' + isoDate + '"]');
         if (cell) {
             cell.classList.add('pref-specific-date');
@@ -124,24 +142,16 @@ Page.renderSpecificDatesOnCalendar = function () {
     });
 };
 
-/**
- * Called by FullCalendar when the view re-renders (e.g. internal navigation).
- * Guarded by Page._suppressViewrender so it is a no-op while
- * syncCalendarToMonth is programmatically driving navigation — this prevents
- * the recursive re-render loop that was blanking the calendar.
- */
 Page.calPreferencesViewrender = function ($view) {
     if (Page._suppressViewrender) { return; }
 
     setTimeout(function () {
         Page.renderPreferencesOnCalendar();
         Page.renderSpecificDatesOnCalendar();
+        Page.renderDayPrefsHighlights();
     }, 100);
 };
 
-/**
- * Updates the visual highlight on preference selector containers.
- */
 Page.updatePreferenceHighlight = function (activeContainerName) {
     const containers = ['containerPreferWorking', 'containerDislikeWorking', 'containerCannotWork', 'containerClear'];
     containers.forEach(function (name) {
@@ -175,9 +185,6 @@ Page.btnClearClick = function ($event, widget) {
     Page.updatePreferenceHighlight('containerClear');
 };
 
-/**
- * Reads preferenceDates and applies className to matching FullCalendar day cells.
- */
 Page.renderPreferencesOnCalendar = function () {
     const calWidget = Page.Widgets.calPreferences;
     if (!calWidget) { return; }
@@ -204,24 +211,21 @@ Page.renderPreferencesOnCalendar = function () {
     });
 
     Page.renderSpecificDatesOnCalendar();
+    // Always re-apply isDayPrefs highlights last so they are never lost
+    Page.renderDayPrefsHighlights();
 };
 
-/**
- * Updates preferenceDates in memory for a given dateStr.
- * Fix 1: Removed early-return guard for null so Clear mode can remove entries.
- */
 Page.applyPreferenceToDate = function (dateStr) {
     const prefs = Page.selectedPreference;
     const prefData = _.cloneDeep(Page.preferenceDates) || [];
     const existing = _.findIndex(prefData, function (p) { return p.date === dateStr; });
 
     if (prefs === null || prefs === '') {
-        // Clear mode: remove the preference entry for this date
         if (existing > -1) {
             prefData.splice(existing, 1);
         }
     } else {
-        var className = Page.prefClassMap[prefs] || '';
+        const className = Page.prefClassMap[prefs] || '';
         const newEntry = {
             date: dateStr,
             prefs: prefs,
@@ -243,12 +247,9 @@ Page.applyPreferenceToDate = function (dateStr) {
     Page.renderPreferencesOnCalendar();
 };
 
-/**
- * Invokes the batch API update with the current full preference list.
- */
 Page.flushPreferenceUpdate = function () {
     const prefData = Page.preferenceDates || [];
-    var apiPrefs = prefData.map(function (p) {
+    const apiPrefs = prefData.map(function (p) {
         return {
             date: p.date,
             companyId: p.companyId,
@@ -264,10 +265,6 @@ Page.flushPreferenceUpdate = function () {
     Page.Variables.svDayPreferenceListUpdate.invoke();
 };
 
-/**
- * Attaches mousedown / mouseover listeners to FullCalendar day cells
- * for drag-paint behaviour.
- */
 Page.attachCalendarDragListeners = function () {
     const calWidget = Page.Widgets.calPreferences;
     if (!calWidget) { return; }
@@ -278,7 +275,7 @@ Page.attachCalendarDragListeners = function () {
     function getDateStr(target) {
         let el = target;
         while (el && el !== calEl) {
-            var d = el.getAttribute('data-date');
+            const d = el.getAttribute('data-date');
             if (d) { return d; }
             el = el.parentElement;
         }
@@ -327,9 +324,9 @@ Page.attachCalendarDragListeners = function () {
     if (Page._wmCalMutationObserver) {
         Page._wmCalMutationObserver.disconnect();
     }
-    var fcBody = calEl.querySelector('.fc-view-harness') || calEl;
-    var observer = new MutationObserver(function (mutations) {
-        var hasNewCells = mutations.some(function (m) {
+    const fcBody = calEl.querySelector('.fc-view-harness') || calEl;
+    const observer = new MutationObserver(function (mutations) {
+        const hasNewCells = mutations.some(function (m) {
             return Array.from(m.addedNodes).some(function (n) {
                 return n.nodeType === 1 && (n.classList.contains('fc-day') || (n.querySelector && n.querySelector('.fc-day')));
             });
@@ -344,6 +341,7 @@ Page.attachCalendarDragListeners = function () {
 
             Page.renderPreferencesOnCalendar();
             Page.renderSpecificDatesOnCalendar();
+            Page.renderDayPrefsHighlights();
         }
     });
     observer.observe(fcBody, { childList: true, subtree: true });
@@ -351,19 +349,16 @@ Page.attachCalendarDragListeners = function () {
 };
 
 Page.calendarDateClick = function ($dateInfo) {
-    var clickedDate = new Date($dateInfo.date || $dateInfo.dateStr);
+    const clickedDate = new Date($dateInfo.date || $dateInfo.dateStr);
     const calEl = Page.Widgets.calPreferences;
     const currentView = calEl.getCalendar ? calEl.getCalendar().view : null;
-    var viewMonth = currentView ? new Date(currentView.currentStart).getMonth() : new Date().getMonth();
-    var viewYear = currentView ? new Date(currentView.currentStart).getFullYear() : new Date().getFullYear();
+    const viewMonth = currentView ? new Date(currentView.currentStart).getMonth() : new Date().getMonth();
+    const viewYear = currentView ? new Date(currentView.currentStart).getFullYear() : new Date().getFullYear();
     if (clickedDate.getMonth() !== viewMonth || clickedDate.getFullYear() !== viewYear) {
         return;
     }
 
-    // Fix 2: Removed guard `if (Page.selectedPreference === null) { return; }`
-    // so that clicking in Clear mode triggers applyPreferenceToDate (which handles removal).
-
-    var date = new Date($dateInfo);
+    const date = new Date($dateInfo);
     const yyyy = date.getFullYear();
     const mm = String(date.getMonth() + 1).padStart(2, '0');
     const dd = String(date.getDate()).padStart(2, '0');

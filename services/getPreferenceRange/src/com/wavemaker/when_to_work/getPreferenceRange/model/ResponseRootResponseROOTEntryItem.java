@@ -25,20 +25,11 @@ public class ResponseRootResponseROOTEntryItem {
   @JsonProperty("date")
   private String date = null;
 
-  @JsonProperty("companyId")
-  private Integer companyId = null;
-
-  @JsonProperty("editedBy")
-  private Integer editedBy = null;
-
-  @JsonProperty("employeeId")
-  private Integer employeeId = null;
-
-  @JsonProperty("compression")
-  private Integer compression = null;
-
   @JsonProperty("day")
   private String day = null;
+
+  @JsonProperty("isDayPrefs")
+  private Boolean isDayPrefs = null;
 
   @JsonProperty("prefs")
   private String prefs = null;
@@ -60,74 +51,6 @@ public class ResponseRootResponseROOTEntryItem {
     this.date = date;
   }
 
-  public ResponseRootResponseROOTEntryItem companyId(Integer companyId) {
-    this.companyId = companyId;
-    return this;
-  }
-
-   /**
-   * Get companyId
-   * @return companyId
-  **/
-  public Integer getCompanyId() {
-    return companyId;
-  }
-
-  public void setCompanyId(Integer companyId) {
-    this.companyId = companyId;
-  }
-
-  public ResponseRootResponseROOTEntryItem editedBy(Integer editedBy) {
-    this.editedBy = editedBy;
-    return this;
-  }
-
-   /**
-   * Get editedBy
-   * @return editedBy
-  **/
-  public Integer getEditedBy() {
-    return editedBy;
-  }
-
-  public void setEditedBy(Integer editedBy) {
-    this.editedBy = editedBy;
-  }
-
-  public ResponseRootResponseROOTEntryItem employeeId(Integer employeeId) {
-    this.employeeId = employeeId;
-    return this;
-  }
-
-   /**
-   * Get employeeId
-   * @return employeeId
-  **/
-  public Integer getEmployeeId() {
-    return employeeId;
-  }
-
-  public void setEmployeeId(Integer employeeId) {
-    this.employeeId = employeeId;
-  }
-
-  public ResponseRootResponseROOTEntryItem compression(Integer compression) {
-    this.compression = compression;
-    return this;
-  }
-
-   /**
-   * Get compression
-   * @return compression
-  **/
-  public Integer getCompression() {
-    return compression;
-  }
-
-  public void setCompression(Integer compression) {
-    this.compression = compression;
-  }
-
   public ResponseRootResponseROOTEntryItem day(String day) {
     this.day = day;
     return this;
@@ -143,6 +66,23 @@ public class ResponseRootResponseROOTEntryItem {
 
   public void setDay(String day) {
     this.day = day;
+  }
+
+  public ResponseRootResponseROOTEntryItem isDayPrefs(Boolean isDayPrefs) {
+    this.isDayPrefs = isDayPrefs;
+    return this;
+  }
+
+   /**
+   * Get isDayPrefs
+   * @return isDayPrefs
+  **/
+  public Boolean isIsDayPrefs() {
+    return isDayPrefs;
+  }
+
+  public void setIsDayPrefs(Boolean isDayPrefs) {
+    this.isDayPrefs = isDayPrefs;
   }
 
   public ResponseRootResponseROOTEntryItem prefs(String prefs) {
@@ -173,17 +113,14 @@ public class ResponseRootResponseROOTEntryItem {
     }
     ResponseRootResponseROOTEntryItem Response_RootResponseROOTEntryItem = (ResponseRootResponseROOTEntryItem) o;
     return Objects.equals(this.date, Response_RootResponseROOTEntryItem.date) &&
-        Objects.equals(this.companyId, Response_RootResponseROOTEntryItem.companyId) &&
-        Objects.equals(this.editedBy, Response_RootResponseROOTEntryItem.editedBy) &&
-        Objects.equals(this.employeeId, Response_RootResponseROOTEntryItem.employeeId) &&
-        Objects.equals(this.compression, Response_RootResponseROOTEntryItem.compression) &&
         Objects.equals(this.day, Response_RootResponseROOTEntryItem.day) &&
+        Objects.equals(this.isDayPrefs, Response_RootResponseROOTEntryItem.isDayPrefs) &&
         Objects.equals(this.prefs, Response_RootResponseROOTEntryItem.prefs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, companyId, editedBy, employeeId, compression, day, prefs);
+    return Objects.hash(date, day, isDayPrefs, prefs);
   }
 
 
@@ -193,11 +130,8 @@ public class ResponseRootResponseROOTEntryItem {
     sb.append("class ResponseRootResponseROOTEntryItem {\n");
     
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
-    sb.append("    editedBy: ").append(toIndentedString(editedBy)).append("\n");
-    sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
-    sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    day: ").append(toIndentedString(day)).append("\n");
+    sb.append("    isDayPrefs: ").append(toIndentedString(isDayPrefs)).append("\n");
     sb.append("    prefs: ").append(toIndentedString(prefs)).append("\n");
     sb.append("}");
     return sb.toString();

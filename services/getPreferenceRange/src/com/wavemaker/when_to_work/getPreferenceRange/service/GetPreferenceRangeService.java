@@ -17,7 +17,6 @@ public interface GetPreferenceRangeService {
   /**
    * 
    * 
-    * @param ngrok_skip_browser_warning ngrok-skip-browser-warning (optional)
     * @param companyId companyId (optional)
     * @param endDate endDate (optional)
     * @param employeeId employeeId (optional)
@@ -26,9 +25,8 @@ public interface GetPreferenceRangeService {
    */
   @RequestLine("GET /preferences/day/range?companyId={companyId}&endDate={endDate}&employeeId={employeeId}&startDate={startDate}")
   @Headers({
-    "Accept: application/json",
-    "ngrok-skip-browser-warning: {ngrok_skip_browser_warning}"  })
-  List<ResponseRootResponseROOTEntryItem> invoke(@Param("ngrok_skip_browser_warning") String ngrok_skip_browser_warning, @Param("companyId") String companyId, @Param("endDate") String endDate, @Param("employeeId") String employeeId, @Param("startDate") String startDate);
+    "Accept: application/json",  })
+  List<ResponseRootResponseROOTEntryItem> invoke(@Param("companyId") String companyId, @Param("endDate") String endDate, @Param("employeeId") String employeeId, @Param("startDate") String startDate);
 
 
     /**
@@ -39,7 +37,6 @@ public interface GetPreferenceRangeService {
      * is convenient for services with optional query parameters, especially when
      * used with the {@link InvokeQueryParams} class that allows for
      * building up this map in a fluent style.
-     * @param ngrok_skip_browser_warning ngrok-skip-browser-warning (optional)
      * @param queryParams Map of query parameters as name-value pairs
      *   <p>The following elements may be specified in the query map:</p>
      *   <ul>
@@ -52,10 +49,9 @@ public interface GetPreferenceRangeService {
      */
     @RequestLine("GET /preferences/day/range?companyId={companyId}&endDate={endDate}&employeeId={employeeId}&startDate={startDate}")
     @Headers({
-    "Accept: application/json",
-        "ngrok-skip-browser-warning: {ngrok_skip_browser_warning}"    })
+    "Accept: application/json",    })
     List<ResponseRootResponseROOTEntryItem> invoke
-    (@Param("ngrok_skip_browser_warning") String ngrok_skip_browser_warning, @QueryMap(encoded=true)
+    (@QueryMap(encoded=true)
     MultiValueMap<String, String> queryParams);
 
 }

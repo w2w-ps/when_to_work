@@ -4,12 +4,12 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "e851a6ef-258f-4b34-a163-7875ff593156",
-    "x-WM-SERVICE_ID" : "restService",
+    "x-WM-API_ID" : "a8f6764a-2d4e-46cf-88df-584dbfb87c08",
+    "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
   },
-  "host" : "uranylic-irritably-brittanie.ngrok-free.dev",
+  "host" : "when-to-work-backend.onwavemaker.com",
   "basePath" : "/api",
   "tags" : [ {
     "name" : "getPreferenceRange"
@@ -23,20 +23,6 @@
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "ngrok-skip-browser-warning",
-          "in" : "header",
-          "description" : "ngrok-skip-browser-warning",
-          "required" : false,
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "format" : "boolean",
-          "x-WM-VARIABLE_KEY" : "",
-          "x-WM-EDITABLE" : false,
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
           "name" : "companyId",
           "in" : "query",
           "description" : "companyId",
@@ -100,29 +86,16 @@
   },
   "definitions" : {
     "Response.RootResponseROOTEntryItem" : {
-      "required" : [ "companyId", "compression", "date", "day", "editedBy", "employeeId", "prefs" ],
+      "required" : [ "date", "day", "isDayPrefs", "prefs" ],
       "properties" : {
         "date" : {
           "type" : "string"
         },
-        "companyId" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "editedBy" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "employeeId" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "compression" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
         "day" : {
           "type" : "string"
+        },
+        "isDayPrefs" : {
+          "type" : "boolean"
         },
         "prefs" : {
           "type" : "string"

@@ -1,9 +1,7 @@
 {
-  "endpointAddress" : "https://uranylic-irritably-brittanie.ngrok-free.dev/api/preferences/day/range",
+  "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/preferences/day/range",
   "method" : "GET",
-  "headers" : {
-    "ngrok-skip-browser-warning" : [ "true" ]
-  },
+  "headers" : { },
   "redirectEnabled" : true,
   "requestBody" : "",
   "queryParams" : {
@@ -19,17 +17,19 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Date" : [ "Mon, 11 May 2026 21:55:45 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Date" : [ "Mon, 06 Apr 2026 05:50:36 GMT" ],
-      "Expires" : [ "0" ],
-      "Pragma" : [ "no-cache" ],
+      "Transfer-Encoding" : [ "chunked" ],
+      "Connection" : [ "keep-alive" ],
       "X-Content-Type-Options" : [ "nosniff" ],
-      "X-Frame-Options" : [ "DENY" ],
-      "X-Xss-Protection" : [ "0" ],
-      "Transfer-Encoding" : [ "chunked" ]
+      "X-XSS-Protection" : [ "0" ],
+      "Cache-Control" : [ "no-cache, no-store, max-age=0, must-revalidate" ],
+      "Pragma" : [ "no-cache" ],
+      "Expires" : [ "0" ],
+      "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
+      "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "[{\"companyId\":1,\"compression\":0,\"date\":\"2026-04-06\",\"day\":\"Monday\",\"editedBy\":1,\"employeeId\":1,\"prefs\":\"DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC\"}]",
+    "responseBody" : "[{\"date\":\"2026-04-06\",\"prefs\":\"DDDDDDDDDDDDDDDDDDDDPPPPPPPPDDDPPPPPPDDDDPPPPPPPPPPPPPPCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCNNNNN\",\"day\":\"Monday\",\"isDayPrefs\":false}]",
     "convertedResponse" : null
   }
 }
