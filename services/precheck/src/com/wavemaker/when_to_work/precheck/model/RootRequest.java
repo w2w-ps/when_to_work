@@ -23,11 +23,31 @@ import com.wavemaker.when_to_work.precheck.model.RequestShift;
  */
 
 public class RootRequest {
+  @JsonProperty("companyId")
+  private Integer companyId = null;
+
   @JsonProperty("shift")
   private RequestShift shift = null;
 
   @JsonProperty("operationType")
   private String operationType = null;
+
+  public RootRequest companyId(Integer companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+   /**
+   * Get companyId
+   * @return companyId
+  **/
+  public Integer getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(Integer companyId) {
+    this.companyId = companyId;
+  }
 
   public RootRequest shift(RequestShift shift) {
     this.shift = shift;
@@ -73,13 +93,14 @@ public class RootRequest {
       return false;
     }
     RootRequest RootRequest = (RootRequest) o;
-    return Objects.equals(this.shift, RootRequest.shift) &&
+    return Objects.equals(this.companyId, RootRequest.companyId) &&
+        Objects.equals(this.shift, RootRequest.shift) &&
         Objects.equals(this.operationType, RootRequest.operationType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shift, operationType);
+    return Objects.hash(companyId, shift, operationType);
   }
 
 
@@ -88,6 +109,7 @@ public class RootRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RootRequest {\n");
     
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    shift: ").append(toIndentedString(shift)).append("\n");
     sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("}");

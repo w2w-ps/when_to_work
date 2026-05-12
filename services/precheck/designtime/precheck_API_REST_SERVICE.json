@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "115c8e73-d6bd-4294-8021-d90183248041",
+    "x-WM-API_ID" : "ec977683-a0a3-4c3d-b1ff-3ecfe5e28766",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -23,6 +23,20 @@
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "Authorization",
+          "in" : "header",
+          "description" : "Authorization",
+          "required" : false,
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
           "in" : "body",
           "name" : "RequestBody",
           "description" : "RequestBody",
@@ -51,17 +65,22 @@
   },
   "definitions" : {
     "Request.shift" : {
-      "required" : [ "category", "color", "date", "description", "duration", "employeeId", "endTime", "position", "startTime" ],
+      "required" : [ "category", "color", "date", "description", "duration", "employeeId", "endTime", "position", "shiftId", "startTime" ],
       "properties" : {
         "date" : {
           "type" : "string"
         },
         "duration" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "shiftId" : {
           "type" : "integer",
           "format" : "int32"
         },
         "color" : {
-          "type" : "string"
+          "type" : "integer",
+          "format" : "int32"
         },
         "description" : {
           "type" : "string"
@@ -89,8 +108,12 @@
       "x-WM-TAGS" : [ "precheck" ]
     },
     "RootRequest" : {
-      "required" : [ "operationType", "shift" ],
+      "required" : [ "companyId", "operationType", "shift" ],
       "properties" : {
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
         "shift" : {
           "$ref" : "#/definitions/Request.shift"
         },

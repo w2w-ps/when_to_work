@@ -34,7 +34,7 @@
     }, {
       "label" : "No Status",
       "value" : "none",
-      "iconclass" : "fa fa-diamond"
+      "iconclass" : ""
     }, {
       "label" : "Full Time",
       "value" : "Full Time",

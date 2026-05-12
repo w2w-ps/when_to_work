@@ -1,4 +1,4 @@
-/*
+1/*
  * Use App.getDependency for Dependency Injection
  * eg: var DialogService = App.getDependency('DialogService');
  */
@@ -44,6 +44,15 @@ Prefab.onReady = function () {
     // this method will be triggered post initialization of the prefab.
     Prefab.initializeCurrentWeek();
     Prefab.updateWeekNavigationButtonCaptions();
+
+    document.addEventListener("click", function (event) {
+
+        const clickedInsideContainer = event.target.closest(".weekPickerCalendar");
+        const clickedOpenButton = event.target.closest(".container-calendar");
+        if (!clickedInsideContainer && !clickedOpenButton) {
+            Prefab.Widgets.weekPickerCalendar.show = false;
+        }
+    });
 
 };
 

@@ -1,9 +1,11 @@
 {
   "endpointAddress" : "https://when-to-work-backend.onwavemaker.com/api/scheduling/validation/precheck",
   "method" : "POST",
-  "headers" : { },
+  "headers" : {
+    "Authorization" : [ "Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJNYW5hZ2VyIiwiaWF0IjoxNzc4NTA2Mzc5LCJleHAiOjE3Nzg1MDgxNzl9.RcfGjWsE4S8MK-QXmb4RWw2UkATEkpA9LVD-YjFd2pV5pb4lBmH6qm42BKjqGZfhxvgl2rQAsCqHOGS3ciXF3cjczJdewefZTHE8_f1BnipvkhHUcRKyqcffn4PTLa5Q_RBnET2qQf2LNBFgPVl3eHK5l9Qz6xRDyqpnlLi8pffH_jilXQ6Z326YjCbZZ6wBjzv0bN0qa31op2pjCURQQnw4xcsRZ7ZTTXzDl-y81ulLAPtm1o9ltgeApbnnYP6KMS2BYPjIa2KnD1WfZmtjL7dgeJLwA5YTHVyX7ehmpOU5wihren4Z0nKrJOUTBqy-rczZxewP6JATMYKWu-QUmg" ]
+  },
   "redirectEnabled" : true,
-  "requestBody" : "{\n  \"operationType\": \"CREATE\",\n  \"shift\": {\n    \"employeeId\": 1,\n    \"date\": \"2026-03-31\",\n    \"description\": \"Validation check\",\n    \"startTime\": \"09:00AM\",\n    \"endTime\": \"05:00PM\",\n    \"position\": 1,\n    \"category\": 1,\n    \"color\": \"amber\",\n    \"duration\": 8\n  }\n}",
+  "requestBody" : "{\n\"companyId\": 1,\n  \"operationType\": \"UPDATE\",\n  \"shift\": {\n    \"shiftId\": 528,\n    \"employeeId\": 34,\n    \"description\": \"Update current shift without self-conflict\",\n    \"startTime\": \"8:00AM\",\n    \"endTime\": \"5:00PM\",\n    \"position\": 1,\n    \"category\": 1,\n    \"color\": 1,\n    \"date\": \"2026-05-13\",\n    \"duration\": 8.0\n  }\n}",
   "queryParams" : { },
   "authDetails" : null,
   "contentType" : "application/json",
@@ -12,7 +14,7 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Thu, 02 Apr 2026 12:03:03 GMT" ],
+      "Date" : [ "Mon, 11 May 2026 13:34:57 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Transfer-Encoding" : [ "chunked" ],
       "Connection" : [ "keep-alive" ],
