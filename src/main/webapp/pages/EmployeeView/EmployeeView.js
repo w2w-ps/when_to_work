@@ -312,6 +312,7 @@ Page.openEditShiftDialog = function (item, dayName, dayIndex) {
     Page.selectedShiftdForIEmployee = item.shiftId;
     Page.selectedShiftItem = item;
     Page.selectedDay = dayName;
+    Page.selectedColor = item.color;
 
     let currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
     let shiftDate = moment(currentWeekStart).add(dayIndex, 'days');
@@ -531,6 +532,12 @@ Page.shiftDialogOpened = function ($event, widget) {
 
         Page.Widgets.positionField.datavalue = Page.resolvedPositionId;
         Page.Widgets.categoryField.datavalue = Page.resolvedCategoryId;
+
+        Page.Variables.svGetShiftColors.dataSet.forEach(item => {
+            if (item.color === Page.selectedColor) {
+                Page.Widgets.colorField.datavalue = item.id;
+            }
+        })
     }
 };
 
@@ -725,11 +732,11 @@ Page._executePendingDrop = function () {
             companyId: 1,
             date: payload.targetShiftDate,
             description: sourceShift.description || '',
-            startTime: sourceShift.startAt || '',
-            endTime: sourceShift.endAt || '',
+            startTime: formatToStandardTime(sourceShift.startTime) || '',
+            endTime: formatToStandardTime(sourceShift.endTime) || '',
             position: payload.resolvedPositionId,
             category: payload.resolvedCategoryId,
-            color: sourceShift.color || 'amber'
+            color: sourceShift.color
         }
     });
     Page.Variables.svUpdateShift.invoke(
@@ -766,17 +773,19 @@ Page.btnConfirmShiftYesClick = function ($event, widget) {
         // Build svchkHasConflicts request from pending drop payload
         Page.Variables.svchkHasConflicts.setInput({
             RequestBody: {
+                companyId: 1,
                 operationType: 'UPDATE',
                 shift: {
                     employeeId: payload.targetEmployeeId,
                     date: payload.targetShiftDate,
                     description: payload.sourceShift.description || '',
-                    startTime: payload.sourceShift.startAt || '',
-                    endTime: payload.sourceShift.endAt || '',
+                    startTime: formatToStandardTime(payload.sourceShift.startTime) || '',
+                    endTime: formatToStandardTime(payload.sourceShift.endTime) || '',
                     position: payload.resolvedPositionId || 1,
                     category: payload.resolvedCategoryId || 1,
-                    color: payload.sourceShift.color || 'amber',
-                    duration: 8
+                    color: payload.sourceShift.color,
+                    duration: 8,
+                    shiftId: payload.sourceShift.shiftId
                 }
             }
         });
@@ -926,6 +935,11 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
 
     // Safe deep clone of source shift
     let sourceShift = JSON.parse(JSON.stringify(sourceRaw));
+    Page.Variables.svGetShiftColors.dataSet.forEach(item => {
+        if (item.color === sourceShift.color) {
+            sourceShift.color = item.id;
+        }
+    })
 
     // Resolve common API params
     let targetEmployeeId = dataset[targetEmpIndex].employeeId;
@@ -936,17 +950,17 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
     let positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     let positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
     let positionMatch = _.find(positionsList, function (p) {
-        return p.name === sourceShift.shiftName;
+        return p.description === sourceShift.position;
     });
-    let resolvedPositionId = positionMatch ? positionMatch.id : (sourceShift.positionId || null);
+    let resolvedPositionId = positionMatch ? positionMatch.positionId : (sourceShift.positionId || null);
 
     // Resolve category ID from svGetAllCategoriesByCompanyId
     let categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     let categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
     let categoryMatch = _.find(categoriesList, function (c) {
-        return c.name === sourceShift.category;
+        return c.shortDesc === sourceShift.category;
     });
-    let resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
+    let resolvedCategoryId = categoryMatch ? categoryMatch.categoryId : null;
 
     // Capture source employee name for conflict message display
     let sourceEmployeeName = (dataset[sourceEmpIndex] && dataset[sourceEmpIndex].employeeName) || '';

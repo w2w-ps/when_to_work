@@ -19,12 +19,14 @@ public interface PrecheckService {
    * 
    * 
     * @param body RequestBody (optional)
+    * @param Authorization Authorization (optional)
    * @return RootResponse
    */
   @RequestLine("POST /scheduling/validation/precheck")
   @Headers({
     "Content-Type: application/json",
-    "Accept: application/json",  })
-  RootResponse invoke(RootRequest body);
+    "Accept: application/json",
+    "Authorization: {Authorization}"  })
+  RootResponse invoke(RootRequest body, @Param("Authorization") String Authorization);
 
 }
