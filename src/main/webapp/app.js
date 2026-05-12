@@ -79,14 +79,14 @@ App.redirectToNewtab = function (pageName) {
     const currentUrl = window.location.href;
     let popupUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/')) + "/" + pageName;
     window.open(
-  popupUrl,
-  "_blank",
-  `width=${screenWidth},height=${screenHeight}`
-);
+        popupUrl,
+        "_blank",
+        `width=${screenWidth},height=${screenHeight}`
+    );
 };
 
 App.svGetAllPositionsByCompanyIdonSuccess = function (variable, data) {
-   if(App.activePageName === 'EditDeletePosition') {
-       App.activePage.Variables.sortedPositionsList.dataSet  = data.positions.slice();
-   }
+    if (App.activePageName === 'EditDeletePosition') {
+        App.activePage.Variables.sortedPositionsList.dataSet = data.positions.slice();
+    }
 };

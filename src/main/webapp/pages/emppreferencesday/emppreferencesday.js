@@ -25,15 +25,15 @@ Page.button3Click = function ($event, widget) {
         : parseInt(Page.Widgets.select2.datavalue);
 
     let data = {
-        companyId: 1,
-        employeeId: 1,
+        companyId: App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
+        employeeId: App.Variables.loggedInUser.dataSet.id,
         date: Page.Widgets.WorkPreference2.weekpreferencedata?.[0]?.startDate
             || App.Variables.selectedpreference.dataSet?.startDate,
         prefs: Page.Widgets.WorkPreference2.weekpreferencedata?.[0]?.prefs
             || App.Variables.selectedpreference.dataSet?.prefs,
         repeatCount: repeatCount,
         compression: 0,
-        editedBy: 1,
+        editedBy: App.Variables.loggedInUser.dataSet.id,
         isDayPrefs: false
     };
 

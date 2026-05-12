@@ -49,12 +49,21 @@ Page.syncCalendarToMonth = function (year, month) {
         Page._suppressViewrender = false;
         Page.renderPreferencesOnCalendar();
         Page.renderSpecificDatesOnCalendar();
+
+        Page.Variables.svGetResolvedPreferences.invoke({
+            inputFields: {
+                startDate: startStr,
+                endDate: endStr,
+                companyId: App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
+                employeeId: App.Variables.loggedInUser.dataSet.id
+            }
+        });
     }, 200);
 };
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
-    Page.selectedPreference = null;
+    Page.selectedPreference = 'P';
     Page.prefClassMap = {
         'P': 'pref-prefer-working',
         'D': 'pref-dislike-working',
@@ -203,6 +212,8 @@ Page.renderPreferencesOnCalendar = function () {
         }
     });
 
+
+
     Page.renderSpecificDatesOnCalendar();
 };
 
@@ -211,6 +222,7 @@ Page.renderPreferencesOnCalendar = function () {
  * Fix 1: Removed early-return guard for null so Clear mode can remove entries.
  */
 Page.applyPreferenceToDate = function (dateStr) {
+    debugger;
     const prefs = Page.selectedPreference;
     const prefData = _.cloneDeep(Page.preferenceDates) || [];
     const existing = _.findIndex(prefData, function (p) { return p.date === dateStr; });
@@ -226,10 +238,10 @@ Page.applyPreferenceToDate = function (dateStr) {
             date: dateStr,
             prefs: prefs,
             className: className,
-            companyId: 1,
-            employeeId: 1,
+            companyId: App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
+            employeeId: App.Variables.loggedInUser.dataSet.id,
             compression: 0,
-            editedBy: 1,
+            editedBy: App.Variables.loggedInUser.dataSet.id,
             isDayPrefs: true
         };
         if (existing > -1) {
@@ -247,6 +259,7 @@ Page.applyPreferenceToDate = function (dateStr) {
  * Invokes the batch API update with the current full preference list.
  */
 Page.flushPreferenceUpdate = function () {
+    debugger;
     const prefData = Page.preferenceDates || [];
     var apiPrefs = prefData.map(function (p) {
         return {
@@ -261,7 +274,7 @@ Page.flushPreferenceUpdate = function () {
     });
 
     Page.Variables.svDayPreferenceListUpdate.setInput('RequestBody', JSON.stringify({ preferences: apiPrefs }));
-    Page.Variables.svDayPreferenceListUpdate.invoke();
+    //Page.Variables.svDayPreferenceListUpdate.invoke();
 };
 
 /**
@@ -351,6 +364,7 @@ Page.attachCalendarDragListeners = function () {
 };
 
 Page.calendarDateClick = function ($dateInfo) {
+    debugger;
     var clickedDate = new Date($dateInfo.date || $dateInfo.dateStr);
     const calEl = Page.Widgets.calPreferences;
     const currentView = calEl.getCalendar ? calEl.getCalendar().view : null;
@@ -371,4 +385,38 @@ Page.calendarDateClick = function ($dateInfo) {
 
     Page.applyPreferenceToDate(dateStr);
     Page.flushPreferenceUpdate();
+};
+
+Page.alertdialog1Ok = function ($event, widget) {
+    if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
+    }
+    window.close();
+};
+
+Page.svGetResolvedPreferencesonSuccess = function (variable, data) {
+    debugger;
+    const calWidget = Page.Widgets.calPreferences;
+    if (!calWidget) { return; }
+    const calEl = calWidget.nativeElement;
+    if (!calEl) { return; }
+    Page.resolvedPreferences = Array.isArray(data) ? data : [];
+    setTimeout(function () {
+        Page.resolvedPreferences.forEach(function (p) {
+            if (p.preferenceType == 'HOUR') {
+                p.className = 'hour-highlight';
+            }
+
+            if (p.preferenceType == 'DAY') {
+                p.className = Page.prefClassMap[p.prefs.charAt(0)] ? Page.prefClassMap[p.prefs.charAt(0)] : '';
+            }
+
+            const cls = p.className || Page.prefClassMap[p.prefs.charAt(0)];
+            if (!cls) { return; }
+            const cell = calEl.querySelector('[data-date="' + p.date + '"]');
+            if (cell) {
+                cell.classList.add(cls);
+            }
+        })
+    }, 300);
 };

@@ -111,3 +111,7 @@ div[name="centerNavWrapper"] {
     height: 300px !important;
     overflow: auto;
 }
+
+.hour-highlight {
+    background-color: #BFBFFF !important;
+}

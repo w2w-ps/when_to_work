@@ -25,12 +25,12 @@ Page.WorkPreference1Click = function ($event) {
 };
 
 Page.Weekview1Daterangechange = function ($event, $data) {
-
+    debugger;
     var sv = Page.Variables.GetResolvedPreferences;
     sv.invoke({
         "inputFields": {
-            "companyId": 1,
-            "employeeId": 1,
+            "companyId": App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
+            "employeeId": App.Variables.loggedInUser.dataSet.id,
             "startDate": $event.startdate,
             "endDate": $event.enddate
         }
