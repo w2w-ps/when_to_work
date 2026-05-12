@@ -71,7 +71,6 @@ function buildCombinedCategoriesDataset() {
         isHeader: false
     });
 
-    combined.push({ displayLabel: "Add/Edit Categories", isHeader: false });
     combined.push({ displayLabel: "-------------------", isHeader: false });
     combined.push({ displayLabel: "Select Group / Categories", isHeader: false });
 
