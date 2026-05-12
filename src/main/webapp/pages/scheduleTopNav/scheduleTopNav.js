@@ -147,7 +147,7 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-
+    debugger
     // Redirect to Add/Edit page
     if (newVal && newVal.id === 'addoredit') {
         App.redirectToNewtab("AddOrEditPosition");
@@ -178,6 +178,7 @@ function filterShifts() {
     // -------------------------------------------------------
     // calenderView: use client-side filter via applyCalendarFilter
     // -------------------------------------------------------
+    debugger
     if (activePage === 'calenderView') {
         if (typeof currentPage.applyCalendarFilter === 'function') {
             currentPage.applyCalendarFilter(
@@ -216,6 +217,7 @@ function filterShifts() {
 }
 
 Partial.selCategoriesChange = function ($event, widget, newVal, oldVal) {
+    debugger
     // Silently ignore separator rows and non-selectable header rows (no id or known non-filter ids)
     if (newVal && (newVal.id === '' || newVal.displayLabel === 'Add/Edit Categories' ||
         newVal.displayLabel === '-------------------' ||
