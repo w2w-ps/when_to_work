@@ -63,30 +63,27 @@ function getTodayDate() {
 
 
 Page.button4Click = function ($event, widget) {
-
-
-
     const combinedPrefs = getCombinedWeekPrefs(
         Page.Widgets.WorkPreference1.weekpreferencedata
     );
 
     let data = {
-        companyId: 1,
-        employeeId: 1,
+        companyId: App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
+        employeeId: App.Variables.loggedInUser.dataSet.id,
         startDate: getTodayDate(),
         prefs: combinedPrefs,
         compression: 0,
-        editedBy: 1,
+        editedBy: App.Variables.loggedInUser.dataSet.id,
     };
 
     Page.Variables.PostWeekPref.invoke({
         "inputFields": { RequestBody: data }
     });
 
-
-
 };
-Page.alertdialog1Ok = function ($event, widget) {
+
+
+Page.PostWeekPrefonSuccess = function (variable, data) {
     if (window.opener && !window.opener.closed) {
         window.opener.location.reload();
     }

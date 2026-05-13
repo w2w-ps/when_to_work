@@ -37,5 +37,16 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "GetResolvedPreferences"
+  },
+  "hourPreferenceIndexes" : {
+    "_id" : "wm-hourPreferenceIndexes-wm.Variable-1778644767915",
+    "name" : "hourPreferenceIndexes",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false
   }
 }

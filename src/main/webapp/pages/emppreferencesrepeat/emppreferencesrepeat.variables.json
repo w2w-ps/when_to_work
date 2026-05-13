@@ -23,7 +23,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "onSuccess" : "Widgets.alertdialog1.open()",
+    "onSuccess" : "PostWeekPrefonSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
@@ -32,21 +32,17 @@
     "controller" : "PostWeekPref"
   },
   "SvGetWeekPreferences" : {
-    "_id" : "wm-SvGetWeekPreferences-wm.ServiceVariable-1775589980506",
+    "_id" : "wm-SvGetWeekPreferences-wm.ServiceVariable-1778577956494",
     "name" : "SvGetWeekPreferences",
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "companyId",
-      "value" : "1",
+      "value" : "bind:App.Variables.loggedInUser.dataSet.userAttributes.tenantId",
       "type" : "string"
     }, {
       "target" : "employeeId",
-      "value" : "1",
-      "type" : "string"
-    }, {
-      "target" : "startDate",
-      "value" : "2026-04-06",
+      "value" : "bind:App.Variables.loggedInUser.dataSet.id",
       "type" : "string"
     } ],
     "type" : "GetWeekPreferences.RootResponse",
