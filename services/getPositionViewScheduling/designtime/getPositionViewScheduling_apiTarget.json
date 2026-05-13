@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "ddce0c85-ecd7-4772-93f1-b21c6a0c0607",
+    "x-WM-API_ID" : "b014a0a4-e844-42e7-8137-9ffd5bdbce95",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -23,26 +23,15 @@
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "Authorization",
-          "in" : "header",
-          "description" : "Authorization",
-          "required" : false,
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "format" : "string",
-          "x-WM-VARIABLE_KEY" : "",
-          "x-WM-EDITABLE" : false,
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
           "name" : "positionIds",
           "in" : "query",
           "description" : "positionIds",
           "required" : false,
           "type" : "string",
-          "x-WM-EDITABLE" : false
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
           "name" : "companyId",
           "in" : "query",
@@ -59,7 +48,10 @@
           "description" : "categoryIds",
           "required" : false,
           "type" : "string",
-          "x-WM-EDITABLE" : false
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
           "name" : "endDate",
           "in" : "query",
@@ -153,18 +145,11 @@
       "x-WM-TAGS" : [ "getPositionViewScheduling" ]
     },
     "Response.shiftsEntryItem" : {
-      "required" : [ "category", "color", "description", "duration", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
+      "required" : [ "category", "color", "description", "duration", "empTypeId", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
       "properties" : {
-        "duration" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
         "shiftId" : {
           "type" : "integer",
           "format" : "int32"
-        },
-        "firstName" : {
-          "type" : "string"
         },
         "lastName" : {
           "type" : "string"
@@ -178,7 +163,7 @@
         "phones" : {
           "type" : "array",
           "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/java.lang.Object"
           },
           "x-WM-IS_LIST" : true
         },
@@ -186,8 +171,17 @@
           "type" : "string"
         },
         "employeeId" : {
+          "type" : "string"
+        },
+        "duration" : {
           "type" : "integer",
           "format" : "int32"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "empTypeId" : {
+          "type" : "string"
         },
         "startTime" : {
           "type" : "string"
@@ -200,6 +194,10 @@
         }
       },
       "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.shiftsEntryItem",
+      "x-WM-TAGS" : [ "getPositionViewScheduling" ]
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.java.lang.Object",
       "x-WM-TAGS" : [ "getPositionViewScheduling" ]
     },
     "RootResponse" : {

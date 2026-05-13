@@ -190,16 +190,17 @@
                                             padding="10px">
                                             <wm-label name="lblMondayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="text-center label-label-bold" variant="label-bold"></wm-label>
+                                                class="text-center label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblMondayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblMondayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -229,16 +230,17 @@
                                             padding="10px">
                                             <wm-label name="lblTuesdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                                class="label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblTuesdayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblTuesdayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -268,16 +270,17 @@
                                             padding="10px">
                                             <wm-label name="lblWednesdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                                class="label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblWednesdayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblWednesdayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -307,16 +310,17 @@
                                             padding="10px">
                                             <wm-label name="lblThursdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                                class="label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblThursdayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblThursdayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -346,16 +350,17 @@
                                             padding="10px">
                                             <wm-label name="lblFridayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                                class="label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblFridayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblFridayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -385,16 +390,17 @@
                                             padding="10px">
                                             <wm-label name="lblSaturdayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                                class="label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblSaturdayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblSaturdayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
@@ -424,16 +430,17 @@
                                             padding="10px">
                                             <wm-label name="lblSundayItemTime"
                                                 caption="bind:item.startTime + ' - ' + item.endTime"
-                                                class="label-label-bold" variant="label-bold"></wm-label>
+                                                class="label-label-bold" variant="label-bold"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblSundayItemShift"
-                                                caption="bind:item.position + ((item.category &amp;&amp; item.category === 'Night Shift') ? &quot;- Night Shift&quot; : &quot;&quot; )"
+                                                caption="bind:item.position + &quot; -&quot; + item.category"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showPosition"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                             <wm-label name="lblSundayItemNotes" caption="bind:item.description"
                                                 class="label-label-normal" variant="label-normal"
-                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription">
-                                            </wm-label>
+                                                show="bind:App.Variables.employeeViewConfig.dataSet.showDescription"
+                                                conditionalstyle="bind:{'color': item.color}"></wm-label>
                                         </wm-container>
                                     </wm-listtemplate>
                                 </wm-list>
