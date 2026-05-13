@@ -183,6 +183,10 @@
                                             </wm-container>
                                         </wm-listtemplate>
                                     </wm-list>
+                                    <wm-label name="lblNoShifts" caption="( No Shifts )"
+                                        show="bind:item.shifts.length === 0 &amp;&amp; !Variables.positionViewConfig.dataSet.screenHidePositions"
+                                        class="label-label-13-400-black ps-10" variant="label-13-400-black"
+                                        padding="4px 8px"></wm-label>
                                 </wm-listtemplate>
                             </wm-list>
                         </wm-listtemplate>
