@@ -95,13 +95,13 @@
                                             <wm-label name="lblPositionShiftCount"
                                                 caption="bind:item.shiftCount + ' shifts'" width="hug" height="hug"
                                                 variant="label-13-400-black"
-                                                conditionalclass="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate ? 'label-label-13-400-black' : 'label-label-16-400'">
-                                            </wm-label>
+                                                conditionalclass="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate ? 'label-label-13-400-black' : 'label-label-16-400'"
+                                                class="label-label-13-400-black"></wm-label>
                                             <wm-label name="lblPositionTotalHours"
                                                 caption="bind:item.totalDuration.toFixed(2) + ' hours'" width="hug"
                                                 height="hug" variant="label-13-400-black"
-                                                conditionalclass="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate ? 'label-label-13-400-black' : 'label-label-16-400'">
-                                            </wm-label>
+                                                conditionalclass="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate ? 'label-label-13-400-black' : 'label-label-16-400'"
+                                                class="label-label-13-400-black"></wm-label>
                                         </wm-container>
                                     </wm-container>
                                     <!-- Shifts Inner List -->
@@ -132,7 +132,7 @@
                                                         conditionalclass="bind:item.empTypeId === 1 ? &quot;purple&quot; : item.empTypeId === 2  ? &quot;blue&quot; :  item.empTypeId === 3  ? &quot;red&quot; :  item.empTypeId === 4  ? &quot;orange&quot; :  item.empTypeId === 5  ? &quot;green&quot; : &quot;&quot;">
                                                     </wm-icon>
                                                     <wm-label name="lblEmployeeName"
-                                                        caption="bind:item.firstName + ' ' + item.lastName"
+                                                        caption="bind:formatEmployeeName(item, Variables.positionViewConfig.dataSet.screenNameFormat)"
                                                         class="ps-1 ms-1 label-label-13-700-black"
                                                         conditionalclass="bind:Widgets.Weekview1.enddate != Widgets.Weekview1.startdate ? 'label-label-13-700-black' : 'label-label-16-700'"
                                                         variant="label-13-700-black"

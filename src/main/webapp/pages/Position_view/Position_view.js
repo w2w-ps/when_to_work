@@ -9,7 +9,8 @@ Page.applyPositionViewConfig = function () {
         screenShowDescription: true,
         screenHidePositions: true,
         screenShowDailyTotals: true,
-        screenShowPositionTotals: true
+        screenShowPositionTotals: true,
+        screenNameFormat: "First Last"
     };
     try {
         const stored = localStorage.getItem('positionViewConfig');
@@ -21,8 +22,27 @@ Page.applyPositionViewConfig = function () {
             screenShowDescription: true,
             screenHidePositions: true,
             screenShowDailyTotals: true,
-            screenShowPositionTotals: true
+            screenShowPositionTotals: true,
+            screenNameFormat: "First Last"
         };
+    }
+};
+
+Page.formatEmployeeName = function (item, format) {
+    if (!item) { return ''; }
+    const first = item.firstName || '';
+    const last = item.lastName || '';
+    const firstInitial = first ? first.charAt(0) + '.' : '';
+    const lastInitial = last ? last.charAt(0) + '.' : '';
+    const fmt = format || 'First Last';
+
+    switch (fmt) {
+        case 'First Last':   return (first + ' ' + last).trim();
+        case 'First, last':  return first && last ? first + ', ' + last : (first || last);
+        case 'First L.':     return (first + ' ' + lastInitial).trim();
+        case 'F. last':      return (firstInitial + ' ' + last).trim();
+        case 'last, F.':     return last && firstInitial ? last + ', ' + firstInitial : (last || first);
+        default:             return (first + ' ' + last).trim();
     }
 };
 
