@@ -1,9 +1,66 @@
 {
   "dropdown" : {
-    "mapping" : {
-      "menu" : {
-        "width" : {
-          "value" : "max-content"
+    "appearances" : {
+      "default" : {
+        "mapping" : {
+          "menu" : {
+            "padding" : {
+              "value" : "0"
+            },
+            "item" : {
+              "font-size" : {
+                "value" : "14px"
+              },
+              "padding" : {
+                "value" : "2px 8px"
+              },
+              "state" : {
+                "layer" : {
+                  "color" : {
+                    "value" : "{color.primary.container.@.value}"
+                  }
+                }
+              }
+            },
+            "box-shadow" : {
+              "value" : "none"
+            },
+            "border" : {
+              "color" : {
+                "value" : "{color.outline.@.value}"
+              },
+              "width" : {
+                "value" : "{border.width.base.value}"
+              },
+              "radius" : {
+                "value" : "0"
+              }
+            }
+          },
+          "states" : {
+            "hover" : {
+              "menu" : {
+                "item" : {
+                  "state" : {
+                    "layer" : {
+                      "opacity" : {
+                        "hover" : {
+                          "value" : "1"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "meta" : {
+      "appearances" : {
+        "default" : {
+          "source" : "aira"
         }
       }
     }

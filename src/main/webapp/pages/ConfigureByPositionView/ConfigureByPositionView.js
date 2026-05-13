@@ -28,8 +28,14 @@ Page.onReady = function () {
     Page.Widgets.screenHidePositions.datavalue = config.screenHidePositions;
     Page.Widgets.screenShowDailyTotals.datavalue = config.screenShowDailyTotals;
     Page.Widgets.screenShowPositionTotals.datavalue = config.screenShowPositionTotals;
-    Page.Widgets.screenNameSelect.datavalue = config.screenNameFormat;
     Page.Widgets.screenFontSelect.datavalue = config.screenFontSize;
+
+    // screenNameSelect uses a bound variable dataset (bind:Variables.stvNameList.dataSet)
+    // which resolves asynchronously. Defer the assignment until after the dataset is ready.
+    const $timeout = App.getDependency('$timeout');
+    $timeout(function () {
+        Page.Widgets.screenNameSelect.datavalue = config.screenNameFormat;
+    }, 0);
 };
 
 Page.saveBtnClick = function ($event, widget) {
@@ -47,5 +53,8 @@ Page.saveBtnClick = function ($event, widget) {
     if (window.opener && !window.opener.closed) {
         window.opener.postMessage({ type: 'positionViewConfigUpdated' }, '*');
     }
+    window.close();
+};
+Page.anchor1Click = function ($event, widget) {
     window.close();
 };
