@@ -4,7 +4,7 @@
     "version" : "2.0",
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "b014a0a4-e844-42e7-8137-9ffd5bdbce95",
+    "x-WM-API_ID" : "b0d62159-6f9b-468e-9ddd-0e018df989bb",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "x-WM-SERVICE_TYPE" : "RestService",
     "x-WM-USE_WITH_CREDENTIALS" : false
@@ -72,6 +72,16 @@
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
           "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "status",
+          "required" : false,
+          "type" : "string",
+          "format" : "string",
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
         } ],
         "responses" : {
           "200" : {
@@ -105,7 +115,7 @@
         "shifts" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Response.shiftsEntryItem"
+            "$ref" : "#/definitions/java.lang.Object"
           },
           "x-WM-IS_LIST" : true
         },
@@ -142,58 +152,6 @@
         }
       },
       "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.datesEntryItem",
-      "x-WM-TAGS" : [ "getPositionViewScheduling" ]
-    },
-    "Response.shiftsEntryItem" : {
-      "required" : [ "category", "color", "description", "duration", "empTypeId", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
-      "properties" : {
-        "shiftId" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "lastName" : {
-          "type" : "string"
-        },
-        "color" : {
-          "type" : "string"
-        },
-        "employmentType" : {
-          "type" : "string"
-        },
-        "phones" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/java.lang.Object"
-          },
-          "x-WM-IS_LIST" : true
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "employeeId" : {
-          "type" : "string"
-        },
-        "duration" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "firstName" : {
-          "type" : "string"
-        },
-        "empTypeId" : {
-          "type" : "string"
-        },
-        "startTime" : {
-          "type" : "string"
-        },
-        "endTime" : {
-          "type" : "string"
-        },
-        "category" : {
-          "type" : "string"
-        }
-      },
-      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.shiftsEntryItem",
       "x-WM-TAGS" : [ "getPositionViewScheduling" ]
     },
     "java.lang.Object" : {
