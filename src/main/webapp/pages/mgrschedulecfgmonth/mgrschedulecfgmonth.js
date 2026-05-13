@@ -37,13 +37,13 @@ Page.onReady = function () {
     Page.Widgets.selScreenFontSize.datavalue = config.screenFontSize || 'Medium';
 
     // --- Printout ---
-    Page.Widgets.rsPrintGroupBy.datavalue = GROUPING_REVERSE_MAP[config.printGrouping] || 'Position';
-    Page.Widgets.cbPrintShowDesc.datavalue = config.printShowDescription !== false ? 'true' : 'false';
-    Page.Widgets.cbPrintHideGroups.datavalue = config.printHideGroupsNoShifts !== false ? 'true' : 'false';
-    Page.Widgets.cbPrintShowCatPos.datavalue = config.printShowCatPos !== false ? 'true' : 'false';
-    Page.Widgets.cbPrintHideUnassigned.datavalue = config.printHideUnassigned === true ? 'true' : 'false';
-    Page.Widgets.selPrintName.datavalue = config.printNameFormat || 'First Last';
-    Page.Widgets.selPrintFontSize.datavalue = config.printFontSize || 'Small';
+    // Page.Widgets.rsPrintGroupBy.datavalue = GROUPING_REVERSE_MAP[config.printGrouping] || 'Position';
+    // Page.Widgets.cbPrintShowDesc.datavalue = config.printShowDescription !== false ? 'true' : 'false';
+    // Page.Widgets.cbPrintHideGroups.datavalue = config.printHideGroupsNoShifts !== false ? 'true' : 'false';
+    // Page.Widgets.cbPrintShowCatPos.datavalue = config.printShowCatPos !== false ? 'true' : 'false';
+    // Page.Widgets.cbPrintHideUnassigned.datavalue = config.printHideUnassigned === true ? 'true' : 'false';
+    // Page.Widgets.selPrintName.datavalue = config.printNameFormat || 'First Last';
+    // Page.Widgets.selPrintFontSize.datavalue = config.printFontSize || 'Small';
 };
 
 Page.btnSaveClick = function ($event, widget) {
@@ -67,15 +67,15 @@ Page.btnSaveClick = function ($event, widget) {
         screenFontSize: Page.Widgets.selScreenFontSize.datavalue,
 
         // Printout
-        printGrouping: GROUPING_MAP.hasOwnProperty(Page.Widgets.rsPrintGroupBy.datavalue)
-            ? GROUPING_MAP[Page.Widgets.rsPrintGroupBy.datavalue]
-            : '',
-        printShowDescription: Page.Widgets.cbPrintShowDesc.datavalue === true || Page.Widgets.cbPrintShowDesc.datavalue === 'true',
-        printHideGroupsNoShifts: Page.Widgets.cbPrintHideGroups.datavalue === true || Page.Widgets.cbPrintHideGroups.datavalue === 'true',
-        printShowCatPos: Page.Widgets.cbPrintShowCatPos.datavalue === true || Page.Widgets.cbPrintShowCatPos.datavalue === 'true',
-        printHideUnassigned: Page.Widgets.cbPrintHideUnassigned.datavalue === true || Page.Widgets.cbPrintHideUnassigned.datavalue === 'true',
-        printNameFormat: Page.Widgets.selPrintName.datavalue,
-        printFontSize: Page.Widgets.selPrintFontSize.datavalue
+        // printGrouping: GROUPING_MAP.hasOwnProperty(Page.Widgets.rsPrintGroupBy.datavalue)
+        //     ? GROUPING_MAP[Page.Widgets.rsPrintGroupBy.datavalue]
+        //     : '',
+        // printShowDescription: Page.Widgets.cbPrintShowDesc.datavalue === true || Page.Widgets.cbPrintShowDesc.datavalue === 'true',
+        // printHideGroupsNoShifts: Page.Widgets.cbPrintHideGroups.datavalue === true || Page.Widgets.cbPrintHideGroups.datavalue === 'true',
+        // printShowCatPos: Page.Widgets.cbPrintShowCatPos.datavalue === true || Page.Widgets.cbPrintShowCatPos.datavalue === 'true',
+        // printHideUnassigned: Page.Widgets.cbPrintHideUnassigned.datavalue === true || Page.Widgets.cbPrintHideUnassigned.datavalue === 'true',
+        // printNameFormat: Page.Widgets.selPrintName.datavalue,
+        // printFontSize: Page.Widgets.selPrintFontSize.datavalue
     };
 
     // Update app variable
@@ -98,4 +98,7 @@ Page.btnSaveClick = function ($event, widget) {
     setTimeout(function () {
         window.close();
     }, 300);
+};
+Page.anchor1Click = function ($event, widget) {
+window.close();
 };

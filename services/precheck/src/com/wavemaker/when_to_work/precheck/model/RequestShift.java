@@ -26,10 +26,13 @@ public class RequestShift {
   private String date = null;
 
   @JsonProperty("duration")
-  private Integer duration = null;
+  private Double duration = null;
+
+  @JsonProperty("shiftId")
+  private Integer shiftId = null;
 
   @JsonProperty("color")
-  private String color = null;
+  private Integer color = null;
 
   @JsonProperty("description")
   private String description = null;
@@ -66,7 +69,7 @@ public class RequestShift {
     this.date = date;
   }
 
-  public RequestShift duration(Integer duration) {
+  public RequestShift duration(Double duration) {
     this.duration = duration;
     return this;
   }
@@ -75,15 +78,32 @@ public class RequestShift {
    * Get duration
    * @return duration
   **/
-  public Integer getDuration() {
+  public Double getDuration() {
     return duration;
   }
 
-  public void setDuration(Integer duration) {
+  public void setDuration(Double duration) {
     this.duration = duration;
   }
 
-  public RequestShift color(String color) {
+  public RequestShift shiftId(Integer shiftId) {
+    this.shiftId = shiftId;
+    return this;
+  }
+
+   /**
+   * Get shiftId
+   * @return shiftId
+  **/
+  public Integer getShiftId() {
+    return shiftId;
+  }
+
+  public void setShiftId(Integer shiftId) {
+    this.shiftId = shiftId;
+  }
+
+  public RequestShift color(Integer color) {
     this.color = color;
     return this;
   }
@@ -92,11 +112,11 @@ public class RequestShift {
    * Get color
    * @return color
   **/
-  public String getColor() {
+  public Integer getColor() {
     return color;
   }
 
-  public void setColor(String color) {
+  public void setColor(Integer color) {
     this.color = color;
   }
 
@@ -214,6 +234,7 @@ public class RequestShift {
     RequestShift Request_shift = (RequestShift) o;
     return Objects.equals(this.date, Request_shift.date) &&
         Objects.equals(this.duration, Request_shift.duration) &&
+        Objects.equals(this.shiftId, Request_shift.shiftId) &&
         Objects.equals(this.color, Request_shift.color) &&
         Objects.equals(this.description, Request_shift.description) &&
         Objects.equals(this.employeeId, Request_shift.employeeId) &&
@@ -225,7 +246,7 @@ public class RequestShift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, duration, color, description, employeeId, startTime, endTime, position, category);
+    return Objects.hash(date, duration, shiftId, color, description, employeeId, startTime, endTime, position, category);
   }
 
 
@@ -236,6 +257,7 @@ public class RequestShift {
     
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    shiftId: ").append(toIndentedString(shiftId)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");

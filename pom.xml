@@ -64,6 +64,7 @@
                 <source>services/getPositionGroup/src</source>
                 <source>services/getPositionViewScheduling/src</source>
                 <source>services/getPreferenceRange/src</source>
+                <source>services/getShiftColors/src</source>
                 <source>services/getShiftDetails/src</source>
                 <source>services/getTenants/src</source>
                 <source>services/mgrUpdateEmpPwd/src</source>

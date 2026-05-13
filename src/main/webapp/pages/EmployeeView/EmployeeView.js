@@ -11,6 +11,7 @@
 
 /* perform any action on widgets/variables within this block */
 Page.onReady = function () {
+    Page.today = new Date();
     Page.selectedEmployee = "";
     Page.selectedDay = "";
     Page.isAdd = true;
@@ -50,134 +51,6 @@ Page.onReady = function () {
         }, { threshold: [0], root: null });
         observer.observe(sentinel);
     }
-};
-
-/**
- * Filters the employee schedule list based on category, status, and position selections.
- * All three filters work together - if multiple filters are applied, employees must match all criteria.
- * 
- * Filter rules:
- * - "All Categories", "All Positions", and "No Status" are treated as no filter
- * - Separator entries ("----------") are ignored
- * - Filtering is case-insensitive
- * - Returns all data if no valid filters are applied
- * 
- * ENHANCED: Now filters both employees AND individual shifts within each employee.
- * - Employees are included if they have at least one matching shift
- * - Within each employee, only shifts matching the filter criteria are shown
- * - Shifts that don't match category/position filters are removed from the employee's shifts array
- */
-Page.applyScheduleFilters = function () {
-    let sourceData = Page.unfilteredScheduleData;
-
-    if (!sourceData || sourceData.length === 0) {
-        Page.Widgets.employeeScheduleList.dataset = [];
-        return;
-    }
-
-    let categoryFilter = Page.currentCategoryFilter;
-    let statusFilter = Page.currentStatusFilter;
-    let positionFilter = Page.currentPositionFilter;
-
-    // Check if filters are effectively empty (no-filter conditions)
-    let isCategoryFilterActive = categoryFilter != "" && categoryFilter.description
-    categoryFilter.description !== 'All Categories' &&
-        categoryFilter.description !== '----------' &&
-        categoryFilter.description.trim() !== '';
-
-    let isStatusFilterActive = statusFilter &&
-        statusFilter !== 'All Status' &&
-        statusFilter !== 'No Status' &&
-        statusFilter !== '----------' &&
-        statusFilter.trim() !== '';
-
-    let isPositionFilterActive = positionFilter != "" && positionFilter.description &&
-        positionFilter.description !== 'All Positions' &&
-        positionFilter.description !== '----------' &&
-        positionFilter.description.trim() !== '';
-
-    // If no filters are active, show all data
-    if (!isCategoryFilterActive && !isStatusFilterActive && !isPositionFilterActive) {
-        Page.Widgets.employeeScheduleList.dataset = sourceData;
-        return;
-    }
-
-    // Apply filters with shift-level filtering
-    let filteredData = [];
-
-    sourceData.forEach(function (employee) {
-        // Deep clone the employee to avoid modifying the original unfiltered data
-        let employeeCopy = structuredClone(employee);
-        let hasMatchingShift = false;
-
-        // Filter shifts within each day of the week
-        if (employeeCopy.weeklyShifts && Array.isArray(employeeCopy.weeklyShifts)) {
-            employeeCopy.weeklyShifts.forEach(function (day) {
-                if (day.shifts && Array.isArray(day.shifts)) {
-                    // Filter the shifts array for this day
-                    let filteredShifts = day.shifts.filter(function (shift) {
-                        let matchesCategory = true;
-                        let matchesPosition = true;
-                        let matchesStatus = true;
-
-                        // Apply category filter to individual shift
-                        if (isCategoryFilterActive) {
-                            matchesCategory = shift.category &&
-                                shift.category.toLowerCase().includes(categoryFilter.toLowerCase()) > -1;
-                        }
-
-                        // Apply position filter to individual shift
-                        if (isPositionFilterActive) {
-                            matchesPosition = shift.position &&
-                                shift.position.toLowerCase().includes(positionFilter.toLowerCase()) > -1;
-                        }
-
-                        // Shift must match all active filters
-                        return matchesCategory && matchesPosition && matchesStatus;
-                    });
-
-                    // Update the day's shifts array with filtered shifts
-                    day.shifts = filteredShifts;
-
-                    // Track if this employee has at least one matching shift
-                    if (filteredShifts.length > 0) {
-                        hasMatchingShift = true;
-                    }
-                }
-            });
-        }
-
-        // Only include employees that have at least one matching shift
-        if (hasMatchingShift) {
-            filteredData.push(employeeCopy);
-        }
-    });
-
-    Page.Widgets.employeeScheduleList.dataset = filteredData;
-};
-
-/**
- * Event handler for category dropdown change
- */
-Page.selCategoriesChange = function ($event, widget, newVal, oldVal) {
-    Page.currentCategoryFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
- * Event handler for status dropdown change
- */
-Page.selStatusChange = function ($event, widget, newVal, oldVal) {
-    Page.currentStatusFilter = newVal;
-    Page.applyScheduleFilters();
-};
-
-/**
- * Event handler for position dropdown change
- */
-Page.selPositionsChange = function ($event, widget, newVal, oldVal) {
-    Page.currentPositionFilter = newVal;
-    Page.applyScheduleFilters();
 };
 
 /**
@@ -439,6 +312,7 @@ Page.openEditShiftDialog = function (item, dayName, dayIndex) {
     Page.selectedShiftdForIEmployee = item.shiftId;
     Page.selectedShiftItem = item;
     Page.selectedDay = dayName;
+    Page.selectedColor = item.color;
 
     let currentWeekStart = Page.Widgets.Weekview1.selectedweekdataset.startDate;
     let shiftDate = moment(currentWeekStart).add(dayIndex, 'days');
@@ -581,24 +455,17 @@ Page.svGetShiftByIdSuccess = function (variable, data) {
     let positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     let positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
     let positionMatch = positionsList.find(function (p) { return p.description === data.position; });
-    let resolvedPositionId = positionMatch ? positionMatch.positionId : null;
+    Page.resolvedPositionId = positionMatch ? positionMatch.positionId : null;
 
     // Resolve category name -> id
     let categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     let categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
-    let categoryMatch = categoriesList.find(function (c) { return c.description === data.category; });
-    let resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
+    let categoryMatch = categoriesList.find(function (c) { return c.shortDesc === data.category; });
+    Page.resolvedCategoryId = categoryMatch ? categoryMatch.categoryId : null;
 
     // Open the dialog so its widgets are available in the DOM
     Page.Widgets.shiftDialog.open();
 
-    // Use a short timeout to allow dialog widgets to initialise before setting values
-    if (Page.Widgets.positionField) {
-        Page.Widgets.positionField.datavalue = resolvedPositionId;
-    }
-    if (Page.Widgets.categoryField) {
-        Page.Widgets.categoryField.datavalue = resolvedCategoryId;
-    }
     if (Page.Widgets.paidHoursField) {
         Page.Widgets.paidHoursField.datavalue = data.duration;
     }
@@ -654,13 +521,6 @@ Page.shiftDialogOpened = function ($event, widget) {
 
         Page.Widgets.chkAutoCalculate.datavalue = false;
     } else {
-        // EDIT MODE
-        // startTime, endTime, color, description are pre-filled via declarative
-        // defaultvalue bindings to svGetShiftById.dataSet (set in HTML).
-        // positionField, categoryField, paidHours, chkAutoCalculate are set
-        // programmatically in svGetShiftByIdSuccess.
-
-        // Clear all weekday checkboxes - day selection is irrelevant in edit mode.
         Page.Widgets.chkMon.datavalue = false;
         Page.Widgets.chkTue.datavalue = false;
         Page.Widgets.chkWed.datavalue = false;
@@ -669,6 +529,15 @@ Page.shiftDialogOpened = function ($event, widget) {
         Page.Widgets.chkSat.datavalue = false;
         Page.Widgets.chkSun.datavalue = false;
         Page.Widgets.chkAutoCalculate.datavalue = false;
+
+        Page.Widgets.positionField.datavalue = Page.resolvedPositionId;
+        Page.Widgets.categoryField.datavalue = Page.resolvedCategoryId;
+
+        Page.Variables.svGetShiftColors.dataSet.forEach(item => {
+            if (item.color === Page.selectedColor) {
+                Page.Widgets.colorField.datavalue = item.id;
+            }
+        })
     }
 };
 
@@ -732,7 +601,7 @@ Page.button16Click = function ($event, widget) {
                 endTime: formatToStandardTime(endTime) || '',
                 position: positionId || '',
                 category: categoryId || '',
-                color: 'amer'
+                color: Page.Widgets.shiftForm.formWidgets.colorField_formWidget.datavalue
             }
         });
         Page.Variables.svCreateShift.invoke();
@@ -748,7 +617,7 @@ Page.button16Click = function ($event, widget) {
                 endTime: formatToStandardTime(endTime) || '',
                 position: positionId || '',
                 category: categoryId || '',
-                color: 'amer'
+                color: Page.Widgets.shiftForm.formWidgets.colorField_formWidget.datavalue
             }
         });
         Page.Variables.svUpdateShift.invoke();
@@ -863,11 +732,11 @@ Page._executePendingDrop = function () {
             companyId: 1,
             date: payload.targetShiftDate,
             description: sourceShift.description || '',
-            startTime: sourceShift.startAt || '',
-            endTime: sourceShift.endAt || '',
+            startTime: formatToStandardTime(sourceShift.startTime) || '',
+            endTime: formatToStandardTime(sourceShift.endTime) || '',
             position: payload.resolvedPositionId,
             category: payload.resolvedCategoryId,
-            color: sourceShift.color || 'amber'
+            color: sourceShift.color
         }
     });
     Page.Variables.svUpdateShift.invoke(
@@ -904,17 +773,19 @@ Page.btnConfirmShiftYesClick = function ($event, widget) {
         // Build svchkHasConflicts request from pending drop payload
         Page.Variables.svchkHasConflicts.setInput({
             RequestBody: {
+                companyId: 1,
                 operationType: 'UPDATE',
                 shift: {
                     employeeId: payload.targetEmployeeId,
                     date: payload.targetShiftDate,
                     description: payload.sourceShift.description || '',
-                    startTime: payload.sourceShift.startAt || '',
-                    endTime: payload.sourceShift.endAt || '',
+                    startTime: formatToStandardTime(payload.sourceShift.startTime) || '',
+                    endTime: formatToStandardTime(payload.sourceShift.endTime) || '',
                     position: payload.resolvedPositionId || 1,
                     category: payload.resolvedCategoryId || 1,
-                    color: payload.sourceShift.color || 'amber',
-                    duration: 8
+                    color: payload.sourceShift.color,
+                    duration: 8,
+                    shiftId: payload.sourceShift.shiftId
                 }
             }
         });
@@ -1064,6 +935,11 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
 
     // Safe deep clone of source shift
     let sourceShift = JSON.parse(JSON.stringify(sourceRaw));
+    Page.Variables.svGetShiftColors.dataSet.forEach(item => {
+        if (item.color === sourceShift.color) {
+            sourceShift.color = item.id;
+        }
+    })
 
     // Resolve common API params
     let targetEmployeeId = dataset[targetEmpIndex].employeeId;
@@ -1074,17 +950,17 @@ Page._handleShiftDrop = function ($event, item, targetDayName) {
     let positionsDataSet = Page.Variables.svGetAllPositionsByCompanyId.dataSet;
     let positionsList = (positionsDataSet && positionsDataSet.positions) ? positionsDataSet.positions : [];
     let positionMatch = _.find(positionsList, function (p) {
-        return p.name === sourceShift.shiftName;
+        return p.description === sourceShift.position;
     });
-    let resolvedPositionId = positionMatch ? positionMatch.id : (sourceShift.positionId || null);
+    let resolvedPositionId = positionMatch ? positionMatch.positionId : (sourceShift.positionId || null);
 
     // Resolve category ID from svGetAllCategoriesByCompanyId
     let categoriesDataSet = Page.Variables.svGetAllCategoriesByCompanyId.dataSet;
     let categoriesList = (categoriesDataSet && categoriesDataSet.categories) ? categoriesDataSet.categories : [];
     let categoryMatch = _.find(categoriesList, function (c) {
-        return c.name === sourceShift.category;
+        return c.shortDesc === sourceShift.category;
     });
-    let resolvedCategoryId = categoryMatch ? categoryMatch.id : null;
+    let resolvedCategoryId = categoryMatch ? categoryMatch.categoryId : null;
 
     // Capture source employee name for conflict message display
     let sourceEmployeeName = (dataset[sourceEmpIndex] && dataset[sourceEmpIndex].employeeName) || '';

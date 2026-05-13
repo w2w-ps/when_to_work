@@ -16,6 +16,20 @@
           }
         },
         "parameters" : [ {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "header",
+          "name" : "Authorization",
+          "format" : "string",
+          "description" : "Authorization",
+          "type" : "string",
+          "items" : {
+            "type" : "string"
+          },
+          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
           "schema" : {
             "$ref" : "#/definitions/RootRequest"
           },
@@ -40,17 +54,22 @@
     "Request.shift" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "precheck.Request.shift",
       "x-WM-TAGS" : [ "precheck" ],
-      "required" : [ "category", "color", "date", "description", "duration", "employeeId", "endTime", "position", "startTime" ],
+      "required" : [ "category", "color", "date", "description", "duration", "employeeId", "endTime", "position", "shiftId", "startTime" ],
       "properties" : {
         "date" : {
           "type" : "string"
         },
         "duration" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "shiftId" : {
           "format" : "int32",
           "type" : "integer"
         },
         "color" : {
-          "type" : "string"
+          "format" : "int32",
+          "type" : "integer"
         },
         "description" : {
           "type" : "string"
@@ -78,8 +97,12 @@
     "RootRequest" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "precheck.RootRequest",
       "x-WM-TAGS" : [ "precheck" ],
-      "required" : [ "operationType", "shift" ],
+      "required" : [ "companyId", "operationType", "shift" ],
       "properties" : {
+        "companyId" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
         "shift" : {
           "$ref" : "#/definitions/Request.shift"
         },
@@ -114,7 +137,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "115c8e73-d6bd-4294-8021-d90183248041",
+    "x-WM-API_ID" : "ec977683-a0a3-4c3d-b1ff-3ecfe5e28766",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",
