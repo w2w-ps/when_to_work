@@ -17,7 +17,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wavemaker.when_to_work.getPositionViewScheduling.model.ResponseShiftsEntryItem;
+import com.wavemaker.when_to_work.getPositionViewScheduling.model.JavaLangObject;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -32,7 +32,7 @@ public class ResponsePositionsEntryItem {
   private Integer shiftCount = null;
 
   @JsonProperty("shifts")
-  private List<ResponseShiftsEntryItem> shifts = new ArrayList<>();
+  private List<JavaLangObject> shifts = new ArrayList<>();
 
   @JsonProperty("position")
   private String position = null;
@@ -71,12 +71,12 @@ public class ResponsePositionsEntryItem {
     this.shiftCount = shiftCount;
   }
 
-  public ResponsePositionsEntryItem shifts(List<ResponseShiftsEntryItem> shifts) {
+  public ResponsePositionsEntryItem shifts(List<JavaLangObject> shifts) {
     this.shifts = shifts;
     return this;
   }
 
-  public ResponsePositionsEntryItem addShiftsItem(ResponseShiftsEntryItem shiftsItem) {
+  public ResponsePositionsEntryItem addShiftsItem(JavaLangObject shiftsItem) {
     this.shifts.add(shiftsItem);
     return this;
   }
@@ -85,11 +85,11 @@ public class ResponsePositionsEntryItem {
    * Get shifts
    * @return shifts
   **/
-  public List<ResponseShiftsEntryItem> getShifts() {
+  public List<JavaLangObject> getShifts() {
     return shifts;
   }
 
-  public void setShifts(List<ResponseShiftsEntryItem> shifts) {
+  public void setShifts(List<JavaLangObject> shifts) {
     this.shifts = shifts;
   }
 

@@ -30,34 +30,42 @@
     "dataSet" : [ {
       "label" : "All Status",
       "value" : "all",
+      "id" : "all",
       "iconclass" : ""
     }, {
       "label" : "No Status",
       "value" : "none",
+      "id" : "none",
       "iconclass" : ""
     }, {
       "label" : "Full Time",
       "value" : "Full Time",
+      "id" : 1,
       "iconclass" : "fa fa-diamond purple"
     }, {
       "label" : "Part Time",
       "value" : "Part Time",
+      "id" : 2,
       "iconclass" : "fa fa-diamond blue"
     }, {
       "label" : "Per Diem",
       "value" : "Per Diem",
+      "id" : 3,
       "iconclass" : "fa fa-diamond red"
     }, {
       "label" : "Orange Diamond",
       "value" : "Orange Diamond",
+      "id" : 4,
       "iconclass" : "fa fa-diamond orange"
     }, {
       "label" : "Green Diamond",
       "value" : "Green Diamond",
+      "id" : 5,
       "iconclass" : "fa fa-diamond green"
     }, {
       "label" : "Edit Legend",
       "value" : "edit_legend",
+      "id" : "edit_legend",
       "iconclass" : "fa fa-wrench"
     } ],
     "type" : "entry",

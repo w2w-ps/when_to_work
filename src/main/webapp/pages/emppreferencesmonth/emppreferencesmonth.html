@@ -59,7 +59,7 @@
                 <wm-container direction="column" alignment="middle-center" gap="4" width="55%" name="container12"
                     class="app-container-default" variant="default" wrap="false" clipcontent="false" overflow="none">
                     <wm-button class="btn-outlined-primary" caption="Save" type="button" margin="unset" name="button1"
-                        variant="outlined-primary" on-click="flushPreferenceUpdate($event, widget)"></wm-button>
+                        variant="outlined-primary" on-click="Variables.svDayPreferenceListUpdate.invoke()"></wm-button>
                 </wm-container>
                 <wm-container direction="column" alignment="top-left" gap="20" width="55%" name="container12_1"
                     class="container-grey-standard" variant="grey-standard" clipcontent="false" overflow="none"
@@ -97,7 +97,4 @@
             </wm-container>
         </wm-page-content>
     </wm-content>
-    <wm-confirmdialog on-ok="Widgets.confirmdialog1.close()" on-cancel="Widgets.confirmdialog1.close()"
-        name="confirmdialog1" class="modal-dialog modal-xs" variant="default:xs" title="" message="Changes saved."
-        iconclass="" canceltext="CANCEL"></wm-confirmdialog>
 </wm-page>

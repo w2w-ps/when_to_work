@@ -37,6 +37,9 @@ public class ResponseRootResponseROOTEntryItem {
   @JsonProperty("weeklyShifts")
   private ResponseWeeklyShifts weeklyShifts = null;
 
+  @JsonProperty("empTypeId")
+  private Integer empTypeId = null;
+
   @JsonProperty("employmentType")
   private String employmentType = null;
 
@@ -121,6 +124,23 @@ public class ResponseRootResponseROOTEntryItem {
 
   public void setWeeklyShifts(ResponseWeeklyShifts weeklyShifts) {
     this.weeklyShifts = weeklyShifts;
+  }
+
+  public ResponseRootResponseROOTEntryItem empTypeId(Integer empTypeId) {
+    this.empTypeId = empTypeId;
+    return this;
+  }
+
+   /**
+   * Get empTypeId
+   * @return empTypeId
+  **/
+  public Integer getEmpTypeId() {
+    return empTypeId;
+  }
+
+  public void setEmpTypeId(Integer empTypeId) {
+    this.empTypeId = empTypeId;
   }
 
   public ResponseRootResponseROOTEntryItem employmentType(String employmentType) {
@@ -244,6 +264,7 @@ public class ResponseRootResponseROOTEntryItem {
         Objects.equals(this.firstName, Response_RootResponseROOTEntryItem.firstName) &&
         Objects.equals(this.lastName, Response_RootResponseROOTEntryItem.lastName) &&
         Objects.equals(this.weeklyShifts, Response_RootResponseROOTEntryItem.weeklyShifts) &&
+        Objects.equals(this.empTypeId, Response_RootResponseROOTEntryItem.empTypeId) &&
         Objects.equals(this.employmentType, Response_RootResponseROOTEntryItem.employmentType) &&
         Objects.equals(this.shiftCount, Response_RootResponseROOTEntryItem.shiftCount) &&
         Objects.equals(this.totalHours, Response_RootResponseROOTEntryItem.totalHours) &&
@@ -254,7 +275,7 @@ public class ResponseRootResponseROOTEntryItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(publishedStage, firstName, lastName, weeklyShifts, employmentType, shiftCount, totalHours, alertDate, phones, employeeId);
+    return Objects.hash(publishedStage, firstName, lastName, weeklyShifts, empTypeId, employmentType, shiftCount, totalHours, alertDate, phones, employeeId);
   }
 
 
@@ -267,6 +288,7 @@ public class ResponseRootResponseROOTEntryItem {
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    weeklyShifts: ").append(toIndentedString(weeklyShifts)).append("\n");
+    sb.append("    empTypeId: ").append(toIndentedString(empTypeId)).append("\n");
     sb.append("    employmentType: ").append(toIndentedString(employmentType)).append("\n");
     sb.append("    shiftCount: ").append(toIndentedString(shiftCount)).append("\n");
     sb.append("    totalHours: ").append(toIndentedString(totalHours)).append("\n");

@@ -68,6 +68,16 @@
           "type" : "string",
           "required" : false,
           "x-WM-VARIABLE_TYPE" : "PROMPT"
+        }, {
+          "x-WM-VARIABLE_KEY" : "",
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "status",
+          "format" : "string",
+          "description" : "status",
+          "type" : "string",
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
         } ],
         "tags" : [ "getPositionViewScheduling" ],
         "consumes" : [ "application/json" ]
@@ -95,7 +105,7 @@
           "x-WM-IS_LIST" : true,
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Response.shiftsEntryItem"
+            "$ref" : "#/definitions/java.lang.Object"
           }
         },
         "position" : {
@@ -128,58 +138,6 @@
           "items" : {
             "$ref" : "#/definitions/Response.positionsEntryItem"
           }
-        }
-      }
-    },
-    "Response.shiftsEntryItem" : {
-      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.shiftsEntryItem",
-      "x-WM-TAGS" : [ "getPositionViewScheduling" ],
-      "required" : [ "category", "color", "description", "duration", "empTypeId", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
-      "properties" : {
-        "shiftId" : {
-          "format" : "int32",
-          "type" : "integer"
-        },
-        "lastName" : {
-          "type" : "string"
-        },
-        "color" : {
-          "type" : "string"
-        },
-        "employmentType" : {
-          "type" : "string"
-        },
-        "phones" : {
-          "x-WM-IS_LIST" : true,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/java.lang.Object"
-          }
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "employeeId" : {
-          "type" : "string"
-        },
-        "duration" : {
-          "format" : "int32",
-          "type" : "integer"
-        },
-        "firstName" : {
-          "type" : "string"
-        },
-        "empTypeId" : {
-          "type" : "string"
-        },
-        "startTime" : {
-          "type" : "string"
-        },
-        "endTime" : {
-          "type" : "string"
-        },
-        "category" : {
-          "type" : "string"
         }
       }
     },
@@ -217,7 +175,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "b014a0a4-e844-42e7-8137-9ffd5bdbce95",
+    "x-WM-API_ID" : "b0d62159-6f9b-468e-9ddd-0e018df989bb",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",
