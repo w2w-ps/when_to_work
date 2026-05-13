@@ -17,6 +17,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wavemaker.when_to_work.getPositionViewScheduling.model.JavaLangObject;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -24,14 +25,8 @@ import java.util.List;
  */
 
 public class ResponseShiftsEntryItem {
-  @JsonProperty("duration")
-  private Integer duration = null;
-
   @JsonProperty("shiftId")
   private Integer shiftId = null;
-
-  @JsonProperty("firstName")
-  private String firstName = null;
 
   @JsonProperty("lastName")
   private String lastName = null;
@@ -43,13 +38,22 @@ public class ResponseShiftsEntryItem {
   private String employmentType = null;
 
   @JsonProperty("phones")
-  private List<String> phones = new ArrayList<>();
+  private List<JavaLangObject> phones = new ArrayList<>();
 
   @JsonProperty("description")
   private String description = null;
 
   @JsonProperty("employeeId")
-  private Integer employeeId = null;
+  private String employeeId = null;
+
+  @JsonProperty("duration")
+  private Integer duration = null;
+
+  @JsonProperty("firstName")
+  private String firstName = null;
+
+  @JsonProperty("empTypeId")
+  private String empTypeId = null;
 
   @JsonProperty("startTime")
   private String startTime = null;
@@ -59,23 +63,6 @@ public class ResponseShiftsEntryItem {
 
   @JsonProperty("category")
   private String category = null;
-
-  public ResponseShiftsEntryItem duration(Integer duration) {
-    this.duration = duration;
-    return this;
-  }
-
-   /**
-   * Get duration
-   * @return duration
-  **/
-  public Integer getDuration() {
-    return duration;
-  }
-
-  public void setDuration(Integer duration) {
-    this.duration = duration;
-  }
 
   public ResponseShiftsEntryItem shiftId(Integer shiftId) {
     this.shiftId = shiftId;
@@ -92,23 +79,6 @@ public class ResponseShiftsEntryItem {
 
   public void setShiftId(Integer shiftId) {
     this.shiftId = shiftId;
-  }
-
-  public ResponseShiftsEntryItem firstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
-   /**
-   * Get firstName
-   * @return firstName
-  **/
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
   }
 
   public ResponseShiftsEntryItem lastName(String lastName) {
@@ -162,12 +132,12 @@ public class ResponseShiftsEntryItem {
     this.employmentType = employmentType;
   }
 
-  public ResponseShiftsEntryItem phones(List<String> phones) {
+  public ResponseShiftsEntryItem phones(List<JavaLangObject> phones) {
     this.phones = phones;
     return this;
   }
 
-  public ResponseShiftsEntryItem addPhonesItem(String phonesItem) {
+  public ResponseShiftsEntryItem addPhonesItem(JavaLangObject phonesItem) {
     this.phones.add(phonesItem);
     return this;
   }
@@ -176,11 +146,11 @@ public class ResponseShiftsEntryItem {
    * Get phones
    * @return phones
   **/
-  public List<String> getPhones() {
+  public List<JavaLangObject> getPhones() {
     return phones;
   }
 
-  public void setPhones(List<String> phones) {
+  public void setPhones(List<JavaLangObject> phones) {
     this.phones = phones;
   }
 
@@ -201,7 +171,7 @@ public class ResponseShiftsEntryItem {
     this.description = description;
   }
 
-  public ResponseShiftsEntryItem employeeId(Integer employeeId) {
+  public ResponseShiftsEntryItem employeeId(String employeeId) {
     this.employeeId = employeeId;
     return this;
   }
@@ -210,12 +180,63 @@ public class ResponseShiftsEntryItem {
    * Get employeeId
    * @return employeeId
   **/
-  public Integer getEmployeeId() {
+  public String getEmployeeId() {
     return employeeId;
   }
 
-  public void setEmployeeId(Integer employeeId) {
+  public void setEmployeeId(String employeeId) {
     this.employeeId = employeeId;
+  }
+
+  public ResponseShiftsEntryItem duration(Integer duration) {
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * Get duration
+   * @return duration
+  **/
+  public Integer getDuration() {
+    return duration;
+  }
+
+  public void setDuration(Integer duration) {
+    this.duration = duration;
+  }
+
+  public ResponseShiftsEntryItem firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * Get firstName
+   * @return firstName
+  **/
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public ResponseShiftsEntryItem empTypeId(String empTypeId) {
+    this.empTypeId = empTypeId;
+    return this;
+  }
+
+   /**
+   * Get empTypeId
+   * @return empTypeId
+  **/
+  public String getEmpTypeId() {
+    return empTypeId;
+  }
+
+  public void setEmpTypeId(String empTypeId) {
+    this.empTypeId = empTypeId;
   }
 
   public ResponseShiftsEntryItem startTime(String startTime) {
@@ -279,15 +300,16 @@ public class ResponseShiftsEntryItem {
       return false;
     }
     ResponseShiftsEntryItem Response_shiftsEntryItem = (ResponseShiftsEntryItem) o;
-    return Objects.equals(this.duration, Response_shiftsEntryItem.duration) &&
-        Objects.equals(this.shiftId, Response_shiftsEntryItem.shiftId) &&
-        Objects.equals(this.firstName, Response_shiftsEntryItem.firstName) &&
+    return Objects.equals(this.shiftId, Response_shiftsEntryItem.shiftId) &&
         Objects.equals(this.lastName, Response_shiftsEntryItem.lastName) &&
         Objects.equals(this.color, Response_shiftsEntryItem.color) &&
         Objects.equals(this.employmentType, Response_shiftsEntryItem.employmentType) &&
         Objects.equals(this.phones, Response_shiftsEntryItem.phones) &&
         Objects.equals(this.description, Response_shiftsEntryItem.description) &&
         Objects.equals(this.employeeId, Response_shiftsEntryItem.employeeId) &&
+        Objects.equals(this.duration, Response_shiftsEntryItem.duration) &&
+        Objects.equals(this.firstName, Response_shiftsEntryItem.firstName) &&
+        Objects.equals(this.empTypeId, Response_shiftsEntryItem.empTypeId) &&
         Objects.equals(this.startTime, Response_shiftsEntryItem.startTime) &&
         Objects.equals(this.endTime, Response_shiftsEntryItem.endTime) &&
         Objects.equals(this.category, Response_shiftsEntryItem.category);
@@ -295,7 +317,7 @@ public class ResponseShiftsEntryItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, shiftId, firstName, lastName, color, employmentType, phones, description, employeeId, startTime, endTime, category);
+    return Objects.hash(shiftId, lastName, color, employmentType, phones, description, employeeId, duration, firstName, empTypeId, startTime, endTime, category);
   }
 
 
@@ -304,15 +326,16 @@ public class ResponseShiftsEntryItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResponseShiftsEntryItem {\n");
     
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    shiftId: ").append(toIndentedString(shiftId)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    employmentType: ").append(toIndentedString(employmentType)).append("\n");
     sb.append("    phones: ").append(toIndentedString(phones)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    employeeId: ").append(toIndentedString(employeeId)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    empTypeId: ").append(toIndentedString(empTypeId)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
