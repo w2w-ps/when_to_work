@@ -1,21 +1,4 @@
-/*
- * Use App.getDependency for Dependency Injection
- * eg: var DialogService = App.getDependency('DialogService');
- */
-
-/* perform any action on widgets/variables within this block */
-Page.onReady = function () {
-    /*
-     * variables can be accessed through 'Page.Variables' property here
-     * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
-     * Page.Variables.loggedInUser.getData()
-     *
-     * widgets can be accessed through 'Page.Widgets' property here
-     * e.g. to get value of text widget named 'username' use following script
-     * 'Page.Widgets.username.datavalue'
-     */
-
-};
+Page.onReady = function () { };
 
 Page.WorkPreference1Click = function ($event) {
     localStorage.setItem('selectedpreference', JSON.stringify($event));
@@ -28,17 +11,31 @@ Page.Weekview1Daterangechange = function ($event, $data) {
     debugger;
     var sv = Page.Variables.GetResolvedPreferences;
     sv.invoke({
-        "inputFields": {
-            "companyId": App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
-            "employeeId": App.Variables.loggedInUser.dataSet.id,
-            "startDate": $event.startdate,
-            "endDate": $event.enddate
+        inputFields: {
+            companyId: App.Variables.loggedInUser.dataSet.userAttributes.tenantId,
+            employeeId: App.Variables.loggedInUser.dataSet.id,
+            startDate: $event.startdate,
+            endDate: $event.enddate
         }
     });
 };
+
 Page.button1Click = function ($event, widget) {
     App.redirectTo('emppreferencesmonth');
 };
+
 Page.button2Click = function ($event, widget) {
     App.redirectTo('emppreferencesrepeat');
+};
+
+Page.GetResolvedPreferencesSuccess = function (variable, data) {
+    const hourIndexes = [];
+    if (Array.isArray(data)) {
+        data.forEach(function (item, index) {
+            if (item.preferenceType === 'HOUR') {
+                hourIndexes.push({ dataValue: index });
+            }
+        });
+    }
+    Page.Variables.hourPreferenceIndexes.dataSet = hourIndexes;
 };

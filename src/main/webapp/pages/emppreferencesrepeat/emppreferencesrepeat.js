@@ -63,9 +63,6 @@ function getTodayDate() {
 
 
 Page.button4Click = function ($event, widget) {
-
-
-
     const combinedPrefs = getCombinedWeekPrefs(
         Page.Widgets.WorkPreference1.weekpreferencedata
     );
@@ -83,10 +80,10 @@ Page.button4Click = function ($event, widget) {
         "inputFields": { RequestBody: data }
     });
 
-
-
 };
-Page.alertdialog1Ok = function ($event, widget) {
+
+
+Page.PostWeekPrefonSuccess = function (variable, data) {
     if (window.opener && !window.opener.closed) {
         window.opener.location.reload();
     }

@@ -23,7 +23,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "onSuccess" : "Widgets.alertdialog1.open()",
+    "onSuccess" : "PostWeekPrefonSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",

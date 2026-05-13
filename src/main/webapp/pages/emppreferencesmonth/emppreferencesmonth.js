@@ -222,7 +222,6 @@ Page.renderPreferencesOnCalendar = function () {
  * Fix 1: Removed early-return guard for null so Clear mode can remove entries.
  */
 Page.applyPreferenceToDate = function (dateStr) {
-    debugger;
     const prefs = Page.selectedPreference;
     const prefData = _.cloneDeep(Page.preferenceDates) || [];
     const existing = _.findIndex(prefData, function (p) { return p.date === dateStr; });
@@ -259,7 +258,6 @@ Page.applyPreferenceToDate = function (dateStr) {
  * Invokes the batch API update with the current full preference list.
  */
 Page.flushPreferenceUpdate = function () {
-    debugger;
     const prefData = Page.preferenceDates || [];
     var apiPrefs = prefData.map(function (p) {
         return {
@@ -364,7 +362,6 @@ Page.attachCalendarDragListeners = function () {
 };
 
 Page.calendarDateClick = function ($dateInfo) {
-    debugger;
     var clickedDate = new Date($dateInfo.date || $dateInfo.dateStr);
     const calEl = Page.Widgets.calPreferences;
     const currentView = calEl.getCalendar ? calEl.getCalendar().view : null;
@@ -387,15 +384,8 @@ Page.calendarDateClick = function ($dateInfo) {
     Page.flushPreferenceUpdate();
 };
 
-Page.alertdialog1Ok = function ($event, widget) {
-    if (window.opener && !window.opener.closed) {
-        window.opener.location.reload();
-    }
-    window.close();
-};
 
 Page.svGetResolvedPreferencesonSuccess = function (variable, data) {
-    debugger;
     const calWidget = Page.Widgets.calPreferences;
     if (!calWidget) { return; }
     const calEl = calWidget.nativeElement;
@@ -419,4 +409,11 @@ Page.svGetResolvedPreferencesonSuccess = function (variable, data) {
             }
         })
     }, 300);
+};
+
+Page.svDayPreferenceListUpdateonSuccess = function (variable, data) {
+    if (window.opener && !window.opener.closed) {
+        window.opener.location.reload();
+    }
+    window.close();
 };

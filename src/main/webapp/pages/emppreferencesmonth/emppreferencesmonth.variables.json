@@ -48,7 +48,7 @@
     "dataSet" : [ ],
     "isList" : false,
     "maxResults" : 20,
-    "onSuccess" : "Widgets.alertdialog1.open()",
+    "onSuccess" : "svDayPreferenceListUpdateonSuccess(variable, data)",
     "startUpdate" : false,
     "autoUpdate" : false,
     "inFlightBehavior" : "executeLast",
