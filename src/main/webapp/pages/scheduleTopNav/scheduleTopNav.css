@@ -107,3 +107,24 @@
 .app-menu button .caret:before {
     display: none;
 }
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active,
+.btn-menu-select-trigger button:hover {
+    --wm-btn-state-layer-opacity: 0 !important;
+    --wm-btn-state-layer-color: transparent !important;
+}
+
+.app-menu .fa-caret-down:before {
+    content: "\f30e";
+    font-family: "Wavicon";
+    font-size: 22px;
+    right: -130px;
+    position: absolute;
+}
+
+.app-menu .app-button .btn-caption {
+    left: -22px;
+    position: relative;
+}

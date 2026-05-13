@@ -1304,6 +1304,13 @@
                 "color" : {
                   "value" : "{color.outline.@.value}"
                 }
+              },
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
+                }
               }
             },
             "active" : {
@@ -1313,6 +1320,13 @@
                 },
                 "color" : {
                   "value" : "{color.black.@.value}"
+                }
+              },
+              "state" : {
+                "layer" : {
+                  "opacity" : {
+                    "value" : "0"
+                  }
                 }
               }
             }
