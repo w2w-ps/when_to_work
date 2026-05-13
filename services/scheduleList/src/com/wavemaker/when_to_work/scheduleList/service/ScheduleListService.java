@@ -17,19 +17,18 @@ public interface ScheduleListService {
   /**
    * 
    * 
-    * @param Authorization Authorization (optional)
     * @param positionIds positionIds (optional)
     * @param companyId companyId (optional)
     * @param categoryIds categoryIds (optional)
     * @param endDate endDate (optional)
     * @param startDate startDate (optional)
+    * @param status status (optional)
    * @return List&lt;ResponseRootResponseROOTEntryItem&gt;
    */
-  @RequestLine("GET /scheduling/shifts/employees?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
+  @RequestLine("GET /scheduling/shifts/employees?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}&status={status}")
   @Headers({
-    "Accept: application/json",
-    "Authorization: {Authorization}"  })
-  List<ResponseRootResponseROOTEntryItem> invoke(@Param("Authorization") String Authorization, @Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate);
+    "Accept: application/json",  })
+  List<ResponseRootResponseROOTEntryItem> invoke(@Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate, @Param("status") String status);
 
 
     /**
@@ -40,7 +39,6 @@ public interface ScheduleListService {
      * is convenient for services with optional query parameters, especially when
      * used with the {@link InvokeQueryParams} class that allows for
      * building up this map in a fluent style.
-     * @param Authorization Authorization (optional)
      * @param queryParams Map of query parameters as name-value pairs
      *   <p>The following elements may be specified in the query map:</p>
      *   <ul>
@@ -49,15 +47,15 @@ public interface ScheduleListService {
      *   <li>categoryIds - categoryIds (optional)</li>
      *   <li>endDate - endDate (optional)</li>
      *   <li>startDate - startDate (optional)</li>
+     *   <li>status - status (optional)</li>
      *   </ul>
      * @return List&lt;ResponseRootResponseROOTEntryItem&gt;
      */
-    @RequestLine("GET /scheduling/shifts/employees?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
+    @RequestLine("GET /scheduling/shifts/employees?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}&status={status}")
     @Headers({
-    "Accept: application/json",
-        "Authorization: {Authorization}"    })
+    "Accept: application/json",    })
     List<ResponseRootResponseROOTEntryItem> invoke
-    (@Param("Authorization") String Authorization, @QueryMap(encoded=true)
+    (@QueryMap(encoded=true)
     MultiValueMap<String, String> queryParams);
 
 }

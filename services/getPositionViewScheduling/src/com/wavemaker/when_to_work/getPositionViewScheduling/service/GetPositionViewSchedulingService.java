@@ -22,12 +22,13 @@ public interface GetPositionViewSchedulingService {
     * @param categoryIds categoryIds (optional)
     * @param endDate endDate (optional)
     * @param startDate startDate (optional)
+    * @param status status (optional)
    * @return RootResponse
    */
-  @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
+  @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}&status={status}")
   @Headers({
     "Accept: application/json",  })
-  RootResponse invoke(@Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate);
+  RootResponse invoke(@Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate, @Param("status") String status);
 
 
     /**
@@ -46,10 +47,11 @@ public interface GetPositionViewSchedulingService {
      *   <li>categoryIds - categoryIds (optional)</li>
      *   <li>endDate - endDate (optional)</li>
      *   <li>startDate - startDate (optional)</li>
+     *   <li>status - status (optional)</li>
      *   </ul>
      * @return RootResponse
      */
-    @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
+    @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}&status={status}")
     @Headers({
     "Accept: application/json",    })
     RootResponse invoke

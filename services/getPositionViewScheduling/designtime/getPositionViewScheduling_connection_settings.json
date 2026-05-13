@@ -9,7 +9,8 @@
     "companyId" : "1",
     "categoryIds" : "1",
     "endDate" : "2026-05-13",
-    "startDate" : "2026-05-13"
+    "startDate" : "2026-05-13",
+    "status" : "1"
   },
   "authDetails" : null,
   "contentType" : "application/json",
@@ -18,9 +19,9 @@
   "sampleHttpResponseDetails" : {
     "statusCode" : 200,
     "headers" : {
-      "Date" : [ "Wed, 13 May 2026 08:52:20 GMT" ],
+      "Date" : [ "Wed, 13 May 2026 09:49:35 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "480" ],
+      "Content-Length" : [ "248" ],
       "Connection" : [ "keep-alive" ],
       "X-Content-Type-Options" : [ "nosniff" ],
       "X-XSS-Protection" : [ "0" ],
@@ -30,7 +31,7 @@
       "Strict-Transport-Security" : [ "max-age=31536000 ; includeSubDomains" ],
       "X-Frame-Options" : [ "DENY" ]
     },
-    "responseBody" : "{\"title\":\"Wednesday - May 13, 2026\",\"totalShifts\":1,\"totalHours\":8,\"dates\":[{\"weekday\":\"Wednesday\",\"date\":\"2026-05-13\",\"positions\":[{\"position\":\"Front Desk\",\"shifts\":[{\"shiftId\":548,\"employeeId\":null,\"firstName\":null,\"lastName\":null,\"phones\":[],\"employmentType\":null,\"empTypeId\":null,\"startTime\":\"12pm\",\"endTime\":\"8pm\",\"category\":\"MORN\",\"description\":\"Open Shift 548\",\"duration\":8,\"color\":\"black\"}],\"shiftCount\":1,\"totalDuration\":8}],\"shiftCount\":1,\"totalDuration\":8}]}",
+    "responseBody" : "{\"title\":\"Wednesday - May 13, 2026\",\"totalShifts\":0,\"totalHours\":0,\"dates\":[{\"weekday\":\"Wednesday\",\"date\":\"2026-05-13\",\"positions\":[{\"position\":\"Front Desk\",\"shifts\":[],\"shiftCount\":0,\"totalDuration\":0}],\"shiftCount\":0,\"totalDuration\":0}]}",
     "convertedResponse" : null
   }
 }
