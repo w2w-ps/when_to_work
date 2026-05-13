@@ -17,7 +17,6 @@ public interface GetPositionViewSchedulingService {
   /**
    * 
    * 
-    * @param Authorization Authorization (optional)
     * @param positionIds positionIds (optional)
     * @param companyId companyId (optional)
     * @param categoryIds categoryIds (optional)
@@ -27,9 +26,8 @@ public interface GetPositionViewSchedulingService {
    */
   @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
   @Headers({
-    "Accept: application/json",
-    "Authorization: {Authorization}"  })
-  RootResponse invoke(@Param("Authorization") String Authorization, @Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate);
+    "Accept: application/json",  })
+  RootResponse invoke(@Param("positionIds") String positionIds, @Param("companyId") String companyId, @Param("categoryIds") String categoryIds, @Param("endDate") String endDate, @Param("startDate") String startDate);
 
 
     /**
@@ -40,7 +38,6 @@ public interface GetPositionViewSchedulingService {
      * is convenient for services with optional query parameters, especially when
      * used with the {@link InvokeQueryParams} class that allows for
      * building up this map in a fluent style.
-     * @param Authorization Authorization (optional)
      * @param queryParams Map of query parameters as name-value pairs
      *   <p>The following elements may be specified in the query map:</p>
      *   <ul>
@@ -54,10 +51,9 @@ public interface GetPositionViewSchedulingService {
      */
     @RequestLine("GET /scheduling/shifts/date-position?positionIds={positionIds}&companyId={companyId}&categoryIds={categoryIds}&endDate={endDate}&startDate={startDate}")
     @Headers({
-    "Accept: application/json",
-        "Authorization: {Authorization}"    })
+    "Accept: application/json",    })
     RootResponse invoke
-    (@Param("Authorization") String Authorization, @QueryMap(encoded=true)
+    (@QueryMap(encoded=true)
     MultiValueMap<String, String> queryParams);
 
 }

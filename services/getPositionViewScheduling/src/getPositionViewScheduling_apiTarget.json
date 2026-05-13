@@ -21,24 +21,13 @@
         "parameters" : [ {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
-          "in" : "header",
-          "name" : "Authorization",
-          "format" : "string",
-          "description" : "Authorization",
-          "type" : "string",
-          "items" : {
-            "type" : "string"
-          },
-          "x-WM-FULLY_QUALIFIED_TYPE" : "java.lang.String",
-          "required" : false,
-          "x-WM-VARIABLE_TYPE" : "PROMPT"
-        }, {
-          "x-WM-EDITABLE" : false,
           "in" : "query",
           "name" : "positionIds",
+          "format" : "string",
           "description" : "positionIds",
           "type" : "string",
-          "required" : false
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
@@ -50,12 +39,15 @@
           "required" : false,
           "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
+          "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
           "in" : "query",
           "name" : "categoryIds",
+          "format" : "string",
           "description" : "categoryIds",
           "type" : "string",
-          "required" : false
+          "required" : false,
+          "x-WM-VARIABLE_TYPE" : "PROMPT"
         }, {
           "x-WM-VARIABLE_KEY" : "",
           "x-WM-EDITABLE" : false,
@@ -142,18 +134,11 @@
     "Response.shiftsEntryItem" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.Response.shiftsEntryItem",
       "x-WM-TAGS" : [ "getPositionViewScheduling" ],
-      "required" : [ "category", "color", "description", "duration", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
+      "required" : [ "category", "color", "description", "duration", "empTypeId", "employeeId", "employmentType", "endTime", "firstName", "lastName", "phones", "shiftId", "startTime" ],
       "properties" : {
-        "duration" : {
-          "format" : "int32",
-          "type" : "integer"
-        },
         "shiftId" : {
           "format" : "int32",
           "type" : "integer"
-        },
-        "firstName" : {
-          "type" : "string"
         },
         "lastName" : {
           "type" : "string"
@@ -168,15 +153,24 @@
           "x-WM-IS_LIST" : true,
           "type" : "array",
           "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/java.lang.Object"
           }
         },
         "description" : {
           "type" : "string"
         },
         "employeeId" : {
+          "type" : "string"
+        },
+        "duration" : {
           "format" : "int32",
           "type" : "integer"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "empTypeId" : {
+          "type" : "string"
         },
         "startTime" : {
           "type" : "string"
@@ -188,6 +182,10 @@
           "type" : "string"
         }
       }
+    },
+    "java.lang.Object" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.java.lang.Object",
+      "x-WM-TAGS" : [ "getPositionViewScheduling" ]
     },
     "RootResponse" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "getPositionViewScheduling.RootResponse",
@@ -219,7 +217,7 @@
   "info" : {
     "x-WM-USE_PROXY_FOR_WEB" : true,
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
-    "x-WM-API_ID" : "ddce0c85-ecd7-4772-93f1-b21c6a0c0607",
+    "x-WM-API_ID" : "b014a0a4-e844-42e7-8137-9ffd5bdbce95",
     "x-WM-SERVICE_ID" : "onwavemaker",
     "version" : "2.0",
     "x-WM-SERVICE_TYPE" : "RestService",
