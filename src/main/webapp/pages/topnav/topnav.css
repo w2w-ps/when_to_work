@@ -34,13 +34,13 @@
     display: none !important;
 }
 
-.dropdown-toggle {
+/* .dropdown-toggle {
     text-align: center;
     padding: 0 12px !important;
-}
+} */
 
 .app-menu>.dropdown-toggle.app-anchor {
-    padding-bottom: 12px !important;
+    padding: 0 12px 12px 12px !important;
 }
 
 .nav-justified>li:last-child a:hover .anchor-caption {
