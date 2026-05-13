@@ -1,4 +1,18 @@
 {
+  "selectedNameFormat" : {
+    "_id" : "wm-selectedNameFormat-wm.Variable-selectedNameFormat",
+    "name" : "selectedNameFormat",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "First Last"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : true,
+    "saveInPhonegap" : false
+  },
   "stvNameList" : {
     "_id" : "wm-stvNameList-wm.Variable-1778660836799",
     "name" : "stvNameList",
@@ -23,18 +37,6 @@
     } ],
     "type" : "entry",
     "isList" : true,
-    "twoWayBinding" : false,
-    "saveInPhonegap" : false
-  },
-  "selectedNameFormat" : {
-    "_id" : "wm-selectedNameFormat-wm.Variable-selectedNameFormat",
-    "name" : "selectedNameFormat",
-    "owner" : "Page",
-    "category" : "wm.Variable",
-    "dataBinding" : [ ],
-    "dataSet" : "First Last",
-    "type" : "string",
-    "isList" : false,
     "twoWayBinding" : false,
     "saveInPhonegap" : false
   }
