@@ -8,7 +8,6 @@ Page.WorkPreference1Click = function ($event) {
 };
 
 Page.Weekview1Daterangechange = function ($event, $data) {
-    debugger;
     var sv = Page.Variables.GetResolvedPreferences;
     sv.invoke({
         inputFields: {
