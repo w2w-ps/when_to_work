@@ -25,5 +25,17 @@
     "isList" : true,
     "twoWayBinding" : false,
     "saveInPhonegap" : false
+  },
+  "selectedNameFormat" : {
+    "_id" : "wm-selectedNameFormat-wm.Variable-selectedNameFormat",
+    "name" : "selectedNameFormat",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : "First Last",
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
   }
 }

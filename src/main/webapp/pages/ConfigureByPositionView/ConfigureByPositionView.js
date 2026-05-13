@@ -23,6 +23,9 @@ Page.onReady = function () {
     }
 
     const config = Object.assign({}, DEFAULT_POSITION_VIEW_CONFIG, storedConfig);
+    if (!config.screenNameFormat) {
+        config.screenNameFormat = "First Last";
+    }
 
     Page.Widgets.screenShowDescription.datavalue = config.screenShowDescription;
     Page.Widgets.screenHidePositions.datavalue = config.screenHidePositions;
@@ -30,22 +33,26 @@ Page.onReady = function () {
     Page.Widgets.screenShowPositionTotals.datavalue = config.screenShowPositionTotals;
     Page.Widgets.screenFontSelect.datavalue = config.screenFontSize;
 
-    // screenNameSelect uses a bound variable dataset (bind:Variables.stvNameList.dataSet)
-    // which resolves asynchronously. Defer the assignment until after the dataset is ready.
-    const $timeout = App.getDependency('$timeout');
-    $timeout(function () {
-        Page.Widgets.screenNameSelect.datavalue = config.screenNameFormat;
-    }, 0);
+    // Set via variable — declarative binding on screenNameSelect will reflect this automatically
+    Page.Variables.selectedNameFormat.dataSet = config.screenNameFormat;
 };
 
 Page.saveBtnClick = function ($event, widget) {
+    const DEFAULT_POSITION_VIEW_CONFIG = {
+        screenShowDescription: true,
+        screenHidePositions: true,
+        screenShowDailyTotals: true,
+        screenShowPositionTotals: true,
+        screenNameFormat: "First Last",
+        screenFontSize: "Medium"
+    };
     const config = {
         screenShowDescription: Page.Widgets.screenShowDescription.datavalue,
         screenHidePositions: Page.Widgets.screenHidePositions.datavalue,
         screenShowDailyTotals: Page.Widgets.screenShowDailyTotals.datavalue,
         screenShowPositionTotals: Page.Widgets.screenShowPositionTotals.datavalue,
-        screenNameFormat: Page.Widgets.screenNameSelect.datavalue,
-        screenFontSize: Page.Widgets.screenFontSelect.datavalue
+        screenNameFormat: Page.Widgets.screenNameSelect.datavalue || DEFAULT_POSITION_VIEW_CONFIG.screenNameFormat,
+        screenFontSize: Page.Widgets.screenFontSelect.datavalue || DEFAULT_POSITION_VIEW_CONFIG.screenFontSize
     };
     localStorage.setItem('positionViewConfig', JSON.stringify(config));
     sessionStorage.setItem('positionViewConfigActive', 'true');
@@ -55,6 +62,7 @@ Page.saveBtnClick = function ($event, widget) {
     }
     window.close();
 };
+
 Page.anchor1Click = function ($event, widget) {
     window.close();
 };
