@@ -9,7 +9,8 @@
       "screenShowDescription" : true,
       "screenHidePositions" : true,
       "screenShowDailyTotals" : true,
-      "screenShowPositionTotals" : true
+      "screenShowPositionTotals" : true,
+      "screenNameFormat" : "First Last"
     },
     "type" : "entry",
     "isList" : false,

@@ -147,7 +147,6 @@ function buildCombinedPositionsDataset() {
 }
 
 Partial.selPositionsChange = function ($event, widget, newVal, oldVal) {
-
     // Redirect to Add/Edit page
     if (newVal && newVal.id === 'addoredit') {
         App.redirectToNewtab("AddOrEditPosition");
@@ -209,6 +208,9 @@ function filterShifts() {
     if (Partial.selectedCategoryId != 'allcategories') {
         scheduleVar.setInput('categoryIds', Partial.selectedCategoryId);
     }
+    if (Partial.selectedStatus.id != 'all') {
+        scheduleVar.setInput('status', Partial.selectedStatus.id);
+    }
     scheduleVar.setInput('companyId', 1);
     scheduleVar.setInput('startDate', weekview.startdate);
     scheduleVar.setInput('endDate', weekview.enddate);
@@ -251,5 +253,13 @@ Partial.selStatusChange = function ($event, widget, newVal, oldVal) {
 };
 
 Partial.menu1Select = function ($event, widget, $item) {
+    if ($item && ($item.id === '' ||
+        $item.id === 'none' ||
+        $item.id === 'edit_legend')) {
+        Partial.selectedStatus = null;
+        return;
+    }
+    Partial.selectedStatus = $item;
+    filterShifts();
 
 };

@@ -68,7 +68,7 @@ App.redirectTo = function (pageName) {
     window.open(
         popupUrl,
         pageName,
-        'width=900,height=600,left=100,top=100'
+        'width=971,height=778,left=100,top=100'
     );
 };
 

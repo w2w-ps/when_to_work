@@ -10,15 +10,15 @@
  * Do not edit the class manually.
  */
 
-package com.wavemaker.when_to_work.scheduleList.model;
+package com.wavemaker.when_to_work.getPositionViewScheduling.model;
 
 import java.util.Objects;
 import java.util.Arrays;
 /**
- * ResponseWeeklyShifts
+ * JavaLangObject
  */
 
-public class ResponseWeeklyShifts {
+public class JavaLangObject {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -40,7 +40,7 @@ public class ResponseWeeklyShifts {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResponseWeeklyShifts {\n");
+    sb.append("class JavaLangObject {\n");
     
     sb.append("}");
     return sb.toString();
