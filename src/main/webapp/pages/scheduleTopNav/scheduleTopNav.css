@@ -62,7 +62,6 @@
     border: 2px solid var(--wm-color-black);
 }
 
-
 .purple.fa-diamond {
     background-color: #A055CD;
 }
@@ -81,4 +80,30 @@
 
 .green.fa-diamond {
     background-color: #3AC037;
+}
+
+.dropdown-default {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-menu li:hover {
+    background-color: #0078d4;
+}
+
+.dropdown-default .dropdown-menu li a:hover:before {
+    --wm-dropdown-menu-item-state-layer-opacity: 0 !important;
+}
+
+.dropdown-menu li a span {
+    font-family: "Arial" !important;
+}
+
+.dropdown .dropdown-menu {
+    width: auto
+}
+
+.app-menu button .caret:before {
+    display: none;
 }
