@@ -762,6 +762,7 @@ Page._executePendingDrop = function () {
  * Yes on Dialog 1: close dialog, set svchkHasConflicts inputs, invoke API.
  */
 Page.btnConfirmShiftYesClick = function ($event, widget) {
+
     let payload = Page._pendingDropPayload;
     if (!payload) {
         console.warn('btnConfirmShiftYesClick: no pending drop payload, aborting conflict check.');
@@ -797,6 +798,8 @@ Page.btnConfirmShiftYesClick = function ($event, widget) {
  * No on Dialog 1: close dialog, clear pending state, refresh schedule.
  */
 Page.btnConfirmShiftNoClick = function ($event, widget) {
+    Page.Widgets.conflictMsgcontainer.show = false;
+    Page.Widgets.container98.show = true;
     Page.Widgets.confirmShiftChangeDialog.close();
     Page._pendingDropPayload = null;
     Page.dragState = null;
@@ -851,6 +854,8 @@ Page.svchkHasConflictsOnSuccess = function (variable, data) {
         Page.Widgets.container98.show = false;
         Page.Widgets.conflictMsgcontainer.show = true;
     } else {
+        Page.Widgets.container98.show = true;
+        Page.Widgets.conflictMsgcontainer.show = false;
         Page.Widgets.confirmShiftChangeDialog.close();
         Page._executePendingDrop();
     }
@@ -864,6 +869,7 @@ Page.svchkHasConflictsOnSuccess = function (variable, data) {
  * Yes on Dialog 2: close dialog, proceed with the drop.
  */
 Page.btnConflictYesClick = function ($event, widget) {
+    Page.Widgets.conflictMsgcontainer.show = false;
     Page.Widgets.confirmShiftChangeDialog.close();
     Page.hasConflicts = false;
     Page._executePendingDrop();
@@ -1210,4 +1216,7 @@ Page.anchor9Click = function ($event, widget) {
 };
 Page.button11Click = function ($event, widget) {
     Page.Variables.svDeleteShiftById.invoke();
+};
+Page.confirmShiftChangeDialogOpened = function ($event, widget) {
+    Page.Widgets.container98.show = true;
 };

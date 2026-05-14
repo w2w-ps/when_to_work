@@ -835,7 +835,8 @@
         </wm-page-content>
     </wm-content>
     <wm-dialog name="confirmShiftChangeDialog" title="Confirm" modal="true" closable="false" showheader="true"
-        class="modal-confirm-dialog" variant="confirm-dialog">
+        class="modal-confirm-dialog" variant="confirm-dialog"
+        on-opened="confirmShiftChangeDialogOpened($event, widget)">
         <wm-container name="confirmDialog1Body" class="app-container-default p-0" direction="column" gap="16"
             alignment="middle-center" width="fill" height="hug" padding="16px 24px">
             <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container100"
@@ -849,15 +850,26 @@
                     caption="Do you want to change this shift? (Notices will NOT be sent to affected employees.)"
                     class="text-center label-label-14-400 pb-4 py-font" width="fill" variant="label-14-400"></wm-label>
             </wm-container>
-            <wm-container direction="column" alignment="middle-center" gap="12" width="fill" name="conflictMsgcontainer"
+            <wm-container direction="column" alignment="middle-center" gap="0" width="fill" name="conflictMsgcontainer"
                 class="app-container-default" variant="default" wrap="false" height="hug" clipcontent="false"
                 overflow="none" show="false">
                 <wm-label padding="unset"
                     caption="WARNING: There is a conflict with the shift you are trying to change:"
-                    class="app-label confirm-dialog-warning text-center" type="p" name="label82" variant="text:primary">
-                </wm-label>
-                <wm-label padding="unset" caption="bind:Variables.conflictMessageVar.dataSet.message"
-                    class="p label-label-14-700" type="p" name="label83" variant="label-14-700"></wm-label>
+                    class="label-label-14-400" type="p" name="label82" variant="label-14-400"></wm-label>
+                <wm-container direction="row" alignment="middle-center" gap="4" width="fill" name="container99_1"
+                    class="app-container-default" variant="default">
+                    <wm-list itemclass="list-group-item" template="true" template-name="Blank List" direction="column"
+                        alignment="top-left" wrap="false" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list"
+                        statehandler="URL" name="precheckList1"
+                        dataset="bind:Variables.svchkHasConflicts.dataSet.conflicts" navigation="None" width="fill"
+                        height="fill" clipcontent="false" overflow="none">
+                        <wm-listtemplate layout="inline" direction="row" alignment="middle-center" gap="4" width="fill"
+                            padding="12px" height="56" name="listtemplate10_1">
+                            <wm-label padding="unset" caption="bind:item.message" class="label-label-14-700" type="p"
+                                name="label83" variant="label-14-700"></wm-label>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-container>
                 <wm-label padding="unset" caption="Would you like to change the shift anyway?"
                     class="p label-label-14-400" type="p" name="label84" variant="label-14-400"></wm-label>
             </wm-container>
