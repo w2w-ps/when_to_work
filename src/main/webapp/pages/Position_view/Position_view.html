@@ -139,10 +139,9 @@
                                                         conditionalstyle="bind:{'color': item.color}"></wm-label>
                                                 </wm-container>
                                                 <wm-container direction="row" alignment="top-left" gap="4" width="fill"
-                                                    name="container60" class="app-container-default" variant="default"
-                                                    conditionalclass="bind:(item.firstName == null &amp;&amp; item.lastName == null) ? &quot;container-warning-standard&quot; : &quot;&quot;">
+                                                    name="container60" class="app-container-default" variant="default">
                                                     <wm-label padding="unset" caption="(Unassigned)"
-                                                        class="label-label-13-700-black" type="p" name="label42_1"
+                                                        class="unassigned-anchor" type="p" name="label42_1"
                                                         variant="label-13-700-black"
                                                         show="bind:item.firstName == null &amp;&amp; item.lastName == null">
                                                     </wm-label>
@@ -184,6 +183,10 @@
                                             </wm-container>
                                         </wm-listtemplate>
                                     </wm-list>
+                                    <wm-label name="lblNoShifts" caption="( No Shifts )"
+                                        show="bind:item.shifts.length === 0 &amp;&amp; !Variables.positionViewConfig.dataSet.screenHidePositions"
+                                        class="label-label-13-400-black ps-10" variant="label-13-400-black"
+                                        padding="4px 8px"></wm-label>
                                 </wm-listtemplate>
                             </wm-list>
                         </wm-listtemplate>
