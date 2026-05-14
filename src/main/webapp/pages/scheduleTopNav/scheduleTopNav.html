@@ -32,9 +32,8 @@
                     class="btn-menu-select-trigger dropdown-default dropdown-menu-select-trigger"
                     variant="menu-select-trigger" iconclass="fa fa-caret-down" iconposition="right" width="152px"
                     height="32px"></wm-menu>
-                <wm-select name="selCategories" placeholder="All Categories" variant="black-border-select"
-                    datafield="All Fields" class="form-black-border-select"
-                    on-change="selCategoriesChange($event, widget, newVal, oldVal)"
+                <wm-select name="selCategories" placeholder="" variant="black-border-select" datafield="All Fields"
+                    class="form-black-border-select" on-change="selCategoriesChange($event, widget, newVal, oldVal)"
                     dataset="bind:Variables.mvCombinedCategories.dataSet" displayfield="displayLabel" width="193px"
                     datavalue="bind:Variables.mvCombinedCategories.dataSet[0]"></wm-select>
                 <wm-select name="selPositions" placeholder="" variant="black-border-select" datafield="All Fields"
